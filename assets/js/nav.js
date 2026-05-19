@@ -1,3 +1,15 @@
+// Google Analytics
+(function() {
+  var script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VJ2TBL22CE';
+  document.head.appendChild(script);
+})();
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-VJ2TBL22CE');
+
 document.addEventListener('DOMContentLoaded', function () {
   const nav = `
   <header class="site-header">
