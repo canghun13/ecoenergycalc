@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LED vs Incandescent Savings Calculator | EcoEnergyCalc</title>
+  <meta name="description" content="See exactly how much you save per year by switching to LED bulbs. Free LED vs incandescent savings calculator — instant results." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/led-vs-incandescent.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › LED vs Incandescent</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>LED vs Incandescent Savings Calculator</h1>
+        <p>See exactly how much money you save each year by switching from incandescent to LED bulbs.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Your LED Savings</h2>
+            <div class="form-group">
+              <label for="num-bulbs">Number of Bulbs to Replace</label>
+              <input type="number" id="num-bulbs" placeholder="e.g. 20" min="1" value="20" />
+            </div>
+            <div class="form-group">
+              <label for="inc-watts">Incandescent Bulb Wattage</label>
+              <select id="inc-watts">
+                <option value="40">40W</option>
+                <option value="60" selected>60W</option>
+                <option value="75">75W</option>
+                <option value="100">100W</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="hours-day">Hours Used Per Day (per bulb)</label>
+              <input type="number" id="hours-day" placeholder="e.g. 3" min="0" max="24" value="3" />
+            </div>
+            <div class="form-group">
+              <label for="led-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="led-rate" placeholder="e.g. 13" min="0" step="0.1" value="13" />
+            </div>
+            <button class="btn-primary" onclick="calcLED()">Calculate Savings</button>
+            <div class="result-box-tool" id="led-result">
+              <h3>Annual Savings</h3>
+              <div class="result-amount" id="led-savings"></div>
+              <table id="led-breakdown"></table>
+              <p class="result-note">LED equivalent uses ~75–80% less energy than incandescent for the same light output.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Why LEDs Are Worth It</h2>
+            <p>LED bulbs use <strong>75% less energy</strong> than traditional incandescent bulbs and last 25 times longer. Switching just 20 bulbs in your home can save $100–$200 per year depending on usage and electricity rates.</p>
+            <h3>LED vs Incandescent: Key Differences</h3>
+            <ul>
+              <li><strong>Energy use:</strong> A 60W incandescent = a 9W LED (same brightness)</li>
+              <li><strong>Lifespan:</strong> LED lasts ~25,000 hours vs 1,000 for incandescent</li>
+              <li><strong>Heat:</strong> LEDs emit very little heat; incandescents waste 90% of energy as heat</li>
+              <li><strong>Cost:</strong> LEDs cost more upfront but pay back in months</li>
+            </ul>
+            <h3>Choosing the Right LED</h3>
+            <p>Match the lumen output (brightness), not the wattage. A 60W incandescent produces about 800 lumens — look for an LED labeled "800 lumens" or "60W equivalent." For warm white light similar to incandescent, choose a color temperature of <strong>2700K–3000K</strong>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Energy savings: <strong>~75%</strong></li>
+              <li>LED lifespan: <strong>~25,000 hrs</strong></li>
+              <li>Payback period: <strong>3–6 months</strong></li>
+              <li>CO₂ saved: <strong>~450 lbs/bulb/yr</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcLED() {
+  const n = parseFloat(document.getElementById('num-bulbs').value) || 20;
+  const incW = parseFloat(document.getElementById('inc-watts').value) || 60;
+  const hours = parseFloat(document.getElementById('hours-day').value) || 3;
+  const rate = parseFloat(document.getElementById('led-rate').value) || 13;
+
+  const ledW = incW * 0.15; // ~85% savings
+  const hoursYear = hours * 365;
+  const incKwh = (incW / 1000) * hoursYear * n;
+  const ledKwh = (ledW / 1000) * hoursYear * n;
+  const incCost = incKwh * (rate / 100);
+  const ledCost = ledKwh * (rate / 100);
+  const savings = incCost - ledCost;
+  const co2Saved = (incKwh - ledKwh) * 0.386; // lbs CO2 per kWh EPA
+
+  const fmt = v => '$' + v.toFixed(2);
+  document.getElementById('led-savings').textContent = fmt(savings) + '/yr';
+  document.getElementById('led-breakdown').innerHTML = `
+    <tr><td>Incandescent annual cost</td><td>${fmt(incCost)}</td></tr>
+    <tr><td>LED annual cost</td><td>${fmt(ledCost)}</td></tr>
+    <tr style="font-weight:700;"><td>Annual savings</td><td>${fmt(savings)}</td></tr>
+    <tr><td>10-year savings</td><td>${'$' + Math.round(savings * 10).toLocaleString()}</td></tr>
+    <tr><td>CO₂ saved per year</td><td>${Math.round(co2Saved)} lbs</td></tr>
+  `;
+  const r = document.getElementById('led-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

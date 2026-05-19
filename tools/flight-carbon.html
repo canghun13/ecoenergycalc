@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flight Carbon Calculator – CO₂ Emissions Per Flight | EcoEnergyCalc</title>
+  <meta name="description" content="Calculate the CO₂ emissions of any flight route and find out how to offset them. Free flight carbon calculator — instant results." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/flight-carbon.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Flight Carbon</p>
+        <span class="tool-category">Carbon Footprint</span>
+        <h1>Flight Carbon Calculator</h1>
+        <p>See the CO₂ emissions of any flight route and understand the climate impact of your air travel.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Flight Emissions</h2>
+            <div class="form-group">
+              <label for="fl-distance">Flight Distance</label>
+              <select id="fl-distance">
+                <option value="short">Short haul (under 500 miles) — e.g. NYC→Boston</option>
+                <option value="medium" selected>Medium haul (500–2,500 miles) — e.g. NYC→LA</option>
+                <option value="long">Long haul (2,500–6,000 miles) — e.g. NYC→London</option>
+                <option value="ultra">Ultra long haul (6,000+ miles) — e.g. NYC→Sydney</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fl-class">Cabin Class</label>
+              <select id="fl-class">
+                <option value="economy" selected>Economy</option>
+                <option value="premium">Premium Economy</option>
+                <option value="business">Business Class</option>
+                <option value="first">First Class</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fl-passengers">Number of Passengers</label>
+              <input type="number" id="fl-passengers" value="1" min="1" max="20" />
+            </div>
+            <div class="form-group">
+              <label for="fl-roundtrip">Round Trip?</label>
+              <select id="fl-roundtrip">
+                <option value="yes" selected>Yes</option>
+                <option value="no">No (one way)</option>
+              </select>
+            </div>
+            <button class="btn-primary" onclick="calcFlight()">Calculate Emissions</button>
+            <div class="result-box-tool" id="fl-result">
+              <h3>Total CO₂ Emissions</h3>
+              <div class="result-amount" id="fl-total"></div>
+              <table id="fl-breakdown"></table>
+              <p class="result-note">Includes radiative forcing multiplier (×2) to account for non-CO₂ warming effects at altitude. Methodology based on ICAO/DEFRA guidelines.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Aviation and Climate Change</h2>
+            <p>Aviation accounts for about <strong>2.5% of global CO₂ emissions</strong>, but its total climate impact is estimated to be 2–4x higher when non-CO₂ effects (contrails, water vapor, NOx) are included. A single transatlantic flight in economy class produces roughly 0.5–1 metric ton of CO₂ equivalent per passenger.</p>
+            <h3>Business vs Economy: The Class Gap</h3>
+            <p>Business class passengers occupy more space and bear a larger share of the aircraft's fuel consumption. A business class seat typically has 3–4x the carbon footprint of economy on the same flight.</p>
+            <h3>Carbon Offsets</h3>
+            <p>High-quality carbon offsets (Gold Standard, VCS) cost roughly $10–30 per metric ton. While offsets don't eliminate emissions, they can fund verified projects like reforestation or clean cookstoves while you work toward reducing flying.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/carbon-footprint.html">Carbon Footprint</a></li>
+              <li><a href="/tools/tree-planting-offset.html">Tree Planting Offset</a></li>
+              <li><a href="/tools/car-vs-ev-carbon.html">Car vs EV Carbon</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>NYC→LA (economy): <strong>~0.6 t CO₂e</strong></li>
+              <li>NYC→London (economy): <strong>~1.0 t CO₂e</strong></li>
+              <li>Business multiplier: <strong>3–4×</strong></li>
+              <li>Offset cost: <strong>~$10–30/ton</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcFlight() {
+  const dist = document.getElementById('fl-distance').value;
+  const cls = document.getElementById('fl-class').value;
+  const pax = parseFloat(document.getElementById('fl-passengers').value) || 1;
+  const rt = document.getElementById('fl-roundtrip').value === 'yes' ? 2 : 1;
+
+  // Base kg CO2 per passenger one-way (economy), with radiative forcing
+  const baseCo2 = { short: 130, medium: 550, long: 950, ultra: 1800 };
+  const classMultiplier = { economy: 1, premium: 1.6, business: 3.0, first: 4.0 };
+
+  const perPaxKg = baseCo2[dist] * classMultiplier[cls] * rt;
+  const totalKg = perPaxKg * pax;
+  const totalTons = totalKg / 1000;
+  const offsetCost = totalTons * 20; // $20/ton mid-range
+
+  const fmt = v => v.toFixed(2);
+  document.getElementById('fl-total').textContent = totalTons.toFixed(2) + ' metric tons CO₂e';
+  document.getElementById('fl-breakdown').innerHTML = `
+    <tr><td>Per passenger</td><td>${fmt(perPaxKg/1000)} t CO₂e</td></tr>
+    <tr><td>Passengers</td><td>${pax}</td></tr>
+    <tr style="font-weight:700;"><td>Total emissions</td><td>${fmt(totalTons)} t CO₂e</td></tr>
+    <tr><td>Est. offset cost (~$20/t)</td><td>$${Math.round(offsetCost)}</td></tr>
+    <tr><td>% of U.S. avg annual (16t)</td><td>${Math.round(totalTons/16*100)}%</td></tr>
+  `;
+  const r = document.getElementById('fl-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

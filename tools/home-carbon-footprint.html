@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Carbon Footprint Calculator – Emissions From Your House | EcoEnergyCalc</title>
+  <meta name="description" content="Calculate the carbon emissions from your home's heating, cooling, and appliances. Free home carbon footprint calculator." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/home-carbon-footprint.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Home Carbon Footprint</p>
+        <span class="tool-category">Carbon Footprint</span>
+        <h1>Home Carbon Footprint Calculator</h1>
+        <p>Calculate the CO₂ emissions from your home's electricity, heating, and natural gas usage.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Home Emissions</h2>
+            <div class="form-group">
+              <label for="hcf-kwh">Monthly Electricity Usage (kWh)</label>
+              <input type="number" id="hcf-kwh" placeholder="e.g. 900" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="hcf-grid">Electricity Grid Mix</label>
+              <select id="hcf-grid">
+                <option value="coal">Coal-heavy (0.7 kg CO₂/kWh)</option>
+                <option value="average" selected>National avg (0.386 kg CO₂/kWh)</option>
+                <option value="clean">Cleaner grid (0.2 kg CO₂/kWh)</option>
+                <option value="renewable">Mostly renewable (0.05 kg CO₂/kWh)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="hcf-gas">Monthly Natural Gas Usage (therms)</label>
+              <input type="number" id="hcf-gas" placeholder="e.g. 50" min="0" value="0" />
+            </div>
+            <div class="form-group">
+              <label for="hcf-oil">Heating Oil (gallons/year) — if applicable</label>
+              <input type="number" id="hcf-oil" placeholder="e.g. 0" min="0" value="0" />
+            </div>
+            <button class="btn-primary" onclick="calcHomeCF()">Calculate Home Emissions</button>
+            <div class="result-box-tool" id="hcf-result">
+              <h3>Annual Home Carbon Footprint</h3>
+              <div class="result-amount" id="hcf-total"></div>
+              <table id="hcf-breakdown"></table>
+              <p class="result-note">Based on EPA Greenhouse Gas Equivalencies. Average U.S. home produces ~7.5 metric tons CO₂ per year from energy use.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Home Energy and Climate</h2>
+            <p>Residential buildings account for about <strong>13% of U.S. greenhouse gas emissions</strong>. The average American home produces roughly 7.5 metric tons of CO₂ from energy use alone. The good news: home energy is one of the most actionable areas to reduce emissions.</p>
+            <h3>Biggest Opportunities</h3>
+            <ul>
+              <li><strong>Switch to renewable electricity:</strong> Sign up for a green power plan or install solar</li>
+              <li><strong>Electrify heating:</strong> Replace a gas furnace with a heat pump</li>
+              <li><strong>Electrify water heating:</strong> Heat pump water heater cuts emissions 70%</li>
+              <li><strong>Improve insulation:</strong> Reduce heating/cooling demand</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/carbon-footprint.html">Carbon Footprint</a></li>
+              <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings</a></li>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings</a></li>
+              <li><a href="/tools/tree-planting-offset.html">Tree Planting Offset</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcHomeCF() {
+  const kwh = parseFloat(document.getElementById('hcf-kwh').value) || 0;
+  const grid = document.getElementById('hcf-grid').value;
+  const gas = parseFloat(document.getElementById('hcf-gas').value) || 0;
+  const oil = parseFloat(document.getElementById('hcf-oil').value) || 0;
+
+  const gridFactor = { coal: 0.70, average: 0.386, clean: 0.20, renewable: 0.05 };
+  const elecCo2 = kwh * 12 * gridFactor[grid] / 1000;
+  const gasCo2 = gas * 12 * 5.302 / 1000;
+  const oilCo2 = oil * 10.16 / 1000;
+  const total = elecCo2 + gasCo2 + oilCo2;
+
+  const fmtT = v => v.toFixed(2) + ' t CO₂';
+  document.getElementById('hcf-total').textContent = total.toFixed(2) + ' metric tons CO₂/yr';
+  document.getElementById('hcf-breakdown').innerHTML = `
+    <tr><td>Electricity</td><td>${fmtT(elecCo2)}</td></tr>
+    <tr><td>Natural gas</td><td>${fmtT(gasCo2)}</td></tr>
+    <tr><td>Heating oil</td><td>${fmtT(oilCo2)}</td></tr>
+    <tr style="font-weight:700;"><td>Total home emissions</td><td>${fmtT(total)}</td></tr>
+    <tr><td>vs. U.S. home avg (7.5t)</td><td>${total < 7.5 ? (7.5-total).toFixed(1)+'t below' : (total-7.5).toFixed(1)+'t above'}</td></tr>
+  `;
+  const r = document.getElementById('hcf-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

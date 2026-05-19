@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Energy Cost Calculator – Estimate Your Annual Energy Bill | EcoEnergyCalc</title>
+  <meta name="description" content="Calculate your total annual home energy cost based on your location, home size, and usage habits. Free, instant, no signup." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/home-energy-cost.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Home Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/home-energy-cost.html","description":"Estimate your annual home energy cost based on location and usage.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Home Energy Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Home Energy Cost Calculator</h1>
+        <p>Estimate your total annual home energy bill based on your home size, climate region, and usage habits.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Your Energy Cost</h2>
+            <div class="form-group">
+              <label for="home-size">Home Size (sq ft)</label>
+              <input type="number" id="home-size" placeholder="e.g. 1800" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="climate">Climate Region</label>
+              <select id="climate">
+                <option value="hot">Hot (South / Southwest)</option>
+                <option value="mixed" selected>Mixed (Midwest / Mid-Atlantic)</option>
+                <option value="cold">Cold (Northeast / Northwest)</option>
+                <option value="mild">Mild (Pacific Coast / Mountain)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="elec-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="elec-rate" placeholder="e.g. 13" min="0" step="0.1" value="13" />
+            </div>
+            <div class="form-group">
+              <label for="heating-fuel">Primary Heating Fuel</label>
+              <select id="heating-fuel">
+                <option value="electric">Electric</option>
+                <option value="gas" selected>Natural Gas</option>
+                <option value="oil">Heating Oil</option>
+                <option value="propane">Propane</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="occupants">Number of Occupants</label>
+              <select id="occupants">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+            <button class="btn-primary" onclick="calcHomeEnergy()">Calculate Annual Cost</button>
+            <div class="result-box-tool" id="hec-result">
+              <h3>Estimated Annual Energy Cost</h3>
+              <div class="result-amount" id="hec-total"></div>
+              <table id="hec-breakdown"></table>
+              <p class="result-note">Based on EIA national averages. Actual costs vary by utility provider and usage habits.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>What Drives Home Energy Costs?</h2>
+            <p>The average U.S. household spends around <strong>$2,000–$3,000 per year</strong> on energy, but costs vary dramatically by region, home size, and fuel type. Understanding what drives your bill is the first step to reducing it.</p>
+            <h3>Heating & Cooling: The Biggest Factor</h3>
+            <p>Heating and cooling typically account for <strong>45–50% of home energy use</strong>. In cold climates, heating dominates. In hot climates like Texas or Arizona, air conditioning is the primary cost driver. The type of fuel you heat with matters enormously — natural gas is typically cheaper than electric resistance heating, while heat pumps are the most efficient option.</p>
+            <h3>Water Heating</h3>
+            <p>Water heating is the second-largest energy expense, usually around 15–20% of your bill. Upgrading to a heat pump water heater can cut this cost by up to 70% compared to a standard electric water heater.</p>
+            <h3>Appliances & Lighting</h3>
+            <p>Refrigerators, washers, dryers, and lighting make up the remaining 30–40%. Switching to LED lighting and ENERGY STAR appliances can meaningfully reduce this portion.</p>
+            <h3>How to Reduce Your Energy Bill</h3>
+            <ul>
+              <li>Add insulation to your attic and walls</li>
+              <li>Seal air leaks around windows and doors</li>
+              <li>Upgrade to a programmable or smart thermostat</li>
+              <li>Replace old appliances with ENERGY STAR models</li>
+              <li>Switch all bulbs to LED</li>
+              <li>Consider solar panels for long-term savings</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings Calculator</a></li>
+              <li><a href="/tools/heating-vs-cooling.html">Heating vs Cooling Cost</a></li>
+              <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings</a></li>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Avg U.S. energy bill: <strong>~$2,200/yr</strong></li>
+              <li>Heating/cooling share: <strong>45–50%</strong></li>
+              <li>Avg electricity rate: <strong>~13¢/kWh</strong></li>
+              <li>Top savings: <strong>insulation + LED</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcHomeEnergy() {
+  const size = parseFloat(document.getElementById('home-size').value) || 1800;
+  const climate = document.getElementById('climate').value;
+  const rate = parseFloat(document.getElementById('elec-rate').value) || 13;
+  const fuel = document.getElementById('heating-fuel').value;
+  const occ = parseFloat(document.getElementById('occupants').value) || 2;
+
+  // Base kWh per sqft by climate
+  const baseKwh = { hot: 12, mixed: 9, cold: 8, mild: 7 };
+  const elecKwh = size * baseKwh[climate];
+
+  // Heating cost
+  const heatingMultiplier = { hot: 0.15, mixed: 0.35, cold: 0.5, mild: 0.2 };
+  const heatingBase = size * 0.05 * heatingMultiplier[climate];
+  const fuelCost = { electric: rate / 100 * 3412, gas: 1.1, oil: 4.2, propane: 2.6 };
+  const heatingCost = heatingBase * fuelCost[fuel];
+
+  const elecCost = elecKwh * (rate / 100);
+  const waterCost = occ * 180;
+  const applianceCost = size * 0.3 + occ * 80;
+  const total = elecCost + heatingCost + waterCost + applianceCost;
+
+  const fmt = v => '$' + Math.round(v).toLocaleString();
+
+  document.getElementById('hec-total').textContent = fmt(total) + '/yr';
+  document.getElementById('hec-breakdown').innerHTML = `
+    <tr><td>Electricity</td><td>${fmt(elecCost)}</td></tr>
+    <tr><td>Heating</td><td>${fmt(heatingCost)}</td></tr>
+    <tr><td>Water heating</td><td>${fmt(waterCost)}</td></tr>
+    <tr><td>Appliances & lighting</td><td>${fmt(applianceCost)}</td></tr>
+    <tr style="font-weight:700;"><td>Total (annual)</td><td>${fmt(total)}</td></tr>
+  `;
+  const r = document.getElementById('hec-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

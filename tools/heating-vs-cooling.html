@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heating vs Cooling Cost Calculator | EcoEnergyCalc</title>
+  <meta name="description" content="Compare your heating and cooling costs by season. Find out where your energy dollars go and how to save. Free calculator — no signup." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/heating-vs-cooling.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Heating vs Cooling Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Heating vs Cooling Cost Calculator</h1>
+        <p>Compare your heating and cooling costs by season and see exactly where your energy money is going.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Heating & Cooling Costs</h2>
+            <div class="form-group">
+              <label for="hvc-size">Home Size (sq ft)</label>
+              <input type="number" id="hvc-size" placeholder="e.g. 1800" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="hvc-climate">Climate Region</label>
+              <select id="hvc-climate">
+                <option value="hot">Hot (South / Southwest)</option>
+                <option value="mixed" selected>Mixed (Midwest / Mid-Atlantic)</option>
+                <option value="cold">Cold (Northeast / Northwest)</option>
+                <option value="mild">Mild (Pacific Coast)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="heat-system">Heating System</label>
+              <select id="heat-system">
+                <option value="gas_furnace" selected>Gas furnace</option>
+                <option value="electric_furnace">Electric furnace</option>
+                <option value="heat_pump">Heat pump</option>
+                <option value="oil_boiler">Oil boiler</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cool-system">Cooling System</label>
+              <select id="cool-system">
+                <option value="central_ac" selected>Central AC</option>
+                <option value="window_ac">Window AC units</option>
+                <option value="heat_pump_cool">Heat pump (cooling)</option>
+                <option value="none">No cooling</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="hvc-elec-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="hvc-elec-rate" value="13" min="0" step="0.1" />
+            </div>
+            <div class="form-group">
+              <label for="gas-rate">Gas Rate ($/therm) — if applicable</label>
+              <input type="number" id="gas-rate" value="1.10" min="0" step="0.01" />
+            </div>
+            <button class="btn-primary" onclick="calcHVC()">Calculate Costs</button>
+            <div class="result-box-tool" id="hvc-result">
+              <h3>Annual Heating vs Cooling Cost</h3>
+              <div class="result-amount" id="hvc-total"></div>
+              <table id="hvc-breakdown"></table>
+              <p class="result-note">Estimates based on EIA regional data. Actual costs depend on insulation, thermostat settings, and system efficiency.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Heating vs Cooling: Where Does the Money Go?</h2>
+            <p>For most U.S. households, <strong>heating costs more than cooling</strong> on an annual basis — but this varies significantly by climate. In Phoenix or Miami, cooling can dominate. In Minnesota or Maine, heating is the overwhelming cost.</p>
+            <h3>System Efficiency Matters</h3>
+            <p>A gas furnace with 80% AFUE efficiency wastes 20% of the fuel it burns. A modern heat pump can deliver 3x more heat energy than the electricity it consumes, making it the most efficient option in most climates.</p>
+            <h3>Thermostat Settings</h3>
+            <p>The DOE estimates that setting your thermostat back 7–10°F for 8 hours a day can save up to <strong>10% per year</strong> on heating and cooling. A smart thermostat automates this and typically pays for itself in under a year.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings</a></li>
+              <li><a href="/tools/green-home-upgrade-roi.html">Green Home Upgrade ROI</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>H/C share of energy bill: <strong>45–50%</strong></li>
+              <li>Thermostat setback saves: <strong>up to 10%/yr</strong></li>
+              <li>Heat pump efficiency: <strong>200–400%</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcHVC() {
+  const size = parseFloat(document.getElementById('hvc-size').value) || 1800;
+  const climate = document.getElementById('hvc-climate').value;
+  const heatSys = document.getElementById('heat-system').value;
+  const coolSys = document.getElementById('cool-system').value;
+  const elecRate = parseFloat(document.getElementById('hvc-elec-rate').value) || 13;
+  const gasRate = parseFloat(document.getElementById('gas-rate').value) || 1.10;
+
+  // Heating BTU needs by climate
+  const heatBtu = { hot: 8, mixed: 18, cold: 30, mild: 10 }; // kBTU per sqft per year
+  const coolBtu = { hot: 22, mixed: 12, cold: 4, mild: 8 };
+
+  const totalHeatBtu = size * heatBtu[climate] * 1000;
+  const totalCoolBtu = size * coolBtu[climate] * 1000;
+
+  let heatingCost = 0;
+  if (heatSys === 'gas_furnace') heatingCost = (totalHeatBtu / 100000) * gasRate / 0.8;
+  else if (heatSys === 'electric_furnace') heatingCost = (totalHeatBtu / 3412) * (elecRate / 100);
+  else if (heatSys === 'heat_pump') heatingCost = (totalHeatBtu / 3412 / 2.5) * (elecRate / 100);
+  else if (heatSys === 'oil_boiler') heatingCost = (totalHeatBtu / 100000) * 4.0 / 0.85;
+
+  let coolingCost = 0;
+  if (coolSys !== 'none') {
+    const seer = coolSys === 'heat_pump_cool' ? 18 : coolSys === 'central_ac' ? 16 : 10;
+    coolingCost = (totalCoolBtu / (seer * 1000)) * (elecRate / 100);
+  }
+
+  const total = heatingCost + coolingCost;
+  const fmt = v => '$' + Math.round(v).toLocaleString();
+
+  document.getElementById('hvc-total').textContent = fmt(total) + '/yr';
+  document.getElementById('hvc-breakdown').innerHTML = `
+    <tr><td>Annual heating cost</td><td>${fmt(heatingCost)}</td></tr>
+    <tr><td>Annual cooling cost</td><td>${fmt(coolingCost)}</td></tr>
+    <tr style="font-weight:700;"><td>Total H/C cost</td><td>${fmt(total)}</td></tr>
+    <tr><td>Heating share</td><td>${total > 0 ? Math.round(heatingCost/total*100) : 0}%</td></tr>
+    <tr><td>Cooling share</td><td>${total > 0 ? Math.round(coolingCost/total*100) : 0}%</td></tr>
+  `;
+  const r = document.getElementById('hvc-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

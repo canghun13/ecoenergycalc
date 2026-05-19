@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Water Usage Calculator – How Much Water Does Your Home Use? | EcoEnergyCalc</title>
+  <meta name="description" content="Estimate your household water consumption and find out where you can cut back. Free water usage calculator — instant results." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/water-usage.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Water Usage</p>
+        <span class="tool-category">Other</span>
+        <h1>Water Usage Calculator</h1>
+        <p>Estimate your household's daily and annual water consumption and see where you can reduce usage.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Household Water Usage</h2>
+            <div class="form-group">
+              <label for="wu-people">Number of People in Household</label>
+              <select id="wu-people">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="wu-shower-min">Average Shower Length (minutes)</label>
+              <input type="number" id="wu-shower-min" value="8" min="1" max="60" />
+            </div>
+            <div class="form-group">
+              <label for="wu-shower-head">Shower Head Type</label>
+              <select id="wu-shower-head">
+                <option value="standard" selected>Standard (2.5 gpm)</option>
+                <option value="low_flow">Low-flow (1.8 gpm)</option>
+                <option value="ultra">Ultra low-flow (1.5 gpm)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="wu-toilet">Toilet Flush Volume</label>
+              <select id="wu-toilet">
+                <option value="old">Older toilet (3.5 gpf)</option>
+                <option value="standard" selected>Standard (1.6 gpf)</option>
+                <option value="efficient">WaterSense (1.28 gpf)</option>
+                <option value="dual">Dual flush (avg 1.1 gpf)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="wu-lawn">Outdoor Watering (hrs/week in season)</label>
+              <input type="number" id="wu-lawn" value="2" min="0" max="20" />
+            </div>
+            <button class="btn-primary" onclick="calcWater()">Calculate Water Usage</button>
+            <div class="result-box-tool" id="wu-result">
+              <h3>Daily Water Usage</h3>
+              <div class="result-amount" id="wu-daily"></div>
+              <table id="wu-breakdown"></table>
+              <p class="result-note">Based on EPA WaterSense data. Average U.S. household uses about 82 gallons per person per day.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Where Does Household Water Go?</h2>
+            <p>The average American uses about <strong>82 gallons of water per day</strong> indoors. Toilets are the biggest indoor user (~24%), followed by showers (~20%) and faucets (~19%). Outdoor watering can double total household usage in summer months.</p>
+            <h3>Top Ways to Save Water</h3>
+            <ul>
+              <li>Install WaterSense-labeled fixtures (toilets, showerheads, faucets)</li>
+              <li>Fix leaks — a dripping faucet wastes ~3,000 gallons/year</li>
+              <li>Run dishwasher and washing machine only when full</li>
+              <li>Use a smart irrigation controller to avoid overwatering</li>
+              <li>Consider drought-tolerant landscaping in dry climates</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/carbon-footprint.html">Carbon Footprint</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>U.S. avg: <strong>82 gal/person/day</strong></li>
+              <li>Toilets: <strong>~24%</strong> of indoor use</li>
+              <li>WaterSense saves: <strong>~700 gal/yr per fixture</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcWater() {
+  const people = parseFloat(document.getElementById('wu-people').value) || 2;
+  const showerMin = parseFloat(document.getElementById('wu-shower-min').value) || 8;
+  const showerGpm = { standard: 2.5, low_flow: 1.8, ultra: 1.5 };
+  const showerFlow = showerGpm[document.getElementById('wu-shower-head').value];
+  const toiletGpf = { old: 3.5, standard: 1.6, efficient: 1.28, dual: 1.1 };
+  const toiletFlow = toiletGpf[document.getElementById('wu-toilet').value];
+  const lawnHrs = parseFloat(document.getElementById('wu-lawn').value) || 2;
+
+  const showerDaily = showerMin * showerFlow * people;
+  const toiletDaily = toiletFlow * 5 * people; // 5 flushes/day
+  const faucetDaily = 10 * people; // avg faucet use
+  const dishDaily = 4; // dishwasher/laundry avg
+  const lawnDaily = lawnHrs * 60 * 2 * (26 / 7); // ~2 gpm, 26 weeks/yr avg
+  const totalDaily = showerDaily + toiletDaily + faucetDaily + dishDaily + lawnDaily;
+  const totalYearly = totalDaily * 365;
+
+  document.getElementById('wu-daily').textContent = Math.round(totalDaily) + ' gallons/day';
+  document.getElementById('wu-breakdown').innerHTML = `
+    <tr><td>Showers</td><td>${Math.round(showerDaily)} gal/day</td></tr>
+    <tr><td>Toilets</td><td>${Math.round(toiletDaily)} gal/day</td></tr>
+    <tr><td>Faucets</td><td>${Math.round(faucetDaily)} gal/day</td></tr>
+    <tr><td>Dishes/laundry</td><td>${Math.round(dishDaily)} gal/day</td></tr>
+    <tr><td>Outdoor watering (avg)</td><td>${Math.round(lawnDaily)} gal/day</td></tr>
+    <tr style="font-weight:700;"><td>Total daily</td><td>${Math.round(totalDaily)} gal</td></tr>
+    <tr><td>Annual total</td><td>${Math.round(totalYearly).toLocaleString()} gal</td></tr>
+    <tr><td>vs. U.S. avg (${Math.round(82*people)} gal/day)</td><td>${totalDaily > 82*people ? Math.round(totalDaily-82*people)+' above' : Math.round(82*people-totalDaily)+' below'}</td></tr>
+  `;
+  const r = document.getElementById('wu-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

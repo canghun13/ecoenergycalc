@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electric Bill Calculator – What's Driving Your Bill? | EcoEnergyCalc</title>
+  <meta name="description" content="Find out exactly what's driving your electric bill and where you can cut costs. Free electric bill calculator — no signup required." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/electric-bill.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Electric Bill</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Electric Bill Calculator</h1>
+        <p>Enter your usage and rate to see a detailed breakdown of your electric bill — and where to cut costs.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Your Electric Bill</h2>
+            <div class="form-group">
+              <label for="monthly-kwh">Monthly Usage (kWh)</label>
+              <input type="number" id="monthly-kwh" placeholder="e.g. 900" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="eb-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="eb-rate" placeholder="e.g. 13" min="0" step="0.1" value="13" />
+            </div>
+            <div class="form-group">
+              <label for="fixed-charge">Monthly Fixed/Base Charge ($)</label>
+              <input type="number" id="fixed-charge" placeholder="e.g. 10" min="0" value="10" />
+            </div>
+            <div class="form-group">
+              <label for="taxes-pct">Taxes & Fees (%)</label>
+              <input type="number" id="taxes-pct" placeholder="e.g. 8" min="0" max="30" value="8" />
+            </div>
+            <button class="btn-primary" onclick="calcElectricBill()">Calculate Bill</button>
+            <div class="result-box-tool" id="eb-result">
+              <h3>Monthly Electric Bill</h3>
+              <div class="result-amount" id="eb-total"></div>
+              <table id="eb-breakdown"></table>
+              <p class="result-note">Check your utility bill for your exact rate and fixed charges.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How to Read Your Electric Bill</h2>
+            <p>Your electric bill has two main components: a <strong>fixed base charge</strong> (a flat fee just for being connected to the grid) and a <strong>variable energy charge</strong> based on how many kilowatt-hours (kWh) you use.</p>
+            <h3>What Is a kWh?</h3>
+            <p>A kilowatt-hour is the standard unit of electricity. Running a 1,000-watt appliance for one hour uses 1 kWh. The average U.S. household uses about 886 kWh per month, at an average rate of about 13¢/kWh.</p>
+            <h3>Why Did My Bill Go Up?</h3>
+            <p>Common reasons for a higher electric bill include: extreme weather (more heating or cooling), new appliances, a rate increase from your utility, or more time spent at home. If your usage hasn't changed but your bill went up, check for a rate increase notice from your utility.</p>
+            <h3>Top Ways to Cut Your Electric Bill</h3>
+            <ul>
+              <li>Switch to LED bulbs (use 75% less energy than incandescent)</li>
+              <li>Adjust your thermostat by 7–10°F when away or asleep</li>
+              <li>Wash clothes in cold water</li>
+              <li>Unplug devices on standby ("vampire power")</li>
+              <li>Run dishwasher and laundry during off-peak hours</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/led-vs-incandescent.html">LED vs Incandescent Savings</a></li>
+              <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>U.S. Averages</h3>
+            <ul>
+              <li>Monthly usage: <strong>886 kWh</strong></li>
+              <li>Average rate: <strong>~13¢/kWh</strong></li>
+              <li>Avg monthly bill: <strong>~$115</strong></li>
+              <li>Highest rates: <strong>Hawaii, CA</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcElectricBill() {
+  const kwh = parseFloat(document.getElementById('monthly-kwh').value) || 886;
+  const rate = parseFloat(document.getElementById('eb-rate').value) || 13;
+  const fixed = parseFloat(document.getElementById('fixed-charge').value) || 10;
+  const taxPct = parseFloat(document.getElementById('taxes-pct').value) || 8;
+
+  const energyCharge = kwh * (rate / 100);
+  const subtotal = energyCharge + fixed;
+  const taxes = subtotal * (taxPct / 100);
+  const total = subtotal + taxes;
+
+  const fmt = v => '$' + v.toFixed(2);
+  document.getElementById('eb-total').textContent = fmt(total) + '/mo';
+  document.getElementById('eb-breakdown').innerHTML = `
+    <tr><td>Energy charge (${kwh} kWh × ${rate}¢)</td><td>${fmt(energyCharge)}</td></tr>
+    <tr><td>Fixed/base charge</td><td>${fmt(fixed)}</td></tr>
+    <tr><td>Subtotal</td><td>${fmt(subtotal)}</td></tr>
+    <tr><td>Taxes & fees (${taxPct}%)</td><td>${fmt(taxes)}</td></tr>
+    <tr style="font-weight:700;"><td>Total monthly bill</td><td>${fmt(total)}</td></tr>
+    <tr><td>Annual estimate</td><td>${'$' + Math.round(total * 12).toLocaleString()}</td></tr>
+  `;
+  const r = document.getElementById('eb-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

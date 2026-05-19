@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diet Carbon Calculator – Food's Impact on Your Footprint | EcoEnergyCalc</title>
+  <meta name="description" content="Find out how your diet contributes to your carbon footprint and how changing what you eat can reduce your emissions. Free calculator." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/diet-carbon.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Diet Carbon</p>
+        <span class="tool-category">Carbon Footprint</span>
+        <h1>Diet Carbon Calculator</h1>
+        <p>Find out how your diet contributes to your carbon footprint and what dietary changes have the biggest impact.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Your Diet's Carbon Footprint</h2>
+            <div class="form-group">
+              <label for="dc-beef">Beef servings per week</label>
+              <select id="dc-beef">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3" selected>3</option>
+                <option value="5">5</option>
+                <option value="7">7+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dc-pork">Pork/lamb servings per week</label>
+              <select id="dc-pork">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dc-chicken">Chicken/poultry servings per week</label>
+              <select id="dc-chicken">
+                <option value="0">0</option>
+                <option value="2">2</option>
+                <option value="4" selected>4</option>
+                <option value="7">7+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dc-fish">Fish/seafood servings per week</label>
+              <select id="dc-fish">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="4">4+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dc-dairy">Dairy servings per day (milk, cheese, yogurt)</label>
+              <select id="dc-dairy">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3+</option>
+              </select>
+            </div>
+            <button class="btn-primary" onclick="calcDietCarbon()">Calculate Food Footprint</button>
+            <div class="result-box-tool" id="dc-result">
+              <h3>Annual Diet Carbon Footprint</h3>
+              <div class="result-amount" id="dc-total"></div>
+              <table id="dc-breakdown"></table>
+              <p class="result-note">Based on lifecycle emissions data from Poore & Nemecek (2018). Includes land use, farming, processing, and transport.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Food and Climate Change</h2>
+            <p>Food production accounts for roughly <strong>26% of global greenhouse gas emissions</strong>. Of that, animal products (meat and dairy) contribute about 60% of food-related emissions despite providing only 18% of global calories.</p>
+            <h3>The Beef Problem</h3>
+            <p>Beef has by far the highest emissions per gram of protein — roughly <strong>20x higher than legumes</strong>. Cattle require large amounts of land, produce methane from digestion, and often replace forests that would otherwise absorb CO₂.</p>
+            <h3>Biggest Dietary Changes for the Planet</h3>
+            <ul>
+              <li>Swapping beef for chicken cuts that meal's footprint by ~75%</li>
+              <li>Going fully vegan reduces food footprint by ~50–70%</li>
+              <li>Eating local has a smaller impact than you might think — transport is ~6% of food emissions</li>
+              <li>Reducing food waste is also high-impact — about 1/3 of all food is wasted</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/carbon-footprint.html">Carbon Footprint</a></li>
+              <li><a href="/tools/tree-planting-offset.html">Tree Planting Offset</a></li>
+              <li><a href="/tools/car-vs-ev-carbon.html">Car vs EV Carbon</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Beef vs legumes: <strong>20× more emissions</strong></li>
+              <li>Going vegan saves: <strong>~0.8 t CO₂/yr</strong></li>
+              <li>Food = <strong>~26%</strong> of global emissions</li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcDietCarbon() {
+  const beef = parseFloat(document.getElementById('dc-beef').value) || 0;
+  const pork = parseFloat(document.getElementById('dc-pork').value) || 0;
+  const chicken = parseFloat(document.getElementById('dc-chicken').value) || 0;
+  const fish = parseFloat(document.getElementById('dc-fish').value) || 0;
+  const dairy = parseFloat(document.getElementById('dc-dairy').value) || 0;
+
+  // kg CO2e per serving (avg 200g beef, 150g others, 200ml dairy)
+  const beefCo2 = beef * 52 * 0.2 * 27; // 27 kg CO2e/kg beef
+  const porkCo2 = pork * 52 * 0.15 * 7.6;
+  const chickenCo2 = chicken * 52 * 0.15 * 5.7;
+  const fishCo2 = fish * 52 * 0.15 * 3.0;
+  const dairyCo2 = dairy * 365 * 0.2 * 3.2;
+  const plantBase = 400; // baseline plant foods
+
+  const total = (beefCo2 + porkCo2 + chickenCo2 + fishCo2 + dairyCo2 + plantBase) / 1000;
+  const veganBaseline = (plantBase + 200) / 1000;
+  const savings = total - veganBaseline;
+
+  const fmtT = v => v.toFixed(2) + ' t';
+  document.getElementById('dc-total').textContent = total.toFixed(2) + ' metric tons CO₂e/yr';
+  document.getElementById('dc-breakdown').innerHTML = `
+    <tr><td>Beef</td><td>${fmtT(beefCo2/1000)}</td></tr>
+    <tr><td>Pork/lamb</td><td>${fmtT(porkCo2/1000)}</td></tr>
+    <tr><td>Chicken/poultry</td><td>${fmtT(chickenCo2/1000)}</td></tr>
+    <tr><td>Fish/seafood</td><td>${fmtT(fishCo2/1000)}</td></tr>
+    <tr><td>Dairy</td><td>${fmtT(dairyCo2/1000)}</td></tr>
+    <tr><td>Plant foods (est.)</td><td>${fmtT(plantBase/1000)}</td></tr>
+    <tr style="font-weight:700;"><td>Total food footprint</td><td>${fmtT(total)}</td></tr>
+    <tr><td>Potential saving (vs vegan)</td><td>${savings > 0 ? fmtT(savings) : 'Already at vegan level'}</td></tr>
+  `;
+  const r = document.getElementById('dc-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

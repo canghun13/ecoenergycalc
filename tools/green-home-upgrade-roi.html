@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Home Upgrade ROI Calculator – Is It Worth It? | EcoEnergyCalc</title>
+  <meta name="description" content="Calculate the return on investment for green home upgrades like solar, insulation, heat pumps, and LED lighting. Free ROI calculator." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/green-home-upgrade-roi.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Green Home Upgrade ROI</p>
+        <span class="tool-category">Other</span>
+        <h1>Green Home Upgrade ROI Calculator</h1>
+        <p>Compare the payback period and long-term return of popular green home upgrades before you spend.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Upgrade ROI</h2>
+            <div class="form-group">
+              <label for="ghu-upgrade">Upgrade Type</label>
+              <select id="ghu-upgrade" onchange="updateDefaults()">
+                <option value="solar">Solar Panels</option>
+                <option value="insulation" selected>Insulation + Air Sealing</option>
+                <option value="heat_pump">Heat Pump (replace gas furnace)</option>
+                <option value="heat_pump_wh">Heat Pump Water Heater</option>
+                <option value="led">LED Lighting (whole home)</option>
+                <option value="smart_thermo">Smart Thermostat</option>
+                <option value="windows">Energy-Efficient Windows</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ghu-cost">Installation/Upgrade Cost ($)</label>
+              <input type="number" id="ghu-cost" value="5000" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="ghu-annual-savings">Estimated Annual Energy Savings ($)</label>
+              <input type="number" id="ghu-annual-savings" value="500" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="ghu-incentive">Federal/State Incentives ($)</label>
+              <input type="number" id="ghu-incentive" value="0" min="0" />
+            </div>
+            <button class="btn-primary" onclick="calcGHU()">Calculate ROI</button>
+            <div class="result-box-tool" id="ghu-result">
+              <h3>Payback Period</h3>
+              <div class="result-amount" id="ghu-payback"></div>
+              <table id="ghu-breakdown"></table>
+              <p class="result-note">Simple payback assumes flat energy prices. Actual ROI improves as utility rates rise over time.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Which Green Upgrades Have the Best ROI?</h2>
+            <p>Not all green upgrades are created equal. Some pay back in months; others take a decade. Here's a quick guide to help you prioritize:</p>
+            <h3>Best ROI Upgrades</h3>
+            <ul>
+              <li><strong>LED lighting:</strong> Payback in months. Low cost, high savings, no brainer.</li>
+              <li><strong>Smart thermostat:</strong> $100–250 cost, $150–200/year savings. Under 2 years payback.</li>
+              <li><strong>Heat pump water heater:</strong> ~$1,200 after IRA credit, saves $300+/year. ~4 year payback.</li>
+              <li><strong>Insulation + air sealing:</strong> $1,500–5,000, saves 15–30% on H/C. 3–8 year payback.</li>
+              <li><strong>Solar panels:</strong> $14,000 after credit, saves $1,200–1,500/year. 8–12 year payback, 25-year profit.</li>
+            </ul>
+            <h3>IRA Incentives (2023–2032)</h3>
+            <p>The Inflation Reduction Act provides generous credits: 30% for solar/wind/batteries, up to $2,000/yr for heat pumps, up to $1,200/yr for insulation/windows/weatherization. Stack these with state/utility rebates for even faster payback.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/solar-panel-roi.html">Solar Panel ROI</a></li>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings</a></li>
+              <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>IRA Tax Credits</h3>
+            <ul>
+              <li>Solar/wind: <strong>30%</strong></li>
+              <li>Heat pumps: <strong>up to $2,000/yr</strong></li>
+              <li>Insulation: <strong>up to $1,200/yr</strong></li>
+              <li>Windows: <strong>up to $600/yr</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+const defaults = {
+  solar: [20000, 1400, 6000],
+  insulation: [5000, 500, 1200],
+  heat_pump: [8000, 700, 2000],
+  heat_pump_wh: [1800, 320, 600],
+  led: [400, 200, 0],
+  smart_thermo: [200, 160, 0],
+  windows: [8000, 300, 600]
+};
+function updateDefaults() {
+  const val = document.getElementById('ghu-upgrade').value;
+  if (defaults[val]) {
+    document.getElementById('ghu-cost').value = defaults[val][0];
+    document.getElementById('ghu-annual-savings').value = defaults[val][1];
+    document.getElementById('ghu-incentive').value = defaults[val][2];
+  }
+}
+function calcGHU() {
+  const cost = parseFloat(document.getElementById('ghu-cost').value) || 0;
+  const savings = parseFloat(document.getElementById('ghu-annual-savings').value) || 0;
+  const incentive = parseFloat(document.getElementById('ghu-incentive').value) || 0;
+
+  const netCost = cost - incentive;
+  const payback = savings > 0 ? netCost / savings : Infinity;
+  const yr10 = savings * 10 - netCost;
+  const yr20 = savings * 20 - netCost;
+  const roi10 = netCost > 0 ? (yr10 / netCost) * 100 : 0;
+
+  const fmt = v => '$' + Math.round(v).toLocaleString();
+  document.getElementById('ghu-payback').textContent = payback < 100 ? payback.toFixed(1) + ' years' : 'N/A';
+  document.getElementById('ghu-breakdown').innerHTML = `
+    <tr><td>Upgrade cost</td><td>${fmt(cost)}</td></tr>
+    <tr><td>Incentives/rebates</td><td>−${fmt(incentive)}</td></tr>
+    <tr style="font-weight:700;"><td>Net cost</td><td>${fmt(netCost)}</td></tr>
+    <tr><td>Annual savings</td><td>${fmt(savings)}</td></tr>
+    <tr><td>Simple payback</td><td>${payback.toFixed(1)} years</td></tr>
+    <tr><td>10-year net profit</td><td>${fmt(yr10)}</td></tr>
+    <tr><td>20-year net profit</td><td>${fmt(yr20)}</td></tr>
+    <tr><td>10-year ROI</td><td>${Math.round(roi10)}%</td></tr>
+  `;
+  const r = document.getElementById('ghu-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

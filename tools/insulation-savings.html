@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insulation Savings Calculator – How Much Can You Save? | EcoEnergyCalc</title>
+  <meta name="description" content="Estimate annual heating and cooling savings from upgrading your home insulation. Free insulation savings calculator — instant results." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/insulation-savings.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Insulation Savings</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Insulation Savings Calculator</h1>
+        <p>Estimate how much you can save on heating and cooling by upgrading your home's insulation.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Insulation Savings</h2>
+            <div class="form-group">
+              <label for="ins-home-size">Home Size (sq ft)</label>
+              <input type="number" id="ins-home-size" placeholder="e.g. 1800" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="current-insulation">Current Insulation Level</label>
+              <select id="current-insulation">
+                <option value="poor">Poor (pre-1980s, no attic insulation)</option>
+                <option value="below" selected>Below average (some insulation, R-11 or less)</option>
+                <option value="average">Average (R-19 to R-30)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="upgrade-to">Upgrade To</label>
+              <select id="upgrade-to">
+                <option value="good">Good (R-38 attic)</option>
+                <option value="excellent" selected>Excellent (R-49+ attic + wall sealing)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ins-climate">Climate Region</label>
+              <select id="ins-climate">
+                <option value="hot">Hot (South / Southwest)</option>
+                <option value="mixed" selected>Mixed (Midwest / Mid-Atlantic)</option>
+                <option value="cold">Cold (Northeast / Northwest)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ins-energy-bill">Current Annual Heating/Cooling Bill ($)</label>
+              <input type="number" id="ins-energy-bill" placeholder="e.g. 1200" min="0" />
+            </div>
+            <button class="btn-primary" onclick="calcInsulation()">Calculate Savings</button>
+            <div class="result-box-tool" id="ins-result">
+              <h3>Estimated Annual Savings</h3>
+              <div class="result-amount" id="ins-savings"></div>
+              <table id="ins-breakdown"></table>
+              <p class="result-note">DOE estimates proper insulation can reduce heating/cooling costs by 15–30%. Results vary by home and climate.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How Insulation Saves You Money</h2>
+            <p>Insulation slows the transfer of heat — keeping your home warmer in winter and cooler in summer. According to the DOE, adding insulation to an under-insulated home is one of the highest-ROI home improvements available, with payback periods of 1–5 years.</p>
+            <h3>Where to Insulate First</h3>
+            <ul>
+              <li><strong>Attic:</strong> Heat rises, so attic insulation is the #1 priority. Target R-38 to R-60 depending on climate.</li>
+              <li><strong>Walls:</strong> Exterior wall insulation reduces both heating and cooling loads significantly.</li>
+              <li><strong>Basement/crawlspace:</strong> Insulating below the living space prevents cold floors and moisture issues.</li>
+              <li><strong>Air sealing:</strong> Sealing gaps and cracks can be as impactful as adding insulation.</li>
+            </ul>
+            <h3>Federal Tax Credits</h3>
+            <p>Under the Inflation Reduction Act, you may qualify for a <strong>30% tax credit</strong> (up to $1,200/year) for insulation and air sealing improvements. Check with a tax professional for eligibility.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/heating-vs-cooling.html">Heating vs Cooling Cost</a></li>
+              <li><a href="/tools/green-home-upgrade-roi.html">Green Home Upgrade ROI</a></li>
+              <li><a href="/tools/solar-panel-roi.html">Solar Panel ROI</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Potential savings: <strong>15–30%</strong></li>
+              <li>Typical payback: <strong>1–5 years</strong></li>
+              <li>IRA tax credit: <strong>30% (up to $1,200)</strong></li>
+              <li>Best ROI area: <strong>attic</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcInsulation() {
+  const size = parseFloat(document.getElementById('ins-home-size').value) || 1800;
+  const current = document.getElementById('current-insulation').value;
+  const upgrade = document.getElementById('upgrade-to').value;
+  const climate = document.getElementById('ins-climate').value;
+  const bill = parseFloat(document.getElementById('ins-energy-bill').value) || 1200;
+
+  const savingsPct = {
+    poor: { good: 0.22, excellent: 0.32 },
+    below: { good: 0.15, excellent: 0.25 },
+    average: { good: 0.08, excellent: 0.15 }
+  };
+  const climateMultiplier = { hot: 1.1, mixed: 1.0, cold: 1.15 };
+
+  const pct = savingsPct[current][upgrade] * climateMultiplier[climate];
+  const savings = bill * pct;
+  const installCost = size * (upgrade === 'excellent' ? 1.8 : 1.2);
+  const payback = installCost / savings;
+
+  const fmt = v => '$' + Math.round(v).toLocaleString();
+  document.getElementById('ins-savings').textContent = fmt(savings) + '/yr';
+  document.getElementById('ins-breakdown').innerHTML = `
+    <tr><td>Current annual H/C bill</td><td>${fmt(bill)}</td></tr>
+    <tr><td>Estimated savings rate</td><td>${Math.round(pct * 100)}%</td></tr>
+    <tr style="font-weight:700;"><td>Annual savings</td><td>${fmt(savings)}</td></tr>
+    <tr><td>Est. installation cost</td><td>${fmt(installCost)}</td></tr>
+    <tr><td>Simple payback period</td><td>${payback.toFixed(1)} years</td></tr>
+    <tr><td>10-year net savings</td><td>${fmt(savings * 10 - installCost)}</td></tr>
+  `;
+  const r = document.getElementById('ins-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

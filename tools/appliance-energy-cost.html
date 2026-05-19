@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appliance Energy Cost Calculator – Cost Per Day, Month & Year | EcoEnergyCalc</title>
+  <meta name="description" content="Calculate how much any appliance costs to run per day, month, or year. Free appliance energy cost calculator — instant results." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/appliance-energy-cost.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Appliance Energy Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Appliance Energy Cost Calculator</h1>
+        <p>Calculate the exact cost of running any appliance per day, month, or year based on wattage and usage.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Appliance Cost</h2>
+            <div class="form-group">
+              <label for="appliance-preset">Choose an Appliance (or enter custom)</label>
+              <select id="appliance-preset" onchange="setPreset()">
+                <option value="">— Custom —</option>
+                <option value="fridge">Refrigerator (150W)</option>
+                <option value="washer">Washing Machine (500W)</option>
+                <option value="dryer">Electric Dryer (5000W)</option>
+                <option value="dishwasher">Dishwasher (1800W)</option>
+                <option value="oven">Electric Oven (2400W)</option>
+                <option value="microwave">Microwave (1000W)</option>
+                <option value="tv">TV 55" LED (100W)</option>
+                <option value="pc">Desktop Computer (200W)</option>
+                <option value="laptop">Laptop (50W)</option>
+                <option value="ac_window">Window AC (1200W)</option>
+                <option value="heater">Space Heater (1500W)</option>
+                <option value="ev_charger">EV Charger Level 2 (7200W)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="app-watts">Appliance Wattage (W)</label>
+              <input type="number" id="app-watts" placeholder="e.g. 150" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="app-hours">Hours Used Per Day</label>
+              <input type="number" id="app-hours" placeholder="e.g. 24" min="0" max="24" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="app-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="app-rate" value="13" min="0" step="0.1" />
+            </div>
+            <button class="btn-primary" onclick="calcAppliance()">Calculate Cost</button>
+            <div class="result-box-tool" id="app-result">
+              <h3>Running Cost</h3>
+              <div class="result-amount" id="app-annual"></div>
+              <table id="app-breakdown"></table>
+              <p class="result-note">Wattage varies by model and age. Check your appliance label or manual for the exact wattage.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Which Appliances Cost the Most to Run?</h2>
+            <p>Not all appliances are equal. Electric dryers, electric water heaters, and HVAC systems are the biggest energy consumers in most homes. Understanding the cost of each appliance helps you make smarter decisions about usage and upgrades.</p>
+            <h3>Biggest Energy Hogs</h3>
+            <ul>
+              <li><strong>Electric dryer:</strong> ~$130/year (run daily)</li>
+              <li><strong>Refrigerator:</strong> ~$60–80/year (runs 24/7)</li>
+              <li><strong>Electric oven:</strong> ~$60/year (1 hr/day)</li>
+              <li><strong>Window AC:</strong> ~$110/year (8 hrs/day in summer)</li>
+              <li><strong>EV charger (Level 2):</strong> ~$500–700/year depending on rate</li>
+            </ul>
+            <h3>How to Calculate kWh</h3>
+            <p>The formula is simple: <strong>kWh = (Watts × Hours) ÷ 1,000</strong>. Multiply by your electricity rate to get the cost. Our calculator does this automatically — just enter your appliance's wattage.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/led-vs-incandescent.html">LED vs Incandescent</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+const presets = {
+  fridge: [150, 24], washer: [500, 1], dryer: [5000, 1], dishwasher: [1800, 1],
+  oven: [2400, 1], microwave: [1000, 0.25], tv: [100, 4], pc: [200, 4],
+  laptop: [50, 6], ac_window: [1200, 8], heater: [1500, 6], ev_charger: [7200, 2]
+};
+function setPreset() {
+  const val = document.getElementById('appliance-preset').value;
+  if (val && presets[val]) {
+    document.getElementById('app-watts').value = presets[val][0];
+    document.getElementById('app-hours').value = presets[val][1];
+  }
+}
+function calcAppliance() {
+  const watts = parseFloat(document.getElementById('app-watts').value) || 0;
+  const hours = parseFloat(document.getElementById('app-hours').value) || 0;
+  const rate = parseFloat(document.getElementById('app-rate').value) || 13;
+
+  const kwhDay = (watts / 1000) * hours;
+  const costDay = kwhDay * (rate / 100);
+  const costMonth = costDay * 30;
+  const costYear = costDay * 365;
+
+  const fmt = v => v < 1 ? (v * 100).toFixed(1) + '¢' : '$' + v.toFixed(2);
+  document.getElementById('app-annual').textContent = '$' + Math.round(costYear).toLocaleString() + '/yr';
+  document.getElementById('app-breakdown').innerHTML = `
+    <tr><td>Energy per day</td><td>${kwhDay.toFixed(3)} kWh</td></tr>
+    <tr><td>Cost per day</td><td>${fmt(costDay)}</td></tr>
+    <tr><td>Cost per month</td><td>$${costMonth.toFixed(2)}</td></tr>
+    <tr style="font-weight:700;"><td>Cost per year</td><td>$${costYear.toFixed(2)}</td></tr>
+  `;
+  const r = document.getElementById('app-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

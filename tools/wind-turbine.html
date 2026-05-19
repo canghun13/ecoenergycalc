@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wind Turbine Calculator – Estimate Home Wind Energy Output | EcoEnergyCalc</title>
+  <meta name="description" content="Estimate how much electricity a small wind turbine would generate for your property. Free wind turbine calculator — instant results." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/wind-turbine.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Wind Turbine</p>
+        <span class="tool-category">Solar & Renewables</span>
+        <h1>Wind Turbine Calculator</h1>
+        <p>Estimate how much electricity a small residential wind turbine would generate and save based on your wind resource.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Wind Output</h2>
+            <div class="form-group">
+              <label for="wt-capacity">Turbine Rated Capacity (kW)</label>
+              <select id="wt-capacity">
+                <option value="1">1 kW (micro)</option>
+                <option value="2.5">2.5 kW (small home)</option>
+                <option value="5" selected>5 kW (average home)</option>
+                <option value="10">10 kW (large home / farm)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="wt-wind">Average Wind Speed at Site</label>
+              <select id="wt-wind">
+                <option value="low">Low (under 10 mph) — not recommended</option>
+                <option value="medium" selected>Medium (10–13 mph) — good</option>
+                <option value="high">High (14–17 mph) — excellent</option>
+                <option value="very_high">Very High (18+ mph) — ideal</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="wt-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="wt-rate" value="13" min="0" step="0.1" />
+            </div>
+            <div class="form-group">
+              <label for="wt-cost">Installed System Cost ($)</label>
+              <input type="number" id="wt-cost" placeholder="e.g. 30000" min="0" />
+            </div>
+            <button class="btn-primary" onclick="calcWind()">Calculate Output</button>
+            <div class="result-box-tool" id="wt-result">
+              <h3>Estimated Annual Output</h3>
+              <div class="result-amount" id="wt-kwh"></div>
+              <table id="wt-breakdown"></table>
+              <p class="result-note">Wind output is highly site-specific. A professional wind resource assessment is recommended before purchase.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Is a Home Wind Turbine Right for You?</h2>
+            <p>Small wind turbines are best suited for rural or semi-rural properties with consistent wind speeds above 10 mph at turbine height. Unlike solar, wind generates power 24/7 — but requires more land, higher towers, and more maintenance.</p>
+            <h3>Minimum Requirements</h3>
+            <ul>
+              <li>Average wind speed of at least 10 mph at 80–100 ft height</li>
+              <li>Enough land to install a tower (typically 1+ acre)</li>
+              <li>Local zoning allows turbine installation</li>
+              <li>Utility allows net metering for excess power</li>
+            </ul>
+            <h3>Federal Incentives</h3>
+            <p>Small wind turbines qualify for the same 30% federal tax credit as solar under the IRA through 2032.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings</a></li>
+              <li><a href="/tools/battery-storage.html">Battery Storage</a></li>
+              <li><a href="/tools/green-home-upgrade-roi.html">Green Home Upgrade ROI</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcWind() {
+  const kw = parseFloat(document.getElementById('wt-capacity').value) || 5;
+  const wind = document.getElementById('wt-wind').value;
+  const rate = parseFloat(document.getElementById('wt-rate').value) || 13;
+  const cost = parseFloat(document.getElementById('wt-cost').value) || 0;
+
+  const cf = { low: 0.10, medium: 0.22, high: 0.32, very_high: 0.42 };
+  const annualKwh = kw * cf[wind] * 8760;
+  const annualSavings = annualKwh * (rate / 100);
+  const payback = cost > 0 ? (cost * 0.7) / annualSavings : null; // 30% tax credit
+
+  const fmt = v => '$' + Math.round(v).toLocaleString();
+  document.getElementById('wt-kwh').textContent = Math.round(annualKwh).toLocaleString() + ' kWh/yr';
+  document.getElementById('wt-breakdown').innerHTML = `
+    <tr><td>Capacity factor</td><td>${Math.round(cf[wind]*100)}%</td></tr>
+    <tr><td>Annual production</td><td>${Math.round(annualKwh).toLocaleString()} kWh</td></tr>
+    <tr style="font-weight:700;"><td>Annual savings</td><td>${fmt(annualSavings)}</td></tr>
+    ${cost > 0 ? `<tr><td>Net cost (after 30% credit)</td><td>${fmt(cost * 0.7)}</td></tr>
+    <tr><td>Payback period</td><td>${payback.toFixed(1)} years</td></tr>` : ''}
+  `;
+  const r = document.getElementById('wt-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

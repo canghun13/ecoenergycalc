@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carbon Footprint Calculator – Your Annual CO₂ Emissions | EcoEnergyCalc</title>
+  <meta name="description" content="Calculate your total annual carbon footprint across energy, transport, food, and lifestyle. Free carbon footprint calculator — no signup." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/carbon-footprint.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Carbon Footprint</p>
+        <span class="tool-category">Carbon Footprint</span>
+        <h1>Carbon Footprint Calculator</h1>
+        <p>Calculate your total annual carbon footprint across home energy, transportation, food, and lifestyle.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Your Carbon Footprint</h2>
+            <div class="form-group">
+              <label for="cf-electricity">Monthly Electricity Usage (kWh)</label>
+              <input type="number" id="cf-electricity" placeholder="e.g. 900" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="cf-gas">Monthly Natural Gas Usage (therms)</label>
+              <input type="number" id="cf-gas" placeholder="e.g. 50" min="0" value="0" />
+            </div>
+            <div class="form-group">
+              <label for="cf-car-miles">Annual Car Miles Driven</label>
+              <input type="number" id="cf-car-miles" placeholder="e.g. 12000" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="cf-car-mpg">Car Fuel Efficiency (mpg)</label>
+              <input type="number" id="cf-car-mpg" placeholder="e.g. 28" min="1" value="28" />
+            </div>
+            <div class="form-group">
+              <label for="cf-flights">Short/Medium Flights Per Year (under 6 hrs)</label>
+              <select id="cf-flights">
+                <option value="0">None</option>
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="4">4</option>
+                <option value="6">6+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cf-diet">Diet Type</label>
+              <select id="cf-diet">
+                <option value="meat_heavy">Meat-heavy</option>
+                <option value="average" selected>Average (some meat)</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+              </select>
+            </div>
+            <button class="btn-primary" onclick="calcCarbonFootprint()">Calculate Footprint</button>
+            <div class="result-box-tool" id="cf-result">
+              <h3>Your Annual Carbon Footprint</h3>
+              <div class="result-amount" id="cf-total"></div>
+              <table id="cf-breakdown"></table>
+              <p class="result-note">U.S. average is ~16 tons CO₂/year per person. Global average is ~4 tons. Based on EPA emissions factors.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Understanding Your Carbon Footprint</h2>
+            <p>The average American produces about <strong>16 metric tons of CO₂</strong> per year — one of the highest per-capita rates in the world. The global average is around 4 tons, and scientists estimate we need to reach about 2 tons to limit warming to 1.5°C.</p>
+            <h3>Where Emissions Come From</h3>
+            <ul>
+              <li><strong>Transportation:</strong> ~29% of U.S. emissions — the largest sector</li>
+              <li><strong>Home energy:</strong> ~13% — electricity and heating</li>
+              <li><strong>Food:</strong> ~10–15% — meat production is especially intensive</li>
+              <li><strong>Goods & services:</strong> ~15% — manufacturing and shipping</li>
+            </ul>
+            <h3>Highest-Impact Changes</h3>
+            <p>Research by Wynes & Nicholas (2017) found the highest-impact personal actions are: going car-free (2.4 tons/yr), avoiding one transatlantic flight (1.5 tons), and shifting to a plant-based diet (0.8 tons). These dwarf low-impact actions like recycling.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/flight-carbon.html">Flight Carbon Calculator</a></li>
+              <li><a href="/tools/car-vs-ev-carbon.html">Car vs EV Carbon</a></li>
+              <li><a href="/tools/diet-carbon.html">Diet Carbon Calculator</a></li>
+              <li><a href="/tools/tree-planting-offset.html">Tree Planting Offset</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>U.S. avg: <strong>16 tons CO₂/yr</strong></li>
+              <li>Global avg: <strong>~4 tons/yr</strong></li>
+              <li>1.5°C target: <strong>~2 tons/yr</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcCarbonFootprint() {
+  const kwh = parseFloat(document.getElementById('cf-electricity').value) || 0;
+  const gas = parseFloat(document.getElementById('cf-gas').value) || 0;
+  const miles = parseFloat(document.getElementById('cf-car-miles').value) || 0;
+  const mpg = parseFloat(document.getElementById('cf-car-mpg').value) || 28;
+  const flights = parseFloat(document.getElementById('cf-flights').value) || 0;
+  const diet = document.getElementById('cf-diet').value;
+
+  // EPA factors
+  const elecCo2 = kwh * 12 * 0.000386; // metric tons per year
+  const gasCo2 = gas * 12 * 0.005302;
+  const carCo2 = (miles / mpg) * 0.00888;
+  const flightCo2 = flights * 0.9; // avg 0.9 metric tons per short/medium flight
+  const dietCo2 = { meat_heavy: 3.3, average: 2.5, vegetarian: 1.7, vegan: 1.5 };
+  const foodCo2 = dietCo2[diet];
+
+  const total = elecCo2 + gasCo2 + carCo2 + flightCo2 + foodCo2;
+
+  const fmt = v => v.toFixed(2) + ' t';
+  document.getElementById('cf-total').textContent = total.toFixed(1) + ' metric tons CO₂/yr';
+  document.getElementById('cf-breakdown').innerHTML = `
+    <tr><td>Electricity</td><td>${fmt(elecCo2)}</td></tr>
+    <tr><td>Natural gas</td><td>${fmt(gasCo2)}</td></tr>
+    <tr><td>Car travel</td><td>${fmt(carCo2)}</td></tr>
+    <tr><td>Flights</td><td>${fmt(flightCo2)}</td></tr>
+    <tr><td>Food & diet</td><td>${fmt(foodCo2)}</td></tr>
+    <tr style="font-weight:700;"><td>Total</td><td>${fmt(total)}</td></tr>
+    <tr><td>vs. U.S. avg (16t)</td><td>${total < 16 ? (16-total).toFixed(1)+'t below' : (total-16).toFixed(1)+'t above'}</td></tr>
+  `;
+  const r = document.getElementById('cf-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

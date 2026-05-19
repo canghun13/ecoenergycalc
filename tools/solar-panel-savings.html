@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar Panel Savings Calculator – How Much Can You Save? | EcoEnergyCalc</title>
+  <meta name="description" content="Estimate how much you'll save on electricity by going solar based on your location and usage. Free solar panel savings calculator." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/solar-panel-savings.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Solar Panel Savings</p>
+        <span class="tool-category">Solar & Renewables</span>
+        <h1>Solar Panel Savings Calculator</h1>
+        <p>Estimate your annual electricity savings from solar panels based on your location, system size, and current bill.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Solar Savings</h2>
+            <div class="form-group">
+              <label for="sol-monthly-bill">Current Monthly Electric Bill ($)</label>
+              <input type="number" id="sol-monthly-bill" placeholder="e.g. 150" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="sol-state">State / Sun Region</label>
+              <select id="sol-state">
+                <option value="high">High sun (CA, AZ, TX, FL, NV, HI)</option>
+                <option value="medium" selected>Medium sun (most of U.S.)</option>
+                <option value="low">Low sun (PNW, Northeast, Alaska)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sol-system-kw">System Size (kW)</label>
+              <select id="sol-system-kw">
+                <option value="4">4 kW (small home)</option>
+                <option value="6" selected>6 kW (average home)</option>
+                <option value="8">8 kW (larger home)</option>
+                <option value="10">10 kW (large home)</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+            <div class="form-group" id="custom-kw-group" style="display:none;">
+              <label for="sol-custom-kw">Custom System Size (kW)</label>
+              <input type="number" id="sol-custom-kw" placeholder="e.g. 7" min="1" />
+            </div>
+            <div class="form-group">
+              <label for="sol-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="sol-rate" value="13" min="0" step="0.1" />
+            </div>
+            <button class="btn-primary" onclick="calcSolar()">Calculate Savings</button>
+            <div class="result-box-tool" id="sol-result">
+              <h3>Estimated Annual Solar Savings</h3>
+              <div class="result-amount" id="sol-savings"></div>
+              <table id="sol-breakdown"></table>
+              <p class="result-note">Estimates based on NREL peak sun hour data. Actual savings depend on roof orientation, shading, and utility net metering policy.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How Much Can Solar Save You?</h2>
+            <p>The average U.S. homeowner with a 6kW solar system saves <strong>$1,200–$1,500 per year</strong> on electricity. In high-sun states like Arizona or California, savings can exceed $2,000 annually.</p>
+            <h3>Key Factors That Affect Solar Savings</h3>
+            <ul>
+              <li><strong>Peak sun hours:</strong> Arizona gets ~6.5 hrs/day; Seattle gets ~3.5 hrs/day</li>
+              <li><strong>Electricity rate:</strong> Higher rates mean bigger savings from solar</li>
+              <li><strong>Net metering:</strong> If your utility credits excess solar, your savings increase</li>
+              <li><strong>Roof orientation:</strong> South-facing roofs at 30° tilt are ideal</li>
+              <li><strong>System size:</strong> Sized to offset 80–100% of your usage is typical</li>
+            </ul>
+            <h3>Federal Solar Tax Credit</h3>
+            <p>The Residential Clean Energy Credit (IRA) provides a <strong>30% tax credit</strong> on solar installation costs through 2032. On a $20,000 system, that's $6,000 back from the federal government.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/solar-panel-roi.html">Solar Panel ROI</a></li>
+              <li><a href="/tools/battery-storage.html">Battery Storage</a></li>
+              <li><a href="/tools/green-home-upgrade-roi.html">Green Home Upgrade ROI</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Avg 6kW savings: <strong>$1,200–1,500/yr</strong></li>
+              <li>Federal tax credit: <strong>30%</strong></li>
+              <li>Avg system cost: <strong>$15,000–25,000</strong></li>
+              <li>Payback period: <strong>6–10 years</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+document.getElementById('sol-system-kw').addEventListener('change', function() {
+  document.getElementById('custom-kw-group').style.display = this.value === 'custom' ? 'block' : 'none';
+});
+function calcSolar() {
+  const bill = parseFloat(document.getElementById('sol-monthly-bill').value) || 150;
+  const sun = document.getElementById('sol-state').value;
+  const sysKwSel = document.getElementById('sol-system-kw').value;
+  const sysKw = sysKwSel === 'custom'
+    ? (parseFloat(document.getElementById('sol-custom-kw').value) || 6)
+    : parseFloat(sysKwSel);
+  const rate = parseFloat(document.getElementById('sol-rate').value) || 13;
+
+  const peakHours = { high: 5.5, medium: 4.5, low: 3.5 };
+  const annualKwh = sysKw * peakHours[sun] * 365 * 0.8; // 80% system efficiency
+  const annualSavings = annualKwh * (rate / 100);
+  const annualBill = bill * 12;
+  const offsetPct = Math.min((annualSavings / annualBill) * 100, 100);
+
+  const fmt = v => '$' + Math.round(v).toLocaleString();
+  document.getElementById('sol-savings').textContent = fmt(annualSavings) + '/yr';
+  document.getElementById('sol-breakdown').innerHTML = `
+    <tr><td>Est. annual production</td><td>${Math.round(annualKwh).toLocaleString()} kWh</td></tr>
+    <tr><td>Annual electricity bill</td><td>${fmt(annualBill)}</td></tr>
+    <tr style="font-weight:700;"><td>Annual savings</td><td>${fmt(annualSavings)}</td></tr>
+    <tr><td>Bill offset</td><td>${Math.round(offsetPct)}%</td></tr>
+    <tr><td>25-year savings</td><td>${fmt(annualSavings * 25)}</td></tr>
+  `;
+  const r = document.getElementById('sol-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
