@@ -121,6 +121,8 @@ img { max-width: 100%; display: block; }
   padding: 8px 0;
   box-shadow: 0 8px 32px rgba(0,0,0,0.5);
   z-index: 200;
+  max-height: 420px;
+  overflow-y: auto;
 }
 
 .dropdown.active .dropdown-menu { display: block; }
