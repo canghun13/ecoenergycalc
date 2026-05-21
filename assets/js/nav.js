@@ -42,16 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <li><a href="/tools/green-home-upgrade-roi.html">Green Home Upgrade ROI</a></li>
             </ul>
           </li>
-          <li class="dropdown" id="nav-blog">
-            <a href="/blog/">Blog ▾</a>
-            <ul class="dropdown-menu" style="min-width:260px;right:0;left:auto;">
-              <li><a href="/blog/solar-panel-guide.html">Solar Panel Guide</a></li>
-              <li><a href="/blog/reduce-electric-bill.html">How to Reduce Your Electric Bill</a></li>
-              <li><a href="/blog/reduce-carbon-footprint.html">Reduce Your Carbon Footprint</a></li>
-              <li><a href="/blog/renewable-energy-subsidies.html">Renewable Energy Subsidies Guide</a></li>
-              <li style="border-top:1px solid var(--border);margin-top:4px;"><a href="/blog/" style="font-weight:600;">View All Articles →</a></li>
-            </ul>
-          </li>
+          <li id="nav-blog"><a href="/blog/">Blog</a></li>
           <li><a href="/about.html">About</a></li>
         </ul>
       </nav>
