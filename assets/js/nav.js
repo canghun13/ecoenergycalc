@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <li><a href="/tools/diet-carbon.html">Diet Carbon Calculator</a></li>
               <li><a href="/tools/home-carbon-footprint.html">Home Carbon Footprint</a></li>
               <li><a href="/tools/water-usage.html">Water Usage Calculator</a></li>
+              <li><a href="/tools/rainwater-harvesting.html">Rainwater Harvesting</a></li>
               <li><a href="/tools/tree-planting-offset.html">Tree Planting Offset</a></li>
               <li><a href="/tools/green-home-upgrade-roi.html">Green Home Upgrade ROI</a></li>
             </ul>

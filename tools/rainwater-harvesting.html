@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rainwater Harvesting Calculator – How Much Can You Collect? | EcoEnergyCalc</title>
+  <meta name="description" content="Calculate how much rainwater you can harvest from your roof each year. See potential savings on your water bill and find out if a rainwater collection system makes sense for your home." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/rainwater-harvesting.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Rainwater Harvesting Calculator","description":"Calculate how much rainwater you can collect from your roof and estimate annual water bill savings.","url":"https://ecoenergycalc.com/tools/rainwater-harvesting.html","applicationCategory":"UtilityApplication","operatingSystem":"Any"}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Rainwater Harvesting</p>
+        <span class="tool-category">Water & Environment</span>
+        <h1>Rainwater Harvesting Calculator</h1>
+        <p>Find out how many gallons of rainwater your roof can collect each year — and how much that could save on your water bill.</p>
+      </div>
+
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Your Rainwater Potential</h2>
+
+            <div class="form-group">
+              <label for="rh-roof">Roof Collection Area (sq ft)</label>
+              <input type="number" id="rh-roof" value="1500" min="100" max="10000" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Use the footprint of your home, not total roof surface. A 1,500 sq ft home is typical.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="rh-rainfall">Annual Rainfall (inches/year)</label>
+              <select id="rh-rainfall">
+                <option value="10">Arid / Desert — ~10 in/yr (Phoenix, Las Vegas)</option>
+                <option value="15">Semi-arid — ~15 in/yr (Denver, Salt Lake City)</option>
+                <option value="20">Low — ~20 in/yr (Los Angeles, Albuquerque)</option>
+                <option value="30">Moderate — ~30 in/yr (Dallas, Atlanta)</option>
+                <option value="40" selected>Average U.S. — ~40 in/yr (Kansas City, Charlotte)</option>
+                <option value="50">Above average — ~50 in/yr (Houston, Miami)</option>
+                <option value="60">High — ~60 in/yr (New Orleans, Tampa)</option>
+                <option value="80">Very high — ~80 in/yr (Pacific NW, Seattle area)</option>
+                <option value="custom">Enter custom amount</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="rh-custom-group" style="display:none;">
+              <label for="rh-custom-rain">Custom Annual Rainfall (inches)</label>
+              <input type="number" id="rh-custom-rain" placeholder="e.g. 35" min="1" max="200" />
+            </div>
+
+            <div class="form-group">
+              <label for="rh-efficiency">Roof Material / Collection Efficiency</label>
+              <select id="rh-efficiency">
+                <option value="0.90">Metal or tile roof (90%)</option>
+                <option value="0.85" selected>Asphalt shingles (85%) — most common</option>
+                <option value="0.70">Wood shingles (70%)</option>
+                <option value="0.65">Gravel / flat roof (65%)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rh-use">Primary Intended Use</label>
+              <select id="rh-use">
+                <option value="irrigation" selected>Outdoor irrigation / garden</option>
+                <option value="toilet">Toilet flushing (non-potable indoor)</option>
+                <option value="laundry">Laundry (with filtration)</option>
+                <option value="all">All of the above combined</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rh-rate">Local Water Rate ($/1,000 gallons)</label>
+              <input type="number" id="rh-rate" value="5.00" min="0.50" step="0.10" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">U.S. average is ~$5/1,000 gal. Check your water bill for your local rate.</small>
+            </div>
+
+            <button class="btn-primary" onclick="calcRainwater()">Calculate Rainwater Potential</button>
+
+            <div class="result-box-tool" id="rh-result">
+              <h3>Annual Rainwater Collection Estimate</h3>
+              <div class="result-amount" id="rh-annual"></div>
+              <table id="rh-breakdown"></table>
+              <p class="result-note">Based on the standard formula: collection area × rainfall × 0.623 × efficiency factor. Results are estimates — actual collection depends on gutter coverage, tank size, and local regulations. Always verify rainwater harvesting is legal in your state before installing a system.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Is Rainwater Harvesting Worth It?</h2>
+            <p>A typical American home can collect <strong>20,000–60,000 gallons of rainwater per year</strong> — enough to cover most or all outdoor irrigation needs, and in some states, non-potable indoor uses like toilet flushing. Whether it's "worth it" depends on your rainfall, water rates, and intended use.</p>
+            <p>The economics are most favorable in states with high water rates and moderate to high rainfall. In California, where water rates average $8–12/1,000 gallons and droughts are common, a well-sized rainwater system can pay back its installation cost in 5–8 years. In the arid Southwest, collection potential is lower, but water scarcity makes even small amounts of harvested water valuable.</p>
+
+            <h3>What Can Harvested Rainwater Be Used For?</h3>
+            <ul>
+              <li><strong>Outdoor irrigation:</strong> The simplest and most common use. No filtration required in most states. Outdoor watering accounts for 30–60% of household water use in warm months.</li>
+              <li><strong>Toilet flushing:</strong> Toilets use 24% of indoor water. With basic filtration, rainwater is suitable for flushing. Some states require permits for indoor non-potable use.</li>
+              <li><strong>Laundry:</strong> Requires more filtration but is legal and practical in several states. Saves water and is gentler on clothes than hard tap water.</li>
+              <li><strong>Potable use:</strong> Possible with proper multi-stage filtration and UV treatment, but subject to strict regulations. Not recommended without professional system design.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/water-usage.html">Water Usage Calculator</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/carbon-footprint.html">Carbon Footprint</a></li>
+              <li><a href="/tools/green-home-upgrade-roi.html">Green Home Upgrade ROI</a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>1 inch rain on 1,000 sq ft = <strong>623 gallons</strong></li>
+              <li>U.S. avg water rate: <strong>~$5/1,000 gal</strong></li>
+              <li>Outdoor irrigation: <strong>30–60%</strong> of summer water use</li>
+              <li>Basic tank system cost: <strong>$200–$2,000+</strong></li>
+              <li>Rainwater harvesting legal in: <strong>most U.S. states</strong></li>
+            </ul>
+          </div>
+
+          <div class="article-body" style="margin-top:32px;">
+            <h2>How the Calculation Works</h2>
+            <p>The standard formula for rainwater collection is:</p>
+            <p><strong>Gallons = Roof Area (sq ft) × Rainfall (inches) × 0.623 × Efficiency</strong></p>
+            <p>The 0.623 factor converts inches of rainfall on square feet into gallons (there are 0.623 gallons per square foot per inch of rain). The efficiency factor accounts for losses from evaporation, splash-off, and first-flush diversion — the initial rain runoff that carries the most roof contaminants and is typically discarded.</p>
+
+            <h2>Tank Sizing: How Big a System Do You Need?</h2>
+            <p>Tank size depends on your intended use and how you want to buffer between rain events. For outdoor irrigation, the general rule is to size for the longest typical dry spell in your region:</p>
+            <ul>
+              <li><strong>Basic setup (250–500 gal):</strong> A rain barrel or two — covers occasional garden watering. Low cost ($50–200), easy to install, but fills up quickly and won't last long dry spells.</li>
+              <li><strong>Mid-size system (1,000–2,500 gal):</strong> Covers most outdoor irrigation through 2–4 week dry spells. Cost: $500–2,000 installed.</li>
+              <li><strong>Large system (5,000–10,000+ gal):</strong> Suitable for full household outdoor use plus indoor non-potable use. Often underground. Cost: $3,000–10,000+.</li>
+            </ul>
+
+            <h2>State-by-State Legality</h2>
+            <p>Rainwater harvesting is legal in most U.S. states, but regulations vary significantly. Most western states — including Texas, Arizona, Colorado (with limits), and Oregon — actively encourage it with rebates. A few states still restrict it, though bans have been lifted in most places. Some states cap tank size or require permits for systems above a certain volume.</p>
+            <p>Always check your state's current water law and your local municipality's rules before installing a system. Your county extension office or state water authority is the authoritative source.</p>
+
+            <h2>Environmental Impact</h2>
+            <p>Beyond water bill savings, rainwater harvesting provides meaningful environmental benefits. It reduces stormwater runoff, which is one of the leading causes of urban waterway pollution — runoff picks up fertilizers, pesticides, and road chemicals as it flows across paved surfaces. By capturing rain before it runs off, you reduce the load on stormwater infrastructure and local waterways.</p>
+            <p>In regions drawing heavily from aquifers or rivers — particularly the Colorado River basin — harvested rainwater also reduces pressure on stressed water sources. The average household using 20,000 gallons of harvested rainwater annually saves the equivalent of what 40 mature trees absorb in a year.</p>
+          </div>
+
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+document.getElementById('rh-rainfall').addEventListener('change', function() {
+  document.getElementById('rh-custom-group').style.display = this.value === 'custom' ? 'block' : 'none';
+});
+
+function calcRainwater() {
+  const roofArea = parseFloat(document.getElementById('rh-roof').value) || 1500;
+  const rainfallSel = document.getElementById('rh-rainfall').value;
+  const rainfall = rainfallSel === 'custom'
+    ? (parseFloat(document.getElementById('rh-custom-rain').value) || 40)
+    : parseFloat(rainfallSel);
+  const efficiency = parseFloat(document.getElementById('rh-efficiency').value) || 0.85;
+  const use = document.getElementById('rh-use').value;
+  const rate = parseFloat(document.getElementById('rh-rate').value) || 5.00;
+
+  // Standard formula: sq ft × inches × 0.623 × efficiency
+  const annualGallons = roofArea * rainfall * 0.623 * efficiency;
+
+  // Usable portion based on intended use
+  const useFraction = { irrigation: 0.55, toilet: 0.24, laundry: 0.20, all: 0.99 };
+  const useLabels = {
+    irrigation: 'Outdoor irrigation',
+    toilet: 'Toilet flushing',
+    laundry: 'Laundry',
+    all: 'Combined indoor + outdoor'
+  };
+  const usableGallons = annualGallons * (useFraction[use] || 0.55);
+
+  // Bill savings: rate is per 1,000 gallons
+  const annualSavings = (usableGallons / 1000) * rate;
+
+  // Payback estimate on a mid-size system (~$1,200 installed)
+  const systemCost = 1200;
+  const payback = annualSavings > 0 ? systemCost / annualSavings : null;
+
+  const fmt = v => Math.round(v).toLocaleString();
+  const fmtD = v => '$' + v.toFixed(2);
+
+  document.getElementById('rh-annual').textContent = fmt(annualGallons) + ' gallons/year';
+  document.getElementById('rh-breakdown').innerHTML = `
+    <tr><td>Roof collection area</td><td>${fmt(roofArea)} sq ft</td></tr>
+    <tr><td>Annual rainfall</td><td>${rainfall} inches</td></tr>
+    <tr><td>Collection efficiency</td><td>${Math.round(efficiency * 100)}%</td></tr>
+    <tr style="font-weight:700;"><td>Total collectable</td><td>${fmt(annualGallons)} gal/yr</td></tr>
+    <tr><td>Usable for ${useLabels[use]}</td><td>${fmt(usableGallons)} gal/yr</td></tr>
+    <tr><td>Est. annual water bill savings</td><td>$${annualSavings.toFixed(0)}/yr</td></tr>
+    <tr><td>Payback on mid-size system (~$1,200)</td><td>${payback ? Math.round(payback) + ' years' : 'N/A'}</td></tr>
+    <tr><td>10-year water savings</td><td>$${(annualSavings * 10).toFixed(0)}</td></tr>
+  `;
+
+  const r = document.getElementById('rh-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

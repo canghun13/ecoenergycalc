@@ -24,11 +24,14 @@
   <url><loc>https://ecoenergycalc.com/tools/diet-carbon.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ecoenergycalc.com/tools/home-carbon-footprint.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ecoenergycalc.com/tools/water-usage.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ecoenergycalc.com/tools/rainwater-harvesting.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ecoenergycalc.com/tools/tree-planting-offset.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ecoenergycalc.com/tools/green-home-upgrade-roi.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Blog -->
   <url><loc>https://ecoenergycalc.com/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ecoenergycalc.com/blog/how-many-solar-panels-do-i-need.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ecoenergycalc.com/blog/how-to-reduce-water-usage-at-home.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ecoenergycalc.com/blog/solar-panel-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ecoenergycalc.com/blog/reduce-electric-bill.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ecoenergycalc.com/blog/reduce-carbon-footprint.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
