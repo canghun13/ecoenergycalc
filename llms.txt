@@ -1,0 +1,66 @@
+# EcoEnergyCalc
+
+> Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
+
+EcoEnergyCalc is a collection of 19 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+
+## Core Pages
+
+- [Home](https://ecoenergycalc.com/): Full directory of all calculators and latest blog posts
+- [About](https://ecoenergycalc.com/about.html): Site mission, methodology, and operator information
+- [Blog](https://ecoenergycalc.com/blog/): All articles, searchable by topic
+- [Privacy Policy](https://ecoenergycalc.com/privacy.html): Privacy policy and disclaimer
+- [Contact](https://ecoenergycalc.com/contact.html): Contact information
+
+## Calculators: Energy Savings
+
+Tools for estimating home energy costs and identifying savings opportunities.
+
+- [Home Energy Cost Calculator](https://ecoenergycalc.com/tools/home-energy-cost.html): Estimate total annual home energy cost based on location, home size, and usage habits
+- [Electric Bill Calculator](https://ecoenergycalc.com/tools/electric-bill.html): Break down a monthly electric bill by energy charge, fixed charge, and taxes; identify cost drivers
+- [Appliance Energy Cost Calculator](https://ecoenergycalc.com/tools/appliance-energy-cost.html): Calculate running cost of any appliance per day, month, and year by wattage and usage hours
+- [LED vs Incandescent Savings Calculator](https://ecoenergycalc.com/tools/led-vs-incandescent.html): Quantify annual savings and CO₂ reduction from switching to LED bulbs
+- [Insulation Savings Calculator](https://ecoenergycalc.com/tools/insulation-savings.html): Estimate heating and cooling savings from upgrading home insulation; includes IRA tax credit info
+- [Heating vs Cooling Cost Calculator](https://ecoenergycalc.com/tools/heating-vs-cooling.html): Compare seasonal heating and cooling costs to find where energy dollars go
+
+## Calculators: Solar & Renewables
+
+Tools for evaluating solar panels, wind turbines, and battery storage.
+
+- [Solar Panel Savings Calculator](https://ecoenergycalc.com/tools/solar-panel-savings.html): Estimate annual electricity savings from a solar installation based on location, system size, and current bill
+- [Solar Panel ROI Calculator](https://ecoenergycalc.com/tools/solar-panel-roi.html): Calculate payback period and 25-year return on investment for a solar system after incentives
+- [Wind Turbine Calculator](https://ecoenergycalc.com/tools/wind-turbine.html): Estimate electricity output and savings from a small home wind turbine
+- [Battery Storage Calculator](https://ecoenergycalc.com/tools/battery-storage.html): Find the right battery storage size for a home solar setup and model financial impact
+- [Green Home Upgrade ROI Calculator](https://ecoenergycalc.com/tools/green-home-upgrade-roi.html): Compare payback period and long-term return across green home upgrades (solar, insulation, heat pump, LED, smart thermostat, windows)
+
+## Calculators: Carbon Footprint
+
+Tools for measuring and reducing personal and household carbon emissions.
+
+- [Carbon Footprint Calculator](https://ecoenergycalc.com/tools/carbon-footprint.html): Calculate total annual personal carbon footprint across electricity, gas, driving, flights, and diet
+- [Home Carbon Footprint Calculator](https://ecoenergycalc.com/tools/home-carbon-footprint.html): Calculate carbon emissions specifically from home heating, cooling, and appliances
+- [Car vs EV Carbon Calculator](https://ecoenergycalc.com/tools/car-vs-ev-carbon.html): Compare lifetime carbon emissions of a gasoline car vs an electric vehicle
+- [Flight Carbon Calculator](https://ecoenergycalc.com/tools/flight-carbon.html): Calculate CO₂ emissions per flight route and estimate offset requirements
+- [Diet Carbon Calculator](https://ecoenergycalc.com/tools/diet-carbon.html): Quantify how diet choices contribute to personal carbon footprint
+- [Tree Planting Offset Calculator](https://ecoenergycalc.com/tools/tree-planting-offset.html): Calculate how many trees are needed to offset a given CO₂ amount
+
+## Calculators: Water & Environment
+
+Tools for water usage and rainwater harvesting.
+
+- [Water Usage Calculator](https://ecoenergycalc.com/tools/water-usage.html): Estimate household water consumption by activity and identify reduction opportunities
+- [Rainwater Harvesting Calculator](https://ecoenergycalc.com/tools/rainwater-harvesting.html): Calculate annual rainwater collection potential from a roof by area, rainfall, and material; estimate water bill savings
+
+## Blog Articles
+
+In-depth guides on energy savings, solar, carbon reduction, and environmental topics.
+
+- [What to Know Before Installing Solar Panels](https://ecoenergycalc.com/blog/solar-panel-guide.html): Costs, incentives, payback periods, choosing an installer, and common mistakes — complete pre-purchase guide
+- [How Many Solar Panels Do I Need?](https://ecoenergycalc.com/blog/how-many-solar-panels-do-i-need.html): Step-by-step calculation methodology with state-by-state examples and installer quote verification
+- [Solar Panel Tax Credits & Incentives by State (2026)](https://ecoenergycalc.com/blog/solar-incentives-by-state.html): State-by-state breakdown of solar rebates, tax credits, and net metering policies
+- [Renewable Energy Subsidies: The Complete U.S. Guide](https://ecoenergycalc.com/blog/renewable-energy-subsidies.html): Federal tax credits, state rebates, and utility incentives for solar, wind, heat pumps, and more
+- [Heat Pump vs Furnace: Which Is Better for Your Home?](https://ecoenergycalc.com/blog/heat-pump-vs-furnace.html): Cost, efficiency, and climate suitability comparison to determine the right heating system
+- [15 Ways to Reduce Your Electric Bill This Year](https://ecoenergycalc.com/blog/reduce-electric-bill.html): No-cost to high-ROI changes ranked by actual dollar savings
+- [How to Reduce Water Usage at Home: 14 High-Impact Changes](https://ecoenergycalc.com/blog/how-to-reduce-water-usage-at-home.html): Evidence-based water conservation methods ranked by gallons saved, with costs and payback periods
+- [Practical Ways to Reduce Your Carbon Footprint](https://ecoenergycalc.com/blog/reduce-carbon-footprint.html): High-impact personal actions ranked by actual CO₂ savings, with real numbers
+- [EV vs Gas Car: True Cost of Ownership Over 5 Years](https://ecoenergycalc.com/blog/ev-vs-gas-true-cost.html): Full 5-year cost comparison including purchase, fuel, insurance, maintenance, and depreciation
