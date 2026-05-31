@@ -22,6 +22,7 @@ Tools for estimating home energy costs and identifying savings opportunities.
 - [LED vs Incandescent Savings Calculator](https://ecoenergycalc.com/tools/led-vs-incandescent.html): Quantify annual savings and CO₂ reduction from switching to LED bulbs
 - [Insulation Savings Calculator](https://ecoenergycalc.com/tools/insulation-savings.html): Estimate heating and cooling savings from upgrading home insulation; includes IRA tax credit info
 - [Heating vs Cooling Cost Calculator](https://ecoenergycalc.com/tools/heating-vs-cooling.html): Compare seasonal heating and cooling costs to find where energy dollars go
+- [Heating Cost by Fuel Type Calculator](https://ecoenergycalc.com/tools/heating-cost-by-fuel.html): Compare annual home heating costs across natural gas, electric resistance, heat pump, propane, and heating oil at user-specified local rates
 
 ## Calculators: Solar & Renewables
 
@@ -56,6 +57,8 @@ Tools for water usage and rainwater harvesting.
 In-depth guides on energy savings, solar, carbon reduction, and environmental topics.
 
 - [What to Know Before Installing Solar Panels](https://ecoenergycalc.com/blog/solar-panel-guide.html): Costs, incentives, payback periods, choosing an installer, and common mistakes — complete pre-purchase guide
+- [Is It Cheaper to Heat or Cool Your Home?](https://ecoenergycalc.com/blog/is-it-cheaper-to-heat-or-cool-your-home.html): Regional cost breakdown showing whether heating or cooling costs more — with actual dollar figures by city and fuel type
+- [How Much Does It Cost to Run a Dryer?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-a-dryer.html): Per-load, per-month, and per-year running costs for electric and gas dryers by usage frequency and local electricity rate
 - [How Many Solar Panels Do I Need?](https://ecoenergycalc.com/blog/how-many-solar-panels-do-i-need.html): Step-by-step calculation methodology with state-by-state examples and installer quote verification
 - [Solar Panel Tax Credits & Incentives by State (2026)](https://ecoenergycalc.com/blog/solar-incentives-by-state.html): State-by-state breakdown of solar rebates, tax credits, and net metering policies
 - [Renewable Energy Subsidies: The Complete U.S. Guide](https://ecoenergycalc.com/blog/renewable-energy-subsidies.html): Federal tax credits, state rebates, and utility incentives for solar, wind, heat pumps, and more

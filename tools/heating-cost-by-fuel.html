@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heating Cost by Fuel Type Calculator – Gas vs Electric vs Oil vs Propane | EcoEnergyCalc</title>
+  <meta name="description" content="Compare annual home heating costs by fuel type — natural gas, electricity, propane, heating oil, and heat pump. Find the cheapest way to heat your home." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/heating-cost-by-fuel.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Heating Cost by Fuel Type Calculator","url":"https://ecoenergycalc.com/tools/heating-cost-by-fuel.html","description":"Compare annual home heating costs by fuel type — natural gas, electricity, propane, heating oil, and heat pump.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Heating Cost by Fuel Type</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Heating Cost by Fuel Type Calculator</h1>
+        <p>Compare how much it costs to heat your home with natural gas, electricity, propane, heating oil, or a heat pump — side by side.</p>
+      </div>
+
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Your Heating Cost</h2>
+
+            <div class="form-group">
+              <label for="hf-size">Home Size (sq ft)</label>
+              <input type="number" id="hf-size" value="1800" min="200" max="10000" />
+            </div>
+
+            <div class="form-group">
+              <label for="hf-climate">Climate Zone</label>
+              <select id="hf-climate">
+                <option value="hot">Hot (South / Southwest — Atlanta, Dallas, Phoenix)</option>
+                <option value="mixed" selected>Mixed (Midwest / Mid-Atlantic — Chicago, DC, Denver)</option>
+                <option value="cold">Cold (Northeast / Upper Midwest — Boston, Minneapolis)</option>
+                <option value="veryCold">Very Cold (Northern states / Mountains — Minneapolis, Buffalo)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="hf-gas">Natural Gas Rate ($/therm)</label>
+              <input type="number" id="hf-gas" value="1.10" min="0.30" step="0.01" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">U.S. average ~$1.10/therm. Check your gas bill for your local rate.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="hf-elec">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="hf-elec" value="13" min="5" step="0.1" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">U.S. average ~13¢/kWh. Check your electric bill for your rate.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="hf-propane">Propane Rate ($/gallon)</label>
+              <input type="number" id="hf-propane" value="2.50" min="0.50" step="0.01" />
+            </div>
+
+            <div class="form-group">
+              <label for="hf-oil">Heating Oil Rate ($/gallon)</label>
+              <input type="number" id="hf-oil" value="3.80" min="1.00" step="0.01" />
+            </div>
+
+            <button class="btn-primary" onclick="calcFuelCost()">Compare Heating Costs</button>
+
+            <div class="result-box-tool" id="hf-result">
+              <h3>Annual Heating Cost Comparison</h3>
+              <div class="result-amount" id="hf-winner"></div>
+              <table id="hf-breakdown"></table>
+              <p class="result-note">Estimates based on EIA regional heat load data and typical system efficiencies. Actual costs vary by home insulation, thermostat settings, and system age. Heat pump estimates assume a modern unit with COP of 2.5 in mixed climates and 2.0 in cold climates.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How to Calculate Heating Costs by Fuel Type</h2>
+            <p>Comparing heating costs across fuel types isn't straightforward because each fuel has different energy content and each heating system has different efficiency. A therm of natural gas contains 100,000 BTU of energy, but an 80% efficient furnace only delivers 80,000 BTU of usable heat. A heat pump, by contrast, moves heat rather than generating it — so it can deliver 2.5x more heat energy than the electricity it consumes.</p>
+            <p>The formula that matters is: <strong>Cost = (Heat needed ÷ System efficiency) × Fuel price per unit of energy</strong>. Once you convert everything to a common unit (BTU of delivered heat), the comparison becomes apples-to-apples.</p>
+
+            <h3>Natural Gas</h3>
+            <p>Natural gas is the most common home heating fuel in the U.S., used in about 47% of homes. Standard gas furnaces run at 80% AFUE (Annual Fuel Utilization Efficiency), meaning 80% of the gas burned becomes usable heat. High-efficiency condensing furnaces reach 95–98% AFUE. At $1.10/therm and 80% efficiency, natural gas delivers heat at roughly $13.75 per million BTU — typically the cheapest fossil fuel option in most U.S. markets.</p>
+
+            <h3>Heat Pump</h3>
+            <p>A heat pump moves heat from outside air into your home rather than generating it by burning fuel. This makes it 200–400% efficient — it delivers 2–4 units of heat energy for every 1 unit of electricity consumed. The efficiency rating is called COP (Coefficient of Performance). A modern heat pump with a COP of 2.5 running at 13¢/kWh delivers heat at about $15–18 per million BTU, competitive with gas in most markets and significantly cheaper than electric resistance, propane, or oil. Cold-climate heat pumps maintain meaningful efficiency down to -15°F, making them viable across most of the continental U.S.</p>
+
+            <h3>Electric Resistance</h3>
+            <p>Electric furnaces and baseboard heaters are 100% efficient at converting electricity to heat — but electricity is an expensive fuel. At 13¢/kWh, electric resistance heat costs about $38 per million BTU, making it the most expensive common heating option. In states with very high gas prices or very low electricity rates, the gap narrows, but electric resistance heating is generally only economical in mild climates where the heating season is short.</p>
+
+            <h3>Propane</h3>
+            <p>Propane is common in rural areas without natural gas service. It contains about 91,500 BTU per gallon and propane furnaces typically run at 80–95% efficiency. At $2.50/gallon and 80% efficiency, propane delivers heat at roughly $34 per million BTU — more expensive than natural gas and competitive with or slightly cheaper than electric resistance, depending on local electricity rates. Propane prices are also more volatile than natural gas, often rising sharply in cold winters.</p>
+
+            <h3>Heating Oil</h3>
+            <p>Heating oil is predominantly used in the Northeast, where older housing stock was built before natural gas lines were widespread. It contains about 138,500 BTU per gallon. At $3.80/gallon and 85% efficiency, heating oil delivers heat at roughly $32 per million BTU. Oil prices are tied to global crude markets and can fluctuate dramatically — homes with oil heat are exposed to significant price risk in volatile energy markets. The ongoing shift from oil to heat pumps in the Northeast is partly driven by this volatility.</p>
+
+            <h3>Which Fuel Is Cheapest for Your Home?</h3>
+            <p>In most U.S. markets, the ranking from cheapest to most expensive for delivered heat is: natural gas → heat pump → propane ≈ heating oil → electric resistance. However, this order shifts significantly based on local utility rates. In states like Washington and Oregon where electricity is cheap ($0.09–0.10/kWh) due to hydropower, heat pumps are often the cheapest option even compared to natural gas. In high-electricity-cost states like California or New York, gas typically remains cheaper for baseload heating, though a heat pump may still make sense for efficiency and carbon reduction reasons.</p>
+            <p>To see how your specific numbers compare, adjust the fuel rates in the calculator above to match your local prices. Your gas and electric bills show your exact rates.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/heating-vs-cooling.html">Heating vs Cooling Cost</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings</a></li>
+              <li><a href="/tools/green-home-upgrade-roi.html">Green Home Upgrade ROI</a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Natural gas: <strong>~47%</strong> of U.S. homes</li>
+              <li>Heat pump COP: <strong>2.0–4.0</strong> (200–400% efficient)</li>
+              <li>1 therm gas = <strong>100,000 BTU</strong></li>
+              <li>1 gallon propane = <strong>91,500 BTU</strong></li>
+              <li>1 gallon oil = <strong>138,500 BTU</strong></li>
+            </ul>
+          </div>
+
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+// Annual heat load in kBTU per sq ft by climate zone (EIA-based estimates)
+const heatLoad = { hot: 8, mixed: 18, cold: 28, veryCold: 40 };
+
+function calcFuelCost() {
+  const size   = parseFloat(document.getElementById('hf-size').value) || 1800;
+  const zone   = document.getElementById('hf-climate').value;
+  const gasR   = parseFloat(document.getElementById('hf-gas').value) || 1.10;
+  const elecR  = parseFloat(document.getElementById('hf-elec').value) || 13;
+  const propR  = parseFloat(document.getElementById('hf-propane').value) || 2.50;
+  const oilR   = parseFloat(document.getElementById('hf-oil').value) || 3.80;
+
+  const totalBtu = size * heatLoad[zone] * 1000; // BTU/yr needed
+
+  // System efficiencies
+  const gasEff   = 0.80;  // 80 AFUE standard furnace
+  const elecEff  = 1.00;  // 100% electric resistance
+  const hpCOP    = zone === 'veryCold' ? 2.0 : zone === 'cold' ? 2.2 : 2.5; // heat pump
+  const propEff  = 0.80;
+  const oilEff   = 0.85;
+
+  // Cost calculations
+  const gasCost   = (totalBtu / 100000 / gasEff) * gasR;
+  const elecCost  = (totalBtu / 3412 / elecEff) * (elecR / 100);
+  const hpCost    = (totalBtu / 3412 / hpCOP) * (elecR / 100);
+  const propCost  = (totalBtu / 91500 / propEff) * propR;
+  const oilCost   = (totalBtu / 138500 / oilEff) * oilR;
+
+  const costs = [
+    { name: 'Natural Gas (80% AFUE)', cost: gasCost },
+    { name: 'Heat Pump (COP ' + hpCOP + ')', cost: hpCost },
+    { name: 'Propane (80% AFUE)', cost: propCost },
+    { name: 'Heating Oil (85% AFUE)', cost: oilCost },
+    { name: 'Electric Resistance', cost: elecCost },
+  ];
+  costs.sort((a, b) => a.cost - b.cost);
+
+  const fmt = v => '$' + Math.round(v).toLocaleString();
+  const winner = costs[0];
+
+  document.getElementById('hf-winner').textContent = winner.name + ' — ' + fmt(winner.cost) + '/yr cheapest';
+
+  document.getElementById('hf-breakdown').innerHTML = costs.map((c, i) => `
+    <tr style="${i === 0 ? 'font-weight:700;' : ''}">
+      <td>${i === 0 ? '🏆 ' : ''}${c.name}</td>
+      <td>${fmt(c.cost)}/yr</td>
+      <td style="color:var(--text-muted);font-size:0.85em;">${i === 0 ? 'cheapest' : '+' + fmt(c.cost - winner.cost) + ' more'}</td>
+    </tr>`).join('');
+
+  const r = document.getElementById('hf-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

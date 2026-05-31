@@ -13,6 +13,7 @@
   <url><loc>https://ecoenergycalc.com/tools/led-vs-incandescent.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ecoenergycalc.com/tools/insulation-savings.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ecoenergycalc.com/tools/heating-vs-cooling.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ecoenergycalc.com/tools/heating-cost-by-fuel.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ecoenergycalc.com/tools/appliance-energy-cost.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ecoenergycalc.com/tools/solar-panel-savings.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://ecoenergycalc.com/tools/solar-panel-roi.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -30,6 +31,8 @@
 
   <!-- Blog -->
   <url><loc>https://ecoenergycalc.com/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ecoenergycalc.com/blog/is-it-cheaper-to-heat-or-cool-your-home.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-a-dryer.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ecoenergycalc.com/blog/how-many-solar-panels-do-i-need.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ecoenergycalc.com/blog/how-to-reduce-water-usage-at-home.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ecoenergycalc.com/blog/solar-panel-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>

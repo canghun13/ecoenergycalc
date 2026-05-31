@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <li><a href="/tools/led-vs-incandescent.html">LED vs Incandescent Savings</a></li>
               <li><a href="/tools/insulation-savings.html">Insulation Savings</a></li>
               <li><a href="/tools/heating-vs-cooling.html">Heating vs Cooling Cost</a></li>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel Type</a></li>
               <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
               <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings</a></li>
               <li><a href="/tools/solar-panel-roi.html">Solar Panel ROI</a></li>
