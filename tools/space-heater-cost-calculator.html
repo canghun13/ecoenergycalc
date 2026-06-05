@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Heater Cost Calculator – How Much Does It Cost to Run? | EcoEnergyCalc</title>
+  <meta name="description" content="Calculate exactly how much it costs to run a space heater per hour, per day, and per month. Free space heater electricity cost calculator — no signup." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/space-heater-cost-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Space Heater Cost Calculator","url":"https://ecoenergycalc.com/tools/space-heater-cost-calculator.html","description":"Calculate exactly how much it costs to run a space heater per hour, day, and month based on wattage and electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Space Heater Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Space Heater Cost Calculator</h1>
+        <p>Find out exactly how much your space heater costs to run — per hour, per day, and per month.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Space Heater Running Cost</h2>
+            <div class="form-group">
+              <label for="sh-watts">Space Heater Wattage</label>
+              <select id="sh-watts">
+                <option value="750">750W (low setting, small heater)</option>
+                <option value="1000">1,000W (medium setting)</option>
+                <option value="1500" selected>1,500W (standard full power)</option>
+                <option value="2000">2,000W (large or dual element)</option>
+                <option value="custom">Custom wattage</option>
+              </select>
+            </div>
+            <div class="form-group" id="sh-custom-group" style="display:none;">
+              <label for="sh-custom-watts">Custom Wattage (W)</label>
+              <input type="number" id="sh-custom-watts" placeholder="e.g. 1200" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="sh-hours">Hours Used Per Day</label>
+              <input type="number" id="sh-hours" placeholder="e.g. 8" min="0" max="24" value="8" />
+            </div>
+            <div class="form-group">
+              <label for="sh-days">Days Per Month</label>
+              <input type="number" id="sh-days" placeholder="e.g. 30" min="0" max="31" value="30" />
+            </div>
+            <div class="form-group">
+              <label for="sh-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="sh-rate" value="13" min="0" step="0.1" />
+            </div>
+            <button class="btn-primary" onclick="calcSpaceHeater()">Calculate Cost</button>
+            <div class="result-box-tool" id="sh-result">
+              <h3>Space Heater Running Cost</h3>
+              <div class="result-amount" id="sh-monthly"></div>
+              <table id="sh-breakdown"></table>
+              <p class="result-note">Based on your inputs. Actual cost depends on thermostat cycling — most space heaters cycle on/off to maintain temperature, so real usage is typically 50–70% of rated wattage on average.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How Much Does It Cost to Run a Space Heater?</h2>
+            <p>A standard 1,500W space heater running at full power costs about <strong>19.5¢ per hour</strong> at the U.S. average electricity rate of 13¢/kWh. Run it 8 hours a day and you're looking at $1.56/day, or about $46.80/month. In high-rate states like California (20¢+/kWh) or Hawaii (40¢+/kWh), costs can be 50–200% higher.</p>
+            <p>The key word is "full power." Space heaters with thermostats cycle on and off to maintain temperature — they're rarely running at 100% continuously. In practice, a thermostatically controlled heater in a well-insulated room might cycle at 40–60% duty cycle, meaning actual consumption is closer to 600–900W on average rather than the full 1,500W. An older heater without a thermostat, or one set to maximum in a cold room, may run continuously.</p>
+
+            <h3>Space Heater Cost by Wattage</h3>
+            <p>Here's what different space heater sizes cost to run at the average U.S. electricity rate of 13¢/kWh for 8 hours/day:</p>
+            <ul>
+              <li><strong>500W:</strong> $0.52/day · $15.60/month</li>
+              <li><strong>750W:</strong> $0.78/day · $23.40/month</li>
+              <li><strong>1,000W:</strong> $1.04/day · $31.20/month</li>
+              <li><strong>1,500W:</strong> $1.56/day · $46.80/month</li>
+              <li><strong>2,000W:</strong> $2.08/day · $62.40/month</li>
+            </ul>
+
+            <h3>Space Heater vs. Central Heating: Which Is Cheaper?</h3>
+            <p>It depends on what you're heating and how. Space heaters are more efficient when you're heating one room you're actually in — you avoid heating the whole house. If you spend most of the day in a single room and can turn down the central thermostat significantly (7–10°F setback), a space heater can be cheaper than running central heating at a higher temperature throughout the home.</p>
+            <p>However, if you're trying to heat your whole home with multiple space heaters, or if you're running them while central heating is also running, you're almost certainly spending more than necessary. Central gas heating is typically cheaper per BTU than electric space heating in most U.S. markets, because natural gas costs less per unit of heat than electricity.</p>
+            <p>The math that makes space heaters cost-effective: if your central system heats the whole house to 70°F but you're only in the bedroom, turning the thermostat to 62°F and running a space heater in the bedroom can save money — as long as the space heater's electricity cost is less than what you'd spend heating the rest of the house those extra 8 degrees.</p>
+
+            <h3>Types of Space Heaters and Their Efficiency</h3>
+            <ul>
+              <li><strong>Ceramic heaters:</strong> The most common type. Heat up quickly, have a fan to distribute warm air, and include a thermostat for cycling. Typically 1,000–1,500W. Good for quick heating of medium rooms.</li>
+              <li><strong>Oil-filled radiators:</strong> Slower to heat up but maintain temperature more evenly and continue radiating heat after cycling off. More energy-efficient in practice because of the thermal mass effect. Better for long-duration heating.</li>
+              <li><strong>Infrared heaters:</strong> Heat people and objects directly rather than the air. More efficient for spot heating — warming one person at a desk without heating an entire room. Typically 300–1,500W.</li>
+              <li><strong>Micathermic heaters:</strong> Combine radiant and convective heating. Heat up faster than oil-filled radiators with some of the even-heat benefits. Typically 1,000–1,500W.</li>
+            </ul>
+
+            <h3>Safety and Cost-Saving Tips</h3>
+            <ul>
+              <li>Use the thermostat setting — don't run at max continuously. Set to your comfort temperature and let it cycle.</li>
+              <li>Close the door to the room you're heating to reduce the volume being heated.</li>
+              <li>Use in combination with a thermostat setback on your central system — turn central heat down while space heater supplements one occupied room.</li>
+              <li>Never leave a space heater running unattended or while sleeping. Beyond safety risks, it wastes money heating a room when you're not using it.</li>
+              <li>Keep the heater at least 3 feet from flammable materials.</li>
+              <li>Check that your outlet and circuit can handle the load — a 1,500W heater draws 12.5 amps on a standard 120V circuit, near the limit of a 15-amp circuit.</li>
+            </ul>
+
+            <h3>Is a Space Heater Worth It?</h3>
+            <p>Space heaters make financial sense in specific scenarios: you work from home in a single room and can significantly setback your central thermostat, you live in a mild climate where you only need heat occasionally, your central heating is failing or being repaired, or you have a poorly insulated addition or garage that would cost more to connect to central heating than to spot-heat electrically.</p>
+            <p>They're less cost-effective as a primary heating strategy for whole-home heating, in climates with long cold winters where continuous operation becomes expensive, or when used in addition to (rather than instead of) central heating.</p>
+            <p>To see how space heater costs compare to your main heating system, use our <a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel Type Calculator</a> or our <a href="/tools/heating-vs-cooling.html">Heating vs Cooling Cost Calculator</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/heating-vs-cooling.html">Heating vs Cooling Cost</a></li>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel Type</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Standard heater: <strong>1,500W</strong></li>
+              <li>Cost per hour: <strong>~19.5¢</strong></li>
+              <li>Cost per month (8hr/day): <strong>~$47</strong></li>
+              <li>Thermostat cycling: <strong>50–70% duty</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+document.getElementById('sh-watts').addEventListener('change', function() {
+  document.getElementById('sh-custom-group').style.display = this.value === 'custom' ? 'block' : 'none';
+});
+
+function calcSpaceHeater() {
+  const wattsSel = document.getElementById('sh-watts').value;
+  const watts = wattsSel === 'custom'
+    ? (parseFloat(document.getElementById('sh-custom-watts').value) || 1500)
+    : parseFloat(wattsSel);
+  const hours = parseFloat(document.getElementById('sh-hours').value) || 8;
+  const days = parseFloat(document.getElementById('sh-days').value) || 30;
+  const rate = parseFloat(document.getElementById('sh-rate').value) || 13;
+
+  const kw = watts / 1000;
+  const costPerHour = kw * (rate / 100);
+  const costPerDay = costPerHour * hours;
+  const costPerMonth = costPerDay * days;
+  const costPerYear = costPerDay * 365;
+
+  const fmt = v => '$' + v.toFixed(2);
+
+  document.getElementById('sh-monthly').textContent = fmt(costPerMonth) + '/mo';
+  document.getElementById('sh-breakdown').innerHTML = `
+    <tr><td>Cost per hour</td><td>${fmt(costPerHour)}</td></tr>
+    <tr><td>Cost per day (${hours} hrs)</td><td>${fmt(costPerDay)}</td></tr>
+    <tr style="font-weight:700;"><td>Cost per month</td><td>${fmt(costPerMonth)}</td></tr>
+    <tr><td>Estimated annual cost</td><td>${fmt(costPerYear)}</td></tr>
+    <tr><td>kWh per day</td><td>${(kw * hours).toFixed(1)} kWh</td></tr>
+  `;
+  const r = document.getElementById('sh-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
