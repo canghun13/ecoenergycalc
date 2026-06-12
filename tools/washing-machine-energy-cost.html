@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Washing Machine Energy Cost Calculator – Cost Per Load, Month & Year | EcoEnergyCalc</title>
+  <meta name="description" content="Calculate exactly how much your washing machine costs to run per load, per month, and per year. See how water temperature and load frequency affect your bill." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/washing-machine-energy-cost.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Washing Machine Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/washing-machine-energy-cost.html","description":"Calculate exactly how much your washing machine costs to run per load, per month, and per year. See how water temperature and load frequency affect your bill.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-12","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/#tools">Calculators</a> › Washing Machine Energy Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Washing Machine Energy Cost Calculator</h1>
+        <p>Find out exactly what your washing machine costs per load, per month, and per year — and how much you'd save by switching to cold water or upgrading to an ENERGY STAR model.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Washing Machine Cost</h2>
+            <div class="form-group">
+              <label for="wm-type">Washer Type</label>
+              <select id="wm-type" onchange="setWasherDefaults()">
+                <option value="top_standard">Top-load, standard (500W motor, 40 gal/load)</option>
+                <option value="top_he">Top-load, HE (400W motor, 25 gal/load)</option>
+                <option value="front_standard">Front-load, standard (350W motor, 20 gal/load)</option>
+                <option value="front_es" selected>Front-load, ENERGY STAR (300W motor, 14 gal/load)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="wm-temp">Water Temperature</label>
+              <select id="wm-temp">
+                <option value="hot">Hot (120°F — heats ~35 gal)</option>
+                <option value="warm">Warm (90°F — heats ~35 gal partially)</option>
+                <option value="cold" selected>Cold (no water heating)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="wm-loads">Loads Per Week</label>
+              <input type="number" id="wm-loads" value="5" min="1" max="30" />
+            </div>
+            <div class="form-group">
+              <label for="wm-elec-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="wm-elec-rate" value="13" min="1" step="0.1" />
+            </div>
+            <div class="form-group">
+              <label for="wm-water-rate">Water Rate ($/1,000 gallons) <span style="font-weight:400;font-size:0.9em;">— U.S. avg ~$5</span></label>
+              <input type="number" id="wm-water-rate" value="5" min="0" step="0.1" />
+            </div>
+            <button class="btn-primary" onclick="calcWasher()">Calculate Cost</button>
+            <div class="result-box-tool" id="wm-result">
+              <h3>Washing Machine Running Cost</h3>
+              <div class="result-amount" id="wm-annual"></div>
+              <table id="wm-breakdown"></table>
+              <p class="result-note">Electricity cost based on motor wattage and water heating. Water heating assumes an electric water heater at your entered electricity rate. Actual costs depend on cycle length, water heater efficiency, and local utility rates.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>What Actually Drives Washing Machine Energy Cost?</h2>
+            <p>Most people assume the washing machine motor is the main energy draw. It isn't. The motor on a modern washing machine draws only 300–500 watts — but that motor runs for only about 45–60 minutes per load, using roughly 0.25–0.5 kWh total. At 13¢/kWh, that's 3–7¢ per load in motor electricity.</p>
+            <p>The real cost is <strong>water heating</strong>. Heating water from 55°F (typical cold tap) to 120°F (hot wash) requires roughly 0.2 kWh per gallon. A standard top-loader using 35 gallons of hot water per load uses about 7 kWh just for heating — costing 91¢ at 13¢/kWh, or roughly 15–30x the cost of running the motor. This is why switching to cold water is far more impactful than any other single behavioral change for washers.</p>
+
+            <h2>Hot vs. Cold Water: The Real Cost Difference</h2>
+            <p>Here's the per-load cost breakdown for a standard top-load washer at the national average electricity rate of 13¢/kWh:</p>
+            <ul>
+              <li><strong>Hot water wash:</strong> Motor (0.4 kWh) + water heating (7.0 kWh) = 7.4 kWh total → <strong>96¢/load</strong></li>
+              <li><strong>Warm water wash:</strong> Motor (0.4 kWh) + partial heating (3.5 kWh) = 3.9 kWh total → <strong>51¢/load</strong></li>
+              <li><strong>Cold water wash:</strong> Motor only (0.4 kWh) → <strong>5¢/load</strong></li>
+            </ul>
+            <p>At 5 loads per week, switching from hot to cold water saves about <strong>$95/year</strong>. The water heating cost is so dominant that it makes cold-water washing the single most impactful washer efficiency change available — and it costs nothing.</p>
+            <p>Modern detergents — including standard liquid detergents like Tide and Persil — are formulated to clean effectively in cold water. The only cases where warm or hot water provides a meaningful advantage: cloth diapers, heavily soiled work clothes, or items where sanitization is specifically required (like bedding after illness).</p>
+
+            <h2>Washer Type Comparison: Annual Cost at 5 Loads/Week</h2>
+            <p>Using cold water at 13¢/kWh (motor energy only), the cost difference between washer types is modest:</p>
+            <ul>
+              <li><strong>Standard top-loader (500W motor, 45 min/load):</strong> ~$10/year in electricity</li>
+              <li><strong>HE top-loader (400W motor, 50 min/load):</strong> ~$9/year in electricity</li>
+              <li><strong>Standard front-loader (350W motor, 75 min/load):</strong> ~$11/year in electricity</li>
+              <li><strong>ENERGY STAR front-loader (300W motor, 75 min/load):</strong> ~$9/year in electricity</li>
+            </ul>
+            <p>With cold water, the electricity cost difference between washer types is under $2/year — almost negligible. The real advantage of ENERGY STAR front-loaders is <strong>water savings</strong>: 14 gallons per load vs. 40 gallons for a standard top-loader. At 5 loads/week and a water rate of $5/1,000 gallons, that's a savings of $34/year in water costs. In areas with higher water rates or tiered pricing, savings can reach $60–80/year.</p>
+
+            <h2>How Washing Machine Water Costs Add Up</h2>
+            <p>At the national average water rate of ~$5 per 1,000 gallons:</p>
+            <ul>
+              <li>Standard top-loader (40 gal/load, 5 loads/week): ~$52/year in water</li>
+              <li>HE top-loader (25 gal/load): ~$33/year in water</li>
+              <li>Front-loader (20 gal/load): ~$26/year in water</li>
+              <li>ENERGY STAR front-loader (14 gal/load): ~$18/year in water</li>
+            </ul>
+            <p>In high-rate utility areas (western U.S., many cities), water rates of $10–20/1,000 gallons are common. At $15/1,000 gallons, switching from a standard top-loader to an ENERGY STAR front-loader saves $88/year in water alone — significantly improving the payback on a new machine.</p>
+
+            <h2>Is an ENERGY STAR Washer Worth the Upgrade?</h2>
+            <p>If you're replacing an aging top-loader with a new machine, an ENERGY STAR front-loader typically costs $200–400 more than a standard top-loader. At cold-water washing, annual savings are primarily from water: $34–70/year depending on your water rate. Payback period: 3–8 years.</p>
+            <p>If you're still using hot or warm water with a standard top-loader, switching water temperature delivers the same energy savings immediately at zero cost — making it a better first step than a new appliance. Once you've made the temperature switch and need to replace the machine anyway, an ENERGY STAR front-loader is the right choice for most households.</p>
+            <p>See our full <a href="/blog/how-to-save-on-laundry-energy-costs.html">laundry energy savings guide</a> for the complete picture including dryer costs — which are typically 4–6x higher than washer costs and where the biggest savings opportunities actually live.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/water-usage.html">Water Usage Calculator</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-to-save-on-laundry-energy-costs.html">Save on Laundry Energy Costs</a></li>
+              <li><a href="/blog/how-much-water-does-a-washing-machine-use.html">Washing Machine Water Usage</a></li>
+              <li><a href="/blog/how-much-does-it-cost-to-run-a-dryer.html">Cost to Run a Dryer</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>90% of washer energy: <strong>water heating</strong></li>
+              <li>Cold vs hot wash saves: <strong>~$95/yr</strong></li>
+              <li>ENERGY STAR front-loader: <strong>14 gal/load</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+const washerDefaults = {
+  top_standard: { watts: 500, gallons: 40, minutes: 45 },
+  top_he:       { watts: 400, gallons: 25, minutes: 50 },
+  front_standard:{ watts: 350, gallons: 20, minutes: 75 },
+  front_es:     { watts: 300, gallons: 14, minutes: 75 }
+};
+
+function setWasherDefaults() {
+  // Visual only — defaults used internally in calc
+}
+
+function calcWasher() {
+  const type = document.getElementById('wm-type').value;
+  const temp = document.getElementById('wm-temp').value;
+  const loadsPerWeek = parseFloat(document.getElementById('wm-loads').value) || 5;
+  const elecRate = parseFloat(document.getElementById('wm-elec-rate').value) / 100 || 0.13;
+  const waterRate = parseFloat(document.getElementById('wm-water-rate').value) / 1000 || 0.005;
+
+  const d = washerDefaults[type];
+  const motorKwh = (d.watts / 1000) * (d.minutes / 60);
+
+  // Water heating kWh: ~0.2 kWh per gallon to heat from 55°F to 120°F
+  // Warm = half the heat of hot
+  const heatingKwhPerGal = 0.2;
+  let heatingKwh = 0;
+  if (temp === 'hot') heatingKwh = d.gallons * heatingKwhPerGal;
+  else if (temp === 'warm') heatingKwh = d.gallons * heatingKwhPerGal * 0.5;
+
+  const totalKwhPerLoad = motorKwh + heatingKwh;
+  const elecCostPerLoad = totalKwhPerLoad * elecRate;
+  const waterCostPerLoad = d.gallons * waterRate;
+  const totalCostPerLoad = elecCostPerLoad + waterCostPerLoad;
+
+  const loadsPerYear = loadsPerWeek * 52;
+  const elecPerYear = elecCostPerLoad * loadsPerYear;
+  const waterPerYear = waterCostPerLoad * loadsPerYear;
+  const totalPerYear = totalCostPerLoad * loadsPerYear;
+  const totalPerMonth = totalPerYear / 12;
+
+  const fmt2 = v => '$' + v.toFixed(2);
+  const fmtR = v => '$' + Math.round(v);
+
+  document.getElementById('wm-annual').textContent = fmtR(totalPerYear) + '/yr';
+  document.getElementById('wm-breakdown').innerHTML = `
+    <tr><td>Energy per load</td><td>${totalKwhPerLoad.toFixed(2)} kWh</td></tr>
+    <tr><td>Electricity cost per load</td><td>${fmt2(elecCostPerLoad)}</td></tr>
+    <tr><td>Water cost per load</td><td>${fmt2(waterCostPerLoad)}</td></tr>
+    <tr><td>Total cost per load</td><td>${fmt2(totalCostPerLoad)}</td></tr>
+    <tr><td>Monthly cost (${loadsPerWeek} loads/wk)</td><td>${fmt2(totalPerMonth)}</td></tr>
+    <tr style="font-weight:700;"><td>Annual total</td><td>${fmtR(totalPerYear)}</td></tr>
+    <tr><td>Annual electricity</td><td>${fmtR(elecPerYear)}</td></tr>
+    <tr><td>Annual water</td><td>${fmtR(waterPerYear)}</td></tr>
+  `;
+  const r = document.getElementById('wm-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

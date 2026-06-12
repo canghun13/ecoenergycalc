@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <li><a href="/tools/tree-planting-offset.html">Tree Planting Offset</a></li>
               <li><a href="/tools/green-home-upgrade-roi.html">Green Home Upgrade ROI</a></li>
               <li><a href="/tools/space-heater-cost-calculator.html">Space Heater Cost Calculator</a></li>
+              <li><a href="/tools/washing-machine-energy-cost.html">Washing Machine Energy Cost</a></li>
             </ul>
           </li>
           <li id="nav-blog"><a href="/blog/">Blog</a></li>

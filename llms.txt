@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 21 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 22 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -24,6 +24,7 @@ Tools for estimating home energy costs and identifying savings opportunities.
 - [Heating vs Cooling Cost Calculator](https://ecoenergycalc.com/tools/heating-vs-cooling.html): Compare seasonal heating and cooling costs to find where energy dollars go
 - [Heating Cost by Fuel Type Calculator](https://ecoenergycalc.com/tools/heating-cost-by-fuel.html): Compare annual home heating costs across natural gas, electric resistance, heat pump, propane, and heating oil at user-specified local rates
 - [Space Heater Cost Calculator](https://ecoenergycalc.com/tools/space-heater-cost-calculator.html): Calculate exact cost to run a space heater per hour, day, and month by wattage and electricity rate
+- [Washing Machine Energy Cost Calculator](https://ecoenergycalc.com/tools/washing-machine-energy-cost.html): Calculate washing machine running cost per load, month, and year including electricity and water costs by washer type and temperature setting
 
 ## Calculators: Solar & Renewables
 
@@ -57,6 +58,8 @@ Tools for water usage and rainwater harvesting.
 
 In-depth guides on energy savings, solar, carbon reduction, and environmental topics.
 
+- [How to Save on Laundry Energy Costs: Washer & Dryer Guide](https://ecoenergycalc.com/blog/how-to-save-on-laundry-energy-costs.html): Complete breakdown of where laundry energy costs come from and ranked savings changes — from free cold-water switching to heat pump dryer upgrades
+- [How Much Does an EV Save on Fuel Costs? Real Numbers by State](https://ecoenergycalc.com/blog/how-much-does-an-ev-save-on-fuel-costs.html): State-by-state EV fuel savings calculation with the formula, real cost comparisons, and the impact of home vs. public charging
 - [How to Lower Your Heating Bill: 12 Ways to Cut Costs This Winter](https://ecoenergycalc.com/blog/how-to-lower-your-heating-bill.html): Ranked guide from free thermostat adjustments to heat pump upgrades — with real savings estimates for each
 - [How Much Water Does a Washing Machine Use Per Load?](https://ecoenergycalc.com/blog/how-much-water-does-a-washing-machine-use.html): Water usage by washer type, financial case for ENERGY STAR upgrade, and how to reduce laundry water use
 - [What to Know Before Installing Solar Panels](https://ecoenergycalc.com/blog/solar-panel-guide.html): Costs, incentives, payback periods, choosing an installer, and common mistakes — complete pre-purchase guide
