@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
               <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings</a></li>
               <li><a href="/tools/solar-panel-roi.html">Solar Panel ROI</a></li>
+              <li><a href="/tools/solar-co2-offset-calculator.html">Solar CO2 Offset</a></li>
               <li><a href="/tools/wind-turbine.html">Wind Turbine Calculator</a></li>
               <li><a href="/tools/battery-storage.html">Battery Storage Calculator</a></li>
               <li><a href="/tools/carbon-footprint.html">Carbon Footprint</a></li>

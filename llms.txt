@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 22 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 23 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -32,6 +32,7 @@ Tools for evaluating solar panels, wind turbines, and battery storage.
 
 - [Solar Panel Savings Calculator](https://ecoenergycalc.com/tools/solar-panel-savings.html): Estimate annual electricity savings from a solar installation based on location, system size, and current bill
 - [Solar Panel ROI Calculator](https://ecoenergycalc.com/tools/solar-panel-roi.html): Calculate payback period and 25-year return on investment for a solar system after incentives
+- [Solar CO2 Offset Calculator](https://ecoenergycalc.com/tools/solar-co2-offset-calculator.html): Calculate how much CO2 solar panels offset per year and over 25 years — with tree-planting and car-miles equivalents
 - [Wind Turbine Calculator](https://ecoenergycalc.com/tools/wind-turbine.html): Estimate electricity output and savings from a small home wind turbine
 - [Battery Storage Calculator](https://ecoenergycalc.com/tools/battery-storage.html): Find the right battery storage size for a home solar setup and model financial impact
 - [Green Home Upgrade ROI Calculator](https://ecoenergycalc.com/tools/green-home-upgrade-roi.html): Compare payback period and long-term return across green home upgrades (solar, insulation, heat pump, LED, smart thermostat, windows)
@@ -58,6 +59,8 @@ Tools for water usage and rainwater harvesting.
 
 In-depth guides on energy savings, solar, carbon reduction, and environmental topics.
 
+- [How Much CO2 Does Solar Save? Real Numbers by System Size](https://ecoenergycalc.com/blog/how-much-co2-does-solar-save.html): Full carbon math behind residential solar — annual and lifetime CO2 offset by system size, grid region, and real-world equivalents
+- [Best Thermostat Settings to Save Money on Heating and Cooling](https://ecoenergycalc.com/blog/best-thermostat-settings-to-save-money.html): DOE-recommended temperature targets by season and time of day, with real savings estimates and system-type guidance
 - [How to Save on Laundry Energy Costs: Washer & Dryer Guide](https://ecoenergycalc.com/blog/how-to-save-on-laundry-energy-costs.html): Complete breakdown of where laundry energy costs come from and ranked savings changes — from free cold-water switching to heat pump dryer upgrades
 - [How Much Does an EV Save on Fuel Costs? Real Numbers by State](https://ecoenergycalc.com/blog/how-much-does-an-ev-save-on-fuel-costs.html): State-by-state EV fuel savings calculation with the formula, real cost comparisons, and the impact of home vs. public charging
 - [How to Lower Your Heating Bill: 12 Ways to Cut Costs This Winter](https://ecoenergycalc.com/blog/how-to-lower-your-heating-bill.html): Ranked guide from free thermostat adjustments to heat pump upgrades — with real savings estimates for each

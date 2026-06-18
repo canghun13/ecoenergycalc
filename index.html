@@ -132,6 +132,13 @@
           <span class="tool-link">Calculate now →</span>
         </a>
 
+        <a href="/tools/solar-co2-offset-calculator.html" class="tool-card">
+          <div class="tool-icon">🌿</div>
+          <h3>Solar CO2 Offset Calculator</h3>
+          <p>See how many tons of CO2 your solar panels offset per year — and the tree-planting equivalent.</p>
+          <span class="tool-link">Calculate now →</span>
+        </a>
+
         <a href="/tools/wind-turbine.html" class="tool-card">
           <div class="tool-icon">🌬️</div>
           <h3>Wind Turbine Calculator</h3>
@@ -274,32 +281,32 @@
       <p class="section-sub">Practical guides to help you save energy and reduce your footprint.</p>
       <div class="blog-grid">
 
-        <a href="/blog/how-to-save-on-laundry-energy-costs.html" class="blog-card">
+        <a href="/blog/how-much-co2-does-solar-save.html" class="blog-card" data-date="2026-06-18">
+          <span class="blog-tag">Solar</span>
+          <h3>How Much CO2 Does Solar Save? Real Numbers by System Size</h3>
+          <p>A 6kW solar system offsets ~5 metric tons of CO2 per year — equal to planting 230 trees. Here's the full carbon math.</p>
+          <span class="blog-meta">9 min read</span>
+        </a>
+
+        <a href="/blog/best-thermostat-settings-to-save-money.html" class="blog-card" data-date="2026-06-18">
+          <span class="blog-tag">Energy Savings</span>
+          <h3>Best Thermostat Settings to Save Money on Heating and Cooling</h3>
+          <p>The right thermostat settings cut your HVAC bill by 10–15% with zero investment. Here are the exact temperatures — by season and time of day.</p>
+          <span class="blog-meta">8 min read</span>
+        </a>
+
+        <a href="/blog/how-to-save-on-laundry-energy-costs.html" class="blog-card" data-date="2026-06-12">
           <span class="blog-tag">Energy Savings</span>
           <h3>How to Save on Laundry Energy Costs: Washer & Dryer Guide</h3>
           <p>Your washer and dryer cost $150–250/year to run. Here's exactly where that money goes and what cuts it most.</p>
           <span class="blog-meta">10 min read</span>
         </a>
 
-        <a href="/blog/how-much-does-an-ev-save-on-fuel-costs.html" class="blog-card">
+        <a href="/blog/how-much-does-an-ev-save-on-fuel-costs.html" class="blog-card" data-date="2026-06-12">
           <span class="blog-tag">Carbon & Transport</span>
           <h3>How Much Does an EV Save on Fuel Costs? Real Numbers by State</h3>
           <p>The average EV saves $800–1,400/year on fuel. Here's how to calculate your exact savings based on your state's rates.</p>
           <span class="blog-meta">11 min read</span>
-        </a>
-
-        <a href="/blog/how-to-lower-your-heating-bill.html" class="blog-card">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>How to Lower Your Heating Bill: 12 Ways to Cut Costs This Winter</h3>
-          <p>From free thermostat adjustments to heat pump upgrades — ranked by payback speed with real savings estimates.</p>
-          <span class="blog-meta">9 min read</span>
-        </a>
-
-        <a href="/blog/how-much-water-does-a-washing-machine-use.html" class="blog-card">
-          <span class="blog-tag">Water</span>
-          <h3>How Much Water Does a Washing Machine Use Per Load?</h3>
-          <p>Standard washers use 40–45 gallons per load. ENERGY STAR models use 14–25. The full breakdown and upgrade math.</p>
-          <span class="blog-meta">8 min read</span>
         </a>
 
       </div>
@@ -321,5 +328,18 @@
 </main>
 
 <script src="/assets/js/nav.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const grid = document.querySelector('.blog-section .blog-grid');
+  if (!grid) return;
+  const cards = Array.from(grid.querySelectorAll('.blog-card'));
+  cards.sort((a, b) => {
+    const da = a.dataset.date || '2000-01-01';
+    const db = b.dataset.date || '2000-01-01';
+    return db.localeCompare(da);
+  });
+  cards.forEach(c => grid.appendChild(c));
+});
+</script>
 </body>
 </html>
