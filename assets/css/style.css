@@ -1109,3 +1109,27 @@ table tr:last-child td { border-bottom: none; }
     overflow-y: auto;
   }
 }
+
+
+/* ── Tools filter tabs ── */
+.filter-btn {
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.filter-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.filter-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}

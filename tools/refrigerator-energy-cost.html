@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refrigerator Energy Cost Calculator – Annual Running Cost | EcoEnergyCalc</title>
+  <meta name="description" content="Calculate how much your refrigerator costs to run per day, month, and year. Compare old vs new models and see how much an ENERGY STAR upgrade actually saves." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/refrigerator-energy-cost.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Refrigerator Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/refrigerator-energy-cost.html","description":"Calculate how much your refrigerator costs to run per day, month, and year. Compare old vs new models and see how much an ENERGY STAR upgrade actually saves.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-24","dateModified":"2026-06-24","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Refrigerator Energy Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Refrigerator Energy Cost Calculator</h1>
+        <p>Find out exactly how much your refrigerator costs to run annually — and how much you'd save by upgrading to an ENERGY STAR model or replacing an old unit.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Refrigerator Running Cost</h2>
+            <div class="form-group">
+              <label for="fridge-type">Refrigerator Type</label>
+              <select id="fridge-type" onchange="setFridgeDefaults()">
+                <option value="top_old">Top-freezer, pre-2000 (150W average running)</option>
+                <option value="top_modern" selected>Top-freezer, modern (80W average running)</option>
+                <option value="top_es">Top-freezer, ENERGY STAR (60W average running)</option>
+                <option value="french_modern">French door, modern (120W average running)</option>
+                <option value="french_es">French door, ENERGY STAR (90W average running)</option>
+                <option value="side_modern">Side-by-side, modern (130W average running)</option>
+                <option value="mini">Mini fridge (35W average running)</option>
+                <option value="custom">Custom — enter wattage below</option>
+              </select>
+            </div>
+            <div class="form-group" id="custom-watts-group" style="display:none;">
+              <label for="fridge-watts">Average Running Wattage</label>
+              <input type="number" id="fridge-watts" value="80" min="10" max="500" />
+            </div>
+            <div class="form-group">
+              <label for="fridge-elec-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="fridge-elec-rate" value="13" min="1" step="0.1" />
+            </div>
+            <button class="btn-primary" onclick="calcFridge()">Calculate Cost</button>
+            <div class="result-box-tool" id="fridge-result">
+              <h3>Refrigerator Running Cost</h3>
+              <div class="result-amount" id="fridge-annual"></div>
+              <table id="fridge-breakdown"></table>
+              <p class="result-note">Refrigerator wattage shown is average running wattage, not peak wattage. Fridges cycle on and off — the compressor runs roughly 30–50% of the time. Actual costs depend on ambient temperature, door-opening frequency, and fridge age. Data based on DOE and ENERGY STAR standards.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How Much Does a Refrigerator Cost to Run?</h2>
+            <p>The refrigerator is one of the few appliances that runs 24 hours a day, 365 days a year — making it a significant contributor to the annual electricity bill even though it doesn't draw as much power as a dryer or air conditioner. A modern top-freezer refrigerator running at an average of 80 watts costs about <strong>$91/year</strong> at the U.S. average rate of 13¢/kWh. An older pre-2000 model drawing 150 watts costs nearly <strong>$171/year</strong>.</p>
+            <p>The key figure to understand is <em>average running wattage</em>, not rated wattage. Refrigerator compressors cycle on and off — typically running about 30–50% of the time. A fridge rated at 200W peak might only average 80–100W when measured over 24 hours. The most accurate way to find your fridge's real consumption is to check its EnergyGuide label (annual kWh) or use a plug-in energy monitor.</p>
+
+            <h2>Refrigerator Annual Cost by Type</h2>
+            <p>At 13¢/kWh, estimated annual running costs by fridge type:</p>
+            <ul>
+              <li><strong>Pre-2000 top-freezer (150W avg):</strong> ~$171/year</li>
+              <li><strong>Modern top-freezer (80W avg):</strong> ~$91/year</li>
+              <li><strong>ENERGY STAR top-freezer (60W avg):</strong> ~$68/year</li>
+              <li><strong>Modern French door (120W avg):</strong> ~$137/year</li>
+              <li><strong>ENERGY STAR French door (90W avg):</strong> ~$103/year</li>
+              <li><strong>Modern side-by-side (130W avg):</strong> ~$148/year</li>
+              <li><strong>Mini fridge (35W avg):</strong> ~$40/year</li>
+            </ul>
+            <p>Replacing a pre-2000 refrigerator with a modern ENERGY STAR top-freezer saves roughly $100/year in electricity. Over a 15-year lifespan, that's $1,500 in savings — often exceeding the cost of a new mid-range refrigerator.</p>
+
+            <h2>Is Upgrading Your Refrigerator Worth It?</h2>
+            <p>If your refrigerator was made before 2001, upgrading is almost always financially justified on electricity savings alone — even before accounting for potential reliability repairs on an aging unit. Post-2001 fridges are significantly more efficient, so the case for replacement is weaker unless the unit is failing.</p>
+            <p>ENERGY STAR certified refrigerators must meet efficiency standards at least 9% better than the federal minimum. In practice, ENERGY STAR top-freezer models use 15–25% less energy than non-certified equivalents of the same size. For a household replacing a standard modern model with an ENERGY STAR one, annual savings are modest ($15–30/year) — making the payback period on a premium ENERGY STAR model quite long unless other factors (size, features, reliability) also favor the upgrade.</p>
+
+            <h2>Tips to Reduce Refrigerator Energy Use</h2>
+            <ul>
+              <li><strong>Set the right temperature</strong> — The FDA recommends 35–38°F for the fridge compartment and 0°F for the freezer. Colder settings waste energy with no food safety benefit.</li>
+              <li><strong>Keep the coils clean</strong> — Dust on condenser coils forces the compressor to work harder. Vacuuming the coils once a year (usually accessible at the back or bottom) can improve efficiency by 10–15%.</li>
+              <li><strong>Don't leave the door open</strong> — Every minute the door is open lets warm air in and forces the compressor to run longer.</li>
+              <li><strong>Keep it full (but not packed)</strong> — A well-stocked fridge holds temperature better than an empty one. Thermal mass helps. But overpacking blocks airflow and increases compressor load.</li>
+              <li><strong>Check door seals</strong> — A deteriorated gasket lets cold air escape continuously. Test by closing the door on a piece of paper — it should resist pulling out.</li>
+              <li><strong>Move it away from heat sources</strong> — A fridge next to the oven or in direct sunlight works harder to maintain temperature. A few degrees of ambient heat can increase energy use by 10–15%.</li>
+            </ul>
+
+            <p>For a full breakdown of home appliance energy costs, see our <a href="/tools/appliance-energy-cost.html">Appliance Energy Cost Calculator</a> or the <a href="/blog/how-much-does-it-cost-to-run-a-refrigerator.html">complete refrigerator running cost guide</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/dryer-energy-cost.html">Dryer Energy Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-much-does-it-cost-to-run-a-refrigerator.html">Cost to Run a Refrigerator</a></li>
+              <li><a href="/blog/reduce-electric-bill.html">15 Ways to Reduce Your Electric Bill</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Pre-2000 fridge: <strong>~$171/yr</strong></li>
+              <li>Modern ENERGY STAR: <strong>~$68/yr</strong></li>
+              <li>Upgrade savings: <strong>~$100/yr</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+const fridgeWatts = {
+  top_old: 150,
+  top_modern: 80,
+  top_es: 60,
+  french_modern: 120,
+  french_es: 90,
+  side_modern: 130,
+  mini: 35,
+  custom: null
+};
+
+function setFridgeDefaults() {
+  const type = document.getElementById('fridge-type').value;
+  const customGroup = document.getElementById('custom-watts-group');
+  customGroup.style.display = type === 'custom' ? 'block' : 'none';
+  if (type !== 'custom') {
+    document.getElementById('fridge-watts').value = fridgeWatts[type];
+  }
+}
+
+function calcFridge() {
+  const type = document.getElementById('fridge-type').value;
+  const watts = type === 'custom'
+    ? parseFloat(document.getElementById('fridge-watts').value) || 80
+    : fridgeWatts[type];
+  const elecRate = parseFloat(document.getElementById('fridge-elec-rate').value) / 100 || 0.13;
+
+  const dailyKwh = (watts / 1000) * 24;
+  const monthlyKwh = dailyKwh * 30.44;
+  const annualKwh = dailyKwh * 365;
+  const dailyCost = dailyKwh * elecRate;
+  const monthlyCost = monthlyKwh * elecRate;
+  const annualCost = annualKwh * elecRate;
+
+  const fmt2 = v => '$' + v.toFixed(2);
+  const fmtR = v => '$' + Math.round(v);
+
+  document.getElementById('fridge-annual').textContent = fmtR(annualCost) + '/yr';
+  document.getElementById('fridge-breakdown').innerHTML = `
+    <tr><td>Average running wattage</td><td>${watts}W</td></tr>
+    <tr><td>Daily energy use</td><td>${dailyKwh.toFixed(2)} kWh</td></tr>
+    <tr><td>Daily cost</td><td>${fmt2(dailyCost)}</td></tr>
+    <tr><td>Monthly cost</td><td>${fmt2(monthlyCost)}</td></tr>
+    <tr style="font-weight:700;"><td>Annual cost</td><td>${fmtR(annualCost)}</td></tr>
+    <tr><td>Annual energy use</td><td>${Math.round(annualKwh)} kWh</td></tr>
+  `;
+  const r = document.getElementById('fridge-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

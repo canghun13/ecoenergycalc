@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dryer Energy Cost Calculator – Cost Per Load, Month & Year | EcoEnergyCalc</title>
+  <meta name="description" content="Calculate exactly how much your dryer costs to run per load, per month, and per year. Compare electric vs gas dryers and see how usage frequency affects your bill." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/dryer-energy-cost.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Dryer Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/dryer-energy-cost.html","description":"Calculate exactly how much your dryer costs to run per load, per month, and per year. Compare electric vs gas dryers and see how usage frequency affects your bill.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-24","dateModified":"2026-06-24","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Dryer Energy Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Dryer Energy Cost Calculator</h1>
+        <p>Find out exactly what your clothes dryer costs per load, per month, and per year — and how much you'd save by running fewer loads or upgrading to a heat pump dryer.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Dryer Running Cost</h2>
+            <div class="form-group">
+              <label for="dryer-type">Dryer Type</label>
+              <select id="dryer-type" onchange="setDryerDefaults()">
+                <option value="electric_standard">Electric, standard (5,000W)</option>
+                <option value="electric_es" selected>Electric, ENERGY STAR (4,000W)</option>
+                <option value="heat_pump">Heat pump dryer (2,000W)</option>
+                <option value="gas">Gas dryer (electric motor only: 700W + gas)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dryer-time">Minutes Per Load</label>
+              <input type="number" id="dryer-time" value="45" min="10" max="120" />
+            </div>
+            <div class="form-group">
+              <label for="dryer-loads">Loads Per Week</label>
+              <input type="number" id="dryer-loads" value="5" min="1" max="50" />
+            </div>
+            <div class="form-group">
+              <label for="dryer-elec-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="dryer-elec-rate" value="13" min="1" step="0.1" />
+            </div>
+            <div class="form-group" id="gas-rate-group" style="display:none;">
+              <label for="dryer-gas-rate">Natural Gas Rate ($/therm) <span style="font-weight:400;font-size:0.9em;">— U.S. avg ~$1.30</span></label>
+              <input type="number" id="dryer-gas-rate" value="1.30" min="0" step="0.01" />
+            </div>
+            <button class="btn-primary" onclick="calcDryer()">Calculate Cost</button>
+            <div class="result-box-tool" id="dryer-result">
+              <h3>Dryer Running Cost</h3>
+              <div class="result-amount" id="dryer-annual"></div>
+              <table id="dryer-breakdown"></table>
+              <p class="result-note">Electric dryer costs based on wattage × cycle time. Gas dryer costs include motor electricity plus natural gas at ~22,000 BTU/hour (0.22 therms/hour). Actual costs vary by dryer model, load size, and local utility rates.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How Much Does a Dryer Cost to Run?</h2>
+            <p>A standard electric dryer draws around 4,000–5,000 watts and runs 45–60 minutes per load. At the U.S. average electricity rate of 13¢/kWh, a single load costs roughly <strong>$0.39–$0.65</strong>. At 5 loads per week, that's <strong>$100–$170 per year</strong> just for the dryer — making it one of the top 5 energy-consuming appliances in the typical home.</p>
+            <p>Gas dryers are cheaper to run in most regions. A gas dryer uses about 22,000 BTU/hour of natural gas (0.22 therms/hour) plus a small amount of electricity to run the motor and controls. At an average gas rate of $1.30/therm and 45-minute cycles, gas fuel cost is about $0.21/load — compared to $0.39–$0.65 for a comparable electric dryer. Over a year at 5 loads/week, a gas dryer costs roughly $55–75 in gas vs. $100–170 in electricity.</p>
+
+            <h2>Electric vs Gas Dryer: Annual Cost Comparison</h2>
+            <p>At 5 loads per week, 45-minute cycles, 13¢/kWh electricity, $1.30/therm gas:</p>
+            <ul>
+              <li><strong>Standard electric (5,000W):</strong> 3.75 kWh/load → $0.49/load → <strong>$127/year</strong></li>
+              <li><strong>ENERGY STAR electric (4,000W):</strong> 3.0 kWh/load → $0.39/load → <strong>$101/year</strong></li>
+              <li><strong>Heat pump dryer (2,000W):</strong> 1.5 kWh/load → $0.20/load → <strong>$51/year</strong></li>
+              <li><strong>Gas dryer:</strong> 0.22 therms + 0.53 kWh/load → $0.35/load → <strong>$91/year</strong></li>
+            </ul>
+            <p>Heat pump dryers use 40–50% less energy than conventional electric dryers by recirculating heated air instead of exhausting it. They typically cost $300–600 more upfront, but annual savings of $50–80 mean a payback period of 4–8 years — and they run at lower temperatures, which is gentler on fabrics.</p>
+
+            <h2>What Affects Dryer Running Cost Most?</h2>
+            <p>Unlike washing machines, where water temperature dominates the energy bill, dryer costs are driven almost entirely by three factors:</p>
+            <ul>
+              <li><strong>Cycle time</strong> — The single biggest variable. A 45-minute cycle uses 25% less energy than a 60-minute one. The most effective way to cut dryer costs is to spin clothes longer in the washer (reducing moisture content) and clean the lint filter before every load to maintain airflow.</li>
+              <li><strong>Dryer wattage</strong> — Standard electric dryers range from 4,000–6,000 watts. ENERGY STAR models are typically 4,000–4,500W. Heat pump dryers run at 1,800–2,200W.</li>
+              <li><strong>Load frequency</strong> — At $0.39–0.65/load, reducing from 7 loads to 5 loads per week saves $20–35/year with no other changes.</li>
+            </ul>
+
+            <h2>Tips to Lower Your Dryer Energy Bill</h2>
+            <ul>
+              <li><strong>Clean the lint filter every load</strong> — A clogged filter reduces airflow, extending drying time by 20–30%. This is free and takes 10 seconds.</li>
+              <li><strong>Spin clothes longer in the washer</strong> — Higher spin speeds remove more water mechanically. Getting clothes from 70% to 50% moisture content before drying cuts dryer time significantly.</li>
+              <li><strong>Dry full loads</strong> — Small loads use nearly as much energy as full loads. Combine where possible.</li>
+              <li><strong>Use the moisture sensor setting</strong> — If your dryer has a sensor dry option, use it instead of timed dry. It stops the cycle when clothes are actually dry.</li>
+              <li><strong>Dry similar fabrics together</strong> — Heavy towels and lightweight t-shirts have very different drying times. Mixing them means the lighter items over-dry while waiting for heavier ones.</li>
+              <li><strong>Run dryer during off-peak hours</strong> — If you're on a time-of-use electricity plan, evening loads can cost 20–50% less per kWh.</li>
+            </ul>
+
+            <p>For the full picture on laundry costs including washing machine expenses, see our <a href="/blog/how-much-does-it-cost-to-run-a-dryer.html">complete guide to dryer running costs</a> and <a href="/blog/how-to-save-on-laundry-energy-costs.html">laundry energy savings guide</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/washing-machine-energy-cost.html">Washing Machine Energy Cost</a></li>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-much-does-it-cost-to-run-a-dryer.html">Cost to Run a Dryer</a></li>
+              <li><a href="/blog/how-to-save-on-laundry-energy-costs.html">Save on Laundry Energy Costs</a></li>
+              <li><a href="/blog/how-much-water-does-a-washing-machine-use.html">Washing Machine Water Usage</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Standard electric dryer: <strong>~$127/yr</strong></li>
+              <li>Heat pump dryer: <strong>~$51/yr</strong></li>
+              <li>Clean lint filter saves: <strong>20–30%</strong> cycle time</li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+const dryerWatts = {
+  electric_standard: 5000,
+  electric_es: 4000,
+  heat_pump: 2000,
+  gas: 700
+};
+
+function setDryerDefaults() {
+  const type = document.getElementById('dryer-type').value;
+  document.getElementById('gas-rate-group').style.display = type === 'gas' ? 'block' : 'none';
+}
+
+function calcDryer() {
+  const type = document.getElementById('dryer-type').value;
+  const minutes = parseFloat(document.getElementById('dryer-time').value) || 45;
+  const loadsPerWeek = parseFloat(document.getElementById('dryer-loads').value) || 5;
+  const elecRate = parseFloat(document.getElementById('dryer-elec-rate').value) / 100 || 0.13;
+  const gasRate = parseFloat(document.getElementById('dryer-gas-rate').value) || 1.30;
+
+  const watts = dryerWatts[type];
+  const hours = minutes / 60;
+  const elecKwhPerLoad = (watts / 1000) * hours;
+  const elecCostPerLoad = elecKwhPerLoad * elecRate;
+
+  let gasCostPerLoad = 0;
+  let gasLabel = '';
+  if (type === 'gas') {
+    const thermsPerLoad = 0.22 * hours; // 22,000 BTU/hr = 0.22 therms/hr
+    gasCostPerLoad = thermsPerLoad * gasRate;
+    gasLabel = `Gas cost per load: $${gasCostPerLoad.toFixed(2)} (${thermsPerLoad.toFixed(3)} therms)`;
+  }
+
+  const totalCostPerLoad = elecCostPerLoad + gasCostPerLoad;
+  const loadsPerYear = loadsPerWeek * 52;
+  const annualCost = totalCostPerLoad * loadsPerYear;
+  const monthlyCost = annualCost / 12;
+  const annualKwh = elecKwhPerLoad * loadsPerYear;
+
+  const fmt2 = v => '$' + v.toFixed(2);
+  const fmtR = v => '$' + Math.round(v);
+
+  let extraRow = type === 'gas' ? `<tr><td>Gas cost per load</td><td>${fmt2(gasCostPerLoad)}</td></tr>` : '';
+
+  document.getElementById('dryer-annual').textContent = fmtR(annualCost) + '/yr';
+  document.getElementById('dryer-breakdown').innerHTML = `
+    <tr><td>Electricity per load</td><td>${elecKwhPerLoad.toFixed(2)} kWh</td></tr>
+    <tr><td>Electricity cost per load</td><td>${fmt2(elecCostPerLoad)}</td></tr>
+    ${extraRow}
+    <tr><td>Total cost per load</td><td>${fmt2(totalCostPerLoad)}</td></tr>
+    <tr><td>Monthly cost (${loadsPerWeek} loads/wk)</td><td>${fmt2(monthlyCost)}</td></tr>
+    <tr style="font-weight:700;"><td>Annual total</td><td>${fmtR(annualCost)}</td></tr>
+    <tr><td>Annual electricity used</td><td>${Math.round(annualKwh)} kWh</td></tr>
+  `;
+  const r = document.getElementById('dryer-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

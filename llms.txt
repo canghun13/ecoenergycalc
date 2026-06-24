@@ -7,6 +7,7 @@ EcoEnergyCalc is a collection of 23 free web-based calculators and educational a
 ## Core Pages
 
 - [Home](https://ecoenergycalc.com/): Full directory of all calculators and latest blog posts
+- [Tools](https://ecoenergycalc.com/tools/): All calculators with search and category filter
 - [About](https://ecoenergycalc.com/about.html): Site mission, methodology, and operator information
 - [Blog](https://ecoenergycalc.com/blog/): All articles, searchable by topic
 - [Privacy Policy](https://ecoenergycalc.com/privacy.html): Privacy policy and disclaimer
@@ -25,6 +26,8 @@ Tools for estimating home energy costs and identifying savings opportunities.
 - [Heating Cost by Fuel Type Calculator](https://ecoenergycalc.com/tools/heating-cost-by-fuel.html): Compare annual home heating costs across natural gas, electric resistance, heat pump, propane, and heating oil at user-specified local rates
 - [Space Heater Cost Calculator](https://ecoenergycalc.com/tools/space-heater-cost-calculator.html): Calculate exact cost to run a space heater per hour, day, and month by wattage and electricity rate
 - [Washing Machine Energy Cost Calculator](https://ecoenergycalc.com/tools/washing-machine-energy-cost.html): Calculate washing machine running cost per load, month, and year including electricity and water costs by washer type and temperature setting
+- [Dryer Energy Cost Calculator](https://ecoenergycalc.com/tools/dryer-energy-cost.html): Calculate the exact cost to run your dryer per load, month, and year by dryer type and electricity rate; compare electric vs gas vs heat pump dryers
+- [Refrigerator Energy Cost Calculator](https://ecoenergycalc.com/tools/refrigerator-energy-cost.html): Estimate how much your refrigerator costs to run per day, month, and year; compare old vs new models and ENERGY STAR savings
 
 ## Calculators: Solar & Renewables
 
@@ -59,6 +62,8 @@ Tools for water usage and rainwater harvesting.
 
 In-depth guides on energy savings, solar, carbon reduction, and environmental topics.
 
+- [How Much Does It Cost to Run a Refrigerator?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-a-refrigerator.html): Annual, monthly, and daily running costs by refrigerator type and age — with ENERGY STAR upgrade payback analysis
+- [How to Lower Your Electric Bill in Summer](https://ecoenergycalc.com/blog/how-to-lower-electric-bill-in-summer.html): 11 proven strategies ranked by dollar impact to cut summer cooling costs by 20–40% without sacrificing comfort
 - [How Much CO2 Does Solar Save? Real Numbers by System Size](https://ecoenergycalc.com/blog/how-much-co2-does-solar-save.html): Full carbon math behind residential solar — annual and lifetime CO2 offset by system size, grid region, and real-world equivalents
 - [Best Thermostat Settings to Save Money on Heating and Cooling](https://ecoenergycalc.com/blog/best-thermostat-settings-to-save-money.html): DOE-recommended temperature targets by season and time of day, with real savings estimates and system-type guidance
 - [How to Save on Laundry Energy Costs: Washer & Dryer Guide](https://ecoenergycalc.com/blog/how-to-save-on-laundry-energy-costs.html): Complete breakdown of where laundry energy costs come from and ranked savings changes — from free cold-water switching to heat pump dryer upgrades
