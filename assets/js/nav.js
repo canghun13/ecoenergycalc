@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
       <nav class="site-nav">
         <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
         <ul class="nav-links">
-          <li><a href="/">Home</a></li>
           <li id="nav-tools"><a href="/tools/">Tools</a></li>
+          <li id="nav-compare"><a href="/compare/">Compare</a></li>
           <li id="nav-blog"><a href="/blog/">Blog</a></li>
           <li><a href="/about.html">About</a></li>
         </ul>
@@ -50,6 +50,17 @@ document.addEventListener('DOMContentLoaded', function () {
           </ul>
         </div>
         <div class="footer-links">
+          <h4>Compare</h4>
+          <ul>
+            <li><a href="/compare/ev-vs-gas-car.html">EV vs Gas Car</a></li>
+            <li><a href="/compare/heat-pump-vs-furnace-vs-boiler.html">Heat Pump vs Furnace</a></li>
+            <li><a href="/compare/solar-lease-vs-buy-vs-loan.html">Solar Lease vs Buy</a></li>
+            <li><a href="/compare/induction-vs-gas-vs-electric-stove.html">Induction vs Gas Stove</a></li>
+            <li><a href="/compare/tankless-vs-tank-water-heater.html">Tankless vs Tank Water Heater</a></li>
+            <li><a href="/compare/" style="font-weight:600;">View all comparisons →</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
           <h4>Site</h4>
           <ul>
             <li><a href="/blog/">Blog</a></li>
@@ -71,14 +82,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const currentPath = window.location.pathname;
 
-  if (currentPath === '/' || currentPath === '/index.html') {
-    const homeLink = document.querySelector('.nav-links > li > a[href="/"]');
-    if (homeLink) homeLink.classList.add('nav-active');
-  }
-
   if (currentPath.startsWith('/tools/') || currentPath === '/tools') {
     const toolsLink = document.querySelector('#nav-tools > a');
     if (toolsLink) toolsLink.classList.add('nav-active');
+  }
+
+  if (currentPath.startsWith('/compare/') || currentPath === '/compare') {
+    const compareLink = document.querySelector('#nav-compare > a');
+    if (compareLink) compareLink.classList.add('nav-active');
   }
 
   if (currentPath.startsWith('/blog/') || currentPath === '/blog') {

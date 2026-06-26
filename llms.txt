@@ -81,3 +81,53 @@ In-depth guides on energy savings, solar, carbon reduction, and environmental to
 - [How to Reduce Water Usage at Home: 14 High-Impact Changes](https://ecoenergycalc.com/blog/how-to-reduce-water-usage-at-home.html): Evidence-based water conservation methods ranked by gallons saved, with costs and payback periods
 - [Practical Ways to Reduce Your Carbon Footprint](https://ecoenergycalc.com/blog/reduce-carbon-footprint.html): High-impact personal actions ranked by actual CO₂ savings, with real numbers
 - [EV vs Gas Car: True Cost of Ownership Over 5 Years](https://ecoenergycalc.com/blog/ev-vs-gas-true-cost.html): Full 5-year cost comparison including purchase, fuel, insurance, maintenance, and depreciation
+
+## Compare: Solar & Renewables
+
+Side-by-side comparisons of solar financing, technology, and renewable energy choices.
+
+- [Solar Lease vs Buy vs Loan](https://ecoenergycalc.com/compare/solar-lease-vs-buy-vs-loan.html): Full comparison of solar financing options — ownership, tax credit eligibility, and long-term cost differences
+- [Solar Panels vs Home Wind Turbine](https://ecoenergycalc.com/compare/solar-panels-vs-wind-turbine.html): When solar and wind make sense for residential use — cost, output, and viability by location
+- [Solar Panels vs Battery Storage](https://ecoenergycalc.com/compare/solar-panels-vs-battery-storage.html): Whether adding a battery to solar is financially justified based on net metering policy and utility rates
+- [Monocrystalline vs Polycrystalline Solar Panels](https://ecoenergycalc.com/compare/monocrystalline-vs-polycrystalline-solar.html): Efficiency, cost, and space requirements compared for both solar cell technologies
+- [On-Grid vs Off-Grid Solar](https://ecoenergycalc.com/compare/on-grid-vs-off-grid-solar.html): Cost and practicality comparison of grid-tied, off-grid, and hybrid solar systems
+- [Solar + Battery vs Generator](https://ecoenergycalc.com/compare/solar-vs-generator.html): Backup power comparison — upfront cost, operating cost, and long-term economics
+
+## Compare: Transport & Carbon
+
+- [EV vs Gas Car](https://ecoenergycalc.com/compare/ev-vs-gas-car.html): Full 5-year cost and carbon comparison of electric vs gasoline vehicles
+- [EV vs Hybrid vs Gas Car](https://ecoenergycalc.com/compare/ev-vs-hybrid-vs-gas.html): Annual fuel and maintenance costs for all three powertrain options
+- [Electric Bike vs Car](https://ecoenergycalc.com/compare/electric-bike-vs-car.html): Cost and carbon comparison for urban commuters considering an e-bike
+- [Driving vs Flying: Carbon Footprint](https://ecoenergycalc.com/compare/driving-vs-flying-carbon.html): CO₂ comparison by distance, occupancy, and transport mode
+- [Public Transport vs Car](https://ecoenergycalc.com/compare/public-transport-vs-car.html): Full cost and carbon comparison for urban commuters
+
+## Compare: Home Heating & Cooling
+
+- [Heat Pump vs Furnace vs Gas Boiler](https://ecoenergycalc.com/compare/heat-pump-vs-furnace-vs-boiler.html): Installation cost, annual operating cost, and efficiency comparison for all three heating systems
+- [Central AC vs Window AC Unit](https://ecoenergycalc.com/compare/central-ac-vs-window-unit.html): When central air conditioning is worth the cost vs. window or portable units
+- [Electric Heat vs Gas Heat](https://ecoenergycalc.com/compare/electric-heat-vs-gas-heat.html): Regional cost comparison formula and crossover point for electric vs gas heating
+- [Smart Thermostat vs Programmable Thermostat](https://ecoenergycalc.com/compare/smart-thermostat-vs-programmable.html): Cost, savings, and payback comparison for both thermostat types
+- [Portable AC vs Window AC Unit](https://ecoenergycalc.com/compare/portable-ac-vs-window-ac.html): Efficiency and cost comparison — when portable units make sense over window ACs
+
+## Compare: Kitchen & Appliances
+
+- [Induction vs Gas vs Electric Stove](https://ecoenergycalc.com/compare/induction-vs-gas-vs-electric-stove.html): Energy efficiency, annual cost, and cooking performance comparison for all three stove types
+- [Electric vs Gas Dryer](https://ecoenergycalc.com/compare/electric-vs-gas-dryer.html): Per-load cost, annual cost, and payback analysis for electric vs gas dryers
+- [Heat Pump Dryer vs Electric Dryer](https://ecoenergycalc.com/compare/heat-pump-dryer-vs-electric.html): Energy savings, upfront cost, and payback for heat pump dryer upgrades
+- [Dishwasher vs Hand Washing](https://ecoenergycalc.com/compare/dishwasher-vs-hand-washing.html): Water and energy comparison showing when dishwashers are more efficient than hand washing
+- [Tankless vs Tank Water Heater](https://ecoenergycalc.com/compare/tankless-vs-tank-water-heater.html): Efficiency, annual cost, and payback analysis for tankless vs tank water heaters
+- [Electric vs Gas Water Heater](https://ecoenergycalc.com/compare/electric-vs-gas-water-heater.html): Regional cost comparison for electric and gas water heating options
+- [Heat Pump Water Heater vs Electric](https://ecoenergycalc.com/compare/heat-pump-water-heater-vs-electric.html): Energy savings, tax credit, and payback analysis for heat pump water heater upgrades
+
+## Compare: Lighting & Home Efficiency
+
+- [LED vs CFL vs Incandescent Bulbs](https://ecoenergycalc.com/compare/led-vs-cfl-vs-incandescent.html): Full 25,000-hour cost comparison across all three lighting technologies
+- [Spray Foam vs Fiberglass Insulation](https://ecoenergycalc.com/compare/spray-foam-vs-fiberglass-insulation.html): R-value, air sealing, cost, and when each insulation type is the right choice
+- [Double vs Triple Pane Windows](https://ecoenergycalc.com/compare/double-vs-triple-pane-windows.html): Energy savings, comfort, and payback comparison for window upgrade decisions
+- [Solar Water Heater vs Electric](https://ecoenergycalc.com/compare/solar-water-heater-vs-electric.html): Solar thermal vs heat pump water heater economics in 2026
+
+## Compare: Carbon & Environment
+
+- [Vegan vs Meat Diet: Carbon Footprint](https://ecoenergycalc.com/compare/vegan-vs-meat-diet-carbon.html): Annual CO₂ emissions by diet type and the most impactful food choices to reduce footprint
+- [Wind vs Solar Energy](https://ecoenergycalc.com/compare/wind-vs-solar-energy.html): Utility-scale cost, capacity factor, land use, and application comparison
+- [Propane vs Natural Gas](https://ecoenergycalc.com/compare/propane-vs-natural-gas.html): Cost per BTU comparison and when to consider switching fuel sources
