@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wind vs Solar Energy: Which Renewable Is Better at Scale? | EcoEnergyCalc</title>
-  <meta name="description" content="Solar and wind are both cost-competitive with fossil fuels. Wind is cheaper per kWh at utility scale. Solar is more versatile for distributed generation. Full comparison." />
+  <title>Wind vs Solar Energy: Which Is More Cost-Effective at Utility Scale? | EcoEnergyCalc</title>
+  <meta name="description" content="Compare the real cost, output, and carbon impact of wind and solar energy — with a calculator showing what each option contributes to the grid." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/wind-vs-solar-energy.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Wind vs Solar Energy: Which Renewable Is Better at Scale?","description":"Solar and wind are both cost-competitive with fossil fuels. Wind is cheaper per kWh at utility scale. Solar is more versatile for distributed generation. Full comparison.","url":"https://ecoenergycalc.com/compare/wind-vs-solar-energy.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Wind vs Solar Energy: Which Is More Cost-Effective at Utility Scale?","description":"Compare the real cost, output, and carbon impact of wind and solar energy — with a calculator showing what each option contributes to the grid.","url":"https://ecoenergycalc.com/compare/wind-vs-solar-energy.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,28 +22,39 @@
   <section class="article-page">
     <div class="container">
       <div class="article-header">
-        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Wind vs Solar Energy</p>
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Wind vs Solar Energy: Cost & Output Comparison</p>
         <span class="article-tag">Carbon & Environment</span>
-        <h1>Wind vs Solar Energy</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <h1>Wind vs Solar Energy: Cost & Output Comparison</h1>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>Wind and solar are both now cheaper than fossil fuels at utility scale. The question is which suits different applications — and when they complement each other. This comparison covers LCOE, capacity factors, and where each technology wins.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Wind vs Solar Output Estimator</h2>
+            <div class="form-group"><label for="ws-solar-mw">Solar Farm Size (MW)</label><input type="number" id="ws-solar-mw" value="100" min="1" max="1000" step="10" /></div>
+            <div class="form-group"><label for="ws-solar-cf">Solar Capacity Factor (%)</label><input type="number" id="ws-solar-cf" value="22" min="10" max="35" step="1" /></div>
+            <div class="form-group"><label for="ws-wind-mw">Wind Farm Size (MW)</label><input type="number" id="ws-wind-mw" value="100" min="1" max="1000" step="10" /></div>
+            <div class="form-group"><label for="ws-wind-cf">Wind Capacity Factor (%)</label><input type="number" id="ws-wind-cf" value="35" min="20" max="50" step="1" /></div>
+            <button class="btn-primary" onclick="calcWindSolar()">Compare Output</button>
+            <div class="result-box-tool" id="ws-result">
+              <h3>Annual Output & Cost Comparison</h3>
+              <table id="ws-table"></table>
+              <p class="result-note">LCOE estimates: onshore wind $25–35/MWh; utility solar $28–45/MWh (2025–2026 U.S. data). CO₂ avoided based on displacing natural gas at 450g CO₂/kWh.</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>Wind and solar are the two dominant renewable energy technologies, accounting for the majority of new electricity generation capacity added globally. At utility scale, both are now cost-competitive with or cheaper than fossil fuels. This comparison covers cost, capacity factor, land use, environmental impact, and suitability for different applications.</p>
-            
-            <h2>Cost: Wind Is Slightly Cheaper at Utility Scale</h2>
-            <p>Levelized cost of energy (LCOE) in 2025–2026: utility-scale solar PV: $25–45/MWh; onshore wind: $20–35/MWh; offshore wind: $70–110/MWh. Both are below the cost of new natural gas ($50–80/MWh) and far below coal ($65–100/MWh). Onshore wind has the edge on cost per kWh, but solar has better grid distribution potential since it can be installed at all scales from residential to utility.</p>
+<h2>Capacity Factor: Why Rated MW Doesn't Tell the Full Story</h2>
+            <p>A 100 MW solar farm and a 100 MW wind farm sound equivalent — they're not. Capacity factor measures how much of the rated capacity is actually used over a year. U.S. utility-scale solar averages 25–30% capacity factor (100 MW produces 220,000–260,000 MWh/year). Onshore wind averages 30–40% capacity factor (100 MW produces 260,000–350,000 MWh/year). Offshore wind achieves 40–55% (especially in northeastern U.S. waters with consistent strong winds). Both dramatically exceed coal (40–50%) in terms of actual clean energy production per rated MW — but they also require dispatchability solutions (storage, transmission, backup generation) that fossil plants provide inherently.</p>
 
-            <h2>Capacity Factor: When Each Generates Power</h2>
-            <p>Capacity factor is the percentage of time a plant generates at full rated capacity. Utility-scale solar: 20–30% (generates mainly 8–10 hours/day). Onshore wind: 25–45% (varies by site and season). Neither generates 24/7, which is why grid storage and diverse generation mixes matter. Wind often generates more at night and in winter — complementing solar's daytime and summer peak generation profile.</p>
+            <h2>Levelized Cost of Energy: Both Are Now Among the Cheapest Sources</h2>
+            <p>Lazard's Levelized Cost of Energy Analysis (LCOE, 2024) shows utility-scale solar at $24–$96/MWh and onshore wind at $24–$75/MWh — making both competitive with or cheaper than any new fossil fuel plant. Offshore wind runs $72–$140/MWh due to installation complexity. These costs exclude transmission and integration; adding those brings real-world all-in costs higher, but both remain competitive with natural gas at $39–$101/MWh for new combined-cycle plants. The cost trajectories are also moving in different directions: solar and wind costs have fallen 70–90% since 2010; gas plant economics depend on volatile fuel prices.</p>
 
-            <h2>Land Use</h2>
-            <p>Utility-scale solar: 5–10 acres/MW. Wind: 70–100 acres/MW (though most land between turbines can still be used for farming). Solar panels can be integrated onto existing structures (rooftops, parking lots, reservoirs), reducing effective land use. Wind turbines require open land with consistent wind exposure.</p>
+            <h2>Timing of Generation: The Critical Complementarity</h2>
+            <p>Solar generation peaks midday and in summer; wind generation peaks evenings and in winter — in most U.S. regions. This temporal complementarity is why grid operators increasingly view solar-plus-wind combinations as more valuable than either alone. The Pacific Northwest has strong winter hydro; the Southeast has strong summer solar; the Great Plains has strong year-round wind. Grid-level integration of diverse renewable sources across wide geographic areas makes the intermittency problem far more manageable than the simplified "sun doesn't always shine, wind doesn't always blow" framing suggests.</p>
 
-            <h2>Which Is Better?</h2>
-            <p>At utility scale: wind edges out solar on cost and capacity factor in high-wind regions. For distributed generation (homes, businesses, communities): solar wins — wind turbines require significant setbacks and minimum wind speeds that most residential areas don't meet. The optimal energy future uses both, with wind providing bulk overnight/winter generation and solar providing daytime/summer peak capacity. See our <a href='/tools/solar-panel-roi.html'>Solar Panel ROI Calculator</a> and <a href='/tools/wind-turbine.html'>Wind Turbine Calculator</a> for residential comparisons.</p>
-
+            <h2>Land Use and Co-Benefits</h2>
+            <p>Utility-scale solar uses 5–10 acres/MW; wind uses 0.25–1.5 acres/MW of actual disturbed land (with farming continuing around turbine bases). Both have dramatically lower land disturbance than coal mining, oil extraction, or natural gas operations when lifecycle land impacts are counted. Solar installations on brownfields, parking lots, and over canals (agrivoltaics) can reduce net land use significantly. Wind turbines in agricultural areas generate lease income for farmers ($5,000–$8,000/turbine/year) while allowing full farming operations between turbines — making wind generation a significant supplemental income source in farm states.</p>
           </div>
         </div>
         <div>
@@ -61,7 +72,7 @@
             <ul>
               <li><a href="/compare/solar-panels-vs-wind-turbine.html">Solar Panels vs Wind Turbine</a></li>
               <li><a href="/compare/on-grid-vs-off-grid-solar.html">On-Grid vs Off-Grid Solar</a></li>
-              <li><a href="/compare/solar-vs-generator.html">Solar vs Generator</a></li>
+              <li><a href="/compare/solar-lease-vs-buy-vs-loan.html">Solar Lease vs Buy vs Loan</a></li>
             </ul>
           </div>
           <div class="sidebar-box">
@@ -79,5 +90,34 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcWindSolar() {
+  const solarMw=parseFloat(document.getElementById('ws-solar-mw').value)||100;
+  const solarCf=parseFloat(document.getElementById('ws-solar-cf').value)/100||0.22;
+  const windMw=parseFloat(document.getElementById('ws-wind-mw').value)||100;
+  const windCf=parseFloat(document.getElementById('ws-wind-cf').value)/100||0.35;
+
+  const solarGwh=solarMw*solarCf*8760/1000;
+  const windGwh=windMw*windCf*8760/1000;
+  const solarCo2=solarGwh*1000*0.45; // tonnes CO2 avoided
+  const windCo2=windGwh*1000*0.45;
+  // LCOE range midpoints
+  const solarLcoe=35; const windLcoe=28; // $/MWh
+  const solarRevenue=solarGwh*1000*solarLcoe/1e6;
+  const windRevenue=windGwh*1000*windLcoe/1e6;
+
+  const fmt=v=>v.toLocaleString(undefined,{maximumFractionDigits:0});
+  document.getElementById('ws-table').innerHTML=`
+    <tr><th></th><th>Solar (${solarMw}MW)</th><th>Wind (${windMw}MW)</th></tr>
+    <tr><td>Annual output</td><td>${fmt(solarGwh*1000)} MWh</td><td>${fmt(windGwh*1000)} MWh</td></tr>
+    <tr><td>Homes powered (est.)</td><td>${fmt(solarGwh*1000/10.5)} homes</td><td>${fmt(windGwh*1000/10.5)} homes</td></tr>
+    <tr><td>CO₂ avoided per year</td><td>${fmt(solarCo2)} tonnes</td><td>${fmt(windCo2)} tonnes</td></tr>
+    <tr><td>LCOE ($/MWh)</td><td>~$${solarLcoe}/MWh</td><td>~$${windLcoe}/MWh</td></tr>
+    <tr><td>Peak generation time</td><td>Daytime / summer</td><td>Nighttime / winter</td></tr>
+    <tr><td>Land use</td><td>~${fmt(solarMw*7)} acres</td><td>~${fmt(windMw*90)} acres (farmable)</td></tr>
+  `;
+  const r=document.getElementById('ws-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

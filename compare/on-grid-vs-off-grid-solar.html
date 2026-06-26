@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>On-Grid vs Off-Grid Solar: Which System Is Right for Your Home? | EcoEnergyCalc</title>
-  <meta name="description" content="On-grid solar ties to the utility for backup and net metering. Off-grid uses batteries to be fully independent. Here's the real cost and tradeoff of each." />
+  <title>On-Grid vs Off-Grid Solar: Which System Fits Your Situation? | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your monthly energy use and location to compare the cost of on-grid, off-grid, and hybrid solar systems for your home." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/on-grid-vs-off-grid-solar.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"On-Grid vs Off-Grid Solar: Which System Is Right for Your Home?","description":"On-grid solar ties to the utility for backup and net metering. Off-grid uses batteries to be fully independent. Here's the real cost and tradeoff of each.","url":"https://ecoenergycalc.com/compare/on-grid-vs-off-grid-solar.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"On-Grid vs Off-Grid Solar: Which System Fits Your Situation?","description":"Enter your monthly energy use and location to compare the cost of on-grid, off-grid, and hybrid solar systems for your home.","url":"https://ecoenergycalc.com/compare/on-grid-vs-off-grid-solar.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -25,25 +25,44 @@
         <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › On-Grid vs Off-Grid Solar</p>
         <span class="article-tag">Solar & Renewables</span>
         <h1>On-Grid vs Off-Grid Solar</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>On-grid solar reduces your bill while using the utility as backup. Off-grid solar replaces the utility entirely — at 2–4x the cost. Enter your details to see what each system would cost for your home.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>System Cost Comparison</h2>
+            <div class="form-group">
+              <label for="og-kwh">Monthly Energy Use (kWh)</label>
+              <input type="number" id="og-kwh" value="900" min="200" max="3000" step="50" />
+            </div>
+            <div class="form-group">
+              <label for="og-sun">Peak Sun Hours per Day</label>
+              <input type="number" id="og-sun" value="4.5" min="2" max="8" step="0.1" />
+            </div>
+            <div class="form-group">
+              <label for="og-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="og-rate" value="13" min="5" max="50" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcOnOffGrid()">Compare Systems</button>
+            <div class="result-box-tool" id="og-result">
+              <h3>System Cost & Payback Comparison</h3>
+              <table id="og-table"></table>
+              <p class="result-note">Off-grid sized for 3 days of battery autonomy. Hybrid includes one 13.5kWh battery. All costs before 30% ITC. Payback based on current electricity rate savings.</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>On-grid (grid-tied) solar and off-grid solar serve fundamentally different goals. On-grid solar reduces your electric bill while using the utility as a backup. Off-grid solar replaces the utility entirely. The cost difference is significant — off-grid systems are typically 2–4x more expensive due to battery requirements.</p>
-            
-            <h2>On-Grid Solar: Lower Cost, Grid as Backup</h2>
-            <p>Grid-tied solar connects to the utility and exports excess energy for net metering credits. No battery required (though one can be added). A 6kW on-grid system costs $15,000–22,000 installed. Payback: 6–10 years. Limitation: during grid outages, a standard grid-tied system shuts off automatically for safety reasons — you lose power even with panels on your roof (unless you add battery backup).</p>
+<h2>Off-Grid Is a Lifestyle Decision as Much as a Financial One</h2>
+            <p>Most cost comparisons between grid-tied and off-grid solar understate the complexity. Off-grid isn't just about buying more panels and batteries — it requires designing for your worst-case energy production scenario (deep winter, consecutive cloudy days) rather than your average. In Seattle, December sun hours drop to 1.5/day. A system sized for December in Seattle requires 3–4× more panels than an equivalent grid-tied system, plus 3–7 days of battery storage. For most people with grid access, off-grid economics are deeply unfavorable — the premium runs $15,000–$50,000 over grid-tied for comparable reliability.</p>
 
-            <h2>Off-Grid Solar: Full Independence, High Cost</h2>
-            <p>Off-grid systems require enough panels to cover all consumption plus enough battery storage to cover several days of low solar production. A system that replaces a typical 900 kWh/month household requires 10–15kW of panels plus 30–60 kWh of battery storage. Total cost: $40,000–100,000+. Practical for remote properties where utility connection costs $20,000–50,000+ in line extension fees. For homes with easy utility access, the economics rarely justify off-grid.</p>
+            <h2>Grid-Tied Advantages Most People Don't Appreciate</h2>
+            <p>The grid is effectively a free, infinite battery. Under net metering, you push excess midday production onto the grid and draw it back in the evening — at little or no cost depending on your tariff structure. This eliminates the need for 3–7 days of battery storage that off-grid requires. Grid-tied systems are also simpler: no charge controllers, no battery bank management, fewer failure points. Most grid-tied inverters now cost $0.20–$0.35/watt; off-grid inverter/charge controller combinations run $0.50–$1.00/watt and require more maintenance.</p>
 
-            <h2>Hybrid: The Middle Ground</h2>
-            <p>Hybrid systems (grid-tied with battery backup) provide the best of both worlds: net metering savings during normal operation plus backup power during outages. A grid-tied system with one Tesla Powerwall adds $10,000–15,000 to a standard solar installation. This covers critical loads (refrigerator, lights, phone charging) for 8–24 hours depending on battery size.</p>
+            <h2>When Off-Grid Makes Genuine Sense</h2>
+            <p>Off-grid solar is financially rational in one primary scenario: grid connection costs are prohibitive. Rural utility hookup costs run $15,000–$50,000+ per mile of line extension. If you're building a cabin, remote home, or agricultural structure more than 0.5 miles from the nearest line — and power demand is modest — off-grid is often cheaper than grid connection over 20 years. Remote pumping systems, communications towers, and monitoring stations are classic off-grid applications where the alternative is prohibitively expensive grid extension or diesel generation.</p>
 
-            <h2>Which Is Right for Your Situation?</h2>
-            <ul><li><strong>On-grid:</strong> Best for homes with utility access — lowest cost, best ROI</li><li><strong>Hybrid:</strong> Best for homes in outage-prone areas or where backup power has significant value</li><li><strong>Off-grid:</strong> Best for remote properties where grid connection costs exceed $20,000–30,000</li></ul>
-
+            <h2>Hybrid Systems: The Emerging Middle Ground</h2>
+            <p>Battery-backed grid-tied systems (like those using Enphase IQ8 microinverters or SolarEdge with backup gateway) offer most of the resilience benefit of off-grid without the oversizing penalty. During grid outages, the system islands and continues operating on solar and battery. During normal operation, the grid provides backup. For homeowners in areas with frequent outages — hurricane-prone coastal regions, wildfire-impacted western states — this hybrid approach delivers 90% of the off-grid reliability at 60% of the cost premium.</p>
           </div>
         </div>
         <div>
@@ -67,8 +86,8 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>On-grid 6kW system: <strong>$15,000–22,000</strong></li>
-              <li>Off-grid system: <strong>$40,000–100,000+</strong></li>
+              <li>On-grid payback: <strong>6–10 years</strong></li>
+              <li>Off-grid cost premium: <strong>2–4x on-grid</strong></li>
               <li>Hybrid adds: <strong>$10,000–15,000</strong></li>
             </ul>
           </div>
@@ -79,5 +98,49 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcOnOffGrid() {
+  const monthlyKwh = parseFloat(document.getElementById('og-kwh').value) || 900;
+  const sun = parseFloat(document.getElementById('og-sun').value) || 4.5;
+  const rate = parseFloat(document.getElementById('og-rate').value) / 100 || 0.13;
+
+  const annualKwh = monthlyKwh * 12;
+  const systemKw = annualKwh / (sun * 365 * 0.80);
+
+  // On-grid: panels + inverter, ~$3/W installed
+  const onGridCost = systemKw * 1000 * 3.00;
+  const onGridAfterItc = onGridCost * 0.70;
+  const annualSavings = annualKwh * rate;
+  const onGridPayback = onGridAfterItc / annualSavings;
+
+  // Hybrid: panels + 1 battery ($12,000)
+  const hybridCost = onGridCost + 12000;
+  const hybridAfterItc = hybridCost * 0.70;
+  const hybridPayback = hybridAfterItc / annualSavings;
+
+  // Off-grid: panels + battery bank (3 days autonomy) + larger inverter
+  const dailyKwh = monthlyKwh / 30;
+  const batteryKwh = dailyKwh * 3 / 0.80; // 80% DoD
+  const offGridPanelKw = systemKw * 1.3; // oversized for cloudy days
+  const offGridCost = offGridPanelKw * 1000 * 3.50 + batteryKwh * 600; // ~$600/kWh battery
+  const offGridAfterItc = offGridCost * 0.70;
+  const offGridPayback = offGridAfterItc / annualSavings;
+
+  const fmt = v => '$' + Math.round(v).toLocaleString();
+
+  document.getElementById('og-table').innerHTML = `
+    <tr><th></th><th>On-Grid</th><th>Hybrid</th><th>Off-Grid</th></tr>
+    <tr><td>System size</td><td>${systemKw.toFixed(1)}kW</td><td>${systemKw.toFixed(1)}kW + battery</td><td>${offGridPanelKw.toFixed(1)}kW + ${Math.round(batteryKwh)}kWh battery</td></tr>
+    <tr><td>Installed cost</td><td>${fmt(onGridCost)}</td><td>${fmt(hybridCost)}</td><td>${fmt(offGridCost)}</td></tr>
+    <tr><td>After 30% ITC</td><td>${fmt(onGridAfterItc)}</td><td>${fmt(hybridAfterItc)}</td><td>${fmt(offGridAfterItc)}</td></tr>
+    <tr><td>Annual savings</td><td>${fmt(annualSavings)}</td><td>${fmt(annualSavings)}</td><td>${fmt(annualSavings)}</td></tr>
+    <tr><td>Payback period</td><td>${onGridPayback.toFixed(1)} years</td><td>${hybridPayback.toFixed(1)} years</td><td>${offGridPayback.toFixed(1)} years</td></tr>
+    <tr><td>Works during outage?</td><td>❌ No</td><td>✅ Limited</td><td>✅ Yes</td></tr>
+  `;
+  const r = document.getElementById('og-result');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

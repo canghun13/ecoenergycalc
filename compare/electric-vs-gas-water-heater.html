@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Electric vs Gas Water Heater: Which Is Cheaper to Run? | EcoEnergyCalc</title>
-  <meta name="description" content="Gas water heaters cost less to run in most U.S. regions. Electric heat pump water heaters can beat both. Here's the full comparison by energy cost." />
+  <title>Electric vs Gas Water Heater: Which Costs Less in Your Area? | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your electricity and gas rates to find the cheapest water heating option for your home — including the heat pump water heater comparison." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/electric-vs-gas-water-heater.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Electric vs Gas Water Heater: Which Is Cheaper to Run?","description":"Gas water heaters cost less to run in most U.S. regions. Electric heat pump water heaters can beat both. Here's the full comparison by energy cost.","url":"https://ecoenergycalc.com/compare/electric-vs-gas-water-heater.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Electric vs Gas Water Heater: Which Costs Less in Your Area?","description":"Enter your electricity and gas rates to find the cheapest water heating option for your home — including the heat pump water heater comparison.","url":"https://ecoenergycalc.com/compare/electric-vs-gas-water-heater.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,28 +22,38 @@
   <section class="article-page">
     <div class="container">
       <div class="article-header">
-        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Electric vs Gas Water Heater</p>
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Electric vs Gas Water Heater: Cost Calculator</p>
         <span class="article-tag">Kitchen & Appliances</span>
-        <h1>Electric vs Gas Water Heater</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <h1>Electric vs Gas Water Heater: Cost Calculator</h1>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>Whether electric or gas water heating is cheaper depends on your local rates. But a heat pump water heater often beats both options. Enter your rates to find the best choice for your home.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Water Heater Cost Comparison</h2>
+            <div class="form-group"><label for="ewh-gal">Daily Hot Water Use (gallons)</label><input type="number" id="ewh-gal" value="50" min="10" max="150" step="5" /></div>
+            <div class="form-group"><label for="ewh-elec">Electricity Rate (¢/kWh)</label><input type="number" id="ewh-elec" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="ewh-gas">Natural Gas Rate ($/therm)</label><input type="number" id="ewh-gas" value="1.30" min="0.30" max="5" step="0.05" /></div>
+            <button class="btn-primary" onclick="calcWaterHeater()">Compare Water Heaters</button>
+            <div class="result-box-tool" id="ewh-result">
+              <h3>Annual Water Heating Cost</h3>
+              <table id="ewh-table"></table>
+              <p class="result-note">Electric resistance: 95% efficient. Gas tank: 67% efficient. Tankless gas: 84% efficient. Heat pump water heater: COP 2.5. All costs before installation. HPWH qualifies for 30% ITC up to $600.</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>Electric vs gas water heaters is a question with a regionally variable answer — just like electric vs gas heat. The cheapest option depends on your local electricity and gas rates. However, the emergence of heat pump water heaters has changed the calculus significantly for electric homes.</p>
-            
-            <h2>Standard Electric Tank: Convenient but Costly</h2>
-            <p>Electric resistance tank water heaters are 100% efficient (all electricity becomes heat), but electricity costs more per BTU than gas in most U.S. markets. At 13¢/kWh, heating 50 gallons from 60°F to 120°F costs about $0.41. Annual operating cost for a family of 4: $500–700. Easy installation (no gas line needed), simple maintenance, and lower upfront cost ($400–800).</p>
+<h2>Understanding the Efficiency Gap</h2>
+            <p>Standard electric resistance water heaters (Energy Factor approximately 0.95) convert 95% of electricity to hot water heat. Standard gas water heaters (Energy Factor approximately 0.60–0.67) lose significant heat up the flue exhaust. On raw efficiency alone, electric wins. But electricity costs more per BTU than gas in most U.S. markets — which is why gas water heating has historically been cheaper to operate despite lower efficiency. The comparison is fundamentally about fuel cost, not efficiency: at what electricity rate does electric water heating become cost-competitive with gas?</p>
 
-            <h2>Gas Tank: Lower Operating Cost in Most Regions</h2>
-            <p>Gas tank water heaters are 60–70% efficient (AFUE). At $1.30/therm, heating 50 gallons costs about $0.20. Annual operating cost: $200–350. Gas heaters recover faster than electric, making them better for high-demand households. Installation requires a gas line and proper venting. Cost: $600–1,000 installed.</p>
+            <h2>The Breakeven Electricity Rate</h2>
+            <p>A typical household uses 4,000 kWh-equivalent of hot water annually. A 0.64 EF gas water heater uses about 250 therms/year at $1.40/therm = $350/year. A 0.95 EF electric resistance heater uses about 4,210 kWh/year at 13¢/kWh = $547/year. Gas wins at these national averages. The breakeven point: gas at $1.40/therm equals $0.041/kBTU; electric resistance becomes competitive at approximately 8–9¢/kWh — below national average but typical in Idaho, Washington, Oregon, and Louisiana. Residents in those states may find electric actually cheaper to operate.</p>
 
-            <h2>Heat Pump Water Heater: The Efficiency Game-Changer</h2>
-            <p>Heat pump water heaters (HPWH) achieve 200–350% efficiency by moving heat from surrounding air into the water. Annual operating cost at 13¢/kWh: $150–250 — less than gas. Upfront cost: $1,000–1,500, but the 30% federal tax credit (up to $600) and many state utility rebates bring the effective cost to $700–1,050. Payback vs. standard electric: 3–5 years. Payback vs. gas: 5–8 years in most regions.</p>
+            <h2>Heat Pump Water Heaters: The Game Changer</h2>
+            <p>Heat pump water heaters fundamentally change this comparison. At COP 3.5, a HPWH uses 1,200 kWh/year instead of 4,200 kWh/year for electric resistance — or instead of 250 therms for gas. At 13¢/kWh: HPWH costs $156/year vs. gas at $350/year. The HPWH wins by $194/year — and with the $300 federal tax credit (up to 30% of cost), the equipment cost premium over a standard electric heater pays back in 2–3 years. At California rates (28¢/kWh), HPWH costs $336/year — still competitive with gas and dramatically cheaper than electric resistance at $1,179/year.</p>
 
-            <h2>Which Makes Sense for Your Home?</h2>
-            <ul><li><strong>Gas (where available):</strong> Best operating cost in most U.S. regions except where electricity is very cheap</li><li><strong>Heat pump water heater:</strong> Best for homes on electric already — beats gas on operating cost in most regions when factoring in the tax credit</li><li><strong>Standard electric:</strong> Only if gas isn't available and a heat pump water heater is outside budget</li></ul>
-
+            <h2>Installation Considerations</h2>
+            <p>Gas water heater replacement requires gas line, proper flue venting, and expansion tank in closed systems — installation runs $300–$600 on top of equipment. Electric requires a 240V/30A circuit. Heat pump water heaters need 700+ cubic feet of unconditioned or semi-conditioned air surrounding them (they extract heat from the air), and they exhaust cool, dry air — a benefit in warm climates and seasons, a slight heating penalty in winter in heated basements. They also make noise similar to a window AC unit at about 50 dB. Basement, garage, or utility room installation is typical and practical for most homes.</p>
           </div>
         </div>
         <div>
@@ -67,9 +77,9 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Gas water heater/yr: <strong>$200–350</strong></li>
-              <li>Standard electric/yr: <strong>$500–700</strong></li>
-              <li>Heat pump water heater/yr: <strong>$150–250</strong></li>
+              <li>HPWH annual cost (13¢/kWh): <strong>often beats gas</strong></li>
+              <li>Gas tank annual cost: <strong>$200–350</strong></li>
+              <li>HPWH ITC: <strong>30% up to $600</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -79,5 +89,38 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcWaterHeater() {
+  const gal=parseFloat(document.getElementById('ewh-gal').value)||50;
+  const elec=parseFloat(document.getElementById('ewh-elec').value)/100||0.13;
+  const gas=parseFloat(document.getElementById('ewh-gas').value)||1.30;
+
+  const btuPerGal=8.33*60;
+  const annualBtu=gal*365*btuPerGal;
+  const annualMmbtu=annualBtu/1e6;
+  const annualKwh=annualMmbtu*293.07;
+  const annualTherm=annualMmbtu*10;
+
+  const elecTankCost=(annualKwh/0.95)*elec;
+  const gasTankCost=(annualTherm/0.67)*gas;
+  const gasTanklessCost=(annualTherm/0.84)*gas;
+  const hpCost=(annualKwh/2.5)*elec;
+
+  const options=[
+    ['Electric Tank (95% eff)',elecTankCost,'$700 installed'],
+    ['Gas Tank (67% eff)',gasTankCost,'$800 installed'],
+    ['Gas Tankless (84% eff)',gasTanklessCost,'$1,200 installed'],
+    ['Heat Pump WH (COP 2.5)',hpCost,'$910 after ITC']
+  ].sort((a,b)=>a[1]-b[1]);
+
+  const fmt=v=>'$'+Math.round(v).toLocaleString();
+  let rows=`<tr><th>System</th><th>Annual Cost</th><th>Install Cost</th><th>Rank</th></tr>`;
+  options.forEach(([name,cost,install],i)=>{
+    rows+=`<tr ${i===0?'style="font-weight:700;background:rgba(22,163,74,0.15);"':''}><td>${name}</td><td>${fmt(cost)}</td><td>${install}</td><td>${i===0?'✅ Cheapest to run':i+1}</td></tr>`;
+  });
+  document.getElementById('ewh-table').innerHTML=rows;
+  const r=document.getElementById('ewh-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

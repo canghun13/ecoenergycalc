@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Induction vs Gas vs Electric Stove: Energy Cost and Cooking Performance | EcoEnergyCalc</title>
-  <meta name="description" content="Induction is the most energy-efficient cooking method. Gas offers precise control. Electric is the cheapest to buy. Full comparison of all three on cost, efficiency, and performance." />
+  <title>Induction vs Gas vs Electric Stove: Which Costs Less to Cook With? | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your cooking habits and local energy rates to compare the annual energy cost of induction, gas, and electric stoves." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/induction-vs-gas-vs-electric-stove.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Induction vs Gas vs Electric Stove: Energy Cost and Cooking Performance","description":"Induction is the most energy-efficient cooking method. Gas offers precise control. Electric is the cheapest to buy. Full comparison of all three on cost, efficiency, and performance.","url":"https://ecoenergycalc.com/compare/induction-vs-gas-vs-electric-stove.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Induction vs Gas vs Electric Stove: Which Costs Less to Cook With?","description":"Enter your cooking habits and local energy rates to compare the annual energy cost of induction, gas, and electric stoves.","url":"https://ecoenergycalc.com/compare/induction-vs-gas-vs-electric-stove.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,28 +22,38 @@
   <section class="article-page">
     <div class="container">
       <div class="article-header">
-        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Induction vs Gas vs Electric Stove</p>
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Induction vs Gas vs Electric Stove: Energy Cost Calculator</p>
         <span class="article-tag">Kitchen & Appliances</span>
-        <h1>Induction vs Gas vs Electric Stove</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <h1>Induction vs Gas vs Electric Stove: Energy Cost Calculator</h1>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>Cooking method affects both your energy bill and kitchen air quality. Enter your cooking habits to compare annual costs for all three stove types.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Annual Cooking Cost Calculator</h2>
+            <div class="form-group"><label for="st-hours">Cooking Hours per Day</label><input type="number" id="st-hours" value="1.5" min="0.25" max="6" step="0.25" /></div>
+            <div class="form-group"><label for="st-elec">Electricity Rate (¢/kWh)</label><input type="number" id="st-elec" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="st-gas">Natural Gas Rate ($/therm)</label><input type="number" id="st-gas" value="1.30" min="0.30" max="5" step="0.05" /></div>
+            <button class="btn-primary" onclick="calcStove()">Compare Stove Costs</button>
+            <div class="result-box-tool" id="st-result">
+              <h3>Annual Cooking Energy Cost</h3>
+              <table id="st-table"></table>
+              <p class="result-note">Induction: 1.8kW average draw, 84% efficiency. Electric resistance: 2.0kW average, 74% efficiency. Gas: 9,000 BTU/hr average, 40% efficiency. Annual = daily hours × 365 days.</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>Choosing a stove involves more than cooking preference — energy costs, ventilation requirements, and cookware compatibility all matter. Here's a full comparison of induction, gas, and electric stoves on efficiency, cost, and performance.</p>
-            
-            <h2>Induction: Most Efficient, Highest Upfront Cost</h2>
-            <p>Induction cooktops transfer energy directly to compatible cookware through magnetic fields, with 85–90% efficiency (only 10–15% of energy is lost as ambient heat). This compares to 74% for electric resistance and 40% for gas. A mid-range induction range costs $900–2,000. Induction heats faster than gas or electric, offers precise temperature control, and doesn't heat the kitchen. Requires magnetic cookware (cast iron, stainless steel — check with a magnet). Incompatible with copper, aluminum, and most non-stick pans unless specifically labeled induction-compatible.</p>
+<h2>Induction Is the Most Efficient Cooking Method — By Far</h2>
+            <p>Gas ranges are roughly 40% efficient: 60% of combustion heat escapes around the pan and heats the kitchen rather than the food. Electric coil and glass-top radiant are 70–80% efficient. Induction is 85–90% efficient — heat is generated magnetically within the pan itself, with minimal waste. This efficiency difference translates directly to cooking speed: water boils 20–50% faster on induction vs. gas, the cooking surface stays cooler (dramatically reducing burn risk), and the kitchen heats up less during summer cooking. For households running air conditioning, reducing kitchen heat gain from cooking has a secondary cooling cost benefit.</p>
 
-            <h2>Gas: Precise Control, Lowest Efficiency</h2>
-            <p>Gas ranges cost $500–2,000 and achieve only 32–40% efficiency — the majority of heat goes into the kitchen and ventilation. Annual cooking cost for a family of 4: $30–60/year in gas at $1.30/therm. Gas allows visual flame control and works with any cookware, but requires a gas line and proper ventilation. Indoor air quality research has raised concerns about NO₂ and other combustion byproducts from gas stoves, particularly in poorly ventilated kitchens.</p>
+            <h2>Annual Cooking Cost: Real Numbers</h2>
+            <p>The average U.S. household uses roughly 40–60 therms/year for cooking on gas. At $1.40/therm, that's $56–$84/year. Induction uses approximately 300–500 kWh/year. At 13¢/kWh, that's $39–$65/year. The annual cost difference is small ($20–$40) in favor of induction in most markets — not a strong financial driver by itself. Where the economics shift is in markets with high gas prices (New England: $2.00/therm, making gas cooking $80–$120/year) or cheap electricity (Pacific Northwest: 10¢/kWh, making induction cooking $30–$50/year).</p>
 
-            <h2>Electric Resistance (Coil/Smooth Top): Middle Ground</h2>
-            <p>Standard electric ranges cost $400–1,200 and achieve 74% efficiency. Annual cooking cost: $50–80/year at 13¢/kWh. Smooth-top glass-ceramic electric ranges are easy to clean but slow to heat and cool. Coil electric ranges are the cheapest but least convenient. Electric ranges work with any flat-bottomed cookware.</p>
+            <h2>Indoor Air Quality: The Underreported Concern</h2>
+            <p>Stanford University and RMI (Rocky Mountain Institute) studies published 2022–2023 documented that gas stoves emit nitrogen dioxide, benzene, and other combustion byproducts at levels that exceed EPA outdoor air quality standards during cooking — even with range hoods operating. A 2022 study found NO₂ levels 2× EPA outdoor standards within 15 minutes of gas cooking in a typical kitchen. Research has associated gas cooking with childhood respiratory issues. This health dimension is separate from energy costs but relevant for households with children, asthmatics, or any occupants with respiratory conditions.</p>
 
-            <h2>Annual Cooking Cost Comparison</h2>
-            <ul><li><strong>Induction (at 13¢/kWh):</strong> ~$40–60/year</li><li><strong>Electric resistance (at 13¢/kWh):</strong> ~$50–80/year</li><li><strong>Gas (at $1.30/therm):</strong> ~$30–60/year</li></ul><p>Cooking represents a small fraction of home energy costs — the choice of stove type has minimal impact on total energy bills. The bigger considerations are efficiency, cooking experience, and air quality.</p>
-
+            <h2>The Practical Transition: What You Need to Know</h2>
+            <p>Switching from gas to induction requires: (1) A 240V/50A circuit at the stove location — standard for electric ranges, may require an electrician if currently gas only ($200–$600 for panel work); (2) Induction-compatible cookware — cast iron, stainless steel, carbon steel all work; aluminum and copper don't without a magnetic base (a simple magnet test: if a magnet sticks, your pot works). Most people find 50–80% of their existing cookware is induction-compatible. Portable induction burners ($50–$100) are an excellent way to test induction cooking before committing to a full range replacement.</p>
           </div>
         </div>
         <div>
@@ -67,9 +77,9 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Induction efficiency: <strong>85–90%</strong></li>
-              <li>Gas efficiency: <strong>32–40%</strong></li>
-              <li>Electric resistance: <strong>74%</strong></li>
+              <li>Induction efficiency: <strong>84%</strong></li>
+              <li>Gas stove efficiency: <strong>40%</strong></li>
+              <li>Cooking = <strong>3–5% of home energy</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -79,5 +89,34 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcStove() {
+  const hrs=parseFloat(document.getElementById('st-hours').value)||1.5;
+  const elec=parseFloat(document.getElementById('st-elec').value)/100||0.13;
+  const gas=parseFloat(document.getElementById('st-gas').value)||1.30;
+
+  const annualHrs=hrs*365;
+  // Induction: 1.8kW, 84% efficient
+  const inductionKwh=1.8*annualHrs;
+  const inductionCost=inductionKwh*elec;
+  // Electric resistance: 2.0kW, 74% efficient
+  const elecKwh=2.0*annualHrs;
+  const elecCost=elecKwh*elec;
+  // Gas: 9000 BTU/hr, 0.09 therms/hr
+  const gasTherm=0.09*annualHrs;
+  const gasCost=gasTherm*gas;
+
+  const fmt=v=>'$'+Math.round(v).toLocaleString();
+  document.getElementById('st-table').innerHTML=`
+    <tr><th></th><th>Induction</th><th>Electric Resistance</th><th>Gas</th></tr>
+    <tr><td>Annual energy use</td><td>${Math.round(inductionKwh)} kWh</td><td>${Math.round(elecKwh)} kWh</td><td>${gasTherm.toFixed(1)} therms</td></tr>
+    <tr><td>Annual energy cost</td><td>${fmt(inductionCost)}</td><td>${fmt(elecCost)}</td><td>${fmt(gasCost)}</td></tr>
+    <tr><td>Efficiency</td><td>84%</td><td>74%</td><td>40%</td></tr>
+    <tr><td>Heats kitchen?</td><td>Minimal</td><td>Moderate</td><td>Significant</td></tr>
+    <tr><td>Range cost</td><td>$900–2,000</td><td>$400–1,200</td><td>$500–2,000</td></tr>
+  `;
+  const r=document.getElementById('st-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

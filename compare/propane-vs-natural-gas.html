@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Propane vs Natural Gas: Which Is Cheaper for Home Heating and Appliances? | EcoEnergyCalc</title>
-  <meta name="description" content="Natural gas is cheaper per BTU than propane in most U.S. regions. But propane is available anywhere — no gas line needed. Full cost and practicality comparison." />
+  <title>Propane vs Natural Gas: Which Is Cheaper for Your Home? | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your local propane and natural gas rates to see the exact annual cost difference for heating and cooking — and when switching fuels makes financial sense." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/propane-vs-natural-gas.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Propane vs Natural Gas: Which Is Cheaper for Home Heating and Appliances?","description":"Natural gas is cheaper per BTU than propane in most U.S. regions. But propane is available anywhere — no gas line needed. Full cost and practicality comparison.","url":"https://ecoenergycalc.com/compare/propane-vs-natural-gas.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Propane vs Natural Gas: Which Is Cheaper for Your Home?","description":"Enter your local propane and natural gas rates to see the exact annual cost difference for heating and cooking — and when switching fuels makes financial sense.","url":"https://ecoenergycalc.com/compare/propane-vs-natural-gas.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,28 +22,39 @@
   <section class="article-page">
     <div class="container">
       <div class="article-header">
-        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Propane vs Natural Gas</p>
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Propane vs Natural Gas: Cost Calculator</p>
         <span class="article-tag">Carbon & Environment</span>
-        <h1>Propane vs Natural Gas</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <h1>Propane vs Natural Gas: Cost Calculator</h1>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>Propane delivers the same BTU output as natural gas but typically costs 2–3x more per BTU. Whether switching fuels or connecting to a gas main makes sense depends on your local rates and connection costs. Calculate your specific situation below.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Propane vs Natural Gas Cost Calculator</h2>
+            <div class="form-group"><label for="png-mmbtu">Annual Energy Use (MMBtu) <span style="font-weight:400;font-size:.9em">— 2,000 sq ft moderate climate: ~80–100 MMBtu</span></label><input type="number" id="png-mmbtu" value="80" min="10" max="300" step="5" /></div>
+            <div class="form-group"><label for="png-propane">Propane Price ($/gallon)</label><input type="number" id="png-propane" value="2.80" min="1" max="6" step="0.10" /></div>
+            <div class="form-group"><label for="png-gas">Natural Gas Price ($/therm)</label><input type="number" id="png-gas" value="1.30" min="0.30" max="5" step="0.05" /></div>
+            <div class="form-group"><label for="png-connect">Gas Main Connection Cost ($) <span style="font-weight:400;font-size:.9em">— if available in your area</span></label><input type="number" id="png-connect" value="3000" min="0" max="20000" step="500" /></div>
+            <button class="btn-primary" onclick="calcPropaneGas()">Compare Fuel Costs</button>
+            <div class="result-box-tool" id="png-result">
+              <h3>Annual Cost & Switching Payback</h3>
+              <table id="png-table"></table>
+              <p class="result-note">Propane: 91,500 BTU/gallon. Natural gas: 100,000 BTU/therm. Both at 95% appliance efficiency. Heat pump alternative shown for comparison.</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>For homes not connected to a natural gas utility, propane is the main alternative for gas-fired appliances. The cost comparison between propane and natural gas is straightforward — but propane's advantage is availability in rural and off-grid areas.</p>
-            
-            <h2>Energy Content and Cost Comparison</h2>
-            <p>Natural gas: ~100,000 BTU/therm, national average $1.30/therm → $13 per million BTU. Propane: ~91,500 BTU/gallon, national average $2.50–3.50/gallon → $27–38 per million BTU. Natural gas is 2–3x cheaper per BTU than propane in most markets. However, natural gas requires utility infrastructure — if you're not in a service area, it's not an option.</p>
+<h2>Energy Density and Conversion: The Math You Need</h2>
+            <p>Propane and natural gas are priced in different units and have different energy densities, making direct comparison confusing. Natural gas is priced per therm (100,000 BTU) or per thousand cubic feet (MCF = roughly 10 therms). Propane is priced per gallon (91,547 BTU/gallon ≈ 0.915 therms/gallon). To compare costs on equivalent terms: at $1.40/therm for gas, you'd need propane at $1.28/gallon to break even (1.40 × 0.915). National average propane prices run $2.00–$3.00/gallon ($2.18–$3.28/therm equivalent) — making propane consistently 50–130% more expensive than natural gas on an energy-equivalent basis in most years.</p>
 
-            <h2>Heating Cost Comparison</h2>
-            <p>Annual heating cost for a 2,000 sq ft home in a moderate climate: Natural gas furnace (95% AFUE): $800–1,200/year. Propane furnace (95% AFUE): $1,800–2,800/year. The difference — $1,000–1,600/year — represents real ongoing cost for rural homeowners who must use propane. At this savings rate, the cost of connecting to a gas main (often $2,000–8,000 for a nearby street connection) pays back in 2–6 years where available.</p>
+            <h2>Why Propane Prices Vary So Much More Than Gas</h2>
+            <p>Natural gas is delivered via pipeline — a regulated utility infrastructure with relatively stable retail rates. Propane is a liquid commodity delivered by truck, with prices tied to wholesale propane markets (which correlate with crude oil) plus local delivery costs. Propane prices spike significantly in winter when demand surges and can double in cold snaps. Rural propane customers also face higher delivery costs than suburban areas. The price volatility risk is a real financial consideration for propane-dependent households, especially in Northern states where heating season is long and demand peaks are severe.</p>
 
-            <h2>Propane's Advantages</h2>
-            <ul><li>Available anywhere — no utility infrastructure required</li><li>Higher BTU per cubic foot than natural gas — more energy dense in liquid form</li><li>Slightly lower carbon emissions per BTU than natural gas (though still a fossil fuel)</li><li>Can be stored on-site, providing energy security independent of utility outages</li></ul>
+            <h2>When Propane Is the Only Viable Option</h2>
+            <p>Propane exists as a residential fuel because natural gas pipeline infrastructure doesn't reach everywhere. About 10% of U.S. households use propane, concentrated in rural areas without gas mains. If you're in a rural area and need gas appliances (furnace, range, water heater, dryer), propane is often the choice between: propane, electric, or oil. In recent years, with heat pump technology maturing, the propane vs. heat pump decision has become the more relevant one for many rural households — particularly as HPWH, heat pump furnaces, and induction ranges now replace every major propane appliance with electric alternatives that are often cheaper to operate even at rural electricity rates.</p>
 
-            <h2>When to Switch from Propane</h2>
-            <p>If natural gas service is available on your street: connecting almost always pays back within 3–5 years given the cost difference. If not: a heat pump can cost less to operate than propane in most climates, even accounting for electricity costs. Use our <a href='/tools/heating-cost-by-fuel.html'>Heating Cost by Fuel Calculator</a> to compare your specific rates.</p>
-
+            <h2>The Electrification Case for Propane Households</h2>
+            <p>Propane households pay a significant premium for fuel — $800–$2,000/year more than equivalent gas households in many cases. This creates a strong financial case for appliance electrification: heat pump for heating (saves $400–$1,200/year vs. propane furnace), heat pump water heater (saves $300–$700/year vs. propane water heater), induction range (saves $50–$150/year). Combined, a full electrification of a propane home's major appliances can save $750–$2,000/year in fuel costs. The IRA's tax credits for heat pumps and HPWHs make this an especially favorable moment for propane households considering the switch.</p>
           </div>
         </div>
         <div>
@@ -67,9 +78,9 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Natural gas: <strong>$13/million BTU</strong></li>
-              <li>Propane: <strong>$27–38/million BTU</strong></li>
-              <li>Annual heating cost diff: <strong>$1,000–1,600</strong></li>
+              <li>Natural gas cost/MMBtu: <strong>~$13</strong></li>
+              <li>Propane cost/MMBtu: <strong>~$30–38</strong></li>
+              <li>Annual diff (80 MMBtu): <strong>$1,400–2,000</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -79,5 +90,40 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcPropaneGas() {
+  const mmbtu=parseFloat(document.getElementById('png-mmbtu').value)||80;
+  const propanePrice=parseFloat(document.getElementById('png-propane').value)||2.80;
+  const gasPrice=parseFloat(document.getElementById('png-gas').value)||1.30;
+  const connectCost=parseFloat(document.getElementById('png-connect').value)||3000;
+
+  // Propane: 91,500 BTU/gal, 95% efficient
+  const propaneGals=(mmbtu*1e6)/(91500*0.95);
+  const propaneAnnual=propaneGals*propanePrice;
+
+  // Natural gas: 100,000 BTU/therm, 95% efficient
+  const gasTherm=(mmbtu*10)/0.95;
+  const gasAnnual=gasTherm*gasPrice;
+
+  // Heat pump: COP 2.5, electricity at 13¢/kWh
+  const hpKwh=(mmbtu*293.07)/2.5;
+  const hpAnnual=hpKwh*0.13;
+
+  const annualSavings=propaneAnnual-gasAnnual;
+  const payback=annualSavings>0?connectCost/annualSavings:999;
+  const hpSavingsVsPropane=propaneAnnual-hpAnnual;
+
+  const fmt=v=>'$'+Math.round(v).toLocaleString();
+  document.getElementById('png-table').innerHTML=`
+    <tr><th></th><th>Propane</th><th>Natural Gas</th><th>Heat Pump (elec)</th></tr>
+    <tr><td>Annual fuel use</td><td>${Math.round(propaneGals)} gallons</td><td>${Math.round(gasTherm)} therms</td><td>${Math.round(hpKwh).toLocaleString()} kWh</td></tr>
+    <tr><td>Annual fuel cost</td><td>${fmt(propaneAnnual)}</td><td>${fmt(gasAnnual)}</td><td>${fmt(hpAnnual)}</td></tr>
+    <tr><td>Annual savings vs propane</td><td>—</td><td>${fmt(annualSavings)}</td><td>${fmt(hpSavingsVsPropane)}</td></tr>
+    <tr><td>Switching cost</td><td>—</td><td>${fmt(connectCost)} (connection)</td><td>$4,200–6,000 (heat pump, after ITC)</td></tr>
+    <tr><td>Payback period</td><td>—</td><td>${payback>50?'50+ yrs (gas not nearby)':payback.toFixed(1)+' years'}</td><td>${hpSavingsVsPropane>0?((5000)/hpSavingsVsPropane).toFixed(1)+' years':'N/A'}</td></tr>
+  `;
+  const r=document.getElementById('png-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

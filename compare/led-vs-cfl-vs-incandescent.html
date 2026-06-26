@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LED vs CFL vs Incandescent Bulbs: Cost and Energy Comparison | EcoEnergyCalc</title>
-  <meta name="description" content="LEDs use 75–90% less energy than incandescent bulbs and last 15–25x longer. Here's the full cost comparison including purchase price, energy, and lifespan." />
+  <title>LED vs CFL vs Incandescent: Calculate Your Exact Savings | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your number of bulbs and local electricity rate to see your exact annual savings from switching to LED — and the payback period per bulb." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/led-vs-cfl-vs-incandescent.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"LED vs CFL vs Incandescent Bulbs: Cost and Energy Comparison","description":"LEDs use 75–90% less energy than incandescent bulbs and last 15–25x longer. Here's the full cost comparison including purchase price, energy, and lifespan.","url":"https://ecoenergycalc.com/compare/led-vs-cfl-vs-incandescent.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"LED vs CFL vs Incandescent: Calculate Your Exact Savings","description":"Enter your number of bulbs and local electricity rate to see your exact annual savings from switching to LED — and the payback period per bulb.","url":"https://ecoenergycalc.com/compare/led-vs-cfl-vs-incandescent.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,28 +22,40 @@
   <section class="article-page">
     <div class="container">
       <div class="article-header">
-        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › LED vs CFL vs Incandescent Bulbs</p>
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › LED vs CFL vs Incandescent: Savings Calculator</p>
         <span class="article-tag">Lighting & Efficiency</span>
-        <h1>LED vs CFL vs Incandescent Bulbs</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <h1>LED vs CFL vs Incandescent: Savings Calculator</h1>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>Switching to LED is one of the fastest-payback home energy upgrades available. Enter your bulb count and electricity rate to see your specific annual savings.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>LED Savings Calculator</h2>
+            <div class="form-group"><label for="led-bulbs">Number of Bulbs to Replace</label><input type="number" id="led-bulbs" value="20" min="1" max="100" step="1" /></div>
+            <div class="form-group"><label for="led-watts">Current Bulb Wattage (per bulb)</label><input type="number" id="led-watts" value="60" min="40" max="150" step="10" /></div>
+            <div class="form-group"><label for="led-hours">Average Hours per Day (per bulb)</label><input type="number" id="led-hours" value="3" min="0.5" max="16" step="0.5" /></div>
+            <div class="form-group"><label for="led-rate">Electricity Rate (¢/kWh)</label><input type="number" id="led-rate" value="13" min="5" max="50" step="0.5" /></div>
+            <button class="btn-primary" onclick="calcLED()">Calculate LED Savings</button>
+            <div class="result-box-tool" id="led-result">
+              <h3>Annual Savings from Switching to LED</h3>
+              <div class="result-amount" id="led-annual"></div>
+              <table id="led-table"></table>
+              <p class="result-note">LED equivalent uses 9W for 60W incandescent, 13W for 75W, 15W for 100W. LED lifespan: 15,000–25,000 hours. CFL: 13W equivalent (8,000 hr lifespan). Bulb cost: LED ~$3, CFL ~$3, incandescent ~$0.75.</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>Lighting technology has shifted dramatically in the past decade. Incandescent bulbs are being phased out under federal standards. CFLs are largely obsolete. LEDs have won on every metric — cost, efficiency, lifespan, and versatility. This comparison shows why.</p>
-            
-            <h2>Incandescent: High Energy Use, Low Upfront Cost</h2>
-            <p>A 60W incandescent bulb costs $0.50–1.00 and produces 800 lumens of light. It lasts about 1,000–2,000 hours. At 13¢/kWh running 3 hours/day: $0.023/day, $8.60/year per bulb. After 25,000 hours (the lifespan of one LED), you'd need 15–25 incandescent replacements. Incandescent bulbs are banned in new production in the U.S. since August 2023.</p>
+<h2>The Physics: Why LEDs Use Less Energy for the Same Light</h2>
+            <p>Incandescent bulbs produce light by heating a filament to approximately 2,700°C — a process where roughly 90% of energy becomes heat and only 10% becomes visible light. This isn't a design flaw that can be engineered away; it's thermodynamics. CFLs use fluorescent tube technology (excited gas plus phosphor coating) that converts roughly 25% of energy to visible light. LEDs use semiconductor electroluminescence that converts 35–50% of energy directly to light. The practical result: a 60W incandescent, 13W CFL, and 9W LED all produce about 800 lumens (equivalent visible light output). The LED uses 85% less electricity than the incandescent for identical light output.</p>
 
-            <h2>CFL: Better Than Incandescent, Now Obsolete</h2>
-            <p>A 13W CFL produces 800 lumens (equivalent to a 60W incandescent), uses 78% less energy, and lasts 8,000–10,000 hours. Cost: $2–4. Annual energy cost: $1.85/year (3 hrs/day, 13¢/kWh). Limitations: slow warm-up time, poor performance in cold temperatures, contains mercury (requires special disposal), and doesn't dim well. CFLs are largely discontinued as LEDs have surpassed them on all metrics.</p>
+            <h2>Lifespan: Where the Real Savings Accumulate</h2>
+            <p>Incandescent bulbs last approximately 1,000 hours. CFLs last 8,000–10,000 hours. Quality LEDs last 15,000–25,000 hours. At 3 hours/day usage, an incandescent needs replacement annually. A CFL lasts 7–9 years. An LED lasts 14–23 years. Over 25 years: you buy 25 incandescent bulbs ($0.75 each = $18.75), about 3 CFLs ($3 each = $9), or 1–2 LEDs ($3–5 total). Multiply this across 20 bulbs in a home and bulb replacement costs alone add up: $375 for incandescent vs. $80 for LED over 25 years — not including the time cost of frequent replacements or replacement while standing on ladders.</p>
 
-            <h2>LED: Best on Every Metric</h2>
-            <p>A 9W LED produces 800 lumens, uses 85% less energy than incandescent, and lasts 15,000–25,000 hours. Cost: $2–8. Annual energy cost: $1.28/year (3 hrs/day, 13¢/kWh). LEDs dim smoothly, work in cold temperatures, contain no mercury, turn on instantly, and are available in all color temperatures from warm white (2700K) to daylight (5000K).</p>
+            <h2>Light Quality: LEDs Have Caught Up Completely</h2>
+            <p>Early LEDs had reputation problems: harsh color, poor dimming, flickering, directional light. 2020 and later LED technology has largely resolved these issues. Quality LEDs now achieve CRI (Color Rendering Index) of 90+ — matching or exceeding incandescent (CRI approximately 100). Warm white (2700K) LEDs are visually indistinguishable from incandescent in most settings. Dimming compatibility has improved: most quality LEDs dim smoothly with compatible LED dimmers (not old incandescent dimmers, which often cause flickering). Energy Star certification is the fastest quality screen — it requires minimum CRI 80, specific lumen maintenance over life, and dimming performance standards.</p>
 
-            <h2>25,000 Hour Total Cost Comparison (Per Bulb)</h2>
-            <ul><li><strong>Incandescent (replacing every 1,500 hrs):</strong> ~17 bulbs × $0.75 + 1,500W × 25,000hrs × $0.13/kWh = <strong>$500+</strong></li><li><strong>CFL:</strong> ~3 bulbs × $3 + 325W × 25,000hrs × $0.13/kWh = <strong>$115</strong></li><li><strong>LED:</strong> 1 bulb × $5 + 225W × 25,000hrs × $0.13/kWh = <strong>$78</strong></li></ul><p>Use our <a href='/tools/led-vs-incandescent.html'>LED vs Incandescent Calculator</a> to calculate savings for your specific number of bulbs.</p>
-
+            <h2>What Happens to CFLs at End of Life</h2>
+            <p>CFLs contain 3–5 mg of mercury per bulb — not dangerous in normal use, but requiring proper disposal. Home Depot and Lowes accept CFL recycling; municipal hazardous waste programs also take them. Most states prohibit CFL landfill disposal. If you have CFLs in your home now, let them run out their rated life (they last 8+ years when left on for full cycles), then replace with LEDs. Don't throw CFLs away intact — they'll eventually break in landfill and release mercury. CFL manufacturing has largely been phased out; any comparison you face today is managing existing inventory rather than making new purchase decisions.</p>
           </div>
         </div>
         <div>
@@ -68,8 +80,8 @@
             <h3>Quick Facts</h3>
             <ul>
               <li>LED vs incandescent energy: <strong>85% less</strong></li>
+              <li>LED payback: <strong>under 6 months (typical)</strong></li>
               <li>LED lifespan: <strong>15,000–25,000 hours</strong></li>
-              <li>LED 25yr total cost: <strong>~$78</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -79,5 +91,45 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcLED() {
+  const bulbs=parseFloat(document.getElementById('led-bulbs').value)||20;
+  const watts=parseFloat(document.getElementById('led-watts').value)||60;
+  const hours=parseFloat(document.getElementById('led-hours').value)||3;
+  const rate=parseFloat(document.getElementById('led-rate').value)/100||0.13;
+
+  // LED wattage: roughly 15% of incandescent
+  const ledWatts=Math.round(watts*0.15);
+  const cflWatts=Math.round(watts*0.22);
+  const annualHrs=hours*365;
+
+  const incKwh=watts/1000*annualHrs*bulbs;
+  const cflKwh=cflWatts/1000*annualHrs*bulbs;
+  const ledKwh=ledWatts/1000*annualHrs*bulbs;
+
+  const incAnnual=incKwh*rate;
+  const cflAnnual=cflKwh*rate;
+  const ledAnnual=ledKwh*rate;
+
+  const savingsVsInc=incAnnual-ledAnnual;
+  const savingsVsCfl=cflAnnual-ledAnnual;
+  const ledCost=bulbs*3;
+  const payback=savingsVsInc>0?(ledCost/savingsVsInc)*12:0; // months
+
+  const fmt=v=>'$'+v.toFixed(2);
+  const fmtR=v=>'$'+Math.round(v).toLocaleString();
+  document.getElementById('led-annual').textContent=fmtR(savingsVsInc)+' saved per year vs incandescent';
+  document.getElementById('led-table').innerHTML=`
+    <tr><th></th><th>Incandescent (${watts}W)</th><th>CFL (${cflWatts}W)</th><th>LED (${ledWatts}W)</th></tr>
+    <tr><td>Total wattage (${bulbs} bulbs)</td><td>${watts*bulbs}W</td><td>${cflWatts*bulbs}W</td><td>${ledWatts*bulbs}W</td></tr>
+    <tr><td>Annual kWh</td><td>${Math.round(incKwh).toLocaleString()}</td><td>${Math.round(cflKwh).toLocaleString()}</td><td>${Math.round(ledKwh).toLocaleString()}</td></tr>
+    <tr><td>Annual cost</td><td>${fmtR(incAnnual)}</td><td>${fmtR(cflAnnual)}</td><td>${fmtR(ledAnnual)}</td></tr>
+    <tr><td>Annual savings vs LED</td><td>${fmtR(savingsVsInc)}</td><td>${fmtR(savingsVsCfl)}</td><td>—</td></tr>
+    <tr><td>LED bulb cost (${bulbs} bulbs)</td><td colspan="3">${fmtR(ledCost)}</td></tr>
+    <tr style="font-weight:700;"><td>LED payback period</td><td colspan="3">${payback.toFixed(1)} months vs incandescent</td></tr>
+  `;
+  const r=document.getElementById('led-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

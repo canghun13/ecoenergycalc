@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vegan vs Meat Diet: Carbon Footprint Comparison | EcoEnergyCalc</title>
-  <meta name="description" content="Diet is one of the largest components of personal carbon footprint. A vegan diet produces 50–70% less food-related emissions than a high-meat diet. Full breakdown." />
+  <title>Vegan vs Meat Diet: Calculate Your Food Carbon Footprint | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your dietary habits to calculate your annual food-related carbon footprint — and see how much CO₂ you'd save by changing your diet." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/vegan-vs-meat-diet-carbon.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Vegan vs Meat Diet: Carbon Footprint Comparison","description":"Diet is one of the largest components of personal carbon footprint. A vegan diet produces 50–70% less food-related emissions than a high-meat diet. Full breakdown.","url":"https://ecoenergycalc.com/compare/vegan-vs-meat-diet-carbon.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Vegan vs Meat Diet: Calculate Your Food Carbon Footprint","description":"Enter your dietary habits to calculate your annual food-related carbon footprint — and see how much CO₂ you'd save by changing your diet.","url":"https://ecoenergycalc.com/compare/vegan-vs-meat-diet-carbon.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,28 +22,41 @@
   <section class="article-page">
     <div class="container">
       <div class="article-header">
-        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Vegan vs Meat Diet: Carbon Footprint</p>
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Vegan vs Meat Diet: Food Carbon Calculator</p>
         <span class="article-tag">Carbon & Environment</span>
-        <h1>Vegan vs Meat Diet: Carbon Footprint</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <h1>Vegan vs Meat Diet: Food Carbon Calculator</h1>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>Diet is one of the largest components of personal carbon footprint. The calculator below estimates your annual food-related CO₂ emissions based on your current eating habits — and shows the impact of dietary changes.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Diet Carbon Footprint Calculator</h2>
+            <div class="form-group"><label for="diet-beef">Beef servings per week (3oz serving)</label><input type="number" id="diet-beef" value="3" min="0" max="21" step="0.5" /></div>
+            <div class="form-group"><label for="diet-pork">Pork servings per week</label><input type="number" id="diet-pork" value="2" min="0" max="14" step="0.5" /></div>
+            <div class="form-group"><label for="diet-chicken">Chicken/poultry servings per week</label><input type="number" id="diet-chicken" value="4" min="0" max="21" step="0.5" /></div>
+            <div class="form-group"><label for="diet-fish">Fish/seafood servings per week</label><input type="number" id="diet-fish" value="2" min="0" max="14" step="0.5" /></div>
+            <div class="form-group"><label for="diet-dairy">Dairy servings per day (milk/yogurt/cheese)</label><input type="number" id="diet-dairy" value="2" min="0" max="10" step="0.5" /></div>
+            <button class="btn-primary" onclick="calcDietCarbon()">Calculate Diet Carbon</button>
+            <div class="result-box-tool" id="diet-result">
+              <h3>Annual Diet Carbon Footprint</h3>
+              <div class="result-amount" id="diet-annual"></div>
+              <table id="diet-table"></table>
+              <p class="result-note">CO₂e per kg: beef 27kg, pork 12kg, chicken 6.9kg, fish avg 5kg, dairy 3.2kg. Serving sizes: meat 85g (3oz), dairy 245g. Sources: Poore & Nemecek (2018), OurWorldInData.</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>Diet accounts for about 14–18% of global greenhouse gas emissions, and food choices are one of the most impactful levers individuals have on their personal carbon footprint. The difference between a high-meat diet and a plant-based diet is significant.</p>
-            
-            <h2>Why Meat Has a High Carbon Footprint</h2>
-            <p>Animal agriculture produces emissions through methane from livestock (particularly cattle), land use change (clearing forests for grazing and feed crops), fertilizer production for feed crops, and transportation. Beef is by far the highest-emission food: approximately 27kg CO₂e per kg of beef, compared to 2.7kg for chicken, 1.1kg for legumes, and 0.4kg for vegetables. Dairy products carry significant emissions as well: ~3.2kg CO₂e per kg of cheese, ~1.4kg per liter of milk.</p>
+<h2>The Numbers: Diet Carbon Footprint by Category</h2>
+            <p>Food production accounts for roughly 26% of global greenhouse gas emissions. Within that, livestock farming generates approximately 14.5% of global emissions (FAO data) — more than all transportation combined. Individual diet carbon footprints vary enormously by choices: beef at 27 kg CO₂e/kg of protein produced is the highest-impact common food. By comparison: tofu = 2.2 kg CO₂e/kg protein, lentils = 0.9 kg CO₂e/kg protein, chicken = 6.9 kg CO₂e/kg protein, pork = 7.6 kg CO₂e/kg protein. The difference between a beef-heavy diet and a plant-based diet is approximately 1.5–2.5 metric tons CO₂e per year per person — comparable to eliminating a car for most commuters.</p>
 
-            <h2>Annual Carbon Footprint by Diet Type</h2>
-            <ul><li><strong>High-meat diet (beef daily):</strong> ~3,300 kg CO₂e/year from food alone</li><li><strong>Average U.S. meat eater:</strong> ~2,000 kg CO₂e/year from food</li><li><strong>Flexitarian (meat 2–3x/week):</strong> ~1,400 kg CO₂e/year</li><li><strong>Vegetarian:</strong> ~1,000 kg CO₂e/year</li><li><strong>Vegan:</strong> ~700 kg CO₂e/year</li></ul><p>Switching from an average meat diet to vegan saves approximately 1,300 kg CO₂e/year — equivalent to driving about 3,000 fewer miles in a gas car.</p>
+            <h2>The "Vegan vs. Meat" Framing Misses Most of the Variation</h2>
+            <p>A more useful framing is: beef consumption is by far the dominant food carbon variable, and dairy follows. A diet that eliminates beef but includes chicken, fish, and dairy has roughly 75% lower food carbon footprint than a beef-heavy diet. Vegan vs. heavy beef-eater represents a 200–300% footprint difference; omnivore vs. beef-avoider (chicken and fish only) is still a 50–80% reduction. The practical implication: reducing beef specifically — not eliminating all animal products — captures most of the food carbon benefit. This is actionable for many people who find full veganism impractical.</p>
 
-            <h2>The Biggest Single Change: Reduce Beef</h2>
-            <p>You don't need to go fully vegan to make a significant impact. Replacing beef with chicken reduces diet-related emissions by 30–40% for meat eaters. Replacing one beef meal per week with legumes or vegetables saves approximately 200–300 kg CO₂e/year — more than switching from a gas car to an EV has in some high-carbon grid regions.</p>
+            <h2>Land Use: The Second Major Impact Category</h2>
+            <p>Beyond carbon, animal agriculture's land footprint is striking. Producing 1 calorie of beef requires approximately 20× more land than producing 1 calorie of grain. Globally, 77% of agricultural land is used for livestock (including feed crop production) while producing only 18% of global calorie supply. The land efficiency argument for plant-based diets is arguably stronger than the carbon argument — land freed from beef production and rewilded or reforested would sequester additional carbon, improving the climate math further beyond direct emission reductions from diet change alone.</p>
 
-            <h2>Other Food-Related Factors</h2>
-            <p>Beyond meat vs. plant-based: food waste is responsible for about 8% of global emissions. Eating locally grown food in season has a modest carbon benefit (~5–10%). Air-freighted produce has a high carbon footprint (similar to meat in some cases). The most impactful change remains reducing beef and dairy consumption. Use our <a href='/tools/diet-carbon.html'>Diet Carbon Calculator</a> to calculate your current food-related emissions.</p>
-
+            <h2>Local and Seasonal: Meaningful but Smaller Than You Think</h2>
+            <p>"Eat local" is widely cited as a climate strategy, but transportation represents only approximately 6% of food system emissions. The production method matters far more than the shipping distance. Flying fresh produce from Chile or Kenya (air freight) does have significant carbon impact. But shipping food by sea or truck — how most imported food arrives — has minimal carbon footprint per kg. A locally grown beef steak has a larger carbon footprint than imported lentils from Canada. The origin matters less than what you eat; the food category is the primary carbon driver, not geography.</p>
           </div>
         </div>
         <div>
@@ -67,9 +80,9 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Beef CO₂e/kg: <strong>~27 kg</strong></li>
-              <li>Legumes CO₂e/kg: <strong>~1.1 kg</strong></li>
-              <li>Vegan vs avg meat diet: <strong>~1,300 kg/yr savings</strong></li>
+              <li>Beef CO₂e/kg: <strong>27 kg</strong></li>
+              <li>Chicken CO₂e/kg: <strong>6.9 kg</strong></li>
+              <li>Cutting beef: <strong>single biggest diet change</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -79,5 +92,44 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcDietCarbon() {
+  const beef=parseFloat(document.getElementById('diet-beef').value)||0;
+  const pork=parseFloat(document.getElementById('diet-pork').value)||0;
+  const chicken=parseFloat(document.getElementById('diet-chicken').value)||0;
+  const fish=parseFloat(document.getElementById('diet-fish').value)||0;
+  const dairy=parseFloat(document.getElementById('diet-dairy').value)||0;
+
+  const servingGrams=85; const dairyGrams=245;
+  const beefCo2=beef*52*(servingGrams/1000)*27;
+  const porkCo2=pork*52*(servingGrams/1000)*12;
+  const chickenCo2=chicken*52*(servingGrams/1000)*6.9;
+  const fishCo2=fish*52*(servingGrams/1000)*5;
+  const dairyCo2=dairy*365*(dairyGrams/1000)*3.2;
+  const totalCo2=beefCo2+porkCo2+chickenCo2+fishCo2+dairyCo2;
+
+  // Scenario savings
+  const noBeefSavings=beefCo2;
+  const halfMeatSavings=(beefCo2+porkCo2+chickenCo2)*0.5;
+  const veganSavings=totalCo2*0.85; // ~15% remains for plant foods
+
+  const fmt=v=>Math.round(v).toLocaleString()+' kg CO₂e';
+  document.getElementById('diet-annual').textContent=Math.round(totalCo2).toLocaleString()+' kg CO₂e per year from food';
+  document.getElementById('diet-table').innerHTML=`
+    <tr><th>Food Category</th><th>Annual CO₂e</th><th>% of Total</th></tr>
+    <tr><td>Beef</td><td>${fmt(beefCo2)}</td><td>${totalCo2>0?Math.round(beefCo2/totalCo2*100):0}%</td></tr>
+    <tr><td>Pork</td><td>${fmt(porkCo2)}</td><td>${totalCo2>0?Math.round(porkCo2/totalCo2*100):0}%</td></tr>
+    <tr><td>Chicken</td><td>${fmt(chickenCo2)}</td><td>${totalCo2>0?Math.round(chickenCo2/totalCo2*100):0}%</td></tr>
+    <tr><td>Fish</td><td>${fmt(fishCo2)}</td><td>${totalCo2>0?Math.round(fishCo2/totalCo2*100):0}%</td></tr>
+    <tr><td>Dairy</td><td>${fmt(dairyCo2)}</td><td>${totalCo2>0?Math.round(dairyCo2/totalCo2*100):0}%</td></tr>
+    <tr style="font-weight:700;"><td>Total</td><td>${fmt(totalCo2)}</td><td>100%</td></tr>
+    <tr><td colspan="3" style="padding-top:12px;font-weight:600;">Savings from dietary changes:</td></tr>
+    <tr><td>Cut beef entirely</td><td>-${fmt(noBeefSavings)}/yr</td><td>—</td></tr>
+    <tr><td>Halve all meat</td><td>-${fmt(halfMeatSavings)}/yr</td><td>—</td></tr>
+    <tr><td>Go vegan</td><td>-${fmt(veganSavings)}/yr</td><td>—</td></tr>
+  `;
+  const r=document.getElementById('diet-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

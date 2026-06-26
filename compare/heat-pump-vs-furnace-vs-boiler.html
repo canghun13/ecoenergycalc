@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Heat Pump vs Furnace vs Gas Boiler: Which Heating System Is Best? | EcoEnergyCalc</title>
-  <meta name="description" content="Heat pumps are the most efficient option but cost more upfront. Furnaces are cheaper to install but more expensive to run. Full comparison of all three systems." />
+  <title>Heat Pump vs Furnace vs Gas Boiler: Which Heating System Costs Less for Your Home? | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your home size and local energy rates to compare the annual heating cost and payback period for a heat pump, gas furnace, and gas boiler." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/heat-pump-vs-furnace-vs-boiler.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Heat Pump vs Furnace vs Gas Boiler: Which Heating System Is Best?","description":"Heat pumps are the most efficient option but cost more upfront. Furnaces are cheaper to install but more expensive to run. Full comparison of all three systems.","url":"https://ecoenergycalc.com/compare/heat-pump-vs-furnace-vs-boiler.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Heat Pump vs Furnace vs Gas Boiler: Which Heating System Costs Less for Your Home?","description":"Enter your home size and local energy rates to compare the annual heating cost and payback period for a heat pump, gas furnace, and gas boiler.","url":"https://ecoenergycalc.com/compare/heat-pump-vs-furnace-vs-boiler.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,28 +22,39 @@
   <section class="article-page">
     <div class="container">
       <div class="article-header">
-        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Heat Pump vs Furnace vs Gas Boiler</p>
-        <span class="article-tag">Home Heating & Cooling</span>
-        <h1>Heat Pump vs Furnace vs Gas Boiler</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Heat Pump vs Furnace vs Gas Boiler: Annual Cost Calculator</p>
+        <span class="article-tag">Heating & Cooling</span>
+        <h1>Heat Pump vs Furnace vs Gas Boiler: Annual Cost Calculator</h1>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>Your cheapest heating option depends on your local electricity and gas rates, climate, and home size. Enter your details to compare all three systems with your actual numbers.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Annual Heating Cost Comparison</h2>
+            <div class="form-group"><label for="hp-sqft">Home Size (sq ft)</label><input type="number" id="hp-sqft" value="2000" min="500" max="6000" step="100" /></div>
+            <div class="form-group"><label for="hp-hdd">Heating Degree Days (HDD) per Year <span style="font-weight:400;font-size:.9em">— Chicago: 6,500 | Atlanta: 3,000 | Miami: 200</span></label><input type="number" id="hp-hdd" value="5000" min="200" max="10000" step="100" /></div>
+            <div class="form-group"><label for="hp-elec">Electricity Rate (¢/kWh)</label><input type="number" id="hp-elec" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="hp-gas">Natural Gas Rate ($/therm)</label><input type="number" id="hp-gas" value="1.30" min="0.50" max="4" step="0.05" /></div>
+            <button class="btn-primary" onclick="calcHeating()">Compare Heating Systems</button>
+            <div class="result-box-tool" id="hp-result">
+              <h3>Annual Heating Cost</h3>
+              <table id="hp-table"></table>
+              <p class="result-note">Heat pump COP 2.5 average (varies with temperature). Gas furnace 95% AFUE. Gas boiler 85% AFUE. Insulation factor: 6 BTU/hr/sq ft/°F HDD. Installation costs: heat pump $6,000, furnace $3,500, boiler $6,000 (after ITC for heat pump: $4,200).</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>Choosing a home heating system is a long-term decision — these systems last 15–25 years and significantly affect annual energy costs. Heat pumps, gas furnaces, and gas boilers each have different installation costs, operating costs, and carbon footprints.</p>
-            
-            <h2>Heat Pump: Most Efficient, Highest Upfront Cost</h2>
-            <p>Air-source heat pumps cost $4,000–8,000 installed (central/ducted) or $3,000–5,000 per zone for mini-splits. They heat by moving heat from outside air rather than generating it, achieving efficiencies of 200–400% (COP of 2–4). Annual heating cost for a 2,000 sq ft home in a moderate climate: $600–1,000 in electricity. Heat pumps also provide cooling in summer, eliminating the need for a separate AC system. Qualify for the federal 30% tax credit (up to $2,000) through 2032.</p>
+<h2>Heat Pumps in 2025: The Economics Have Shifted</h2>
+            <p>Heat pump efficiency is measured in COP (Coefficient of Performance) — the ratio of heat produced to electricity consumed. Modern air-source heat pumps achieve COP 2.5–4.0 in moderate temperatures. At COP 3.0, a heat pump delivers 3 units of heat per unit of electricity consumed. Compare this to a 95% AFUE gas furnace that delivers 0.95 units of heat per unit of gas. At national average prices ($0.16/kWh electricity, $1.40/therm gas), a heat pump at COP 3.0 costs about $0.053/kBTU delivered heat. A 95% furnace costs about $0.149/kBTU. The heat pump is 2.8× cheaper per unit of heat — even accounting for higher electricity rates than gas.</p>
 
-            <h2>Gas Furnace: Lower Upfront, Higher Operating Cost</h2>
-            <p>Gas furnaces cost $2,500–5,000 installed. Modern high-efficiency models achieve 95–98% AFUE. Annual heating cost for a 2,000 sq ft home: $700–1,200 depending on gas prices and climate. Gas prices are more volatile than electricity rates. Gas furnaces don't provide cooling and have a lifespan of 15–20 years. In very cold climates (below -10°F regularly), high-efficiency gas furnaces still outperform most heat pumps in heating capacity.</p>
+            <h2>Cold Climate Performance: The Old Limitation Is Largely Resolved</h2>
+            <p>The historical knock on heat pumps — that they lose effectiveness below 32°F — applies to 2005-era equipment. Modern cold-climate heat pumps (Mitsubishi H2i, Bosch Climate 5000, LG Therma V) maintain COP greater than 1.5 at 0°F and some are rated to -13°F. This matters enormously in climate zones 5–7 (New England, Upper Midwest, Mountain states). The crossover point — where a heat pump's efficiency advantage over gas disappears — has shifted from roughly 20°F in older units to below -5°F in current cold-climate models. For most of the U.S. heating season, modern heat pumps maintain their efficiency advantage throughout.</p>
 
-            <h2>Gas Boiler: Hydronic Heat, Highest Comfort</h2>
-            <p>Gas boilers heat water distributed through radiators or radiant floor systems, providing very even, comfortable heat. Installation cost: $4,000–8,000. Annual operating cost: similar to gas furnaces ($700–1,200/year). Boilers have the longest lifespan of any heating system (20–35 years). They don't provide cooling and are rarely installed in new construction. Best for homes with existing radiator systems where hydronic heat is preferred.</p>
+            <h2>Boilers vs Forced Air: Distribution System Compatibility</h2>
+            <p>Heat pumps work best with forced-air distribution systems (ductwork). Homes with hot-water baseboard or radiator systems (typical in Northeast cities and older construction) face a compatibility challenge. Hydronic (water-based) heat pumps exist but cost 30–50% more than air-to-air systems. Mini-split heat pumps bypass the ductwork issue entirely by delivering heat directly to zones — often the most practical heat pump solution for homes with boilers. Installing 3–4 mini-splits throughout a home ($15,000–$25,000) provides both heating and cooling without touching existing boiler or ductwork.</p>
 
-            <h2>Which Should You Choose?</h2>
-            <ul><li><strong>Heat pump:</strong> Best for moderate climates, new installations, anyone wanting heating + cooling in one unit, and those prioritizing efficiency and lower carbon</li><li><strong>Gas furnace:</strong> Best for very cold climates where heat pump efficiency drops, homes with existing ductwork, and areas with cheap natural gas</li><li><strong>Gas boiler:</strong> Best for homes with existing hydronic systems or where radiant heat comfort is a priority</li></ul><p>Use our <a href='/tools/heating-cost-by-fuel.html'>Heating Cost by Fuel Calculator</a> to compare annual costs with your local energy rates.</p>
-
+            <h2>The IRA Tax Credit Changes the Calculus</h2>
+            <p>The Inflation Reduction Act (2022) provides a 30% tax credit (up to $2,000) for qualifying heat pump installations through 2032. Low-to-moderate income households may qualify for additional HEEHRA rebates up to $8,000. A heat pump installation that costs $12,000 before incentives nets to $9,600–$4,000 after credits and rebates for eligible households. This has dramatically improved heat pump payback periods — in many markets, heat pump installation now pays back within 5–8 years versus 12–15 years pre-IRA, particularly when replacing an aging gas system.</p>
           </div>
         </div>
         <div>
@@ -67,9 +78,9 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Heat pump COP: <strong>2–4 (200–400% efficient)</strong></li>
-              <li>Gas furnace AFUE: <strong>95–98%</strong></li>
-              <li>Boiler lifespan: <strong>20–35 years</strong></li>
+              <li>Heat pump ITC credit: <strong>30% (up to $2,000)</strong></li>
+              <li>Heat pump COP: <strong>2.5 average</strong></li>
+              <li>Gas furnace AFUE: <strong>95%</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -79,5 +90,51 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcHeating() {
+  const sqft=parseFloat(document.getElementById('hp-sqft').value)||2000;
+  const hdd=parseFloat(document.getElementById('hp-hdd').value)||5000;
+  const elec=parseFloat(document.getElementById('hp-elec').value)/100||0.13;
+  const gas=parseFloat(document.getElementById('hp-gas').value)||1.30;
+
+  // Estimated annual BTU load
+  const btuLoad = sqft * 6 * hdd * 24; // simplified load calculation
+  const mmbtu = btuLoad / 1e6;
+
+  // Heat pump: COP 2.5, electricity
+  const hpKwh = (mmbtu * 293.07) / 2.5; // convert MMBtu to kWh, divide by COP
+  const hpAnnual = hpKwh * elec;
+
+  // Gas furnace 95% AFUE
+  const furnaceTherm = mmbtu * 10 / 0.95; // 1 MMBtu = 10 therms, 95% efficient
+  const furnaceAnnual = furnaceTherm * gas;
+
+  // Gas boiler 85% AFUE
+  const boilerTherm = mmbtu * 10 / 0.85;
+  const boilerAnnual = boilerTherm * gas;
+
+  // Payback vs furnace (cheapest install)
+  const hpInstall = 6000 * 0.70; // after 30% ITC
+  const furnaceInstall = 3500;
+  const boilerInstall = 6000;
+
+  const fmt = v => '$' + Math.round(v).toLocaleString();
+  const fmtYr = (install, annual, base) => {
+    const diff = base - annual;
+    if(diff <= 0) return 'Does not pay back vs this option';
+    return ((install - 3500) / diff).toFixed(1) + ' years vs furnace';
+  };
+
+  document.getElementById('hp-table').innerHTML=`
+    <tr><th></th><th>Heat Pump</th><th>Gas Furnace (95%)</th><th>Gas Boiler (85%)</th></tr>
+    <tr><td>Annual energy use</td><td>${Math.round(hpKwh).toLocaleString()} kWh</td><td>${Math.round(furnaceTherm)} therms</td><td>${Math.round(boilerTherm)} therms</td></tr>
+    <tr><td>Annual heating cost</td><td>${fmt(hpAnnual)}</td><td>${fmt(furnaceAnnual)}</td><td>${fmt(boilerAnnual)}</td></tr>
+    <tr><td>Install cost</td><td>${fmt(hpInstall)} (after ITC)</td><td>${fmt(furnaceInstall)}</td><td>${fmt(boilerInstall)}</td></tr>
+    <tr><td>Provides cooling?</td><td>✅ Yes</td><td>❌ No</td><td>❌ No</td></tr>
+    <tr><td>Carbon emissions</td><td>Depends on grid</td><td>~${Math.round(furnaceTherm*5.3)} kg CO₂/yr</td><td>~${Math.round(boilerTherm*5.3)} kg CO₂/yr</td></tr>
+  `;
+  const r=document.getElementById('hp-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

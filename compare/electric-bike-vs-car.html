@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Electric Bike vs Car: Cost and Carbon Comparison for Urban Commuters | EcoEnergyCalc</title>
-  <meta name="description" content="An e-bike costs $1,500–5,000 and runs for pennies per mile. For urban commuters, replacing car trips with an e-bike can save $3,000–7,000/year. Full breakdown." />
+  <title>Electric Bike vs Car: How Much Can You Save by Switching Commutes? | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your commute distance and local costs to see exactly how much you'd save annually by replacing car trips with an e-bike." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/electric-bike-vs-car.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Electric Bike vs Car: Cost and Carbon Comparison for Urban Commuters","description":"An e-bike costs $1,500–5,000 and runs for pennies per mile. For urban commuters, replacing car trips with an e-bike can save $3,000–7,000/year. Full breakdown.","url":"https://ecoenergycalc.com/compare/electric-bike-vs-car.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Electric Bike vs Car: How Much Can You Save by Switching Commutes?","description":"Enter your commute distance and local costs to see exactly how much you'd save annually by replacing car trips with an e-bike.","url":"https://ecoenergycalc.com/compare/electric-bike-vs-car.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,28 +22,43 @@
   <section class="article-page">
     <div class="container">
       <div class="article-header">
-        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Electric Bike vs Car</p>
-        <span class="article-tag">Carbon & Transport</span>
-        <h1>Electric Bike vs Car</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Electric Bike vs Car: Commuter Savings Calculator</p>
+        <span class="article-tag">Transport & Carbon</span>
+        <h1>Electric Bike vs Car: Commuter Savings Calculator</h1>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>For urban commuters, switching car trips to an e-bike can save thousands per year. The calculator below shows your exact annual savings based on your commute and local costs.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Commuter Savings Calculator</h2>
+            <div class="form-group"><label for="eb-miles">One-Way Commute Distance (miles)</label><input type="number" id="eb-miles" value="8" min="1" max="30" step="0.5" /></div>
+            <div class="form-group"><label for="eb-days">Commute Days per Year</label><input type="number" id="eb-days" value="240" min="50" max="365" step="10" /></div>
+            <div class="form-group"><label for="eb-mpg">Car MPG</label><input type="number" id="eb-mpg" value="28" min="15" max="60" step="1" /></div>
+            <div class="form-group"><label for="eb-gas">Gas Price ($/gallon)</label><input type="number" id="eb-gas" value="3.90" min="2" max="8" step="0.10" /></div>
+            <div class="form-group"><label for="eb-parking">Daily Parking Cost ($)</label><input type="number" id="eb-parking" value="10" min="0" max="50" step="1" /></div>
+            <div class="form-group"><label for="eb-elec">Electricity Rate (¢/kWh)</label><input type="number" id="eb-elec" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="eb-cost">E-Bike Purchase Price ($)</label><input type="number" id="eb-cost" value="2500" min="1000" max="8000" step="100" /></div>
+            <button class="btn-primary" onclick="calcEBike()">Calculate Savings</button>
+            <div class="result-box-tool" id="eb-result">
+              <h3>E-Bike vs Car Commute</h3>
+              <div class="result-amount" id="eb-annual"></div>
+              <table id="eb-table"></table>
+              <p class="result-note">E-bike electricity: 500Wh battery, 40-mile range = ~1.25¢/mile. Does not include car insurance or depreciation savings, which would further improve e-bike economics.</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>For urban and suburban commuters, an electric bike can replace a significant portion of car trips at a fraction of the cost. This comparison covers purchase price, operating costs, and carbon impact for commuters considering an e-bike as a car replacement or supplement.</p>
-            
-            <h2>Purchase Cost Comparison</h2>
-            <p>A quality commuter e-bike costs $1,500–5,000. A new car costs $35,000–55,000; a used reliable commuter car costs $15,000–25,000. On purchase price alone, an e-bike costs 5–30x less than a car. Even factoring in accessories (helmet, lights, panniers, lock): $200–500 additional.</p>
+<h2>The Real Competition: E-Bike vs. Second Car</h2>
+            <p>The meaningful financial comparison isn't e-bike vs. your primary car — it's e-bike vs. owning a second car for shorter trips. The average American household spends $12,000–$15,000/year on vehicle ownership (AAA, 2024). If an e-bike can replace a second car for a two-vehicle household, the annual savings are enormous. A quality e-bike costs $1,500–$4,000 with roughly $200–$400/year in maintenance. Eliminating a second car saves insurance ($1,200–$2,000/year), depreciation ($2,000–$5,000/year), registration, and fuel — easily $5,000–$8,000 annually.</p>
 
-            <h2>Operating Cost: E-Bike Wins by a Wide Margin</h2>
-            <p>E-bike electricity cost: a 500Wh battery costs about 6–7¢ to charge at 13¢/kWh. At 30–50 miles of range, that's roughly $0.12–0.23 per mile in electricity. Car comparison: $0.13/mile in fuel at 30 MPG + $0.08/mile in maintenance = $0.21/mile minimum, plus insurance, registration, and depreciation that push the full cost to $0.50–0.70/mile (IRS standard mileage rate). For a 10-mile daily commute: e-bike costs ~$0.50–1.00/day; car costs $5–7/day.</p>
+            <h2>Commute Range and Practicality</h2>
+            <p>Most e-bikes provide 20–60 miles of assisted range per charge (depending on assist level and terrain). A commute of 5–15 miles each way is the sweet spot for e-bike practicality. Beyond 20 miles each way, cargo capacity, weather exposure, and physical exertion become limiting factors. The practical advantages compound: no parking costs, no traffic delay in dense urban areas, and the ability to arrive at work without sweating through work clothes. Cities like Portland, Minneapolis, and Denver — which have invested in separated bike infrastructure — have seen e-bike commuting grow 50–100% year over year.</p>
 
-            <h2>Carbon Impact</h2>
-            <p>An e-bike on the average U.S. grid emits about 20–40g CO₂/mile — roughly 7–15x less than a gas car at 290g CO₂/mile. Even on a coal-heavy grid, e-bikes emit 70–80% less than gas cars per mile. For a 10-mile round-trip commute 250 days/year, switching from a gas car to an e-bike saves about 1,400 lbs (640 kg) of CO₂ annually.</p>
+            <h2>Energy Cost: The Most Lopsided Comparison in Transportation</h2>
+            <p>An e-bike uses roughly 10–20 Wh per mile (0.01–0.02 kWh/mile). At 13¢/kWh, that's $0.001–$0.003 per mile. A 30 MPG car at $3.90/gallon costs $0.13/mile. The e-bike is 43–130× cheaper per mile in energy costs. Over 3,000 commuting miles per year (a typical urban commuter), an e-bike costs $3–$9 in electricity. The car costs $390. This energy cost advantage is so large it dominates any cost comparison for short to medium commutes — no other transportation mode comes close.</p>
 
-            <h2>Who Should Consider an E-Bike?</h2>
-            <p>Best for: commuters within 15 miles of work with secure bike parking, urban dwellers who pay for parking or car ownership primarily for commuting, households looking to go from two cars to one. Limitations: weather, cargo capacity, and distance constraints make e-bikes a supplement rather than replacement for many suburban and rural drivers.</p>
-
+            <h2>What an E-Bike Can't Replace</h2>
+            <p>E-bikes don't work well in heavy rain (you and cargo get wet), aren't practical for grocery runs over 20 lbs without a cargo bike, and face real safety risks on roads without bike infrastructure. They also require secure parking at the destination — theft is a significant concern for unattended bikes in urban areas. For households with children requiring transportation, school drop-offs, or frequent large cargo needs, an e-bike complements rather than replaces a car. Even so, replacing 30% of car trips with an e-bike saves $1,500–$3,000/year in fuel and vehicle wear.</p>
           </div>
         </div>
         <div>
@@ -67,9 +82,9 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>E-bike cost per mile: <strong>~$0.15</strong></li>
-              <li>Car cost per mile: <strong>$0.50–0.70</strong></li>
-              <li>E-bike CO₂ vs gas car: <strong>85–93% less</strong></li>
+              <li>E-bike cost per mile: <strong>~$0.01</strong></li>
+              <li>Car cost per mile (fuel only): <strong>~$0.14</strong></li>
+              <li>E-bike CO₂ vs gas: <strong>~93% less</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -79,5 +94,42 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcEBike() {
+  const miles=parseFloat(document.getElementById('eb-miles').value)||8;
+  const days=parseFloat(document.getElementById('eb-days').value)||240;
+  const mpg=parseFloat(document.getElementById('eb-mpg').value)||28;
+  const gas=parseFloat(document.getElementById('eb-gas').value)||3.90;
+  const parking=parseFloat(document.getElementById('eb-parking').value)||10;
+  const elec=parseFloat(document.getElementById('eb-elec').value)/100||0.13;
+  const ebikeCost=parseFloat(document.getElementById('eb-cost').value)||2500;
+
+  const totalMiles=miles*2*days;
+  const carFuel=totalMiles/mpg*gas;
+  const carPark=parking*days;
+  const carTotal=carFuel+carPark;
+
+  // e-bike: 0.5kWh per 40 miles = 0.0125 kWh/mile
+  const ebikeElec=totalMiles*0.0125*elec;
+  const ebikeMaint=80; // annual maintenance
+  const ebikeTotal=ebikeElec+ebikeMaint;
+
+  const annualSavings=carTotal-ebikeTotal;
+  const payback=annualSavings>0?ebikeCost/annualSavings:999;
+
+  const fmt=v=>'$'+Math.round(v).toLocaleString();
+  document.getElementById('eb-annual').textContent=fmt(annualSavings)+' saved per year';
+  document.getElementById('eb-table').innerHTML=`
+    <tr><th></th><th>Car Commute</th><th>E-Bike Commute</th></tr>
+    <tr><td>Annual fuel/electricity</td><td>${fmt(carFuel)}</td><td>${fmt(ebikeElec)}</td></tr>
+    <tr><td>Annual parking</td><td>${fmt(carPark)}</td><td>$0</td></tr>
+    <tr><td>Annual maintenance</td><td>~$900 (full car)</td><td>${fmt(ebikeMaint)}</td></tr>
+    <tr><td>Annual commute cost</td><td>${fmt(carTotal)}</td><td>${fmt(ebikeTotal)}</td></tr>
+    <tr style="font-weight:700;"><td>Annual savings</td><td colspan="2">${fmt(annualSavings)}/year</td></tr>
+    <tr><td>E-bike payback period</td><td colspan="2">${payback<0?'Immediate':payback.toFixed(1)+' years'}</td></tr>
+  `;
+  const r=document.getElementById('eb-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

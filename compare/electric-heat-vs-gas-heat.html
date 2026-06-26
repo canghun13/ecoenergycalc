@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Electric Heat vs Gas Heat: Which Is Cheaper to Run? | EcoEnergyCalc</title>
-  <meta name="description" content="Whether electric or gas heat is cheaper depends entirely on your local utility rates. Here's the formula to compare them — and when each wins." />
+  <title>Electric Heat vs Gas Heat: Which Is Cheaper in Your Area? | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your local electricity and gas rates to find out which heating fuel costs less for your home — with the exact crossover point." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/electric-heat-vs-gas-heat.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Electric Heat vs Gas Heat: Which Is Cheaper to Run?","description":"Whether electric or gas heat is cheaper depends entirely on your local utility rates. Here's the formula to compare them — and when each wins.","url":"https://ecoenergycalc.com/compare/electric-heat-vs-gas-heat.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Electric Heat vs Gas Heat: Which Is Cheaper in Your Area?","description":"Enter your local electricity and gas rates to find out which heating fuel costs less for your home — with the exact crossover point.","url":"https://ecoenergycalc.com/compare/electric-heat-vs-gas-heat.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,28 +22,38 @@
   <section class="article-page">
     <div class="container">
       <div class="article-header">
-        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Electric Heat vs Gas Heat</p>
-        <span class="article-tag">Home Heating & Cooling</span>
-        <h1>Electric Heat vs Gas Heat</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Electric vs Gas Heat: Cost Calculator for Your Rates</p>
+        <span class="article-tag">Heating & Cooling</span>
+        <h1>Electric vs Gas Heat: Cost Calculator for Your Rates</h1>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>Whether electric or gas heat is cheaper depends almost entirely on your local rates — not general rules. Enter your rates below to find the exact answer for your area.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Heating Cost Comparison by Rate</h2>
+            <div class="form-group"><label for="eg-elec">Electricity Rate (¢/kWh)</label><input type="number" id="eg-elec" value="13" min="5" max="60" step="0.5" /></div>
+            <div class="form-group"><label for="eg-gas">Natural Gas Rate ($/therm)</label><input type="number" id="eg-gas" value="1.30" min="0.30" max="5" step="0.05" /></div>
+            <div class="form-group"><label for="eg-mmbtu">Annual Heating Load (MMBtu) <span style="font-weight:400;font-size:.9em">— 2,000 sq ft moderate climate: ~50 MMBtu</span></label><input type="number" id="eg-mmbtu" value="50" min="10" max="200" step="5" /></div>
+            <button class="btn-primary" onclick="calcElecGas()">Compare Heating Fuels</button>
+            <div class="result-box-tool" id="eg-result">
+              <h3>Annual Heating Cost by System</h3>
+              <table id="eg-table"></table>
+              <p class="result-note">Electric resistance: 100% efficient. Heat pump: COP 2.5 average. Gas furnace: 95% AFUE. Gas boiler: 85% AFUE. 1 MMBtu = 293 kWh = 10 therms.</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>Electric vs. gas heat is one of the most common home energy questions — and the answer depends almost entirely on your local electricity and gas rates, not on some universal rule. In some parts of the U.S., electric heat is cheaper. In others, gas wins by a wide margin.</p>
-            
-            <h2>How to Compare Electric vs Gas Heat Costs</h2>
-            <p>The key metric is cost per BTU of useful heat delivered. Electric resistance heat (baseboard, space heaters) is 100% efficient — all electricity becomes heat. Gas furnaces are 80–98% efficient (AFUE rating). To compare: divide your electricity rate ($/kWh) by 3,412 (BTUs per kWh) for electric cost per BTU. Divide your gas rate ($/therm) by 100,000 (BTUs per therm × AFUE) for gas cost per BTU.</p>
+<h2>The Efficiency Comparison That Determines Everything</h2>
+            <p>Electric resistance heating (baseboard heaters, electric furnaces) converts electricity to heat at 100% efficiency — every kilowatt of electricity becomes exactly 1 kW of heat. A gas furnace at 95% AFUE converts 95% of gas to heat. But efficiency alone doesn't determine operating cost — you need to compare fuel prices on equivalent terms. At national averages ($0.16/kWh electricity, $1.40/therm gas), heating with electric resistance costs $0.16/kBTU while gas costs $0.149/kBTU. Electric resistance is currently slightly more expensive than high-efficiency gas on national averages — though this flips in states with cheap electricity or expensive gas.</p>
 
-            <h2>The Crossover Point</h2>
-            <p>At a 95% efficient gas furnace: gas heat costs less when the gas price ($/therm) × 34 < electricity price (¢/kWh). Example: at $1.30/therm gas and 13¢/kWh electricity → 1.30 × 34 = 44 vs. 13 → gas wins. At $1.30/therm and 28¢/kWh (California) → 44 vs. 28 → still gas. But a heat pump changes everything: at COP 3, electric heat costs 1/3 as much per BTU as electric resistance, making heat pumps competitive with gas in most U.S. markets.</p>
+            <h2>Heat Pumps Change the Equation Entirely</h2>
+            <p>When people compare electric heat vs gas heat, they often conflate electric resistance (inefficient) with heat pumps (highly efficient). A heat pump at COP 3.0 delivers $0.053/kBTU — 2.8× cheaper than gas and 3× cheaper than electric resistance at current national averages. If the electric heat option is a heat pump rather than resistance heating, electric wins decisively in most U.S. markets. The policy trajectory is also clear: gas prices are expected to rise as export demand grows, while electricity is decarbonizing and increasingly favors efficient electric appliances.</p>
 
-            <h2>Regional Winners</h2>
-            <ul><li><strong>Gas wins:</strong> Most of the Midwest, South, and Mountain West where gas is $0.80–1.20/therm and electricity is 10–14¢/kWh</li><li><strong>Electric (heat pump) wins:</strong> Pacific Northwest (cheap hydro electricity), parts of the Southeast, and increasingly most of the U.S. as heat pump efficiency improves</li><li><strong>Electric resistance wins:</strong> Very few places — only where electricity is below 7¢/kWh (some Pacific Northwest utilities)</li></ul>
+            <h2>Regional Variation Is Extreme</h2>
+            <p>National averages mask enormous regional variation. In Louisiana, residential electricity averages 9¢/kWh; electric resistance heating costs $0.09/kBTU — cheaper than gas. In Connecticut, electricity averages 28¢/kWh; electric resistance costs $0.28/kBTU — 2.5× more expensive than gas. Similarly, gas prices range from $0.80/therm (Gulf Coast states near production) to $2.00/therm (New England). Your local utility rate card and gas rate determine the correct answer for your home — and the calculator above uses your specific inputs to show this dynamic clearly.</p>
 
-            <h2>Bottom Line</h2>
-            <p>Use our <a href='/tools/heating-cost-by-fuel.html'>Heating Cost by Fuel Calculator</a> with your actual utility rates to find the cheapest option for your location. For most homeowners replacing an aging heating system, a heat pump is worth serious consideration regardless of current gas vs. electric prices, given its dual function as both heater and AC.</p>
-
+            <h2>The Electrification Trajectory: What to Plan For</h2>
+            <p>Multiple states (California, Massachusetts, New York) have policies targeting elimination of new gas appliance sales by 2025–2030. Gas utilities face declining customer bases as electrification accelerates, creating potential for rate increases as fixed costs spread over fewer customers. Planning a gas heating system replacement today means making a 15–20 year commitment. Heat pump technology is mature, prices are falling, and federal incentives (30% ITC, up to $2,000 cap) make this a favorable window for heat pump adoption.</p>
           </div>
         </div>
         <div>
@@ -67,9 +77,9 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Gas wins when: <strong>gas $/therm × 34 < elec ¢/kWh</strong></li>
-              <li>Heat pump COP 3 = <strong>1/3 the cost of resistance</strong></li>
-              <li>Check your rates with our <strong>Heating Cost Calculator</strong></li>
+              <li>Heat pump beats gas when: <strong>elec < ~17¢/kWh (at $1.30 gas)</strong></li>
+              <li>Electric resistance: <strong>most expensive per BTU</strong></li>
+              <li>Gas furnace 95% AFUE: <strong>cheapest in most regions</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -79,5 +89,37 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcElecGas() {
+  const elec=parseFloat(document.getElementById('eg-elec').value)/100||0.13;
+  const gas=parseFloat(document.getElementById('eg-gas').value)||1.30;
+  const mmbtu=parseFloat(document.getElementById('eg-mmbtu').value)||50;
+
+  const kwh=mmbtu*293.07;
+  const therms=mmbtu*10;
+
+  const resistanceCost=kwh*elec;
+  const hpCost=(kwh/2.5)*elec;
+  const furnaceCost=(therms/0.95)*gas;
+  const boilerCost=(therms/0.85)*gas;
+
+  const options=[
+    ['Electric Resistance (100%)', resistanceCost],
+    ['Heat Pump (COP 2.5)', hpCost],
+    ['Gas Furnace (95% AFUE)', furnaceCost],
+    ['Gas Boiler (85% AFUE)', boilerCost]
+  ].sort((a,b)=>a[1]-b[1]);
+
+  const fmt=v=>'$'+Math.round(v).toLocaleString();
+  const crossover=(gas*10/0.95)/(293.07*2.5); // HP vs furnace crossover rate
+  let rows=`<tr><th>System</th><th>Annual Cost</th><th>Rank</th></tr>`;
+  options.forEach(([name,cost],i)=>{
+    rows+=`<tr ${i===0?'style="font-weight:700;background:rgba(22,163,74,0.15);"':''}><td>${name}</td><td>${fmt(cost)}</td><td>${i===0?'✅ Cheapest':i+1}</td></tr>`;
+  });
+  rows+=`<tr><td colspan="3" style="font-size:.9em;color:var(--text-muted);">Heat pump beats gas furnace when electricity < ${(crossover*100).toFixed(1)}¢/kWh at your gas rate</td></tr>`;
+  document.getElementById('eg-table').innerHTML=rows;
+  const r=document.getElementById('eg-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

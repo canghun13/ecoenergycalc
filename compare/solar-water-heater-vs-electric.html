@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Solar Water Heater vs Electric: Is Solar Thermal Worth It in 2026? | EcoEnergyCalc</title>
-  <meta name="description" content="Solar water heaters can cut water heating bills by 50–80%. But with heat pump water heater costs falling and tax credits available for both, the comparison has shifted. Full analysis." />
+  <title>Solar Water Heater vs Electric: Which Makes More Financial Sense in 2026? | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your water usage and local energy costs to compare the payback period of a solar thermal water heater vs an electric tank or heat pump water heater." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/solar-water-heater-vs-electric.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Solar Water Heater vs Electric: Is Solar Thermal Worth It in 2026?","description":"Solar water heaters can cut water heating bills by 50–80%. But with heat pump water heater costs falling and tax credits available for both, the comparison has shifted. Full analysis.","url":"https://ecoenergycalc.com/compare/solar-water-heater-vs-electric.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Solar Water Heater vs Electric: Which Makes More Financial Sense in 2026?","description":"Enter your water usage and local energy costs to compare the payback period of a solar thermal water heater vs an electric tank or heat pump water heater.","url":"https://ecoenergycalc.com/compare/solar-water-heater-vs-electric.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,28 +22,38 @@
   <section class="article-page">
     <div class="container">
       <div class="article-header">
-        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Solar Water Heater vs Electric Water Heater</p>
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Solar Water Heater vs Electric: Payback Calculator</p>
         <span class="article-tag">Lighting & Efficiency</span>
-        <h1>Solar Water Heater vs Electric Water Heater</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <h1>Solar Water Heater vs Electric: Payback Calculator</h1>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>Solar water heaters can cut water heating bills by 50–80%. But with heat pump water heater costs falling and strong tax credits available for both, the comparison has shifted significantly. Calculate which option makes more sense for your situation.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Water Heater Payback Comparison</h2>
+            <div class="form-group"><label for="swh-gal">Daily Hot Water Use (gallons)</label><input type="number" id="swh-gal" value="50" min="10" max="150" step="5" /></div>
+            <div class="form-group"><label for="swh-elec">Electricity Rate (¢/kWh)</label><input type="number" id="swh-elec" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="swh-sun">Peak Sun Hours per Day</label><input type="number" id="swh-sun" value="4.5" min="2" max="8" step="0.1" /></div>
+            <button class="btn-primary" onclick="calcSolarWH()">Compare Options</button>
+            <div class="result-box-tool" id="swh-result">
+              <h3>Annual Cost & Payback Comparison</h3>
+              <table id="swh-table"></table>
+              <p class="result-note">Standard electric tank: 95% eff. Heat pump WH: COP 2.5. Solar thermal: offsets 60–80% of water heating load depending on sun hours. All figures before 30% ITC (applies to both solar thermal and HPWH).</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>Solar thermal water heaters use sunlight to heat water directly, reducing water heating energy use by 50–80%. But falling heat pump water heater (HPWH) prices and strong federal tax credits have changed the calculus — in many situations, a HPWH now offers comparable savings at lower cost and complexity.</p>
-            
-            <h2>Solar Water Heater: High Savings, High Complexity</h2>
-            <p>A solar thermal water heating system costs $2,000–5,000 installed (after the 30% ITC, effective cost: $1,400–3,500). It consists of roof-mounted collectors and a storage tank. Annual savings: 50–80% of water heating costs — roughly $200–500/year for a family of 4 replacing an electric tank. Payback: 4–10 years. Systems require maintenance (checking antifreeze, sensors, and pump), and need a backup heater for cloudy periods. Best in sunny climates (Southwest, Florida, Hawaii).</p>
+<h2>Solar Water Heating: The Technology Most People Overlook</h2>
+            <p>Solar water heating (SWH) predates photovoltaic solar by decades and remains one of the highest-efficiency solar applications available. A typical 2-collector SWH system (80 sq ft of collector area) provides 50–80% of a household's hot water from solar energy, with a conventional backup for cloudy periods. In sun-rich climates (Hawaii, Arizona, California), solar fraction reaches 70–85%. In northern states, it drops to 40–60% but remains meaningful. The technology is mature, reliable, and has been deployed for 50+ years in residential applications with minimal maintenance requirements.</p>
 
-            <h2>Heat Pump Water Heater: Similar Savings, Lower Complexity</h2>
-            <p>A heat pump water heater costs $1,000–1,500 installed (after 30% ITC: $700–1,050). Annual savings vs. standard electric: $300–450/year. Payback: 1–3 years after credit. HPWHs require no roof installation, no maintenance beyond standard water heater care, and work year-round in any climate with indoor installation (above 40°F). In most climates, a HPWH now achieves comparable or better economics than solar thermal at lower upfront cost and complexity.</p>
+            <h2>Economics vs. Electric Water Heating</h2>
+            <p>A standard electric resistance water heater costs $500–$700/year to operate (4,000 kWh × $0.13–$0.17/kWh). A 2-collector SWH system costs $3,000–$5,000 installed and provides 60% solar fraction — reducing electric backup to $200–$280/year in electricity, saving $300–$420/year. With the 30% federal ITC (SWH systems qualify under the residential clean energy credit), the effective system cost drops to $2,100–$3,500. Payback: 5–12 years depending on installation cost and solar fraction. In Hawaii (electricity: 35–45¢/kWh), payback can be under 5 years.</p>
 
-            <h2>When Solar Thermal Still Makes Sense</h2>
-            <ul><li>Very sunny climates (Hawaii, Southwest) where solar savings are maximized</li><li>Off-grid or grid-constrained situations where reducing electrical load matters</li><li>Pool heating (solar thermal is the most cost-effective pool heating method available)</li><li>Households already planning roof work where adding solar thermal collectors is incremental</li></ul>
+            <h2>Heat Pump Water Heater vs Solar Thermal: The Modern Comparison</h2>
+            <p>In most U.S. markets today, a heat pump water heater (HPWH) delivers comparable or better economics than solar thermal — with simpler installation, no collectors to maintain, and no freeze protection concerns. A HPWH at COP 3.5 uses 1,200 kWh/year vs. 4,000 kWh for electric resistance — similar savings to a 70% solar fraction SWH, at $800–$1,200 installed (before 30% ITC = $560–$840 net). The HPWH wins on installed cost and simplicity in most scenarios. Solar thermal remains more attractive when: electricity rates are very high and panel space is limited, you're in a climate with excellent solar resource, or it's a commercial or multi-family application where system economics shift the math.</p>
 
-            <h2>Bottom Line for 2026</h2>
-            <p>For most grid-connected U.S. homeowners replacing an electric water heater: a heat pump water heater offers better economics than solar thermal. For pool heating or off-grid applications: solar thermal remains the best option. Use our <a href='/tools/solar-panel-roi.html'>Solar Panel ROI Calculator</a> and <a href='/tools/home-energy-cost.html'>Home Energy Cost Calculator</a> to model your specific situation.</p>
-
+            <h2>Freeze Protection in Cold Climates</h2>
+            <p>Flat-plate solar thermal collectors can freeze in cold climates, requiring either drain-back systems (collectors drain when pump stops) or antifreeze loops (glycol circulates through collectors, heat exchanged to the storage tank). Drain-back systems are reliable but require careful installation; glycol systems require fluid testing and replacement every 5–10 years. In climates with sustained freezing temperatures, these considerations add installation complexity and cost ($500–$1,000 additional) and require more maintenance than HPWH. Evacuated tube collectors handle cold better than flat-plate but cost more. For cold-climate households, HPWH is typically the more practical and lower-maintenance choice.</p>
           </div>
         </div>
         <div>
@@ -68,8 +78,8 @@
             <h3>Quick Facts</h3>
             <ul>
               <li>Solar thermal savings: <strong>50–80%</strong></li>
-              <li>HPWH savings vs electric: <strong>$300–450/yr</strong></li>
-              <li>HPWH payback (w/ credit): <strong>1–3 years</strong></li>
+              <li>HPWH payback (avg): <strong>2–4 years</strong></li>
+              <li>Solar thermal: <strong>best for pools</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -79,5 +89,45 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcSolarWH() {
+  const gal=parseFloat(document.getElementById('swh-gal').value)||50;
+  const elec=parseFloat(document.getElementById('swh-elec').value)/100||0.13;
+  const sun=parseFloat(document.getElementById('swh-sun').value)||4.5;
+
+  const btuPerGal=8.33*60;
+  const annualKwh=(gal*365*btuPerGal)/(1e6*293.07);
+
+  const stdAnnual=(annualKwh/0.95)*elec;
+  const hpAnnual=(annualKwh/2.5)*elec;
+  // Solar offsets 60-80% based on sun hours
+  const solarOffset=Math.min(0.80, 0.50+(sun-3)*0.075);
+  const solarBackup=(annualKwh*(1-solarOffset)/0.95)*elec;
+  const solarAnnual=solarBackup+(10*elec); // pump electricity
+
+  const stdInstall=700;
+  const hpInstall=1300*0.70; // after ITC
+  const solarInstall=3500*0.70; // after ITC
+
+  const stdSavings=0;
+  const hpSavings=stdAnnual-hpAnnual;
+  const solarSavings=stdAnnual-solarAnnual;
+
+  const hpPayback=(hpInstall-stdInstall)/hpSavings;
+  const solarPayback=(solarInstall-stdInstall)/solarSavings;
+
+  const fmt=v=>'$'+Math.round(v).toLocaleString();
+  document.getElementById('swh-table').innerHTML=`
+    <tr><th></th><th>Standard Electric Tank</th><th>Heat Pump WH</th><th>Solar Thermal + backup</th></tr>
+    <tr><td>Annual operating cost</td><td>${fmt(stdAnnual)}</td><td>${fmt(hpAnnual)}</td><td>${fmt(solarAnnual)}</td></tr>
+    <tr><td>Annual savings vs electric</td><td>—</td><td>${fmt(hpSavings)}</td><td>${fmt(solarSavings)}</td></tr>
+    <tr><td>Install cost (after ITC)</td><td>${fmt(stdInstall)}</td><td>${fmt(hpInstall)}</td><td>${fmt(solarInstall)}</td></tr>
+    <tr><td>Payback vs electric tank</td><td>—</td><td>${hpPayback.toFixed(1)} years</td><td>${solarPayback.toFixed(1)} years</td></tr>
+    <tr><td>Solar offset at ${sun} sun hrs</td><td>—</td><td>—</td><td>${Math.round(solarOffset*100)}% of hot water</td></tr>
+    <tr><td>Maintenance complexity</td><td>Low</td><td>Low</td><td>Moderate (annual check)</td></tr>
+  `;
+  const r=document.getElementById('swh-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

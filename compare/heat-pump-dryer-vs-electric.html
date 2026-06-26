@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Heat Pump Dryer vs Electric Dryer: Is the Upgrade Worth It? | EcoEnergyCalc</title>
-  <meta name="description" content="Heat pump dryers use 40–50% less electricity than standard electric dryers. At $800–1,500, here's when the energy savings justify the higher upfront cost." />
+  <title>Heat Pump Dryer vs Electric Dryer: Is the Upgrade Worth It for You? | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your electricity rate and usage to calculate your exact annual savings from upgrading to a heat pump dryer — and how quickly it pays back." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/heat-pump-dryer-vs-electric.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Heat Pump Dryer vs Electric Dryer: Is the Upgrade Worth It?","description":"Heat pump dryers use 40–50% less electricity than standard electric dryers. At $800–1,500, here's when the energy savings justify the higher upfront cost.","url":"https://ecoenergycalc.com/compare/heat-pump-dryer-vs-electric.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Heat Pump Dryer vs Electric Dryer: Is the Upgrade Worth It for You?","description":"Enter your electricity rate and usage to calculate your exact annual savings from upgrading to a heat pump dryer — and how quickly it pays back.","url":"https://ecoenergycalc.com/compare/heat-pump-dryer-vs-electric.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,28 +22,40 @@
   <section class="article-page">
     <div class="container">
       <div class="article-header">
-        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Heat Pump Dryer vs Standard Electric Dryer</p>
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Heat Pump Dryer vs Electric: Payback Calculator</p>
         <span class="article-tag">Kitchen & Appliances</span>
-        <h1>Heat Pump Dryer vs Standard Electric Dryer</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <h1>Heat Pump Dryer vs Electric: Payback Calculator</h1>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>Heat pump dryers use 40–50% less electricity than standard electric dryers. Whether the upgrade makes sense depends on your electricity rate and how often you do laundry. Calculate your specific payback below.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Heat Pump Dryer Payback Calculator</h2>
+            <div class="form-group"><label for="hd-loads">Loads per Week</label><input type="number" id="hd-loads" value="5" min="1" max="30" step="1" /></div>
+            <div class="form-group"><label for="hd-elec">Electricity Rate (¢/kWh)</label><input type="number" id="hd-elec" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="hd-hp-cost">Heat Pump Dryer Price ($)</label><input type="number" id="hd-hp-cost" value="1200" min="700" max="2000" step="50" /></div>
+            <div class="form-group"><label for="hd-std-cost">Standard Electric Dryer Price ($)</label><input type="number" id="hd-std-cost" value="600" min="300" max="1200" step="50" /></div>
+            <button class="btn-primary" onclick="calcHeatPumpDryer()">Calculate Payback</button>
+            <div class="result-box-tool" id="hd-result">
+              <h3>Heat Pump Dryer Payback</h3>
+              <div class="result-amount" id="hd-payback"></div>
+              <table id="hd-table"></table>
+              <p class="result-note">Standard electric: 5,000W, 45-min cycle. Heat pump: 2,000W, 60-min cycle (lower temp = longer but gentler). IRA tax credit: 30% of heat pump dryer cost (up to $600 credit).</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>Heat pump dryers are the most energy-efficient clothes drying technology available — using 40–50% less electricity than standard electric dryers by recirculating and reusing heated air rather than exhausting it. The question is whether the higher upfront cost is justified by energy savings.</p>
-            
-            <h2>How Heat Pump Dryers Work</h2>
-            <p>A standard electric dryer heats air with a resistance element, tumbles clothes through the hot air, then exhausts the humid air outside through a vent. A heat pump dryer recirculates the air through a heat exchanger, extracting moisture through condensation and reheating the dried air. This closed-loop system uses 1,500–2,000W vs. 4,000–5,000W for a standard electric dryer — a 40–60% reduction in electricity use.</p>
+<h2>Heat Pump Dryer Technology: How It Works</h2>
+            <p>Conventional electric dryers work by heating air with an electric element, blowing it through clothes, and exhausting the moisture-laden air to the exterior. This wastes the thermal energy in that exhaust air. Heat pump dryers recirculate air through a closed loop: the heat pump extracts moisture from the air, condenses it to water (which drains), reheats the drier air, and returns it through the drum. This recirculation recovers 50–60% of the thermal energy that a conventional dryer exhausts, reducing electricity use per load from approximately 5 kWh to 2.5–3 kWh.</p>
 
-            <h2>Annual Operating Cost Comparison</h2>
-            <ul><li><strong>Standard electric dryer (5,000W, 45 min/load, 5 loads/week):</strong> ~$127/year at 13¢/kWh</li><li><strong>Heat pump dryer (2,000W, 60 min/load, 5 loads/week):</strong> ~$54/year at 13¢/kWh</li><li><strong>Annual savings:</strong> ~$73/year</li></ul><p>Note: heat pump dryers run longer per load (60–90 min vs. 45 min for standard) because they dry at lower temperatures.</p>
+            <h2>Annual Savings Calculation</h2>
+            <p>At 260 loads/year (5 loads/week): conventional electric at 5 kWh/load uses 1,300 kWh/year; heat pump dryer at 2.7 kWh/load uses 702 kWh/year. Savings: 598 kWh/year. At 13¢/kWh = $77.7/year. At 20¢/kWh (California): $119.6/year. The IRA's Energy Efficient Home Improvement Credit provides 30% of cost up to $150 for heat pump dryers. A $1,000 heat pump dryer with a $150 credit costs $850 net vs. a $500 conventional electric — a $350 premium. At $78/year savings, payback is 4.5 years. At California rates, payback is 2.9 years. Compelling economics in higher-rate states.</p>
 
-            <h2>Upfront Cost and Payback</h2>
-            <p>Standard electric dryers: $400–800. Heat pump dryers: $800–1,500. Price premium: $400–700. At $73/year savings, payback is 5–10 years. The 25C tax credit (Inflation Reduction Act) covers 30% of the cost of a heat pump dryer (up to $600 credit), which can reduce the effective premium significantly and shorten payback to 3–6 years.</p>
+            <h2>No Exhaust Duct Required: A Practical Advantage</h2>
+            <p>Conventional dryers require a 4-inch duct to the exterior — a significant installation constraint in condos, basements, or homes where the laundry room doesn't have exterior wall access. Heat pump dryers require only a 240V outlet and a drain connection (or a condensate collection container that you empty periodically). This opens up laundry room placement options that don't exist for vented dryers, and eliminates the fire hazard associated with lint buildup in dryer ducts — which causes approximately 2,900 U.S. structure fires annually according to the NFPA.</p>
 
-            <h2>Additional Benefits Beyond Energy Savings</h2>
-            <ul><li><strong>No external venting required:</strong> Can be installed in a closet, bathroom, or anywhere with a 120V outlet — no ductwork needed</li><li><strong>Lower drying temperature:</strong> Gentler on fabrics, reducing wear and extending clothing lifespan</li><li><strong>Condensate draining:</strong> Water is collected in a tank (emptied periodically) or plumbed to a drain</li></ul><p>Use our <a href='/tools/dryer-energy-cost.html'>Dryer Energy Cost Calculator</a> to model your specific situation.</p>
-
+            <h2>The Trade-Offs You Should Know Before Buying</h2>
+            <p>Heat pump dryers have three meaningful disadvantages: (1) Longer cycle times — typically 60–90 minutes vs. 45 minutes for conventional. If laundry speed is important (large household, multiple daily loads), this matters. (2) Higher upfront cost — expect to pay $800–$1,400 for quality models (Bosch, LG, Miele) vs. $400–$600 for conventional electric. (3) Lower maximum temperature — heat pump dryers max out at around 140°F vs. 150–175°F for conventional, which means some items (certain cotton bedding that calls for "high heat") may take longer or feel less fluffy. None of these are dealbreakers for most households, but worth knowing before purchase.</p>
           </div>
         </div>
         <div>
@@ -61,15 +73,15 @@
             <ul>
               <li><a href="/compare/electric-vs-gas-dryer.html">Electric vs Gas Dryer</a></li>
               <li><a href="/compare/heat-pump-vs-furnace-vs-boiler.html">Heat Pump vs Furnace vs Boiler</a></li>
-              <li><a href="/compare/induction-vs-gas-vs-electric-stove.html">Induction vs Gas vs Electric Stove</a></li>
+              <li><a href="/compare/heat-pump-water-heater-vs-electric.html">Heat Pump Water Heater vs Electric</a></li>
             </ul>
           </div>
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Heat pump dryer uses: <strong>40–50% less electricity</strong></li>
-              <li>Annual savings: <strong>~$73/year</strong></li>
-              <li>Payback w/ tax credit: <strong>3–6 years</strong></li>
+              <li>Annual savings: <strong>~$73/yr (avg rates)</strong></li>
+              <li>IRA tax credit: <strong>up to $600</strong></li>
+              <li>No venting: <strong>install anywhere</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -79,5 +91,40 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcHeatPumpDryer() {
+  const loads=parseFloat(document.getElementById('hd-loads').value)||5;
+  const elec=parseFloat(document.getElementById('hd-elec').value)/100||0.13;
+  const hpCost=parseFloat(document.getElementById('hd-hp-cost').value)||1200;
+  const stdCost=parseFloat(document.getElementById('hd-std-cost').value)||600;
+
+  const annual=loads*52;
+  const stdKwh=(5.0*(45/60))*annual;
+  const hpKwh=(2.0*(60/60))*annual;
+  const stdAnnual=stdKwh*elec;
+  const hpAnnual=hpKwh*elec;
+  const annualSavings=stdAnnual-hpAnnual;
+  const premium=hpCost-stdCost;
+  const itc=Math.min(hpCost*0.30,600);
+  const effectivePremium=premium-itc;
+  const payback=annualSavings>0?effectivePremium/annualSavings:999;
+  const paybackNoCredit=annualSavings>0?premium/annualSavings:999;
+
+  const fmt=v=>'$'+Math.round(v).toLocaleString();
+  document.getElementById('hd-payback').textContent=payback<0?'Immediate payback (ITC exceeds premium)':payback.toFixed(1)+' year payback (with ITC)';
+  document.getElementById('hd-table').innerHTML=`
+    <tr><th></th><th>Standard Electric</th><th>Heat Pump Dryer</th></tr>
+    <tr><td>Annual kWh</td><td>${Math.round(stdKwh).toLocaleString()}</td><td>${Math.round(hpKwh).toLocaleString()}</td></tr>
+    <tr><td>Annual electricity cost</td><td>${fmt(stdAnnual)}</td><td>${fmt(hpAnnual)}</td></tr>
+    <tr><td>Annual savings</td><td colspan="2" style="font-weight:700;">${fmt(annualSavings)}/year</td></tr>
+    <tr><td>Purchase price</td><td>${fmt(stdCost)}</td><td>${fmt(hpCost)}</td></tr>
+    <tr><td>IRA tax credit (30%)</td><td>—</td><td>-${fmt(itc)}</td></tr>
+    <tr><td>Price premium (after credit)</td><td colspan="2">${fmt(effectivePremium)}</td></tr>
+    <tr><td>Payback without ITC</td><td colspan="2">${paybackNoCredit.toFixed(1)} years</td></tr>
+    <tr style="font-weight:700;"><td>Payback with ITC</td><td colspan="2">${payback<0?'Immediate':payback.toFixed(1)+' years'}</td></tr>
+  `;
+  const r=document.getElementById('hd-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

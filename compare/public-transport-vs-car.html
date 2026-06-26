@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Public Transport vs Car: Cost and Carbon Comparison | EcoEnergyCalc</title>
-  <meta name="description" content="Public transit costs significantly less than car ownership for urban commuters. Here's the full cost and carbon comparison to see when it makes financial sense to ditch the car." />
+  <title>Public Transport vs Car: Calculate Your Annual Savings | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your commute details to see exactly how much you'd save annually by switching from a car to public transit." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/public-transport-vs-car.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Public Transport vs Car: Cost and Carbon Comparison","description":"Public transit costs significantly less than car ownership for urban commuters. Here's the full cost and carbon comparison to see when it makes financial sense to ditch the car.","url":"https://ecoenergycalc.com/compare/public-transport-vs-car.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Public Transport vs Car: Calculate Your Annual Savings","description":"Enter your commute details to see exactly how much you'd save annually by switching from a car to public transit.","url":"https://ecoenergycalc.com/compare/public-transport-vs-car.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,28 +22,42 @@
   <section class="article-page">
     <div class="container">
       <div class="article-header">
-        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Public Transport vs Car: Cost & Carbon</p>
-        <span class="article-tag">Carbon & Transport</span>
-        <h1>Public Transport vs Car: Cost & Carbon</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Public Transport vs Car: Savings Calculator</p>
+        <span class="article-tag">Transport & Carbon</span>
+        <h1>Public Transport vs Car: Savings Calculator</h1>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>For urban commuters, switching from a car to public transit can save thousands per year. The calculator below shows your exact savings based on your commute and local costs.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Annual Commute Cost Calculator</h2>
+            <div class="form-group"><label for="pt-miles">One-Way Commute (miles)</label><input type="number" id="pt-miles" value="12" min="1" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="pt-days">Commute Days per Year</label><input type="number" id="pt-days" value="240" min="50" max="365" step="10" /></div>
+            <div class="form-group"><label for="pt-mpg">Car MPG</label><input type="number" id="pt-mpg" value="28" min="15" max="60" step="1" /></div>
+            <div class="form-group"><label for="pt-gas">Gas Price ($/gallon)</label><input type="number" id="pt-gas" value="3.90" min="2" max="8" step="0.10" /></div>
+            <div class="form-group"><label for="pt-parking">Daily Parking Cost ($)</label><input type="number" id="pt-parking" value="15" min="0" max="60" step="1" /></div>
+            <div class="form-group"><label for="pt-pass">Monthly Transit Pass ($)</label><input type="number" id="pt-pass" value="120" min="30" max="300" step="5" /></div>
+            <button class="btn-primary" onclick="calcTransit()">Calculate Savings</button>
+            <div class="result-box-tool" id="pt-result">
+              <h3>Car vs Transit Annual Cost</h3>
+              <div class="result-amount" id="pt-annual"></div>
+              <table id="pt-table"></table>
+              <p class="result-note">Car costs shown for commuting only (fuel + parking). Does not include insurance, depreciation, or registration — which would make transit savings even larger.</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>For urban commuters, public transportation can be dramatically cheaper than car ownership — but the comparison depends heavily on whether you can actually replace the car or just supplement it. This comparison covers the full cost of car ownership vs. transit for a typical urban commuter.</p>
-            
-            <h2>True Cost of Car Ownership</h2>
-            <p>AAA estimates the average cost of owning and operating a new car in the U.S. at $10,700/year, including depreciation ($4,500), fuel ($1,500), insurance ($1,600), maintenance ($1,300), and financing costs. Even a paid-off, older used car costs $4,000–6,000/year when insurance, maintenance, registration, and fuel are included.</p>
+<h2>The True Cost of Car Commuting</h2>
+            <p>AAA's annual "Your Driving Costs" study (2024) puts the average cost of driving a medium sedan at $0.58/mile including depreciation, fuel, insurance, maintenance, and financing. At 30 miles round-trip daily × 250 commute days = 7,500 miles/year, commuting by car costs roughly $4,350/year in total vehicle costs attributable to the commute. Monthly transit passes in major U.S. cities range from $100 (smaller cities) to $132 (NYC Metro) to $99 (Chicago). Annual transit cost: $1,200–$1,600. The financial case for transit commuting is clear for anyone who can actually use it effectively.</p>
 
-            <h2>Public Transit Cost</h2>
-            <p>Average monthly transit pass costs: New York MTA $132/month ($1,584/year), Chicago CTA $105/month, Boston MBTA $90/month, Los Angeles Metro $100/month. Annual transit cost: $1,100–2,000 for most major cities. Savings vs. owning a car: $3,000–9,000/year depending on your car situation.</p>
+            <h2>But Depreciation Skews Everything</h2>
+            <p>Car ownership costs are largely fixed — you pay insurance, registration, and depreciation whether you drive 5,000 or 15,000 miles. If you already own a car and the marginal cost of driving to work is just fuel ($0.13/mile at national averages), the transit vs. car math changes. At $0.13/mile marginal cost for fuel, a 7,500-mile annual commute costs $975 in fuel — potentially less than an annual transit pass. The financial benefit of transit over driving only becomes compelling when you can eliminate a car entirely, saving $5,000–$12,000/year in fixed ownership costs.</p>
 
-            <h2>Carbon Comparison</h2>
-            <p>Urban transit emissions per passenger-mile: subway/metro ~76g CO₂, bus ~82g CO₂, vs. solo gas car ~290g CO₂/mile. Switching a 10-mile daily commute from car to subway saves approximately 1,000–1,500 lbs of CO₂ per year. A car with 3–4 regular carpoolers approaches transit emissions per passenger.</p>
+            <h2>Time: The Variable Nobody Prices Correctly</h2>
+            <p>Transit commutes are often slower than driving in U.S. cities — 30–80% longer in most metro areas with limited dedicated bus or rail infrastructure. But transit time can be productive: reading, working, or resting time that driving doesn't allow. Studies on commuter wellbeing consistently show that transit commuters report lower stress than drivers, even when commutes are longer. The ability to use a phone, read, or work during a 40-minute train commute has real value that raw time comparisons miss. For knowledge workers, a train commute may actually produce more effective working time than a shorter but stressful drive.</p>
 
-            <h2>When Going Car-Free Makes Sense</h2>
-            <p>Car-free living makes strong financial sense in dense cities with good transit coverage, for single-person households where a car sits unused most of the day, and where parking costs $200–400+/month (which alone exceeds many annual transit passes). The savings from going car-free in NYC or San Francisco can easily exceed $8,000–10,000/year.</p>
-
+            <h2>Carbon: Transit's Clearest Advantage</h2>
+            <p>The average car emits 0.35 kg CO₂/mile (EPA 2024 fleet average). Heavy rail transit emits 0.07–0.14 kg CO₂/passenger mile (depending on grid mix and occupancy). Bus rapid transit ranges from 0.06–0.18 kg CO₂/passenger mile. Even diesel buses at average U.S. occupancy (about 20 passengers) emit less per passenger than a solo car commuter. For households motivated by carbon reduction, replacing a car commute with transit — even imperfect transit — typically cuts commute-related emissions by 60–80%.</p>
           </div>
         </div>
         <div>
@@ -67,9 +81,9 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Avg car ownership cost: <strong>$10,700/yr</strong></li>
+              <li>Avg car ownership: <strong>$10,700/yr</strong></li>
               <li>Annual transit pass: <strong>$1,100–2,000</strong></li>
-              <li>Potential savings: <strong>$3,000–9,000/yr</strong></li>
+              <li>Transit CO₂ vs car: <strong>70–80% less</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -79,5 +93,33 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcTransit() {
+  const miles=parseFloat(document.getElementById('pt-miles').value)||12;
+  const days=parseFloat(document.getElementById('pt-days').value)||240;
+  const mpg=parseFloat(document.getElementById('pt-mpg').value)||28;
+  const gas=parseFloat(document.getElementById('pt-gas').value)||3.90;
+  const parking=parseFloat(document.getElementById('pt-parking').value)||15;
+  const pass=parseFloat(document.getElementById('pt-pass').value)||120;
+
+  const totalMiles=miles*2*days;
+  const annualFuel=totalMiles/mpg*gas;
+  const annualParking=parking*days;
+  const carTotal=annualFuel+annualParking;
+  const transitTotal=pass*12;
+  const savings=carTotal-transitTotal;
+  const fmt=v=>'$'+Math.round(v).toLocaleString();
+  document.getElementById('pt-annual').textContent=savings>0?fmt(savings)+' saved per year':'Car is cheaper by '+fmt(Math.abs(savings))+'/year';
+  document.getElementById('pt-table').innerHTML=`
+    <tr><th></th><th>Car</th><th>Public Transit</th></tr>
+    <tr><td>Annual fuel</td><td>${fmt(annualFuel)}</td><td>—</td></tr>
+    <tr><td>Annual parking</td><td>${fmt(annualParking)}</td><td>—</td></tr>
+    <tr><td>Annual transit pass</td><td>—</td><td>${fmt(transitTotal)}</td></tr>
+    <tr style="font-weight:700;"><td>Annual commute cost</td><td>${fmt(carTotal)}</td><td>${fmt(transitTotal)}</td></tr>
+    <tr style="font-weight:700;"><td>Annual savings (transit)</td><td colspan="2">${fmt(savings)}</td></tr>
+  `;
+  const r=document.getElementById('pt-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>

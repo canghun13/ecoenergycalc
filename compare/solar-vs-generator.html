@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Solar + Battery vs Generator: Which Backup Power Is Better? | EcoEnergyCalc</title>
-  <meta name="description" content="Generators are cheaper upfront but have high running costs and require fuel. Solar + battery has higher upfront cost but near-zero operating costs. Full comparison." />
+  <title>Solar + Battery vs Generator: Which Backup Power Is Right for You? | EcoEnergyCalc</title>
+  <meta name="description" content="Compare the 10-year total cost of a generator vs solar + battery backup for your home — including fuel, maintenance, and daily electricity savings." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/compare/solar-vs-generator.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Solar + Battery vs Generator: Which Backup Power Is Better?","description":"Generators are cheaper upfront but have high running costs and require fuel. Solar + battery has higher upfront cost but near-zero operating costs. Full comparison.","url":"https://ecoenergycalc.com/compare/solar-vs-generator.html","datePublished":"2026-06-24","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Solar + Battery vs Generator: Which Backup Power Is Right for You?","description":"Compare the 10-year total cost of a generator vs solar + battery backup for your home — including fuel, maintenance, and daily electricity savings.","url":"https://ecoenergycalc.com/compare/solar-vs-generator.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -25,22 +25,52 @@
         <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Solar + Battery vs Generator</p>
         <span class="article-tag">Solar & Renewables</span>
         <h1>Solar + Battery vs Generator</h1>
-        <p class="article-meta">8 min read · June 2026</p>
+        <p class="article-meta">9 min read · June 2026</p>
       </div>
       <div class="tool-layout">
         <div>
+          <p>Both options keep your lights on during outages — but they have very different cost structures. A generator costs less upfront but has ongoing fuel and maintenance costs. Solar + battery costs more upfront but saves money every single day. Enter your details to compare 10-year total cost.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>10-Year Total Cost Comparison</h2>
+            <div class="form-group">
+              <label for="sg-outage">Expected Outage Hours per Year</label>
+              <input type="number" id="sg-outage" value="12" min="0" max="200" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="sg-load">Average Load During Outage (kW)</label>
+              <input type="number" id="sg-load" value="3" min="0.5" max="15" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="sg-gas-price">Gasoline Price ($/gallon)</label>
+              <input type="number" id="sg-gas-price" value="3.90" min="2" max="8" step="0.10" />
+            </div>
+            <div class="form-group">
+              <label for="sg-solar-kwh">Annual Solar Production (kWh) <span style="font-weight:400;font-size:.9em">— if adding solar</span></label>
+              <input type="number" id="sg-solar-kwh" value="8000" min="0" max="30000" step="500" />
+            </div>
+            <div class="form-group">
+              <label for="sg-elec-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="sg-elec-rate" value="13" min="5" max="50" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcSolarGen()">Compare 10-Year Cost</button>
+            <div class="result-box-tool" id="sg-result">
+              <h3>10-Year Total Cost</h3>
+              <table id="sg-table"></table>
+              <p class="result-note">Portable generator: $1,500 purchase, 0.75 gal/hr fuel, $150/yr maintenance. Standby generator: $12,000 installed, $300/yr maintenance. Solar+battery: $25,000 installed (after ITC), zero fuel cost, solar savings offset cost daily.</p>
+            </div>
+          </div>
           <div class="article-body">
-            <p>When choosing backup power, the two main options are a generator (gasoline, propane, or natural gas) and a solar + battery system. They serve the same core purpose — keeping the lights on during outages — but work very differently in cost, convenience, and long-term economics.</p>
-            
-            <h2>Generator: Lower Upfront, Higher Operating Cost</h2>
-            <p>A portable gasoline generator (5–10kW) costs $500–2,000. A standby generator (whole-home, natural gas/propane) costs $5,000–15,000 installed. Running cost: a 5kW generator on gasoline burns about 0.75 gallons/hour, costing $2.25–3.00/hour at current prices. For a 72-hour outage powering essential loads, fuel cost runs $100–200. Maintenance includes annual service, oil changes, and fuel stabilizer. Generators are noisy (65–75 dB) and require outdoor ventilation.</p>
+<h2>The True Cost of Generator Ownership</h2>
+            <p>Portable generators are cheap to buy ($500–$2,000) but expensive to run. A 7,500W portable generator consumes 0.6–1.0 gallons of gasoline per hour. Running it 8 hours/day during a power outage costs $20–$32/day in fuel at current gas prices. Standby generators (permanently installed, natural-gas powered) cost $5,000–$15,000 installed plus $150–$400/year in maintenance and $8–$15/day in fuel when running. The annual maintenance cost alone ($300–$600 for the recommended yearly service) exceeds what most homeowners pay over a decade of solar maintenance.</p>
 
-            <h2>Solar + Battery: Higher Upfront, Near-Zero Operating Cost</h2>
-            <p>A solar system with battery backup (e.g., 6kW solar + 1 Powerwall) costs $25,000–35,000 installed. Operating cost during outages: essentially zero — the battery charges from the panels during the day. A 13.5 kWh Powerwall covers essential loads (refrigerator, lights, phone charging, some outlets) for 12–24 hours. In multi-day outages with sun, the system recharges daily. No fuel, no noise, no fumes. The system also generates electricity savings every day — not just during outages.</p>
+            <h2>Solar + Battery vs Generator: Reliability Comparison</h2>
+            <p>A generator provides power indefinitely as long as fuel is available. Solar and battery provides power until the battery depletes — then relies on solar recharging each day. A 13.5 kWh battery powering essential loads (1–2 kWh/hour) lasts 6–13 hours without solar input. With daytime solar recharging, the system can sustain essential loads indefinitely. The critical difference: solar and battery works silently and automatically; generators require manual starting, fuel storage (which degrades), and carbon monoxide awareness. They also cannot be used indoors.</p>
 
-            <h2>Which Makes More Sense?</h2>
-            <ul><li><strong>Short, infrequent outages (under 24 hours):</strong> A $500–2,000 portable generator is hard to beat on pure economics</li><li><strong>Frequent or multi-day outages:</strong> Solar + battery becomes more attractive — fuel costs add up, and daily solar savings improve the overall ROI</li><li><strong>Whole-home backup for critical loads:</strong> A standby generator ($10,000–15,000) vs. larger battery system ($25,000+) — generator wins on cost if fuel is available</li><li><strong>Long-term, everyday value:</strong> Solar + battery wins — it generates savings 365 days/year, not just during outages</li></ul>
+            <h2>10-Year Total Cost of Ownership</h2>
+            <p>Compare a portable generator ($1,500 purchase, $150/year maintenance, used 5 days/year at 6 hrs/day on fuel) vs. a solar and battery system ($25,000 installed, eligible for 30% ITC = $17,500 effective). The generator costs roughly $3,000 over 10 years in maintenance and occasional fuel. The solar system costs $17,500 but generates $8,000–$15,000 in electricity value over the same period — netting to $2,500–$9,500 depending on your rates. Over 25 years, the solar system wins decisively while also eliminating your electric bill. The generator remains purely an expense.</p>
 
+            <h2>What Generators Do Better</h2>
+            <p>Generators excel in one scenario: high-power, short-duration outages where you need to run large loads (central HVAC, electric range, well pump) that would quickly drain even large battery banks. A 7,500W generator can power a whole house during a 3-day outage. A 13.5 kWh battery cannot run central air conditioning continuously. If you live in a hurricane zone and need to power your full home for 3–7 days, a whole-home standby generator remains the most reliable solution — though pairing it with solar and battery reduces fuel consumption dramatically.</p>
           </div>
         </div>
         <div>
@@ -64,9 +94,9 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Portable generator: <strong>$500–2,000</strong></li>
-              <li>Standby generator: <strong>$5,000–15,000</strong></li>
-              <li>Solar+battery: <strong>$25,000–35,000</strong></li>
+              <li>Portable generator: <strong>$1,500 upfront</strong></li>
+              <li>Standby generator: <strong>$12,000 installed</strong></li>
+              <li>Solar+battery: <strong>pays back via daily savings</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -76,5 +106,48 @@
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
+<script>
+function calcSolarGen() {
+  const outageHrs = parseFloat(document.getElementById('sg-outage').value) || 12;
+  const loadKw = parseFloat(document.getElementById('sg-load').value) || 3;
+  const gasPrice = parseFloat(document.getElementById('sg-gas-price').value) || 3.90;
+  const solarKwh = parseFloat(document.getElementById('sg-solar-kwh').value) || 8000;
+  const elecRate = parseFloat(document.getElementById('sg-elec-rate').value) / 100 || 0.13;
+
+  const annualFuelGal = outageHrs * 0.75;
+  const annualFuelCost = annualFuelGal * gasPrice;
+  const annualSolarSavings = solarKwh * elecRate;
+
+  // Portable generator 10yr
+  const portableUpfront = 1500;
+  const portableMaint = 150;
+  const portable10yr = portableUpfront + (annualFuelCost + portableMaint) * 10;
+
+  // Standby generator 10yr
+  const standbyUpfront = 12000;
+  const standbyMaint = 300;
+  const standby10yr = standbyUpfront + (annualFuelCost + standbyMaint) * 10;
+
+  // Solar + battery 10yr (after ITC)
+  const solarBatUpfront = 25000;
+  const solarBat10yr = solarBatUpfront - annualSolarSavings * 10;
+
+  const fmt = v => v < 0 ? '-$' + Math.abs(Math.round(v)).toLocaleString() : '$' + Math.round(v).toLocaleString();
+
+  document.getElementById('sg-table').innerHTML = `
+    <tr><th></th><th>Portable Generator</th><th>Standby Generator</th><th>Solar + Battery</th></tr>
+    <tr><td>Upfront cost</td><td>$1,500</td><td>$12,000</td><td>$25,000 (after ITC)</td></tr>
+    <tr><td>Annual fuel cost</td><td>${fmt(annualFuelCost)}</td><td>${fmt(annualFuelCost)}</td><td>$0</td></tr>
+    <tr><td>Annual maintenance</td><td>$150</td><td>$300</td><td>~$0</td></tr>
+    <tr><td>Annual electricity savings</td><td>$0</td><td>$0</td><td>${fmt(annualSolarSavings)}</td></tr>
+    <tr style="font-weight:700;"><td>10-Year Net Cost</td><td>${fmt(portable10yr)}</td><td>${fmt(standby10yr)}</td><td>${fmt(solarBat10yr)}</td></tr>
+    <tr><td>Noise</td><td>65–75 dB</td><td>65–70 dB</td><td>Silent</td></tr>
+    <tr><td>Fuel dependency</td><td>Gasoline</td><td>Natural gas/propane</td><td>None</td></tr>
+  `;
+  const r = document.getElementById('sg-result');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
 </body>
 </html>
