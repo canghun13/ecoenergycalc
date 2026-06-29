@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What to Know Before Installing Solar Panels | EcoEnergyCalc</title>
-  <meta name="description" content="Solar panels cost $15,000–25,000 before the 30% federal tax credit. See real payback periods (6–10 years), how to vet installers, state incentives, and the mistakes that cost homeowners thousands. Free calculator included." />
+  <title>Solar Panel Guide: How Many Do You Need + Cost & Payback Calculator | EcoEnergyCalc</title>
+  <meta name="description" content="How many solar panels do you need? Enter your monthly electricity use and location — get exact panel count, system cost, and payback period. Plus: what to know before installation. Free calculator."> />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/blog/solar-panel-guide.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"What to Know Before Installing Solar Panels","description":"Everything you need to know before going solar: costs, incentives, payback periods, and choosing an installer.","url":"https://ecoenergycalc.com/blog/solar-panel-guide.html","datePublished":"2026-05-01","dateModified":"2026-06-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"What to Know Before Installing Solar Panels","description":"Everything you need to know before going solar: costs, incentives, payback periods, and choosing an installer.","url":"https://ecoenergycalc.com/blog/solar-panel-guide.html","datePublished":"2026-05-01","dateModified":"2026-06-29","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -72,6 +72,16 @@
     ]
   }
   </script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How many solar panels do I need for my home?","acceptedAnswer":{"@type":"Answer","text":"Most U.S. homes need 15–22 solar panels to cover 100% of electricity use. A 2,000 sq ft home using 900 kWh/month typically needs a 6–8 kW system, which is about 15–20 panels at 400W each."}},
+    {"@type":"Question","name":"How much do solar panels cost in 2026?","acceptedAnswer":{"@type":"Answer","text":"Solar panels cost $2.50–$3.50 per watt installed, or $15,000–$25,000 for a typical 6–8 kW home system before incentives. After the 30% federal tax credit, most homeowners pay $10,500–$17,500."}},
+    {"@type":"Question","name":"How long does it take for solar panels to pay for themselves?","acceptedAnswer":{"@type":"Answer","text":"The average solar payback period in the U.S. is 6–10 years. In high-electricity-rate states like California or Hawaii, payback can be as short as 4–6 years."}},
+    {"@type":"Question","name":"Is the federal solar tax credit still available in 2026?","acceptedAnswer":{"@type":"Answer","text":"Yes. The 30% federal solar Investment Tax Credit (ITC) is available through 2032 under the Inflation Reduction Act. It applies to panels, inverters, installation labor, and battery storage added at the same time."}},
+    {"@type":"Question","name":"What direction should solar panels face?","acceptedAnswer":{"@type":"Answer","text":"South-facing roofs at a 30° pitch are optimal for U.S. homes. East or west-facing panels produce 10–20% less. North-facing is not recommended. Shading from trees or chimneys significantly reduces output."}}
+  ]}
+  </script>
 </head>
 <body>
 <main>
@@ -82,6 +92,56 @@
         <h1>What to Know Before Installing Solar Panels</h1>
         <p class="article-meta">8 min read · May 2026</p>
       </div>
+      <div class="calc-box" style="margin-bottom:32px;">
+          <h2 style="margin-top:0;">How Many Solar Panels Do You Need?</h2>
+          <div class="form-group">
+            <label for="spg-kwh">Monthly Electricity Use (kWh)</label>
+            <input type="number" id="spg-kwh" value="900" min="200" max="3000" step="50" />
+          </div>
+          <div class="form-group">
+            <label for="spg-sun">Peak Sun Hours per Day <span style="font-weight:400;font-size:.9em">— Phoenix: 6.5 | Dallas: 5.5 | Atlanta: 4.7 | NYC: 4.1 | Seattle: 3.5</span></label>
+            <input type="number" id="spg-sun" value="4.5" min="2" max="8" step="0.1" />
+          </div>
+          <div class="form-group">
+            <label for="spg-rate">Electricity Rate (¢/kWh)</label>
+            <input type="number" id="spg-rate" value="13" min="5" max="50" step="0.5" />
+          </div>
+          <button class="btn-primary" onclick="calcSolarPanelGuide()">Calculate My Solar System</button>
+          <div class="result-box-tool" id="spg-result">
+            <h3>Your Solar System Estimate</h3>
+            <div class="result-amount" id="spg-panels"></div>
+            <table id="spg-table"></table>
+            <p class="result-note">Assumes 400W panels, 80% system efficiency. After 30% federal ITC. Annual savings based on 100% offset at your electricity rate.</p>
+          </div>
+        </div>
+        <script>
+        function calcSolarPanelGuide() {
+          var kwh = parseFloat(document.getElementById('spg-kwh').value) || 900;
+          var sun = parseFloat(document.getElementById('spg-sun').value) || 4.5;
+          var rate = parseFloat(document.getElementById('spg-rate').value) / 100 || 0.13;
+          var annualKwh = kwh * 12;
+          var systemKw = annualKwh / (sun * 365 * 0.80);
+          var panels = Math.ceil(systemKw * 1000 / 400);
+          var cost = systemKw * 1000 * 3.00;
+          var afterItc = cost * 0.70;
+          var annualSavings = annualKwh * rate;
+          var payback = afterItc / annualSavings;
+          var fmt = function(v){ return '$' + Math.round(v).toLocaleString(); };
+          document.getElementById('spg-panels').textContent = panels + ' solar panels (' + systemKw.toFixed(1) + ' kW system)';
+          document.getElementById('spg-table').innerHTML =
+            '<tr><th>Metric</th><th>Your Estimate</th></tr>' +
+            '<tr><td>System size</td><td>' + systemKw.toFixed(1) + ' kW</td></tr>' +
+            '<tr><td>Panels needed (400W)</td><td>' + panels + ' panels</td></tr>' +
+            '<tr><td>Estimated cost (before ITC)</td><td>' + fmt(cost) + '</td></tr>' +
+            '<tr><td>After 30% federal tax credit</td><td>' + fmt(afterItc) + '</td></tr>' +
+            '<tr><td>Annual electricity savings</td><td>' + fmt(annualSavings) + '/yr</td></tr>' +
+            '<tr style="font-weight:700;"><td>Payback period</td><td>' + payback.toFixed(1) + ' years</td></tr>';
+          var r = document.getElementById('spg-result');
+          r.classList.add('visible');
+          r.scrollIntoView({behavior:'smooth',block:'nearest'});
+        }
+        </script>
+
       <div class="article-body">
         <p>Going solar is one of the most impactful financial and environmental decisions a homeowner can make. But the solar market is complex, full of sales pressure, and easy to get wrong. Here's everything you need to know before signing anything.</p>
 
@@ -167,7 +227,25 @@
           <a href="/tools/solar-panel-roi.html" class="btn-calc" style="padding:10px 20px;font-size:0.9rem;">Solar ROI Calculator →</a>
           <a href="/tools/solar-co2-offset-calculator.html" class="btn-calc" style="padding:10px 20px;font-size:0.9rem;">Solar CO2 Offset →</a>
           <a href="/tools/green-home-upgrade-roi.html" class="btn-calc" style="padding:10px 20px;font-size:0.9rem;">Green Upgrade ROI →</a>
-        </div>
+        
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>How many solar panels do I need for my home?</h3>
+        <p>Most U.S. homes need 15–22 panels to cover 100% of electricity use. A home using 900 kWh/month typically needs a 6–7 kW system (15–18 panels at 400W). Use the calculator above with your actual monthly usage for a personalized estimate.</p>
+
+        <h3>How much do solar panels cost in 2026?</h3>
+        <p>Installed cost runs $2.50–$3.50 per watt, or $15,000–$25,000 for a typical home system before incentives. After the 30% federal tax credit, most homeowners pay $10,500–$17,500. State and utility rebates can reduce this further.</p>
+
+        <h3>Is the 30% solar tax credit still available in 2026?</h3>
+        <p>Yes. The federal solar Investment Tax Credit (ITC) at 30% is available through 2032 under the Inflation Reduction Act. It applies to equipment, installation labor, and battery storage added at the same time. You must have sufficient federal tax liability to use it.</p>
+
+        <h3>How long does solar payback take?</h3>
+        <p>The U.S. average is 6–10 years. In high-rate states (California, Hawaii, Massachusetts), payback can be 4–6 years. In low-rate states, it may reach 10–12 years. The calculator above shows your specific payback based on your electricity rate.</p>
+
+        <h3>What direction should my solar panels face?</h3>
+        <p>South-facing at 30° is optimal. East or west-facing produces 10–20% less but is still worthwhile. North-facing is not recommended. Shading from trees or chimneys can reduce output by 20–40% — microinverters mitigate shading losses.</p>
+
+      </div>
       </div>
     </div>
   </section>
