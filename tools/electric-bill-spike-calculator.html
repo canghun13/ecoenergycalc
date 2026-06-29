@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Is My Electric Bill So High? Spike Calculator | EcoEnergyCalc</title>
+  <meta name="description" content="Why did your electric bill spike? Enter your bill amounts and usage — find which appliances or habits are responsible and exactly how much each one costs you." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/electric-bill-spike-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Electric Bill Spike Calculator","url":"https://ecoenergycalc.com/tools/electric-bill-spike-calculator.html","description":"Find out why your electric bill spiked. Enter your bill and usage details to identify the most likely causes and calculate the cost of each.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-29","dateModified":"2026-06-29","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Why is my electric bill so high all of a sudden?","acceptedAnswer":{"@type":"Answer","text":"The most common reasons for a sudden electric bill spike: (1) AC or heating running more due to weather, (2) a malfunctioning appliance like a refrigerator compressor running constantly, (3) an electric water heater failure, (4) new appliances added, (5) rate increase from your utility, or (6) a meter reading error."}},
+    {"@type":"Question","name":"What uses the most electricity in a home?","acceptedAnswer":{"@type":"Answer","text":"The biggest electricity users in a typical U.S. home: HVAC (heating and cooling) accounts for 43–51%, water heating 14–18%, large appliances (washer, dryer, refrigerator) 13%, lighting 9%, electronics and other 15%."}},
+    {"@type":"Question","name":"How do I find what is using the most electricity?","acceptedAnswer":{"@type":"Answer","text":"To identify high electricity users: check your utility's smart meter data (available in most online accounts), use a plug-in energy monitor ($15–25) to measure individual appliances, compare your bill to the same month last year, or contact your utility for a free home energy audit."}}
+  ]}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Electric Bill Spike Calculator</p>
+        <span class="tool-tag">Energy Savings</span>
+        <h1>Why Is My Electric Bill So High?</h1>
+        <p class="tool-desc">Enter your bill details and usage habits — find the most likely causes of a spike and exactly how much each factor is costing you.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2 style="margin-top:0;font-size:1.2rem;">Step 1: Your Bill Details</h2>
+            <div class="form-group">
+              <label for="eb-current">This Month's Bill ($)</label>
+              <input type="number" id="eb-current" value="180" min="10" max="1000" step="5" />
+            </div>
+            <div class="form-group">
+              <label for="eb-previous">Last Month's Bill ($) — or same month last year</label>
+              <input type="number" id="eb-previous" value="120" min="10" max="1000" step="5" />
+            </div>
+            <div class="form-group">
+              <label for="eb-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="eb-rate" value="13" min="5" max="50" step="0.5" />
+            </div>
+            <h2 style="font-size:1.2rem;margin-top:24px;">Step 2: What Changed This Month?</h2>
+            <div class="form-group">
+              <label><input type="checkbox" id="eb-ac" /> Air conditioner running more (summer heat wave)</label>
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" id="eb-heat" /> Heating running more (cold snap)</label>
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" id="eb-wh" /> Hot water heater issues (unusually high hot water use)</label>
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" id="eb-guest" /> Extra people in the home (guests)</label>
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" id="eb-ev" /> Started charging an electric vehicle</label>
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" id="eb-new" /> Added new appliances or electronics</label>
+            </div>
+            <div class="form-group">
+              <label for="eb-days">Billing Days This Period</label>
+              <input type="number" id="eb-days" value="31" min="25" max="35" step="1" />
+            </div>
+            <button class="btn-primary" onclick="calcBillSpike()">Diagnose My Bill</button>
+            <div class="result-box-tool" id="eb-result">
+              <h3>Bill Spike Diagnosis</h3>
+              <div class="result-amount" id="eb-spike"></div>
+              <div id="eb-causes"></div>
+              <table id="eb-table"></table>
+            </div>
+          </div>
+
+          <div style="margin-top:40px;">
+            <h2>Most Common Causes of High Electric Bills</h2>
+
+            <h3>1. HVAC Running Overtime (Cause of 40–60% of Spikes)</h3>
+            <p>Heating and cooling is by far the largest electricity user in most homes. A 3-ton central AC unit running 2 extra hours per day adds about $27/month at 13¢/kWh. During a heat wave where temperatures are 10°F above normal, your AC can run 30–50% more — adding $30–80 to your bill. Compare your bill to the same month last year to isolate weather effects.</p>
+
+            <h3>2. Malfunctioning Appliances</h3>
+            <p>A failing refrigerator compressor that runs constantly instead of cycling can add $30–60/month. A water heater with a failing thermostat that heats water all day can add $50–100/month. If your bill spiked without any obvious lifestyle change, suspect a malfunctioning appliance — plug-in energy monitors ($15–25) can identify the culprit.</p>
+
+            <h3>3. Electric Vehicle Charging</h3>
+            <p>An EV adds 200–500 kWh/month depending on driving habits. At 13¢/kWh, that's $26–65/month. At 28¢/kWh (California), it's $56–140/month. If you recently started driving an EV or drove more than usual, this is likely a major factor.</p>
+
+            <h3>4. Rate Increases</h3>
+            <p>Utility rates increase 2–4% annually on average. A 3% rate increase raises a $150 bill by $4.50/month. If your kWh usage stayed the same but the bill went up, check your utility's rate notices or call and ask if rates changed.</p>
+
+            <h3>5. Billing Period Differences</h3>
+            <p>A billing period with 35 days instead of 28 days adds 25% more usage at the same daily rate. Always check the number of billing days before comparing bills month-to-month.</p>
+
+            <h2>How to Find What's Using the Most Electricity</h2>
+            <p><strong>Smart meter data:</strong> Most utilities now provide hourly usage data through their online account portal. Look for days or hours with unusually high usage — this points to specific appliances or events.</p>
+            <p><strong>Plug-in energy monitors:</strong> A Kill-A-Watt meter ($20–25) measures any plug-in appliance's actual power draw and daily kWh. Measure your refrigerator, TV, and other always-on devices to find phantom loads.</p>
+            <p><strong>Free utility audit:</strong> Many utilities offer free home energy audits that identify your biggest energy users. Call your utility and ask — most residential customers qualify.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost Calculator</a></li>
+              <li><a href="/tools/heating-vs-cooling.html">Heating vs Cooling Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Biggest Bill Reducers</h3>
+            <ul>
+              <li>Raise AC by 2°F: <strong>saves ~4%</strong></li>
+              <li>Smart thermostat: <strong>saves 10–12%</strong></li>
+              <li>LED lighting swap: <strong>saves $100–300/yr</strong></li>
+              <li>Fix hot water leaks: <strong>saves $50–150/yr</strong></li>
+              <li>Seal air leaks: <strong>saves 5–15%</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcBillSpike() {
+  var current = parseFloat(document.getElementById('eb-current').value) || 180;
+  var previous = parseFloat(document.getElementById('eb-previous').value) || 120;
+  var rate = parseFloat(document.getElementById('eb-rate').value) / 100 || 0.13;
+  var days = parseFloat(document.getElementById('eb-days').value) || 31;
+
+  var spike = current - previous;
+  var spikeKwh = spike / rate;
+
+  var causes = [];
+  if (document.getElementById('eb-ac').checked) causes.push({label:'AC running more (est. 2 extra hrs/day, 3-ton unit)', cost: 3.5*2*days*rate});
+  if (document.getElementById('eb-heat').checked) causes.push({label:'Electric heating running more', cost: 3.0*2*days*rate});
+  if (document.getElementById('eb-wh').checked) causes.push({label:'Water heater issue (running 2× normal)', cost: 4.5*3*days*rate*0.5});
+  if (document.getElementById('eb-guest').checked) causes.push({label:'Extra person in home (extra 3 kWh/day)', cost: 3*days*rate});
+  if (document.getElementById('eb-ev').checked) causes.push({label:'EV charging (avg 10 kWh/day)', cost: 10*days*rate});
+  if (document.getElementById('eb-new').checked) causes.push({label:'New appliances/electronics (est. 2 kWh/day)', cost: 2*days*rate});
+
+  // Per-day rate difference
+  var currentPerDay = current / days;
+  var previousPerDay = previous / 30;
+  var dayAdj = (currentPerDay - previousPerDay) * days;
+
+  var causeHTML = '<div style="margin:16px 0;">';
+  causeHTML += '<p><strong>Bill increase: $' + spike.toFixed(2) + '</strong> (+' + Math.round(spikeKwh) + ' kWh)</p>';
+
+  if (causes.length > 0) {
+    causeHTML += '<p style="margin-top:12px;font-weight:600;">Estimated contribution of checked factors:</p><ul style="margin-top:8px;">';
+    var total = 0;
+    causes.forEach(function(c) {
+      total += c.cost;
+      causeHTML += '<li style="margin-bottom:6px;">' + c.label + ': <strong>$' + c.cost.toFixed(2) + '</strong></li>';
+    });
+    causeHTML += '</ul>';
+    var unexplained = Math.max(0, spike - total);
+    if (unexplained > 5) {
+      causeHTML += '<p style="margin-top:8px;color:var(--text-muted);">Unexplained by checked factors: <strong>$' + unexplained.toFixed(2) + '</strong> — consider malfunctioning appliances, rate increases, or billing period differences.</p>';
+    }
+  } else {
+    causeHTML += '<p style="margin-top:12px;color:var(--text-muted);">Check the boxes above for factors that changed this month to see their estimated cost contribution.</p>';
+  }
+  causeHTML += '</div>';
+
+  document.getElementById('eb-causes').innerHTML = causeHTML;
+  document.getElementById('eb-spike').textContent = spike >= 0 ? '+$' + spike.toFixed(2) + ' vs comparison period' : '-$' + Math.abs(spike).toFixed(2) + ' vs comparison period';
+  document.getElementById('eb-table').innerHTML =
+    '<tr><th>Metric</th><th>This Period</th><th>Comparison</th></tr>' +
+    '<tr><td>Bill amount</td><td>$' + current.toFixed(2) + '</td><td>$' + previous.toFixed(2) + '</td></tr>' +
+    '<tr><td>Billing days</td><td>' + days + ' days</td><td>~30 days</td></tr>' +
+    '<tr><td>Daily average cost</td><td>$' + (current/days).toFixed(2) + '/day</td><td>$' + (previous/30).toFixed(2) + '/day</td></tr>' +
+    '<tr><td>Estimated kWh this period</td><td>' + Math.round(current/rate).toLocaleString() + ' kWh</td><td>' + Math.round(previous/rate).toLocaleString() + ' kWh</td></tr>' +
+    '<tr style="font-weight:700;"><td>Extra kWh this period</td><td colspan="2">+' + Math.round(Math.max(0,spikeKwh)) + ' kWh ($' + Math.max(0,spike).toFixed(2) + ')</td></tr>';
+
+  var r = document.getElementById('eb-result');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
