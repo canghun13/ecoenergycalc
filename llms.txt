@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 23 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 26 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -57,6 +57,15 @@ Tools for water usage and rainwater harvesting.
 
 - [Water Usage Calculator](https://ecoenergycalc.com/tools/water-usage.html): Estimate household water consumption by activity and identify reduction opportunities
 - [Rainwater Harvesting Calculator](https://ecoenergycalc.com/tools/rainwater-harvesting.html): Calculate annual rainwater collection potential from a roof by area, rainfall, and material; estimate water bill savings
+- [Washing Machine Water Usage Calculator](https://ecoenergycalc.com/tools/washing-machine-water-usage.html): Calculate gallons per load and annual water consumption by washer type; compare standard vs ENERGY STAR and see upgrade savings
+
+## Calculators: Solar & Renewables (Additional)
+
+- [How Many Solar Panels Do I Need? Calculator](https://ecoenergycalc.com/tools/solar-panel-count-calculator.html): Enter monthly electricity use and location to get exact panel count, system size, roof space required, and estimated cost and payback
+
+## Calculators: Energy Savings (Additional)
+
+- [Why Is My Electric Bill So High? Spike Calculator](https://ecoenergycalc.com/tools/electric-bill-spike-calculator.html): Diagnose an electric bill spike by entering bill amounts and usage changes; estimates the cost contribution of AC, EV charging, new appliances, and other common causes
 
 ## Blog Articles
 
@@ -81,6 +90,8 @@ In-depth guides on energy savings, solar, carbon reduction, and environmental to
 - [How to Reduce Water Usage at Home: 14 High-Impact Changes](https://ecoenergycalc.com/blog/how-to-reduce-water-usage-at-home.html): Evidence-based water conservation methods ranked by gallons saved, with costs and payback periods
 - [Practical Ways to Reduce Your Carbon Footprint](https://ecoenergycalc.com/blog/reduce-carbon-footprint.html): High-impact personal actions ranked by actual CO₂ savings, with real numbers
 - [EV vs Gas Car: True Cost of Ownership Over 5 Years](https://ecoenergycalc.com/blog/ev-vs-gas-true-cost.html): Full 5-year cost comparison including purchase, fuel, insurance, maintenance, and depreciation
+- [How Much Does It Cost to Run AC All Day?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-ac.html): Per-hour, per-day, and seasonal AC running cost by system size and electricity rate — with an interactive calculator
+- [Solar Panel Cost in 2026: What Homeowners Actually Pay](https://ecoenergycalc.com/blog/solar-panel-cost-2026.html): Real installed cost by system size and state, 30% ITC breakdown, financing options, and whether solar is worth it in 2026
 
 ## Compare: Solar & Renewables
 
