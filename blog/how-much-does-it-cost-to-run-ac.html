@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Much Does It Cost to Run AC All Day? (2026 Cost Calculator) | EcoEnergyCalc</title>
+  <meta name="description" content="How much does running AC cost per hour, per day, and per month? Enter your AC size and local electricity rate — get the exact cost to run your air conditioner all day or all summer." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-ac.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"How Much Does It Cost to Run AC All Day?","description":"Calculate the exact cost of running your air conditioner per hour, per day, and per month based on your AC size and local electricity rate.","url":"https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-ac.html","datePublished":"2026-06-29","dateModified":"2026-06-29","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does it cost to run AC all day?","acceptedAnswer":{"@type":"Answer","text":"Running a 3-ton central AC unit all day (24 hours) at 13¢/kWh costs approximately $10–14/day. A window AC (1 ton, 1,200W) running all day costs about $3.75/day. Monthly costs range from $110–420 for central AC depending on system size, efficiency, and local electricity rates."}},
+    {"@type":"Question","name":"How much does AC cost per hour?","acceptedAnswer":{"@type":"Answer","text":"A 3-ton (3,500W) central AC costs about $0.46/hour at 13¢/kWh. A 2-ton unit (2,400W) costs $0.31/hour. A 1-ton window unit (1,200W) costs $0.16/hour. Actual runtime is typically 60–75% of elapsed time — the AC cycles on and off to maintain temperature."}},
+    {"@type":"Question","name":"How much does it cost to run a window AC unit per month?","acceptedAnswer":{"@type":"Answer","text":"A standard window AC (1 ton, 1,200W, EER 10) running 8 hours/day for 30 days costs approximately $37/month at 13¢/kWh. A high-efficiency model (EER 15) cuts that to $25/month for the same cooling output."}},
+    {"@type":"Question","name":"Is it cheaper to run AC all day or turn it off when away?","acceptedAnswer":{"@type":"Answer","text":"It is almost always cheaper to turn AC off or raise the thermostat when away. The myth that keeping AC running prevents the house from getting hot (requiring more energy to cool down) is false — the energy saved while away far exceeds the energy to re-cool the home. A programmable thermostat set to 85°F while away and 74°F before you return saves 10–15% on cooling costs."}}
+  ]}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="article-page">
+    <div class="container">
+      <div class="article-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/blog/">Blog</a> › AC Running Cost</p>
+        <span class="article-tag">Energy Savings</span>
+        <h1>How Much Does It Cost to Run AC All Day?</h1>
+        <p class="article-meta">8 min read · June 2026</p>
+      </div>
+      <div class="article-body">
+        <p>Air conditioning is the single biggest driver of summer electricity bills, accounting for 43–51% of total home energy use in warm months. But most homeowners have no idea what it actually costs per hour, per day, or per month to run their system. The answer depends on three things: your AC's size (in tons or BTU), its efficiency (SEER rating), and your local electricity rate.</p>
+
+        <div class="calc-box" style="margin:32px 0;">
+          <h2 style="margin-top:0;">AC Running Cost Calculator</h2>
+          <div class="form-group">
+            <label for="ac-size">AC System Type & Size</label>
+            <select id="ac-size">
+              <option value="1200">Window AC — 1 ton (1,200W)</option>
+              <option value="1800">Window AC — 1.5 ton (1,800W)</option>
+              <option value="2400">Central AC — 2 ton (2,400W)</option>
+              <option value="3000" selected>Central AC — 2.5 ton (3,000W)</option>
+              <option value="3500">Central AC — 3 ton (3,500W)</option>
+              <option value="4200">Central AC — 3.5 ton (4,200W)</option>
+              <option value="5000">Central AC — 4+ ton (5,000W)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ac-seer">SEER Rating <span style="font-weight:400;font-size:.9em">— check unit label or manual</span></label>
+            <select id="ac-seer">
+              <option value="1.0">SEER 14 (minimum efficiency)</option>
+              <option value="0.875" selected>SEER 16 (standard efficiency)</option>
+              <option value="0.70">SEER 20 (high efficiency)</option>
+              <option value="0.583">SEER 24 (very high efficiency)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ac-hours">Hours Run per Day</label>
+            <input type="number" id="ac-hours" value="8" min="1" max="24" step="0.5" />
+          </div>
+          <div class="form-group">
+            <label for="ac-rate-blog">Electricity Rate (¢/kWh)</label>
+            <input type="number" id="ac-rate-blog" value="13" min="5" max="50" step="0.5" />
+          </div>
+          <div class="form-group">
+            <label for="ac-season">Cooling Season (days)</label>
+            <input type="number" id="ac-season" value="90" min="30" max="200" step="10" />
+          </div>
+          <button class="btn-primary" onclick="calcACCost()">Calculate AC Cost</button>
+          <div class="result-box-tool" id="ac-result">
+            <h3>Your AC Running Cost</h3>
+            <table id="ac-table"></table>
+            <p class="result-note">Wattage shown is rated draw. Actual draw varies with outdoor temperature and thermostat cycling. SEER adjustment estimates real-world runtime efficiency.</p>
+          </div>
+        </div>
+
+        <h2>AC Cost by System Size: Reference Table</h2>
+        <p>The table below shows the approximate hourly and monthly cost for common AC sizes at 13¢/kWh (U.S. average), running 8 hours/day:</p>
+        <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem;">
+          <thead>
+            <tr style="background:var(--card);text-align:left;">
+              <th style="padding:10px 12px;border-bottom:2px solid var(--border);">AC Size</th>
+              <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Watts</th>
+              <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Cost/Hour</th>
+              <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Cost/Day (8hrs)</th>
+              <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Monthly Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Window AC (1 ton)</td><td>1,200W</td><td>$0.16</td><td>$1.25</td><td>$37</td></tr>
+            <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Window AC (1.5 ton)</td><td>1,800W</td><td>$0.23</td><td>$1.87</td><td>$56</td></tr>
+            <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Central AC (2 ton)</td><td>2,400W</td><td>$0.31</td><td>$2.50</td><td>$75</td></tr>
+            <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Central AC (2.5 ton)</td><td>3,000W</td><td>$0.39</td><td>$3.12</td><td>$94</td></tr>
+            <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Central AC (3 ton)</td><td>3,500W</td><td>$0.46</td><td>$3.64</td><td>$109</td></tr>
+            <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Central AC (3.5 ton)</td><td>4,200W</td><td>$0.55</td><td>$4.37</td><td>$131</td></tr>
+            <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Central AC (4+ ton)</td><td>5,000W</td><td>$0.65</td><td>$5.20</td><td>$156</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:.85rem;color:var(--text-muted);">At 13¢/kWh, 8 hours/day, 30 days. SEER 16 efficiency assumed for central AC.</p>
+
+        <h2>What SEER Rating Means for Your Bill</h2>
+        <p>SEER (Seasonal Energy Efficiency Ratio) measures AC efficiency. A SEER 20 unit uses 30% less electricity than a SEER 14 unit for the same cooling output. The federal minimum is now SEER 14 for new installations (higher in hot southern states). If your AC is more than 10 years old, it may be SEER 10–12 — significantly less efficient than current models.</p>
+        <p>Upgrading from SEER 12 to SEER 20 on a 3-ton unit saves approximately $130–180/summer at national average rates. In high-rate states like California ($0.28/kWh), the savings reach $280–380/summer — a strong payback on a high-efficiency upgrade.</p>
+
+        <h2>Is It Cheaper to Leave AC On All Day or Turn It Off When Away?</h2>
+        <p>Turning off (or raising) the AC when you leave is almost always cheaper, despite the common belief that "it takes more energy to cool a house back down." Here's why: a house heats up slowly without AC. Even on a 95°F day, it takes 2–4 hours for interior temperature to rise significantly with the AC off. The energy saved during those hours of absence far exceeds the energy to re-cool the home.</p>
+        <p>Department of Energy testing consistently shows that a programmable thermostat set to 85°F while away and 74°F for the hour before return saves 10–15% on cooling costs. A smart thermostat does this automatically. See our <a href="/tools/heating-vs-cooling.html">Heating vs Cooling Calculator</a> for your specific cost.</p>
+
+        <h2>How to Reduce Your AC Electricity Cost</h2>
+        <p><strong>Raise the thermostat by 2–4°F.</strong> Each degree saves 3–5% on cooling costs. Moving from 72°F to 76°F saves roughly 12–20% on AC electricity — the single highest-impact change available.</p>
+        <p><strong>Use ceiling fans.</strong> A ceiling fan costs $0.01–0.03/hour to run and creates a wind-chill effect that makes a room feel 4°F cooler. Use a fan to maintain comfort at a higher thermostat setting.</p>
+        <p><strong>Block window solar gain.</strong> Closing blinds and curtains on south and west-facing windows during peak afternoon hours reduces heat gain by 20–30%, directly reducing AC runtime.</p>
+        <p><strong>Replace the filter.</strong> A clogged AC filter restricts airflow, reducing efficiency by 5–15%. At $5–15 for a filter, this is the highest-ROI maintenance action available.</p>
+        <p><strong>Seal air leaks.</strong> Air infiltration through gaps around doors, windows, and outlets forces the AC to work harder. Weatherstripping and caulking cost $20–50 and save 5–10% on cooling costs.</p>
+        <p>For more strategies, see: <a href="/blog/how-to-lower-electric-bill-in-summer.html">11 Ways to Lower Your Summer Electric Bill</a>.</p>
+
+        <h2>AC Cost vs Other Summer Appliances</h2>
+        <p>To put AC costs in perspective, here's how other summer appliances compare at 13¢/kWh running 8 hours/day:</p>
+        <ul>
+          <li><strong>Pool pump (1 HP):</strong> ~$0.10/hr, $0.80/day, $24/month</li>
+          <li><strong>Dehumidifier (70-pint):</strong> ~$0.07/hr, $0.56/day, $17/month</li>
+          <li><strong>Refrigerator:</strong> ~$0.02/hr, $0.48/day, $14/month (runs continuously)</li>
+          <li><strong>Ceiling fan:</strong> ~$0.01/hr, $0.08/day, $2.50/month</li>
+        </ul>
+        <p>The AC dominates summer electricity costs by a wide margin. Optimizing AC use has 5–10× more impact than any other single summer energy action.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcACCost() {
+  var watts = parseFloat(document.getElementById('ac-size').value) || 3000;
+  var seerFactor = parseFloat(document.getElementById('ac-seer').value) || 0.875;
+  var hours = parseFloat(document.getElementById('ac-hours').value) || 8;
+  var rate = parseFloat(document.getElementById('ac-rate-blog').value) / 100 || 0.13;
+  var days = parseFloat(document.getElementById('ac-season').value) || 90;
+
+  var effectiveWatts = watts * seerFactor;
+  var costPerHour = effectiveWatts / 1000 * rate;
+  var costPerDay = costPerHour * hours;
+  var costPerMonth = costPerDay * 30;
+  var costSeason = costPerDay * days;
+
+  var fmt = function(v){ return '$' + v.toFixed(2); };
+  var fmtR = function(v){ return '$' + Math.round(v).toLocaleString(); };
+
+  document.getElementById('ac-table').innerHTML =
+    '<tr><th>Period</th><th>Cost</th><th>kWh Used</th></tr>' +
+    '<tr><td>Per hour</td><td>' + fmt(costPerHour) + '</td><td>' + (effectiveWatts/1000).toFixed(2) + ' kWh</td></tr>' +
+    '<tr><td>Per day (' + hours + ' hrs)</td><td>' + fmt(costPerDay) + '</td><td>' + (effectiveWatts/1000*hours).toFixed(1) + ' kWh</td></tr>' +
+    '<tr><td>Per month (30 days)</td><td>' + fmt(costPerMonth) + '</td><td>' + Math.round(effectiveWatts/1000*hours*30) + ' kWh</td></tr>' +
+    '<tr style="font-weight:700;"><td>Full season (' + days + ' days)</td><td>' + fmtR(costSeason) + '</td><td>' + Math.round(effectiveWatts/1000*hours*days) + ' kWh</td></tr>';
+
+  var r = document.getElementById('ac-result');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
