@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appliance Energy Cost Calculator – Cost Per Day, Month & Year | EcoEnergyCalc</title>
+  <meta name="description" content="How much does it cost to run your appliances? Enter wattage and hours of use — get the exact daily, monthly, and annual electricity cost. Works for any appliance. Free calculator." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/appliance-energy-cost.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+    <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Appliance Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/appliance-energy-cost.html","description":"Calculate the exact running cost of any home appliance per day, month, and year. Enter wattage and usage hours to see what your refrigerator, dryer, AC, or EV charger actually costs.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-06-29","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Appliance Energy Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Appliance Energy Cost Calculator</h1>
+        <p>Find out exactly what any appliance costs to run — per day, per month, and per year. Select a common appliance or enter custom wattage and usage hours to get instant cost estimates at your local electricity rate.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Appliance Cost</h2>
+            <div class="form-group">
+              <label for="appliance-preset">Choose an Appliance (or enter custom)</label>
+              <select id="appliance-preset" onchange="setPreset()">
+                <option value="">— Custom —</option>
+                <option value="fridge">Refrigerator (150W)</option>
+                <option value="washer">Washing Machine (500W)</option>
+                <option value="dryer">Electric Dryer (5000W)</option>
+                <option value="dishwasher">Dishwasher (1800W)</option>
+                <option value="oven">Electric Oven (2400W)</option>
+                <option value="microwave">Microwave (1000W)</option>
+                <option value="tv">TV 55" LED (100W)</option>
+                <option value="pc">Desktop Computer (200W)</option>
+                <option value="laptop">Laptop (50W)</option>
+                <option value="ac_window">Window AC (1200W)</option>
+                <option value="heater">Space Heater (1500W)</option>
+                <option value="ev_charger">EV Charger Level 2 (7200W)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="app-watts">Appliance Wattage (W)</label>
+              <input type="number" id="app-watts" placeholder="e.g. 150" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="app-hours">Hours Used Per Day</label>
+              <input type="number" id="app-hours" placeholder="e.g. 24" min="0" max="24" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="app-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="app-rate" value="13" min="0" step="0.1" />
+            </div>
+            <button class="btn-primary" onclick="calcAppliance()">Calculate Cost</button>
+            <div class="result-box-tool" id="app-result">
+              <h3>Running Cost</h3>
+              <div class="result-amount" id="app-annual"></div>
+              <table id="app-breakdown"></table>
+              <p class="result-note">Wattage varies by model and age. Check your appliance label or manual for the exact wattage.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Which Appliances Cost the Most to Run?</h2>
+            <p>Not all appliances are equal. Electric dryers, electric water heaters, and HVAC systems dominate most home energy bills — while devices like phone chargers and LED TVs cost almost nothing to run. Understanding which appliances consume the most helps you focus upgrades and behavior changes where they'll actually move the needle on your bill.</p>
+
+            <h3>Annual Running Costs: Common Appliances</h3>
+            <p>Based on the national average electricity rate of 13¢/kWh and typical usage patterns:</p>
+            <ul>
+              <li><strong>Central air conditioner (3-ton):</strong> $400–700/year (run 8 hrs/day, 120 days)</li>
+              <li><strong>Electric water heater:</strong> $400–600/year (runs continuously)</li>
+              <li><strong>Electric dryer:</strong> $100–150/year (1 load/day at 45 min)</li>
+              <li><strong>Refrigerator (newer model):</strong> $50–80/year (runs 24/7 at 150W avg)</li>
+              <li><strong>Dishwasher:</strong> $35–50/year (1 run/day)</li>
+              <li><strong>EV charger (Level 2, 7.2kW):</strong> $500–700/year (charging 1 hr/day)</li>
+              <li><strong>Desktop computer + monitor:</strong> $50–100/year (6 hrs/day)</li>
+              <li><strong>55" LED TV:</strong> $15–25/year (4 hrs/day)</li>
+              <li><strong>LED bulb (9W):</strong> $1–2/year (3 hrs/day)</li>
+            </ul>
+
+            <h3>How to Calculate kWh for Any Appliance</h3>
+            <p>The formula is: <strong>kWh = (Watts × Hours per day) ÷ 1,000</strong>. Multiply by your electricity rate to get the daily cost, then by 365 for annual. For appliances that don't run continuously — like a washer or oven — use the number of hours actually running per day on average. An oven used 45 minutes every other day = 0.375 hrs/day.</p>
+            <p>Finding wattage: the nameplate rating is on a sticker on the back or bottom of most appliances. For variable-load appliances like refrigerators and air conditioners, the nameplate shows maximum wattage — average consumption is typically 30–50% of that. A smart plug with energy monitoring (brands: Kasa, Emporia, Shelly) gives you the real measured wattage for any appliance and is the most accurate way to find true consumption.</p>
+
+            <h3>Phantom Load: The Hidden Drain</h3>
+            <p>Many appliances draw power even when "off" — this is called standby or phantom power. Common offenders: cable boxes (15–20W continuously), older TVs and monitors (5–15W), game consoles in standby (10–15W), and desktop computers in sleep mode (3–10W). Across a typical home, standby power accounts for 5–10% of total electricity use — roughly $50–100/year for nothing.</p>
+            <p>Smart power strips automatically cut power to peripherals when a main device (like a TV) turns off. For always-on devices like cable boxes that can't be easily unplugged, the only option is switching to streaming services that don't require a separate box.</p>
+
+            <h3>Upgrade Priorities by Impact</h3>
+            <p>If you're looking to reduce your electricity bill through appliance upgrades, prioritize the biggest consumers first. Upgrading an old electric resistance water heater to a heat pump water heater typically saves $300–500/year. Replacing a 15-year-old HVAC system with a modern high-efficiency unit can cut heating and cooling costs by 20–40%. Replacing an older top-load washing machine with an ENERGY STAR front-loader saves both electricity and water. In contrast, replacing a functional microwave or TV has almost no measurable impact on your bill — the savings simply aren't there.</p>
+          </div>
+
+            <h3>When to Repair vs Replace Appliances</h3>
+            <p>The general rule: if repair costs more than 50% of a new appliance's cost and the appliance is past half its expected lifespan, replace it. But energy efficiency adds another dimension. A 15-year-old refrigerator consuming 1,400 kWh/year costs about $182/year in electricity. A new ENERGY STAR model might use 400 kWh/year — saving $130/year. Even without immediate repair needs, the electricity savings often justify replacement within 3–5 years. Check the EnergyGuide label on new appliances (the yellow tag) and compare to your current appliance's actual consumption — a smart plug with energy monitoring can measure this precisely.</p>
+
+            <h3>Using Smart Plugs to Measure Actual Consumption</h3>
+            <p>The wattage on an appliance label is its peak or rated draw — actual consumption often differs. A refrigerator rated at 150W only runs its compressor 30–40% of the time; a space heater with a thermostat cycles on and off. A smart plug with energy monitoring (Kasa EP25, Emporia Vue 2, or similar; typically $15–25) measures actual kWh consumed over time, not just the nameplate wattage. Plugging in your refrigerator, TV, or gaming console for a week gives you the real number to use in this calculator. These monitors often reveal surprising results — an old second refrigerator in the garage can cost $150+/year, far more than most owners realize.</p>
+
+            <h2>The True Cost of Always-On Appliances</h2>
+            <p>Appliances that run continuously — refrigerators, freezers, certain water heaters, internet routers, cable boxes — accumulate cost invisibly because there's no single moment of use to notice. A 150W refrigerator running 24/7 uses 1,314 kWh/year. At 13¢/kWh, that's $171/year. An older 250W refrigerator from 2005 costs $284/year — a difference of $113 annually compared to a modern ENERGY STAR model.</p>
+            <p>Cable boxes are a surprisingly significant always-on load. A typical cable box draws 15–20W continuously — even when you think it's off — costing $17–23/year in standby power alone. A streaming device replacing a cable box typically uses 3–5W in standby and 5–10W while streaming, reducing that cost to $4–6/year. For households with multiple cable boxes, the savings from switching to streaming can easily exceed $50/year in electricity alone, before counting the subscription cost difference.</p>
+
+            <h2>Clothes Dryers: The Most Overlooked High-Load Appliance</h2>
+            <p>Electric dryers are among the highest-wattage appliances in any home at 4,000–6,000W — but because they're used intermittently, many households underestimate their cost. At 5,000W and 45 minutes per load, one load costs about 20¢ at the national average rate. At 5 loads per week, that's $52/year. At 8 loads per week for a large family, it's $83/year.</p>
+            <p>Heat pump dryers use 50–60% less energy than conventional electric dryers by recirculating heated air rather than venting it. At 5 loads/week, a heat pump dryer saves roughly $25–40/year. The upfront cost premium ($300–600 more than a conventional dryer) typically pays back in 8–12 years in electricity savings alone — though IRA tax credits of up to $840 for qualifying heat pump clothes dryers dramatically improve this payback period.</p>
+
+            <h2>EV Chargers: The Newest High-Load Addition</h2>
+            <p>A Level 2 home EV charger at 7,200W charging for 1.5 hours daily uses about 3.9 kWh/day — roughly $185/year at 13¢/kWh. This is significantly less than the gasoline equivalent: driving 12,000 miles/year at 30 mpg costs about $1,400 in gas at $3.50/gallon. The EV "fuel cost" is roughly 87% lower. Many utilities offer time-of-use rates where overnight EV charging costs 6–8¢/kWh instead of 13¢/kWh, cutting that annual cost to $85–110 and improving the EV economics further.</p>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/led-vs-incandescent.html">LED vs Incandescent</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/heating-vs-cooling.html">Heating vs Cooling Cost</a></li>
+              <li><a href="/tools/space-heater-cost-calculator.html">Space Heater Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-much-does-it-cost-to-run-a-dryer.html">Cost to Run a Dryer</a></li>
+              <li><a href="/blog/reduce-electric-bill.html">15 Ways to Reduce Your Electric Bill</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container" style="max-width:900px;">
+      <h2>Common Appliance Energy Costs (U.S. Average, 13¢/kWh)</h2>
+      <table style="width:100%;border-collapse:collapse;font-size:.95rem;margin-top:20px;">
+        <thead>
+          <tr style="background:var(--card);text-align:left;">
+            <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Appliance</th>
+            <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Watts</th>
+            <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Daily Use</th>
+            <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Monthly Cost</th>
+            <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Annual Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Central AC (3-ton)</td><td>3,500W</td><td>8 hrs (summer)</td><td>$36</td><td>$109 (4 mo)</td></tr>
+          <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Electric water heater</td><td>4,500W</td><td>3 hrs</td><td>$53</td><td>$636</td></tr>
+          <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Electric dryer</td><td>5,000W</td><td>45 min × 5/wk</td><td>$19</td><td>$228</td></tr>
+          <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Refrigerator (modern)</td><td>150W avg</td><td>24 hrs</td><td>$14</td><td>$171</td></tr>
+          <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Dishwasher</td><td>1,200W</td><td>1 hr/day</td><td>$5</td><td>$57</td></tr>
+          <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Washing machine</td><td>500W</td><td>1 hr/day</td><td>$2</td><td>$24</td></tr>
+          <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">65" LED TV</td><td>100W</td><td>5 hrs</td><td>$2</td><td>$24</td></tr>
+          <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Desktop computer</td><td>200W</td><td>6 hrs</td><td>$5</td><td>$57</td></tr>
+          <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">LED bulb (60W equiv)</td><td>9W</td><td>5 hrs</td><td>&lt;$0.25</td><td>$2</td></tr>
+          <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Electric oven</td><td>2,400W</td><td>1 hr</td><td>$9</td><td>$113</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.85rem;color:var(--text-muted);margin-top:12px;">Based on 13¢/kWh. Use the calculator above to adjust for your local rate.</p>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+const presets = {
+  fridge: [150, 24], washer: [500, 1], dryer: [5000, 1], dishwasher: [1800, 1],
+  oven: [2400, 1], microwave: [1000, 0.25], tv: [100, 4], pc: [200, 4],
+  laptop: [50, 6], ac_window: [1200, 8], heater: [1500, 6], ev_charger: [7200, 2]
+};
+function setPreset() {
+  const val = document.getElementById('appliance-preset').value;
+  if (val && presets[val]) {
+    document.getElementById('app-watts').value = presets[val][0];
+    document.getElementById('app-hours').value = presets[val][1];
+  }
+}
+function calcAppliance() {
+  const watts = parseFloat(document.getElementById('app-watts').value) || 0;
+  const hours = parseFloat(document.getElementById('app-hours').value) || 0;
+  const rate = parseFloat(document.getElementById('app-rate').value) || 13;
+
+  const kwhDay = (watts / 1000) * hours;
+  const costDay = kwhDay * (rate / 100);
+  const costMonth = costDay * 30;
+  const costYear = costDay * 365;
+
+  const fmt = v => v < 1 ? (v * 100).toFixed(1) + '¢' : '$' + v.toFixed(2);
+  document.getElementById('app-annual').textContent = '$' + Math.round(costYear).toLocaleString() + '/yr';
+  document.getElementById('app-breakdown').innerHTML = `
+    <tr><td>Energy per day</td><td>${kwhDay.toFixed(3)} kWh</td></tr>
+    <tr><td>Cost per day</td><td>${fmt(costDay)}</td></tr>
+    <tr><td>Cost per month</td><td>$${costMonth.toFixed(2)}</td></tr>
+    <tr style="font-weight:700;"><td>Cost per year</td><td>$${costYear.toFixed(2)}</td></tr>
+  `;
+  const r = document.getElementById('app-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
