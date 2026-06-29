@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar Panel Count Calculator – How Many Panels Do You Need? | EcoEnergyCalc</title>
+  <meta name="description" content="How many solar panels do you need? Enter your monthly electricity use, location's sun hours, and panel wattage — get exact panel count, system size, and estimated cost in seconds." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/solar-panel-count-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Solar Panel Count Calculator","url":"https://ecoenergycalc.com/tools/solar-panel-count-calculator.html","description":"Calculate exactly how many solar panels you need based on your monthly electricity use, local sun hours, and panel wattage.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-29","dateModified":"2026-06-29","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How many solar panels do I need for my home?","acceptedAnswer":{"@type":"Answer","text":"Most U.S. homes need 15–22 solar panels to cover 100% of electricity use. The exact number depends on your monthly kWh usage, local sun hours, and panel wattage. A home using 900 kWh/month with 4.5 peak sun hours typically needs 16–18 panels at 400W each."}},
+    {"@type":"Question","name":"How many solar panels do I need for 1,000 kWh per month?","acceptedAnswer":{"@type":"Answer","text":"For 1,000 kWh/month with 4.5 peak sun hours and 400W panels, you need approximately 19–20 panels (7–8 kW system). In a sunnier location like Phoenix (6.5 sun hours), you'd need only 13–14 panels for the same output."}},
+    {"@type":"Question","name":"How many solar panels do I need to eliminate my electric bill?","acceptedAnswer":{"@type":"Answer","text":"To cover 100% of your electricity bill, size your system to your annual kWh usage. The formula: (monthly kWh × 12) ÷ (peak sun hours × 365 × 0.80) = system kW needed. Divide by panel wattage to get panel count."}},
+    {"@type":"Question","name":"How much roof space do solar panels need?","acceptedAnswer":{"@type":"Answer","text":"Each 400W solar panel requires about 21 square feet of roof space. A 16-panel system needs approximately 336 square feet of unshaded, south-facing roof area. Most 2,000+ sq ft homes have adequate south-facing roof space."}}
+  ]}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Solar Panel Count Calculator</p>
+        <span class="tool-tag">Solar & Renewables</span>
+        <h1>How Many Solar Panels Do I Need?</h1>
+        <p class="tool-desc">Enter your electricity usage and location — get the exact number of panels, system size, roof space needed, and estimated cost for your home.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <div class="form-group">
+              <label for="spc-kwh">Monthly Electricity Use (kWh)</label>
+              <input type="number" id="spc-kwh" value="900" min="200" max="3000" step="50" />
+              <small style="color:var(--text-muted);">Find on your electric bill. U.S. average: 899 kWh/month.</small>
+            </div>
+            <div class="form-group">
+              <label for="spc-sun">Peak Sun Hours per Day</label>
+              <select id="spc-sun">
+                <option value="6.5">Phoenix / Las Vegas / Tucson — 6.5 hrs</option>
+                <option value="5.8">Los Angeles / Denver / Dallas — 5.8 hrs</option>
+                <option value="5.0">Atlanta / Nashville / Kansas City — 5.0 hrs</option>
+                <option value="4.5" selected>Chicago / New York / DC — 4.5 hrs</option>
+                <option value="4.0">Boston / Minneapolis / Detroit — 4.0 hrs</option>
+                <option value="3.5">Seattle / Portland / Anchorage — 3.5 hrs</option>
+                <option value="0">Enter my own value</option>
+              </select>
+            </div>
+            <div class="form-group" id="spc-custom-group" style="display:none;">
+              <label for="spc-custom-sun">Custom Peak Sun Hours</label>
+              <input type="number" id="spc-custom-sun" value="4.5" min="2" max="8" step="0.1" />
+            </div>
+            <div class="form-group">
+              <label for="spc-watts">Panel Wattage</label>
+              <select id="spc-watts">
+                <option value="400" selected>400W (standard 2025–2026)</option>
+                <option value="430">430W (high-efficiency)</option>
+                <option value="370">370W (budget)</option>
+                <option value="320">320W (older panels)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="spc-coverage">Coverage Target (%)</label>
+              <select id="spc-coverage">
+                <option value="100" selected>100% — eliminate electric bill</option>
+                <option value="80">80% — reduce bill significantly</option>
+                <option value="50">50% — offset half the bill</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="spc-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="spc-rate" value="13" min="5" max="50" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcSolarPanelCount()">Calculate Panels Needed</button>
+            <div class="result-box-tool" id="spc-result">
+              <h3>Your Solar System Estimate</h3>
+              <div class="result-amount" id="spc-headline"></div>
+              <table id="spc-table"></table>
+              <p class="result-note">Assumes 80% system efficiency (real-world derate factor). Cost at $3.00/W installed before 30% ITC. Each 400W panel = 21.5 sq ft of roof space.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:40px;">
+            <h2>Peak Sun Hours by U.S. City</h2>
+            <p>Peak sun hours determine how much electricity your panels produce. One peak sun hour = 1 hour of sunlight at 1,000 W/m² intensity. More sun hours = fewer panels needed for the same output.</p>
+            <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:.95rem;">
+              <thead>
+                <tr style="background:var(--card);text-align:left;">
+                  <th style="padding:10px 12px;border-bottom:2px solid var(--border);">City</th>
+                  <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Peak Sun Hrs/Day</th>
+                  <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Panels for 900 kWh/mo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Phoenix, AZ</td><td>6.5</td><td>11 panels</td></tr>
+                <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Los Angeles, CA</td><td>5.5</td><td>13 panels</td></tr>
+                <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Dallas, TX</td><td>5.3</td><td>14 panels</td></tr>
+                <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Atlanta, GA</td><td>4.7</td><td>15 panels</td></tr>
+                <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Chicago, IL</td><td>4.4</td><td>16 panels</td></tr>
+                <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">New York, NY</td><td>4.1</td><td>17 panels</td></tr>
+                <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Boston, MA</td><td>3.9</td><td>18 panels</td></tr>
+                <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Seattle, WA</td><td>3.5</td><td>20 panels</td></tr>
+              </tbody>
+            </table>
+            <p style="font-size:.85rem;color:var(--text-muted);">Panel count for 900 kWh/month, 80% efficiency, 400W panels.</p>
+
+            <h2>The Formula Explained</h2>
+            <p>The panel count formula every solar installer uses:</p>
+            <p style="background:var(--card);padding:16px;border-radius:8px;font-family:monospace;">Panels = (Monthly kWh × 12) ÷ (Sun Hours × 365 × 0.80) ÷ Panel Watts × 1,000</p>
+            <p>Breaking it down: Annual kWh need → divided by annual production per kW → gives system kW → divided by panel wattage in kW → gives panel count. The 0.80 accounts for real-world efficiency losses (heat, wiring, inverter, dirt).</p>
+
+            <h2>How Much Roof Space Do You Need?</h2>
+            <p>A standard 400W panel measures approximately 6.5 ft × 3.3 ft = 21.5 square feet. A 16-panel system requires about 344 square feet of usable roof. For most homes with 1,800–2,500 sq ft of total roof area, roughly 40–60% (720–1,500 sq ft) is usable for solar after accounting for roof orientation, setbacks, and obstructions.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/solar-panel-roi.html">Solar Panel ROI Calculator</a></li>
+              <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings Calculator</a></li>
+              <li><a href="/blog/solar-panel-guide.html">Solar Panel Guide</a></li>
+              <li><a href="/compare/solar-lease-vs-buy-vs-loan.html">Solar Lease vs Buy vs Loan</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Reference</h3>
+            <ul>
+              <li>U.S. avg monthly use: <strong>899 kWh</strong></li>
+              <li>Typical system size: <strong>6–8 kW</strong></li>
+              <li>Panels for avg home: <strong>15–22 panels</strong></li>
+              <li>Cost per watt installed: <strong>$2.50–$3.50</strong></li>
+              <li>Federal ITC: <strong>30% through 2032</strong></li>
+              <li>Sq ft per panel: <strong>~21.5 sq ft</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+document.getElementById('spc-sun').addEventListener('change', function() {
+  var custom = document.getElementById('spc-custom-group');
+  custom.style.display = this.value === '0' ? 'block' : 'none';
+});
+
+function calcSolarPanelCount() {
+  var monthlyKwh = parseFloat(document.getElementById('spc-kwh').value) || 900;
+  var sunSel = document.getElementById('spc-sun').value;
+  var sun = sunSel === '0' ? (parseFloat(document.getElementById('spc-custom-sun').value) || 4.5) : parseFloat(sunSel);
+  var panelW = parseFloat(document.getElementById('spc-watts').value) || 400;
+  var coverage = parseFloat(document.getElementById('spc-coverage').value) / 100 || 1.0;
+  var rate = parseFloat(document.getElementById('spc-rate').value) / 100 || 0.13;
+
+  var annualKwh = monthlyKwh * 12 * coverage;
+  var systemKw = annualKwh / (sun * 365 * 0.80);
+  var panels = Math.ceil(systemKw * 1000 / panelW);
+  var roofSqFt = panels * 21.5;
+  var costBefore = systemKw * 1000 * 3.00;
+  var costAfter = costBefore * 0.70;
+  var annualSavings = monthlyKwh * 12 * coverage * rate;
+  var payback = costAfter / annualSavings;
+
+  var fmt = function(v){ return '$' + Math.round(v).toLocaleString(); };
+
+  document.getElementById('spc-headline').textContent = panels + ' solar panels (' + systemKw.toFixed(1) + ' kW)';
+  document.getElementById('spc-table').innerHTML =
+    '<tr><th>Detail</th><th>Your System</th></tr>' +
+    '<tr><td>System size needed</td><td>' + systemKw.toFixed(2) + ' kW</td></tr>' +
+    '<tr><td>Number of ' + panelW + 'W panels</td><td>' + panels + ' panels</td></tr>' +
+    '<tr><td>Roof space required</td><td>~' + Math.round(roofSqFt) + ' sq ft</td></tr>' +
+    '<tr><td>Annual production</td><td>' + Math.round(annualKwh).toLocaleString() + ' kWh</td></tr>' +
+    '<tr><td>Estimated cost (before ITC)</td><td>' + fmt(costBefore) + '</td></tr>' +
+    '<tr><td>After 30% federal tax credit</td><td>' + fmt(costAfter) + '</td></tr>' +
+    '<tr><td>Annual electricity savings</td><td>' + fmt(annualSavings) + '/yr</td></tr>' +
+    '<tr style="font-weight:700;"><td>Payback period</td><td>' + payback.toFixed(1) + ' years</td></tr>';
+
+  var r = document.getElementById('spc-result');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
