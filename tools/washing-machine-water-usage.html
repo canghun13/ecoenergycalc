@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Washing Machine Water Usage Calculator – Per Load & Annual | EcoEnergyCalc</title>
+  <meta name="description" content="How much water does your washing machine use? Enter your washer type and weekly loads — get exact gallons per load, annual water use, and how much you'd save upgrading to ENERGY STAR." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/washing-machine-water-usage.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Washing Machine Water Usage Calculator","url":"https://ecoenergycalc.com/tools/washing-machine-water-usage.html","description":"Calculate your washing machine's water usage per load and annually. Compare standard vs ENERGY STAR washer water consumption.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-29","dateModified":"2026-06-29","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much water does a washing machine use per load?","acceptedAnswer":{"@type":"Answer","text":"A standard top-load washer uses 40–45 gallons per load. An ENERGY STAR front-load washer uses 14–25 gallons per load. A high-efficiency top-loader uses 15–30 gallons per load."}},
+    {"@type":"Question","name":"How much water does a washing machine use per year?","acceptedAnswer":{"@type":"Answer","text":"At 5 loads per week, a standard washer uses 10,400–11,700 gallons per year. An ENERGY STAR front-loader uses 3,640–6,500 gallons per year — saving up to 7,000 gallons annually."}},
+    {"@type":"Question","name":"Does a front-load washer use less water than a top-load?","acceptedAnswer":{"@type":"Answer","text":"Yes. ENERGY STAR front-load washers use 14–25 gallons per load vs 40–45 gallons for standard top-loaders — a savings of 15–30 gallons per cycle, or up to 7,000 gallons per year at 5 loads/week."}},
+    {"@type":"Question","name":"How can I reduce my washing machine's water usage?","acceptedAnswer":{"@type":"Answer","text":"Wash full loads only (can save 3,000+ gallons/year), use cold water settings, select the correct load size, and consider upgrading to an ENERGY STAR certified washer which uses 45% less water than standard models."}}
+  ]}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Washing Machine Water Usage</p>
+        <span class="tool-tag">Water & Environment</span>
+        <h1>Washing Machine Water Usage Calculator</h1>
+        <p class="tool-desc">Enter your washer type and usage habits to see exact gallons per load, annual water consumption, and potential savings from upgrading.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <div class="form-group">
+              <label for="wm-type">Washer Type</label>
+              <select id="wm-type" onchange="updateWMType()">
+                <option value="45">Standard Top-Load (45 gal/load)</option>
+                <option value="22">HE Top-Load (22 gal/load)</option>
+                <option value="19">ENERGY STAR Front-Load (19 gal/load)</option>
+                <option value="14">High-Efficiency Front-Load (14 gal/load)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="wm-loads">Loads per Week</label>
+              <input type="number" id="wm-loads" value="5" min="1" max="30" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="wm-water-rate">Water Rate ($/1,000 gallons)</label>
+              <input type="number" id="wm-water-rate" value="5.00" min="1" max="30" step="0.50" />
+            </div>
+            <div class="form-group">
+              <label for="wm-hot">Hot Water Ratio (%)</label>
+              <input type="number" id="wm-hot" value="30" min="0" max="100" step="10" />
+            </div>
+            <div class="form-group">
+              <label for="wm-elec">Electricity Rate (¢/kWh) — for water heating</label>
+              <input type="number" id="wm-elec" value="13" min="5" max="50" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcWasherWater()">Calculate Water Usage</button>
+            <div class="result-box-tool" id="wm-result">
+              <h3>Your Washing Machine Water Usage</h3>
+              <div class="result-amount" id="wm-annual"></div>
+              <table id="wm-table"></table>
+              <p class="result-note">Water heating energy: 0.2 kWh per gallon of hot water (55°F to 115°F). ENERGY STAR certified washers use ≥45% less water than standard models.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:40px;">
+            <h2>Water Usage by Washer Type</h2>
+            <p>Washer technology has advanced significantly — modern ENERGY STAR models use less than one-third the water of older standard top-loaders. Here's how the main types compare:</p>
+            <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:.95rem;">
+              <thead>
+                <tr style="background:var(--card);text-align:left;">
+                  <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Washer Type</th>
+                  <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Gal/Load</th>
+                  <th style="padding:10px 12px;border-bottom:2px solid var(--border);">Annual (5 loads/wk)</th>
+                  <th style="padding:10px 12px;border-bottom:2px solid var(--border);">vs Standard</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">Standard top-load</td><td>40–45 gal</td><td>10,400–11,700 gal</td><td>Baseline</td></tr>
+                <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">HE top-load</td><td>18–25 gal</td><td>4,680–6,500 gal</td><td>Save 45%</td></tr>
+                <tr><td style="padding:9px 12px;border-bottom:1px solid var(--border);">ENERGY STAR front-load</td><td>14–22 gal</td><td>3,640–5,720 gal</td><td>Save 55–65%</td></tr>
+                <tr style="background:var(--card);"><td style="padding:9px 12px;border-bottom:1px solid var(--border);">HE front-load (best)</td><td>12–16 gal</td><td>3,120–4,160 gal</td><td>Save 65–70%</td></tr>
+              </tbody>
+            </table>
+
+            <h2>How to Reduce Washing Machine Water Use</h2>
+            <p><strong>Wash full loads only.</strong> Running a half-full washer uses nearly the same water as a full load. At 5 loads/week, reducing to full loads only saves 1,000–2,000 gallons/year if you're currently running half-loads.</p>
+            <p><strong>Use cold water.</strong> Cold water wash works for 90%+ of laundry and eliminates water heating energy entirely. Modern detergents are formulated to work at cold temperatures. Switching from hot to cold saves $40–60/year in water heating costs.</p>
+            <p><strong>Select correct load size.</strong> If your washer has load size settings (small/medium/large/extra-large), match the setting to your actual load. Selecting large for a medium load wastes 5–15 gallons per cycle.</p>
+            <p><strong>Upgrade to ENERGY STAR.</strong> If your washer is over 10 years old, an ENERGY STAR certified replacement saves 3,000–7,000 gallons per year in water plus $35–50/year in water heating energy. Many utilities offer $50–150 rebates for qualifying washers.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/water-usage.html">Household Water Usage Calculator</a></li>
+              <li><a href="/tools/washing-machine-energy-cost.html">Washing Machine Energy Cost</a></li>
+              <li><a href="/tools/dryer-energy-cost.html">Dryer Energy Cost Calculator</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Standard washer: <strong>40–45 gal/load</strong></li>
+              <li>ENERGY STAR front-load: <strong>14–22 gal/load</strong></li>
+              <li>Cold water saves: <strong>$40–60/year</strong></li>
+              <li>ENERGY STAR saves: <strong>45–70% less water</strong></li>
+              <li>Annual loads (avg household): <strong>300 loads/yr</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+
+      <section style="background:var(--surface);padding:48px 0;margin-top:48px;">
+        <div style="max-width:800px;">
+          <h2>Frequently Asked Questions</h2>
+          <h3>How much water does a washing machine use per load?</h3>
+          <p>A <strong>standard top-load washer uses 40–45 gallons per load</strong>. An ENERGY STAR front-load washer uses 14–22 gallons per load — about 55% less. High-efficiency top-loaders fall in between at 18–25 gallons per load.</p>
+          <h3>How much water does a washing machine use per year?</h3>
+          <p>At 5 loads per week (260 loads/year): a standard washer uses 10,400–11,700 gallons/year. An ENERGY STAR front-loader uses 3,640–5,720 gallons/year — <strong>saving up to 7,000+ gallons per year</strong>.</p>
+          <h3>Does front-load or top-load use less water?</h3>
+          <p>Front-load washers — especially ENERGY STAR certified models — consistently use less water than standard top-loaders. The tumbling action of front-loaders requires less water to saturate clothes compared to the agitator method in top-loaders. High-efficiency (HE) top-loaders have closed the gap significantly but still use slightly more water than front-loaders of equivalent capacity.</p>
+          <h3>How can I reduce my washing machine's water usage without buying a new washer?</h3>
+          <p>Three immediate actions: (1) Always run full loads — partial loads waste the same water as full loads. (2) Switch to cold water settings for all but heavily soiled loads — saves water heating energy without reducing cleaning effectiveness. (3) If your washer has load size selection, always set it accurately — oversetting wastes 5–15 gallons per cycle.</p>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function updateWMType() {
+  // type selection updates placeholder only; actual calc reads the value
+}
+
+function calcWasherWater() {
+  var galPerLoad = parseFloat(document.getElementById('wm-type').value) || 45;
+  var loadsWk = parseFloat(document.getElementById('wm-loads').value) || 5;
+  var waterRate = parseFloat(document.getElementById('wm-water-rate').value) / 1000 || 0.005;
+  var hotPct = parseFloat(document.getElementById('wm-hot').value) / 100 || 0.30;
+  var elec = parseFloat(document.getElementById('wm-elec').value) / 100 || 0.13;
+
+  var loadsYear = loadsWk * 52;
+  var annualGal = galPerLoad * loadsYear;
+  var annualWaterCost = annualGal * waterRate;
+  var hotGal = annualGal * hotPct;
+  var heatKwh = hotGal * 0.2;
+  var heatCost = heatKwh * elec;
+  var totalCost = annualWaterCost + heatCost;
+
+  // vs ENERGY STAR front-load at 19 gal
+  var esSavingsGal = (galPerLoad > 19) ? (galPerLoad - 19) * loadsYear : 0;
+  var esSavingsCost = esSavingsGal * waterRate + (esSavingsGal * hotPct * 0.2 * elec);
+
+  var fmt = function(v){ return '$' + v.toFixed(2); };
+  var fmtR = function(v){ return '$' + Math.round(v).toLocaleString(); };
+
+  document.getElementById('wm-annual').textContent = Math.round(annualGal).toLocaleString() + ' gallons per year';
+  document.getElementById('wm-table').innerHTML =
+    '<tr><th></th><th>Your Washer</th></tr>' +
+    '<tr><td>Gallons per load</td><td>' + galPerLoad + ' gal</td></tr>' +
+    '<tr><td>Annual loads</td><td>' + loadsYear + ' loads</td></tr>' +
+    '<tr><td>Annual water use</td><td>' + Math.round(annualGal).toLocaleString() + ' gallons</td></tr>' +
+    '<tr><td>Annual water cost</td><td>' + fmtR(annualWaterCost) + '</td></tr>' +
+    '<tr><td>Annual water heating cost</td><td>' + fmtR(heatCost) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Total annual laundry water cost</td><td>' + fmtR(totalCost) + '</td></tr>' +
+    (esSavingsGal > 0 ? '<tr><td>Savings if upgraded to ENERGY STAR (19 gal/load)</td><td style="color:var(--accent);">Save ' + Math.round(esSavingsGal).toLocaleString() + ' gal / ' + fmtR(esSavingsCost) + '/yr</td></tr>' : '');
+
+  var r = document.getElementById('wm-result');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
