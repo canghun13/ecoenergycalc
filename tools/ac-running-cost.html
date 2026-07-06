@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AC Running Cost Calculator – Cost Per Hour, Day & Month | EcoEnergyCalc</title>
+  <meta name="description" content="Calculate exactly how much your air conditioner costs to run per hour, per day, and per month. Enter BTU, SEER rating, and your electricity rate for an instant estimate." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/ac-running-cost.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"AC Running Cost Calculator","url":"https://ecoenergycalc.com/tools/ac-running-cost.html","description":"Calculate how much your air conditioner costs to run per hour, day, and month based on BTU, SEER rating, hours of use, and local electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-07-06","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does it cost to run AC per hour?","acceptedAnswer":{"@type":"Answer","text":"A typical central AC (3-ton, 14 SEER) costs about $0.36–$0.54 per hour at the U.S. average electricity rate of 13–16¢/kWh. A window unit (5,000 BTU) costs roughly $0.06–$0.09 per hour."}},
+    {"@type":"Question","name":"How much does it cost to run AC all day?","acceptedAnswer":{"@type":"Answer","text":"Running a central AC for 8 hours costs roughly $2.90–$4.30 per day at average U.S. electricity rates. A full 24-hour day costs $8.60–$13.00 for a 3-ton, 14 SEER unit."}},
+    {"@type":"Question","name":"How much does AC add to electric bill per month?","acceptedAnswer":{"@type":"Answer","text":"Central AC typically adds $87–$216 per month to your electric bill in summer, depending on system size, SEER rating, climate, and usage hours. Window units add $17–$65 per month depending on size."}},
+    {"@type":"Question","name":"What uses more electricity, AC or heat?","acceptedAnswer":{"@type":"Answer","text":"In most U.S. climates, heating costs more annually than cooling — but central AC draws more power per hour (2–5 kW) than a gas furnace's electrical components. Electric resistance heating (baseboard or furnace) can exceed AC costs in cold climates."}}
+  ]}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › AC Running Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>AC Running Cost Calculator</h1>
+        <p class="tool-desc">Enter your air conditioner's BTU, SEER rating, daily usage hours, and electricity rate to calculate your exact cost per hour, per day, per month, and for the full cooling season.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate AC Running Cost</h2>
+
+            <div class="form-group">
+              <label for="ac-type">AC Type</label>
+              <select id="ac-type" onchange="updateDefaults()">
+                <option value="window_small">Window Unit – Small (5,000 BTU)</option>
+                <option value="window_medium">Window Unit – Medium (10,000 BTU)</option>
+                <option value="window_large">Window Unit – Large (15,000 BTU)</option>
+                <option value="central_2ton" selected>Central AC – 2 Ton (24,000 BTU)</option>
+                <option value="central_3ton">Central AC – 3 Ton (36,000 BTU)</option>
+                <option value="central_4ton">Central AC – 4 Ton (48,000 BTU)</option>
+                <option value="central_5ton">Central AC – 5 Ton (60,000 BTU)</option>
+                <option value="portable">Portable AC (8,000 BTU)</option>
+                <option value="custom">Custom (enter BTU below)</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="btu-group" style="display:none;">
+              <label for="ac-btu">BTU Rating</label>
+              <input type="number" id="ac-btu" value="24000" min="1000" max="120000" />
+            </div>
+
+            <div class="form-group">
+              <label for="ac-seer">SEER Rating</label>
+              <select id="ac-seer">
+                <option value="8">8 SEER (pre-2006, very old)</option>
+                <option value="10">10 SEER (older unit)</option>
+                <option value="13">13 SEER (minimum standard, 2006–2022)</option>
+                <option value="14" selected>14 SEER (common mid-range)</option>
+                <option value="16">16 SEER (good efficiency)</option>
+                <option value="18">18 SEER (high efficiency)</option>
+                <option value="20">20 SEER (very high efficiency)</option>
+                <option value="24">24 SEER (top of the line)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="ac-hours">Daily Usage Hours</label>
+              <input type="number" id="ac-hours" value="8" min="1" max="24" />
+            </div>
+
+            <div class="form-group">
+              <label for="ac-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="ac-rate" value="16" min="1" max="60" step="0.1" />
+              <small>U.S. average ~16¢/kWh. Check your bill for your exact rate.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="ac-months">Cooling Season Length (months)</label>
+              <select id="ac-months">
+                <option value="2">2 months (northern states)</option>
+                <option value="3" selected>3 months (most of U.S.)</option>
+                <option value="4">4 months (southern states)</option>
+                <option value="5">5 months (Sun Belt)</option>
+                <option value="6">6 months (Florida, Texas, Arizona)</option>
+              </select>
+            </div>
+
+            <button class="btn-primary" onclick="calcAC()">Calculate AC Cost</button>
+
+            <div class="result-box-tool" id="ac-result">
+              <h3>Your AC Running Cost</h3>
+              <div class="result-amount" id="ac-hourly"></div>
+              <table id="ac-breakdown"></table>
+              <p class="result-note">Based on EIA electricity rate data. Actual costs vary by thermostat settings, home insulation, and local climate. Results are estimates for budgeting purposes.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How Much Does It Cost to Run AC?</h2>
+            <p>Air conditioning is typically the largest single contributor to summer electric bills. A central AC system running 8 hours per day at average U.S. electricity rates (16¢/kWh) costs <strong>$3–6 per day</strong> for a typical 2–3 ton unit, adding up to $90–180 over a 3-month cooling season. In high-rate states like California or Hawaii, that same system can cost $200–400+ per cooling season.</p>
+            <p>Window units are significantly cheaper to operate than central AC — a 5,000 BTU window unit running 8 hours costs only $0.50–0.75 per day. But they only cool one room, making them economical only when you need to cool a single space rather than a whole home.</p>
+
+            <h2>Understanding BTU and SEER</h2>
+            <p><strong>BTU (British Thermal Units)</strong> measures how much cooling your AC delivers per hour. A higher BTU rating means a larger, more powerful unit that cools a bigger space — but also draws more electricity. Common sizes:</p>
+            <ul>
+              <li>5,000–12,000 BTU: window units for single rooms</li>
+              <li>18,000–24,000 BTU (1.5–2 ton): small homes or apartments</li>
+              <li>30,000–36,000 BTU (2.5–3 ton): average U.S. homes (1,500–2,000 sq ft)</li>
+              <li>42,000–60,000 BTU (3.5–5 ton): larger homes</li>
+            </ul>
+            <p><strong>SEER (Seasonal Energy Efficiency Ratio)</strong> measures how efficiently your AC converts electricity into cooling. Higher SEER = lower operating cost for the same amount of cooling. As of 2023, the federal minimum for new central AC units in most regions is 14 SEER (15 SEER in the Southeast and Southwest). Older units installed before 2006 often run at 8–10 SEER, meaning they use 40–75% more electricity than a modern 14–16 SEER unit for the same cooling output.</p>
+
+            <h2>AC Cost by Type and Size</h2>
+            <p>Approximate cost per hour at 16¢/kWh (U.S. average 2026):</p>
+            <ul>
+              <li><strong>Window unit, 5,000 BTU, 12 SEER:</strong> ~$0.07/hr → $0.53/day (8 hrs)</li>
+              <li><strong>Window unit, 10,000 BTU, 12 SEER:</strong> ~$0.13/hr → $1.06/day</li>
+              <li><strong>Central AC, 2 ton, 14 SEER:</strong> ~$0.27/hr → $2.19/day</li>
+              <li><strong>Central AC, 3 ton, 14 SEER:</strong> ~$0.41/hr → $3.29/day</li>
+              <li><strong>Central AC, 4 ton, 14 SEER:</strong> ~$0.55/hr → $4.38/day</li>
+              <li><strong>Central AC, 3 ton, 20 SEER:</strong> ~$0.29/hr → $2.30/day (29% cheaper than 14 SEER)</li>
+            </ul>
+
+            <h2>How to Reduce AC Running Costs</h2>
+            <p>The most impactful changes ranked by typical savings:</p>
+            <ul>
+              <li><strong>Raise the thermostat by 4°F:</strong> Each degree warmer saves ~3% on cooling costs. Going from 72°F to 76°F saves ~12% — roughly $15–25/month in summer.</li>
+              <li><strong>Use a programmable or smart thermostat:</strong> Automatically raises temperature when you're away or sleeping. Smart thermostats save 10–15% on average, or $15–30/month for typical central AC users.</li>
+              <li><strong>Keep the condenser clean:</strong> A dirty outdoor condenser unit reduces efficiency by 5–10%. Annual cleaning (spray with a hose) keeps it running at rated SEER.</li>
+              <li><strong>Replace the air filter regularly:</strong> A clogged filter reduces airflow and forces the system to run longer. Replace every 1–3 months during cooling season.</li>
+              <li><strong>Seal air leaks:</strong> Air leaking through windows, doors, and attic penetrations can increase cooling loads by 20–30%. Weatherstripping and caulking are low-cost, high-payback improvements.</li>
+              <li><strong>Use ceiling fans:</strong> Fans allow you to raise the thermostat by 4°F with no reduction in comfort. A ceiling fan costs ~$0.01/hr to run vs. $0.41/hr for central AC — a massive difference in operating cost.</li>
+              <li><strong>Upgrade to a higher SEER unit:</strong> If your AC is 10+ years old, upgrading from 10 SEER to 20 SEER cuts cooling electricity use in half. With the IRA's 30% energy efficiency tax credit (up to $600 for AC), payback periods have shortened significantly.</li>
+            </ul>
+
+            <h2>AC Cost vs. Other Summer Appliances</h2>
+            <p>To put AC costs in context, a 3-ton central AC running 8 hours uses about 13.7 kWh/day — compared to 1.2 kWh for a refrigerator running all day, 3.75 kWh for one dryer load, or 0.5 kWh for an hour of dishwasher use. AC dominates summer electricity consumption in most households by a wide margin, which is why thermostat management and system efficiency have an outsized impact on the summer bill.</p>
+            <p>For a full comparison of heating vs. cooling costs by season and region, see our <a href="/tools/heating-vs-cooling.html">Heating vs. Cooling Cost Calculator</a>. For more on reducing summer bills, see our guide: <a href="/blog/how-much-does-it-cost-to-run-ac.html">How Much Does It Cost to Run AC All Day?</a></p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/heating-vs-cooling.html">Heating vs. Cooling Cost</a></li>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/electric-bill-spike-calculator.html">Electric Bill Spike</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/space-heater-cost-calculator.html">Space Heater Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-much-does-it-cost-to-run-ac.html">How Much Does AC Cost to Run All Day?</a></li>
+              <li><a href="/blog/best-thermostat-settings-to-save-money.html">Best Thermostat Settings to Save Money</a></li>
+              <li><a href="/blog/how-to-lower-electric-bill-in-summer.html">How to Lower Your Electric Bill in Summer</a></li>
+              <li><a href="/blog/is-it-cheaper-to-heat-or-cool-your-home.html">Is It Cheaper to Heat or Cool Your Home?</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Reference</h3>
+            <ul>
+              <li>U.S. avg rate: <strong>~16¢/kWh</strong></li>
+              <li>3-ton, 14 SEER: <strong>~$0.41/hr</strong></li>
+              <li>Each +1°F thermostat: <strong>saves ~3%</strong></li>
+              <li>10→20 SEER upgrade: <strong>saves 50%</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>How much does it cost to run AC per hour?</h3>
+      <p>A typical central AC (3-ton, 14 SEER) costs about <strong>$0.36–$0.54 per hour</strong> at the U.S. average electricity rate of 13–16¢/kWh. A small window unit (5,000 BTU) costs roughly $0.06–$0.09 per hour. Use the calculator above with your specific BTU and SEER for an exact figure.</p>
+
+      <h3>How much does it cost to run AC all day?</h3>
+      <p>Running a 3-ton central AC for 8 hours costs roughly <strong>$2.90–$4.30 per day</strong> at average U.S. rates. A full 24-hour day costs $8.60–$13.00. In California at 25¢/kWh, that same 8-hour day costs $6.60–$9.90.</p>
+
+      <h3>How much does AC add to the electric bill per month?</h3>
+      <p>Central AC typically adds <strong>$87–$216 per month</strong> to your electric bill in summer, depending on system size, SEER rating, climate, and usage hours. A window unit adds $17–$65/month depending on size.</p>
+
+      <h3>What uses more electricity, AC or heat?</h3>
+      <p>In most U.S. climates, heating costs more annually than cooling because the heating season is longer. But central AC draws more power per hour (2–5 kW) than a gas furnace's electrical components. Electric resistance heating can exceed AC costs in cold climates.</p>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+const acDefaults = {
+  window_small:  { btu: 5000,  seer: 12 },
+  window_medium: { btu: 10000, seer: 12 },
+  window_large:  { btu: 15000, seer: 12 },
+  central_2ton:  { btu: 24000, seer: 14 },
+  central_3ton:  { btu: 36000, seer: 14 },
+  central_4ton:  { btu: 48000, seer: 14 },
+  central_5ton:  { btu: 60000, seer: 14 },
+  portable:      { btu: 8000,  seer: 10 },
+  custom:        { btu: 24000, seer: 14 }
+};
+
+function updateDefaults() {
+  const type = document.getElementById('ac-type').value;
+  const d = acDefaults[type];
+  document.getElementById('ac-seer').value = d.seer;
+  document.getElementById('btu-group').style.display = type === 'custom' ? 'block' : 'none';
+  if (type !== 'custom') document.getElementById('ac-btu').value = d.btu;
+}
+
+function getBTU() {
+  const type = document.getElementById('ac-type').value;
+  if (type === 'custom') return parseFloat(document.getElementById('ac-btu').value) || 24000;
+  return acDefaults[type].btu;
+}
+
+function calcAC() {
+  const btu = getBTU();
+  const seer = parseFloat(document.getElementById('ac-seer').value) || 14;
+  const hours = parseFloat(document.getElementById('ac-hours').value) || 8;
+  const rate = parseFloat(document.getElementById('ac-rate').value) / 100 || 0.16;
+  const months = parseFloat(document.getElementById('ac-months').value) || 3;
+
+  const kw = btu / seer / 1000;
+  const costPerHour = kw * rate;
+  const costPerDay = costPerHour * hours;
+  const costPerMonth = costPerDay * 30;
+  const costSeason = costPerDay * months * 30;
+  const kwhPerDay = kw * hours;
+  const kwhPerMonth = kwhPerDay * 30;
+
+  document.getElementById('ac-hourly').textContent = '$' + costPerHour.toFixed(3) + '/hr';
+  document.getElementById('ac-breakdown').innerHTML = `
+    <tr><td>Cost per hour</td><td><strong>$${costPerHour.toFixed(3)}</strong></td></tr>
+    <tr><td>Cost per day (${hours} hrs)</td><td><strong>$${costPerDay.toFixed(2)}</strong></td></tr>
+    <tr><td>Cost per month</td><td><strong>$${costPerMonth.toFixed(2)}</strong></td></tr>
+    <tr><td>Full season cost (${months} mo)</td><td><strong>$${costSeason.toFixed(0)}</strong></td></tr>
+    <tr><td>kWh per day</td><td>${kwhPerDay.toFixed(2)} kWh</td></tr>
+    <tr><td>kWh per month</td><td>${kwhPerMonth.toFixed(1)} kWh</td></tr>
+    <tr><td>System draw</td><td>${kw.toFixed(2)} kW (${btu.toLocaleString()} BTU ÷ ${seer} SEER)</td></tr>
+  `;
+  const r = document.getElementById('ac-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
