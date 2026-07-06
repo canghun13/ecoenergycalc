@@ -40,7 +40,9 @@
             <button class="btn-primary" onclick="calcHybrid()">Compare Carbon & Cost</button>
             <div class="result-box-tool" id="gh-result">
               <h3>Annual Comparison</h3>
-              <table id="gh-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="gh-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">CO2 factor: 8.887 kg per gallon of gasoline (EPA). Hybrid figures assume standard HEV (not plug-in). PHEV savings will be higher depending on electric-only mileage.</p>
             </div>
           </div>
