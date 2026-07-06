@@ -39,7 +39,9 @@
             <button class="btn-primary" onclick="calcWindSolar()">Compare Output</button>
             <div class="result-box-tool" id="ws-result">
               <h3>Annual Output & Cost Comparison</h3>
-              <table id="ws-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="ws-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">LCOE estimates: onshore wind $25–35/MWh; utility solar $28–45/MWh (2025–2026 U.S. data). CO₂ avoided based on displacing natural gas at 450g CO₂/kWh.</p>
             </div>
           </div>
