@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 26 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 27 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -28,6 +28,8 @@ Tools for estimating home energy costs and identifying savings opportunities.
 - [Washing Machine Energy Cost Calculator](https://ecoenergycalc.com/tools/washing-machine-energy-cost.html): Calculate washing machine running cost per load, month, and year including electricity and water costs by washer type and temperature setting
 - [Dryer Energy Cost Calculator](https://ecoenergycalc.com/tools/dryer-energy-cost.html): Calculate the exact cost to run your dryer per load, month, and year by dryer type and electricity rate; compare electric vs gas vs heat pump dryers
 - [Refrigerator Energy Cost Calculator](https://ecoenergycalc.com/tools/refrigerator-energy-cost.html): Estimate how much your refrigerator costs to run per day, month, and year; compare old vs new models and ENERGY STAR savings
+
+- [AC Running Cost Calculator](https://ecoenergycalc.com/tools/ac-running-cost.html): Calculate how much your air conditioner costs to run per hour, day, and month — by BTU, SEER rating, daily usage, and local electricity rate
 
 ## Calculators: Solar & Renewables
 
@@ -82,6 +84,7 @@ In-depth guides on energy savings, solar, carbon reduction, and environmental to
 - [What to Know Before Installing Solar Panels](https://ecoenergycalc.com/blog/solar-panel-guide.html): Costs, incentives, payback periods, choosing an installer, and common mistakes — complete pre-purchase guide
 - [Is It Cheaper to Heat or Cool Your Home?](https://ecoenergycalc.com/blog/is-it-cheaper-to-heat-or-cool-your-home.html): Regional cost breakdown showing whether heating or cooling costs more — with actual dollar figures by city and fuel type
 - [How Much Does It Cost to Run a Dryer?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-a-dryer.html): Per-load, per-month, and per-year running costs for electric and gas dryers by usage frequency and local electricity rate
+- [How Much Does It Cost to Run a Space Heater?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-a-space-heater.html): Exact cost per hour, per day, and per month for 750W–1,500W space heaters — with an honest look at when space heaters actually save money vs. central heat
 - [How Many Solar Panels Do I Need?](https://ecoenergycalc.com/blog/how-many-solar-panels-do-i-need.html): Step-by-step calculation methodology with state-by-state examples and installer quote verification
 - [Solar Panel Tax Credits & Incentives by State (2026)](https://ecoenergycalc.com/blog/solar-incentives-by-state.html): State-by-state breakdown of solar rebates, tax credits, and net metering policies
 - [Renewable Energy Subsidies: The Complete U.S. Guide](https://ecoenergycalc.com/blog/renewable-energy-subsidies.html): Federal tax credits, state rebates, and utility incentives for solar, wind, heat pumps, and more
@@ -142,3 +145,4 @@ Side-by-side comparisons of solar financing, technology, and renewable energy ch
 - [Vegan vs Meat Diet: Carbon Footprint](https://ecoenergycalc.com/compare/vegan-vs-meat-diet-carbon.html): Annual CO₂ emissions by diet type and the most impactful food choices to reduce footprint
 - [Wind vs Solar Energy](https://ecoenergycalc.com/compare/wind-vs-solar-energy.html): Utility-scale cost, capacity factor, land use, and application comparison
 - [Propane vs Natural Gas](https://ecoenergycalc.com/compare/propane-vs-natural-gas.html): Cost per BTU comparison and when to consider switching fuel sources
+
