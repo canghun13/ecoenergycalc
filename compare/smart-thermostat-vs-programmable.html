@@ -39,7 +39,9 @@
             <button class="btn-primary" onclick="calcThermostat()">Calculate Savings & Payback</button>
             <div class="result-box-tool" id="th-result">
               <h3>Thermostat Comparison</h3>
-              <table id="th-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="th-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">Programmable savings assume 10% (if consistently used). Smart thermostat savings assume 12% (automated setbacks). Real-world savings vary based on usage habits and home characteristics.</p>
             </div>
           </div>
