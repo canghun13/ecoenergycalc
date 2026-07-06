@@ -46,7 +46,9 @@
             <button class="btn-primary" onclick="calcDishwasher()">Compare Methods</button>
             <div class="result-box-tool" id="dw-result">
               <h3>Annual Cost Comparison</h3>
-              <table id="dw-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="dw-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">ENERGY STAR dishwasher: 3.5 gal/cycle, 1.0 kWh/cycle. Standard dishwasher: 5.0 gal/cycle, 1.2 kWh/cycle. Hand washing water heating: 0.2 kWh/gallon to heat from 55°F to 110°F.</p>
             </div>
           </div>
