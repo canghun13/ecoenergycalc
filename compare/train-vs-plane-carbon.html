@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Train vs Plane Carbon Footprint: CO2 Comparison by Route | EcoEnergyCalc</title>
+  <meta name="description" content="Train vs plane carbon footprint calculator: compare CO2 emissions per passenger by distance, route type, and seat class. See when trains are the greener choice." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/compare/train-vs-plane-carbon.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Train vs Plane Carbon Footprint: CO2 Comparison by Route","description":"Compare CO2 emissions per passenger for train vs plane travel by distance and route type, with a calculator to estimate your trip's carbon footprint.","url":"https://ecoenergycalc.com/compare/train-vs-plane-carbon.html","datePublished":"2026-07-06","dateModified":"2026-07-06","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="article-page">
+    <div class="container">
+      <div class="article-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Train vs Plane Carbon</p>
+        <span class="article-tag">Carbon Footprint</span>
+        <h1>Train vs Plane Carbon Footprint: CO2 Comparison by Route</h1>
+        <p class="article-meta">8 min read · July 2026</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <p>Rail travel emits 70–90% less CO2 per passenger-mile than flying on most routes. A New York–Chicago flight emits about 150 kg CO2 per passenger; the same trip by Amtrak emits about 18 kg. The gap narrows on longer routes and where train infrastructure is weak, but for routes under 500 miles with rail service, trains are almost always the lower-carbon option.</p>
+
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Train vs Plane Carbon Calculator</h2>
+            <div class="form-group"><label for="tp-distance">Trip Distance (miles one-way)</label><input type="number" id="tp-distance" value="500" min="50" max="3000" step="50" /></div>
+            <div class="form-group">
+              <label for="tp-class">Flight Class</label>
+              <select id="tp-class">
+                <option value="economy" selected>Economy</option>
+                <option value="premium">Premium Economy</option>
+                <option value="business">Business Class</option>
+                <option value="first">First Class</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tp-train">Train Type</label>
+              <select id="tp-train">
+                <option value="amtrak" selected>Amtrak (U.S. intercity)</option>
+                <option value="highspeed">High-Speed Rail (electric)</option>
+                <option value="regional">Regional/Commuter Rail</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tp-trips">Number of Passengers</label>
+              <input type="number" id="tp-trips" value="1" min="1" max="10" />
+            </div>
+            <button class="btn-primary" onclick="calcTrain()">Compare Carbon Footprint</button>
+            <div class="result-box-tool" id="tp-result">
+              <h3>CO2 Emissions Comparison</h3>
+              <table id="tp-table"></table>
+              <p class="result-note">Emissions factors: Flight economy ~0.255 kg CO2/passenger-mile (ICAO, includes radiative forcing multiplier 1.9x). Amtrak ~0.036 kg CO2/passenger-mile (Amtrak 2023 sustainability report). High-speed electric rail ~0.014 kg CO2/passenger-mile (IEA).</p>
+            </div>
+          </div>
+
+          <div class="article-body">
+            <h2>Why Flying Emits So Much More CO2</h2>
+            <p>Aircraft burn jet fuel at about 5–6 gallons per passenger per hour on a typical narrow-body flight, emitting 2.5 kg of CO2 per gallon plus non-CO2 warming effects (contrails, NOx) that roughly double the effective climate impact at altitude. Trains use electricity or diesel to move far more passengers per unit of energy — a full Amtrak train carries 300–700 passengers on a fraction of the energy a plane uses for the same trip.</p>
+            <p>The radiative forcing multiplier for aviation is a key variable. The IPCC estimates flights at high altitude have a warming effect 1.7–4x their CO2 alone, because water vapor contrails and NOx emissions have additional warming effects. Using a conservative 1.9x multiplier (ICAO methodology), the effective CO2-equivalent of flying economy between U.S. cities is about 0.255 kg per passenger-mile — roughly 7x higher than Amtrak.</p>
+
+            <h2>The Short-Haul Flight Problem</h2>
+            <p>Short flights under 500 miles are disproportionately carbon-intensive because takeoff and landing burn fuel at higher rates than cruising, and the climb phase represents a larger fraction of total flight time. A 300-mile flight may emit nearly as much CO2 as a 500-mile flight. If rail takes under 4 hours for the same trip, it's almost always worth considering — both for carbon and often for total travel time when airport procedures are factored in.</p>
+            <p>New York to Washington D.C. (226 miles) is the classic example: Amtrak Acela runs 2h45m city center to city center at ~10 kg CO2 per passenger. A flight takes about 1h in the air but 3–4 hours total with airport procedures — at ~80 kg CO2 per passenger. Rail wins on both time and carbon.</p>
+
+            <h2>When Flying Is Hard to Avoid</h2>
+            <p>For distances over 800 miles in the U.S., practical rail alternatives are limited. The Amtrak network doesn't serve most city pairs, and journey times on long-distance routes are often 20–40 hours vs. 3–5 hours by air. In these cases, reducing flights and offsetting unavoidable ones is more realistic than rail substitution. See our <a href="/tools/flight-carbon.html">Flight Carbon Calculator</a> to estimate emissions for any route and our <a href="/tools/tree-planting-offset.html">Tree Planting Offset Calculator</a> for offset options. You can also compare with <a href="/compare/driving-vs-flying-carbon.html">Driving vs Flying</a> for medium-distance routes.</p>
+
+            <h2>High-Speed Rail: The European and Asian Model</h2>
+            <p>Where high-speed electric rail exists (Europe, Japan, China), the carbon comparison is even more dramatic. Electric high-speed trains on renewable-heavy grids emit as little as 0.006–0.014 kg CO2 per passenger-mile — 20–40x less than flying. France's TGV network, Japan's Shinkansen, and China's HSR system have made the sub-600-mile flight economically and environmentally uncompetitive on served routes. The U.S. lacks equivalent infrastructure except in the Northeast Corridor (Boston–New York–Washington), where Amtrak already captures a majority of the air-rail market share.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/flight-carbon.html">Flight Carbon Calculator</a></li>
+              <li><a href="/tools/carbon-footprint.html">Carbon Footprint Calculator</a></li>
+              <li><a href="/tools/tree-planting-offset.html">Tree Planting Offset</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Comparisons</h3>
+            <ul>
+              <li><a href="/compare/driving-vs-flying-carbon.html">Driving vs Flying Carbon</a></li>
+              <li><a href="/compare/ev-vs-gas-car.html">EV vs Gas Car</a></li>
+              <li><a href="/compare/public-transport-vs-car.html">Public Transport vs Car</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Flight economy: <strong>~0.255 kg CO2/mi</strong></li>
+              <li>Amtrak: <strong>~0.036 kg CO2/mi</strong></li>
+              <li>Rail vs flight: <strong>~85% less CO2</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcTrain() {
+  const dist = parseFloat(document.getElementById('tp-distance').value) || 500;
+  const cls = document.getElementById('tp-class').value;
+  const train = document.getElementById('tp-train').value;
+  const pax = parseFloat(document.getElementById('tp-trips').value) || 1;
+
+  const flightBase = 0.134; // kg CO2/pax-mile base
+  const rfMultiplier = 1.9; // radiative forcing
+  const classMultiplier = {economy:1.0, premium:1.6, business:2.9, first:4.0};
+  const flightFactor = flightBase * rfMultiplier * classMultiplier[cls];
+
+  const trainFactor = {amtrak:0.036, highspeed:0.014, regional:0.025};
+  const tf = trainFactor[train];
+
+  const flightCO2 = flightFactor * dist * pax;
+  const trainCO2 = tf * dist * pax;
+  const savings = flightCO2 - trainCO2;
+  const pctLess = ((savings / flightCO2) * 100).toFixed(0);
+
+  const trainLabel = {amtrak:'Amtrak', highspeed:'High-Speed Rail', regional:'Regional Rail'};
+  const clsLabel = {economy:'Economy', premium:'Premium Economy', business:'Business', first:'First Class'};
+  const fmt = v => v >= 1000 ? (v/1000).toFixed(2) + ' tonnes' : Math.round(v) + ' kg';
+
+  document.getElementById('tp-table').innerHTML = `
+    <tr><th></th><th>Flight (${clsLabel[cls]})</th><th>${trainLabel[train]}</th></tr>
+    <tr><td>CO2 per passenger</td><td><strong>${fmt(flightCO2/pax)}</strong></td><td><strong>${fmt(trainCO2/pax)}</strong></td></tr>
+    <tr><td>Total CO2 (${pax} pax)</td><td>${fmt(flightCO2)}</td><td>${fmt(trainCO2)}</td></tr>
+    <tr><td>CO2 saved by train</td><td colspan="2"><strong>${fmt(savings)} (${pctLess}% less)</strong></td></tr>
+    <tr><td>Emissions factor</td><td>${(flightFactor*1000).toFixed(0)} g/pax-mi</td><td>${(tf*1000).toFixed(0)} g/pax-mi</td></tr>
+  `;
+  const r = document.getElementById('tp-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
