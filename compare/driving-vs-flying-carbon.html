@@ -46,7 +46,9 @@
             <button class="btn-primary" onclick="calcDriveFly()">Compare Carbon</button>
             <div class="result-box-tool" id="df-result">
               <h3>Carbon Footprint Comparison</h3>
-              <table id="df-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="df-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">Driving emissions: 8,887g CO₂ per gallon of gasoline. Flying includes non-CO₂ warming effects (radiative forcing multiplier ~2x). Round-trip shown.</p>
             </div>
           </div>
