@@ -38,7 +38,9 @@
             <button class="btn-primary" onclick="calcWaterHeater()">Compare Water Heaters</button>
             <div class="result-box-tool" id="ewh-result">
               <h3>Annual Water Heating Cost</h3>
-              <table id="ewh-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="ewh-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">Electric resistance: 95% efficient. Gas tank: 67% efficient. Tankless gas: 84% efficient. Heat pump water heater: COP 2.5. All costs before installation. HPWH qualifies for 30% ITC up to $600.</p>
             </div>
           </div>
