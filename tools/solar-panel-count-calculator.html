@@ -84,7 +84,9 @@
             <div class="result-box-tool" id="spc-result">
               <h3>Your Solar System Estimate</h3>
               <div class="result-amount" id="spc-headline"></div>
-              <table id="spc-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="spc-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">Assumes 80% system efficiency (real-world derate factor). Cost at $3.00/W installed before 30% ITC. Each 400W panel = 21.5 sq ft of roof space.</p>
             </div>
           </div>
@@ -92,7 +94,8 @@
           <div class="article-body" style="margin-top:48px;">
             <h2>Peak Sun Hours by U.S. City</h2>
             <p>Peak sun hours determine how much electricity your panels produce. One peak sun hour = 1 hour of sunlight at 1,000 W/m² intensity. More sun hours = fewer panels needed for the same output.</p>
-            <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:.95rem;">
+            <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+              <table style="width:100%;min-width:560px;border-collapse:collapse;margin-top:16px;font-size:.95rem;">
               <thead>
                 <tr style="background:var(--card);text-align:left;">
                   <th style="padding:10px 12px;border-bottom:2px solid var(--border);">City</th>
