@@ -55,7 +55,9 @@
             <button class="btn-primary" onclick="calcBattery()">Calculate Payback</button>
             <div class="result-box-tool" id="bat-result">
               <h3>Battery Payback Analysis</h3>
-              <table id="bat-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="bat-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">Battery improves self-consumption from your entered % to ~75%. Annual savings = additional kWh kept at retail rate instead of exported at net metering rate. Does not include backup power value.</p>
             </div>
           </div>
