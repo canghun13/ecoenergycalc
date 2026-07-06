@@ -146,3 +146,12 @@ Side-by-side comparisons of solar financing, technology, and renewable energy ch
 - [Wind vs Solar Energy](https://ecoenergycalc.com/compare/wind-vs-solar-energy.html): Utility-scale cost, capacity factor, land use, and application comparison
 - [Propane vs Natural Gas](https://ecoenergycalc.com/compare/propane-vs-natural-gas.html): Cost per BTU comparison and when to consider switching fuel sources
 
+## Compare: Heating, Cooling & Appliances (Additional)
+
+- [Ceiling Fan vs AC](https://ecoenergycalc.com/compare/ceiling-fan-vs-ac.html): Cost comparison of ceiling fans vs air conditioning — when fans save money and how to use both together to cut summer bills
+- [Central Heat vs Space Heater](https://ecoenergycalc.com/compare/central-heat-vs-space-heater.html): When space heaters actually save money vs central heat — break-even calculator by fuel type and thermostat setback
+- [Gas Dryer vs Heat Pump Dryer](https://ecoenergycalc.com/compare/gas-dryer-vs-heat-pump-dryer.html): Running cost, payback, and IRA tax credit comparison for gas vs heat pump dryers
+- [Train vs Plane Carbon Footprint](https://ecoenergycalc.com/compare/train-vs-plane-carbon.html): CO2 emissions comparison for rail vs air travel by distance, class, and train type
+- [Gas Car vs Hybrid Carbon Footprint](https://ecoenergycalc.com/compare/gas-car-vs-hybrid-carbon.html): Annual CO2 savings and fuel cost comparison when switching from a gas car to a hybrid
+- [Window Insulation vs Window Replacement](https://ecoenergycalc.com/compare/window-insulation-vs-replacement.html): Cost, savings, and payback comparison of window film vs full replacement
+
