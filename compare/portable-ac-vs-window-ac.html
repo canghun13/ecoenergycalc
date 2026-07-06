@@ -39,7 +39,9 @@
             <button class="btn-primary" onclick="calcPortableAC()">Compare Options</button>
             <div class="result-box-tool" id="pac-result">
               <h3>Seasonal Cooling Cost</h3>
-              <table id="pac-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="pac-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">Window AC: 900W for 350 sq ft, EER 11. Portable AC: 1,100W for 350 sq ft, EER 9 (single hose). Dual-hose portable: 1,050W, EER 10. Purchase prices: window $250, portable single-hose $450, dual-hose $550.</p>
             </div>
           </div>
