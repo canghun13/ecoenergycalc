@@ -38,7 +38,9 @@
             <button class="btn-primary" onclick="calcSolarWH()">Compare Options</button>
             <div class="result-box-tool" id="swh-result">
               <h3>Annual Cost & Payback Comparison</h3>
-              <table id="swh-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="swh-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">Standard electric tank: 95% eff. Heat pump WH: COP 2.5. Solar thermal: offsets 60–80% of water heating load depending on sun hours. All figures before 30% ITC (applies to both solar thermal and HPWH).</p>
             </div>
           </div>
