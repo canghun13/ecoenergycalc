@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Central Heat vs Space Heater: Which Is Cheaper? | EcoEnergyCalc</title>
+  <meta name="description" content="Central heat vs space heater cost comparison: when a space heater saves money and when it doesn't. Calculate your break-even based on home size and fuel type." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/compare/central-heat-vs-space-heater.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Central Heat vs Space Heater: Which Is Cheaper?","description":"When does a space heater save money vs central heat? Compare heating costs by fuel type, home size, and thermostat setback to find the break-even point.","url":"https://ecoenergycalc.com/compare/central-heat-vs-space-heater.html","datePublished":"2026-07-06","dateModified":"2026-07-06","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="article-page">
+    <div class="container">
+      <div class="article-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Central Heat vs Space Heater</p>
+        <span class="article-tag">Heating & Cooling</span>
+        <h1>Central Heat vs Space Heater: Which Is Cheaper?</h1>
+        <p class="article-meta">9 min read · July 2026</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <p>A space heater saves money only under specific conditions: one room, significant thermostat setback, and ideally an electric-heavy or expensive-gas market. For most gas-heated homes heating multiple rooms, central heat is cheaper. Use the calculator to find your break-even.</p>
+
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Central Heat vs Space Heater Cost Calculator</h2>
+            <div class="form-group">
+              <label for="hs-fuel">Central Heat Fuel Type</label>
+              <select id="hs-fuel">
+                <option value="gas">Natural Gas</option>
+                <option value="electric">Electric Resistance</option>
+                <option value="heatpump">Heat Pump</option>
+                <option value="propane">Propane</option>
+              </select>
+            </div>
+            <div class="form-group"><label for="hs-bill">Current Monthly Heating Bill ($)</label><input type="number" id="hs-bill" value="180" min="20" max="600" /></div>
+            <div class="form-group"><label for="hs-setback">Thermostat Setback When Using Space Heater (°F)</label><input type="number" id="hs-setback" value="8" min="2" max="20" /></div>
+            <div class="form-group"><label for="hs-hours">Space Heater Hours per Day</label><input type="number" id="hs-hours" value="8" min="1" max="18" /></div>
+            <div class="form-group"><label for="hs-rate">Electricity Rate (¢/kWh)</label><input type="number" id="hs-rate" value="16" min="5" max="50" step="0.1" /></div>
+            <button class="btn-primary" onclick="calcHeat()">Compare Heating Options</button>
+            <div class="result-box-tool" id="hs-result">
+              <h3>Monthly Cost Comparison</h3>
+              <table id="hs-table"></table>
+              <p class="result-note">Thermostat setback savings: ~3% per °F. Space heater: 1,500W. Results are estimates — actual savings depend on home insulation and climate.</p>
+            </div>
+          </div>
+
+          <div class="article-body">
+            <h2>The Fundamental Rule: Fuel Cost per BTU</h2>
+            <p>Natural gas delivers heat at roughly $0.04–$0.06 per kWh-equivalent at current U.S. prices. Electric resistance heating costs $0.13–$0.25 per kWh. A 1,500W space heater is electric resistance — it costs 3–5x more per BTU than a gas furnace. This is the core reason space heaters rarely save money vs. gas heat: you're substituting cheap fuel with expensive fuel.</p>
+            <p>Heat pumps change this math. A heat pump delivers 2–4 kWh of heat per kWh of electricity consumed (COP 2–4), making it cost-competitive with or cheaper than gas. A space heater is COP 1 — it delivers exactly 1 kWh of heat per kWh consumed. So space heaters don't save money vs. heat pumps either.</p>
+
+            <h2>When Space Heaters Do Save Money</h2>
+            <p>The math works when: (1) you use the space heater in one room only, (2) you drop the central thermostat by at least 5–8°F, and (3) the savings from reduced central heating exceed the heater's electricity cost. This happens most often in large homes with gas heat where the per-room heating cost is high, and in homes where one person works from home all day in a single room. See our detailed guide: <a href="/blog/how-much-does-it-cost-to-run-a-space-heater.html">How Much Does It Cost to Run a Space Heater?</a></p>
+
+            <h2>The Zone Heating Strategy</h2>
+            <p>Zone heating — heating only occupied spaces — is the legitimate use case for space heaters. If your home has 4 rooms and you're only in 1, heating the other 3 to 70°F wastes energy. Dropping central heat to 60°F and supplementing with a space heater in the occupied room can save $30–60/month in a large gas-heated home. The key: the thermostat must actually go down. Running both at the same temperature always costs more. Use our <a href="/tools/space-heater-cost-calculator.html">Space Heater Cost Calculator</a> to model your exact numbers.</p>
+
+            <h2>Electric Homes: The Exception</h2>
+            <p>For homes with electric baseboard or resistance heating, the cost-per-BTU is the same whether from baseboards or a space heater. In this case, using a space heater in one room and turning off baseboards in other rooms does save money — you're just concentrating the same fuel type rather than switching. The savings come from heating less square footage, not from any efficiency difference in the heater itself.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/space-heater-cost-calculator.html">Space Heater Cost Calculator</a></li>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel Type</a></li>
+              <li><a href="/tools/heating-vs-cooling.html">Heating vs Cooling Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Comparisons</h3>
+            <ul>
+              <li><a href="/compare/electric-heat-vs-gas-heat.html">Electric Heat vs Gas Heat</a></li>
+              <li><a href="/compare/heat-pump-vs-furnace-vs-boiler.html">Heat Pump vs Furnace vs Boiler</a></li>
+              <li><a href="/compare/ceiling-fan-vs-ac.html">Ceiling Fan vs AC</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Gas heat: <strong>~$0.05/kWh-eq</strong></li>
+              <li>Space heater: <strong>~$0.16–0.25/kWh</strong></li>
+              <li>Break-even setback: <strong>5–8°F min</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcHeat() {
+  const fuel = document.getElementById('hs-fuel').value;
+  const bill = parseFloat(document.getElementById('hs-bill').value) || 180;
+  const setback = parseFloat(document.getElementById('hs-setback').value) || 8;
+  const hours = parseFloat(document.getElementById('hs-hours').value) || 8;
+  const rate = parseFloat(document.getElementById('hs-rate').value) / 100 || 0.16;
+
+  const savingsPct = setback * 0.03;
+  const centralSavings = bill * savingsPct;
+  const spaceHeaterCost = 1.5 * hours * 30 * rate;
+  const netSaving = centralSavings - spaceHeaterCost;
+  const newCentralBill = bill - centralSavings;
+  const totalWithHeater = newCentralBill + spaceHeaterCost;
+
+  const fuelLabel = {gas:'Gas Furnace',electric:'Electric Resistance',heatpump:'Heat Pump',propane:'Propane'};
+  const fmt = v => '$' + Math.abs(v).toFixed(0);
+
+  document.getElementById('hs-table').innerHTML = `
+    <tr><th></th><th>${fuelLabel[fuel]} Only</th><th>${fuelLabel[fuel]} + Space Heater</th></tr>
+    <tr><td>Monthly heating bill</td><td><strong>$${bill.toFixed(0)}</strong></td><td><strong>$${totalWithHeater.toFixed(0)}</strong></td></tr>
+    <tr><td>Central heat cost</td><td>$${bill.toFixed(0)}</td><td>$${newCentralBill.toFixed(0)} (${setback}°F lower)</td></tr>
+    <tr><td>Space heater cost</td><td>—</td><td>$${spaceHeaterCost.toFixed(0)} (${hours}hrs/day)</td></tr>
+    <tr><td>Monthly difference</td><td>—</td><td><strong style="color:${netSaving>0?'#4ade80':'#f87171'}">${netSaving>0?'Save':'Cost extra'} $${fmt(netSaving)}/mo</strong></td></tr>
+    <tr><td>Annual difference</td><td>—</td><td><strong>${netSaving>0?'Save':'Cost extra'} $${fmt(netSaving*12)}/yr</strong></td></tr>
+  `;
+  const r = document.getElementById('hs-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
