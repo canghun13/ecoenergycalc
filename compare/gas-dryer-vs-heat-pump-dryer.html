@@ -40,7 +40,9 @@
             <button class="btn-primary" onclick="calcDryer()">Compare Dryer Costs</button>
             <div class="result-box-tool" id="gd-result">
               <h3>Annual Cost & Payback</h3>
-              <table id="gd-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="gd-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">Gas dryer: 22,000 BTU/hr + 400W electric. Heat pump dryer: 800W avg (vs 5,000W conventional electric). IRA credit: 30% up to $840 on ENERGY STAR heat pump dryers.</p>
             </div>
           </div>
