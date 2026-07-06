@@ -49,7 +49,9 @@
             <button class="btn-primary" onclick="calcHeat()">Compare Heating Options</button>
             <div class="result-box-tool" id="hs-result">
               <h3>Monthly Cost Comparison</h3>
-              <table id="hs-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="hs-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">Thermostat setback savings: ~3% per °F. Space heater: 1,500W. Results are estimates — actual savings depend on home insulation and climate.</p>
             </div>
           </div>
