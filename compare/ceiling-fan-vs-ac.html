@@ -47,7 +47,9 @@
             <button class="btn-primary" onclick="calcFan()">Compare Costs</button>
             <div class="result-box-tool" id="cf-result">
               <h3>Seasonal Cost Comparison</h3>
-              <table id="cf-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="cf-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">Ceiling fan assumes 75W (standard speed). AC assumes 14 SEER. Fan does not cool air — combine fan + AC with thermostat raised 4°F for maximum savings.</p>
             </div>
           </div>
