@@ -55,7 +55,7 @@
             <button class="btn-primary" onclick="calcSolarWind()">Compare Output</button>
             <div class="result-box-tool" id="sw-result">
               <h3>Annual Output Comparison</h3>
-              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+              <div class="table-scroll">
                 <table id="sw-table" style="width:100%;min-width:480px;"></table>
               </div>
               <p class="result-note">Solar: production = kW × sun hours × 365 × 0.80. Wind: uses power curve estimate — output scales with cube of wind speed. Both costs estimated at post-ITC prices.</p>
