@@ -1102,47 +1102,6 @@ table td { padding: 6px 0; font-size: 0.875rem; color: var(--text-muted); border
 table td:last-child { text-align: right; color: var(--text); font-weight: 600; }
 table tr:last-child td { border-bottom: none; }
 
-/* Comparison tables (with th headers) */
-table th {
-  padding: 8px 10px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--text);
-  text-align: right;
-  border-bottom: 2px solid var(--border);
-  white-space: nowrap;
-}
-table:has(th) td {
-  padding: 8px 10px;
-  text-align: right;
-  white-space: nowrap;
-}
-table:has(th) td:first-child,
-table th:first-child {
-  text-align: left;
-  white-space: normal;
-}
-
-/* Responsive: horizontal scroll for comparison tables on small screens */
-@media (max-width: 640px) {
-  table:has(th) {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  table:has(th) th,
-  table:has(th) td {
-    white-space: nowrap;
-    font-size: 0.8rem;
-    padding: 8px 12px;
-  }
-  table:has(th) td:first-child,
-  table:has(th) th:first-child {
-    white-space: normal;
-    min-width: 90px;
-  }
-}
-
 /* Nav fix for mobile dropdown overflow */
 @media (max-width: 768px) {
   .dropdown-menu {
