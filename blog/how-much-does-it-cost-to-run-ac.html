@@ -76,14 +76,17 @@
           <button class="btn-primary" onclick="calcACCost()">Calculate AC Cost</button>
           <div class="result-box-tool" id="ac-result">
             <h3>Your AC Running Cost</h3>
-            <table id="ac-table"></table>
+            <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+              <table id="ac-table" style="width:100%;min-width:480px;"></table>
+            </div>
             <p class="result-note">Wattage shown is rated draw. Actual draw varies with outdoor temperature and thermostat cycling. SEER adjustment estimates real-world runtime efficiency.</p>
           </div>
         </div>
 
         <h2>AC Cost by System Size: Reference Table</h2>
         <p>The table below shows the approximate hourly and monthly cost for common AC sizes at 13¢/kWh (U.S. average), running 8 hours/day:</p>
-        <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem;">
+        <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+          <table style="width:100%;min-width:560px;border-collapse:collapse;margin:16px 0;font-size:.95rem;">
           <thead>
             <tr style="background:var(--card);text-align:left;">
               <th style="padding:10px 12px;border-bottom:2px solid var(--border);">AC Size</th>
