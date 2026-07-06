@@ -38,7 +38,9 @@
             <button class="btn-primary" onclick="calcTriple()">Compare All Three</button>
             <div class="result-box-tool" id="tri-result">
               <h3>5-Year Total Cost of Ownership</h3>
-              <table id="tri-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="tri-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">EV: $42,000 purchase, 3.5 mi/kWh, $400/yr maintenance. Hybrid: $35,000 purchase, 50 MPG, $700/yr maintenance. Gas car: $30,000 purchase, 30 MPG, $900/yr maintenance. EV tax credit $7,500 applied.</p>
             </div>
           </div>
