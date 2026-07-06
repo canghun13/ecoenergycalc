@@ -39,7 +39,9 @@
             <button class="btn-primary" onclick="calcPropaneGas()">Compare Fuel Costs</button>
             <div class="result-box-tool" id="png-result">
               <h3>Annual Cost & Switching Payback</h3>
-              <table id="png-table"></table>
+              <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+                <table id="png-table" style="width:100%;min-width:480px;"></table>
+              </div>
               <p class="result-note">Propane: 91,500 BTU/gallon. Natural gas: 100,000 BTU/therm. Both at 95% appliance efficiency. Heat pump alternative shown for comparison.</p>
             </div>
           </div>
