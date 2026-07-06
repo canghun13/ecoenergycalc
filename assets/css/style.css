@@ -641,10 +641,14 @@ img { max-width: 100%; display: block; }
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   align-items: start;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
-  .tool-layout { grid-template-columns: 1fr; }
+  .tool-layout {
+    display: block;
+    width: 100%;
+  }
 }
 
 .calc-box {
@@ -1101,6 +1105,20 @@ table { width: 100%; border-collapse: collapse; }
 table td { padding: 6px 0; font-size: 0.875rem; color: var(--text-muted); border-bottom: 1px solid var(--border); }
 table td:last-child { text-align: right; color: var(--text); font-weight: 600; }
 table tr:last-child td { border-bottom: none; }
+
+/* Comparison tables (th headers) — scroll wrapper is in HTML, this just styles cells */
+table th {
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: right;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+table th:first-child { text-align: left; white-space: normal; }
+table:has(th) td { padding: 8px 10px; text-align: right; white-space: nowrap; }
+table:has(th) td:first-child { text-align: left; white-space: normal; color: var(--text-muted); font-weight: 400; }
 
 /* Nav fix for mobile dropdown overflow */
 @media (max-width: 768px) {
