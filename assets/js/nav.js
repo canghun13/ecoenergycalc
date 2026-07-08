@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <li id="nav-tools"><a href="/tools/">Tools</a></li>
           <li id="nav-compare"><a href="/compare/">Compare</a></li>
           <li id="nav-blog"><a href="/blog/">Blog</a></li>
+          <li id="nav-glossary"><a href="/glossary/">Glossary</a></li>
           <li><a href="/about.html">About</a></li>
         </ul>
       </nav>
@@ -96,6 +97,11 @@ document.addEventListener('DOMContentLoaded', function () {
   if (currentPath.startsWith('/blog/') || currentPath === '/blog') {
     const blogLink = document.querySelector('#nav-blog > a');
     if (blogLink) blogLink.classList.add('nav-active');
+  }
+
+  if (currentPath.startsWith('/glossary/') || currentPath === '/glossary') {
+    const glossaryLink = document.querySelector('#nav-glossary > a');
+    if (glossaryLink) glossaryLink.classList.add('nav-active');
   }
 
   const navToggle = document.querySelector('.nav-toggle');
