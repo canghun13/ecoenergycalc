@@ -60,6 +60,11 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(8px);
 }
 
+/* Anchor jump offset — accounts for sticky header (64px) so target isn't hidden underneath */
+[id] {
+  scroll-margin-top: 84px;
+}
+
 .site-header .container {
   display: flex;
   align-items: center;
