@@ -160,3 +160,12 @@ Side-by-side comparisons of solar financing, technology, and renewable energy ch
 ## Glossary
 
 - [Energy & Carbon Glossary](https://ecoenergycalc.com/glossary/): Plain-English definitions of terms used across our calculators — BTU, SEER, kWh, R-value, CO2e, therm, ENERGY STAR, COP, MPGe, HSPF, AFUE, watt vs kilowatt, time-of-use rates, and embodied carbon
+
+
+## Compare: Water, Solar & Appliances (Additional)
+
+- [Low-Flow vs Standard Showerhead](https://ecoenergycalc.com/compare/low-flow-vs-standard-showerhead.html): Water, energy, and cost savings calculator comparing 1.5-2.0 GPM low-flow showerheads to 2.5 GPM standard models
+- [Rain Barrel vs Municipal Water](https://ecoenergycalc.com/compare/rain-barrel-vs-municipal-water.html): Cost and payback calculator for rain barrel water harvesting vs municipal water for outdoor irrigation
+- [Solar Shingles vs Solar Panels](https://ecoenergycalc.com/compare/solar-shingles-vs-solar-panels.html): Cost per watt, efficiency, and payback period comparison between building-integrated solar shingles and traditional rooftop panels
+- [Front-Load vs Top-Load Washer](https://ecoenergycalc.com/compare/front-load-vs-top-load-washer.html): Energy and water cost comparison between front-load and top-load washing machines by laundry frequency
+- [Whole-House Fan vs Central AC](https://ecoenergycalc.com/compare/whole-house-fan-vs-central-ac.html): Operating cost and cooling capability comparison, with guidance on climate suitability for whole-house fans vs air conditioning
