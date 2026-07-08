@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <h4>Site</h4>
           <ul>
             <li><a href="/blog/">Blog</a></li>
+            <li><a href="/glossary/">Glossary</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/privacy.html">Privacy Policy</a></li>
             <li><a href="/contact.html">Contact</a></li>
@@ -103,3 +104,4 @@ document.addEventListener('DOMContentLoaded', function () {
     navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
   }
 });
+
