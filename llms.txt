@@ -155,3 +155,8 @@ Side-by-side comparisons of solar financing, technology, and renewable energy ch
 - [Gas Car vs Hybrid Carbon Footprint](https://ecoenergycalc.com/compare/gas-car-vs-hybrid-carbon.html): Annual CO2 savings and fuel cost comparison when switching from a gas car to a hybrid
 - [Window Insulation vs Window Replacement](https://ecoenergycalc.com/compare/window-insulation-vs-replacement.html): Cost, savings, and payback comparison of window film vs full replacement
 
+
+
+## Glossary
+
+- [Energy & Carbon Glossary](https://ecoenergycalc.com/glossary/): Plain-English definitions of terms used across our calculators — BTU, SEER, kWh, R-value, CO2e, therm, ENERGY STAR, COP, MPGe, HSPF, AFUE, watt vs kilowatt, time-of-use rates, and embodied carbon
