@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 27 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 29 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
