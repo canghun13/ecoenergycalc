@@ -3,4 +3,4 @@ Allow: /
 
 Sitemap: https://ecoenergycalc.com/sitemap.xml
 
-# rebuild-trigger 2026-07-09T08:05
+# rebuild-trigger-2
