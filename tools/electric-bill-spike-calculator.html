@@ -183,9 +183,11 @@ function calcBillSpike() {
       causeHTML += '<li style="margin-bottom:6px;">' + c.label + ': <strong>$' + c.cost.toFixed(2) + '</strong></li>';
     });
     causeHTML += '</ul>';
-    var unexplained = Math.max(0, spike - total);
+    var unexplained = spike - total;
     if (unexplained > 5) {
       causeHTML += '<p style="margin-top:8px;color:var(--text-muted);">Unexplained by checked factors: <strong>$' + unexplained.toFixed(2) + '</strong> — consider malfunctioning appliances, rate increases, or billing period differences.</p>';
+    } else if (unexplained < -5) {
+      causeHTML += '<p style="margin-top:8px;color:var(--text-muted);">Checked factors add up to <strong>$' + Math.abs(unexplained).toFixed(2) + ' more</strong> than your actual increase — these are rough per-factor estimates, so some overlap is expected. Treat them as relative contributors, not an exact breakdown.</p>';
     }
   } else {
     causeHTML += '<p style="margin-top:12px;color:var(--text-muted);">Check the boxes above for factors that changed this month to see their estimated cost contribution.</p>';
@@ -197,7 +199,7 @@ function calcBillSpike() {
   document.getElementById('eb-table').innerHTML =
     '<tr><th>Metric</th><th>This Period</th><th>Comparison</th></tr>' +
     '<tr><td>Bill amount</td><td>$' + current.toFixed(2) + '</td><td>$' + previous.toFixed(2) + '</td></tr>' +
-    '<tr><td>Billing days</td><td>' + days + ' days</td><td>~30 days</td></tr>' +
+    '<tr><td>Billing days</td><td>' + days + ' days</td><td>30 days (typical)</td></tr>' +
     '<tr><td>Daily average cost</td><td>$' + (current/days).toFixed(2) + '/day</td><td>$' + (previous/30).toFixed(2) + '/day</td></tr>' +
     '<tr><td>Estimated kWh this period</td><td>' + Math.round(current/rate).toLocaleString() + ' kWh</td><td>' + Math.round(previous/rate).toLocaleString() + ' kWh</td></tr>' +
     '<tr style="font-weight:700;"><td>Extra kWh this period</td><td colspan="2">+' + Math.round(Math.max(0,spikeKwh)) + ' kWh ($' + Math.max(0,spike).toFixed(2) + ')</td></tr>';
