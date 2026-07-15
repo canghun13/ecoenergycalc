@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pool Pump Running Cost Calculator – Single vs Variable Speed | EcoEnergyCalc</title>
+  <meta name="description" content="Pool pump running cost calculator: find out how much your pool pump costs to run per day, month, and season. Compare single-speed vs variable-speed savings." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/pool-pump-running-cost.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Pool Pump Running Cost Calculator","url":"https://ecoenergycalc.com/tools/pool-pump-running-cost.html","description":"Calculate how much it costs to run a pool pump per day, month, and season based on wattage, daily runtime, and electricity rate. Compare single-speed vs variable-speed costs.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-07-15","dateModified":"2026-07-15","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does it cost to run a pool pump per month?","acceptedAnswer":{"@type":"Answer","text":"A typical single-speed 1.5 HP pool pump (about 1,500-2,000 watts) running 8 hours a day costs roughly $47-$62 per month at the U.S. average electricity rate of 13 cents per kWh. A variable-speed pump doing the same job typically costs $15-$25 per month because it can run at lower RPM for longer instead of full power continuously."}},
+    {"@type":"Question","name":"How many hours a day should I run my pool pump?","acceptedAnswer":{"@type":"Answer","text":"Most pools need one full water turnover per day, which typically takes 6-8 hours for a single-speed pump or longer at lower speed for a variable-speed pump. Hot climates and heavily used pools may need 10-12 hours, while smaller or lightly used pools in mild climates can often get by with 4-6 hours."}},
+    {"@type":"Question","name":"Is a variable-speed pool pump worth the extra cost?","acceptedAnswer":{"@type":"Answer","text":"For most pool owners, yes. Variable-speed pumps typically cut pump electricity costs by 50-80% compared to single-speed models, since they can run longer at much lower wattage instead of cycling a large motor at full power. The higher upfront cost is usually recovered within 1-2 pool seasons through electricity savings."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Pool Pump Running Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Pool Pump Running Cost Calculator</h1>
+        <p>Find out exactly what your pool pump costs to run — per day, per month, and per pool season — and how much a variable-speed pump could save you.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Pool Pump Running Cost</h2>
+            <div class="form-group">
+              <label for="pp-type">Pump Type</label>
+              <select id="pp-type">
+                <option value="1500" selected>Single-speed, 1 HP (~1,500W)</option>
+                <option value="2000">Single-speed, 1.5 HP (~2,000W)</option>
+                <option value="2500">Single-speed, 2 HP (~2,500W)</option>
+                <option value="400">Variable-speed, typical low setting (~400W)</option>
+                <option value="custom">Custom wattage</option>
+              </select>
+            </div>
+            <div class="form-group" id="pp-custom-group" style="display:none;">
+              <label for="pp-custom-watts">Custom Wattage (W)</label>
+              <input type="number" id="pp-custom-watts" placeholder="e.g. 1100" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="pp-hours">Hours Run Per Day</label>
+              <input type="number" id="pp-hours" placeholder="e.g. 8" min="0" max="24" value="8" />
+            </div>
+            <div class="form-group">
+              <label for="pp-season">Pool Season Length (days)</label>
+              <input type="number" id="pp-season" placeholder="e.g. 180" min="1" max="365" value="180" />
+            </div>
+            <div class="form-group">
+              <label for="pp-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="pp-rate" value="13" min="0" step="0.1" />
+            </div>
+            <button class="btn-primary" onclick="calcPoolPump()">Calculate Cost</button>
+            <div class="result-box-tool" id="pp-result">
+              <h3>Pool Pump Running Cost</h3>
+              <div class="result-amount" id="pp-monthly"></div>
+              <table id="pp-breakdown"></table>
+              <p class="result-note">Actual cost varies with pool size, filter type, and how often you run the pump at full vs. reduced speed. Variable-speed pumps can run longer hours at lower wattage and still cost less overall.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How Much Does It Cost to Run a Pool Pump?</h2>
+            <p>A standard single-speed 1.5 HP pool pump (about 2,000 watts) running 8 hours a day costs roughly <strong>$2.08 per day</strong>, or about <strong>$62.40 per month</strong>, at the U.S. average electricity rate of 13¢/kWh. Over a 6-month pool season, that's around <strong>$374</strong> — making the pump one of the biggest single electricity draws in a home with a pool, often second only to HVAC.</p>
+            <p>Variable-speed pumps change this equation significantly. Instead of running a large motor at full power for a fixed number of hours, they run at a much lower wattage (often 300-500W) for the same or longer duration, since slower flow still achieves full water turnover — just over more hours. Because power draw drops roughly with the cube of speed, cutting pump speed in half can cut power use by up to 85%, even though runtime may increase.</p>
+
+            <h3>Pool Pump Cost by Type</h3>
+            <p>Estimated cost running 8 hours/day at 13¢/kWh:</p>
+            <ul>
+              <li><strong>Single-speed, 1 HP (~1,500W):</strong> ~$1.56/day · ~$46.80/month</li>
+              <li><strong>Single-speed, 1.5 HP (~2,000W):</strong> ~$2.08/day · ~$62.40/month</li>
+              <li><strong>Single-speed, 2 HP (~2,500W):</strong> ~$2.60/day · ~$78/month</li>
+              <li><strong>Variable-speed, typical low setting (~400W):</strong> ~$0.42/day · ~$12.48/month</li>
+            </ul>
+
+            <h3>How Many Hours Should a Pool Pump Run?</h3>
+            <p>Most pools need one full water turnover per day to stay clean and properly filtered. For a single-speed pump, that typically means <strong>6-8 hours</strong> of runtime. Hot climates, heavily used pools, and pools with lots of debris (trees, high traffic) may need 10-12 hours. Variable-speed pumps are often set to run longer — even 24 hours a day at very low speed — because the wattage is so much lower that extended runtime still costs less than a few hours of a single-speed pump at full power.</p>
+
+            <h3>What Affects Pool Pump Running Cost</h3>
+            <ul>
+              <li><strong>Pump horsepower and type:</strong> Single-speed pumps use 1,500-2,500W at full power. Variable and dual-speed pumps can drop to 200-500W at low settings.</li>
+              <li><strong>Pool size:</strong> Larger pools need more turnover volume, generally requiring longer runtime to fully circulate the water once a day.</li>
+              <li><strong>Filter type and condition:</strong> A clogged filter increases the pump's workload and can extend runtime needed to maintain water clarity.</li>
+              <li><strong>Climate:</strong> Hot, sunny climates promote faster algae growth, often requiring longer daily runtime than cooler, shadier locations.</li>
+              <li><strong>Time-of-use electricity rates:</strong> Running the pump during off-peak hours (typically overnight) can cut the effective cost per kWh by 30-50% on time-of-use plans.</li>
+            </ul>
+
+            <h3>Single-Speed vs. Variable-Speed: Is the Upgrade Worth It?</h3>
+            <p>A variable-speed pump typically costs $200-$400 more upfront than a comparable single-speed pump but can cut annual pump electricity costs by 50-80%. For a pool owner spending $350-$450/season on a single-speed pump, switching to variable-speed often saves $250-$350/season — meaning the extra upfront cost is usually recovered within one to two pool seasons, after which it's pure savings for the life of the pump.</p>
+
+            <h3>Tips to Lower Pool Pump Running Cost</h3>
+            <ul>
+              <li><strong>Run during off-peak hours</strong> if your utility offers time-of-use rates — pumps don't care what time of day they circulate water.</li>
+              <li><strong>Reduce runtime gradually</strong> and monitor water clarity — many pools are over-filtered running 10+ hours when 6-8 would suffice.</li>
+              <li><strong>Clean the filter and skimmer baskets regularly</strong> — a clogged system makes the pump work harder for the same result.</li>
+              <li><strong>Use a pool cover</strong> to reduce debris and evaporation, which can reduce required filtration and heating runtime.</li>
+              <li><strong>Consider a variable-speed pump</strong> on your next replacement — the energy savings alone often justify the higher purchase price.</li>
+            </ul>
+
+            <p>For related running-cost calculators, see our <a href="/tools/appliance-energy-cost.html">Appliance Energy Cost Calculator</a> or check out our <a href="/tools/solar-panel-savings.html">Solar Panel Savings Calculator</a> to see if solar could offset pool pump electricity use.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Single-speed 1.5 HP: <strong>~$62/mo</strong></li>
+              <li>Variable-speed (low): <strong>~$12/mo</strong></li>
+              <li>Typical daily runtime: <strong>6–8 hrs</strong></li>
+              <li>VS pump payback: <strong>1–2 seasons</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#kwh">What is a kWh?</a></li>
+              <li><a href="/glossary/">View full glossary →</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much does it cost to run a pool pump per month?</h3>
+      <p>A typical single-speed 1.5 HP pool pump (about 1,500-2,000 watts) running 8 hours a day costs roughly $47-$62 per month at the U.S. average electricity rate of 13 cents per kWh. A variable-speed pump doing the same job typically costs $15-$25 per month because it can run at lower RPM for longer instead of full power continuously.</p>
+      <h3>How many hours a day should I run my pool pump?</h3>
+      <p>Most pools need one full water turnover per day, which typically takes 6-8 hours for a single-speed pump or longer at lower speed for a variable-speed pump. Hot climates and heavily used pools may need 10-12 hours, while smaller or lightly used pools in mild climates can often get by with 4-6 hours.</p>
+      <h3>Is a variable-speed pool pump worth the extra cost?</h3>
+      <p>For most pool owners, yes. Variable-speed pumps typically cut pump electricity costs by 50-80% compared to single-speed models, since they can run longer at much lower wattage instead of cycling a large motor at full power. The higher upfront cost is usually recovered within 1-2 pool seasons through electricity savings.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+document.getElementById('pp-type').addEventListener('change', function() {
+  document.getElementById('pp-custom-group').style.display = this.value === 'custom' ? 'block' : 'none';
+});
+
+function calcPoolPump() {
+  const typeSel = document.getElementById('pp-type').value;
+  const watts = typeSel === 'custom'
+    ? (parseFloat(document.getElementById('pp-custom-watts').value) || 1500)
+    : parseFloat(typeSel);
+  const hours = parseFloat(document.getElementById('pp-hours').value) || 8;
+  const seasonDays = parseFloat(document.getElementById('pp-season').value) || 180;
+  const rate = parseFloat(document.getElementById('pp-rate').value) || 13;
+
+  const kw = watts / 1000;
+  const costPerHour = kw * (rate / 100);
+  const costPerDay = costPerHour * hours;
+  const costPerMonth = costPerDay * 30;
+  const costPerSeason = costPerDay * seasonDays;
+  const kwhPerDay = kw * hours;
+
+  const fmt = v => '$' + v.toFixed(2);
+
+  document.getElementById('pp-monthly').textContent = fmt(costPerMonth) + '/mo';
+  document.getElementById('pp-breakdown').innerHTML = `
+    <tr><td>Cost per hour</td><td>${fmt(costPerHour)}</td></tr>
+    <tr><td>Cost per day (${hours} hrs)</td><td>${fmt(costPerDay)}</td></tr>
+    <tr style="font-weight:700;"><td>Cost per month</td><td>${fmt(costPerMonth)}</td></tr>
+    <tr><td>Cost per season (${seasonDays} days)</td><td>${fmt(costPerSeason)}</td></tr>
+    <tr><td>kWh per day</td><td>${kwhPerDay.toFixed(2)} kWh</td></tr>
+  `;
+  const r = document.getElementById('pp-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

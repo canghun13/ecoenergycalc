@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dehumidifier Running Cost Calculator – Cost Per Day, Month & Year | EcoEnergyCalc</title>
+  <meta name="description" content="Dehumidifier running cost calculator: find out exactly how much your dehumidifier costs to run per hour, day, month, and year by pint size and wattage." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/dehumidifier-running-cost.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Dehumidifier Running Cost Calculator","url":"https://ecoenergycalc.com/tools/dehumidifier-running-cost.html","description":"Calculate exactly how much it costs to run a dehumidifier per hour, day, month, and year based on pint capacity, wattage, and electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-07-15","dateModified":"2026-07-15","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does it cost to run a dehumidifier?","acceptedAnswer":{"@type":"Answer","text":"A typical 50-pint dehumidifier (around 500 watts) running 8 hours a day costs about $0.52/day, or roughly $15.60/month at the U.S. average electricity rate of 13 cents per kWh. Larger 70-pint units use closer to 700 watts and cost about $0.73/day. Small tabletop units under 20 pints can cost less than $0.10/day."}},
+    {"@type":"Question","name":"Is it cheaper to run a dehumidifier all day or just a few hours?","acceptedAnswer":{"@type":"Answer","text":"Running it only until your target humidity is reached is cheaper than running it continuously. Most dehumidifiers have a humidistat that shuts the compressor off once the room hits the set humidity level (typically 45-50%), so leaving it on \u201call day\u201d often costs about the same as leaving it on a timer, since it cycles rather than running at full power the whole time."}},
+    {"@type":"Question","name":"How many watts does a dehumidifier use?","acceptedAnswer":{"@type":"Answer","text":"Most household dehumidifiers use between 200 and 800 watts depending on pint capacity. A small 20-30 pint unit uses roughly 200-300W, a mid-size 50-pint unit uses about 450-550W, and a large 70-pint unit uses 650-800W. Check the nameplate on the back of your unit for the exact wattage."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Dehumidifier Running Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Dehumidifier Running Cost Calculator</h1>
+        <p>Find out exactly what your dehumidifier costs to run — per hour, per day, per month, and per year — based on its pint capacity and your electricity rate.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Dehumidifier Running Cost</h2>
+            <div class="form-group">
+              <label for="dh-size">Dehumidifier Capacity</label>
+              <select id="dh-size">
+                <option value="200">Small (20–30 pint) — ~200W</option>
+                <option value="300">Compact (30–35 pint) — ~300W</option>
+                <option value="500" selected>Mid-size (50 pint) — ~500W</option>
+                <option value="700">Large (70 pint) — ~700W</option>
+                <option value="custom">Custom wattage</option>
+              </select>
+            </div>
+            <div class="form-group" id="dh-custom-group" style="display:none;">
+              <label for="dh-custom-watts">Custom Wattage (W)</label>
+              <input type="number" id="dh-custom-watts" placeholder="e.g. 450" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="dh-hours">Hours Used Per Day</label>
+              <input type="number" id="dh-hours" placeholder="e.g. 8" min="0" max="24" value="8" />
+            </div>
+            <div class="form-group">
+              <label for="dh-duty">Duty Cycle (% of time compressor actually runs)</label>
+              <input type="number" id="dh-duty" placeholder="e.g. 65" min="1" max="100" value="65" />
+            </div>
+            <div class="form-group">
+              <label for="dh-days">Days Per Month</label>
+              <input type="number" id="dh-days" placeholder="e.g. 30" min="0" max="31" value="30" />
+            </div>
+            <div class="form-group">
+              <label for="dh-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="dh-rate" value="13" min="0" step="0.1" />
+            </div>
+            <button class="btn-primary" onclick="calcDehumidifier()">Calculate Cost</button>
+            <div class="result-box-tool" id="dh-result">
+              <h3>Dehumidifier Running Cost</h3>
+              <div class="result-amount" id="dh-monthly"></div>
+              <table id="dh-breakdown"></table>
+              <p class="result-note">Duty cycle accounts for the humidistat cycling the compressor on and off once your target humidity is reached — most units don't run at full wattage continuously.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How Much Does It Cost to Run a Dehumidifier?</h2>
+            <p>A mid-size 50-pint dehumidifier (about 500 watts) running 8 hours a day at a 65% duty cycle costs roughly <strong>$0.52 per day</strong>, or about <strong>$15.60 per month</strong>, at the U.S. average electricity rate of 13¢/kWh. That's noticeably cheaper than running an air conditioner or space heater, but it adds up over a humid summer if you run it around the clock in a basement or crawl space.</p>
+            <p>The duty cycle matters more for dehumidifiers than for most appliances. Once the humidistat hits your target level (usually 45–50% relative humidity), the compressor shuts off and only the fan may keep running at low draw. In a very damp basement the compressor might run close to 90% of the time; in a moderately humid living room it might only run 40–50% of the time. That's why two identical dehumidifiers in different rooms can have very different real-world electricity bills.</p>
+
+            <h3>Dehumidifier Cost by Size</h3>
+            <p>Estimated monthly cost running 8 hours/day at a 65% duty cycle, at 13¢/kWh:</p>
+            <ul>
+              <li><strong>20–30 pint (small, ~200W):</strong> ~$0.21/day · ~$6.24/month</li>
+              <li><strong>30–35 pint (compact, ~300W):</strong> ~$0.31/day · ~$9.36/month</li>
+              <li><strong>50 pint (mid-size, ~500W):</strong> ~$0.52/day · ~$15.60/month</li>
+              <li><strong>70 pint (large, ~700W):</strong> ~$0.73/day · ~$21.84/month</li>
+            </ul>
+
+            <h3>What Affects Dehumidifier Running Cost</h3>
+            <ul>
+              <li><strong>Room humidity level:</strong> A very damp basement forces the compressor to run far more often than a moderately humid bedroom, directly increasing electricity use even with the same-size unit.</li>
+              <li><strong>Energy Factor (EF) rating:</strong> ENERGY STAR-certified dehumidifiers remove about 15% more water per kWh than standard models, lowering cost for the same moisture removal.</li>
+              <li><strong>Target humidity setting:</strong> Setting the humidistat to 55% instead of 40% means the compressor cycles off sooner, cutting runtime and cost.</li>
+              <li><strong>Room size and sealing:</strong> An undersized unit in a large or poorly sealed space runs almost continuously trying to keep up, which is both less effective and more expensive than sizing up.</li>
+              <li><strong>Climate and season:</strong> Humid summer months drive up runtime far more than winter, when indoor air is typically drier.</li>
+            </ul>
+
+            <h3>Dehumidifier vs. Other Appliances: Cost Comparison</h3>
+            <p>At the same 8 hours/day usage and 13¢/kWh rate, a 500W dehumidifier running at a realistic duty cycle costs less per month than a window AC unit or space heater, but more than a refrigerator. If you're deciding whether basement dampness is worth addressing with a dehumidifier versus tackling it structurally (better drainage, sealing, ventilation), the running cost of a mid-size unit ($15–20/month in season) is usually far cheaper than the cost of mold remediation or water damage from unmanaged humidity.</p>
+
+            <h3>Tips to Lower Dehumidifier Running Cost</h3>
+            <ul>
+              <li><strong>Right-size the unit to the room.</strong> An undersized dehumidifier runs constantly and still may not keep up; oversized units short-cycle inefficiently. Match pint capacity to square footage and dampness level.</li>
+              <li><strong>Set a reasonable target humidity.</strong> 45–50% is comfortable for most homes and prevents mold without over-drying the air, which wastes energy.</li>
+              <li><strong>Seal the space.</strong> Close windows and doors while running — outside humid air constantly entering forces the unit to work harder.</li>
+              <li><strong>Clean the filter and coils regularly.</strong> A dirty filter restricts airflow and can increase runtime by 10–20% for the same moisture removal.</li>
+              <li><strong>Use a continuous drain hose instead of the bucket</strong> if your model supports it — some units pause when the bucket is full, so a hose keeps it running efficiently without you needing to empty it.</li>
+              <li><strong>Choose an ENERGY STAR model</strong> when replacing an old unit — the efficiency gain compounds over years of seasonal use.</li>
+            </ul>
+
+            <p>For related running-cost calculators, see our <a href="/tools/appliance-energy-cost.html">Appliance Energy Cost Calculator</a> or check out how humidity affects your <a href="/tools/heating-vs-cooling.html">heating and cooling costs</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/ac-running-cost.html">AC Running Cost</a></li>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Mid-size (50-pint) unit: <strong>~500W</strong></li>
+              <li>Cost per month (8hr/day): <strong>~$16</strong></li>
+              <li>ENERGY STAR savings: <strong>~15%</strong></li>
+              <li>Ideal target humidity: <strong>45–50%</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#kwh">What is a kWh?</a></li>
+              <li><a href="/glossary/#energy-star">What is ENERGY STAR?</a></li>
+              <li><a href="/glossary/">View full glossary →</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much does it cost to run a dehumidifier?</h3>
+      <p>A typical 50-pint dehumidifier (around 500 watts) running 8 hours a day costs about $0.52/day, or roughly $15.60/month at the U.S. average electricity rate of 13 cents per kWh. Larger 70-pint units use closer to 700 watts and cost about $0.73/day. Small tabletop units under 20 pints can cost less than $0.10/day.</p>
+      <h3>Is it cheaper to run a dehumidifier all day or just a few hours?</h3>
+      <p>Running it only until your target humidity is reached is cheaper than running it continuously. Most dehumidifiers have a humidistat that shuts the compressor off once the room hits the set humidity level (typically 45-50%), so leaving it on "all day" often costs about the same as leaving it on a timer, since it cycles rather than running at full power the whole time.</p>
+      <h3>How many watts does a dehumidifier use?</h3>
+      <p>Most household dehumidifiers use between 200 and 800 watts depending on pint capacity. A small 20-30 pint unit uses roughly 200-300W, a mid-size 50-pint unit uses about 450-550W, and a large 70-pint unit uses 650-800W. Check the nameplate on the back of your unit for the exact wattage.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+document.getElementById('dh-size').addEventListener('change', function() {
+  document.getElementById('dh-custom-group').style.display = this.value === 'custom' ? 'block' : 'none';
+});
+
+function calcDehumidifier() {
+  const sizeSel = document.getElementById('dh-size').value;
+  const watts = sizeSel === 'custom'
+    ? (parseFloat(document.getElementById('dh-custom-watts').value) || 500)
+    : parseFloat(sizeSel);
+  const hours = parseFloat(document.getElementById('dh-hours').value) || 8;
+  const duty = (parseFloat(document.getElementById('dh-duty').value) || 65) / 100;
+  const days = parseFloat(document.getElementById('dh-days').value) || 30;
+  const rate = parseFloat(document.getElementById('dh-rate').value) || 13;
+
+  const effectiveKw = (watts / 1000) * duty;
+  const costPerHour = effectiveKw * (rate / 100);
+  const costPerDay = costPerHour * hours;
+  const costPerMonth = costPerDay * days;
+  const costPerYear = costPerDay * 365;
+  const kwhPerDay = effectiveKw * hours;
+
+  const fmt = v => '$' + v.toFixed(2);
+
+  document.getElementById('dh-monthly').textContent = fmt(costPerMonth) + '/mo';
+  document.getElementById('dh-breakdown').innerHTML = `
+    <tr><td>Cost per hour (effective)</td><td>${fmt(costPerHour)}</td></tr>
+    <tr><td>Cost per day (${hours} hrs)</td><td>${fmt(costPerDay)}</td></tr>
+    <tr style="font-weight:700;"><td>Cost per month</td><td>${fmt(costPerMonth)}</td></tr>
+    <tr><td>Estimated annual cost</td><td>${fmt(costPerYear)}</td></tr>
+    <tr><td>kWh per day</td><td>${kwhPerDay.toFixed(2)} kWh</td></tr>
+  `;
+  const r = document.getElementById('dh-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
