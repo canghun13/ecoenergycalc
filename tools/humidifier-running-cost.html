@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Humidifier Running Cost Calculator – Cost Per Day, Month & Year | EcoEnergyCalc</title>
+  <meta name="description" content="Humidifier running cost calculator: find out how much your cool mist, warm mist, or whole-house humidifier costs to run per hour, day, month, and year." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/humidifier-running-cost.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Humidifier Running Cost Calculator","url":"https://ecoenergycalc.com/tools/humidifier-running-cost.html","description":"Calculate exactly how much it costs to run a humidifier per hour, day, month, and year based on type, wattage, and electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-07-16","dateModified":"2026-07-16","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does it cost to run a humidifier?","acceptedAnswer":{"@type":"Answer","text":"A small cool mist humidifier (about 25 watts) running 8 hours a day costs less than $0.02/day, or roughly $0.55/month, at the U.S. average electricity rate of 13 cents per kWh. A warm mist (steam) humidifier of the same runtime costs closer to $0.22/day, or about $6.55/month, because it uses a heating element instead of just a fan."}},
+    {"@type":"Question","name":"Is a cool mist or warm mist humidifier cheaper to run?","acceptedAnswer":{"@type":"Answer","text":"Cool mist humidifiers are far cheaper to run. A cool mist unit uses a fan and a wick or ultrasonic disc to release moisture, typically drawing 20-60 watts. A warm mist humidifier boils water with an internal heating element, drawing 250-400 watts — roughly 8-12 times more electricity for the same size room."}},
+    {"@type":"Question","name":"How many watts does a humidifier use?","acceptedAnswer":{"@type":"Answer","text":"Small personal cool mist humidifiers use 15-30 watts. Whole-room cool mist evaporative units use 30-60 watts. Warm mist (steam) humidifiers use 250-400 watts. Whole-house furnace-mounted humidifiers use only 35-50 watts themselves, since they rely on the furnace blower to move air."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Humidifier Running Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Humidifier Running Cost Calculator</h1>
+        <p>Find out exactly what your humidifier costs to run — per hour, per day, per month, and per year — based on its type, wattage, and your electricity rate.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Humidifier Running Cost</h2>
+            <div class="form-group">
+              <label for="hm-type">Humidifier Type</label>
+              <select id="hm-type" onchange="setHumidifierDefaults()">
+                <option value="25">Small personal cool mist (~25W)</option>
+                <option value="50" selected>Whole-room cool mist / evaporative (~50W)</option>
+                <option value="300">Warm mist / steam (~300W)</option>
+                <option value="40">Whole-house furnace-mounted (~40W)</option>
+                <option value="custom">Custom wattage</option>
+              </select>
+            </div>
+            <div class="form-group" id="hm-custom-group" style="display:none;">
+              <label for="hm-custom-watts">Custom Wattage (W)</label>
+              <input type="number" id="hm-custom-watts" placeholder="e.g. 60" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="hm-hours">Hours Used Per Day</label>
+              <input type="number" id="hm-hours" placeholder="e.g. 8" min="0" max="24" value="8" />
+            </div>
+            <div class="form-group">
+              <label for="hm-duty">Duty Cycle (% of time actually running)</label>
+              <input type="number" id="hm-duty" placeholder="e.g. 70" min="1" max="100" value="70" />
+            </div>
+            <div class="form-group">
+              <label for="hm-days">Days Per Month</label>
+              <input type="number" id="hm-days" placeholder="e.g. 30" min="0" max="31" value="30" />
+            </div>
+            <div class="form-group">
+              <label for="hm-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="hm-rate" value="13" min="0" step="0.1" />
+            </div>
+            <button class="btn-primary" onclick="calcHumidifier()">Calculate Cost</button>
+            <div class="result-box-tool" id="hm-result">
+              <h3>Humidifier Running Cost</h3>
+              <div class="result-amount" id="hm-monthly"></div>
+              <table id="hm-breakdown"></table>
+              <p class="result-note">Duty cycle accounts for the humidistat cycling the unit on and off once your target humidity is reached — most humidifiers don't run at full wattage the entire time they're switched on.</p>
+            </div>
+          </div>
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How Much Does It Cost to Run a Humidifier?</h2>
+            <p>A small cool mist humidifier (around 25 watts) running 8 hours a day at a 70% duty cycle costs less than <strong>$0.02 per day</strong>, or about <strong>$0.55 per month</strong>, at the U.S. average electricity rate of 13¢/kWh. A whole-room cool mist unit (~50W) costs closer to <strong>$1.09/month</strong>. A warm mist (steam) humidifier of the same size jumps to roughly <strong>$6.55/month</strong>, because it heats water with an electric element instead of just moving air across a wick or ultrasonic plate.</p>
+            <p>The type of humidifier matters far more than the room size for running cost. Two units that humidify the same square footage can differ in electricity use by 10x or more depending on whether they generate mist with a fan or with heat.</p>
+
+            <h3>Humidifier Cost by Type</h3>
+            <p>Estimated monthly cost running 8 hours/day at a 70% duty cycle, at 13¢/kWh:</p>
+            <ul>
+              <li><strong>Small personal cool mist (~25W):</strong> ~$0.02/day · ~$0.55/month</li>
+              <li><strong>Whole-room cool mist / evaporative (~50W):</strong> ~$0.04/day · ~$1.09/month</li>
+              <li><strong>Whole-house furnace-mounted (~40W):</strong> ~$0.03/day · ~$0.87/month</li>
+              <li><strong>Warm mist / steam (~300W):</strong> ~$0.22/day · ~$6.55/month</li>
+            </ul>
+
+            <h3>Cool Mist vs. Warm Mist: Which Costs Less to Run?</h3>
+            <p>Cool mist is the clear winner on running cost. Cool mist humidifiers use a fan combined with either a wick filter (evaporative) or a vibrating ultrasonic disc to release moisture into the air without heating it — typically 20-60 watts. Warm mist humidifiers boil water with an internal heating element, the same basic mechanism as an electric kettle, which is why they draw 250-400 watts — 8 to 12 times more electricity for the same coverage area. Warm mist units do have one advantage unrelated to cost: the boiling process kills some bacteria and mold spores in the water before they're released, which is why they're sometimes preferred for infant rooms. If running cost is the deciding factor and you clean the tank regularly, cool mist is cheaper by a wide margin.</p>
+
+            <h3>Humidifier vs. Dehumidifier: Cost Comparison</h3>
+            <p>Humidifiers and dehumidifiers solve opposite problems, but their running costs are also very different. A cool mist humidifier (20-60W) is one of the cheapest small appliances in the house to run. A dehumidifier uses a compressor, similar to a mini refrigerator, and typically draws 200-800 watts — roughly 5 to 15 times more electricity than a cool mist humidifier of similar coverage. If your home swings between a dry winter (needing a humidifier) and a humid summer (needing a dehumidifier), expect the dehumidifier months to cost noticeably more on your electricity bill. See our <a href="/tools/dehumidifier-running-cost.html">Dehumidifier Running Cost Calculator</a> for a full breakdown.</p>
+
+            <h3>What Affects Humidifier Running Cost</h3>
+            <ul>
+              <li><strong>Mist type (cool vs. warm):</strong> This is the single biggest cost factor — warm mist units use a heating element and cost far more to run than cool mist units of similar output.</li>
+              <li><strong>Room size and target humidity:</strong> A larger room or a higher humidity target (50-55% vs. 30-35%) means the unit runs more often to keep up.</li>
+              <li><strong>Humidistat cycling:</strong> Units with an automatic humidistat shut off once target humidity is reached, lowering the effective duty cycle compared to units that run continuously on a fixed setting.</li>
+              <li><strong>Climate and season:</strong> Cold winter air holds very little moisture, so heated indoor air becomes especially dry — humidifiers typically run far more in winter than any other season.</li>
+              <li><strong>Tank size and refill frequency:</strong> Doesn't directly change wattage, but larger-tank units that need fewer refills tend to run more consistently instead of cycling off empty.</li>
+            </ul>
+
+            <h3>Tips to Lower Humidifier Running Cost</h3>
+            <ul>
+              <li><strong>Choose cool mist over warm mist</strong> if running cost matters — the savings are substantial and compound over an entire heating season.</li>
+              <li><strong>Set a reasonable target humidity.</strong> 30-50% is the range recommended by the EPA for indoor comfort and mold prevention; pushing higher wastes energy and can cause condensation on windows.</li>
+              <li><strong>Use a humidistat-equipped model</strong> instead of a simple on/off unit, so it stops running once the room reaches target humidity.</li>
+              <li><strong>Close doors to the room being humidified</strong> so moist air doesn't escape into unheated or unhumidified spaces, forcing the unit to work longer.</li>
+              <li><strong>Clean the tank and wick/filter regularly.</strong> Mineral buildup and mold can reduce output efficiency, making the unit run longer to reach the same humidity.</li>
+              <li><strong>Size the unit to the room</strong> — an undersized humidifier in a large room runs constantly and still may not reach target humidity.</li>
+            </ul>
+
+            <p>For related running-cost calculators, see our <a href="/tools/dehumidifier-running-cost.html">Dehumidifier Running Cost Calculator</a> or the <a href="/tools/appliance-energy-cost.html">Appliance Energy Cost Calculator</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/dehumidifier-running-cost.html">Dehumidifier Running Cost</a></li>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/tools/heating-vs-cooling.html">Heating vs. Cooling Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Cool mist unit: <strong>~25-50W</strong></li>
+              <li>Warm mist unit: <strong>~300W</strong></li>
+              <li>Cost gap: <strong>~8-12x</strong></li>
+              <li>Ideal indoor humidity: <strong>30-50%</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#kwh">What is a kWh?</a></li>
+              <li><a href="/glossary/#energy-star">What is ENERGY STAR?</a></li>
+              <li><a href="/glossary/">View full glossary →</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much does it cost to run a humidifier?</h3>
+      <p>A small cool mist humidifier (about 25 watts) running 8 hours a day costs less than $0.02/day, or roughly $0.55/month, at the U.S. average electricity rate of 13 cents per kWh. A warm mist (steam) humidifier of the same runtime costs closer to $0.22/day, or about $6.55/month, because it uses a heating element instead of just a fan.</p>
+      <h3>Is a cool mist or warm mist humidifier cheaper to run?</h3>
+      <p>Cool mist humidifiers are far cheaper to run. A cool mist unit uses a fan and a wick or ultrasonic disc to release moisture, typically drawing 20-60 watts. A warm mist humidifier boils water with an internal heating element, drawing 250-400 watts — roughly 8-12 times more electricity for the same size room.</p>
+      <h3>How many watts does a humidifier use?</h3>
+      <p>Small personal cool mist humidifiers use 15-30 watts. Whole-room cool mist evaporative units use 30-60 watts. Warm mist (steam) humidifiers use 250-400 watts. Whole-house furnace-mounted humidifiers use only 35-50 watts themselves, since they rely on the furnace blower to move air.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+document.getElementById('hm-type').addEventListener('change', function() {
+  document.getElementById('hm-custom-group').style.display = this.value === 'custom' ? 'block' : 'none';
+});
+
+function calcHumidifier() {
+  const typeSel = document.getElementById('hm-type').value;
+  const watts = typeSel === 'custom'
+    ? (parseFloat(document.getElementById('hm-custom-watts').value) || 50)
+    : parseFloat(typeSel);
+  const hours = parseFloat(document.getElementById('hm-hours').value) || 8;
+  const duty = (parseFloat(document.getElementById('hm-duty').value) || 70) / 100;
+  const days = parseFloat(document.getElementById('hm-days').value) || 30;
+  const rate = parseFloat(document.getElementById('hm-rate').value) || 13;
+
+  const effectiveKw = (watts / 1000) * duty;
+  const costPerHour = effectiveKw * (rate / 100);
+  const costPerDay = costPerHour * hours;
+  const costPerMonth = costPerDay * days;
+  const costPerYear = costPerDay * 365;
+  const kwhPerDay = effectiveKw * hours;
+
+  const fmt = v => '$' + v.toFixed(2);
+
+  document.getElementById('hm-monthly').textContent = fmt(costPerMonth) + '/mo';
+  document.getElementById('hm-breakdown').innerHTML = `
+    <tr><td>Cost per hour (effective)</td><td>${fmt(costPerHour)}</td></tr>
+    <tr><td>Cost per day (${hours} hrs)</td><td>${fmt(costPerDay)}</td></tr>
+    <tr style="font-weight:700;"><td>Cost per month</td><td>${fmt(costPerMonth)}</td></tr>
+    <tr><td>Estimated annual cost</td><td>${fmt(costPerYear)}</td></tr>
+    <tr><td>kWh per day</td><td>${kwhPerDay.toFixed(2)} kWh</td></tr>
+  `;
+  const r = document.getElementById('hm-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
