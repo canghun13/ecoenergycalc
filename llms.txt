@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 31 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 34 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -30,6 +30,9 @@ Tools for estimating home energy costs and identifying savings opportunities.
 - [Refrigerator Energy Cost Calculator](https://ecoenergycalc.com/tools/refrigerator-energy-cost.html): Estimate how much your refrigerator costs to run per day, month, and year; compare old vs new models and ENERGY STAR savings
 - [Dehumidifier Running Cost Calculator](https://ecoenergycalc.com/tools/dehumidifier-running-cost.html): Calculate the cost to run a dehumidifier per hour, day, month, and year by pint capacity, duty cycle, and electricity rate
 - [Pool Pump Running Cost Calculator](https://ecoenergycalc.com/tools/pool-pump-running-cost.html): Calculate the cost to run a pool pump per day, month, and season; compare single-speed vs variable-speed pump savings
+- [Humidifier Running Cost Calculator](https://ecoenergycalc.com/tools/humidifier-running-cost.html): Calculate the cost to run a humidifier per hour, day, month, and year by type and electricity rate; compare cool mist vs warm mist running cost
+- [Chest & Upright Freezer Running Cost Calculator](https://ecoenergycalc.com/tools/freezer-running-cost.html): Calculate the cost to run a chest or upright deep freezer per month and year by size and type; compare chest vs upright freezer running cost
+- [Hot Tub Running Cost Calculator](https://ecoenergycalc.com/tools/hot-tub-running-cost.html): Calculate hot tub running cost per day, month, and year; compare inflatable vs built-in hot tub electricity costs
 
 - [AC Running Cost Calculator](https://ecoenergycalc.com/tools/ac-running-cost.html): Calculate how much your air conditioner costs to run per hour, day, and month — by BTU, SEER rating, daily usage, and local electricity rate
 
