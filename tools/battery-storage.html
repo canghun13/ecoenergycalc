@@ -80,8 +80,8 @@
               <li><strong>Enphase IQ Battery 5P:</strong> 5 kWh (stackable), ~$5,000/unit</li>
               <li><strong>Franklin Home Power:</strong> 13.6 kWh, ~$10,000 installed</li>
             </ul>
-            <h3>Battery Tax Credits</h3>
-            <p>Standalone battery storage now qualifies for the 30% federal tax credit under the IRA (as of 2023), even without solar panels.</p>
+            <h3>Battery Tax Credits Have Expired</h3>
+            <p>Standalone battery storage used to qualify for a 30% federal tax credit under the IRA (as of 2023), even without solar panels. <strong>That credit was terminated by the One Big Beautiful Bill Act for any battery placed in service after December 31, 2025</strong> — 2026 installations no longer qualify. Check dsireusa.org for state and utility battery incentives (like California's SGIP) that may still apply.</p>
 
             <h2>Grid Outages and Energy Resilience</h2>
             <p>Beyond economics, backup power resilience is a major reason homeowners invest in battery storage. Grid-tied solar panels without batteries shut off during a power outage — a safety requirement to prevent backfeeding electricity to utility workers. Adding battery storage allows your solar system to continue powering your home during an outage, running essential loads like refrigerators, medical equipment, lighting, and device charging.</p>
@@ -155,7 +155,6 @@ function calcBattery() {
     <tr style="font-weight:700;"><td>Recommended capacity</td><td>${sizeNeeded.toFixed(1)} kWh</td></tr>
     <tr><td>~Powerwall-sized units</td><td>${units}</td></tr>
     <tr><td>Est. installed cost</td><td>${fmt(estCost)}</td></tr>
-    <tr><td>After 30% tax credit</td><td>${fmt(estCost * 0.7)}</td></tr>
     ${tou ? `<tr><td>Est. TOU annual savings</td><td>${fmt(annualSavings)}</td></tr>` : ''}
   `;
   const r = document.getElementById('bat-result');
