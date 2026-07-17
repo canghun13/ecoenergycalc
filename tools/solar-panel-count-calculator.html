@@ -87,7 +87,7 @@
               <div class="table-scroll">
                 <table id="spc-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Assumes 80% system efficiency (real-world derate factor). Cost at $3.00/W installed before 30% ITC. Each 400W panel = 21.5 sq ft of roof space.</p>
+              <p class="result-note">Assumes 80% system efficiency (real-world derate factor). Cost at $3.00/W installed — no federal tax credit applied (expired Dec 31, 2025). Each 400W panel = 21.5 sq ft of roof space.</p>
             </div>
           </div>
 
@@ -145,7 +145,7 @@
               <li>Typical system size: <strong>6–8 kW</strong></li>
               <li>Panels for avg home: <strong>15–22 panels</strong></li>
               <li>Cost per watt installed: <strong>$2.50–$3.50</strong></li>
-              <li>Federal ITC: <strong>30% through 2032</strong></li>
+              <li>Federal ITC: <strong>expired Dec 2025</strong></li>
               <li>Sq ft per panel: <strong>~21.5 sq ft</strong></li>
             </ul>
           </div>
@@ -190,9 +190,8 @@ function calcSolarPanelCount() {
   var panels = Math.ceil(systemKw * 1000 / panelW);
   var roofSqFt = panels * 21.5;
   var costBefore = systemKw * 1000 * 3.00;
-  var costAfter = costBefore * 0.70;
   var annualSavings = monthlyKwh * 12 * coverage * rate;
-  var payback = costAfter / annualSavings;
+  var payback = costBefore / annualSavings;
 
   var fmt = function(v){ return '$' + Math.round(v).toLocaleString(); };
 
@@ -203,8 +202,7 @@ function calcSolarPanelCount() {
     '<tr><td>Number of ' + panelW + 'W panels</td><td>' + panels + ' panels</td></tr>' +
     '<tr><td>Roof space required</td><td>~' + Math.round(roofSqFt) + ' sq ft</td></tr>' +
     '<tr><td>Annual production</td><td>' + Math.round(annualKwh).toLocaleString() + ' kWh</td></tr>' +
-    '<tr><td>Estimated cost (before ITC)</td><td>' + fmt(costBefore) + '</td></tr>' +
-    '<tr><td>After 30% federal tax credit</td><td>' + fmt(costAfter) + '</td></tr>' +
+    '<tr><td>Estimated installed cost</td><td>' + fmt(costBefore) + '</td></tr>' +
     '<tr><td>Annual electricity savings</td><td>' + fmt(annualSavings) + '/yr</td></tr>' +
     '<tr style="font-weight:700;"><td>Payback period</td><td>' + payback.toFixed(1) + ' years</td></tr>';
 
