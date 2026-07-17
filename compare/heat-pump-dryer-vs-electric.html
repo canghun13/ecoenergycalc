@@ -43,7 +43,7 @@
               <div class="table-scroll">
                 <table id="hd-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Standard electric: 5,000W, 45-min cycle. Heat pump: 2,000W, 60-min cycle (lower temp = longer but gentler). IRA tax credit: 30% of heat pump dryer cost (up to $600 credit).</p>
+              <p class="result-note">Standard electric: 5,000W, 45-min cycle. Heat pump: 2,000W, 60-min cycle (lower temp = longer but gentler). No federal tax credit applied — the IRA credit for heat pump dryers expired December 31, 2025.</p>
             </div>
           </div>
           <div class="article-body">
@@ -51,7 +51,7 @@
             <p>Conventional electric dryers work by heating air with an electric element, blowing it through clothes, and exhausting the moisture-laden air to the exterior. This wastes the thermal energy in that exhaust air. Heat pump dryers recirculate air through a closed loop: the heat pump extracts moisture from the air, condenses it to water (which drains), reheats the drier air, and returns it through the drum. This recirculation recovers 50–60% of the thermal energy that a conventional dryer exhausts, reducing electricity use per load from approximately 5 kWh to 2.5–3 kWh.</p>
 
             <h2>Annual Savings Calculation</h2>
-            <p>At 260 loads/year (5 loads/week): conventional electric at 5 kWh/load uses 1,300 kWh/year; heat pump dryer at 2.7 kWh/load uses 702 kWh/year. Savings: 598 kWh/year. At 13¢/kWh = $77.7/year. At 20¢/kWh (California): $119.6/year. The IRA's Energy Efficient Home Improvement Credit provides 30% of cost up to $150 for heat pump dryers. A $1,000 heat pump dryer with a $150 credit costs $850 net vs. a $500 conventional electric — a $350 premium. At $78/year savings, payback is 4.5 years. At California rates, payback is 2.9 years. Compelling economics in higher-rate states.</p>
+            <p>At 260 loads/year (5 loads/week): conventional electric at 5 kWh/load uses 1,300 kWh/year; heat pump dryer at 2.7 kWh/load uses 702 kWh/year. Savings: 598 kWh/year. At 13¢/kWh = $77.7/year. At 20¢/kWh (California): $119.6/year. Note: the IRA's Energy Efficient Home Improvement Credit, which used to cover 30% of cost up to $150 for heat pump dryers, expired December 31, 2025. A $1,000 heat pump dryer now costs the full $1,000 vs. a $500 conventional electric — a $500 premium. At $78/year savings, payback is roughly 6.4 years. At California rates, payback is about 4.2 years — still reasonable economics in higher-rate states, just longer than when the credit was active.</p>
 
             <h2>No Exhaust Duct Required: A Practical Advantage</h2>
             <p>Conventional dryers require a 4-inch duct to the exterior — a significant installation constraint in condos, basements, or homes where the laundry room doesn't have exterior wall access. Heat pump dryers require only a 240V outlet and a drain connection (or a condensate collection container that you empty periodically). This opens up laundry room placement options that don't exist for vented dryers, and eliminates the fire hazard associated with lint buildup in dryer ducts — which causes approximately 2,900 U.S. structure fires annually according to the NFPA.</p>
@@ -82,7 +82,7 @@
             <h3>Quick Facts</h3>
             <ul>
               <li>Annual savings: <strong>~$73/yr (avg rates)</strong></li>
-              <li>IRA tax credit: <strong>up to $600</strong></li>
+              <li>IRA tax credit: <strong>expired Dec 2025</strong></li>
               <li>No venting: <strong>install anywhere</strong></li>
             </ul>
           </div>
@@ -107,23 +107,18 @@ function calcHeatPumpDryer() {
   const hpAnnual=hpKwh*elec;
   const annualSavings=stdAnnual-hpAnnual;
   const premium=hpCost-stdCost;
-  const itc=Math.min(hpCost*0.30,600);
-  const effectivePremium=premium-itc;
-  const payback=annualSavings>0?effectivePremium/annualSavings:999;
-  const paybackNoCredit=annualSavings>0?premium/annualSavings:999;
+  const payback=annualSavings>0?premium/annualSavings:999;
 
   const fmt=v=>'$'+Math.round(v).toLocaleString();
-  document.getElementById('hd-payback').textContent=payback<0?'Immediate payback (ITC exceeds premium)':payback.toFixed(1)+' year payback (with ITC)';
+  document.getElementById('hd-payback').textContent=payback<0?'Immediate payback':payback.toFixed(1)+' year payback';
   document.getElementById('hd-table').innerHTML=`
     <tr><th></th><th>Standard Electric</th><th>Heat Pump Dryer</th></tr>
     <tr><td>Annual kWh</td><td>${Math.round(stdKwh).toLocaleString()}</td><td>${Math.round(hpKwh).toLocaleString()}</td></tr>
     <tr><td>Annual electricity cost</td><td>${fmt(stdAnnual)}</td><td>${fmt(hpAnnual)}</td></tr>
     <tr><td>Annual savings</td><td colspan="2" style="font-weight:700;">${fmt(annualSavings)}/year</td></tr>
     <tr><td>Purchase price</td><td>${fmt(stdCost)}</td><td>${fmt(hpCost)}</td></tr>
-    <tr><td>IRA tax credit (30%)</td><td>—</td><td>-${fmt(itc)}</td></tr>
-    <tr><td>Price premium (after credit)</td><td colspan="2">${fmt(effectivePremium)}</td></tr>
-    <tr><td>Payback without ITC</td><td colspan="2">${paybackNoCredit.toFixed(1)} years</td></tr>
-    <tr style="font-weight:700;"><td>Payback with ITC</td><td colspan="2">${payback<0?'Immediate':payback.toFixed(1)+' years'}</td></tr>
+    <tr><td>Price premium</td><td colspan="2">${fmt(premium)}</td></tr>
+    <tr style="font-weight:700;"><td>Payback period</td><td colspan="2">${payback<0?'Immediate':payback.toFixed(1)+' years'}</td></tr>
   `;
   const r=document.getElementById('hd-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
 }

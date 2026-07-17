@@ -106,7 +106,7 @@ function calcTriple() {
   const fmt=v=>'$'+Math.round(v).toLocaleString();
   document.getElementById('tri-table').innerHTML=`
     <tr><th></th><th>EV</th><th>Hybrid</th><th>Gas Car</th></tr>
-    <tr><td>Purchase price</td><td>${fmt(evPurchase)} (after credit)</td><td>${fmt(hybPurchase)}</td><td>${fmt(gasPurchase)}</td></tr>
+    <tr><td>Purchase price</td><td>${fmt(evPurchase)}</td><td>${fmt(hybPurchase)}</td><td>${fmt(gasPurchase)}</td></tr>
     <tr><td>5-yr fuel cost</td><td>${fmt(evFuel)}</td><td>${fmt(hybFuel)}</td><td>${fmt(gasFuel)}</td></tr>
     <tr><td>5-yr maintenance</td><td>${fmt(evMaint)}</td><td>${fmt(hybMaint)}</td><td>${fmt(gasMaint)}</td></tr>
     <tr style="font-weight:700;"><td>5-Year Total</td><td>${fmt(evTotal)}</td><td>${fmt(hybTotal)}</td><td>${fmt(gasTotal)}</td></tr>

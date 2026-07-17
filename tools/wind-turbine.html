@@ -125,7 +125,7 @@ function calcWind() {
   const cf = { low: 0.10, medium: 0.22, high: 0.32, very_high: 0.42 };
   const annualKwh = kw * cf[wind] * 8760;
   const annualSavings = annualKwh * (rate / 100);
-  const payback = cost > 0 ? (cost * 0.7) / annualSavings : null; // 30% tax credit
+  const payback = cost > 0 ? cost / annualSavings : null; // no federal credit — expired Dec 2025
 
   const fmt = v => '$' + Math.round(v).toLocaleString();
   document.getElementById('wt-kwh').textContent = Math.round(annualKwh).toLocaleString() + ' kWh/yr';
@@ -133,8 +133,7 @@ function calcWind() {
     <tr><td>Capacity factor</td><td>${Math.round(cf[wind]*100)}%</td></tr>
     <tr><td>Annual production</td><td>${Math.round(annualKwh).toLocaleString()} kWh</td></tr>
     <tr style="font-weight:700;"><td>Annual savings</td><td>${fmt(annualSavings)}</td></tr>
-    ${cost > 0 ? `<tr><td>Net cost (after 30% credit)</td><td>${fmt(cost * 0.7)}</td></tr>
-    <tr><td>Payback period</td><td>${payback.toFixed(1)} years</td></tr>` : ''}
+    ${cost > 0 ? `<tr><td>Payback period</td><td>${payback.toFixed(1)} years</td></tr>` : ''}
   `;
   const r = document.getElementById('wt-result');
   r.classList.add('visible');
