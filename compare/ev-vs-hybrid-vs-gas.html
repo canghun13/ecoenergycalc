@@ -41,7 +41,7 @@
               <div class="table-scroll">
                 <table id="tri-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">EV: $42,000 purchase, 3.5 mi/kWh, $400/yr maintenance. Hybrid: $35,000 purchase, 50 MPG, $700/yr maintenance. Gas car: $30,000 purchase, 30 MPG, $900/yr maintenance. EV tax credit $7,500 applied.</p>
+              <p class="result-note">EV: $42,000 purchase, 3.5 mi/kWh, $400/yr maintenance. Hybrid: $35,000 purchase, 50 MPG, $700/yr maintenance. Gas car: $30,000 purchase, 30 MPG, $900/yr maintenance. No federal EV tax credit applied — it expired for vehicles acquired after September 30, 2025.</p>
             </div>
           </div>
           <div class="article-body">
@@ -49,7 +49,7 @@
             <p>Hybrids occupy a position that's easy to dismiss but hard to replace for specific use cases. A Toyota Camry Hybrid at 47 MPG combined eliminates 40% of fuel costs vs. the standard 32 MPG version, with zero charging infrastructure requirement and no range concern. For drivers who regularly take long interstate trips, park in apartments without charging access, or live in rural areas with limited charging, a hybrid delivers most of the fuel savings of an EV without any of the charging complexity. Plug-in hybrids (PHEVs) extend this further: 30–50 miles of electric range covers most daily driving while a gas engine handles everything else.</p>
 
             <h2>Total Cost of Ownership: 5-Year Snapshot</h2>
-            <p>On a 12,000 miles/year commuter pattern with 13¢/kWh electricity and $3.90/gallon gas: a $42,000 EV (after $7,500 ITC = $34,500 effective) costs about $446/year in fuel and $500/year maintenance. A $36,000 hybrid costs $1,370/year in fuel and $750/year maintenance. A $32,000 gas car costs $1,560/year in fuel and $1,050/year maintenance. Over 5 years: EV = ~$39,230, Hybrid = ~$42,600, Gas = ~$44,550. The EV wins — but the margin narrows significantly if you can't use the full $7,500 credit or charge primarily at public DC fast chargers.</p>
+            <p>On a 12,000 miles/year commuter pattern with 13¢/kWh electricity and $3.90/gallon gas: a $42,000 EV costs about $446/year in fuel and $500/year maintenance. A $36,000 hybrid costs $1,370/year in fuel and $750/year maintenance. A $32,000 gas car costs $1,560/year in fuel and $1,050/year maintenance. Over 5 years: EV = ~$46,730, Hybrid = ~$42,600, Gas = ~$44,550. Note: the federal EV purchase credit of up to $7,500 expired for vehicles acquired after September 30, 2025 (with narrow exceptions for binding contracts signed before then), so most 2026 EV buyers no longer get that discount — the EV's cost advantage now depends much more on fuel and maintenance savings alone, and the purchase-price gap versus hybrid or gas often no longer closes as quickly.</p>
 
             <h2>The Hidden Factor: Charging Behavior</h2>
             <p>An EV's economics depend heavily on how you charge. Home charging on a standard 120V outlet (Level 1) at 13¢/kWh costs $0.046/mile. Public DC fast charging at $0.35–$0.50/kWh costs $0.10–$0.14/mile — approaching gas car fuel costs. Drivers who rely heavily on public fast charging (apartments, no home charging access) see dramatically lower EV fuel savings. If more than 20% of your charging will be at public DC fast chargers, recalculate your cost savings accordingly — the hybrid may beat the EV on real-world fuel costs in that scenario.</p>
@@ -97,7 +97,7 @@ function calcTriple() {
   const gas=parseFloat(document.getElementById('tri-gas').value)||3.90;
   const elec=parseFloat(document.getElementById('tri-elec').value)/100||0.13;
   const yrs=5;
-  const evPurchase=42000-7500; const hybPurchase=35000; const gasPurchase=30000;
+  const evPurchase=42000; const hybPurchase=35000; const gasPurchase=30000; // no federal EV credit — expired Sept 30, 2025
   const evFuel=(miles/3.5)*elec*yrs; const hybFuel=(miles/50)*gas*yrs; const gasFuel=(miles/30)*gas*yrs;
   const evMaint=400*yrs; const hybMaint=700*yrs; const gasMaint=900*yrs;
   const evTotal=evPurchase+evFuel+evMaint;
