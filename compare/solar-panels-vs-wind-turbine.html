@@ -58,7 +58,7 @@
               <div class="table-scroll">
                 <table id="sw-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Solar: production = kW × sun hours × 365 × 0.80. Wind: uses power curve estimate — output scales with cube of wind speed. Both costs estimated at post-ITC prices.</p>
+              <p class="result-note">Solar: production = kW × sun hours × 365 × 0.80. Wind: uses power curve estimate — output scales with cube of wind speed. Both costs shown are full installed price — no federal tax credit applied (expired December 31, 2025).</p>
             </div>
           </div>
           <div class="article-body">
@@ -98,7 +98,7 @@
             <ul>
               <li>Min viable wind speed: <strong>10–12 mph avg</strong></li>
               <li>Solar works at: <strong>most U.S. locations</strong></li>
-              <li>Wind cost after ITC: <strong>~$3.50/W installed</strong></li>
+              <li>Wind cost: <strong>~$5/W installed</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -118,7 +118,7 @@ function calcSolarWind() {
 
   // Solar annual kWh
   const solarKwh = solarKw * sun * 365 * 0.80;
-  const solarCost = solarKw * 1000 * 3.00 * 0.70; // after 30% ITC, $3/W
+  const solarCost = solarKw * 1000 * 3.00; // $3/W, no federal credit (ITC expired Dec 2025)
   const solarSavings = solarKwh * rate;
   const solarPayback = solarCost / solarSavings;
 
@@ -126,7 +126,7 @@ function calcSolarWind() {
   // Capacity factor scales roughly with (v/12)^3 where 12mph = ~25% capacity factor
   const cf = Math.min(0.45, 0.25 * Math.pow(windMph / 12, 3));
   const windKwh = windKw * cf * 8760;
-  const windCost = windKw * 1000 * 5.00 * 0.70; // ~$5/W installed, after ITC
+  const windCost = windKw * 1000 * 5.00; // ~$5/W installed, no federal credit (ITC expired Dec 2025)
   const windSavings = windKwh * rate;
   const windPayback = windSavings > 0 ? windCost / windSavings : 999;
 
@@ -138,7 +138,7 @@ function calcSolarWind() {
     <tr><th></th><th>Solar (${solarKw}kW)</th><th>Wind (${windKw}kW)</th></tr>
     <tr><td>Annual Output</td><td>${fmtKwh(solarKwh)}</td><td>${fmtKwh(windKwh)}</td></tr>
     <tr><td>Annual Savings</td><td>${fmt(solarSavings)}</td><td>${fmt(windSavings)}</td></tr>
-    <tr><td>Installed Cost (after ITC)</td><td>${fmt(solarCost)}</td><td>${fmt(windCost)}</td></tr>
+    <tr><td>Installed Cost</td><td>${fmt(solarCost)}</td><td>${fmt(windCost)}</td></tr>
     <tr><td>Payback Period</td><td>${solarPayback.toFixed(1)} years</td><td>${windPayback > 50 ? '50+ years' : windPayback.toFixed(1) + ' years'}</td></tr>
     <tr><td>Location Viability</td><td>✅ Works most locations</td><td>${viable}</td></tr>
   `;

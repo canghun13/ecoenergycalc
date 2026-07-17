@@ -58,7 +58,7 @@
               <div class="table-scroll">
                 <table id="sg-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Portable generator: $1,500 purchase, 0.75 gal/hr fuel, $150/yr maintenance. Standby generator: $12,000 installed, $300/yr maintenance. Solar+battery: $25,000 installed (after ITC), zero fuel cost, solar savings offset cost daily.</p>
+              <p class="result-note">Portable generator: $1,500 purchase, 0.75 gal/hr fuel, $150/yr maintenance. Standby generator: $12,000 installed, $300/yr maintenance. Solar+battery: $25,000 installed — full price, no federal tax credit (ITC expired Dec 2025), zero fuel cost, solar savings offset cost daily.</p>
             </div>
           </div>
           <div class="article-body">
@@ -69,7 +69,7 @@
             <p>A generator provides power indefinitely as long as fuel is available. Solar and battery provides power until the battery depletes — then relies on solar recharging each day. A 13.5 kWh battery powering essential loads (1–2 kWh/hour) lasts 6–13 hours without solar input. With daytime solar recharging, the system can sustain essential loads indefinitely. The critical difference: solar and battery works silently and automatically; generators require manual starting, fuel storage (which degrades), and carbon monoxide awareness. They also cannot be used indoors.</p>
 
             <h2>10-Year Total Cost of Ownership</h2>
-            <p>Compare a portable generator ($1,500 purchase, $150/year maintenance, used 5 days/year at 6 hrs/day on fuel) vs. a solar and battery system ($25,000 installed, eligible for 30% ITC = $17,500 effective). The generator costs roughly $3,000 over 10 years in maintenance and occasional fuel. The solar system costs $17,500 but generates $8,000–$15,000 in electricity value over the same period — netting to $2,500–$9,500 depending on your rates. Over 25 years, the solar system wins decisively while also eliminating your electric bill. The generator remains purely an expense.</p>
+            <p>Compare a portable generator ($1,500 purchase, $150/year maintenance, used 5 days/year at 6 hrs/day on fuel) vs. a solar and battery system ($25,000 installed — no federal tax credit in 2026, since the 30% ITC expired December 31, 2025). The generator costs roughly $3,000 over 10 years in maintenance and occasional fuel. The solar system costs the full $25,000 but generates $8,000–$15,000 in electricity value over the same period, plus continues producing well beyond 10 years. Over 25 years, the solar system still tends to win on total value while also eliminating your electric bill, though the payback timeline is longer than it was with the expired credit. The generator remains purely an expense.</p>
 
             <h2>What Generators Do Better</h2>
             <p>Generators excel in one scenario: high-power, short-duration outages where you need to run large loads (central HVAC, electric range, well pump) that would quickly drain even large battery banks. A 7,500W generator can power a whole house during a 3-day outage. A 13.5 kWh battery cannot run central air conditioning continuously. If you live in a hurricane zone and need to power your full home for 3–7 days, a whole-home standby generator remains the most reliable solution — though pairing it with solar and battery reduces fuel consumption dramatically.</p>
@@ -130,7 +130,7 @@ function calcSolarGen() {
   const standbyMaint = 300;
   const standby10yr = standbyUpfront + (annualFuelCost + standbyMaint) * 10;
 
-  // Solar + battery 10yr (after ITC)
+  // Solar + battery 10yr (no federal credit — ITC expired Dec 2025)
   const solarBatUpfront = 25000;
   const solarBat10yr = solarBatUpfront - annualSolarSavings * 10;
 
@@ -138,7 +138,7 @@ function calcSolarGen() {
 
   document.getElementById('sg-table').innerHTML = `
     <tr><th></th><th>Portable Generator</th><th>Standby Generator</th><th>Solar + Battery</th></tr>
-    <tr><td>Upfront cost</td><td>$1,500</td><td>$12,000</td><td>$25,000 (after ITC)</td></tr>
+    <tr><td>Upfront cost</td><td>$1,500</td><td>$12,000</td><td>$25,000</td></tr>
     <tr><td>Annual fuel cost</td><td>${fmt(annualFuelCost)}</td><td>${fmt(annualFuelCost)}</td><td>$0</td></tr>
     <tr><td>Annual maintenance</td><td>$150</td><td>$300</td><td>~$0</td></tr>
     <tr><td>Annual electricity savings</td><td>$0</td><td>$0</td><td>${fmt(annualSolarSavings)}</td></tr>

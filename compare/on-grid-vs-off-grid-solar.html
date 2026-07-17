@@ -50,7 +50,7 @@
               <div class="table-scroll">
                 <table id="og-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Off-grid sized for 3 days of battery autonomy. Hybrid includes one 13.5kWh battery. All costs before 30% ITC. Payback based on current electricity rate savings.</p>
+              <p class="result-note">Off-grid sized for 3 days of battery autonomy. Hybrid includes one 13.5kWh battery. All costs are full installed price — no federal tax credit applied (expired December 31, 2025). Payback based on current electricity rate savings.</p>
             </div>
           </div>
           <div class="article-body">
@@ -111,22 +111,19 @@ function calcOnOffGrid() {
 
   // On-grid: panels + inverter, ~$3/W installed
   const onGridCost = systemKw * 1000 * 3.00;
-  const onGridAfterItc = onGridCost * 0.70;
   const annualSavings = annualKwh * rate;
-  const onGridPayback = onGridAfterItc / annualSavings;
+  const onGridPayback = onGridCost / annualSavings;
 
   // Hybrid: panels + 1 battery ($12,000)
   const hybridCost = onGridCost + 12000;
-  const hybridAfterItc = hybridCost * 0.70;
-  const hybridPayback = hybridAfterItc / annualSavings;
+  const hybridPayback = hybridCost / annualSavings;
 
   // Off-grid: panels + battery bank (3 days autonomy) + larger inverter
   const dailyKwh = monthlyKwh / 30;
   const batteryKwh = dailyKwh * 3 / 0.80; // 80% DoD
   const offGridPanelKw = systemKw * 1.3; // oversized for cloudy days
   const offGridCost = offGridPanelKw * 1000 * 3.50 + batteryKwh * 600; // ~$600/kWh battery
-  const offGridAfterItc = offGridCost * 0.70;
-  const offGridPayback = offGridAfterItc / annualSavings;
+  const offGridPayback = offGridCost / annualSavings;
 
   const fmt = v => '$' + Math.round(v).toLocaleString();
 
@@ -134,7 +131,6 @@ function calcOnOffGrid() {
     <tr><th></th><th>On-Grid</th><th>Hybrid</th><th>Off-Grid</th></tr>
     <tr><td>System size</td><td>${systemKw.toFixed(1)}kW</td><td>${systemKw.toFixed(1)}kW + battery</td><td>${offGridPanelKw.toFixed(1)}kW + ${Math.round(batteryKwh)}kWh battery</td></tr>
     <tr><td>Installed cost</td><td>${fmt(onGridCost)}</td><td>${fmt(hybridCost)}</td><td>${fmt(offGridCost)}</td></tr>
-    <tr><td>After 30% ITC</td><td>${fmt(onGridAfterItc)}</td><td>${fmt(hybridAfterItc)}</td><td>${fmt(offGridAfterItc)}</td></tr>
     <tr><td>Annual savings</td><td>${fmt(annualSavings)}</td><td>${fmt(annualSavings)}</td><td>${fmt(annualSavings)}</td></tr>
     <tr><td>Payback period</td><td>${onGridPayback.toFixed(1)} years</td><td>${hybridPayback.toFixed(1)} years</td><td>${offGridPayback.toFixed(1)} years</td></tr>
     <tr><td>Works during outage?</td><td>❌ No</td><td>✅ Limited</td><td>✅ Yes</td></tr>
