@@ -42,7 +42,7 @@
               <div class="table-scroll">
                 <table id="hp-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Heat pump COP 2.5 average (varies with temperature). Gas furnace 95% AFUE. Gas boiler 85% AFUE. Insulation factor: 6 BTU/hr/sq ft/°F HDD. Installation costs: heat pump $6,000, furnace $3,500, boiler $6,000 (after ITC for heat pump: $4,200).</p>
+              <p class="result-note">Heat pump COP 2.5 average (varies with temperature). Gas furnace 95% AFUE. Gas boiler 85% AFUE. Insulation factor: 6 BTU/hr/sq ft/°F HDD. Installation costs: heat pump $6,000, furnace $3,500, boiler $6,000. No federal tax credit applied — the heat pump ITC expired December 31, 2025.</p>
             </div>
           </div>
           <div class="article-body">
@@ -56,7 +56,7 @@
             <p>Heat pumps work best with forced-air distribution systems (ductwork). Homes with hot-water baseboard or radiator systems (typical in Northeast cities and older construction) face a compatibility challenge. Hydronic (water-based) heat pumps exist but cost 30–50% more than air-to-air systems. Mini-split heat pumps bypass the ductwork issue entirely by delivering heat directly to zones — often the most practical heat pump solution for homes with boilers. Installing 3–4 mini-splits throughout a home ($15,000–$25,000) provides both heating and cooling without touching existing boiler or ductwork.</p>
 
             <h2>The IRA Tax Credit Changes the Calculus</h2>
-            <p>The Inflation Reduction Act (2022) provides a 30% tax credit (up to $2,000) for qualifying heat pump installations through 2032. Low-to-moderate income households may qualify for additional HEEHRA rebates up to $8,000. A heat pump installation that costs $12,000 before incentives nets to $9,600–$4,000 after credits and rebates for eligible households. This has dramatically improved heat pump payback periods — in many markets, heat pump installation now pays back within 5–8 years versus 12–15 years pre-IRA, particularly when replacing an aging gas system.</p>
+            <p>The Inflation Reduction Act (2022) used to provide a 30% tax credit (up to $2,000) for qualifying heat pump installations, but that credit was terminated by the One Big Beautiful Bill Act for anything placed in service after December 31, 2025 — it doesn't apply in 2026. Low-to-moderate income households may still qualify for HEEHRA rebates up to $8,000, a separate program that survived. A heat pump installation that costs $12,000 now nets to roughly $4,000 after HEEHRA rebates alone for eligible households, or the full $12,000 for households that don't qualify. Payback periods are longer than they were with the federal credit — often 8–12 years versus 5–8 years when the credit was still available, particularly when replacing an aging gas system.</p>
           </div>
         </div>
         <div>
@@ -80,7 +80,7 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Heat pump ITC credit: <strong>30% (up to $2,000)</strong></li>
+              <li>Heat pump ITC credit: <strong>expired Dec 2025</strong></li>
               <li>Heat pump COP: <strong>2.5 average</strong></li>
               <li>Gas furnace AFUE: <strong>95%</strong></li>
             </ul>
@@ -125,7 +125,7 @@ function calcHeating() {
   const boilerAnnual = boilerTherm * gas;
 
   // Payback vs furnace (cheapest install)
-  const hpInstall = 6000 * 0.70; // after 30% ITC
+  const hpInstall = 6000; // federal ITC expired Dec 2025, full price
   const furnaceInstall = 3500;
   const boilerInstall = 6000;
 
@@ -140,7 +140,7 @@ function calcHeating() {
     <tr><th></th><th>Heat Pump</th><th>Gas Furnace (95%)</th><th>Gas Boiler (85%)</th></tr>
     <tr><td>Annual energy use</td><td>${Math.round(hpKwh).toLocaleString()} kWh</td><td>${Math.round(furnaceTherm)} therms</td><td>${Math.round(boilerTherm)} therms</td></tr>
     <tr><td>Annual heating cost</td><td>${fmt(hpAnnual)}</td><td>${fmt(furnaceAnnual)}</td><td>${fmt(boilerAnnual)}</td></tr>
-    <tr><td>Install cost</td><td>${fmt(hpInstall)} (after ITC)</td><td>${fmt(furnaceInstall)}</td><td>${fmt(boilerInstall)}</td></tr>
+    <tr><td>Install cost</td><td>${fmt(hpInstall)}</td><td>${fmt(furnaceInstall)}</td><td>${fmt(boilerInstall)}</td></tr>
     <tr><td>Provides cooling?</td><td>✅ Yes</td><td>❌ No</td><td>❌ No</td></tr>
     <tr><td>Carbon emissions</td><td>Depends on grid</td><td>~${Math.round(furnaceTherm*5.3)} kg CO₂/yr</td><td>~${Math.round(boilerTherm*5.3)} kg CO₂/yr</td></tr>
   `;

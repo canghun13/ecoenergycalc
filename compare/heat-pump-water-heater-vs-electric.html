@@ -29,7 +29,7 @@
       </div>
       <div class="tool-layout">
         <div>
-          <p>Heat pump water heaters use 60–70% less electricity than standard electric tanks. With the 30% federal tax credit, payback is often under 3 years. Calculate your specific situation below.</p>
+          <p>Heat pump water heaters use 60–70% less electricity than standard electric tanks. Now that the 30% federal tax credit has expired, payback typically runs 3–6 years from operating savings alone — still one of the faster-paying-back home energy upgrades. Calculate your specific situation below.</p>
           <div class="calc-box" style="margin:32px 0;">
             <h2>Heat Pump Water Heater Payback Calculator</h2>
             <div class="form-group"><label for="hp-wh-gal">Daily Hot Water Use (gallons)</label><input type="number" id="hp-wh-gal" value="50" min="10" max="150" step="5" /></div>
@@ -44,15 +44,15 @@
               <div class="table-scroll">
                 <table id="hp-wh-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Standard electric tank: 95% efficient. Heat pump water heater: COP 2.5 (250% efficient). IRA tax credit: 30% of HPWH cost up to $600. 10-year savings shown.</p>
+              <p class="result-note">Standard electric tank: 95% efficient. Heat pump water heater: COP 2.5 (250% efficient). No federal tax credit applied — the 30% IRA credit for HPWHs expired December 31, 2025. 10-year savings shown.</p>
             </div>
           </div>
           <div class="article-body">
 <h2>The Efficiency Gap Is Larger Than Almost Any Other Appliance Comparison</h2>
             <p>Standard electric resistance water heaters are 95% efficient — nearly all electricity becomes heat. Heat pump water heaters operate at 300–400% efficiency (COP 3.0–4.0) because they move heat from the surrounding air into the water rather than generating heat from electricity. This is not a small difference: a HPWH uses 1,200–1,400 kWh/year for a typical household vs. 4,000–4,500 kWh for electric resistance. The annual electricity saving is 2,600–3,300 kWh — worth $338–$429/year at 13¢/kWh. This is one of the largest single-appliance electricity savings available in the home.</p>
 
-            <h2>Federal Tax Credit: 30% Off Through 2032</h2>
-            <p>The Inflation Reduction Act provides a 30% federal tax credit for heat pump water heaters, capped at $300. On a $1,000 HPWH, that's a $300 credit. Additional state rebates are available in California (up to $1,000 through the Statewide TECH Clean California program), Massachusetts ($750), New York ($700), and other states. Combined federal plus state incentives can reduce effective cost to $200–$400 for a quality HPWH (Rheem ProTerra 50-gallon, A.O. Smith Voltex). At that effective price and $338+/year in savings, payback is under 1–2 years — among the fastest paybacks of any home energy upgrade.</p>
+            <h2>Federal Tax Credit: Expired December 31, 2025</h2>
+            <p>The Inflation Reduction Act used to provide a 30% federal tax credit for heat pump water heaters, capped at $300 — on a $1,000 HPWH, that used to be a $300 credit. <strong>The One Big Beautiful Bill Act terminated this credit for anything placed in service after December 31, 2025</strong>, so it no longer applies to 2026 purchases. State rebates are unaffected and may still be available: California (up to $1,000 through the Statewide TECH Clean California program), Massachusetts ($750), New York ($700), and other states. Combined with a state rebate, effective cost can still drop to $200–$700 for a quality HPWH (Rheem ProTerra 50-gallon, A.O. Smith Voltex). At that effective price and $338+/year in savings, payback can still be 1–3 years — among the fastest paybacks of any home energy upgrade, even without the federal credit.</p>
 
             <h2>Climate Interaction: Winter vs Summer Performance</h2>
             <p>HPWHs extract heat from surrounding air. In summer (warm basement or garage air), they operate at peak efficiency and also dehumidify and cool the surrounding space — a secondary benefit. In winter in a heated basement, they pull heat from the conditioned space, slightly increasing heating demand. This penalty is real but modest: in a cold climate, a HPWH in a heated basement might add $30–$60/year in heating costs versus a standard electric heater. This reduces but doesn't eliminate the net savings. The optimal installation is in an unconditioned or semi-conditioned space (unheated basement, garage) where there's no heating penalty at all.</p>
@@ -84,7 +84,7 @@
             <ul>
               <li>HPWH efficiency: <strong>COP 2.5 (250%)</strong></li>
               <li>Annual savings vs electric: <strong>$200–450</strong></li>
-              <li>ITC + rebates: payback often <strong>under 2 years</strong></li>
+              <li>State rebates: payback often <strong>1–3 years</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -107,7 +107,7 @@ function calcHPWH() {
   const stdAnnual=(annualKwh/0.95)*elec;
   const hpAnnual=(annualKwh/2.5)*elec;
   const annualSavings=stdAnnual-hpAnnual;
-  const itc=Math.min(hpCost*0.30,600);
+  const itc=0; // federal 30% HPWH credit expired Dec 31, 2025
   const effectivePremium=Math.max(0,(hpCost-stdCost)-itc-rebate);
   const payback=annualSavings>0?effectivePremium/annualSavings:0;
   const savings10yr=annualSavings*10-effectivePremium;
@@ -120,7 +120,7 @@ function calcHPWH() {
     <tr><td>Annual operating cost</td><td>${fmt(stdAnnual)}</td><td>${fmt(hpAnnual)}</td></tr>
     <tr><td>Annual savings</td><td colspan="2" style="font-weight:700;">${fmt(annualSavings)}/year</td></tr>
     <tr><td>Purchase price</td><td>${fmt(stdCost)}</td><td>${fmt(hpCost)}</td></tr>
-    <tr><td>IRA tax credit (30%)</td><td>—</td><td>-${fmt(itc)}</td></tr>
+    <tr><td>Federal tax credit</td><td>—</td><td>Expired Dec 2025 ($0)</td></tr>
     <tr><td>Utility/state rebate</td><td>—</td><td>-${fmt(rebate)}</td></tr>
     <tr><td>Effective premium</td><td colspan="2">${fmt(effectivePremium)}</td></tr>
     <tr style="font-weight:700;"><td>Payback period</td><td colspan="2">${payback<=0?'Immediate':payback.toFixed(1)+' years'}</td></tr>
