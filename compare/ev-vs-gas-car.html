@@ -34,7 +34,7 @@
             <h2>EV vs Gas Car Break-Even Calculator</h2>
             <div class="form-group"><label for="ev-price">EV Purchase Price ($)</label><input type="number" id="ev-price" value="42000" min="20000" max="100000" step="500" /></div>
             <div class="form-group"><label for="gas-price-car">Gas Car Purchase Price ($)</label><input type="number" id="gas-price-car" value="35000" min="15000" max="80000" step="500" /></div>
-            <div class="form-group"><label for="ev-itc">Federal EV Tax Credit ($)</label><input type="number" id="ev-itc" value="7500" min="0" max="7500" step="500" /></div>
+            <div class="form-group"><label for="ev-itc">Federal EV Tax Credit ($) <span style="font-weight:400;font-size:.85em">(expired for vehicles acquired after Sept 30, 2025 — leave at $0 for 2026 purchases)</span></label><input type="number" id="ev-itc" value="0" min="0" max="7500" step="500" /></div>
             <div class="form-group"><label for="ev-miles">Miles Driven per Year</label><input type="number" id="ev-miles" value="12000" min="5000" max="30000" step="1000" /></div>
             <div class="form-group"><label for="ev-mpg">Gas Car MPG</label><input type="number" id="ev-mpg" value="30" min="15" max="60" step="1" /></div>
             <div class="form-group"><label for="ev-gas-price">Gas Price ($/gallon)</label><input type="number" id="ev-gas-price" value="3.90" min="2" max="8" step="0.10" /></div>
@@ -52,7 +52,7 @@
           </div>
           <div class="article-body">
 <h2>The Price Premium Is Narrowing — But Still Real</h2>
-            <p>The average EV transaction price in the U.S. was roughly $52,000 in 2024 — about $10,000 above the average new car. However, the $7,500 federal EV tax credit (for eligible vehicles and buyers under income thresholds) reduces that gap substantially. Point-of-sale credit transfers, available since 2024, let buyers apply the credit directly at purchase rather than waiting for tax filing. At the entry level, vehicles like the Chevrolet Equinox EV (~$35,000), Nissan Leaf (~$29,000), and various Model 3/Y variants now compete directly with midsize gas cars on sticker price before incentives.</p>
+            <p>The average EV transaction price in the U.S. is roughly $52,000 — about $10,000 above the average new car. The $7,500 federal EV tax credit that used to narrow that gap for eligible vehicles and buyers <strong>expired for vehicles acquired after September 30, 2025</strong> — 2026 buyers generally don't get it, with narrow exceptions for binding purchase contracts signed before that date. Some state programs (like California's Clean Vehicle Rebate Project) may still offer their own incentives independent of the federal credit — check dsireusa.org or your state's DMV/energy office. At the entry level, vehicles like the Chevrolet Equinox EV (~$35,000), Nissan Leaf (~$29,000), and various Model 3/Y variants still compete reasonably with midsize gas cars on sticker price, even without the federal credit.</p>
 
             <h2>Fuel Costs: The Math in Your Specific Market</h2>
             <p>The national average electricity rate is about 16¢/kWh (2025). An EV averaging 3.5 miles/kWh costs $0.046/mile in electricity. A 30 MPG gas car at $3.90/gallon costs $0.13/mile. That's a 2.8× fuel cost advantage for the EV. At 12,000 miles/year, the EV saves about $1,008/year in fuel. But rates vary enormously: at 28¢/kWh (California, Hawaii), the EV advantage shrinks. In states with cheap electricity (Idaho, Washington: 10¢/kWh), EV fuel costs are as low as $0.029/mile — a 4.5× advantage over gas.</p>
@@ -101,14 +101,15 @@
 function calcEVGas() {
   const evPrice = parseFloat(document.getElementById('ev-price').value)||42000;
   const gasPrice = parseFloat(document.getElementById('gas-price-car').value)||35000;
-  const itc = parseFloat(document.getElementById('ev-itc').value)||7500;
+  const itc = parseFloat(document.getElementById('ev-itc').value);
+  const itcVal = isNaN(itc) ? 0 : itc;
   const miles = parseFloat(document.getElementById('ev-miles').value)||12000;
   const mpg = parseFloat(document.getElementById('ev-mpg').value)||30;
   const gasFuel = parseFloat(document.getElementById('ev-gas-price').value)||3.90;
   const elec = parseFloat(document.getElementById('ev-elec').value)/100||0.13;
   const eff = parseFloat(document.getElementById('ev-eff').value)||3.5;
 
-  const evNet = evPrice - itc;
+  const evNet = evPrice - itcVal;
   const annualEVFuel = (miles/eff)*elec;
   const annualGasFuel = (miles/mpg)*gasFuel;
   const annualEVMaint = 400; const annualGasMaint = 900;
