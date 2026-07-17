@@ -62,7 +62,7 @@
             <p>A 50-gallon gas tank water heater costs $600–$900 installed. A whole-home gas tankless runs $1,500–$3,000 installed. At $400/year in standby savings (mid-range estimate), payback on a $2,000 price premium is 5 years. Actual household savings are lower because tankless unit users often run longer showers since hot water doesn't "run out," partially offsetting efficiency gains. Independent studies put real-world tankless gas savings at $70–$150/year vs. tank, implying 13–29 year paybacks. The payback is often longer than marketing materials suggest.</p>
 
             <h2>The Better Alternative: Heat Pump Water Heaters</h2>
-            <p>Before comparing tank vs. tankless, consider heat pump water heaters (HPWH). These use electricity but operate at COP 3.0–4.0, meaning they deliver 3–4 units of heat per unit of electricity. At 13¢/kWh and COP 3.5, a HPWH costs $0.037/kBTU delivered heat — cheaper than gas tank or gas tankless. The IRA's $300 federal tax credit (up to 30%) applies to HPWHs. A 50-gallon HPWH costs $800–$1,200 before credit. Annual operating cost: $200–$300 — about half the cost of a standard gas tank heater. This is the option that often makes the most financial sense in 2025 for households on electricity.</p>
+            <p>Before comparing tank vs. tankless, consider heat pump water heaters (HPWH). These use electricity but operate at COP 3.0–4.0, meaning they deliver 3–4 units of heat per unit of electricity. At 13¢/kWh and COP 3.5, a HPWH costs $0.037/kBTU delivered heat — cheaper than gas tank or gas tankless. Note that the IRA's $300 federal tax credit (up to 30%) that used to apply to HPWHs expired December 31, 2025 and no longer reduces the price in 2026. A 50-gallon HPWH costs $800–$1,200 installed, full price. Annual operating cost: $200–$300 — about half the cost of a standard gas tank heater. This is still often the option that makes the most financial sense for households on electricity, even without the expired credit.</p>
           </div>
         </div>
         <div>
@@ -137,7 +137,7 @@ function calcTankless() {
     hpAnnual=(annualMmbtu*293/2.5)*elec;
     tankInstall=700; tanklessInstall=1000;
   }
-  const hpInstall=1300*0.70; // after 30% ITC
+  const hpInstall=1300; // no federal credit — ITC expired Dec 2025
 
   const savings=tankAnnual-tanklessAnnual;
   const premium=tanklessInstall-tankInstall;
@@ -150,7 +150,7 @@ function calcTankless() {
     <tr><th></th><th>Tank ${fuel==='gas'?'Gas':'Electric'}</th><th>Tankless ${fuel==='gas'?'Gas':'Electric'}</th><th>Heat Pump (electric)</th></tr>
     <tr><td>Annual operating cost</td><td>${fmt(tankAnnual)}</td><td>${fmt(tanklessAnnual)}</td><td>${fmt(hpAnnual)}</td></tr>
     <tr><td>Annual savings vs tank</td><td>—</td><td>${fmt(savings)}</td><td>${fmt(hpSavings)}</td></tr>
-    <tr><td>Install cost</td><td>${fmt(tankInstall)}</td><td>${fmt(tanklessInstall)}</td><td>${fmt(hpInstall)} (after ITC)</td></tr>
+    <tr><td>Install cost</td><td>${fmt(tankInstall)}</td><td>${fmt(tanklessInstall)}</td><td>${fmt(hpInstall)}</td></tr>
     <tr><td>Payback period</td><td>—</td><td>${payback>50?'50+ yrs':payback.toFixed(1)+' years'}</td><td>${hpPayback>50?'50+ yrs':hpPayback.toFixed(1)+' years'}</td></tr>
     <tr><td>Lifespan</td><td>10–15 years</td><td>20+ years</td><td>12–15 years</td></tr>
   `;
