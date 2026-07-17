@@ -42,7 +42,7 @@
             <div class="result-box-tool" id="ss-result">
               <h3>System Cost & Payback</h3>
               <div class="table-scroll"><table id="ss-table" style="width:100%;min-width:480px;"></table></div>
-              <p class="result-note">Assumes 30% federal solar tax credit applies to both options equally. Actual output varies with roof orientation, shading, and local climate.</p>
+              <p class="result-note">Costs shown are full installed price — no federal tax credit applied (the 30% residential credit expired December 31, 2025). Actual output varies with roof orientation, shading, and local climate.</p>
             </div>
           </div>
 
@@ -116,14 +116,13 @@ function calcShingle() {
   const annualKwh = size * sunHours * 365 * 0.85; // 85% system efficiency factor
   const annualSavings = annualKwh * rate;
 
-  const panelPayback = (panelAfterCredit / annualSavings).toFixed(1);
-  const shinglePayback = (shingleAfterCredit / annualSavings).toFixed(1);
+  const panelPayback = (panelTotal / annualSavings).toFixed(1);
+  const shinglePayback = (shingleTotal / annualSavings).toFixed(1);
 
   const fmt = v => '$' + Math.round(v).toLocaleString();
   document.getElementById('ss-table').innerHTML = `
     <tr><th></th><th>Traditional Panels</th><th>Solar Shingles</th></tr>
-    <tr><td>System cost (before credit)</td><td>${fmt(panelTotal)}</td><td>${fmt(shingleTotal)}</td></tr>
-    <tr><td>Cost after 30% tax credit</td><td><strong>${fmt(panelAfterCredit)}</strong></td><td><strong>${fmt(shingleAfterCredit)}</strong></td></tr>
+    <tr><td>System cost (installed)</td><td>${fmt(panelTotal)}</td><td>${fmt(shingleTotal)}</td></tr>
     <tr><td>Estimated annual savings</td><td colspan="2">${fmt(annualSavings)}/year</td></tr>
     <tr><td>Payback period</td><td><strong>${panelPayback} years</strong></td><td><strong>${shinglePayback} years</strong></td></tr>
     <tr><td>Cost premium for shingles</td><td colspan="2"><strong>${fmt(shingleAfterCredit - panelAfterCredit)}</strong></td></tr>
