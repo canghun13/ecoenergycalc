@@ -49,7 +49,7 @@
               <div class="table-scroll">
                 <table id="swh-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Standard electric tank: 95% eff. Heat pump WH: COP 2.5. Solar thermal: offsets 60–80% of water heating load depending on sun hours. All figures before 30% ITC (applies to both solar thermal and HPWH).</p>
+              <p class="result-note">Standard electric tank: 95% eff. Heat pump WH: COP 2.5. Solar thermal: offsets 60–80% of water heating load depending on sun hours. No federal tax credit applied — the 30% ITC for both solar thermal and HPWH expired December 31, 2025.</p>
             </div>
           </div>
           <div class="article-body">
@@ -57,10 +57,10 @@
             <p>Solar water heating (SWH) predates photovoltaic solar by decades and remains one of the highest-efficiency solar applications available. A typical 2-collector SWH system (80 sq ft of collector area) provides 50–80% of a household's hot water from solar energy, with a conventional backup for cloudy periods. In sun-rich climates (Hawaii, Arizona, California), solar fraction reaches 70–85%. In northern states, it drops to 40–60% but remains meaningful. The technology is mature, reliable, and has been deployed for 50+ years in residential applications with minimal maintenance requirements.</p>
 
             <h2>Economics vs. Electric Water Heating</h2>
-            <p>A standard electric resistance water heater costs $500–$700/year to operate (4,000 kWh × $0.13–$0.17/kWh). A 2-collector SWH system costs $3,000–$5,000 installed and provides 60% solar fraction — reducing electric backup to $200–$280/year in electricity, saving $300–$420/year. With the 30% federal ITC (SWH systems qualify under the residential clean energy credit), the effective system cost drops to $2,100–$3,500. Payback: 5–12 years depending on installation cost and solar fraction. In Hawaii (electricity: 35–45¢/kWh), payback can be under 5 years.</p>
+            <p>A standard electric resistance water heater costs $500–$700/year to operate (4,000 kWh × $0.13–$0.17/kWh). A 2-collector SWH system costs $3,000–$5,000 installed and provides 60% solar fraction — reducing electric backup to $200–$280/year in electricity, saving $300–$420/year. The 30% federal ITC that used to apply to SWH systems (under the residential clean energy credit) expired December 31, 2025, so 2026 installations pay the full $3,000–$5,000. Payback: 8–16 years depending on installation cost and solar fraction. In Hawaii (electricity: 35–45¢/kWh), payback can still be under 8 years.</p>
 
             <h2>Heat Pump Water Heater vs Solar Thermal: The Modern Comparison</h2>
-            <p>In most U.S. markets today, a heat pump water heater (HPWH) delivers comparable or better economics than solar thermal — with simpler installation, no collectors to maintain, and no freeze protection concerns. A HPWH at COP 3.5 uses 1,200 kWh/year vs. 4,000 kWh for electric resistance — similar savings to a 70% solar fraction SWH, at $800–$1,200 installed (before 30% ITC = $560–$840 net). The HPWH wins on installed cost and simplicity in most scenarios. Solar thermal remains more attractive when: electricity rates are very high and panel space is limited, you're in a climate with excellent solar resource, or it's a commercial or multi-family application where system economics shift the math.</p>
+            <p>In most U.S. markets today, a heat pump water heater (HPWH) delivers comparable or better economics than solar thermal — with simpler installation, no collectors to maintain, and no freeze protection concerns. A HPWH at COP 3.5 uses 1,200 kWh/year vs. 4,000 kWh for electric resistance — similar savings to a 70% solar fraction SWH, at $800–$1,200 installed (no federal credit in 2026 — the 30% ITC expired). The HPWH wins on installed cost and simplicity in most scenarios. Solar thermal remains more attractive when: electricity rates are very high and panel space is limited, you're in a climate with excellent solar resource, or it's a commercial or multi-family application where system economics shift the math.</p>
 
             <h2>Freeze Protection in Cold Climates</h2>
             <p>Flat-plate solar thermal collectors can freeze in cold climates, requiring either drain-back systems (collectors drain when pump stops) or antifreeze loops (glycol circulates through collectors, heat exchanged to the storage tank). Drain-back systems are reliable but require careful installation; glycol systems require fluid testing and replacement every 5–10 years. In climates with sustained freezing temperatures, these considerations add installation complexity and cost ($500–$1,000 additional) and require more maintenance than HPWH. Evacuated tube collectors handle cold better than flat-plate but cost more. For cold-climate households, HPWH is typically the more practical and lower-maintenance choice.</p>
@@ -129,8 +129,8 @@ function calcSolarWH() {
   const solarAnnual=solarBackup+(10*elec); // pump electricity
 
   const stdInstall=700;
-  const hpInstall=1300*0.70; // after ITC
-  const solarInstall=3500*0.70; // after ITC
+  const hpInstall=1300; // no federal credit — ITC expired Dec 2025
+  const solarInstall=3500; // no federal credit — ITC expired Dec 2025
 
   const stdSavings=0;
   const hpSavings=stdAnnual-hpAnnual;
@@ -144,7 +144,7 @@ function calcSolarWH() {
     <tr><th></th><th>Standard Electric Tank</th><th>Heat Pump WH</th><th>Solar Thermal + backup</th></tr>
     <tr><td>Annual operating cost</td><td>${fmt(stdAnnual)}</td><td>${fmt(hpAnnual)}</td><td>${fmt(solarAnnual)}</td></tr>
     <tr><td>Annual savings vs electric</td><td>—</td><td>${fmt(hpSavings)}</td><td>${fmt(solarSavings)}</td></tr>
-    <tr><td>Install cost (after ITC)</td><td>${fmt(stdInstall)}</td><td>${fmt(hpInstall)}</td><td>${fmt(solarInstall)}</td></tr>
+    <tr><td>Install cost</td><td>${fmt(stdInstall)}</td><td>${fmt(hpInstall)}</td><td>${fmt(solarInstall)}</td></tr>
     <tr><td>Payback vs electric tank</td><td>—</td><td>${hpPayback.toFixed(1)} years</td><td>${solarPayback.toFixed(1)} years</td></tr>
     <tr><td>Solar offset at ${sun} sun hrs</td><td>—</td><td>—</td><td>${Math.round(solarOffset*100)}% of hot water</td></tr>
     <tr><td>Maintenance complexity</td><td>Low</td><td>Low</td><td>Moderate (annual check)</td></tr>
