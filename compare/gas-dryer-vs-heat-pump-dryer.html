@@ -29,21 +29,21 @@
       </div>
       <div class="tool-layout">
         <div>
-          <p>Gas dryers cost about $0.23/load to run — the cheapest option at average U.S. energy prices. Heat pump dryers cost $0.25–0.35/load but use no gas, require no vent, and qualify for a 30% IRA tax credit. Which wins long-term depends on your energy rates and whether you have gas service.</p>
+          <p>Gas dryers cost about $0.23/load to run — the cheapest option at average U.S. energy prices. Heat pump dryers cost $0.25–0.35/load but use no gas and require no vent; the 30% IRA tax credit they used to qualify for expired December 31, 2025. Which wins long-term depends on your energy rates and whether you have gas service.</p>
 
           <div class="calc-box" style="margin:32px 0;">
             <h2>Gas vs Heat Pump Dryer Cost Calculator</h2>
             <div class="form-group"><label for="gd-loads">Loads per Week</label><input type="number" id="gd-loads" value="5" min="1" max="20" /></div>
             <div class="form-group"><label for="gd-gas">Gas Rate ($/therm)</label><input type="number" id="gd-gas" value="1.10" min="0.50" max="3.00" step="0.05" /></div>
             <div class="form-group"><label for="gd-elec">Electricity Rate (¢/kWh)</label><input type="number" id="gd-elec" value="16" min="5" max="50" step="0.1" /></div>
-            <div class="form-group"><label for="gd-premium">Heat Pump Dryer Price Premium ($)</label><input type="number" id="gd-premium" value="600" min="0" max="1500" step="50" /><small>Difference in purchase price vs gas dryer after IRA 30% credit</small></div>
+            <div class="form-group"><label for="gd-premium">Heat Pump Dryer Price Premium ($)</label><input type="number" id="gd-premium" value="700" min="0" max="1500" step="50" /><small>Full difference in purchase price vs gas dryer — no federal credit applies in 2026</small></div>
             <button class="btn-primary" onclick="calcDryer()">Compare Dryer Costs</button>
             <div class="result-box-tool" id="gd-result">
               <h3>Annual Cost & Payback</h3>
               <div class="table-scroll">
                 <table id="gd-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Gas dryer: 22,000 BTU/hr + 400W electric. Heat pump dryer: 800W avg (vs 5,000W conventional electric). IRA credit: 30% up to $840 on ENERGY STAR heat pump dryers.</p>
+              <p class="result-note">Gas dryer: 22,000 BTU/hr + 400W electric. Heat pump dryer: 800W avg (vs 5,000W conventional electric). Note: the IRA's 30% tax credit (up to $840) on ENERGY STAR heat pump dryers expired December 31, 2025 and is not reflected in these figures.</p>
             </div>
           </div>
 
@@ -57,7 +57,7 @@
             <p>In high-electricity-rate states like California (25¢/kWh) or Hawaii (40¢/kWh), the math flips: gas dryers maintain their per-load advantage if gas is available, but all-electric homes with heat pump dryers beat conventional electric dryers significantly. For a full breakdown of dryer running costs by type, see our <a href="/blog/how-much-does-it-cost-to-run-a-dryer.html">dryer cost guide</a> or use the <a href="/tools/dryer-energy-cost.html">Dryer Energy Cost Calculator</a>.</p>
 
             <h2>The IRA Tax Credit Changes the Math</h2>
-            <p>The Inflation Reduction Act provides a 30% tax credit (up to $840) on ENERGY STAR certified heat pump dryers purchased through 2032. A $1,200 heat pump dryer becomes effectively $840 after the credit — often less than the price premium over a comparable gas dryer. Factor in lower operating costs vs. conventional electric (if you're switching from electric), and payback periods shrink to 3–5 years in many markets.</p>
+            <p>The Inflation Reduction Act used to provide a 30% tax credit (up to $840) on ENERGY STAR certified heat pump dryers. <strong>That credit expired December 31, 2025</strong>, terminated by the One Big Beautiful Bill Act — 2026 purchases pay full price. A $1,200 heat pump dryer now costs the full $1,200, not the $840 it would have cost with the old credit. Factor in lower operating costs vs. conventional electric (if you're switching from electric), and payback periods now run 5–8 years in many markets, longer than they used to.</p>
 
             <h2>Which Should You Choose?</h2>
             <p>Choose a gas dryer if: you have gas service, do heavy laundry (8+ loads/week), and want the lowest possible running cost regardless of upfront price. Choose a heat pump dryer if: you're in an all-electric home, your electricity rate is above 20¢/kWh, you don't have a vent duct, or you want to qualify for the IRA tax credit. Avoid conventional electric dryers for new purchases — heat pump dryers are now close enough in price (after incentives) that the efficiency difference makes conventional electric the worst long-term value in most markets.</p>
@@ -86,7 +86,7 @@
             <ul>
               <li>Gas dryer: <strong>~$0.23/load</strong></li>
               <li>Heat pump dryer: <strong>~$0.30/load</strong></li>
-              <li>IRA credit: <strong>30%, up to $840</strong></li>
+              <li>IRA credit: <strong>expired Dec 2025</strong></li>
             </ul>
           </div>
           <div class="sidebar-box">
@@ -129,7 +129,7 @@ function calcDryer() {
     <tr><td>10-year running cost</td><td>${fmtA(gasAnnual*10)}</td><td>${fmtA(hpAnnual*10)}</td></tr>
     <tr><td>Price premium payback</td><td>—</td><td><strong>${annualDiff > 0 ? payback + ' years' : 'HP costs more to run'}</strong></td></tr>
     <tr><td>Vent duct required?</td><td>✅ Yes</td><td>❌ No</td></tr>
-    <tr><td>IRA 30% tax credit?</td><td>❌ No</td><td>✅ Up to $840</td></tr>
+    <tr><td>IRA 30% tax credit?</td><td>❌ No</td><td>❌ Expired Dec 2025</td></tr>
   `;
   const r = document.getElementById('gd-result');
   r.classList.add('visible');

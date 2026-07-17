@@ -41,7 +41,7 @@
               <div class="table-scroll">
                 <table id="ewh-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Electric resistance: 95% efficient. Gas tank: 67% efficient. Tankless gas: 84% efficient. Heat pump water heater: COP 2.5. All costs before installation. HPWH qualifies for 30% ITC up to $600.</p>
+              <p class="result-note">Electric resistance: 95% efficient. Gas tank: 67% efficient. Tankless gas: 84% efficient. Heat pump water heater: COP 2.5. All costs are installed cost — no federal tax credit applied (the 30% HPWH credit expired Dec 31, 2025).</p>
             </div>
           </div>
           <div class="article-body">
@@ -52,7 +52,7 @@
             <p>A typical household uses 4,000 kWh-equivalent of hot water annually. A 0.64 EF gas water heater uses about 250 therms/year at $1.40/therm = $350/year. A 0.95 EF electric resistance heater uses about 4,210 kWh/year at 13¢/kWh = $547/year. Gas wins at these national averages. The breakeven point: gas at $1.40/therm equals $0.041/kBTU; electric resistance becomes competitive at approximately 8–9¢/kWh — below national average but typical in Idaho, Washington, Oregon, and Louisiana. Residents in those states may find electric actually cheaper to operate.</p>
 
             <h2>Heat Pump Water Heaters: The Game Changer</h2>
-            <p>Heat pump water heaters fundamentally change this comparison. At COP 3.5, a HPWH uses 1,200 kWh/year instead of 4,200 kWh/year for electric resistance — or instead of 250 therms for gas. At 13¢/kWh: HPWH costs $156/year vs. gas at $350/year. The HPWH wins by $194/year — and with the $300 federal tax credit (up to 30% of cost), the equipment cost premium over a standard electric heater pays back in 2–3 years. At California rates (28¢/kWh), HPWH costs $336/year — still competitive with gas and dramatically cheaper than electric resistance at $1,179/year.</p>
+            <p>Heat pump water heaters fundamentally change this comparison. At COP 3.5, a HPWH uses 1,200 kWh/year instead of 4,200 kWh/year for electric resistance — or instead of 250 therms for gas. At 13¢/kWh: HPWH costs $156/year vs. gas at $350/year. The HPWH wins by $194/year — and even though the federal tax credit for HPWHs (up to $300, 30% of cost) expired December 31, 2025, the equipment cost premium over a standard electric heater still typically pays back in 4–6 years from operating savings alone. At California rates (28¢/kWh), HPWH costs $336/year — still competitive with gas and dramatically cheaper than electric resistance at $1,179/year.</p>
 
             <h2>Installation Considerations</h2>
             <p>Gas water heater replacement requires gas line, proper flue venting, and expansion tank in closed systems — installation runs $300–$600 on top of equipment. Electric requires a 240V/30A circuit. Heat pump water heaters need 700+ cubic feet of unconditioned or semi-conditioned air surrounding them (they extract heat from the air), and they exhaust cool, dry air — a benefit in warm climates and seasons, a slight heating penalty in winter in heated basements. They also make noise similar to a window AC unit at about 50 dB. Basement, garage, or utility room installation is typical and practical for most homes.</p>
@@ -81,7 +81,7 @@
             <ul>
               <li>HPWH annual cost (13¢/kWh): <strong>often beats gas</strong></li>
               <li>Gas tank annual cost: <strong>$200–350</strong></li>
-              <li>HPWH ITC: <strong>30% up to $600</strong></li>
+              <li>HPWH ITC: <strong>expired Dec 2025</strong></li>
             </ul>
           </div>
           <div class="sidebar-box">
@@ -120,7 +120,7 @@ function calcWaterHeater() {
     ['Electric Tank (95% eff)',elecTankCost,'$700 installed'],
     ['Gas Tank (67% eff)',gasTankCost,'$800 installed'],
     ['Gas Tankless (84% eff)',gasTanklessCost,'$1,200 installed'],
-    ['Heat Pump WH (COP 2.5)',hpCost,'$910 after ITC']
+    ['Heat Pump WH (COP 2.5)',hpCost,'$1,200 installed']
   ].sort((a,b)=>a[1]-b[1]);
 
   const fmt=v=>'$'+Math.round(v).toLocaleString();
