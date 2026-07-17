@@ -46,7 +46,7 @@
               <div class="table-scroll">
                 <table id="mp-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Monocrystalline: 400W panels, 21.8 sq ft each. Polycrystalline: 330W panels, 21.8 sq ft each. System sized to cover 100% of monthly usage. Costs shown before the 30% federal ITC.</p>
+              <p class="result-note">Monocrystalline: 400W panels, 21.8 sq ft each. Polycrystalline: 330W panels, 21.8 sq ft each. System sized to cover 100% of monthly usage. Costs shown are full installed price — no federal tax credit applied (expired December 31, 2025).</p>
             </div>
           </div>
           <div class="article-body">
@@ -123,8 +123,7 @@ function calcMonoPoly() {
     <tr><td>Panel wattage</td><td>400W each</td><td>330W each</td></tr>
     <tr><td>Panels needed</td><td>${monoPanels} panels</td><td>${polyPanels} panels</td></tr>
     <tr><td>Roof space required</td><td>${Math.round(monoSqFt)} sq ft</td><td>${Math.round(polySqFt)} sq ft</td></tr>
-    <tr><td>System cost (before ITC)</td><td>${fmt(monoCost)}</td><td>${fmt(polyCost)}</td></tr>
-    <tr><td>After 30% ITC</td><td>${fmt(monoAfterItc)}</td><td>${fmt(polyAfterItc)}</td></tr>
+    <tr><td>System cost (installed)</td><td>${fmt(monoCost)}</td><td>${fmt(polyCost)}</td></tr>
     <tr><td>Extra roof space needed (poly)</td><td colspan="2" style="font-weight:700;">${Math.round(polySqFt - monoSqFt)} sq ft more for polycrystalline</td></tr>
   `;
   const r = document.getElementById('mp-result');
