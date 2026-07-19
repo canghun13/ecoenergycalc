@@ -52,6 +52,12 @@ for f in files:
 - **파일 개수 (2026-07-19 세션 종료 기준)**: tools 35개, blog 26개, compare 41개.
 - **다음 세션 최우선**: 새 세션 시작하면 반드시 위의 FAQ 매칭 스크립트 + 기존 구조 스캔 스크립트를 함께 돌려서 재확인할 것. 그 다음 새 SC 데이터로 이번 세션 신규 페이지 2개(ai-carbon-footprint-calculator, why-electric-bills-are-rising-ai-data-centers) 노출 여부 확인.
 
+### v15 세션 마지막 — 사용자 스크린샷 제보로 발견한 신규 버그 패턴 (스타일 깨짐)
+- `blog/why-electric-bills-are-rising-ai-data-centers.html`의 FAQ 섹션이 `article-body` 래퍼 밖에 인라인 스타일(`<h2 style="max-width:800px...">`, `<div style="max-width:800px;margin:0 auto;">`)만으로 배치돼 있어서, 사이트 전역 CSS(카드 타이포그래피, h2 스타일링)가 적용 안 되고 **h2가 파란 배경 박스로 깨져 보이는 버그** 발생 — 사용자가 스크린샷으로 제보해서 발견.
+- **원인**: 이 파일 작성 시 "Related Calculators" 블록까지만 표준 `<section class="article-page"><div class="container"><div class="article-body">...</div></div></section>` 구조를 닫고, 그 뒤에 FAQ를 별도 섹션으로 다시 열지 않고 그냥 인라인 스타일 div로 이어붙인 것이 원인. `blog/how-much-does-it-cost-to-run-ac.html` 같은 기존 정상 파일은 FAQ를 위해 `<section class="article-page" style="padding-top:0;"><div class="container"><div class="article-body"><h2>Frequently Asked Questions</h2>...` 패턴으로 **완전히 새 섹션을 다시 연다** — 이 표준 패턴을 참고해서 재구성함.
+- **교훈/패턴 추가**: 본문 뒤에 "Related Calculators" 링크 박스 + FAQ를 붙이는 blog 페이지 구조를 새로 만들 때는, FAQ 앞에서 `</div></div></section>`로 완전히 섹션을 닫고 `<section class="article-page" style="padding-top:0;"><div class="container"><div class="article-body">`로 새로 열 것 — 절대 article-body 밖에서 인라인 스타일만으로 FAQ를 얹지 말 것. 기존 구조 스캔 스크립트(div/h2/JSON 균형)는 이런 "스타일 클래스 누락"까지는 못 잡으므로, **완료 보고 전 실제 렌더링을 스크린샷이나 URL로 확인하는 습관이 특히 중요**(섹션 5 체크리스트 7번과 동일한 원칙, 재강조).
+
+
 
 
 ---
