@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chatbot Carbon Footprint Calculator – How Much CO2 Does ChatGPT Use? | EcoEnergyCalc</title>
+  <meta name="description" content="Free AI carbon footprint calculator — estimate the CO2 from your daily ChatGPT, Gemini, or Claude use based on disclosed OpenAI and Google energy figures, with real-world comparisons." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/ai-carbon-footprint-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"AI Chatbot Carbon Footprint Calculator","url":"https://ecoenergycalc.com/tools/ai-carbon-footprint-calculator.html","description":"Free AI carbon footprint calculator — estimate the CO2 from your daily ChatGPT, Gemini, or Claude use based on disclosed OpenAI and Google energy figures, with real-world comparisons.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-07-19"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much CO2 does one ChatGPT query produce?","acceptedAnswer":{"@type":"Answer","text":"There is no single verified answer, because most AI companies don't publish per-query emissions. The two disclosed figures come from OpenAI (about 0.34 watt-hours per average ChatGPT query, stated by Sam Altman in June 2025) and Google (about 0.24 watt-hours per median Gemini text prompt, published August 2025). Applying the U.S. average grid emission factor of 0.386 kg CO2 per kWh to those figures gives roughly 0.09-0.13 grams of CO2 per query. Independent academic estimates that assume less efficient infrastructure or older hardware run considerably higher, up to several grams per query for complex tasks."}},
+    {"@type":"Question","name":"Is Google search or ChatGPT worse for the environment?","acceptedAnswer":{"@type":"Answer","text":"A standard AI chatbot query generally uses more energy than a traditional Google search, but the gap is much smaller than early estimates suggested. A conventional web search is typically estimated at around 0.3 watt-hours, close to Google's own disclosed 0.24 Wh figure for its most efficient Gemini model. Less efficient models or complex, multi-step AI tasks can use several times more energy than a simple search."}},
+    {"@type":"Question","name":"Does my personal AI use meaningfully add to my carbon footprint?","acceptedAnswer":{"@type":"Answer","text":"Not much, in isolation. Even heavy personal AI use adds up to grams or a few kilograms of CO2 per year, while the average person's total footprint is measured in tons (roughly 16 tons/year in the U.S.). Cutting your AI use is a far smaller lever than changes to diet, transportation, or home heating and cooling. The bigger environmental question is about AI's aggregate, industry-wide energy demand rather than any one person's usage."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › AI Carbon Footprint</p>
+        <span class="tool-category">Carbon & Environment</span>
+        <h1>AI Chatbot Carbon Footprint Calculator</h1>
+        <p>Estimate the CO2 footprint of your ChatGPT, Gemini, or Claude usage, based on the only two per-query energy figures any major AI company has actually disclosed — plus real-world comparisons to put the number in context.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Your AI Query Carbon Footprint</h2>
+            <div class="form-group">
+              <label for="ai-queries">Queries per Day</label>
+              <input type="number" id="ai-queries" placeholder="e.g. 20" min="1" max="1000" step="1" value="20" />
+            </div>
+            <div class="form-group">
+              <label for="ai-type">Typical Query Type</label>
+              <select id="ai-type">
+                <option value="0.24">Quick / simple prompt (efficient model, ~0.24 Wh)</option>
+                <option value="0.34" selected>Standard prompt (typical assistant model, ~0.34 Wh)</option>
+                <option value="3.4">Complex / reasoning task (long context, coding, multi-step, ~3.4 Wh)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ai-grid">Grid Region (affects CO2, not energy)</label>
+              <select id="ai-grid">
+                <option value="0.386" selected>U.S. Average (0.386 kg CO2/kWh)</option>
+                <option value="0.45">Midwest / Coal-heavy (0.45 kg CO2/kWh)</option>
+                <option value="0.30">Mid-Atlantic / Mixed (0.30 kg CO2/kWh)</option>
+                <option value="0.20">West Coast / Cleaner Grid (0.20 kg CO2/kWh)</option>
+                <option value="0.55">Southeast / High emissions (0.55 kg CO2/kWh)</option>
+              </select>
+            </div>
+            <button class="btn-primary" onclick="calcAiFootprint()">Calculate CO2 Footprint</button>
+            <div class="result-box-tool" id="ai-result">
+              <h3>Your Estimated AI Carbon Footprint</h3>
+              <div class="result-amount" id="ai-annual"></div>
+              <table id="ai-breakdown"></table>
+              <p class="result-note">Based on disclosed OpenAI (0.34 Wh/query, June 2025) and Google (0.24 Wh/prompt, Aug 2025) figures, applied to the U.S. average grid emission factor (EPA eGRID, 0.386 kg CO2/kWh). Actual per-query energy varies by model, prompt length, and data center efficiency — no AI provider publishes complete verified figures, so treat this as an order-of-magnitude estimate, not an exact bill.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Why AI Carbon Footprint Estimates Range from 0.03g to 68g Per Query</h2>
+            <p>Search "carbon footprint of a ChatGPT query" and you'll find numbers that disagree by three orders of magnitude — from roughly 0.03 grams of CO2 to over 60 grams for the same basic action. That's not because anyone is lying; it's because almost no AI company publishes complete, verified per-query energy data, so every estimate is built on different assumptions about hardware generation, data center efficiency (PUE), how many GPUs a company runs, and how many queries they handle per day. Older estimates from 2022–2023 often assumed inefficient early-generation hardware; newer estimates reflect faster, more efficient chips and better-optimized data centers, so the trend over time is downward even as usage grows.</p>
+
+            <h2>What We Actually Know: The Only Two Disclosed Figures</h2>
+            <p>As of mid-2026, only two AI providers have published concrete per-query energy numbers. OpenAI's CEO stated in June 2025 that an average ChatGPT query uses about <strong>0.34 watt-hours</strong> of electricity. In August 2025, Google published a methodology showing its median Gemini text prompt uses about <strong>0.24 watt-hours</strong>, producing roughly 0.03 grams of CO2e — a low figure driven by Google's heavily optimized, partly carbon-matched data centers rather than a different definition of "query." Anthropic, Microsoft, Perplexity, and xAI have not published comparable per-query figures, which is exactly why so many competing estimates exist for those services — they're built by outside researchers reverse-engineering hardware deployments rather than drawn from company disclosures.</p>
+            <p>This calculator applies the U.S. average grid emission factor (rather than each company's actual, often cleaner, data center power mix) so that all three query types are compared on the same basis you'd use for any other home energy calculation on this site. That makes the numbers a useful order-of-magnitude estimate for your own usage, not an official corporate carbon accounting figure.</p>
+
+            <h2>Putting the Numbers in Perspective</h2>
+            <p>Even a heavy personal AI habit — a few hundred queries a day, every day — typically works out to a few kilograms of CO2 per year once you run the math. The average U.S. resident's total carbon footprint is about 16 metric tons per year (see our <a href="/tools/carbon-footprint.html">Carbon Footprint Calculator</a>). That means personal AI use usually sits at the gram-to-kilogram level, while your total footprint is measured in tons — roughly a thousand times larger. Cutting back on AI queries is a far smaller lever for your personal footprint than changes to diet, transportation, or home heating and cooling. The more consequential environmental question is about AI's aggregate, industry-wide electricity demand as usage scales into the billions of daily queries — not any single person's habits.</p>
+
+            <h2>How to Reduce Your AI Carbon Footprint (Without Giving Up AI)</h2>
+            <ul>
+              <li><strong>Match the model to the task.</strong> Use a fast, lightweight model for simple questions and save larger reasoning models for tasks that actually need multi-step logic — reasoning-heavy queries can use several times more energy than a simple prompt.</li>
+              <li><strong>Avoid unnecessary re-generations.</strong> Regenerating a response repeatedly for minor wording tweaks multiplies the energy cost of a single task.</li>
+              <li><strong>Batch related questions</strong> into one longer prompt instead of many short back-and-forth queries where practical — this reduces the fixed overhead per exchange.</li>
+              <li><strong>Keep perspective.</strong> If you're looking for the highest-impact places to cut your footprint, home energy, transportation, and diet changes (see our <a href="/blog/reduce-carbon-footprint.html">carbon footprint reduction guide</a>) will move the needle far more than AI usage habits.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/carbon-footprint.html">Carbon Footprint Calculator</a></li>
+              <li><a href="/tools/home-carbon-footprint.html">Home Carbon Footprint</a></li>
+              <li><a href="/tools/solar-co2-offset-calculator.html">Solar CO2 Offset Calculator</a></li>
+              <li><a href="/tools/tree-planting-offset.html">Tree Planting Offset Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/reduce-carbon-footprint.html">How to Reduce Your Carbon Footprint</a></li>
+              <li><a href="/blog/are-carbon-offsets-worth-it.html">Are Carbon Offsets Worth It?</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>OpenAI-disclosed energy: <strong>0.34 Wh/query</strong></li>
+              <li>Google-disclosed energy: <strong>0.24 Wh/prompt</strong></li>
+              <li>Avg. US grid factor: <strong>0.386 kg CO2/kWh</strong></li>
+              <li>Typical Google search: <strong>~0.3 Wh</strong></li>
+              <li>Avg. US person's footprint: <strong>~16 tons CO2/yr</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much CO2 does one ChatGPT query produce?</h3>
+      <p>There is no single verified answer, because most AI companies don't publish per-query emissions. The two disclosed figures come from OpenAI (about 0.34 watt-hours per average ChatGPT query, stated by Sam Altman in June 2025) and Google (about 0.24 watt-hours per median Gemini text prompt, published August 2025). Applying the U.S. average grid emission factor of 0.386 kg CO2 per kWh to those figures gives roughly 0.09-0.13 grams of CO2 per query. Independent academic estimates that assume less efficient infrastructure or older hardware run considerably higher, up to several grams per query for complex tasks.</p>
+      <h3>Is Google search or ChatGPT worse for the environment?</h3>
+      <p>A standard AI chatbot query generally uses more energy than a traditional Google search, but the gap is much smaller than early estimates suggested. A conventional web search is typically estimated at around 0.3 watt-hours, close to Google's own disclosed 0.24 Wh figure for its most efficient Gemini model. Less efficient models or complex, multi-step AI tasks can use several times more energy than a simple search.</p>
+      <h3>Does my personal AI use meaningfully add to my carbon footprint?</h3>
+      <p>Not much, in isolation. Even heavy personal AI use adds up to grams or a few kilograms of CO2 per year, while the average person's total footprint is measured in tons (roughly 16 tons/year in the U.S.). Cutting your AI use is a far smaller lever than changes to diet, transportation, or home heating and cooling. The bigger environmental question is about AI's aggregate, industry-wide energy demand rather than any one person's usage.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcAiFootprint() {
+  const queries = parseFloat(document.getElementById('ai-queries').value) || 20;
+  const whPerQuery = parseFloat(document.getElementById('ai-type').value) || 0.34;
+  const emFactor = parseFloat(document.getElementById('ai-grid').value) || 0.386;
+
+  const dailyWh = queries * whPerQuery;
+  const annualKwh = dailyWh * 365 / 1000;
+  const annualCO2kg = annualKwh * emFactor;
+  const annualCO2g = annualCO2kg * 1000;
+
+  const searchWh = 0.3;
+  const searchEquiv = Math.round((dailyWh * 365) / searchWh);
+  const milesEquiv = (annualCO2kg / 0.404);
+  const phoneChargeWh = 12;
+  const phoneEquiv = Math.round((dailyWh * 365) / phoneChargeWh);
+
+  const fmt = v => v.toLocaleString(undefined, {maximumFractionDigits: 1});
+  const fmt0 = v => Math.round(v).toLocaleString();
+
+  document.getElementById('ai-annual').textContent = fmt(annualCO2kg) + ' kg CO2/yr';
+  document.getElementById('ai-breakdown').innerHTML = `
+    <tr><td>Daily energy use</td><td>${fmt(dailyWh)} Wh</td></tr>
+    <tr><td>Annual energy use</td><td>${fmt(annualKwh)} kWh</td></tr>
+    <tr style="font-weight:700;"><td>Annual CO2</td><td>${fmt(annualCO2kg)} kg (${fmt0(annualCO2g)} g)</td></tr>
+    <tr><td>Equivalent Google searches/yr</td><td>${fmt0(searchEquiv)}</td></tr>
+    <tr><td>Equivalent miles driven/yr</td><td>${fmt(milesEquiv)} miles</td></tr>
+    <tr><td>Equivalent phone charges/yr</td><td>${fmt0(phoneEquiv)}</td></tr>
+    <tr><td>% of avg. U.S. person's footprint</td><td>${(annualCO2kg/16000*100).toFixed(3)}%</td></tr>
+  `;
+  const r = document.getElementById('ai-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
