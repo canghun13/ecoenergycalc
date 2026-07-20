@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 35 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 36 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -58,6 +58,7 @@ Tools for measuring and reducing personal and household carbon emissions.
 - [Diet Carbon Calculator](https://ecoenergycalc.com/tools/diet-carbon.html): Quantify how diet choices contribute to personal carbon footprint
 - [Tree Planting Offset Calculator](https://ecoenergycalc.com/tools/tree-planting-offset.html): Calculate how many trees are needed to offset a given CO₂ amount
 - [AI Chatbot Carbon Footprint Calculator](https://ecoenergycalc.com/tools/ai-carbon-footprint-calculator.html): Estimate the CO₂ from daily ChatGPT/Gemini/Claude use based on disclosed OpenAI and Google energy figures
+- [AI Water Footprint Calculator](https://ecoenergycalc.com/tools/ai-water-footprint-calculator.html): Estimate the water behind ChatGPT/Gemini use, and see why estimates range from 5 drops to a full bottle per prompt
 
 ## Calculators: Water & Environment
 
