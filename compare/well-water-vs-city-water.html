@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Well Water vs City Water: Cost Breakeven Calculator | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your well drilling estimate and city water bill to find your breakeven point — and see the real long-term cost difference between well water and municipal water." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/compare/well-water-vs-city-water.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Well Water vs City Water: Cost Breakeven Calculator","description":"Enter your well drilling estimate and city water bill to find your breakeven point — and see the real long-term cost difference between well water and municipal water.","url":"https://ecoenergycalc.com/compare/well-water-vs-city-water.html","datePublished":"2026-07-24","dateModified":"2026-07-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is well water cheaper than city water in the long run?","acceptedAnswer":{"@type":"Answer","text":"Usually, yes, if you stay in the home long enough to pass the breakeven point. A typical well costs $5,000-$15,000 to drill but then costs only $30-$60/month in pump electricity and occasional testing, while city water carries a permanent monthly bill that typically rises 3-5% a year. Most households reach breakeven in 8-15 years, after which well water is essentially free except for maintenance and periodic testing."}},
+    {"@type":"Question","name":"Do I need to treat or filter well water?","acceptedAnswer":{"@type":"Answer","text":"Often, yes, though the treatment needed depends entirely on your specific water's mineral and contaminant profile. Common well water issues include hardness (calcium/magnesium), iron staining, sulfur odor, and in some regions naturally occurring arsenic or nitrates from agricultural runoff. Unlike city water, which is tested and treated automatically by the utility, well owners are responsible for their own annual testing ($100-$300) and any needed treatment equipment ($500-$3,000+ depending on the issue)."}},
+    {"@type":"Question","name":"Does having a well affect my home's resale value?","acceptedAnswer":{"@type":"Answer","text":"It depends on the market. In genuinely rural areas where wells are standard, a well has little to no negative impact and may be expected. In suburban areas where most homes are on municipal water, a well can make some buyers cautious due to unfamiliarity with maintenance and financing requirements, and some lenders require additional water quality testing before approving a mortgage on a well-served property. Neither effect is usually large, but it's worth factoring in if you expect to sell within a few years of drilling."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="article-page">
+    <div class="container">
+      <div class="article-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Well Water vs City Water: Cost Breakeven Calculator</p>
+        <span class="article-tag">Water & Environment</span>
+        <h1>Well Water vs City Water: Cost Breakeven Calculator</h1>
+        <p class="article-meta">8 min read · July 2026</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <p>A private well costs thousands upfront but has no monthly bill; city water costs nothing to connect but bills you forever. Enter your numbers to find your actual breakeven point, not just a generic rule of thumb.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Well vs City Water Breakeven Calculator</h2>
+            <div class="form-group"><label for="ww-drill">Estimated Well Drilling Cost ($)</label><input type="number" id="ww-drill" value="7500" min="2000" max="60000" step="500" /></div>
+            <div class="form-group"><label for="ww-citybill">Current/Expected Monthly City Water Bill ($)</label><input type="number" id="ww-citybill" value="50" min="10" max="300" step="5" /></div>
+            <div class="form-group"><label for="ww-pump">Estimated Well Pump Electricity Cost ($/month)</label><input type="number" id="ww-pump" value="4" min="1" max="30" step="1" /></div>
+            <div class="form-group"><label for="ww-maint">Annual Well Testing & Maintenance ($/year)</label><input type="number" id="ww-maint" value="200" min="0" max="1000" step="25" /></div>
+            <button class="btn-primary" onclick="calcWellWater()">Calculate My Breakeven</button>
+            <div class="result-box-tool" id="ww-result">
+              <h3>Your Well vs City Water Breakeven</h3>
+              <div class="result-amount" id="ww-breakeven"></div>
+              <div class="table-scroll">
+                <table id="ww-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note">This compares only ongoing water costs (city bill vs. well electricity + testing) against the well's upfront drilling cost. The 10- and 20-year totals assume your city water rate stays flat at today's price for simplicity — in reality, most municipal rates rise 3-5%/year, so the well's real-world advantage over that time horizon is usually larger than shown here. It also doesn't include one-time city water connection fees (typically $500-$3,000 if not already connected) or any well water treatment equipment you might need beyond basic testing — see the sections below for those add-on costs.</p>
+            </div>
+          </div>
+
+          <div class="article-body">
+            <h2>Why the "Rule of Thumb" Answer Is Incomplete</h2>
+            <p>Most articles on this topic quote a single national-average breakeven period, but the real answer depends heavily on two numbers that vary enormously by property: your actual well drilling cost (which depends on depth, geology, and casing requirements — anywhere from $3,000 for a shallow well in favorable ground to $50,000+ for a deep well through hard rock) and your local city water rate (which ranges from under $30/month in some rural municipal systems to well over $150/month in water-stressed regions like parts of California and the Southwest). A generic "wells pay back in X years" answer can be off by a factor of three or more depending on where you actually live.</p>
+
+            <h2>What Well Drilling Costs Actually Depend On</h2>
+            <ul>
+              <li><strong>Depth:</strong> The single biggest cost driver. Shallow wells (under 100 feet) in favorable geology can run $3,000-$7,000; wells deeper than 300-400 feet in hard rock regions can exceed $20,000-$50,000.</li>
+              <li><strong>Geology:</strong> Drilling through soft soil and sand is fast and cheap; drilling through granite or other hard rock requires slower, more expensive equipment and more casing.</li>
+              <li><strong>Casing and pump type:</strong> Submersible pumps (most common for residential wells) cost more than jet pumps but are more reliable and efficient for deeper wells.</li>
+              <li><strong>Permits and local regulations:</strong> Some counties require hydrogeological surveys, setback distances from septic systems, or specific casing standards that add to the total cost.</li>
+            </ul>
+            <p>Getting 2-3 local well driller quotes before committing to a number is the only way to get an accurate figure for your specific property — regional and even lot-to-lot variation is substantial.</p>
+
+            <h2>The Cost City Water Comparisons Usually Miss</h2>
+            <p>City water's ongoing bill is well understood, but two often-overlooked factors change the comparison meaningfully: first, municipal water rates have risen 3-5% annually on average over the past decade in most U.S. markets, sometimes faster in drought-stressed regions — meaning a $50/month bill today could realistically be $65-$80/month within a decade, which shortens the well's effective breakeven period compared to a static-rate assumption. Second, if your property isn't already connected to city water, initial hookup itself can cost $500-$3,000 or more depending on how far the property sits from the existing water main — a cost that's sometimes left out of "city water has no upfront cost" framing.</p>
+
+            <h2>The Hidden Costs on the Well Side</h2>
+            <p>Ongoing well costs go beyond just pump electricity. Annual water testing ($100-$300) is a genuine recurring cost that a responsible well owner shouldn't skip, since well water isn't automatically monitored by any utility the way municipal water is. Depending on your specific water chemistry, you may also need a water softener for hardness ($1,500-$3,000 installed plus ongoing salt), iron filtration, a sediment filter, or a UV treatment system for bacterial concerns — these are one-time-plus-ongoing costs that a pure "well vs. bill" comparison often glosses over. Budget for at least one treatment system in your total well cost estimate unless a driller's water test confirms your specific well doesn't need one.</p>
+
+            <h2>Quality, Reliability, and Resale: Beyond the Cost Math</h2>
+            <p>City water is treated and continuously tested to EPA standards, and your utility is legally required to notify you of any contaminant exceeding safety limits — a well owner takes on that responsibility personally. On the other hand, a well gives you water independence: no risk of a municipal water main break or boil-water advisory, and no shared responsibility for aging city infrastructure costs baked into your rate. Power outages are a genuine consideration for well owners, since most well pumps require electricity to operate — a battery or generator backup for the pump is a reasonable addition to your cost planning if outages are common in your area. On resale, expect a modest, market-dependent effect: neutral to positive in genuinely rural areas where wells are standard, and occasionally a mild negative in suburban markets unfamiliar with well maintenance, plus potential extra lender-required water testing during a sale.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/water-usage.html">Water Usage Calculator</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Comparisons</h3>
+            <ul>
+              <li><a href="/compare/rain-barrel-vs-municipal-water.html">Rain Barrel vs Municipal Water</a></li>
+              <li><a href="/compare/low-flow-vs-standard-showerhead.html">Low-Flow vs Standard Showerhead</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Typical well drilling: <strong>$5,000-$15,000</strong></li>
+              <li>Well pump electricity: <strong>$30-$60/month</strong></li>
+              <li>Well testing: <strong>$100-$300/yr</strong></li>
+              <li>City water bill (avg): <strong>$50-$100/month</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#aquifer">What is an Aquifer?</a></li>
+              <li><a href="/glossary/#water-softener">What is a Water Softener?</a></li>
+              <li><a href="/glossary/">View full glossary →</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="article-page" style="padding-top:0;">
+    <div class="container">
+      <div class="article-body">
+        <h2>Frequently Asked Questions</h2>
+        <h3>Is well water cheaper than city water in the long run?</h3>
+        <p>Usually, yes, if you stay in the home long enough to pass the breakeven point. A typical well costs $5,000-$15,000 to drill but then costs only $30-$60/month in pump electricity and occasional testing, while city water carries a permanent monthly bill that typically rises 3-5% a year. Most households reach breakeven in 8-15 years, after which well water is essentially free except for maintenance and periodic testing.</p>
+        <h3>Do I need to treat or filter well water?</h3>
+        <p>Often, yes, though the treatment needed depends entirely on your specific water's mineral and contaminant profile. Common well water issues include hardness (calcium/magnesium), iron staining, sulfur odor, and in some regions naturally occurring arsenic or nitrates from agricultural runoff. Unlike city water, which is tested and treated automatically by the utility, well owners are responsible for their own annual testing ($100-$300) and any needed treatment equipment ($500-$3,000+ depending on the issue).</p>
+        <h3>Does having a well affect my home's resale value?</h3>
+        <p>It depends on the market. In genuinely rural areas where wells are standard, a well has little to no negative impact and may be expected. In suburban areas where most homes are on municipal water, a well can make some buyers cautious due to unfamiliarity with maintenance and financing requirements, and some lenders require additional water quality testing before approving a mortgage on a well-served property. Neither effect is usually large, but it's worth factoring in if you expect to sell within a few years of drilling.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcWellWater() {
+  const drill = parseFloat(document.getElementById('ww-drill').value) || 7500;
+  const cityBill = parseFloat(document.getElementById('ww-citybill').value) || 50;
+  const pump = parseFloat(document.getElementById('ww-pump').value) || 4;
+  const maint = parseFloat(document.getElementById('ww-maint').value) || 200;
+
+  const annualCity = cityBill * 12;
+  const annualWell = pump * 12 + maint;
+  const annualSavings = annualCity - annualWell;
+
+  const fmt = v => '$' + Math.round(v).toLocaleString();
+
+  let breakevenText;
+  let breakevenYears = null;
+  if (annualSavings > 0) {
+    breakevenYears = drill / annualSavings;
+    breakevenText = breakevenYears.toFixed(1) + ' years';
+  } else {
+    breakevenText = 'Never (well costs more/yr)';
+  }
+
+  const yr10City = annualCity * 10;
+  const yr10Well = drill + annualWell * 10;
+  const yr20City = annualCity * 20;
+  const yr20Well = drill + annualWell * 20;
+
+  document.getElementById('ww-breakeven').textContent = breakevenText;
+  document.getElementById('ww-table').innerHTML = `
+    <tr><th></th><th>City Water</th><th>Well Water</th></tr>
+    <tr><td>Upfront cost</td><td>$0</td><td>${fmt(drill)}</td></tr>
+    <tr><td>Annual ongoing cost</td><td>${fmt(annualCity)}</td><td>${fmt(annualWell)}</td></tr>
+    <tr><td>10-year total cost</td><td>${fmt(yr10City)}</td><td>${fmt(yr10Well)}</td></tr>
+    <tr style="font-weight:700;"><td>20-year total cost</td><td>${fmt(yr20City)}</td><td>${fmt(yr20Well)}</td></tr>
+  `;
+  const r = document.getElementById('ww-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
