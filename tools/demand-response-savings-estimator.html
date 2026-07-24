@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demand Response Savings Estimator – How Much Can You Earn? | EcoEnergyCalc</title>
+  <meta name="description" content="Free demand response earnings estimator for homeowners. Estimate your annual payout from AC-cycling, smart thermostat, or battery/EV demand response programs based on published utility rates." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/demand-response-savings-estimator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Demand Response Savings Estimator","url":"https://ecoenergycalc.com/tools/demand-response-savings-estimator.html","description":"Free demand response earnings estimator for homeowners. Estimate your annual payout from AC-cycling, smart thermostat, or battery/EV demand response programs based on published utility rates.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-07-24"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is this demand response calculator exact for my utility?","acceptedAnswer":{"@type":"Answer","text":"No — treat it as an order-of-magnitude estimate, not a quote. Residential demand response payouts vary significantly by utility, region, and specific program design. This estimator uses published ranges from major U.S. residential programs (basic AC-cycling, smart thermostat BYOT, and battery/EV enrollment) to give you a realistic ballpark before you check your own utility's specific program terms."}},
+    {"@type":"Question","name":"Why do most demand response calculators online seem built for businesses, not homes?", "acceptedAnswer":{"@type":"Answer","text":"Most publicly available demand response calculators (from providers like Enel X, Sympower, and similar aggregators) are built for commercial and industrial facilities curtailing large loads measured in kilowatts or megawatts, since that's where the biggest, most standardized revenue programs are. Residential programs pay far less per household and are structured very differently (flat seasonal bill credits rather than per-kW market payments), which is why a dedicated homeowner-facing estimator is harder to find."}},
+    {"@type":"Question","name":"Does participating in demand response affect my thermostat settings permanently?","acceptedAnswer":{"@type":"Answer","text":"No. Demand response only adjusts your thermostat or cycles your AC during specific, limited 'event' days — typically a handful of the hottest afternoons each summer, capped at a set number of total hours per season. Outside of those events, your thermostat and AC operate exactly as you've set them, with no permanent change to your settings or comfort."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Demand Response Savings</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Demand Response Savings Estimator</h1>
+        <p>Estimate how much your utility could pay you for letting them briefly cycle your AC or thermostat during peak summer demand — based on published rates from major U.S. residential programs.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Estimate Your Annual Demand Response Earnings</h2>
+            <div class="form-group">
+              <label for="dr-program">Program Type</label>
+              <select id="dr-program">
+                <option value="basic" selected>Basic AC-cycling / Direct Load Control ($25-$100/yr typical)</option>
+                <option value="byot">Smart Thermostat BYOT ($30-$130/yr typical)</option>
+                <option value="premium">Premium grid-constrained utility program ($100-$160/yr, e.g. SCE-style)</option>
+                <option value="battery">Battery storage or EV charger enrollment ($200-$575/yr typical)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dr-devices">Number of Qualifying Devices/Zones Enrolled</label>
+              <input type="number" id="dr-devices" value="1" min="1" max="4" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Most homes enroll 1 (a single central AC system or smart thermostat). Multi-zone homes or households enrolling multiple devices (AC + battery, for example) can enter more.</p>
+            </div>
+            <button class="btn-primary" onclick="calcDR()">Estimate My Earnings</button>
+            <div class="result-box-tool" id="dr-result">
+              <h3>Your Estimated Annual Demand Response Earnings</h3>
+              <div class="result-amount" id="dr-annual"></div>
+              <table id="dr-breakdown"></table>
+              <p class="result-note">Based on published payout ranges from major U.S. residential demand response programs (SCE Save Power Day, Con Edison Smart Usage Rewards, and similar). Your actual utility's program may pay more, less, or use a different structure entirely — check your utility's "ways to save" or rebates page for exact terms before enrolling.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Why This Is a Range, Not an Exact Quote</h2>
+            <p>Unlike a straightforward kWh-times-rate calculation, demand response payouts aren't standardized across utilities the way electricity rates are. Each utility designs its own program: some pay a flat annual bill credit regardless of how many events occur, others scale payment with the number and severity of events in a given summer, and a handful use market-based pricing tied to real-time grid conditions. This estimator uses the published low-to-high range for each program category based on real 2026 programs, but your specific utility's terms are the only fully accurate source for what you'd actually earn.</p>
+
+            <h2>The Four Program Tiers, Explained</h2>
+            <ul>
+              <li><strong>Basic AC-cycling / Direct Load Control:</strong> A utility technician installs a small switch on your outdoor AC condenser, at no cost to you. During an event, your compressor cycles off for roughly 15-20 minutes per hour. No smart thermostat required — works with any central AC system.</li>
+              <li><strong>Smart Thermostat BYOT (Bring Your Own Thermostat):</strong> Works through your existing Wi-Fi-connected thermostat's app rather than a physical switch. Because the utility can adjust your setpoint by small increments instead of cutting power entirely, these programs often pay a modest bonus over basic AC-cycling. See our <a href="/compare/smart-thermostat-vs-programmable.html">smart thermostat comparison</a> if you don't have one yet.</li>
+              <li><strong>Premium grid-constrained programs:</strong> Utilities serving areas where the local grid is under particular strain (like parts of Southern California) sometimes offer higher payouts to attract enough enrolled capacity in those specific zones.</li>
+              <li><strong>Battery storage or EV charger enrollment:</strong> Pays considerably more since a battery or EV charger gives the utility precisely controllable capacity, but requires already owning that hardware — see our <a href="/tools/battery-storage.html">battery storage calculator</a> for the economics of the hardware itself.</li>
+            </ul>
+
+            <h2>How to Find Your Actual Program Terms</h2>
+            <p>Search "[your utility name] demand response" or check the "ways to save" section of your utility's website. Coverage varies significantly by region — not every utility offers every tier described here, and some rural cooperatives or municipal utilities may have no residential demand response program at all. See our full <a href="/blog/demand-response-programs-get-paid-to-save-energy.html">demand response programs guide</a> for how the enrollment process typically works and whether the comfort tradeoff is worth it for your household.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/electric-bill-spike-calculator.html">Electric Bill Spike Calculator</a></li>
+              <li><a href="/tools/ac-running-cost.html">AC Running Cost Calculator</a></li>
+              <li><a href="/tools/battery-storage.html">Battery Storage Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/demand-response-programs-get-paid-to-save-energy.html">Get Paid to Cut AC Usage This Summer</a></li>
+              <li><a href="/compare/demand-response-vs-time-of-use-vs-solar-battery.html">Demand Response vs Time-of-Use vs Solar+Battery</a></li>
+              <li><a href="/compare/smart-thermostat-vs-programmable.html">Smart Thermostat vs Programmable</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Basic AC-cycling: <strong>$25-$100/yr</strong></li>
+              <li>Smart thermostat BYOT: <strong>$30-$130/yr</strong></li>
+              <li>SCE-style premium: <strong>up to $160/yr</strong></li>
+              <li>Battery/EV enrollment: <strong>$200-$575/yr</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Is this demand response calculator exact for my utility?</h3>
+      <p>No — treat it as an order-of-magnitude estimate, not a quote. Residential demand response payouts vary significantly by utility, region, and specific program design. This estimator uses published ranges from major U.S. residential programs (basic AC-cycling, smart thermostat BYOT, and battery/EV enrollment) to give you a realistic ballpark before you check your own utility's specific program terms.</p>
+      <h3>Why do most demand response calculators online seem built for businesses, not homes?</h3>
+      <p>Most publicly available demand response calculators (from providers like Enel X, Sympower, and similar aggregators) are built for commercial and industrial facilities curtailing large loads measured in kilowatts or megawatts, since that's where the biggest, most standardized revenue programs are. Residential programs pay far less per household and are structured very differently (flat seasonal bill credits rather than per-kW market payments), which is why a dedicated homeowner-facing estimator is harder to find.</p>
+      <h3>Does participating in demand response affect my thermostat settings permanently?</h3>
+      <p>No. Demand response only adjusts your thermostat or cycles your AC during specific, limited "event" days — typically a handful of the hottest afternoons each summer, capped at a set number of total hours per season. Outside of those events, your thermostat and AC operate exactly as you've set them, with no permanent change to your settings or comfort.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcDR() {
+  const program = document.getElementById('dr-program').value;
+  const devices = parseFloat(document.getElementById('dr-devices').value) || 1;
+
+  const ranges = {
+    basic: [25, 100],
+    byot: [30, 130],
+    premium: [100, 160],
+    battery: [200, 575]
+  };
+  const labels = {
+    basic: 'Basic AC-Cycling / Direct Load Control',
+    byot: 'Smart Thermostat BYOT',
+    premium: 'Premium Grid-Constrained Program',
+    battery: 'Battery Storage / EV Charger Enrollment'
+  };
+
+  const [lowBase, highBase] = ranges[program];
+  // Each additional device/zone beyond the first adds a diminishing share (utilities typically
+  // don't pay linearly per extra zone on the same account) — apply 100% for the first, ~55% for each additional.
+  const extra = Math.max(0, devices - 1);
+  const multiplier = 1 + extra * 0.55;
+  const low = lowBase * multiplier;
+  const high = highBase * multiplier;
+
+  const fmt = v => '$' + Math.round(v).toLocaleString();
+
+  document.getElementById('dr-annual').textContent = fmt(low) + ' – ' + fmt(high) + '/yr';
+  document.getElementById('dr-breakdown').innerHTML = `
+    <tr><td>Program type</td><td>${labels[program]}</td></tr>
+    <tr><td>Devices/zones enrolled</td><td>${devices}</td></tr>
+    <tr style="font-weight:700;"><td>Estimated annual earnings</td><td>${fmt(low)} – ${fmt(high)}</td></tr>
+    <tr><td>Estimated 5-year total</td><td>${fmt(low*5)} – ${fmt(high*5)}</td></tr>
+  `;
+  const r = document.getElementById('dr-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

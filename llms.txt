@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 36 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 37 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -102,6 +102,8 @@ In-depth guides on energy savings, solar, carbon reduction, and environmental to
 - [15 Ways to Reduce Your Electric Bill This Year](https://ecoenergycalc.com/blog/reduce-electric-bill.html): No-cost to high-ROI changes ranked by actual dollar savings
 - [Why Is My Electric Bill Going Up? AI Data Centers, Explained](https://ecoenergycalc.com/blog/why-electric-bills-are-rising-ai-data-centers.html): How AI data center electricity demand is contributing to rising electric bills in 2026, which regions are hit hardest, and what households can do about it
 - [Demand Response Programs: Get Paid to Cut AC Usage This Summer](https://ecoenergycalc.com/blog/demand-response-programs-get-paid-to-save-energy.html): How utility demand response programs work, how much homeowners can earn ($25-$200+/year) for letting utilities cycle their AC during peak summer demand, and whether it's worth the comfort tradeoff
+- [Demand Response Savings Estimator](https://ecoenergycalc.com/tools/demand-response-savings-estimator.html): Estimate annual demand response earnings for AC-cycling, smart thermostat BYOT, or battery/EV enrollment programs
+- [Demand Response vs Time-of-Use vs Solar+Battery](https://ecoenergycalc.com/compare/demand-response-vs-time-of-use-vs-solar-battery.html): Side-by-side comparison of three ways homeowners can save or earn money through grid programs
 - [How to Reduce Water Usage at Home: 14 High-Impact Changes](https://ecoenergycalc.com/blog/how-to-reduce-water-usage-at-home.html): Evidence-based water conservation methods ranked by gallons saved, with costs and payback periods
 - [Practical Ways to Reduce Your Carbon Footprint](https://ecoenergycalc.com/blog/reduce-carbon-footprint.html): High-impact personal actions ranked by actual CO₂ savings, with real numbers
 - [EV vs Gas Car: True Cost of Ownership Over 5 Years](https://ecoenergycalc.com/blog/ev-vs-gas-true-cost.html): Full 5-year cost comparison including purchase, fuel, insurance, maintenance, and depreciation

@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/assets/css/style.css" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"DefinedTermSet","name":"Energy & Carbon Glossary","description":"Definitions of energy efficiency, heating/cooling, and carbon footprint terms used across EcoEnergyCalc's calculators.","url":"https://ecoenergycalc.com/glossary/","dateModified":"2026-07-11","hasDefinedTerm":[
+  {"@context":"https://schema.org","@type":"DefinedTermSet","name":"Energy & Carbon Glossary","description":"Definitions of energy efficiency, heating/cooling, and carbon footprint terms used across EcoEnergyCalc's calculators.","url":"https://ecoenergycalc.com/glossary/","dateModified":"2026-07-24","hasDefinedTerm":[
     {"@type":"DefinedTerm","name":"BTU (British Thermal Unit)","description":"A unit of heat energy. One BTU is the energy needed to raise one pound of water by 1°F. Used to rate the heating/cooling capacity of furnaces, AC units, and space heaters."},
     {"@type":"DefinedTerm","name":"SEER (Seasonal Energy Efficiency Ratio)","description":"A measure of air conditioner cooling efficiency — cooling output (BTU) divided by energy input (watt-hours) over a typical season. Higher SEER means lower electricity use for the same cooling."},
     {"@type":"DefinedTerm","name":"kWh (Kilowatt-Hour)","description":"The standard unit of electricity billing — the energy used by a 1,000-watt device running for one hour. Electric bills are calculated as kWh used × rate per kWh."},
@@ -27,6 +27,8 @@
     {"@type":"DefinedTerm","name":"AFUE (Annual Fuel Utilization Efficiency)","description":"The percentage of fuel energy a furnace or boiler converts into usable heat. An AFUE of 95% means 95% of the fuel's energy becomes heat, with 5% lost as exhaust."},
     {"@type":"DefinedTerm","name":"Watt vs Kilowatt","description":"A watt is the base unit of power (energy used per second). A kilowatt equals 1,000 watts. Appliance wattage determines how much a device costs to run per hour."},
     {"@type":"DefinedTerm","name":"Demand Charge / Time-of-Use Rate","description":"A pricing structure where electricity costs more during peak-demand hours (typically afternoon/evening) and less during off-peak hours (typically overnight)."},
+    {"@type":"DefinedTerm","name":"Demand Response (DR)","description":"A utility program that pays homeowners or businesses to reduce or shift electricity use during periods of peak grid demand, typically hot summer afternoons, in exchange for a bill credit or cash incentive."},
+    {"@type":"DefinedTerm","name":"BYOT (Bring Your Own Thermostat)","description":"A type of demand response program that works through a customer's existing Wi-Fi-connected smart thermostat rather than requiring a utility-installed switch, letting the utility make small, precise setpoint adjustments during peak events."},
     {"@type":"DefinedTerm","name":"Embodied Carbon","description":"The total CO2 emitted during the manufacturing, transport, and installation of a product or material — distinct from the emissions produced while using it."},
     {"@type":"DefinedTerm","name":"Carbon Offset","description":"A reduction or removal of CO2 elsewhere that compensates for emissions you can't yet eliminate directly — such as verified reforestation, renewable energy, or methane capture projects. Measured in metric tons of CO2."}
   ]}
@@ -137,6 +139,20 @@
           <p>A time-of-use rate structure charges different prices for electricity depending on when you use it. Peak hours (typically afternoon through evening, when overall grid demand is highest) cost more per kWh; off-peak hours (typically overnight and early morning) cost less — sometimes 30–50% less.</p>
           <p><strong>Where you'll see it:</strong> Increasingly common in states with high renewable penetration (California, much of the Northeast) as utilities try to shift demand away from peak hours. Not all utilities offer TOU pricing — check your bill or utility website.</p>
           <p><strong>Why it matters:</strong> Shifting high-energy activities (laundry, dishwashing, EV charging, dryer use) to off-peak hours can meaningfully cut costs with no change in usage amount. See <a href="/blog/how-much-does-it-cost-to-run-a-dryer.html">Dryer Cost Guide</a> for an example of the savings.</p>
+        </div>
+
+        <div class="glossary-term" data-term="demand response dr utility program ac cycling pay">
+          <h2 id="demand-response">Demand Response (DR)</h2>
+          <p>Demand response is a utility program that pays homeowners or businesses to reduce or shift electricity use during periods of peak grid demand — typically the hottest summer afternoons — rather than the utility building more power plant capacity to cover a handful of peak hours a year.</p>
+          <p><strong>Where you'll see it:</strong> Most major U.S. utilities (SCE, PG&E, Con Edison, National Grid, and others) offer some form of residential demand response, usually built around cycling your central AC compressor or adjusting a smart thermostat during a capped number of "event" days each summer.</p>
+          <p><strong>Why it matters:</strong> It's one of the few energy programs that pays you directly with no purchase required. See our <a href="/blog/demand-response-programs-get-paid-to-save-energy.html">demand response programs guide</a> and <a href="/tools/demand-response-savings-estimator.html">savings estimator</a> for realistic payout ranges.</p>
+        </div>
+
+        <div class="glossary-term" data-term="byot bring your own thermostat demand response">
+          <h2 id="byot">BYOT (Bring Your Own Thermostat)</h2>
+          <p>BYOT is a type of demand response program that works through a customer's existing Wi-Fi-connected smart thermostat rather than a utility-installed switch on the outdoor AC unit. The utility (or its software partner) can adjust your setpoint by small, precise increments during peak events instead of cutting compressor power entirely.</p>
+          <p><strong>Where you'll see it:</strong> Increasingly common as smart thermostats (Nest, ecobee, Honeywell) become standard equipment — many utilities now offer a BYOT enrollment option alongside, or instead of, older direct load control hardware.</p>
+          <p><strong>Why it matters:</strong> BYOT programs often pay a modest bonus over basic AC-cycling since the utility gets finer control, and many households already own a qualifying thermostat. See our <a href="/compare/smart-thermostat-vs-programmable.html">smart thermostat comparison</a> to check compatibility.</p>
         </div>
 
         <div class="glossary-term" data-term="embodied carbon manufacturing emissions lifecycle">
