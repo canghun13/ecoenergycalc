@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Chatbot Carbon Footprint Calculator – How Much CO2 Does ChatGPT Use? | EcoEnergyCalc</title>
-  <meta name="description" content="Free AI carbon footprint calculator — estimate the CO2 from your daily ChatGPT, Gemini, or Claude use based on disclosed OpenAI and Google energy figures, with real-world comparisons." />
+  <meta name="description" content="Free AI carbon footprint calculator — estimate the CO2 from your daily ChatGPT, Gemini, or Claude use, plus AI image generation, based on disclosed energy figures and peer-reviewed research, with real-world comparisons." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/tools/ai-carbon-footprint-calculator.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"AI Chatbot Carbon Footprint Calculator","url":"https://ecoenergycalc.com/tools/ai-carbon-footprint-calculator.html","description":"Free AI carbon footprint calculator — estimate the CO2 from your daily ChatGPT, Gemini, or Claude use based on disclosed OpenAI and Google energy figures, with real-world comparisons.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-07-20"}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"AI Chatbot Carbon Footprint Calculator","url":"https://ecoenergycalc.com/tools/ai-carbon-footprint-calculator.html","description":"Free AI carbon footprint calculator — estimate the CO2 from your daily ChatGPT, Gemini, or Claude use, plus AI image generation, based on disclosed energy figures and peer-reviewed research, with real-world comparisons.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-07-27"}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -21,7 +21,8 @@
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"How much CO2 does one ChatGPT query produce?","acceptedAnswer":{"@type":"Answer","text":"There is no single verified answer, because most AI companies don't publish per-query emissions. The two disclosed figures come from OpenAI (about 0.34 watt-hours per average ChatGPT query, stated by Sam Altman in June 2025) and Google (about 0.24 watt-hours per median Gemini text prompt, published August 2025). Applying the U.S. average grid emission factor of 0.386 kg CO2 per kWh to those figures gives roughly 0.09-0.13 grams of CO2 per query. Independent academic estimates that assume less efficient infrastructure or older hardware run considerably higher, up to several grams per query for complex tasks."}},
     {"@type":"Question","name":"Is Google search or ChatGPT worse for the environment?","acceptedAnswer":{"@type":"Answer","text":"A standard AI chatbot query generally uses more energy than a traditional Google search, but the gap is much smaller than early estimates suggested. A conventional web search is typically estimated at around 0.3 watt-hours, close to Google's own disclosed 0.24 Wh figure for its most efficient Gemini model. Less efficient models or complex, multi-step AI tasks can use several times more energy than a simple search."}},
-    {"@type":"Question","name":"Does my personal AI use meaningfully add to my carbon footprint?","acceptedAnswer":{"@type":"Answer","text":"Not much, in isolation. Even heavy personal AI use adds up to grams or a few kilograms of CO2 per year, while the average person's total footprint is measured in tons (roughly 16 tons/year in the U.S.). Cutting your AI use is a far smaller lever than changes to diet, transportation, or home heating and cooling. The bigger environmental question is about AI's aggregate, industry-wide energy demand rather than any one person's usage."}}
+    {"@type":"Question","name":"Does my personal AI use meaningfully add to my carbon footprint?","acceptedAnswer":{"@type":"Answer","text":"Not much, in isolation. Even heavy personal AI use adds up to grams or a few kilograms of CO2 per year, while the average person's total footprint is measured in tons (roughly 16 tons/year in the U.S.). Cutting your AI use is a far smaller lever than changes to diet, transportation, or home heating and cooling. The bigger environmental question is about AI's aggregate, industry-wide energy demand rather than any one person's usage."}},
+    {"@type":"Question","name":"Does generating an AI image use more energy than a chatbot query?","acceptedAnswer":{"@type":"Answer","text":"Yes, generally. A 2024 peer-reviewed study in Scientific Reports estimated DALL-E 2's footprint at roughly 2.2 grams of CO2e per image, and independent trackers estimate a typical image generation request uses roughly 2-30 times the energy of a simple text prompt, depending on resolution, diffusion steps, and upscaling. Video generation is more intensive still. No major provider publishes verified per-image or per-video energy figures, so these are order-of-magnitude estimates rather than official numbers."}}
   ]}
   </script>
 </head>
@@ -40,15 +41,17 @@
           <div class="calc-box">
             <h2>Calculate Your AI Query Carbon Footprint</h2>
             <div class="form-group">
-              <label for="ai-queries">Queries per Day</label>
+              <label for="ai-queries">Queries / Images per Day</label>
               <input type="number" id="ai-queries" placeholder="e.g. 20" min="1" max="1000" step="1" value="20" />
             </div>
             <div class="form-group">
               <label for="ai-type">Typical Query Type</label>
               <select id="ai-type">
-                <option value="0.24">Quick / simple prompt (efficient model, ~0.24 Wh)</option>
-                <option value="0.34" selected>Standard prompt (typical assistant model, ~0.34 Wh)</option>
+                <option value="0.24">Quick / simple text prompt (efficient model, ~0.24 Wh)</option>
+                <option value="0.34" selected>Standard text prompt (typical assistant model, ~0.34 Wh)</option>
                 <option value="3.4">Complex / reasoning task (long context, coding, multi-step, ~3.4 Wh)</option>
+                <option value="6">AI image generation (diffusion model, ~6 Wh/image)</option>
+                <option value="15">High-quality image generation (multi-step / upscaled, ~15 Wh/image)</option>
               </select>
             </div>
             <div class="form-group">
@@ -77,6 +80,9 @@
             <h2>What We Actually Know: The Only Two Disclosed Figures</h2>
             <p>As of mid-2026, only two AI providers have published concrete per-query energy numbers. OpenAI's CEO stated in June 2025 that an average ChatGPT query uses about <strong>0.34 watt-hours</strong> of electricity. In August 2025, Google published a methodology showing its median Gemini text prompt uses about <strong>0.24 watt-hours</strong>, producing roughly 0.03 grams of CO2e — a low figure driven by Google's heavily optimized, partly carbon-matched data centers rather than a different definition of "query." Anthropic, Microsoft, Perplexity, and xAI have not published comparable per-query figures, which is exactly why so many competing estimates exist for those services — they're built by outside researchers reverse-engineering hardware deployments rather than drawn from company disclosures.</p>
             <p>This calculator applies the U.S. average grid emission factor (rather than each company's actual, often cleaner, data center power mix) so that all three query types are compared on the same basis you'd use for any other home energy calculation on this site. That makes the numbers a useful order-of-magnitude estimate for your own usage, not an official corporate carbon accounting figure.</p>
+
+            <h2>What About AI Image Generation?</h2>
+            <p>Image generation is a separate case from text chat, and it's consistently more energy-intensive per request. A peer-reviewed 2024 study in <em>Scientific Reports</em> estimated DALL-E 2's footprint at roughly 2.2 grams of CO2e per image — in the same range as a heavier text query — while Midjourney's own CEO has described image generation as requiring "thousands of trillions of operations," pointing to a similar or higher figure depending on settings. Independent trackers like CalcWolf estimate a typical image generation request lands at roughly 2–30 times the energy of a simple text prompt, with resolution, the number of diffusion steps, and any upscaling all pushing the number higher. Video generation (Sora-style clips) is more intensive still, with some estimates putting a short clip at the energy equivalent of 50+ text queries. As with text, no major image or video generation provider currently publishes verified per-request energy figures, so treat the image-generation option in this calculator as an order-of-magnitude estimate built from the available independent research, not an official figure from any AI company.</p>
 
             <h2>Putting the Numbers in Perspective</h2>
             <p>Even a heavy personal AI habit — a few hundred queries a day, every day — typically works out to a few kilograms of CO2 per year once you run the math. The average U.S. resident's total carbon footprint is about 16 metric tons per year (see our <a href="/tools/carbon-footprint.html">Carbon Footprint Calculator</a>). That means personal AI use usually sits at the gram-to-kilogram level, while your total footprint is measured in tons — roughly a thousand times larger. Cutting back on AI queries is a far smaller lever for your personal footprint than changes to diet, transportation, or home heating and cooling. The more consequential environmental question is about AI's aggregate, industry-wide electricity demand as usage scales into the billions of daily queries — not any single person's habits.</p>
@@ -136,6 +142,8 @@
       <p>A standard AI chatbot query generally uses more energy than a traditional Google search, but the gap is much smaller than early estimates suggested. A conventional web search is typically estimated at around 0.3 watt-hours, close to Google's own disclosed 0.24 Wh figure for its most efficient Gemini model. Less efficient models or complex, multi-step AI tasks can use several times more energy than a simple search.</p>
       <h3>Does my personal AI use meaningfully add to my carbon footprint?</h3>
       <p>Not much, in isolation. Even heavy personal AI use adds up to grams or a few kilograms of CO2 per year, while the average person's total footprint is measured in tons (roughly 16 tons/year in the U.S.). Cutting your AI use is a far smaller lever than changes to diet, transportation, or home heating and cooling. The bigger environmental question is about AI's aggregate, industry-wide energy demand rather than any one person's usage.</p>
+      <h3>Does generating an AI image use more energy than a chatbot query?</h3>
+      <p>Yes, generally. A 2024 peer-reviewed study in Scientific Reports estimated DALL-E 2's footprint at roughly 2.2 grams of CO2e per image, and independent trackers estimate a typical image generation request uses roughly 2-30 times the energy of a simple text prompt, depending on resolution, diffusion steps, and upscaling. Video generation is more intensive still. No major provider publishes verified per-image or per-video energy figures, so these are order-of-magnitude estimates rather than official numbers.</p>
     </div>
     </div>
   </section>

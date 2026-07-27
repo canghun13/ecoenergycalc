@@ -57,7 +57,7 @@ Tools for measuring and reducing personal and household carbon emissions.
 - [Flight Carbon Calculator](https://ecoenergycalc.com/tools/flight-carbon.html): Calculate CO₂ emissions per flight route and estimate offset requirements
 - [Diet Carbon Calculator](https://ecoenergycalc.com/tools/diet-carbon.html): Quantify how diet choices contribute to personal carbon footprint
 - [Tree Planting Offset Calculator](https://ecoenergycalc.com/tools/tree-planting-offset.html): Calculate how many trees are needed to offset a given CO₂ amount
-- [AI Chatbot Carbon Footprint Calculator](https://ecoenergycalc.com/tools/ai-carbon-footprint-calculator.html): Estimate the CO₂ from daily ChatGPT/Gemini/Claude use based on disclosed OpenAI and Google energy figures
+- [AI Chatbot Carbon Footprint Calculator](https://ecoenergycalc.com/tools/ai-carbon-footprint-calculator.html): Estimate the CO₂ from daily ChatGPT/Gemini/Claude use or AI image generation, based on disclosed energy figures and peer-reviewed research
 - [AI Water Footprint Calculator](https://ecoenergycalc.com/tools/ai-water-footprint-calculator.html): Estimate the water behind ChatGPT/Gemini use, and see why estimates range from 5 drops to a full bottle per prompt
 
 ## Calculators: Water & Environment
