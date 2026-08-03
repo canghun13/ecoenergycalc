@@ -83,7 +83,7 @@ v18에서 "07-17/07-18 순위 개선은 표본이 작아 노이즈일 수 있다
 ### 0-7. 다음 세션(Sonnet) 작업 지시 — 우선순위 순
 1. ~~`blog/solar-panel-guide.html` FAQ 스키마-본문 불일치 해소~~ **✅ 완료(같은 세션 내 이어서 처리, 2026-08-03, 커밋 `d99a019`)** — 상세는 0-7-1 참고
 2. ~~**신규 클러스터: Budget Billing / Levelized Billing**~~ **✅ 완료(2026-08-03, 커밋 `030957a`)** — 상세는 0-8-1 참고
-3. **제휴 배관 작업**: 제휴 고지 페이지 신설 + privacy.html 문구 수정 (실제 제휴 링크 삽입은 사용자 승인 후) — 다음 세션 최우선
+3. ~~**제휴 배관 작업**: 제휴 고지 페이지 신설 + privacy.html 문구 수정~~ **✅ 완료(2026-08-03, 커밋 `d87bba2`)** — 상세는 0-8-2 참고. **실제 제휴 링크는 아직 미삽입**(지시대로 사전 정비만 완료), 사용자 승인 후 진행할 것
 4. 냉장고 클러스터는 2026년 전기요금 수치(전국평균 17~18.56¢/kWh)만 갱신하는 선에서 소폭 보강 (레드오션이라 신규 URL 금지)
 
 ### 0-7-1. solar-panel-guide.html FAQ 수정 완료 기록 (2026-08-03)
@@ -111,6 +111,17 @@ v18에서 "07-17/07-18 순위 개선은 표본이 작아 노이즈일 수 있다
 - **검증**: 전체 사이트 재스캔 결과 구조 이슈 0건, FAQ 불일치는 기존 7건 그대로(이번 세션 대상 아님, 타 파일), 용어집 불일치는 기존 1건 그대로(Demand Charge/TOU, v17부터 미해결), broken link 0건, sitemap-파일시스템 정합성 확인(117 URL 전부 실존, tools/blog/compare 파일 전부 sitemap에 존재).
 - **GitHub Pages 빌드 확인**: 커밋 `030957a` push 후 `pages/builds/latest`가 `built` 상태로 정상 반영됨(약 80초 소요, 이번엔 지연 없었음).
 - **참고(이번 세션 발견, 별건)**: `tools/electric-bill-spike-calculator.html`가 애초에 `tools/index.html` 카드 목록에 없었던 것을 발견함(이번 작업 범위 밖이라 손대지 않음). 다음 세션에서 추가 검토 가치 있음.
+
+### 0-8-2. 제휴 수익화 사전 정비 완료 기록 (2026-08-03, 커밋 `d87bba2`)
+- **`privacy.html` 60행 수정**: "not affiliated with, endorsed by, or sponsored by any of the brands mentioned" 문구를 FTC 준수형으로 교체 — 브랜드명은 정보제공 목적, 일부 링크는 제휴링크일 수 있고 사용자 추가비용 없음, `disclosure.html`로 링크. "Last updated" 날짜도 2026-08-03으로 갱신.
+- **`disclosure.html` 신규 생성**(487단어, about.html 구조 그대로 복제): 수익 구조(광고+제휴), 편집 독립성 선언("리뷰나 순위는 대가로 좌우되지 않는다"), 계산기 결과가 제휴사와 무관하게 공개 데이터·표준 공식으로 산출된다는 명시적 문단, FTC 고지 취지 설명, contact.html 연결.
+- **⚠️ 실제 제휴 링크는 이번 세션에 넣지 않음** — 지시대로 사전 정비만 완료. 실제 제휴 프로그램(FlexOffers 등) 가입 및 링크 삽입은 사용자 승인 후 별도 세션에서 진행할 것(섹션 0-6 단계별 트리거 참고).
+- **푸터 링크**: `assets/js/nav.js`의 공용 푸터 템플릿(전 페이지 공통 렌더링)에 Disclosure 링크 1곳 추가 — "Site" 링크그룹과 하단 카피라이트 줄 양쪽에 반영해 118개 전 페이지에 한 번에 적용됨. `node --check`로 JS 문법 검증 완료.
+- **인프라 갱신**: sitemap.xml(신규 1개 URL, 총 118개 확인), llms.txt(Core Pages 섹션에 disclosure 항목 추가).
+- **⚠️ ads.txt는 지시대로 생성하지 않음** — AdSense 심사 상태(현재 "심사 대기 중", 섹션 7-0 참고)가 완전히 확정되기 전까지는 보류. **다음에 만들 때 확인할 것**: 승인이 나오면 AdSense 게시자 ID로 정식 ads.txt를 생성하고, 만약 이후 다른 제휴/광고 네트워크(Sovrn 등)를 추가로 붙이게 되면 그 네트워크의 판매자 ID도 함께 등록해야 함(복수 항목 가능).
+- **검증**: 전체 사이트 구조 스캔(div/h2~h4/JSON) 0건, `assets/js/nav.js`를 포함한 전체 broken link 스캔 0건(공용 푸터 템플릿 링크까지 별도로 검증함), sitemap-파일시스템 정합성 확인(118 URL 전부 실존).
+- **⚠️ GitHub Pages 빌드 확인 필요**: 커밋 `d87bba2` push 확인(API `commits/main`으로 반영 확인됨)했으나, push 후 4분 넘게 `pages/builds/latest`가 이전 커밋(`c725b2c`)에 머물러 있음 — v13/v19-1(solar-panel-guide) 때와 동일한 API 자체 지연 패턴으로 추정, 콘텐츠 diff 문제 아님. **다음 세션에서 가장 먼저 `pages/builds/latest`로 `d87bba2` 이후 상태가 `built`인지 확인할 것.** 과도한 재트리거는 하지 않음.
+- **참고(발견, 별건, 이번 작업 범위 밖이라 손대지 않음)**: `about.html`의 "How We Keep This Free" 섹션이 "Ads are served through Google AdSense; we don't hand-pick advertisers or accept sponsored placements"라고만 서술 중 — 섹션 0-6의 AdSense 비의존·제휴 우선 방침과 어긋나는 낡은 문구임. 실제 제휴 링크를 넣는 다음 단계에서 이 문단도 함께 갱신할 것(제휴는 "판매자를 골라 우대"하는 것이 아니라 계산기 로직과 무관한 순수 링크라는 disclosure.html의 논리를 그대로 가져오면 됨).
 
 ---
 
