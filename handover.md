@@ -81,10 +81,17 @@ v18에서 "07-17/07-18 순위 개선은 표본이 작아 노이즈일 수 있다
 - **제휴 링크를 넣기 전 반드시 선행할 것**: `privacy.html` 60행의 "EcoEnergyCalc is not affiliated with, endorsed by, or sponsored by any of the brands mentioned." 문구는 제휴 링크와 정면 충돌함 → FTC 준수 문구로 교체 필요. 제휴 고지(disclosure)는 링크가 있는 모든 페이지에서 접근 가능해야 함.
 
 ### 0-7. 다음 세션(Sonnet) 작업 지시 — 우선순위 순
-1. **`blog/solar-panel-guide.html` FAQ 스키마-본문 불일치 해소** (사이트 최고 순위 자산, 수익화 관점에서도 태양광 리드젠 랜딩 후보 1순위)
+1. ~~`blog/solar-panel-guide.html` FAQ 스키마-본문 불일치 해소~~ **✅ 완료(같은 세션 내 이어서 처리, 2026-08-03, 커밋 `d99a019`)** — 상세는 0-7-1 참고
 2. **신규 클러스터: Budget Billing / Levelized Billing** — 이번 세션에 검증한 유일한 무경쟁 니치(상세는 0-8)
 3. **제휴 배관 작업**: 제휴 고지 페이지 신설 + privacy.html 문구 수정 (실제 제휴 링크 삽입은 사용자 승인 후)
 4. 냉장고 클러스터는 2026년 전기요금 수치(전국평균 17~18.56¢/kWh)만 갱신하는 선에서 소폭 보강 (레드오션이라 신규 URL 금지)
+
+### 0-7-1. solar-panel-guide.html FAQ 수정 완료 기록 (2026-08-03)
+- **원인**: 이 파일에 FAQPage JSON-LD 스키마가 **2개 별도 `<script>` 블록으로 중복 존재**(6문항+5문항, "How much do solar panels cost in 2026?" 1건은 완전 중복). 스키마 문항 중 8개가 본문 h3와 문자열 불일치 — 세액공제/페이백 관련 질문이 서로 다른 표현으로 2벌씩 있었고(예: "What is the solar panel payback period?" vs "How long does it take for solar panels to pay for themselves?"), 홈밸류/CO2offset/buy-or-lease 3개 질문은 아예 본문에 대응 섹션이 없었음.
+- **처리**: 두 스크립트를 8문항짜리 스키마 하나로 병합(중복 문항 통합, 표현 불일치 문항은 본문 h3 텍스트에 맞춰 재작성), 본문에 없던 3개 질문(Should I buy or lease / How much CO2 do solar panels offset / Does going solar increase home value)은 기존 본문 섹션(Buying vs Leasing, CO2, Resale Value) 내용을 요약해 h3+답변으로 신규 추가. dateModified 2026-08-03 갱신.
+- **세액공제 정보 재검증(웹서치)**: Section 25D 2025-12-31 종료 사실 IRS 공식 FAQ·SEIA·Congress.gov CRS로 재교차확인, 기존 서술 정확함 확인. 추가로 "리스/PPA는 Section 48E 상업용 크레딧을 2027년까지 여전히 활용 가능"이라는 뉘앙스를 buy-or-lease 답변에 보강(기존에 없던 디테일, solar.com 등 다수 소스로 확인).
+- **검증**: 파일 단위 재스캔(div/h2~h4/JSON유효성/FAQ매칭) 전부 0건. 전체 사이트 재스캔 결과 이 파일 관련 이슈 0건(타 파일의 기존 경미한 FAQ 불일치 7건은 그대로, 이번 세션 대상 아님).
+- **⚠️ GitHub Pages 빌드 확인 필요**: 커밋 `d99a019` push 확인(API `commits/main`으로 반영 확인됨)했으나, push 후 4분 넘게 `pages/builds/latest`가 이전 커밋(`d00796c`)에 머물러 있음 — 콘텐츠 diff는 없고 API 자체 지연으로 추정(handover 섹션 6/v13 선례와 동일 패턴). **다음 세션에서 가장 먼저 `pages/builds/latest`로 `d99a019` 이후 상태가 `built`인지 확인할 것.** 과도한 재트리거는 하지 않음.
 
 ### 0-8. ⚠️ 이번 세션 유일한 검증 통과 신규 니치: Budget Billing / Levelized Billing
 - **사이트 내 중복 0건 확인**: `grep -ril "budget billing\|levelized billing\|LIHEAP\|bill assistance\|payment plan"` → 전부 0건. 전기요금을 주제로 하는 사이트에 청구·납부 프로그램 콘텐츠가 통째로 비어 있는 최대 토픽 공백.
