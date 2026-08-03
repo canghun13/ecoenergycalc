@@ -82,8 +82,8 @@ v18에서 "07-17/07-18 순위 개선은 표본이 작아 노이즈일 수 있다
 
 ### 0-7. 다음 세션(Sonnet) 작업 지시 — 우선순위 순
 1. ~~`blog/solar-panel-guide.html` FAQ 스키마-본문 불일치 해소~~ **✅ 완료(같은 세션 내 이어서 처리, 2026-08-03, 커밋 `d99a019`)** — 상세는 0-7-1 참고
-2. **신규 클러스터: Budget Billing / Levelized Billing** — 이번 세션에 검증한 유일한 무경쟁 니치(상세는 0-8)
-3. **제휴 배관 작업**: 제휴 고지 페이지 신설 + privacy.html 문구 수정 (실제 제휴 링크 삽입은 사용자 승인 후)
+2. ~~**신규 클러스터: Budget Billing / Levelized Billing**~~ **✅ 완료(2026-08-03, 커밋 `030957a`)** — 상세는 0-8-1 참고
+3. **제휴 배관 작업**: 제휴 고지 페이지 신설 + privacy.html 문구 수정 (실제 제휴 링크 삽입은 사용자 승인 후) — 다음 세션 최우선
 4. 냉장고 클러스터는 2026년 전기요금 수치(전국평균 17~18.56¢/kWh)만 갱신하는 선에서 소폭 보강 (레드오션이라 신규 URL 금지)
 
 ### 0-7-1. solar-panel-guide.html FAQ 수정 완료 기록 (2026-08-03)
@@ -96,9 +96,21 @@ v18에서 "07-17/07-18 순위 개선은 표본이 작아 노이즈일 수 있다
 ### 0-8. ⚠️ 이번 세션 유일한 검증 통과 신규 니치: Budget Billing / Levelized Billing
 - **사이트 내 중복 0건 확인**: `grep -ril "budget billing\|levelized billing\|LIHEAP\|bill assistance\|payment plan"` → 전부 0건. 전기요금을 주제로 하는 사이트에 청구·납부 프로그램 콘텐츠가 통째로 비어 있는 최대 토픽 공백.
 - **경쟁강도 검증 결과**: 소비자용 "budget billing 계산기/판단 도구"가 **검색결과에 존재하지 않음**. 경쟁은 ①각 유틸리티 자체 안내 페이지(Wake EMC, Berea, AES Indiana 등 — 지역별로 파편화, 전국 단위 경쟁자 아님) ②일반 금융 블로그(WalletHub, PennyHoarder, Albert, electricityrates.com) 뿐. EnergyCAP·utilitycalculator.pro 등은 B2B이거나 다른 의도. **v17 Demand Response 성공 패턴과 정확히 동일한 경쟁 구도**(계산기 애그리게이터가 아니라 유틸리티 공식페이지가 경쟁자).
-- **신선한 뉴스 훅**: 인디애나주 HEA 1002(2026) 시행으로 투자자소유 유틸리티가 Budget Billing을 주 단위 표준 Levelized Billing으로 일괄 전환 중. 2026 상반기 미국 유틸리티 요금인상 신청액 $186억(Q2만 $92억, 전년 Q2 대비 +26%), 미국 가구 6곳 중 1곳이 공과금 연체 — 시즌성·화제성 모두 충족.
+- **신선한 뉴스 훅**: 인디애나주 HEA 1002(2026, 2026-02-26 서명) — ⚠️ 이 세션에서 처음 정리한 표현("주 단위 표준으로 일괄 전환")이 부정확했음이 실제 콘텐츠 작성 중 재검증(법안 원문 legiscan.com, AES Indiana/NIPSCO 공식 고지, Taft/Mondaq 법무 요약)으로 드러나 바로잡음: **의무 자동가입 대상은 LIHEAP 등 에너지지원 자격/신청 고객뿐**이고(2026-06-30 이후 첫 청구주기부터, 옵트아웃 가능), 그 외 일반 고객은 여전히 선택 가입임. 다만 "Budget Billing"이라는 명칭 자체를 "Levelized Billing"으로 바꾸도록 강제하는 조항(추가 고객보호 조치 없이는 구 명칭 사용 금지)이 있어 유틸리티들이 폭넓게 리브랜딩 중인 것은 사실(AES Indiana 2026-08-01부터, NIPSCO 2026-07-01부터 명칭 변경 확인). **다음에 이 소재로 글을 더 쓸 경우 이 구분을 반드시 유지할 것** — "전 고객 의무화"로 서술하면 사실오류.
+- 2026 상반기 미국 유틸리티 요금인상 신청액 $186억(Q2만 $92억, 전년 Q2 대비 +26%), 미국 가구 6곳 중 1곳이 공과금 연체(NEADA) — 시즌성·화제성 모두 충족, 확인 완료.
 - **롱테일 타깃**: "is budget billing worth it", "budget billing vs levelized billing", "will I owe money on budget billing", "budget billing true up", "does budget billing save money", "budget billing pros and cons"
 - **주의**: budget billing은 요금을 **줄이지 않고 평탄화만 한다**는 게 핵심 팩트임. 절약 상품처럼 서술하면 사실오류가 됨. true-up(정산월) 리스크, 이탈 시 이연잔액 즉시 정산, 가입 요건(12개월 이력·연체 0원)까지 균형있게 다룰 것.
+
+### 0-8-1. Budget Billing 클러스터 완료 기록 (2026-08-03, 커밋 `030957a`)
+- **생성**: `blog/is-budget-billing-worth-it.html`(약 1,550단어, FAQ 4개), `tools/budget-billing-estimator.html`(계산기 — 최고월/최저월/현재평균/예상요금인상률 입력 → 평탄화 월납부액·계절별 현금흐름차·true-up 위험범위 출력, FAQ 3개).
+- **계산기 로직**: `parseFloat(x)||기본값` 안티패턴 미사용, `isNaN` 체크로 처리(handover 10-8 준수). true-up 범위는 레벨라이즈드(소액·잦은 정산)와 전통적 버짓빌링(연 1회 대규모 정산)의 차이를 반영해 low/high 범위로 제시하고, result-note에 "견적 아님" 고지 명시(v17 DR 계산기와 동일 처리).
+- **용어집**: `glossary/index.html`에 "Budget Billing", "True-Up" 2개 항목 추가(스키마+본문 정확 매칭 확인, dateModified 갱신).
+- **상호링크**: `tools/electric-bill-spike-calculator.html`, `blog/reduce-electric-bill.html`, `blog/demand-response-programs-get-paid-to-save-energy.html`, `blog/why-electric-bills-are-rising-ai-data-centers.html` 4개 파일 전부 양방향 링크 추가 완료. 자기참조 링크 0건 확인.
+- **인프라 갱신**: sitemap.xml(신규 2개 URL, 총 117개 확인), llms.txt(계산기 수 37→38, 신규 항목 2개 추가), tools/index.html(`data-category="energy"` 카드 추가 — 유효 카테고리값 사전 확인함), blog/index.html(`data-date="2026-08-03"` 카드 추가).
+- **compare/ 신규 없음** — 지시대로 준수.
+- **검증**: 전체 사이트 재스캔 결과 구조 이슈 0건, FAQ 불일치는 기존 7건 그대로(이번 세션 대상 아님, 타 파일), 용어집 불일치는 기존 1건 그대로(Demand Charge/TOU, v17부터 미해결), broken link 0건, sitemap-파일시스템 정합성 확인(117 URL 전부 실존, tools/blog/compare 파일 전부 sitemap에 존재).
+- **GitHub Pages 빌드 확인**: 커밋 `030957a` push 후 `pages/builds/latest`가 `built` 상태로 정상 반영됨(약 80초 소요, 이번엔 지연 없었음).
+- **참고(이번 세션 발견, 별건)**: `tools/electric-bill-spike-calculator.html`가 애초에 `tools/index.html` 카드 목록에 없었던 것을 발견함(이번 작업 범위 밖이라 손대지 않음). 다음 세션에서 추가 검토 가치 있음.
 
 ---
 
