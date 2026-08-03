@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 37 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 38 free web-based calculators and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All tools run client-side with no data collection. Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -75,6 +75,7 @@ Tools for water usage and rainwater harvesting.
 ## Calculators: Energy Savings (Additional)
 
 - [Why Is My Electric Bill So High? Spike Calculator](https://ecoenergycalc.com/tools/electric-bill-spike-calculator.html): Diagnose an electric bill spike by entering bill amounts and usage changes; estimates the cost contribution of AC, EV charging, new appliances, and other common causes
+- [Budget Billing Estimator](https://ecoenergycalc.com/tools/budget-billing-estimator.html): Estimate your levelized monthly payment, seasonal cash-flow difference, and true-up risk range for budget billing or levelized billing plans
 
 ## Blog Articles
 
@@ -109,6 +110,7 @@ In-depth guides on energy savings, solar, carbon reduction, and environmental to
 - [EV vs Gas Car: True Cost of Ownership Over 5 Years](https://ecoenergycalc.com/blog/ev-vs-gas-true-cost.html): Full 5-year cost comparison including purchase, fuel, insurance, maintenance, and depreciation
 - [How Much Does It Cost to Run AC All Day?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-ac.html): Per-hour, per-day, and seasonal AC running cost by system size and electricity rate — with an interactive calculator
 - [Solar Panel Cost in 2026: What Homeowners Actually Pay](https://ecoenergycalc.com/blog/solar-panel-cost-2026.html): Real installed cost by system size and state, 30% ITC breakdown, financing options, and whether solar is worth it in 2026
+- [Is Budget Billing Worth It? What Levelized Billing Actually Does](https://ecoenergycalc.com/blog/is-budget-billing-worth-it.html): How budget billing and levelized billing actually work, why they smooth your bill without lowering it, true-up reconciliation risk, and the 2026 state rules (like Indiana's HEA 1002) changing how utilities offer these plans
 
 ## Compare: Solar & Renewables
 

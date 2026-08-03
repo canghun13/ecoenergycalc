@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Billing Estimator – Levelized Payment & True-Up Calculator | EcoEnergyCalc</title>
+  <meta name="description" content="Free budget billing / levelized billing estimator. Enter your highest and lowest monthly bills to see your estimated flat monthly payment, cash flow difference by season, and true-up risk range." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/budget-billing-estimator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Budget Billing Estimator","url":"https://ecoenergycalc.com/tools/budget-billing-estimator.html","description":"Free budget billing / levelized billing estimator. Enter your highest and lowest monthly bills to see your estimated flat monthly payment, cash flow difference by season, and true-up risk range.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-08-03"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is this budget billing calculator exact for my utility?","acceptedAnswer":{"@type":"Answer","text":"No — treat it as a planning estimate, not a quote. Every utility calculates its budget billing or levelized billing amount slightly differently (some include a cushion above your trailing average, some reconcile monthly, others once or twice a year). This tool models the general mechanics using your own recent bills so you can see the likely shape of the tradeoff — the smoothed payment, the seasonal cash-flow shift, and the true-up exposure — before you enroll. Your utility's exact figure may differ."}},
+    {"@type":"Question","name":"Why is there a range instead of one exact true-up number?","acceptedAnswer":{"@type":"Answer","text":"Because true-up size depends heavily on which type of plan you're on. True levelized billing recalculates your payment on a rolling basis (often monthly) and reconciles small differences twice a year, so any rate increase gets absorbed gradually and true-ups tend to stay small. Traditional budget billing holds one flat payment for 11 months and settles everything at once in month 12, so the same rate increase can produce a much larger single true-up bill. The range shown reflects that gap between the two plan types."}},
+    {"@type":"Question","name":"Does a higher estimated monthly payment mean I'm being overcharged?","acceptedAnswer":{"@type":"Answer","text":"No. If the estimate comes in above your current average, it usually means the calculator is factoring in an expected rate increase you entered, so the plan is being set slightly ahead of your trailing usage cost to reduce true-up risk. This is normal and is exactly how real budget billing and levelized billing plans build in a cushion — it isn't a separate fee."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Budget Billing Estimator</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Budget Billing Estimator</h1>
+        <p>See what a flattened "budget billing" or "levelized billing" payment would look like based on your own recent electric bills — plus the cash-flow shift by season and your true-up risk if rates rise.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Estimate Your Levelized Monthly Payment</h2>
+            <div class="form-group">
+              <label for="bb-avg">Current Average Monthly Bill ($)</label>
+              <input type="number" id="bb-avg" value="145" min="20" max="1000" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Average of your last 12 monthly bills. Check your utility's app or a recent statement for a 12-month usage/cost history if you don't have this handy.</p>
+            </div>
+            <div class="form-group">
+              <label for="bb-high">Highest Single Month (Peak Season, $)</label>
+              <input type="number" id="bb-high" value="240" min="20" max="2000" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="bb-low">Lowest Single Month (Off-Peak, $)</label>
+              <input type="number" id="bb-low" value="70" min="10" max="1000" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="bb-rate">Expected Rate Increase This Year (%, optional)</label>
+              <input type="number" id="bb-rate" value="6" min="0" max="50" step="0.5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Leave at 0 if you don't expect a rate change. Utility rate increase filings have been running well above historical norms in 2026 — check your utility's news page or your state utility commission site for pending cases in your area.</p>
+            </div>
+            <button class="btn-primary" onclick="calcBudgetBilling()">Estimate My Levelized Payment</button>
+            <div class="result-box-tool" id="bb-result">
+              <h3>Your Estimated Budget/Levelized Billing Breakdown</h3>
+              <div class="result-amount" id="bb-payment"></div>
+              <div class="table-scroll">
+                <table id="bb-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="bb-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How This Estimate Works</h2>
+            <p>Your estimated levelized payment starts from your current average monthly bill, then adds roughly half of any expected rate increase you enter — real utilities typically set a budget billing amount using your trailing 12-month average plus a partial forward adjustment for known or anticipated rate changes, rather than either ignoring the increase entirely or applying the full year's increase on day one. The cash-flow difference rows show how much less you'd pay in your peak month and how much more you'd pay in your lowest month, compared to paying your actual bill each month — this is the entire mechanism of budget billing in one table: it doesn't erase the cost, it just moves it in time.</p>
+
+            <h2>Why the True-Up Range Is Wide</h2>
+            <p>The true-up estimate spans a wide range on purpose, because the two real-world plan structures produce very different outcomes for the same rate increase. If your utility uses true <strong>levelized billing</strong> (rolling recalculation, reconciled roughly twice a year — the structure now required for assistance-eligible customers in states like Indiana under 2026's HEA 1002), a rate increase gets absorbed gradually and the low end of the range is more realistic. If you're on older-style <strong>traditional budget billing</strong> (one flat number for 11 months, one settlement month), the same rate increase can produce a true-up much closer to the high end, since nothing adjusts until that single settlement date. Ask your utility which structure your specific plan uses — the name alone ("budget billing" vs "levelized billing") is a hint but not a guarantee, since some utilities are still finishing the rename.</p>
+
+            <h2>Before You Enroll</h2>
+            <p>Most utilities require at least 12 months of billing history at your address and a $0 or near-$0 account balance to enroll. See our full <a href="/blog/is-budget-billing-worth-it.html">is budget billing worth it guide</a> for the true-up risk, enrollment requirements, and who actually benefits from smoothing versus who's better off with standard billing plus their own savings buffer.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/electric-bill-spike-calculator.html">Electric Bill Spike Calculator</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/demand-response-savings-estimator.html">Demand Response Savings Estimator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/is-budget-billing-worth-it.html">Is Budget Billing Worth It?</a></li>
+              <li><a href="/blog/reduce-electric-bill.html">15 Ways to Reduce Your Electric Bill</a></li>
+              <li><a href="/blog/demand-response-programs-get-paid-to-save-energy.html">Get Paid to Cut AC Usage This Summer</a></li>
+              <li><a href="/blog/why-electric-bills-are-rising-ai-data-centers.html">Why Electric Bills Are Rising (AI Data Centers)</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Budget billing: <strong>flat payment, 1 settlement/year</strong></li>
+              <li>Levelized billing: <strong>rolling average, ~2 reconciliations/year</strong></li>
+              <li>Doesn't lower your bill — <strong>smooths it only</strong></li>
+              <li>Typically needs <strong>12 months history + $0 balance</strong> to enroll</li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Is this budget billing calculator exact for my utility?</h3>
+      <p>No — treat it as a planning estimate, not a quote. Every utility calculates its budget billing or levelized billing amount slightly differently (some include a cushion above your trailing average, some reconcile monthly, others once or twice a year). This tool models the general mechanics using your own recent bills so you can see the likely shape of the tradeoff — the smoothed payment, the seasonal cash-flow shift, and the true-up exposure — before you enroll. Your utility's exact figure may differ.</p>
+      <h3>Why is there a range instead of one exact true-up number?</h3>
+      <p>Because true-up size depends heavily on which type of plan you're on. True levelized billing recalculates your payment on a rolling basis (often monthly) and reconciles small differences twice a year, so any rate increase gets absorbed gradually and true-ups tend to stay small. Traditional budget billing holds one flat payment for 11 months and settles everything at once in month 12, so the same rate increase can produce a much larger single true-up bill. The range shown reflects that gap between the two plan types.</p>
+      <h3>Does a higher estimated monthly payment mean I'm being overcharged?</h3>
+      <p>No. If the estimate comes in above your current average, it usually means the calculator is factoring in an expected rate increase you entered, so the plan is being set slightly ahead of your trailing usage cost to reduce true-up risk. This is normal and is exactly how real budget billing and levelized billing plans build in a cushion — it isn't a separate fee.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcBudgetBilling() {
+  var avgInput = document.getElementById('bb-avg').value;
+  var highInput = document.getElementById('bb-high').value;
+  var lowInput = document.getElementById('bb-low').value;
+  var rateInput = document.getElementById('bb-rate').value;
+
+  var avg = parseFloat(avgInput);
+  if (isNaN(avg)) avg = 145;
+  var high = parseFloat(highInput);
+  if (isNaN(high)) high = 240;
+  var low = parseFloat(lowInput);
+  if (isNaN(low)) low = 70;
+  var ratePct = parseFloat(rateInput);
+  if (isNaN(ratePct)) ratePct = 0;
+
+  var rateFrac = ratePct / 100;
+  var levelizedPayment = avg * (1 + rateFrac * 0.5);
+  var peakMonthDiff = high - levelizedPayment;
+  var lowMonthDiff = levelizedPayment - low;
+  var annualCost = avg * 12;
+  var trueUpLow = annualCost * rateFrac * 0.25;
+  var trueUpHigh = annualCost * rateFrac * 1.0;
+
+  var fmt = function(v) { return '$' + Math.round(v).toLocaleString(); };
+
+  document.getElementById('bb-payment').textContent = fmt(levelizedPayment) + '/month (estimated)';
+  document.getElementById('bb-table').innerHTML =
+    '<tr><th>Metric</th><th>Estimate</th></tr>' +
+    '<tr><td>Estimated levelized monthly payment</td><td>' + fmt(levelizedPayment) + '</td></tr>' +
+    '<tr><td>Amount less than your peak-month bill</td><td>' + fmt(Math.max(0, peakMonthDiff)) + '/mo</td></tr>' +
+    '<tr><td>Amount more than your low-month bill</td><td>' + fmt(Math.max(0, lowMonthDiff)) + '/mo</td></tr>' +
+    '<tr style="font-weight:700;"><td>Estimated true-up risk range' + (ratePct > 0 ? ' (at ' + ratePct + '% rate increase)' : '') + '</td><td>' + fmt(trueUpLow) + ' – ' + fmt(trueUpHigh) + '</td></tr>';
+
+  var noteText = 'This is a planning estimate, not a bill or a quote — your actual utility uses its own formula and reconciliation schedule. ';
+  noteText += ratePct > 0
+    ? 'The true-up range assumes a ' + ratePct + '% rate increase applied to your annual cost: the low end reflects true levelized billing (smaller, more frequent reconciliations), the high end reflects traditional budget billing (one annual settlement).'
+    : 'With no rate increase entered, true-up risk mainly comes from usage changes (a hotter summer or colder winter than your trailing average assumed) rather than rate changes.';
+  document.getElementById('bb-note').textContent = noteText;
+
+  var r = document.getElementById('bb-result');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
