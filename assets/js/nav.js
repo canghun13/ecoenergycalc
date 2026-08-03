@@ -67,13 +67,14 @@ document.addEventListener('DOMContentLoaded', function () {
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/glossary/">Glossary</a></li>
             <li><a href="/about.html">About</a></li>
+            <li><a href="/disclosure.html">Advertising Disclosure</a></li>
             <li><a href="/privacy.html">Privacy Policy</a></li>
             <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; ${new Date().getFullYear()} EcoEnergyCalc.com &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="/contact.html">Contact</a></p>
+        <p>&copy; ${new Date().getFullYear()} EcoEnergyCalc.com &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="/disclosure.html">Disclosure</a> &middot; <a href="/contact.html">Contact</a></p>
         <p class="disclaimer">This site provides estimates for informational purposes only. Always consult a qualified energy or financial professional before making major decisions.</p>
       </div>
     </div>
