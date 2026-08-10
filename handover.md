@@ -99,6 +99,12 @@ GA(2026-07-13~08-09, 28일) 세션 소스:
 - ⚠️ **`tools/index.html`에 카드가 없는 tool 3개 발견**: `electric-bill-spike-calculator.html`(v19에서 이미 지적됨), **`solar-panel-count-calculator.html`(태양광 수익 라인인데 허브에서 링크 없음)**, `washing-machine-water-usage.html`(쿼리 `washing machine water usage calculator` 5노출 35위 — 사이트 내 최상위권 순위인데 허브 미연결). 카드 35개 vs 실제 tool 38개.
 - ⚠️ **`tools/water-usage.html` 본문에 실질 중복 섹션 확인**: `Where Does Household Water Go?`(134단어)와 `Where Your Water Actually Goes`(100단어)가 같은 EPA 용도별 비율을 반복, `Highest-Impact Ways to Reduce Water Use`(186단어)와 `High-Impact Water Saving Upgrades`(99단어)가 같은 WaterSense 변기 13,000갤런 근거를 반복. 과거 일괄 확장 작업의 잔재로 보임. **전 사이트 토큰중복 스캔 결과 본문 중복이 확정된 건 이 파일 한 개뿐**(다른 후보들은 FAQ가 본문을 요약하는 정상 패턴이라 오탐).
 
+### 0-5-1. ✅ 위 3건 전부 완료 (2026-08-10, 같은 날 후속 세션, 커밋 `1092985`)
+
+- **카드 3개 추가**: `tools/index.html`에 `electric-bill-spike-calculator`(energy), `solar-panel-count-calculator`(solar), `washing-machine-water-usage`(water) 추가. 카드 38개 = 실제 계산기 38개 전부 일치 확인.
+- **FAQ 불일치 6건 전부 해소**: water-usage 3건(2건은 표현 정렬, 1건은 답변 내용을 재확인해 의미가 맞는 스키마 쪽 문구로 정정), washing-machine-water-usage 2건, ac-running-cost 1건. **전체 사이트 FAQ 재스캔 결과 0건.**
+- **water-usage.html 중복 병합**: 1쌍은 고유 정보(82갤런 세부 내역, 누수 감지법) 전부 보존하며 통합. 2쌍은 확인해보니 두 번째 목록이 첫 번째보다 정보량이 적은 완전 하위집합이라 고유 콘텐츠가 전혀 없었음 — 삭제 후 단어수 손실(8%대) 방지를 위해 6개 항목 종합한 신규 문단(3개 업그레이드 조합 시 연 19,600~22,400갤런/$118~134 절약) 추가. **H2 10개→8개, 전체 단어수 1902→1821(−4.3%)**, 구조/링크/FAQ 재검증 전부 0건.
+
 ### 0-6. 인덱싱 커버리지 — 미색인이 8 → 15로 늘어남 (2026-07-25)
 
 | 사유 | 소스 | 페이지 |
