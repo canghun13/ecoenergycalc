@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Electric Heat vs Gas Heat: Which Is Cheaper in Your Area?","description":"Enter your local electricity and gas rates to find out which heating fuel costs less for your home — with the exact crossover point.","url":"https://ecoenergycalc.com/compare/electric-heat-vs-gas-heat.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Electric Heat vs Gas Heat: Which Is Cheaper in Your Area?","description":"Enter your local electricity and gas rates to find out which heating fuel costs less for your home — with the exact crossover point.","url":"https://ecoenergycalc.com/compare/electric-heat-vs-gas-heat.html","datePublished":"2026-06-26","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -33,7 +33,7 @@
           <div class="calc-box" style="margin:32px 0;">
             <h2>Heating Cost Comparison by Rate</h2>
             <div class="form-group"><label for="eg-elec">Electricity Rate (¢/kWh)</label><input type="number" id="eg-elec" value="13" min="5" max="60" step="0.5" /></div>
-            <div class="form-group"><label for="eg-gas">Natural Gas Rate ($/therm)</label><input type="number" id="eg-gas" value="1.30" min="0.30" max="5" step="0.05" /></div>
+            <div class="form-group"><label for="eg-gas">Natural Gas Rate ($/therm)</label><input type="number" id="eg-gas" value="70" min="0.30" max="5" step="0.05" /></div>
             <div class="form-group"><label for="eg-mmbtu">Annual Heating Load (MMBtu) <span style="font-weight:400;font-size:.9em">— 2,000 sq ft moderate climate: ~50 MMBtu</span></label><input type="number" id="eg-mmbtu" value="50" min="10" max="200" step="5" /></div>
             <button class="btn-primary" onclick="calcElecGas()">Compare Heating Fuels</button>
             <div class="result-box-tool" id="eg-result">
@@ -79,7 +79,7 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Heat pump beats gas when: <strong>elec < ~17¢/kWh (at $1.30 gas)</strong></li>
+              <li>Heat pump beats gas when: <strong>elec < ~22¢/kWh (at $1.70 gas)</strong></li>
               <li>Electric resistance: <strong>most expensive per BTU</strong></li>
               <li>Gas furnace 95% AFUE: <strong>cheapest in most regions</strong></li>
             </ul>
@@ -102,7 +102,7 @@
 <script>
 function calcElecGas() {
   const elec=parseFloat(document.getElementById('eg-elec').value)/100||0.13;
-  const gas=parseFloat(document.getElementById('eg-gas').value)||1.30;
+  const gas=parseFloat(document.getElementById('eg-gas').value)||1.70;
   const mmbtu=parseFloat(document.getElementById('eg-mmbtu').value)||50;
 
   const kwh=mmbtu*293.07;

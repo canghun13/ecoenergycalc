@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Electric vs Gas Dryer: Which Costs Less to Run in Your Area?","description":"Enter your local electricity and gas rates to find the exact annual cost difference and payback period for electric vs gas dryers.","url":"https://ecoenergycalc.com/compare/electric-vs-gas-dryer.html","datePublished":"2026-06-26","dateModified":"2026-07-19","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Electric vs Gas Dryer: Which Costs Less to Run in Your Area?","description":"Enter your local electricity and gas rates to find the exact annual cost difference and payback period for electric vs gas dryers.","url":"https://ecoenergycalc.com/compare/electric-vs-gas-dryer.html","datePublished":"2026-06-26","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -43,7 +43,7 @@
             <div class="form-group"><label for="dr-loads">Loads per Week</label><input type="number" id="dr-loads" value="5" min="1" max="30" step="1" /></div>
             <div class="form-group"><label for="dr-min">Minutes per Load</label><input type="number" id="dr-min" value="45" min="20" max="90" step="5" /></div>
             <div class="form-group"><label for="dr-elec">Electricity Rate (¢/kWh)</label><input type="number" id="dr-elec" value="13" min="5" max="50" step="0.5" /></div>
-            <div class="form-group"><label for="dr-gas">Natural Gas Rate ($/therm)</label><input type="number" id="dr-gas" value="1.30" min="0.30" max="5" step="0.05" /></div>
+            <div class="form-group"><label for="dr-gas">Natural Gas Rate ($/therm)</label><input type="number" id="dr-gas" value="70" min="0.30" max="5" step="0.05" /></div>
             <div class="form-group"><label for="dr-prem">Gas Dryer Price Premium ($) <span style="font-weight:400;font-size:.9em">— typically $50–150 more than electric</span></label><input type="number" id="dr-prem" value="100" min="0" max="500" step="25" /></div>
             <button class="btn-primary" onclick="calcDryer()">Compare Dryers</button>
             <div class="result-box-tool" id="dr-result">
@@ -119,7 +119,7 @@ function calcDryer() {
   const loads=parseFloat(document.getElementById('dr-loads').value)||5;
   const mins=parseFloat(document.getElementById('dr-min').value)||45;
   const elec=parseFloat(document.getElementById('dr-elec').value)/100||0.13;
-  const gas=parseFloat(document.getElementById('dr-gas').value)||1.30;
+  const gas=parseFloat(document.getElementById('dr-gas').value)||1.70;
   const prem=parseFloat(document.getElementById('dr-prem').value)||100;
 
   const hrs=mins/60; const annual=loads*52;

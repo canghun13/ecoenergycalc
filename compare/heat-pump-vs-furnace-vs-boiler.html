@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Heat Pump vs Furnace vs Gas Boiler: Which Heating System Costs Less for Your Home?","description":"Enter your home size and local energy rates to compare the annual heating cost and payback period for a heat pump, gas furnace, and gas boiler.","url":"https://ecoenergycalc.com/compare/heat-pump-vs-furnace-vs-boiler.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Heat Pump vs Furnace vs Gas Boiler: Which Heating System Costs Less for Your Home?","description":"Enter your home size and local energy rates to compare the annual heating cost and payback period for a heat pump, gas furnace, and gas boiler.","url":"https://ecoenergycalc.com/compare/heat-pump-vs-furnace-vs-boiler.html","datePublished":"2026-06-26","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -35,7 +35,7 @@
             <div class="form-group"><label for="hp-sqft">Home Size (sq ft)</label><input type="number" id="hp-sqft" value="2000" min="500" max="6000" step="100" /></div>
             <div class="form-group"><label for="hp-hdd">Heating Degree Days (HDD) per Year <span style="font-weight:400;font-size:.9em">— Chicago: 6,500 | Atlanta: 3,000 | Miami: 200</span></label><input type="number" id="hp-hdd" value="5000" min="200" max="10000" step="100" /></div>
             <div class="form-group"><label for="hp-elec">Electricity Rate (¢/kWh)</label><input type="number" id="hp-elec" value="13" min="5" max="50" step="0.5" /></div>
-            <div class="form-group"><label for="hp-gas">Natural Gas Rate ($/therm)</label><input type="number" id="hp-gas" value="1.30" min="0.50" max="4" step="0.05" /></div>
+            <div class="form-group"><label for="hp-gas">Natural Gas Rate ($/therm)</label><input type="number" id="hp-gas" value="70" min="0.50" max="4" step="0.05" /></div>
             <button class="btn-primary" onclick="calcHeating()">Compare Heating Systems</button>
             <div class="result-box-tool" id="hp-result">
               <h3>Annual Heating Cost</h3>
@@ -106,7 +106,7 @@ function calcHeating() {
   const sqft=parseFloat(document.getElementById('hp-sqft').value)||2000;
   const hdd=parseFloat(document.getElementById('hp-hdd').value)||5000;
   const elec=parseFloat(document.getElementById('hp-elec').value)/100||0.13;
-  const gas=parseFloat(document.getElementById('hp-gas').value)||1.30;
+  const gas=parseFloat(document.getElementById('hp-gas').value)||1.70;
 
   // Estimated annual BTU load
   const btuLoad = sqft * 6 * hdd * 24; // simplified load calculation

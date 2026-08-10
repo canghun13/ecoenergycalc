@@ -41,7 +41,7 @@
             <h2>Water Heater Cost Comparison</h2>
             <div class="form-group"><label for="ewh-gal">Daily Hot Water Use (gallons)</label><input type="number" id="ewh-gal" value="50" min="10" max="150" step="5" /></div>
             <div class="form-group"><label for="ewh-elec">Electricity Rate (¢/kWh)</label><input type="number" id="ewh-elec" value="13" min="5" max="50" step="0.5" /></div>
-            <div class="form-group"><label for="ewh-gas">Natural Gas Rate ($/therm)</label><input type="number" id="ewh-gas" value="1.30" min="0.30" max="5" step="0.05" /></div>
+            <div class="form-group"><label for="ewh-gas">Natural Gas Rate ($/therm)</label><input type="number" id="ewh-gas" value="70" min="0.30" max="5" step="0.05" /></div>
             <button class="btn-primary" onclick="calcWaterHeater()">Compare Water Heaters</button>
             <div class="result-box-tool" id="ewh-result">
               <h3>Annual Water Heating Cost</h3>
@@ -136,7 +136,7 @@
 function calcWaterHeater() {
   const gal=parseFloat(document.getElementById('ewh-gal').value)||50;
   const elec=parseFloat(document.getElementById('ewh-elec').value)/100||0.13;
-  const gas=parseFloat(document.getElementById('ewh-gas').value)||1.30;
+  const gas=parseFloat(document.getElementById('ewh-gas').value)||1.70;
 
   const btuPerGal=8.33*60;
   const annualBtu=gal*365*btuPerGal;

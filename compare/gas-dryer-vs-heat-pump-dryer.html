@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Gas Dryer vs Heat Pump Dryer: Cost, Efficiency & Payback","description":"Compare gas dryer vs heat pump dryer running costs, payback period, and which option saves more money long-term at your local energy rates.","url":"https://ecoenergycalc.com/compare/gas-dryer-vs-heat-pump-dryer.html","datePublished":"2026-07-06","dateModified":"2026-07-19","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Gas Dryer vs Heat Pump Dryer: Cost, Efficiency & Payback","description":"Compare gas dryer vs heat pump dryer running costs, payback period, and which option saves more money long-term at your local energy rates.","url":"https://ecoenergycalc.com/compare/gas-dryer-vs-heat-pump-dryer.html","datePublished":"2026-07-06","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -29,12 +29,12 @@
       </div>
       <div class="tool-layout">
         <div>
-          <p>Gas dryers cost about $0.23/load to run — the cheapest option at average U.S. energy prices. Heat pump dryers cost $0.25–0.35/load but use no gas and require no vent; there's no federal tax credit for either type, though income-qualified households in some states can get a HEEHRA rebate toward a heat pump dryer. Which wins long-term depends on your energy rates and whether you have gas service.</p>
+          <p>Gas dryers cost about $0.34/load to run at current national average rates. Heat pump dryers cost $0.28–0.39/load — essentially the same range, using no gas and requiring no vent; there's no federal tax credit for either type, though income-qualified households in some states can get a HEEHRA rebate toward a heat pump dryer. Which wins depends on your local energy rates and whether you have gas service.</p>
 
           <div class="calc-box" style="margin:32px 0;">
             <h2>Gas vs Heat Pump Dryer Cost Calculator</h2>
             <div class="form-group"><label for="gd-loads">Loads per Week</label><input type="number" id="gd-loads" value="5" min="1" max="20" /></div>
-            <div class="form-group"><label for="gd-gas">Gas Rate ($/therm)</label><input type="number" id="gd-gas" value="1.10" min="0.50" max="3.00" step="0.05" /></div>
+            <div class="form-group"><label for="gd-gas">Gas Rate ($/therm)</label><input type="number" id="gd-gas" value="70" min="0.50" max="3.00" step="0.05" /></div>
             <div class="form-group"><label for="gd-elec">Electricity Rate (¢/kWh)</label><input type="number" id="gd-elec" value="16" min="5" max="50" step="0.1" /></div>
             <div class="form-group"><label for="gd-premium">Heat Pump Dryer Price Premium ($)</label><input type="number" id="gd-premium" value="700" min="0" max="1500" step="50" /><small>Full difference in purchase price vs gas dryer — no federal credit applies in 2026</small></div>
             <button class="btn-primary" onclick="calcDryer()">Compare Dryer Costs</button>
@@ -52,8 +52,8 @@
             <p>A conventional dryer — gas or electric — blows hot air through clothes and exhausts the humid air outside through a vent duct. A heat pump dryer recirculates air through a closed loop: it heats air with a refrigerant-based heat pump, passes it through the drum, then extracts moisture from the exhaust air and reuses the heat. The result is 40–50% less electricity consumed per load, and no vent duct required.</p>
             <p>The no-vent advantage is significant for apartments, condos, and homes where running a vent duct is difficult or impossible. It also means heat pump dryers don't pull conditioned air from the home in winter (conventional dryers can add meaningfully to heating costs in cold climates by exhausting warm indoor air).</p>
 
-            <h2>Gas Dryer: Still the Cheapest to Run in Most Markets</h2>
-            <p>At average U.S. gas prices ($1.10/therm) and electricity rates (16¢/kWh), a gas dryer costs about $0.23 per load — roughly $60/year at 5 loads/week. A heat pump dryer at 800W average draw costs about $0.30/load — about $78/year at the same usage. The $18/year difference doesn't look like much, but over 10 years that's $180 — less than the typical price premium for a heat pump dryer before incentives.</p>
+            <h2>Gas Dryer: No Longer a Clear Cost Advantage</h2>
+            <p>At average U.S. gas prices ($1.70/therm) and electricity rates (18¢/kWh), a gas dryer costs about $0.34 per load — roughly $87/year at 5 loads/week. A heat pump dryer at 800W average draw costs about $0.34/load — about $88/year at the same usage. The two are now essentially tied on operating cost; gas no longer carries the meaningful per-load edge it once did, so the heat pump dryer's other advantages (no vent duct, gentler on fabrics, lower peak electricity draw) become the more relevant differentiators for most households.</p>
             <p>In high-electricity-rate states like California (25¢/kWh) or Hawaii (40¢/kWh), the math flips: gas dryers maintain their per-load advantage if gas is available, but all-electric homes with heat pump dryers beat conventional electric dryers significantly. For a full breakdown of dryer running costs by type, see our <a href="/blog/how-much-does-it-cost-to-run-a-dryer.html">dryer cost guide</a> or use the <a href="/tools/dryer-energy-cost.html">Dryer Energy Cost Calculator</a>.</p>
 
             <h2>Tax Credit vs. Rebate: Get This Distinction Right</h2>
@@ -84,8 +84,8 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Gas dryer: <strong>~$0.23/load</strong></li>
-              <li>Heat pump dryer: <strong>~$0.30/load</strong></li>
+              <li>Gas dryer: <strong>~$0.34/load</strong></li>
+              <li>Heat pump dryer: <strong>~$0.34/load</strong></li>
               <li>IRA credit: <strong>expired Dec 2025</strong></li>
             </ul>
           </div>
@@ -106,7 +106,7 @@
 <script>
 function calcDryer() {
   const loads = parseFloat(document.getElementById('gd-loads').value) || 5;
-  const gasRate = parseFloat(document.getElementById('gd-gas').value) || 1.10;
+  const gasRate = parseFloat(document.getElementById('gd-gas').value) || 1.70;
   const elecRate = parseFloat(document.getElementById('gd-elec').value) / 100 || 0.16;
   const premium = parseFloat(document.getElementById('gd-premium').value) || 600;
 
