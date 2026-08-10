@@ -4,6 +4,27 @@ v19 문서 + 이번 세션(v19→v20) 내용 통합. 새 세션 시작 시 이 �
 
 ## 0. v20 세션 핵심 요약 (2026-08-10, Opus 분석 세션 — 코드 수정 없음, 진단만)
 
+### 0-0-4. ✅ 색인 미크롤 7건 해결 + 홈페이지 구조적 결함 발견 (커밋 `0643c3a`)
+
+**사용자가 GSC 커버리지 드릴다운 CSV를 제공해 URL 특정 완료. 이 항목은 종결 — 다시 요청하지 말 것.**
+
+7개 URL 전부 "발견됨 - 현재 색인이 생성되지 않음"이고 **최종 크롤 `1970-01-01`(= 한 번도 크롤된 적 없음)**. 페이지 자체는 전부 정상 실존. 원인은 내부링크 부족(3개는 일반 페이지 인바운드가 1개뿐).
+- 대상: `blog/why-electric-bills-are-rising-ai-data-centers`, `compare/electric-vs-gas-dryer`, `compare/gas-dryer-vs-heat-pump-dryer`, `compare/solar-shingles-vs-solar-panels`, `compare/tankless-vs-tank-water-heater`, `compare/vegan-vs-meat-diet-carbon`, `tools/ai-carbon-footprint-calculator`
+- 조치: 최고 권위 페이지인 홈에서 전부 직접 링크(tool 카드 1개 + blog 카드 1개 + comparisons 섹션 5개).
+
+### 0-0-5. ⚠️ **홈페이지에 `compare/` 링크가 0개였음** (구조적 결함, 해결)
+
+`grep 'compare' index.html` → **0건**. compare/ 44개 파일이 노출 45건에 그치던 구조적 원인이 이것. v19~v20 내내 "compare는 성과가 없으니 신규 생성 금지"로 판단해왔는데, **성과가 없는 게 아니라 홈에서 authority가 한 방울도 안 흐르고 있었던 것.** 'Popular comparisons' 섹션 신설로 해소. → **다음 세션은 compare/ 성과를 이 조치 이후 기준으로 재평가할 것.** 기존의 "compare 신규 금지" 방침은 근거가 흔들렸으므로 재검토 대상.
+
+### 0-0-6. 태양광 CO2 클러스터 — 홈 앵커 정렬 조치 완료
+
+사용자 제공 GSC 페이지 리포트로 홈 89노출 확인(전용페이지는 4노출). 56노출 클러스터가 홈으로 매칭된다는 가설과 부합. 홈 카드 앵커를 `Solar CO2 Offset Calculator` → `Solar Carbon Footprint & CO2 Offset Calculator`로 변경해 최다 쿼리(`solar carbon footprint calculator`, 16노출) 및 대상 페이지 title과 정렬. **2~3주 후 해당 쿼리 순위/매칭 페이지 변화를 재확인할 것.**
+
+### 0-0-7. ⚠️ 홈페이지에 사실오류가 있었음 (해결) — 정기 점검 필요
+
+홈은 노출 1위 페이지(89)인데 **이미 만료된 30% 연방 세액공제(2025-12-31 만료)를 아직 유효한 것처럼 광고**하고 있었음. 그 외 카드 금액 4건이 갱신된 본문과 어긋나 있었음(space heater $0.24→$0.27/hr, 냉장고 $68-171→$95-237, AC $3.64→$5.04/day, 세탁 $150-250→$210-350).
+- **교훈: 하위 페이지를 고칠 때 홈페이지 카드 요약문은 자동으로 안 따라온다.** 본문 수치를 바꾸면 반드시 `index.html`의 해당 카드도 같이 검색해서 고칠 것.
+
 ### 0-0-3. ✅ 보류했던 콘텐츠 정확도 오류 4건 전부 해결 (커밋 `83d6508`) — **미결 항목 없음**
 
 이전 세션들에서 "요금 갱신 범위 밖 / 원본 결함이라 별도 세션 필요"로 계속 미뤄왔던 것들. 전부 처리 완료.
