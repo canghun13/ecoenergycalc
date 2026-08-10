@@ -103,7 +103,26 @@ GA(2026-07-13~08-09, 28일) 세션 소스:
 
 - **카드 3개 추가**: `tools/index.html`에 `electric-bill-spike-calculator`(energy), `solar-panel-count-calculator`(solar), `washing-machine-water-usage`(water) 추가. 카드 38개 = 실제 계산기 38개 전부 일치 확인.
 - **FAQ 불일치 6건 전부 해소**: water-usage 3건(2건은 표현 정렬, 1건은 답변 내용을 재확인해 의미가 맞는 스키마 쪽 문구로 정정), washing-machine-water-usage 2건, ac-running-cost 1건. **전체 사이트 FAQ 재스캔 결과 0건.**
+### 0-5-1. ✅ 위 3건 전부 완료 (2026-08-10, 같은 날 후속 세션, 커밋 `1092985`)
+
+- **카드 3개 추가**: `tools/index.html`에 `electric-bill-spike-calculator`(energy), `solar-panel-count-calculator`(solar), `washing-machine-water-usage`(water) 추가. 카드 38개 = 실제 계산기 38개 전부 일치 확인.
+- **FAQ 불일치 6건 전부 해소**: water-usage 3건(2건은 표현 정렬, 1건은 답변 내용을 재확인해 의미가 맞는 스키마 쪽 문구로 정정), washing-machine-water-usage 2건, ac-running-cost 1건. **전체 사이트 FAQ 재스캔 결과 0건.**
 - **water-usage.html 중복 병합**: 1쌍은 고유 정보(82갤런 세부 내역, 누수 감지법) 전부 보존하며 통합. 2쌍은 확인해보니 두 번째 목록이 첫 번째보다 정보량이 적은 완전 하위집합이라 고유 콘텐츠가 전혀 없었음 — 삭제 후 단어수 손실(8%대) 방지를 위해 6개 항목 종합한 신규 문단(3개 업그레이드 조합 시 연 19,600~22,400갤런/$118~134 절약) 추가. **H2 10개→8개, 전체 단어수 1902→1821(−4.3%)**, 구조/링크/FAQ 재검증 전부 0건.
+
+### 0-5-2. P0-B 진행 현황 갱신 (2026-08-10, 커밋 `9dc387a`, `a938bc9`) — **41개 중 11개 완료, 30개 남음**
+
+- **배치1(4개, 커밋 `eea9695`)**: ceiling fan, 전기저항난방, solar-panel-cost-2026 표, solar-panel-guide savings.
+- **배치2(7개, 커밋 `9dc387a`)**: heat-pump-dryer, heat-pump-water-heater, induction-vs-gas-stove(⚠️ 결론 문장 자체가 바뀜 — "induction이 $20-40 유리"에서 "거의 동률"로. 요금 인상으로 실제 결론이 뒤집힌 사례이니 검수 시 이 파일 특히 주의), monocrystalline-vs-polycrystalline-solar, propane-vs-natural-gas(JS 상수, 사용자 입력 없는 하드코딩 케이스), solar-water-heater-vs-electric(3단계 연쇄값 — 표시값 $0.13-$0.17이 실제론 반올림된 $0.125-$0.175였음을 역산으로 발견, +0.05 시프트로 재계산), ac-running-cost.html 하단 참고표(계산기 자체 요금과 별개로 16¢ 기준이었던 정적 표 — 30% 수치가 원래 반올림 오차로 29%였던 것도 겸사겸사 정정).
+- **보류 3건(변경 없음, 그대로 유지)**: `central-ac-vs-window-unit.html`(역산 불일치, 원본 결함), `central-heat-vs-space-heater.html`(계산값 아니라 州별 요금대 인용이라 범위 밖), `ev-vs-gas-car.html`(오탐 — $0.13/mile은 휘발유 비용).
+- **남은 30개는 아직 100% 미착수**(입력값 기본치는 P0-A로 이미 18¢지만 본문 산문/표 금액은 13¢ 그대로): blog 5개(`how-much-does-an-ev-save-on-fuel-costs`, `how-much-does-it-cost-to-run-a-dryer`, `how-much-does-it-cost-to-run-a-refrigerator`, `how-much-does-it-cost-to-run-ac`⚠️레이아웃만 고침·금액 아직, `how-to-save-on-laundry-energy-costs`), compare 8개(`central-ac-vs-window-unit`·`central-heat-vs-space-heater`·`ev-vs-gas-car`는 위 보류 3건, +`dishwasher-vs-hand-washing`·`electric-bike-vs-car`·`electric-vs-gas-dryer`·`electric-vs-gas-water-heater`·`ev-vs-hybrid-vs-gas`·`public-transport-vs-car`·`tankless-vs-tank-water-heater`), tools 14개(`appliance-energy-cost`⚠️레이아웃만 고침·금액 아직·가장 손 많이 감, `dehumidifier-running-cost`, `dryer-energy-cost`, `electric-bill-spike-calculator`, `electric-bill`, `freezer-running-cost`, `heating-cost-by-fuel`, `heating-vs-cooling`, `home-energy-cost`, `humidifier-running-cost`, `pool-pump-running-cost`, `refrigerator-energy-cost`, `solar-panel-savings`, `space-heater-cost-calculator`, `washing-machine-energy-cost`).
+- 정확한 현재 목록은 매번 재실행해서 확인할 것: `grep -rlE '13¢/kWh|\$0\.13' --include=*.html .`
+
+### 0-5-3. ✅ 표 레이아웃 버그 6건 수정 (2026-08-10, 커밋 `a938bc9`) — 사용자가 스크린샷으로 신고
+
+- **원인**: 데이터 행에서 `padding`/`border-bottom` 인라인 스타일이 **첫 번째 `<td>`에만** 붙어있고 나머지 칸엔 없어서, 구분선이 첫 칸 밑에만 그어지는 버그. `solar-panel-cost-2026.html` 표에서 발견, 전 사이트 스캔해서 5개 더 찾음: `how-much-does-it-cost-to-run-ac.html`, `washing-machine-water-usage.html`, `solar-panel-count-calculator.html`, `appliance-energy-cost.html`, `heating-cost-by-fuel.html`. **전부 수정 완료, 재스캔 결과 0건.**
+- colspan 요약행 4개(`heat-pump-dryer`, `heat-pump-water-heater`, `mono-vs-poly-solar`, `solar-panels-vs-battery-storage`)는 확인해보니 애초에 border-bottom이 없는 디자인이라 문제없음(오탐).
+- **부수 발견**: `heating-cost-by-fuel.html`의 가스요금 입력 기본값이 P0-A 때 누락되어 `$1.10/therm` 그대로였음 → `$1.70`로 정정.
+- ⚠️ **부수 발견 2 (미착수)**: `$1.10/therm` 또는 `value="1.30"` 잔존이 이 파일 말고도 **11개 파일 더** 있음(`grep -rln '\$1\.10/therm\|value="1\.10"\|value="1\.30"' --include=*.html .`로 재확인). 대부분 본문 서술. 전기요금(13→18¢) 프로젝트와 별개로, 가스요금(1.10/1.30→1.70) 전용 배치를 새로 만들어야 함. 아직 목록만 뽑아둔 상태.
 
 ### 0-6. 인덱싱 커버리지 — 미색인이 8 → 15로 늘어남 (2026-07-25)
 
