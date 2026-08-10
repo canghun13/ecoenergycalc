@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
               <label for="eb-rate">Electricity Rate (¢/kWh)</label>
-              <input type="number" id="eb-rate" placeholder="e.g. 13" min="0" step="0.1" value="13" />
+              <input type="number" id="eb-rate" placeholder="e.g. 18" min="0" step="0.1" value="18" />
             </div>
             <div class="form-group">
               <label for="fixed-charge">Monthly Fixed/Base Charge ($)</label>
@@ -123,7 +123,7 @@
 <script>
 function calcElectricBill() {
   const kwh = parseFloat(document.getElementById('monthly-kwh').value) || 886;
-  const rate = parseFloat(document.getElementById('eb-rate').value) || 13;
+  const rate = parseFloat(document.getElementById('eb-rate').value) || 18;
   const fixed = parseFloat(document.getElementById('fixed-charge').value) || 10;
   const taxPct = parseFloat(document.getElementById('taxes-pct').value) || 8;
 

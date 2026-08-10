@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Hot Tub Running Cost Calculator","url":"https://ecoenergycalc.com/tools/hot-tub-running-cost.html","description":"Calculate hot tub running cost per day, month, and year for both inflatable and built-in hot tubs, based on heater wattage, pump usage, and electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-07-16","dateModified":"2026-07-16","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Hot Tub Running Cost Calculator","url":"https://ecoenergycalc.com/tools/hot-tub-running-cost.html","description":"Calculate hot tub running cost per day, month, and year for both inflatable and built-in hot tubs, based on heater wattage, pump usage, and electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-07-16","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -66,7 +66,7 @@
             </div>
             <div class="form-group">
               <label for="ht-rate">Electricity Rate (¢/kWh)</label>
-              <input type="number" id="ht-rate" value="13" min="0" step="0.1" />
+              <input type="number" id="ht-rate" value="18" min="0" step="0.1" />
             </div>
             <button class="btn-primary" onclick="calcHotTub()">Calculate Cost</button>
             <div class="result-box-tool" id="ht-result">
@@ -178,7 +178,7 @@ function calcHotTub() {
   const duty = (parseFloat(document.getElementById('ht-duty').value) || 30) / 100;
   const pumpHours = parseFloat(document.getElementById('ht-pump').value) || 4;
   const pumpWatts = parseFloat(document.getElementById('ht-pump-watts').value) || 1200;
-  const rate = parseFloat(document.getElementById('ht-rate').value) || 13;
+  const rate = parseFloat(document.getElementById('ht-rate').value) || 18;
 
   const heaterKwhPerDay = (heaterWatts / 1000) * 24 * duty;
   const pumpKwhPerDay = (pumpWatts / 1000) * pumpHours;

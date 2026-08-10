@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Electric Bill Spike Calculator","url":"https://ecoenergycalc.com/tools/electric-bill-spike-calculator.html","description":"Find out why your electric bill spiked. Enter your bill and usage details to identify the most likely causes and calculate the cost of each.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-29","dateModified":"2026-07-24","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Electric Bill Spike Calculator","url":"https://ecoenergycalc.com/tools/electric-bill-spike-calculator.html","description":"Find out why your electric bill spiked. Enter your bill and usage details to identify the most likely causes and calculate the cost of each.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-29","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
               <label for="eb-rate">Electricity Rate (¢/kWh)</label>
-              <input type="number" id="eb-rate" value="13" min="5" max="50" step="0.5" />
+              <input type="number" id="eb-rate" value="18" min="5" max="50" step="0.5" />
             </div>
             <h2 style="font-size:1.2rem;margin-top:24px;">Step 2: What Changed This Month?</h2>
             <div class="form-group">
@@ -156,7 +156,7 @@
 function calcBillSpike() {
   var current = parseFloat(document.getElementById('eb-current').value) || 180;
   var previous = parseFloat(document.getElementById('eb-previous').value) || 120;
-  var rate = parseFloat(document.getElementById('eb-rate').value) / 100 || 0.13;
+  var rate = parseFloat(document.getElementById('eb-rate').value) / 100 || 0.18;
   var days = parseFloat(document.getElementById('eb-days').value) || 31;
 
   var spike = current - previous;

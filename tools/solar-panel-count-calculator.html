@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Solar Panel Count Calculator","url":"https://ecoenergycalc.com/tools/solar-panel-count-calculator.html","description":"Calculate exactly how many solar panels you need based on your monthly electricity use, local sun hours, and panel wattage.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-29","dateModified":"2026-07-09","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Solar Panel Count Calculator","url":"https://ecoenergycalc.com/tools/solar-panel-count-calculator.html","description":"Calculate exactly how many solar panels you need based on your monthly electricity use, local sun hours, and panel wattage.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-29","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -78,7 +78,7 @@
             </div>
             <div class="form-group">
               <label for="spc-rate">Electricity Rate (¢/kWh)</label>
-              <input type="number" id="spc-rate" value="13" min="5" max="50" step="0.5" />
+              <input type="number" id="spc-rate" value="18" min="5" max="50" step="0.5" />
             </div>
             <button class="btn-primary" onclick="calcSolarPanelCount()">Calculate Panels Needed</button>
             <div class="result-box-tool" id="spc-result">
@@ -183,7 +183,7 @@ function calcSolarPanelCount() {
   var sun = sunSel === '0' ? (parseFloat(document.getElementById('spc-custom-sun').value) || 4.5) : parseFloat(sunSel);
   var panelW = parseFloat(document.getElementById('spc-watts').value) || 400;
   var coverage = parseFloat(document.getElementById('spc-coverage').value) / 100 || 1.0;
-  var rate = parseFloat(document.getElementById('spc-rate').value) / 100 || 0.13;
+  var rate = parseFloat(document.getElementById('spc-rate').value) / 100 || 0.18;
 
   var annualKwh = monthlyKwh * 12 * coverage;
   var systemKw = annualKwh / (sun * 365 * 0.80);

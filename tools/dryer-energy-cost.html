@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Clothes Dryer Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/dryer-energy-cost.html","description":"Clothes dryer energy cost calculator: find out exactly how much your dryer costs to run per load, per month, and per year. Compare electric vs gas dryers.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-24","dateModified":"2026-07-13","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Clothes Dryer Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/dryer-energy-cost.html","description":"Clothes dryer energy cost calculator: find out exactly how much your dryer costs to run per load, per month, and per year. Compare electric vs gas dryers.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-24","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -58,11 +58,11 @@
             </div>
             <div class="form-group">
               <label for="dryer-elec-rate">Electricity Rate (¢/kWh)</label>
-              <input type="number" id="dryer-elec-rate" value="13" min="1" step="0.1" />
+              <input type="number" id="dryer-elec-rate" value="18" min="1" step="0.1" />
             </div>
             <div class="form-group" id="gas-rate-group" style="display:none;">
-              <label for="dryer-gas-rate">Natural Gas Rate ($/therm) <span style="font-weight:400;font-size:0.9em;">— U.S. avg ~$1.30</span></label>
-              <input type="number" id="dryer-gas-rate" value="1.30" min="0" step="0.01" />
+              <label for="dryer-gas-rate">Natural Gas Rate ($/therm) <span style="font-weight:400;font-size:0.9em;">— U.S. avg ~$1.70</span></label>
+              <input type="number" id="dryer-gas-rate" value="1.70" min="0" step="0.01" />
             </div>
             <button class="btn-primary" onclick="calcDryer()">Calculate Cost</button>
             <div class="result-box-tool" id="dryer-result">
@@ -181,8 +181,8 @@ function calcDryer() {
   const type = document.getElementById('dryer-type').value;
   const minutes = parseFloat(document.getElementById('dryer-time').value) || 45;
   const loadsPerWeek = parseFloat(document.getElementById('dryer-loads').value) || 5;
-  const elecRate = parseFloat(document.getElementById('dryer-elec-rate').value) / 100 || 0.13;
-  const gasRate = parseFloat(document.getElementById('dryer-gas-rate').value) || 1.30;
+  const elecRate = parseFloat(document.getElementById('dryer-elec-rate').value) / 100 || 0.18;
+  const gasRate = parseFloat(document.getElementById('dryer-gas-rate').value) || 1.70;
 
   const watts = dryerWatts[type];
   const hours = minutes / 60;

@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"AC Running Cost Calculator","url":"https://ecoenergycalc.com/tools/ac-running-cost.html","description":"Calculate how much your air conditioner costs to run per hour, day, and month based on BTU, SEER rating, hours of use, and local electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-07-24","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"AC Running Cost Calculator","url":"https://ecoenergycalc.com/tools/ac-running-cost.html","description":"Calculate how much your air conditioner costs to run per hour, day, and month based on BTU, SEER rating, hours of use, and local electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -81,8 +81,8 @@
 
             <div class="form-group">
               <label for="ac-rate">Electricity Rate (¢/kWh)</label>
-              <input type="number" id="ac-rate" value="16" min="1" max="60" step="0.1" />
-              <small>U.S. average ~16¢/kWh. Check your bill for your exact rate.</small>
+              <input type="number" id="ac-rate" value="18" min="1" max="60" step="0.1" />
+              <small>U.S. average ~18¢/kWh. Check your bill for your exact rate.</small>
             </div>
 
             <div class="form-group">
@@ -247,7 +247,7 @@ function calcAC() {
   const btu = getBTU();
   const seer = parseFloat(document.getElementById('ac-seer').value) || 14;
   const hours = parseFloat(document.getElementById('ac-hours').value) || 8;
-  const rate = parseFloat(document.getElementById('ac-rate').value) / 100 || 0.16;
+  const rate = parseFloat(document.getElementById('ac-rate').value) / 100 || 0.18;
   const months = parseFloat(document.getElementById('ac-months').value) || 3;
 
   const kw = btu / seer / 1000;

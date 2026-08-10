@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Dehumidifier Running Cost Calculator","url":"https://ecoenergycalc.com/tools/dehumidifier-running-cost.html","description":"Calculate exactly how much it costs to run a dehumidifier per hour, day, month, and year based on pint capacity, wattage, and electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-07-15","dateModified":"2026-07-15","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Dehumidifier Running Cost Calculator","url":"https://ecoenergycalc.com/tools/dehumidifier-running-cost.html","description":"Calculate exactly how much it costs to run a dehumidifier per hour, day, month, and year based on pint capacity, wattage, and electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-07-15","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -67,7 +67,7 @@
             </div>
             <div class="form-group">
               <label for="dh-rate">Electricity Rate (¢/kWh)</label>
-              <input type="number" id="dh-rate" value="13" min="0" step="0.1" />
+              <input type="number" id="dh-rate" value="18" min="0" step="0.1" />
             </div>
             <button class="btn-primary" onclick="calcDehumidifier()">Calculate Cost</button>
             <div class="result-box-tool" id="dh-result">
@@ -177,7 +177,7 @@ function calcDehumidifier() {
   const hours = parseFloat(document.getElementById('dh-hours').value) || 8;
   const duty = (parseFloat(document.getElementById('dh-duty').value) || 65) / 100;
   const days = parseFloat(document.getElementById('dh-days').value) || 30;
-  const rate = parseFloat(document.getElementById('dh-rate').value) || 13;
+  const rate = parseFloat(document.getElementById('dh-rate').value) || 18;
 
   const effectiveKw = (watts / 1000) * duty;
   const costPerHour = effectiveKw * (rate / 100);

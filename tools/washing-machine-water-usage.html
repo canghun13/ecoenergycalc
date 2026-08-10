@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Washing Machine Water Usage Calculator","url":"https://ecoenergycalc.com/tools/washing-machine-water-usage.html","description":"Calculate your washing machine's water usage per load and annually. Compare standard vs ENERGY STAR washer water consumption.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-29","dateModified":"2026-06-29","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Washing Machine Water Usage Calculator","url":"https://ecoenergycalc.com/tools/washing-machine-water-usage.html","description":"Calculate your washing machine's water usage per load and annually. Compare standard vs ENERGY STAR washer water consumption.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-29","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -61,7 +61,7 @@
             </div>
             <div class="form-group">
               <label for="wm-elec">Electricity Rate (¢/kWh) — for water heating</label>
-              <input type="number" id="wm-elec" value="13" min="5" max="50" step="0.5" />
+              <input type="number" id="wm-elec" value="18" min="5" max="50" step="0.5" />
             </div>
             <button class="btn-primary" onclick="calcWasherWater()">Calculate Water Usage</button>
             <div class="result-box-tool" id="wm-result">
@@ -158,7 +158,7 @@ function calcWasherWater() {
   var loadsWk = parseFloat(document.getElementById('wm-loads').value) || 5;
   var waterRate = parseFloat(document.getElementById('wm-water-rate').value) / 1000 || 0.005;
   var hotPct = parseFloat(document.getElementById('wm-hot').value) / 100 || 0.30;
-  var elec = parseFloat(document.getElementById('wm-elec').value) / 100 || 0.13;
+  var elec = parseFloat(document.getElementById('wm-elec').value) / 100 || 0.18;
 
   var loadsYear = loadsWk * 52;
   var annualGal = galPerLoad * loadsYear;
