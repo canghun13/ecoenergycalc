@@ -4,6 +4,18 @@ v19 문서 + 이번 세션(v19→v20) 내용 통합. 새 세션 시작 시 이 �
 
 ## 0. v20 세션 핵심 요약 (2026-08-10, Opus 분석 세션 — 코드 수정 없음, 진단만)
 
+### 0-0. ⚠️ (같은 날 후속 세션 기록) IndexNow 구현 — 키 파일 커밋 완료, 제출은 이 샌드박스에서 불가능함이 확인됨
+
+- **키 확정**: `284760dd18f46ec1273996ed32a8e5f4` (32자 hex). **다시 만들지 말 것** — 재생성하면 기존 제출 이력이 무효화됨.
+- 루트에 `/284760dd18f46ec1273996ed32a8e5f4.txt` 커밋 완료(내용=키 문자열만, 개행 없음, 32바이트 정확히 확인).
+- `scripts/submit_indexnow.py` 커밋 완료 — sitemap.xml 118개 URL을 IndexNow 벌크 엔드포인트로 POST하는 스크립트. **아직 한 번도 성공 실행되지 않음.**
+- **원인**: 이 세션이 실행되는 샌드박스의 네트워크 egress 프록시가 `api.indexnow.org`와 `ecoenergycalc.com` 둘 다 차단함(`x-deny-reason: host_not_allowed`) — 허용 도메인 목록에 github/pypi/npm 계열만 있고 이 두 호스트는 없음. **IndexNow 쪽 거부가 아니라 이 작업 환경 자체의 제약임.**
+- **다음 세션에서 반드시 첫 번째로 시도할 것**: `python3 scripts/submit_indexnow.py` 재실행. 네트워크 허용 도메인이 세션마다 바뀔 수 있으므로 매번 먼저 시도해볼 것 — 이번처럼 403이 나오면 아래 사용자 액션으로 대체.
+- ⚠️ **사용자 액션 필요 (Claude가 대신할 수 없음)**:
+  1. `https://ecoenergycalc.com/284760dd18f46ec1273996ed32a8e5f4.txt`가 브라우저에서 정상적으로 열리는지(200, 키 문자열만 표시) 직접 확인해줄 것 — GitHub Pages 반영은 됐을 것으로 예상되나 Claude가 직접 검증 못함.
+  2. 키 파일이 정상 확인되면, 로컬 환경이나 다른 터미널에서 `python3 scripts/submit_indexnow.py`를 실행해 118개 URL을 제출해줄 것(레포를 pull 받아서 실행하면 됨). 또는 Bing Webmaster Tools 콘솔에서 수동으로 사이트맵을 제출해도 IndexNow와 별개로 크롤링 유도 효과가 있음.
+  3. **Bing Webmaster Tools(webmaster.bing.com) 계정 등록 + 도메인 소유확인 + `https://ecoenergycalc.com/sitemap.xml` 제출** — 이건 원래부터 사용자만 할 수 있는 단계.
+
 **이번 세션에서 파일 수정은 handover.md 하나뿐이다. 아래 0-7의 작업 지시는 전부 Sonnet이 다음 세션에 실행할 것.**
 
 ### 0-1. ⚠️ 최대 발견: 전기요금 단가가 사이트 전체에서 13¢/kWh로 굳어 있음 (2021~22년 수치)
