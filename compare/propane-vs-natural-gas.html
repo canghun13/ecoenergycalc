@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Propane vs Natural Gas: Which Is Cheaper for Your Home?","description":"Enter your local propane and natural gas rates to see the exact annual cost difference for heating and cooking — and when switching fuels makes financial sense.","url":"https://ecoenergycalc.com/compare/propane-vs-natural-gas.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Propane vs Natural Gas: Which Is Cheaper for Your Home?","description":"Enter your local propane and natural gas rates to see the exact annual cost difference for heating and cooking — and when switching fuels makes financial sense.","url":"https://ecoenergycalc.com/compare/propane-vs-natural-gas.html","datePublished":"2026-06-26","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -115,9 +115,9 @@ function calcPropaneGas() {
   const gasTherm=(mmbtu*10)/0.95;
   const gasAnnual=gasTherm*gasPrice;
 
-  // Heat pump: COP 2.5, electricity at 13¢/kWh
+  // Heat pump: COP 2.5, electricity at 18¢/kWh
   const hpKwh=(mmbtu*293.07)/2.5;
-  const hpAnnual=hpKwh*0.13;
+  const hpAnnual=hpKwh*0.18;
 
   const annualSavings=propaneAnnual-gasAnnual;
   const payback=annualSavings>0?connectCost/annualSavings:999;
