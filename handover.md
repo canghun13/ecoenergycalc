@@ -1,6 +1,168 @@
-# EcoEnergyCalc 인수인계 문서 v19 (2026-08-03 기준)
+# EcoEnergyCalc 인수인계 문서 v20 (2026-08-10 기준)
 
-v18 문서 + 이번 세션(v18→v19) 내용 통합. 새 세션 시작 시 이 문서만 보고 이어서 작업 가능하도록 작성함.
+v19 문서 + 이번 세션(v19→v20) 내용 통합. 새 세션 시작 시 이 문서만 보고 이어서 작업 가능하도록 작성함.
+
+## 0. v20 세션 핵심 요약 (2026-08-10, Opus 분석 세션 — 코드 수정 없음, 진단만)
+
+**이번 세션에서 파일 수정은 handover.md 하나뿐이다. 아래 0-7의 작업 지시는 전부 Sonnet이 다음 세션에 실행할 것.**
+
+### 0-1. ⚠️ 최대 발견: 전기요금 단가가 사이트 전체에서 13¢/kWh로 굳어 있음 (2021~22년 수치)
+
+- `13¢/kWh` 또는 `$0.13` 문자열이 **41개 HTML 파일**에 존재. 그중 **계산기 입력 기본값(`value="13"`)이 20개 tool 파일**에 박혀 있음.
+- 예외는 `tools/ac-running-cost.html`(16) 하나뿐. 그 외 `tools/led-vs-incandescent.html` JS 내부 0.15, `compare/train-vs-plane-carbon.html` 0.134 등 산발적 값도 있음.
+- **웹서치 재확인(2026-08-10)**: EIA 기준 2026년 미국 주택용 평균 전기요금은 **18.0~18.4¢/kWh**(STEO 2026 연평균 전망 18.02¢, 2026-08 시점 월간 집계 기준 18.44¢로 보도됨. 2025년 17.29¢ → 2026년 상승). 즉 **사이트의 모든 비용 산출값이 실제보다 약 28~38% 낮게 표시되고 있음.**
+- 가스류도 같이 낡음: `tools/heating-vs-cooling.html` $1.10/therm, `tools/dryer-energy-cost.html` $1.30/therm. **2026 EIA 주택용 천연가스는 대략 $1.45~1.95/therm 범위**, 프로판 약 $2.67/gal, 난방유 약 $3.50/gal(난방유·프로판 주간 시리즈는 비수기라 10월 재개).
+- **왜 이게 1순위인가**: ①이 사이트의 상품 자체가 "비용 계산기"인데 그 핵심 상수가 4년 낡음 — 신뢰성 훼손이 곧 제품 결함 ②사용자 대부분은 기본값을 바꾸지 않으므로 실제 노출되는 숫자가 전부 틀림 ③**수익화 직결**: 요금이 낮게 잡히면 태양광 절감액·페이백이 실제보다 나쁘게 나와서 리드젠 전환을 스스로 깎아먹음(`solar-panel-savings`, `solar-panel-roi`, `solar-panel-count-calculator` 전부 13¢ 기준) ④유일하게 성장 중인 채널이 AI 어시스턴트인데, AI는 "최신·정확한 수치"를 인용 기준으로 삼음.
+- v19의 지시 4번("냉장고 클러스터만 요금 갱신")은 **범위 판단이 틀렸다**. 냉장고 클러스터 단독 문제가 아니라 사이트 전역 문제이므로 v20에서 전면 확대함.
+
+### 0-2. ⚠️ 두 번째 발견: 실제 유기 트래픽은 100% Bing 계열이고 Google은 0
+
+GA(2026-07-13~08-09, 28일) 세션 소스:
+| 소스 | 세션 |
+|---|---|
+| (direct)/(none) | 82 |
+| duckduckgo/organic | 16 |
+| bing/organic | 13 |
+| yahoo/organic | 4 |
+| ecosia.org/organic | 3 |
+| copilot.com (ai-assistant + not set) | 4 |
+| 디렉토리 referral(newtool/kittylaunch/foundrlist) | 4 |
+| **google/organic** | **0** |
+
+- **Bing 인덱스 계열(bing+duckduckgo+yahoo+ecosia) = 36세션.** DuckDuckGo·Yahoo·Ecosia는 전부 Bing 인덱스를 쓴다. 즉 이 사이트는 **Bing에서는 이미 클릭을 받을 만큼 랭크되어 있고, Google에서만 안 되는 것**이다(SC 노출 393 / 클릭 0, 3개월 누적).
+- **3세션 연속 google/organic 0건.** v19에서 "샌드박스 탈출 국면"으로 해석했으나, 이번 데이터로는 그 해석이 성급했다(0-3 참고).
+- **전략적 함의**: 지금까지 모든 작업이 Google을 향해 있었는데, 정작 돈이 되는 채널은 Bing 계열이다. 그리고 **Bing 인덱스가 곧 Copilot / ChatGPT Search의 소스**다 — 이 사이트에서 유일하게 살아있는 두 채널(Bing 유기검색 + AI 어시스턴트)이 같은 인덱스를 공유한다. **Bing Webmaster Tools 등록 + IndexNow 도입이 투입 대비 회수가 가장 큰 인프라 작업이다.**
+- IndexNow는 정적 사이트에서 그대로 된다: 루트에 `{키}.txt`(8~128자 영숫자, hex 권장) 하나 올리고 `api.indexnow.org`에 URL 목록을 POST하면 끝. GitHub Pages도 루트 정적 파일 서빙되므로 문제 없음. **키 파일은 반드시 200으로 응답해야 하고 리다이렉트되면 검증 실패한다.**
+- ⚠️ **사용자 액션 필요**: Bing Webmaster Tools(webmaster.bing.com) 계정 등록 + 도메인 소유 확인 + 사이트맵 제출은 사용자가 직접 해야 함. Sonnet은 키 파일과 제출 스크립트까지만 만들 수 있음.
+
+### 0-3. 순위 추세 재평가 — v19의 "샌드박스 탈출" 판단은 아직 확정 아님
+
+노출 가중평균 순위(SC 3개월, 2026-05-18~08-08):
+| 기간 | 노출 | 가중평균 순위 |
+|---|---|---|
+| 05-18~05-31 | 111 | 69.4 |
+| 06-01~06-15 | 41 | 82.5 |
+| 06-16~06-30 | 47 | 88.4 |
+| 07-01~07-15 | 53 | 73.5 |
+| **07-16~07-31** | **117** | **43.2** |
+| 07-20~08-01 (v19가 본 구간) | 88 | 39.5 |
+| **08-01~08-08** | **24** | **66.5** |
+
+- **8월 첫 주에 되돌아갔다.** 08-02~08-08 7일간 노출 18건·가중평균 70.6위로, 7월 후반(주당 약 55건·43위)에서 크게 후퇴.
+- 3개월 총 노출도 375(v19) → 393(v20)으로 **6일간 +18건**에 그침. 7월 후반 속도라면 +50건 이상이어야 했다.
+- **결론: v19의 "16일 연속 유지 = 확정 추세" 판단을 철회하지는 않되, "탈출 완료"로 보지 말 것.** 7월 후반은 스파이크였을 가능성이 살아있음. 다음 세션에서 08-09~08-25 구간을 반드시 재확인해서 ①66위대가 유지되면 스파이크 확정 ②다시 40위대로 내려오면 추세 확정, 두 갈래로 판정할 것.
+- **어느 쪽이든 행동은 바뀌지 않는다**: Google 클릭은 여전히 0이고, 실제 수익 채널은 Bing+AI다(0-2).
+
+### 0-4. ⚠️ 세 번째 발견: 최대 쿼리 클러스터(태양광 CO2)가 엉뚱한 페이지로 매칭되고 있음
+
+| 쿼리 | 노출 | 순위 |
+|---|---|---|
+| solar carbon footprint calculator | 16 | 91.4 |
+| solar panels carbon footprint calculator | 8 | 87.3 |
+| solar carbon offset calculator | 8 | 87.5 |
+| co2 emission reduction with solar calculator | 7 | 94.9 |
+| solar co2 offset calculator | 7 | 96.1 |
+| solar panel carbon offset calculator | 6 | 85.5 |
+| co2 saved per kwh solar calculator | 2 | 93 |
+| co2 reduction calculator solar pv | 1 | 85 |
+| solar pv carbon savings calculator | 1 | 100 |
+| **합계** | **56** | **가중평균 90.8** |
+
+- **56노출 = 이 사이트 최대 단일 토픽 클러스터**이고, 하필 수익화 1순위인 태양광 라인이다.
+- 그런데 전용 페이지 `tools/solar-co2-offset-calculator.html`은 **노출 4건 / 순위 6위**뿐. 즉 위 56건은 이 페이지가 아니라 다른 페이지(홈 89@73.3이 가장 유력)로 매칭되고 있다.
+- **페이지 자체는 문제 없음을 확인함**: title `Solar Carbon Footprint & CO2 Offset Calculator`, 1,424단어, 내부 인바운드 링크 9개, FAQ가 위 쿼리들과 거의 그대로 대응. **온페이지 문제가 아니라 구글의 페이지 선택 문제**다.
+- ⚠️ **사용자 액션 필요 (2분)**: GSC UI에서 쿼리 `solar carbon footprint calculator`로 필터 → "페이지" 탭을 열어 **실제로 어떤 URL이 노출되고 있는지** 확인해서 알려줄 것. 홈페이지가 잡히면 처방(홈에서의 앵커 강화 + 홈 내 태양광 섹션 축소)이 달라진다. 이 확인 없이 추측으로 손대지 말 것.
+- 앵커 텍스트 현황: 사이트 전체 인바운드 앵커가 전부 `Solar CO2 Offset Calculator` 계열 13건. 쿼리 상위형인 `solar carbon footprint calculator` 앵커가 **0건**임 — 확인 결과와 무관하게 앵커 다양화는 해도 손해 없음.
+
+### 0-5. 구조·정합성 검증 결과 (v19 대비 변화)
+
+- ✅ 구조 스캔(고아 닫힘태그 / div / h2~h4 / JSON-LD) **118파일 0건**.
+- ✅ 내부 broken link **0건**(`assets/js/nav.js` 공용 푸터 포함).
+- ✅ sitemap 118 URL 전부 실존, canonical 5개 디렉토리 인덱스 전부 정상(트레일링 슬래시 일관).
+- ✅ GitHub Pages: 최신 커밋 `32c2a8c`가 `status: built`로 정상 반영됨. **v19에서 걱정한 `d99a019`/`d87bba2` 빌드 지연은 해소됐음 — 예상대로 API 지연이었고 콘텐츠 문제가 아니었다.**
+- ⚠️ **FAQ 스키마-본문 불일치 6건** (v19의 7건에서 1건 감소):
+  - `tools/water-usage.html` 3건 — 스키마 `How much water does the average household use per day?` vs 본문 `...average U.S. household...` / 스키마 `How much water does a washing machine use per load?` vs 본문 `How much water does a washing machine use?` / 스키마 `How can I reduce my household water usage?` vs 본문 `How can I reduce my water bill?`(**이건 표현 차이가 아니라 의미가 다름**)
+  - `tools/washing-machine-water-usage.html` 2건, `tools/ac-running-cost.html` 1건.
+  - water-usage는 노출 3위 페이지(56@60.5)라 우선 처리 가치 있음.
+- ⚠️ **`tools/index.html`에 카드가 없는 tool 3개 발견**: `electric-bill-spike-calculator.html`(v19에서 이미 지적됨), **`solar-panel-count-calculator.html`(태양광 수익 라인인데 허브에서 링크 없음)**, `washing-machine-water-usage.html`(쿼리 `washing machine water usage calculator` 5노출 35위 — 사이트 내 최상위권 순위인데 허브 미연결). 카드 35개 vs 실제 tool 38개.
+- ⚠️ **`tools/water-usage.html` 본문에 실질 중복 섹션 확인**: `Where Does Household Water Go?`(134단어)와 `Where Your Water Actually Goes`(100단어)가 같은 EPA 용도별 비율을 반복, `Highest-Impact Ways to Reduce Water Use`(186단어)와 `High-Impact Water Saving Upgrades`(99단어)가 같은 WaterSense 변기 13,000갤런 근거를 반복. 과거 일괄 확장 작업의 잔재로 보임. **전 사이트 토큰중복 스캔 결과 본문 중복이 확정된 건 이 파일 한 개뿐**(다른 후보들은 FAQ가 본문을 요약하는 정상 패턴이라 오탐).
+
+### 0-6. 인덱싱 커버리지 — 미색인이 8 → 15로 늘어남 (2026-07-25)
+
+| 사유 | 소스 | 페이지 |
+|---|---|---|
+| 찾을 수 없음(404) | 웹사이트 | 3 |
+| 리디렉션이 포함된 페이지 | 웹사이트 | 3 |
+| 적절한 표준 태그가 포함된 대체 페이지 | 웹사이트 | 2 |
+| 발견됨 - 현재 색인이 생성되지 않음 | Google | 7 |
+
+- 색인 생성된 페이지는 108(7/11) → **111(7/25 이후 정체)**. 즉 색인 +3인데 미색인 +7.
+- 404 3건 / 리디렉션 3건은 이번 export에 **URL 목록이 포함돼 있지 않아 특정 불가**. canonical·sitemap·내부링크는 전부 정상이므로 사이트 내부 원인은 아닌 것으로 보임(리디렉션 3건은 `http://ecoenergycalc.com/` 계열일 가능성이 큼 — SC 페이지 목록에 http 버전이 1노출로 잡혀 있음).
+- ⚠️ **사용자 액션 필요**: GSC → 페이지(색인 생성) 리포트에서 "찾을 수 없음(404)"과 "리디렉션이 포함된 페이지" 항목을 열어 **URL 목록을 export해서 다음 세션에 첨부**할 것. 그래야 원인 특정 가능.
+
+### 0-7. 다음 세션(Sonnet) 작업 지시 — 우선순위 순
+
+수익화 관점 우선순위. 1·2번은 반드시 이번 순서대로.
+
+1. **[P0-A] 전기요금 기본값 일괄 갱신 (기계적, 저위험)** — 20개 tool의 요금 입력 `value="13"` → `value="18"`, 라벨/placeholder의 "13¢" 문구 동반 수정. `tools/ac-running-cost.html`(16)도 18로 통일. `tools/led-vs-incandescent.html` JS `0.15`, `compare/train-vs-plane-carbon.html` `0.134`도 0.18로. 가스류는 `heating-vs-cooling.html` $1.10→$1.70/therm, `dryer-energy-cost.html` $1.30→$1.70/therm(EIA 2026 범위 $1.45~1.95의 중앙값). **숫자 재계산이 없는 작업이므로 먼저 끝낼 것.**
+2. **[P0-B] 본문 파생 금액 재계산 (고위험, 주의)** — 41개 파일의 본문/표에 13¢ 기준으로 계산된 달러 금액이 박혀 있음(예: `appliance-energy-cost.html`의 "150W 냉장고 1,314kWh/년 → $171/년", 표 전체가 13¢ 기준, "Common Appliance Energy Costs (U.S. Average, 13¢/kWh)" 제목 포함). **단가만 바꾸고 금액을 안 고치면 지금보다 더 나쁜 상태가 된다.** 파일 단위로 ①13¢ 언급 전수 추출 → ②각 금액이 어떤 kWh × 단가로 나온 건지 역산 → ③18¢로 재계산 → ④반올림 자릿수 원본 유지, 순서로 진행. 파일마다 끝나면 그 파일의 모든 금액을 다시 검산할 것. **dateModified 갱신 필수.**
+3. **[P1] Bing/IndexNow 인프라** — 루트에 IndexNow 키 파일 생성(32자 hex, 파일명=키, 내용=키), sitemap 118 URL을 `api.indexnow.org/indexnow`에 일괄 제출하는 스크립트 작성 및 실행, robots.txt 확인(현재 정상). **키는 커밋되는 공개 파일이므로 비밀이 아님 — 다만 재생성 시 기존 제출이 무효화되니 한 번 정하면 바꾸지 말 것.** 사용자에게 Bing Webmaster Tools 등록을 안내할 것.
+4. **[P2] 저비용 정리 3종** — ①`tools/index.html`에 누락 카드 3개 추가(`data-category` 유효값 사전 확인 필수) ②FAQ 스키마-본문 6건 정렬(water-usage 3, washing-machine-water-usage 2, ac-running-cost 1 — 본문 h3 문구를 스키마 쪽으로 맞추는 게 쿼리 대응상 유리) ③`tools/water-usage.html` 중복 섹션 2쌍 병합(내용 손실 없이 합치고 단어수는 유지).
+5. **[P3] 신규 클러스터 후보: Community Solar** — 검증 결과는 0-8 참고. **사용자 승인 후 착수할 것.**
+6. **compare/ 신규 페이지 금지 유지** (v19부터 3세션 연속 확인, 44파일에 노출 32건).
+
+### 0-8. 신규 니치 검증: Community Solar (착수 전 사용자 승인 필요)
+
+- **사이트 내 중복 0건 확인**: `grep -ril "community solar"` → **전 사이트 0건**. 태양광 페이지를 10개 넘게 가진 사이트에 커뮤니티 솔라가 통째로 없음.
+- **경쟁 구도 검증(웹서치 2026-08-10)**: 검색결과 상위가 전부 **사업자 자체 계산기**(Perch Energy, Clearway, Neighborhood Sun, Nexamp, Finray) + EnergySage. **중립적 제3자 계산기가 없다** — v17 Demand Response, v19 Budget Billing과 정확히 같은 승산 패턴(경쟁자가 애그리게이터가 아니라 판매자 본인).
+- **차별화 각도(이게 핵심)**: 사업자 계산기는 전부 "얼마 아끼는지"만 보여주고 **두 장 청구서 구조(유틸리티 청구서 + 사업자 청구서를 따로 낸다)를 숨긴다.** 이게 실사용자 최대 혼란 지점이다. 중립 계산기로 "실제 순지출이 얼마나 줄어드는가 / 두 청구서 합계는 얼마인가"를 보여주면 그 자체가 유일한 포지션이 된다.
+- **미서비스 오디언스**: 이 사이트는 지금까지 전부 주택 소유자 대상이다. 커뮤니티 솔라는 **세입자·아파트 거주자·지붕이 안 되는 집** — 완전히 안 건드린 시장이고, 마침 이 사이트의 최다 노출 쿼리들(전기요금 절감)과 의도가 겹친다.
+- **수익화**: 태양광 리드젠 라인 안에 그대로 들어감(0-6 v19 방침). 커뮤니티 솔라는 구독 전환 단가가 리드당 지불 구조로 잡히는 카테고리이고, 일반 태양광 리드가 $50~300/건 수준으로 재확인됨(2026-08 웹서치). 로컬 설치가 필요 없어 **전환 마찰이 지붕형보다 낮다**.
+- **사실 정확도 주의(필수)**: ①커뮤니티 솔라는 **23개 주 + DC**에서만 운영됨 — "전국 어디서나"로 쓰면 사실오류 ②절감폭은 통상 **5~20%**, 사업자 광고 문구를 그대로 옮기지 말 것 ③크레딧이 청구서에 반영되기까지 **보통 2~3 청구주기** 걸림 ④지붕형 태양광이 가능한 주택 소유자에게는 **지붕형이 재무적으로 더 유리**하다는 점을 명시할 것(이걸 빼면 중립성이 무너지고, 이 사이트의 기존 태양광 자산과도 모순됨).
+- **롱테일 타깃**: "is community solar worth it", "community solar vs rooftop solar", "community solar two bills explained", "how much does community solar actually save", "community solar for renters", "can I cancel community solar".
+- **제안 구성**: `blog/is-community-solar-worth-it.html`(1,200~1,500단어) + `tools/community-solar-savings-calculator.html`(월 전기요금·할인율·유틸리티 요금인상률 입력 → 두 청구서 합계·순절감·지붕형 대비 비교) + `compare/` 신규는 금지이므로 기존 `blog/solar-panel-guide.html`·`tools/solar-panel-savings.html`·`blog/why-electric-bills-are-rising-ai-data-centers.html`과 상호링크 + 용어집에 "Community Solar", "Bill Credit" 2항목 추가.
+
+### 0-9. GA 상세 (2026-07-13~08-09, 28일) — v19 대비
+
+- 활성 사용자 **106명**(v19 87 → +22%), 신규 110, 이벤트 **750**(v19 904 → **-17%**), 활성사용자당 평균 참여시간 **39.2초**(v19 64초 → **-39%**).
+- **사용자는 늘었는데 이벤트와 체류가 동시에 떨어졌다 = 저품질/봇 유입 증가.** 도시 분포가 이를 뒷받침: Singapore 13, **Boardman 5(AWS us-west-2)**, **Council Bluffs 3(Google 데이터센터)**, **The Dalles 1(Google 데이터센터)** — 합계 22명(21%)이 데이터센터 소재지. Busan 4는 사용자 본인.
+- **실제 외부 인간 사용자는 대략 80명 선으로 봐야 함.** direct 82세션을 순수 트래픽으로 절대 과대평가하지 말 것(v19에서도 같은 경고).
+- **copilot.com 4세션 — v19와 동일, 증가 멈춤.** v19에서 "3세션 연속 증가 확정"이라 썼으나 이번엔 횡보. perplexity는 이번에도 미집계. **AI 채널은 여전히 유일하게 살아있지만 자동 성장하지는 않는다 — llms.txt 유지만으로는 부족하고 Bing 인덱스 강화(0-2)가 실질 레버다.**
+- GA 페이지뷰 상위(SC 노출과 다름, 둘 다 볼 것): 홈 83뷰 / water-usage 16 / home-energy-cost 12 / **driving-vs-flying-carbon 11(활성 10명)** / about 10 / **car-vs-ev-carbon 10(활성 9명)** / tools 허브 7 / ev-vs-gas-true-cost 6 / heating-vs-cooling 6.
+  - `compare/driving-vs-flying-carbon`은 SC 노출 0인데 GA 방문 11 — **Bing 계열에서만 유입되는 페이지**. 0-2의 근거이자, Bing 최적화가 통할 페이지의 실례.
+  - 이탈률 1.0인 페이지: solar-panels-vs-wind-turbine, refrigerator-energy-cost, washing-machine-water-usage, front-load-vs-top-load-washer, heat-pump-water-heater-vs-electric, heat-pump-vs-furnace, how-many-trees-to-offset, how-much-water-does-a-washing-machine-use, is-it-cheaper-to-heat-or-cool. 표본이 1~2명이라 통계적 의미는 없으나 다음 세션에 누적 추적할 것.
+
+### 0-10. 페이지별 돌파 후보 (v19 표 갱신, 3개월 누적)
+
+| 페이지 | 노출 | 순위 | v19 대비 |
+|---|---|---|---|
+| blog/solar-panel-guide | 13 | **7.5** | 유지 — 사이트 최고 자산 |
+| blog/how-much-does-it-cost-to-run-a-refrigerator | 28 | 27.9 | 노출 25→28, 순위 24.1→27.9 (소폭 악화) |
+| blog/solar-panel-cost-2026 | 8 | 13.8 | 유지 |
+| tools/car-vs-ev-carbon | 7 | 13.9 | 유지 |
+| compare/electric-vs-gas-water-heater | 8 | 22.1 | 순위 18.7→22.1 (악화) |
+| compare/wind-vs-solar-energy | 8 | 26.5 | 유지 |
+| tools/home-carbon-footprint | 8 | 27.9 | 유지 |
+| tools/electric-bill / tools/solar-co2-offset-calculator | 4 / 4 | 6.3 / 6.0 | 순위는 최상위권인데 노출이 안 붙음 |
+
+**노출 많고 순위 깊음(권위 문제로 분류했던 그룹)**: 홈 89@73.3, tree-planting-offset 57@81.3, water-usage 56@60.5, heating-vs-cooling 46@65.9, appliance-energy-cost 24@65.3. **단, water-usage는 이번에 본문 중복이 확인됐으므로(0-5) 순수 권위 문제가 아님 — "권위 문제라 손대지 말 것"을 이 페이지에는 적용하지 말 것.**
+
+**섹션별 노출**: tools 244 / root 108 / blog 88 / compare 45 / glossary 1. compare는 44파일에 45노출로 여전히 최악(v19 32→45로 늘긴 했음).
+
+**v19 신규 클러스터 추적**: `blog/is-budget-billing-worth-it` 노출 1 @88, 쿼리 "what is levelized billing" 1노출 @88. `tools/budget-billing-estimator`는 아직 노출 0. **커밋 5일 만의 첫 색인·첫 노출이므로 정상 궤도**, 다음 세션에 재확인할 것. `disclosure.html`은 아직 노출 0(정상).
+
+### 0-11. 파일 개수 (2026-08-10 재확인)
+
+- tools: **39개**(index.html 포함, 실제 계산기 38개)
+- blog: **29개**(index.html 포함)
+- compare: **44개**(index.html 포함)
+- glossary: 1파일에 용어 **21개**
+- 루트 HTML 5개(index, about, contact, privacy, disclosure)
+- **총 HTML 118개, sitemap 118 URL** — 정합성 확인 완료.
+
+---
+
+## (아카이브) v19 문서 이하 — 2026-08-03 기준
 
 ## 0. v19 세션 핵심 요약 (2026-08-03, Opus 분석 세션) — ⚠️ **순위 대폭 개선 확인(88위→40위)** + 수익화 전략 근본 전환(AdSense 비의존)
 
