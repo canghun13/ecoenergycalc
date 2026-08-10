@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Solar Lease vs Buy vs Loan: Which Option Saves You More?","description":"Enter your system size and local rates to see the exact 25-year savings for solar cash purchase, loan, and lease — side by side.","url":"https://ecoenergycalc.com/compare/solar-lease-vs-buy-vs-loan.html","datePublished":"2026-06-26","dateModified":"2026-07-17","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Solar Lease vs Buy vs Loan: Which Option Saves You More?","description":"Enter your system size and local rates to see the exact 25-year savings for solar cash purchase, loan, and lease — side by side.","url":"https://ecoenergycalc.com/compare/solar-lease-vs-buy-vs-loan.html","datePublished":"2026-06-26","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -42,7 +42,7 @@
             </div>
             <div class="form-group">
               <label for="sl-rate">Electricity Rate (¢/kWh)</label>
-              <input type="number" id="sl-rate" value="13" min="5" max="50" step="0.5" />
+              <input type="number" id="sl-rate" value="18" min="5" max="50" step="0.5" />
             </div>
             <div class="form-group">
               <label for="sl-sun">Peak Sun Hours per Day</label>
@@ -119,7 +119,7 @@
 function calcSolarLease() {
   const kw = parseFloat(document.getElementById('sl-size').value) || 6;
   const costPerW = parseFloat(document.getElementById('sl-cost').value) || 3.00;
-  const rate = parseFloat(document.getElementById('sl-rate').value) / 100 || 0.13;
+  const rate = parseFloat(document.getElementById('sl-rate').value) / 100 || 0.18;
   const sun = parseFloat(document.getElementById('sl-sun').value) || 4.5;
   const loanRate = parseFloat(document.getElementById('sl-loan-rate').value) / 100 || 0.06;
   const leaseMonthly = parseFloat(document.getElementById('sl-lease').value) || 90;

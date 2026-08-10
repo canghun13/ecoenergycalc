@@ -33,7 +33,7 @@
           <div class="calc-box" style="margin:32px 0;">
             <h2>Heat Pump Water Heater Payback Calculator</h2>
             <div class="form-group"><label for="hp-wh-gal">Daily Hot Water Use (gallons)</label><input type="number" id="hp-wh-gal" value="50" min="10" max="150" step="5" /></div>
-            <div class="form-group"><label for="hp-wh-elec">Electricity Rate (¢/kWh)</label><input type="number" id="hp-wh-elec" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="hp-wh-elec">Electricity Rate (¢/kWh)</label><input type="number" id="hp-wh-elec" value="18" min="5" max="50" step="0.5" /></div>
             <div class="form-group"><label for="hp-wh-cost">HPWH Purchase Price ($)</label><input type="number" id="hp-wh-cost" value="1300" min="800" max="2500" step="50" /></div>
             <div class="form-group"><label for="hp-wh-std">Standard Electric Tank Price ($)</label><input type="number" id="hp-wh-std" value="700" min="300" max="1200" step="50" /></div>
             <div class="form-group"><label for="hp-wh-rebate">Utility/State Rebate ($) <span style="font-weight:400;font-size:.9em">— check your utility</span></label><input type="number" id="hp-wh-rebate" value="0" min="0" max="1000" step="50" /></div>
@@ -97,7 +97,7 @@
 <script>
 function calcHPWH() {
   const gal=parseFloat(document.getElementById('hp-wh-gal').value)||50;
-  const elec=parseFloat(document.getElementById('hp-wh-elec').value)/100||0.13;
+  const elec=parseFloat(document.getElementById('hp-wh-elec').value)/100||0.18;
   const hpCost=parseFloat(document.getElementById('hp-wh-cost').value)||1300;
   const stdCost=parseFloat(document.getElementById('hp-wh-std').value)||700;
   const rebate=parseFloat(document.getElementById('hp-wh-rebate').value)||0;

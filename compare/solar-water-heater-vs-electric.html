@@ -41,7 +41,7 @@
           <div class="calc-box" style="margin:32px 0;">
             <h2>Water Heater Payback Comparison</h2>
             <div class="form-group"><label for="swh-gal">Daily Hot Water Use (gallons)</label><input type="number" id="swh-gal" value="50" min="10" max="150" step="5" /></div>
-            <div class="form-group"><label for="swh-elec">Electricity Rate (¢/kWh)</label><input type="number" id="swh-elec" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="swh-elec">Electricity Rate (¢/kWh)</label><input type="number" id="swh-elec" value="18" min="5" max="50" step="0.5" /></div>
             <div class="form-group"><label for="swh-sun">Peak Sun Hours per Day</label><input type="number" id="swh-sun" value="4.5" min="2" max="8" step="0.1" /></div>
             <button class="btn-primary" onclick="calcSolarWH()">Compare Options</button>
             <div class="result-box-tool" id="swh-result">
@@ -115,7 +115,7 @@
 <script>
 function calcSolarWH() {
   const gal=parseFloat(document.getElementById('swh-gal').value)||50;
-  const elec=parseFloat(document.getElementById('swh-elec').value)/100||0.13;
+  const elec=parseFloat(document.getElementById('swh-elec').value)/100||0.18;
   const sun=parseFloat(document.getElementById('swh-sun').value)||4.5;
 
   const btuPerGal=8.33*60;

@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Should You Buy an EV or Gas Car? Break-Even Calculator","description":"Enter your driving habits and local rates to find the exact year your EV breaks even vs. a gas car — on total cost including purchase, fuel, and maintenance.","url":"https://ecoenergycalc.com/compare/ev-vs-gas-car.html","datePublished":"2026-06-26","dateModified":"2026-07-27","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Should You Buy an EV or Gas Car? Break-Even Calculator","description":"Enter your driving habits and local rates to find the exact year your EV breaks even vs. a gas car — on total cost including purchase, fuel, and maintenance.","url":"https://ecoenergycalc.com/compare/ev-vs-gas-car.html","datePublished":"2026-06-26","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -45,7 +45,7 @@
             <div class="form-group"><label for="ev-miles">Miles Driven per Year</label><input type="number" id="ev-miles" value="12000" min="5000" max="30000" step="1000" /></div>
             <div class="form-group"><label for="ev-mpg">Gas Car MPG</label><input type="number" id="ev-mpg" value="30" min="15" max="60" step="1" /></div>
             <div class="form-group"><label for="ev-gas-price">Gas Price ($/gallon)</label><input type="number" id="ev-gas-price" value="3.90" min="2" max="8" step="0.10" /></div>
-            <div class="form-group"><label for="ev-elec">Electricity Rate (¢/kWh)</label><input type="number" id="ev-elec" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="ev-elec">Electricity Rate (¢/kWh)</label><input type="number" id="ev-elec" value="18" min="5" max="50" step="0.5" /></div>
             <div class="form-group"><label for="ev-eff">EV Efficiency (miles/kWh)</label><input type="number" id="ev-eff" value="3.5" min="2" max="5" step="0.1" /></div>
             <button class="btn-primary" onclick="calcEVGas()">Find Break-Even Year</button>
             <div class="result-box-tool" id="ev-result">
@@ -129,7 +129,7 @@ function calcEVGas() {
   const miles = parseFloat(document.getElementById('ev-miles').value)||12000;
   const mpg = parseFloat(document.getElementById('ev-mpg').value)||30;
   const gasFuel = parseFloat(document.getElementById('ev-gas-price').value)||3.90;
-  const elec = parseFloat(document.getElementById('ev-elec').value)/100||0.13;
+  const elec = parseFloat(document.getElementById('ev-elec').value)/100||0.18;
   const eff = parseFloat(document.getElementById('ev-eff').value)||3.5;
 
   const evNet = evPrice - itcVal;

@@ -33,7 +33,7 @@
           <div class="calc-box" style="margin:32px 0;">
             <h2>Heat Pump Dryer Payback Calculator</h2>
             <div class="form-group"><label for="hd-loads">Loads per Week</label><input type="number" id="hd-loads" value="5" min="1" max="30" step="1" /></div>
-            <div class="form-group"><label for="hd-elec">Electricity Rate (¢/kWh)</label><input type="number" id="hd-elec" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="hd-elec">Electricity Rate (¢/kWh)</label><input type="number" id="hd-elec" value="18" min="5" max="50" step="0.5" /></div>
             <div class="form-group"><label for="hd-hp-cost">Heat Pump Dryer Price ($)</label><input type="number" id="hd-hp-cost" value="1200" min="700" max="2000" step="50" /></div>
             <div class="form-group"><label for="hd-std-cost">Standard Electric Dryer Price ($)</label><input type="number" id="hd-std-cost" value="600" min="300" max="1200" step="50" /></div>
             <button class="btn-primary" onclick="calcHeatPumpDryer()">Calculate Payback</button>
@@ -97,7 +97,7 @@
 <script>
 function calcHeatPumpDryer() {
   const loads=parseFloat(document.getElementById('hd-loads').value)||5;
-  const elec=parseFloat(document.getElementById('hd-elec').value)/100||0.13;
+  const elec=parseFloat(document.getElementById('hd-elec').value)/100||0.18;
   const hpCost=parseFloat(document.getElementById('hd-hp-cost').value)||1200;
   const stdCost=parseFloat(document.getElementById('hd-std-cost').value)||600;
 

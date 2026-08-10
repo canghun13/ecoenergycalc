@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Front-Load vs Top-Load Washer: Energy & Water Cost Comparison","description":"Compare energy use, water use, and annual operating cost between front-load and top-load washing machines.","url":"https://ecoenergycalc.com/compare/front-load-vs-top-load-washer.html","datePublished":"2026-07-13","dateModified":"2026-07-13","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Front-Load vs Top-Load Washer: Energy & Water Cost Comparison","description":"Compare energy use, water use, and annual operating cost between front-load and top-load washing machines.","url":"https://ecoenergycalc.com/compare/front-load-vs-top-load-washer.html","datePublished":"2026-07-13","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -35,7 +35,7 @@
             <h2>Washer Type Cost Calculator</h2>
             <div class="form-group"><label for="fw-loads">Loads per Week</label><input type="number" id="fw-loads" value="6" min="1" max="20" /></div>
             <div class="form-group"><label for="fw-water-rate">Water + Sewer Rate ($/1,000 gal)</label><input type="number" id="fw-water-rate" value="8" min="2" max="20" step="0.5" /></div>
-            <div class="form-group"><label for="fw-elec-rate">Electricity Rate (¢/kWh)</label><input type="number" id="fw-elec-rate" value="16" min="5" max="40" step="0.5" /></div>
+            <div class="form-group"><label for="fw-elec-rate">Electricity Rate (¢/kWh)</label><input type="number" id="fw-elec-rate" value="18" min="5" max="40" step="0.5" /></div>
             <div class="form-group"><label for="fw-hot">% of Loads Using Hot/Warm Water</label><input type="number" id="fw-hot" value="30" min="0" max="100" /></div>
             <button class="btn-primary" onclick="calcWasher()">Compare Annual Cost</button>
             <div class="result-box-tool" id="fw-result">
@@ -98,7 +98,7 @@
 function calcWasher() {
   const loads = parseFloat(document.getElementById('fw-loads').value) || 6;
   const waterRate = parseFloat(document.getElementById('fw-water-rate').value) || 8;
-  const elecRate = parseFloat(document.getElementById('fw-elec-rate').value) / 100 || 0.16;
+  const elecRate = parseFloat(document.getElementById('fw-elec-rate').value) / 100 || 0.18;
   const hotPct = parseFloat(document.getElementById('fw-hot').value) / 100 || 0.3;
 
   const loadsPerYear = loads * 52;

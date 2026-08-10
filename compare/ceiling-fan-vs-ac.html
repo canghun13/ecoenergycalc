@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Ceiling Fan vs AC: Cost Comparison & When to Use Each","description":"Compare the real cost of ceiling fans vs air conditioning — hourly, monthly, and seasonal — and find out when using a fan instead of AC actually saves money.","url":"https://ecoenergycalc.com/compare/ceiling-fan-vs-ac.html","datePublished":"2026-07-06","dateModified":"2026-07-13","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Ceiling Fan vs AC: Cost Comparison & When to Use Each","description":"Compare the real cost of ceiling fans vs air conditioning — hourly, monthly, and seasonal — and find out when using a fan instead of AC actually saves money.","url":"https://ecoenergycalc.com/compare/ceiling-fan-vs-ac.html","datePublished":"2026-07-06","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -43,7 +43,7 @@
             <h2>Cooling Cost Comparison Calculator</h2>
             <div class="form-group"><label for="cf-hours">Daily Hours of Use</label><input type="number" id="cf-hours" value="8" min="1" max="24" /></div>
             <div class="form-group"><label for="cf-days">Cooling Season (days)</label><input type="number" id="cf-days" value="90" min="30" max="180" /></div>
-            <div class="form-group"><label for="cf-rate">Electricity Rate (¢/kWh)</label><input type="number" id="cf-rate" value="16" min="5" max="50" step="0.1" /></div>
+            <div class="form-group"><label for="cf-rate">Electricity Rate (¢/kWh)</label><input type="number" id="cf-rate" value="18" min="5" max="50" step="0.1" /></div>
             <div class="form-group"><label for="cf-ac-btu">AC Size (BTU)</label>
               <select id="cf-ac-btu">
                 <option value="5000">5,000 BTU (window, small room)</option>
@@ -138,7 +138,7 @@
 function calcFan() {
   const hours = parseFloat(document.getElementById('cf-hours').value) || 8;
   const days = parseFloat(document.getElementById('cf-days').value) || 90;
-  const rate = parseFloat(document.getElementById('cf-rate').value) / 100 || 0.16;
+  const rate = parseFloat(document.getElementById('cf-rate').value) / 100 || 0.18;
   const btu = parseFloat(document.getElementById('cf-ac-btu').value) || 24000;
   const seer = 14;
   const acKw = btu / seer / 1000;

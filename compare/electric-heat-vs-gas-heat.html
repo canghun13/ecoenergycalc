@@ -32,7 +32,7 @@
           <p>Whether electric or gas heat is cheaper depends almost entirely on your local rates — not general rules. Enter your rates below to find the exact answer for your area.</p>
           <div class="calc-box" style="margin:32px 0;">
             <h2>Heating Cost Comparison by Rate</h2>
-            <div class="form-group"><label for="eg-elec">Electricity Rate (¢/kWh)</label><input type="number" id="eg-elec" value="13" min="5" max="60" step="0.5" /></div>
+            <div class="form-group"><label for="eg-elec">Electricity Rate (¢/kWh)</label><input type="number" id="eg-elec" value="18" min="5" max="60" step="0.5" /></div>
             <div class="form-group"><label for="eg-gas">Natural Gas Rate ($/therm)</label><input type="number" id="eg-gas" value="70" min="0.30" max="5" step="0.05" /></div>
             <div class="form-group"><label for="eg-mmbtu">Annual Heating Load (MMBtu) <span style="font-weight:400;font-size:.9em">— 2,000 sq ft moderate climate: ~50 MMBtu</span></label><input type="number" id="eg-mmbtu" value="50" min="10" max="200" step="5" /></div>
             <button class="btn-primary" onclick="calcElecGas()">Compare Heating Fuels</button>
@@ -49,7 +49,7 @@
             <p>Electric resistance heating (baseboard heaters, electric furnaces) converts electricity to heat at 100% efficiency — every kilowatt of electricity becomes exactly 1 kW of heat. A gas furnace at 95% AFUE converts 95% of gas to heat. But efficiency alone doesn't determine operating cost — you need to compare fuel prices on equivalent terms. At national averages ($0.16/kWh electricity, $1.40/therm gas), heating with electric resistance costs $0.16/kBTU while gas costs $0.149/kBTU. Electric resistance is currently slightly more expensive than high-efficiency gas on national averages — though this flips in states with cheap electricity or expensive gas.</p>
 
             <h2>Heat Pumps Change the Equation Entirely</h2>
-            <p>When people compare electric heat vs gas heat, they often conflate electric resistance (inefficient) with heat pumps (highly efficient). A heat pump at COP 3.0 delivers $0.053/kBTU — 2.8× cheaper than gas and 3× cheaper than electric resistance at current national averages. If the electric heat option is a heat pump rather than resistance heating, electric wins decisively in most U.S. markets. The policy trajectory is also clear: gas prices are expected to rise as export demand grows, while electricity is decarbonizing and increasingly favors efficient electric appliances.</p>
+            <p>When people compare electric heat vs gas heat, they often conflate electric resistance (inefficient) with heat pumps (highly efficient). At current national averages (18¢/kWh, $1.70/therm), electric resistance costs about $0.053/kBTU while a heat pump at COP 2.5 costs $0.021/kBTU and at COP 3.0 costs $0.018/kBTU — 2.5 to 3× cheaper than resistance heating. Against a 95% AFUE gas furnace at $0.018/kBTU, a COP 3.0 heat pump is essentially tied, while a COP 2.5 unit runs slightly more. So the honest answer at national averages is that heat pumps and gas are now close to even, and the winner depends on your local rates, your unit's real-world COP, and how cold your winters get. The policy trajectory still favors heat pumps: gas prices are expected to rise as export demand grows, while electricity is decarbonizing.</p>
 
             <h2>Regional Variation Is Extreme</h2>
             <p>National averages mask enormous regional variation. In Louisiana, residential electricity averages 9¢/kWh; electric resistance heating costs $0.09/kBTU — cheaper than gas. In Connecticut, electricity averages 28¢/kWh; electric resistance costs $0.28/kBTU — 2.5× more expensive than gas. Similarly, gas prices range from $0.80/therm (Gulf Coast states near production) to $2.00/therm (New England). Your local utility rate card and gas rate determine the correct answer for your home — and the calculator above uses your specific inputs to show this dynamic clearly.</p>
@@ -79,9 +79,9 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Heat pump beats gas when: <strong>elec < ~22¢/kWh (at $1.70 gas)</strong></li>
+              <li>Heat pump beats gas when: <strong>elec &lt; ~15¢/kWh (at $1.70 gas, COP 2.5)</strong></li>
               <li>Electric resistance: <strong>most expensive per BTU</strong></li>
-              <li>Gas furnace 95% AFUE: <strong>cheapest in most regions</strong></li>
+              <li>Gas furnace 95% AFUE: <strong>roughly tied with COP 3.0 heat pump</strong></li>
             </ul>
           </div>
           <div class="sidebar-box">
@@ -101,7 +101,7 @@
 <script src="/assets/js/nav.js"></script>
 <script>
 function calcElecGas() {
-  const elec=parseFloat(document.getElementById('eg-elec').value)/100||0.13;
+  const elec=parseFloat(document.getElementById('eg-elec').value)/100||0.18;
   const gas=parseFloat(document.getElementById('eg-gas').value)||1.70;
   const mmbtu=parseFloat(document.getElementById('eg-mmbtu').value)||50;
 
@@ -121,12 +121,12 @@ function calcElecGas() {
   ].sort((a,b)=>a[1]-b[1]);
 
   const fmt=v=>'$'+Math.round(v).toLocaleString();
-  const crossover=(gas*10/0.95)/(293.07*2.5); // HP vs furnace crossover rate
+  const crossover=(gas*10/0.95)/(293.07/2.5); // HP vs furnace crossover rate
   let rows=`<tr><th>System</th><th>Annual Cost</th><th>Rank</th></tr>`;
   options.forEach(([name,cost],i)=>{
     rows+=`<tr ${i===0?'style="font-weight:700;background:rgba(22,163,74,0.15);"':''}><td>${name}</td><td>${fmt(cost)}</td><td>${i===0?'✅ Cheapest':i+1}</td></tr>`;
   });
-  rows+=`<tr><td colspan="3" style="font-size:.9em;color:var(--text-muted);">Heat pump beats gas furnace when electricity < ${(crossover*100).toFixed(1)}¢/kWh at your gas rate</td></tr>`;
+  rows+=`<tr><td colspan="3" style="font-size:.9em;color:var(--text-muted);">Heat pump beats gas furnace when electricity &lt; ${(crossover*100).toFixed(1)}¢/kWh at your gas rate</td></tr>`;
   document.getElementById('eg-table').innerHTML=rows;
   const r=document.getElementById('eg-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
 }

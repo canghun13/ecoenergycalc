@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Central AC vs Window AC: Which Is More Cost-Effective for Your Home?","description":"Enter your home size and cooling needs to compare the annual cost of central air conditioning vs window AC units.","url":"https://ecoenergycalc.com/compare/central-ac-vs-window-unit.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Central AC vs Window AC: Which Is More Cost-Effective for Your Home?","description":"Enter your home size and cooling needs to compare the annual cost of central air conditioning vs window AC units.","url":"https://ecoenergycalc.com/compare/central-ac-vs-window-unit.html","datePublished":"2026-06-26","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -35,7 +35,7 @@
             <div class="form-group"><label for="ac-sqft">Area to Cool (sq ft)</label><input type="number" id="ac-sqft" value="1800" min="200" max="5000" step="100" /></div>
             <div class="form-group"><label for="ac-hours">AC Hours per Day (summer avg)</label><input type="number" id="ac-hours" value="8" min="1" max="18" step="0.5" /></div>
             <div class="form-group"><label for="ac-days">Cooling Season Length (days)</label><input type="number" id="ac-days" value="120" min="30" max="240" step="10" /></div>
-            <div class="form-group"><label for="ac-rate">Electricity Rate (¢/kWh)</label><input type="number" id="ac-rate" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="ac-rate">Electricity Rate (¢/kWh)</label><input type="number" id="ac-rate" value="18" min="5" max="50" step="0.5" /></div>
             <button class="btn-primary" onclick="calcAC()">Compare Cooling Options</button>
             <div class="result-box-tool" id="ac-result">
               <h3>Annual Cooling Cost</h3>
@@ -111,7 +111,7 @@ function calcAC() {
   const sqft=parseFloat(document.getElementById('ac-sqft').value)||1800;
   const hours=parseFloat(document.getElementById('ac-hours').value)||8;
   const days=parseFloat(document.getElementById('ac-days').value)||120;
-  const rate=parseFloat(document.getElementById('ac-rate').value)/100||0.13;
+  const rate=parseFloat(document.getElementById('ac-rate').value)/100||0.18;
 
   const totalHrs=hours*days;
   // Central AC SEER 16: 500W per 100 sqft running

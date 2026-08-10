@@ -37,7 +37,7 @@
             <div class="form-group"><label for="eb-mpg">Car MPG</label><input type="number" id="eb-mpg" value="28" min="15" max="60" step="1" /></div>
             <div class="form-group"><label for="eb-gas">Gas Price ($/gallon)</label><input type="number" id="eb-gas" value="3.90" min="2" max="8" step="0.10" /></div>
             <div class="form-group"><label for="eb-parking">Daily Parking Cost ($)</label><input type="number" id="eb-parking" value="10" min="0" max="50" step="1" /></div>
-            <div class="form-group"><label for="eb-elec">Electricity Rate (¢/kWh)</label><input type="number" id="eb-elec" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="eb-elec">Electricity Rate (¢/kWh)</label><input type="number" id="eb-elec" value="18" min="5" max="50" step="0.5" /></div>
             <div class="form-group"><label for="eb-cost">E-Bike Purchase Price ($)</label><input type="number" id="eb-cost" value="2500" min="1000" max="8000" step="100" /></div>
             <button class="btn-primary" onclick="calcEBike()">Calculate Savings</button>
             <div class="result-box-tool" id="eb-result">
@@ -103,7 +103,7 @@ function calcEBike() {
   const mpg=parseFloat(document.getElementById('eb-mpg').value)||28;
   const gas=parseFloat(document.getElementById('eb-gas').value)||3.90;
   const parking=parseFloat(document.getElementById('eb-parking').value)||10;
-  const elec=parseFloat(document.getElementById('eb-elec').value)/100||0.13;
+  const elec=parseFloat(document.getElementById('eb-elec').value)/100||0.18;
   const ebikeCost=parseFloat(document.getElementById('eb-cost').value)||2500;
 
   const totalMiles=miles*2*days;

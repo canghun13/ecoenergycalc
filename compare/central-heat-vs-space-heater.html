@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Central Heat vs Space Heater: Which Is Cheaper?","description":"When does a space heater save money vs central heat? Compare heating costs by fuel type, home size, and thermostat setback to find the break-even point.","url":"https://ecoenergycalc.com/compare/central-heat-vs-space-heater.html","datePublished":"2026-07-06","dateModified":"2026-07-06","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Central Heat vs Space Heater: Which Is Cheaper?","description":"When does a space heater save money vs central heat? Compare heating costs by fuel type, home size, and thermostat setback to find the break-even point.","url":"https://ecoenergycalc.com/compare/central-heat-vs-space-heater.html","datePublished":"2026-07-06","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -45,7 +45,7 @@
             <div class="form-group"><label for="hs-bill">Current Monthly Heating Bill ($)</label><input type="number" id="hs-bill" value="180" min="20" max="600" /></div>
             <div class="form-group"><label for="hs-setback">Thermostat Setback When Using Space Heater (°F)</label><input type="number" id="hs-setback" value="8" min="2" max="20" /></div>
             <div class="form-group"><label for="hs-hours">Space Heater Hours per Day</label><input type="number" id="hs-hours" value="8" min="1" max="18" /></div>
-            <div class="form-group"><label for="hs-rate">Electricity Rate (¢/kWh)</label><input type="number" id="hs-rate" value="16" min="5" max="50" step="0.1" /></div>
+            <div class="form-group"><label for="hs-rate">Electricity Rate (¢/kWh)</label><input type="number" id="hs-rate" value="18" min="5" max="50" step="0.1" /></div>
             <button class="btn-primary" onclick="calcHeat()">Compare Heating Options</button>
             <div class="result-box-tool" id="hs-result">
               <h3>Monthly Cost Comparison</h3>
@@ -118,7 +118,7 @@ function calcHeat() {
   const bill = parseFloat(document.getElementById('hs-bill').value) || 180;
   const setback = parseFloat(document.getElementById('hs-setback').value) || 8;
   const hours = parseFloat(document.getElementById('hs-hours').value) || 8;
-  const rate = parseFloat(document.getElementById('hs-rate').value) / 100 || 0.16;
+  const rate = parseFloat(document.getElementById('hs-rate').value) / 100 || 0.18;
 
   const savingsPct = setback * 0.03;
   const centralSavings = bill * savingsPct;

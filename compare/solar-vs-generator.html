@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Solar + Battery vs Generator: Which Backup Power Is Right for You?","description":"Compare the 10-year total cost of a generator vs solar + battery backup for your home — including fuel, maintenance, and daily electricity savings.","url":"https://ecoenergycalc.com/compare/solar-vs-generator.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Solar + Battery vs Generator: Which Backup Power Is Right for You?","description":"Compare the 10-year total cost of a generator vs solar + battery backup for your home — including fuel, maintenance, and daily electricity savings.","url":"https://ecoenergycalc.com/compare/solar-vs-generator.html","datePublished":"2026-06-26","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -50,7 +50,7 @@
             </div>
             <div class="form-group">
               <label for="sg-elec-rate">Electricity Rate (¢/kWh)</label>
-              <input type="number" id="sg-elec-rate" value="13" min="5" max="50" step="0.5" />
+              <input type="number" id="sg-elec-rate" value="18" min="5" max="50" step="0.5" />
             </div>
             <button class="btn-primary" onclick="calcSolarGen()">Compare 10-Year Cost</button>
             <div class="result-box-tool" id="sg-result">
@@ -114,7 +114,7 @@ function calcSolarGen() {
   const loadKw = parseFloat(document.getElementById('sg-load').value) || 3;
   const gasPrice = parseFloat(document.getElementById('sg-gas-price').value) || 3.90;
   const solarKwh = parseFloat(document.getElementById('sg-solar-kwh').value) || 8000;
-  const elecRate = parseFloat(document.getElementById('sg-elec-rate').value) / 100 || 0.13;
+  const elecRate = parseFloat(document.getElementById('sg-elec-rate').value) / 100 || 0.18;
 
   const annualFuelGal = outageHrs * 0.75;
   const annualFuelCost = annualFuelGal * gasPrice;

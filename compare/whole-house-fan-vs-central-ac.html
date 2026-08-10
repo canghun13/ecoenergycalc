@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Whole-House Fan vs Central AC: Cost & Cooling Comparison","description":"Compare the operating cost and cooling capability of whole-house fans vs central air conditioning, and when each makes sense by climate.","url":"https://ecoenergycalc.com/compare/whole-house-fan-vs-central-ac.html","datePublished":"2026-07-13","dateModified":"2026-07-15","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Whole-House Fan vs Central AC: Cost & Cooling Comparison","description":"Compare the operating cost and cooling capability of whole-house fans vs central air conditioning, and when each makes sense by climate.","url":"https://ecoenergycalc.com/compare/whole-house-fan-vs-central-ac.html","datePublished":"2026-07-13","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -43,7 +43,7 @@
             <h2>Whole-House Fan vs AC Cost Calculator</h2>
             <div class="form-group"><label for="wf-hours">Hours of Use per Night</label><input type="number" id="wf-hours" value="6" min="1" max="14" /></div>
             <div class="form-group"><label for="wf-season">Cooling Season Length (days)</label><input type="number" id="wf-season" value="120" min="30" max="200" /></div>
-            <div class="form-group"><label for="wf-rate">Electricity Rate (¢/kWh)</label><input type="number" id="wf-rate" value="16" min="5" max="40" step="0.5" /></div>
+            <div class="form-group"><label for="wf-rate">Electricity Rate (¢/kWh)</label><input type="number" id="wf-rate" value="18" min="5" max="40" step="0.5" /></div>
             <div class="form-group"><label for="wf-fan-watt">Whole-House Fan Wattage</label>
               <select id="wf-fan-watt">
                 <option value="300">Standard (300W, 3,000-4,000 CFM)</option>
@@ -133,7 +133,7 @@
 function calcWholeFan() {
   const hours = parseFloat(document.getElementById('wf-hours').value) || 6;
   const season = parseFloat(document.getElementById('wf-season').value) || 120;
-  const rate = parseFloat(document.getElementById('wf-rate').value) / 100 || 0.16;
+  const rate = parseFloat(document.getElementById('wf-rate').value) / 100 || 0.18;
   const fanWatt = parseFloat(document.getElementById('wf-fan-watt').value) || 500;
   const btu = parseFloat(document.getElementById('wf-ac-btu').value) || 36000;
 

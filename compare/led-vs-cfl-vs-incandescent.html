@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"LED vs CFL vs Incandescent: Calculate Your Exact Savings","description":"Enter your number of bulbs and local electricity rate to see your exact annual savings from switching to LED — and the payback period per bulb.","url":"https://ecoenergycalc.com/compare/led-vs-cfl-vs-incandescent.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"LED vs CFL vs Incandescent: Calculate Your Exact Savings","description":"Enter your number of bulbs and local electricity rate to see your exact annual savings from switching to LED — and the payback period per bulb.","url":"https://ecoenergycalc.com/compare/led-vs-cfl-vs-incandescent.html","datePublished":"2026-06-26","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -35,7 +35,7 @@
             <div class="form-group"><label for="led-bulbs">Number of Bulbs to Replace</label><input type="number" id="led-bulbs" value="20" min="1" max="100" step="1" /></div>
             <div class="form-group"><label for="led-watts">Current Bulb Wattage (per bulb)</label><input type="number" id="led-watts" value="60" min="40" max="150" step="10" /></div>
             <div class="form-group"><label for="led-hours">Average Hours per Day (per bulb)</label><input type="number" id="led-hours" value="3" min="0.5" max="16" step="0.5" /></div>
-            <div class="form-group"><label for="led-rate">Electricity Rate (¢/kWh)</label><input type="number" id="led-rate" value="13" min="5" max="50" step="0.5" /></div>
+            <div class="form-group"><label for="led-rate">Electricity Rate (¢/kWh)</label><input type="number" id="led-rate" value="18" min="5" max="50" step="0.5" /></div>
             <button class="btn-primary" onclick="calcLED()">Calculate LED Savings</button>
             <div class="result-box-tool" id="led-result">
               <h3>Annual Savings from Switching to LED</h3>
@@ -98,7 +98,7 @@ function calcLED() {
   const bulbs=parseFloat(document.getElementById('led-bulbs').value)||20;
   const watts=parseFloat(document.getElementById('led-watts').value)||60;
   const hours=parseFloat(document.getElementById('led-hours').value)||3;
-  const rate=parseFloat(document.getElementById('led-rate').value)/100||0.13;
+  const rate=parseFloat(document.getElementById('led-rate').value)/100||0.18;
 
   // LED wattage: roughly 15% of incandescent
   const ledWatts=Math.round(watts*0.15);
