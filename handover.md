@@ -4,6 +4,16 @@ v19 문서 + 이번 세션(v19→v20) 내용 통합. 새 세션 시작 시 이 �
 
 ## 0. v20 세션 핵심 요약 (2026-08-10, Opus 분석 세션 — 코드 수정 없음, 진단만)
 
+### 0-0-1. ✅ 가스요금(1.10/1.30→1.70/therm) 전용 배치 완료 (같은 날 후속 세션, 커밋 `f9ea463`)
+
+P0-B 작업 중 부수적으로 발견했던 "$1.10/therm 잔존 11개 파일" 이슈를 마저 정리함. 10개 파일 수정(1개는 원래 있던 electric-vs-gas-water-heater.html P0-B에서 이미 처리된 것으로 확인돼 제외). `grep -rln '\$1\.10/therm|value="1\.10"|value="1\.30"' --include=*.html .` 결과 **완전히 0건.**
+
+- **계산기 8개**: 입력 기본값 + JS fallback 상수 기계적 수정(1.70 통일) — `electric-heat-vs-gas-heat`, `electric-vs-gas-dryer`, `gas-dryer-vs-heat-pump-dryer`, `heat-pump-vs-furnace-vs-boiler`, `induction-vs-gas-vs-electric-stove`, `propane-vs-natural-gas`, `tankless-vs-tank-water-heater`, (`electric-vs-gas-water-heater`는 P0-B에서 이미 처리됨).
+- **`low-flow-vs-standard-showerhead.html`**: 사용자 입력 없는 하드코딩 JS 상수(가스 1.10→1.70, 전기 16¢→18¢ 동시 발견) + 드롭다운 라벨 동반 수정.
+- **`blog/is-it-cheaper-to-heat-or-cool-your-home.html`**: 가스 1000therm 기준으로 역산 확인 후 재계산. **P0-B 때 "범위 밖"으로 미뤄뒀던 전기저항($3,000-3,900)·히트펌프($700→$1,000-1,300) 문구도 가스와 짝을 맞춰 이번에 같이 재계산함** — COP~3 기준으로 역산 정확히 맞음. "more than twice" 비교 문구도 새 비율(1.76-2.3x)에 맞게 "75-130% more"로 정정.
+- **`compare/gas-dryer-vs-heat-pump-dryer.html`**: ⚠️ **결론이 또 뒤집힘** — 가스(1.10→1.70, +55%)가 전기(16→18¢, +12.5%)보다 훨씬 크게 올라서, 가스건조기와 히트펌프건조기 운영비가 사실상 동률로 수렴함("가스가 제일 저렴" → "거의 동률"). H2 제목·본문·Quick Facts 사이드바 3곳 전부 수정.
+- **`compare/electric-heat-vs-gas-heat.html`**: 손익분기점(elec<17¢ at $1.30gas) 재계산해서 22¢(at $1.70gas)로 갱신. **⚠️ 단, 이 파일 자체에 3중 불일치 발견함(미수정, 별도 검토 필요)**: ①계산기는 COP2.5·95%AFUE 가정 ②이 손익분기점 문구는 역산해보니 실제로는 COP3·80%AFUE 기준(계산기와 다름, 대신 heating-vs-cooling.html과는 일치) ③본문 문단(line 52)의 "히트펌프 COP3.0 → $0.053/kBTU"는 역산해보면 실제로는 전기저항(COP1) 값과 정확히 일치함 — 히트펌프 값이 아니라 전기저항 값을 히트펌프라고 잘못 표기한 것으로 보임. 세 군데가 서로 다른 가정을 쓰고 있어 어느 게 "의도된" 기준인지 판단 불가, 콘텐츠 정확도 전용 세션 필요.
+
 ### 0-0. ⚠️ (같은 날 후속 세션 기록) IndexNow 구현 — 키 파일 커밋 완료, 제출은 이 샌드박스에서 불가능함이 확인됨
 
 - **키 확정**: `284760dd18f46ec1273996ed32a8e5f4` (32자 hex). **다시 만들지 말 것** — 재생성하면 기존 제출 이력이 무효화됨.
