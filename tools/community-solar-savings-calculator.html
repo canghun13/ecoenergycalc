@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Solar Savings Calculator – Two-Bill Math Explained | EcoEnergyCalc</title>
+  <meta name="description" content="Free community solar calculator for renters and homeowners without a suitable roof. See your real net savings after both bills — the utility bill and the subscription bill — plus how it compares to rooftop solar." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/community-solar-savings-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Community Solar Savings Calculator","url":"https://ecoenergycalc.com/tools/community-solar-savings-calculator.html","description":"Free community solar calculator for renters and homeowners without a suitable roof. See your real net savings after both bills — the utility bill and the subscription bill — plus how it compares to rooftop solar.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-08-10"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Why do I get two bills with community solar?","acceptedAnswer":{"@type":"Answer","text":"Because you remain a full utility customer. The solar farm generates power and your utility posts bill credits to your account for your share of it, which lowers your utility bill. Separately, the subscription company invoices you for those credits at a discount. So each month you pay the reduced utility bill and the subscription invoice. Your savings are the difference between the credits you received and what you paid for them — not the size of the discount on the utility bill alone. This two-bill structure is the most common source of confusion for new subscribers."}},
+    {"@type":"Question","name":"How much does community solar actually save?","acceptedAnswer":{"@type":"Answer","text":"Typical programs advertise savings of 5 to 20 percent on the portion of your electricity covered by the subscription. Because most subscriptions cover only part of your usage, the saving on your total annual electricity spend is usually smaller than the headline discount rate suggests. On a $150 monthly bill with $15 of fixed charges, a subscription covering 80 percent of usage at a 10 percent discount saves about $130 a year — roughly 7 percent of the total bill, not the 10 percent the headline discount suggests."}},
+    {"@type":"Question","name":"Is community solar better than rooftop solar?","acceptedAnswer":{"@type":"Answer","text":"For most homeowners with a suitable roof, no. Rooftop solar has a much higher ceiling on savings because you own the asset and eventually the power is effectively free, whereas community solar caps your benefit at the subscription discount for as long as you subscribe. Community solar wins on accessibility rather than economics: it requires no roof, no upfront cost, no credit-based financing, no installation, and no home ownership. It is designed for renters, apartment residents, shaded or north-facing roofs, and people who expect to move."}},
+    {"@type":"Question","name":"Can I cancel a community solar subscription?","acceptedAnswer":{"@type":"Answer","text":"Most programs allow cancellation with notice, commonly 30 to 90 days, and many state programs prohibit long lock-in periods or early termination fees for residential subscribers. Terms vary by provider and state, so read the cancellation clause before signing. Also confirm what happens if you move: some subscriptions transfer within the same utility territory, while others must be terminated if you leave the service area."}},
+    {"@type":"Question","name":"Is community solar available in my state?","acceptedAnswer":{"@type":"Answer","text":"Not everywhere. Community solar operates in roughly two dozen states plus the District of Columbia, because it requires enabling state legislation that lets a third party bill for utility credits. Availability also varies within states by utility territory, and popular programs sometimes have waiting lists. Check your state energy office or your utility's website before assuming you can enroll."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Community Solar Savings Calculator</p>
+        <span class="tool-category">Solar &amp; Renewables</span>
+        <h1>Community Solar Savings Calculator</h1>
+        <p>Community solar means two separate bills every month, and that trips up almost everyone evaluating it. This calculator shows both — what you still owe the utility and what you owe the subscription company — so you can see your actual net saving instead of just the advertised discount.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Your Real Net Savings</h2>
+            <div class="form-group">
+              <label for="cs-bill">Current Average Monthly Electric Bill ($)</label>
+              <input type="number" id="cs-bill" value="150" min="20" max="1000" step="5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Use a 12-month average if you can — summer and winter months skew a single bill.</p>
+            </div>
+            <div class="form-group">
+              <label for="cs-fixed">Fixed Charges You'll Still Owe ($/month)</label>
+              <input type="number" id="cs-fixed" value="15" min="0" max="200" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Connection fees, meter charges, and taxes that solar credits usually can't offset. Look for a line item like "basic service charge" on your bill. Typically $8–25.</p>
+            </div>
+            <div class="form-group">
+              <label for="cs-coverage">Subscription Coverage (% of your usage)</label>
+              <input type="number" id="cs-coverage" value="80" min="10" max="100" step="5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Most programs size your share to cover 50–100% of your historical usage. Many deliberately stay under 100% so you don't accumulate unusable credits.</p>
+            </div>
+            <div class="form-group">
+              <label for="cs-discount">Subscription Discount (%)</label>
+              <input type="number" id="cs-discount" value="10" min="0" max="50" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">The discount you get on the credits you buy. Typical programs run 5–20%. This is the number the provider advertises — and the only place your savings come from.</p>
+            </div>
+            <div class="form-group">
+              <label for="cs-escalator">Annual Subscription Price Escalator (%)</label>
+              <input type="number" id="cs-escalator" value="2" min="0" max="10" step="0.5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Many contracts raise the subscription price each year. If your utility's rates rise faster than this, your savings grow; if slower, they shrink. Enter 0 for a fixed-price contract.</p>
+            </div>
+            <div class="form-group">
+              <label for="cs-utilrate">Expected Utility Rate Increase (%/year)</label>
+              <input type="number" id="cs-utilrate" value="4" min="0" max="15" step="0.5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">U.S. residential rates have been rising faster than historical norms in recent years. 3–5% is a reasonable planning range.</p>
+            </div>
+            <button class="btn-primary" onclick="calcCommunitySolar()">Calculate Net Savings</button>
+            <div class="result-box-tool" id="cs-result">
+              <h3>Your Community Solar Math</h3>
+              <div class="result-amount" id="cs-total"></div>
+              <div class="table-scroll">
+                <table id="cs-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="cs-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>The Two-Bill Structure Nobody Explains Clearly</h2>
+            <p>This is the part that confuses almost every new subscriber, and most provider calculators skip it entirely.</p>
+            <p>You do not stop being a utility customer. You never take delivery of solar power directly — the electricity in your outlets still comes from the grid exactly as before. What changes is bookkeeping:</p>
+            <ul>
+              <li><strong>The solar farm generates power</strong> and your utility credits your account for your share of it. Your utility bill drops.</li>
+              <li><strong>The subscription company invoices you</strong> for those same credits, at a discount to their face value.</li>
+              <li><strong>You pay both bills.</strong> Your saving is the gap between the credit value you received and the price you paid for it.</li>
+            </ul>
+            <p>So a "10% discount" doesn't mean your electricity costs 10% less. It means the portion of your bill covered by the subscription costs 10% less. If the subscription covers 80% of your usage, and fixed charges are untouched, your total saving is a good deal smaller than 10% of your bill.</p>
+
+            <div class="callout">
+              <strong>The trap to avoid:</strong> Seeing a much smaller utility bill and assuming that's your saving. It isn't — the subscription invoice arrives separately. Judge the program on the two bills added together versus what you used to pay.
+            </div>
+
+            <h2>Why This Calculator Subtracts Fixed Charges First</h2>
+            <p>Solar credits offset energy charges, not the fixed costs of being connected to the grid. Basic service charges, meter fees, and certain taxes stay on your bill no matter how much solar you subscribe to.</p>
+            <p>That matters more for small bills than large ones. If you pay $60 a month and $15 of it is fixed, only $45 is exposed to any solar discount at all — so a 10% subscription discount on 80% coverage is working on $36, not $60. Low-usage households consistently see thinner percentage savings than the marketing implies, which is why this calculator asks for your fixed charge separately.</p>
+
+            <h2>Community Solar vs Rooftop Solar</h2>
+            <p>If you own your home and have a decent roof, rooftop solar almost always produces more money over time. You own the asset, the savings eventually approach the full value of the power rather than a discount on it, and the system adds value to the property. Community solar caps your benefit at the subscription discount for as long as you subscribe, and you own nothing at the end.</p>
+            <p>Community solar's advantage isn't economic — it's access:</p>
+            <ul>
+              <li><strong>Renters and apartment residents</strong> who cannot install anything on a roof they don't own.</li>
+              <li><strong>Shaded, north-facing, small, or aging roofs</strong> where rooftop solar doesn't pencil out or would need replacing first.</li>
+              <li><strong>People planning to move</strong> within a few years, since rooftop payback periods now commonly run past a decade.</li>
+              <li><strong>Anyone unwilling or unable to take on $15,000–25,000 of upfront cost or financing.</strong></li>
+            </ul>
+            <p>If you're a homeowner weighing both, run our <a href="/tools/solar-panel-roi.html">solar panel ROI calculator</a> alongside this one before deciding. Community solar is the better answer when rooftop isn't an option — not when it merely looks like more work.</p>
+
+            <h2>Questions to Ask Before Signing</h2>
+            <ul>
+              <li><strong>What's the cancellation notice period and is there a fee?</strong> Many state programs cap or prohibit termination fees for residential subscribers, but terms vary.</li>
+              <li><strong>What happens if I move?</strong> Some subscriptions transfer within the same utility territory; others must be cancelled if you leave the service area.</li>
+              <li><strong>Is the discount fixed or does it escalate?</strong> An escalator that outpaces utility rate increases erodes your savings over time.</li>
+              <li><strong>What happens to unused credits?</strong> If your usage drops below your subscription, you may be buying credits you can't use.</li>
+              <li><strong>How long until credits appear?</strong> Typically two to three billing cycles after enrollment. The gap is normal but surprises people.</li>
+            </ul>
+            <p>One more thing worth knowing: community solar is available in roughly two dozen states plus DC, because it requires state legislation permitting third-party credit billing. It isn't a nationwide option, and popular programs sometimes carry waiting lists.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/solar-panel-roi.html">Solar Panel ROI Calculator</a></li>
+              <li><a href="/tools/net-metering-calculator.html">Net Metering Calculator</a></li>
+              <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings Calculator</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/net-metering-vs-net-billing.html">Net Metering vs Net Billing Explained</a></li>
+              <li><a href="/blog/solar-panel-guide.html">Complete Solar Panel Guide</a></li>
+              <li><a href="/blog/solar-incentives-by-state.html">Solar Incentives by State</a></li>
+              <li><a href="/blog/why-electric-bills-are-rising-ai-data-centers.html">Why Electric Bills Are Rising</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>You get <strong>two bills, not one</strong></li>
+              <li>Typical discount: <strong>5–20%</strong></li>
+              <li>Available in <strong>~24 states + DC</strong></li>
+              <li>Credits appear after <strong>2–3 billing cycles</strong></li>
+              <li>Upfront cost: <strong>usually $0</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Why do I get two bills with community solar?</h3>
+      <p>Because you remain a full utility customer. The solar farm generates power and your utility posts bill credits to your account for your share of it, which lowers your utility bill. Separately, the subscription company invoices you for those credits at a discount. So each month you pay the reduced utility bill and the subscription invoice. Your savings are the difference between the credits you received and what you paid for them — not the size of the discount on the utility bill alone. This two-bill structure is the most common source of confusion for new subscribers.</p>
+      <h3>How much does community solar actually save?</h3>
+      <p>Typical programs advertise savings of 5 to 20 percent on the portion of your electricity covered by the subscription. Because most subscriptions cover only part of your usage, the saving on your total annual electricity spend is usually smaller than the headline discount rate suggests. On a $150 monthly bill with $15 of fixed charges, a subscription covering 80 percent of usage at a 10 percent discount saves about $130 a year — roughly 7 percent of the total bill, not the 10 percent the headline discount suggests.</p>
+      <h3>Is community solar better than rooftop solar?</h3>
+      <p>For most homeowners with a suitable roof, no. Rooftop solar has a much higher ceiling on savings because you own the asset and eventually the power is effectively free, whereas community solar caps your benefit at the subscription discount for as long as you subscribe. Community solar wins on accessibility rather than economics: it requires no roof, no upfront cost, no credit-based financing, no installation, and no home ownership. It is designed for renters, apartment residents, shaded or north-facing roofs, and people who expect to move.</p>
+      <h3>Can I cancel a community solar subscription?</h3>
+      <p>Most programs allow cancellation with notice, commonly 30 to 90 days, and many state programs prohibit long lock-in periods or early termination fees for residential subscribers. Terms vary by provider and state, so read the cancellation clause before signing. Also confirm what happens if you move: some subscriptions transfer within the same utility territory, while others must be terminated if you leave the service area.</p>
+      <h3>Is community solar available in my state?</h3>
+      <p>Not everywhere. Community solar operates in roughly two dozen states plus the District of Columbia, because it requires enabling state legislation that lets a third party bill for utility credits. Availability also varies within states by utility territory, and popular programs sometimes have waiting lists. Check your state energy office or your utility's website before assuming you can enroll.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcCommunitySolar() {
+  var bill = parseFloat(document.getElementById('cs-bill').value);
+  if (isNaN(bill) || bill <= 0) bill = 150;
+  var fixed = parseFloat(document.getElementById('cs-fixed').value);
+  if (isNaN(fixed) || fixed < 0) fixed = 15;
+  if (fixed > bill) fixed = bill;
+  var coverage = parseFloat(document.getElementById('cs-coverage').value);
+  if (isNaN(coverage)) coverage = 80;
+  if (coverage < 0) coverage = 0;
+  if (coverage > 100) coverage = 100;
+  var discount = parseFloat(document.getElementById('cs-discount').value);
+  if (isNaN(discount) || discount < 0) discount = 10;
+  var escalator = parseFloat(document.getElementById('cs-escalator').value);
+  if (isNaN(escalator) || escalator < 0) escalator = 0;
+  var utilRise = parseFloat(document.getElementById('cs-utilrate').value);
+  if (isNaN(utilRise) || utilRise < 0) utilRise = 0;
+
+  var energyPortion = bill - fixed;
+  var creditValue = energyPortion * (coverage / 100);
+  var subscriptionCost = creditValue * (1 - discount / 100);
+  var remainingUtility = bill - creditValue;
+  var totalNew = remainingUtility + subscriptionCost;
+  var monthlySaving = bill - totalNew;
+  var annualSaving = monthlySaving * 12;
+  var effectivePct = bill > 0 ? (monthlySaving / bill) * 100 : 0;
+
+  var money = function(v) { return '$' + v.toFixed(2); };
+  var whole = function(v) { return '$' + Math.round(v).toLocaleString(); };
+
+  document.getElementById('cs-total').textContent = whole(annualSaving) + '/year saved';
+
+  var rows =
+    '<tr><th>Line item</th><th>Amount</th></tr>' +
+    '<tr><td>Current monthly bill</td><td>' + money(bill) + '</td></tr>' +
+    '<tr><td>Fixed charges solar can\'t offset</td><td>' + money(fixed) + '</td></tr>' +
+    '<tr><td>Energy portion exposed to savings</td><td>' + money(energyPortion) + '</td></tr>' +
+    '<tr><td>Solar credits posted to your account</td><td>−' + money(creditValue) + '</td></tr>' +
+    '<tr><td><strong>Bill 1:</strong> what you still owe the utility</td><td>' + money(remainingUtility) + '</td></tr>' +
+    '<tr><td><strong>Bill 2:</strong> subscription invoice (at ' + discount + '% off)</td><td>' + money(subscriptionCost) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Both bills combined</td><td>' + money(totalNew) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Monthly saving</td><td>' + money(monthlySaving) + '</td></tr>' +
+    '<tr><td>Annual saving</td><td>' + whole(annualSaving) + '</td></tr>' +
+    '<tr><td>Effective saving on your total bill</td><td>' + effectivePct.toFixed(1) + '%</td></tr>';
+
+  var y5Saving = 0;
+  for (var y = 0; y < 5; y++) {
+    var billY = bill * Math.pow(1 + utilRise / 100, y);
+    var fixedY = fixed * Math.pow(1 + utilRise / 100, y);
+    var energyY = billY - fixedY;
+    var creditY = energyY * (coverage / 100);
+    var subY = subscriptionCost * Math.pow(1 + escalator / 100, y);
+    y5Saving += (creditY - subY) * 12;
+  }
+  rows += '<tr style="font-weight:700;"><td>5-year cumulative saving</td><td>' + whole(y5Saving) + '</td></tr>';
+
+  document.getElementById('cs-table').innerHTML = rows;
+
+  var note = 'Remember you pay both bills — your saving is the ' + money(monthlySaving) + ' gap between the credits posted and what you paid for them, not the ' + money(creditValue) + ' drop in your utility bill. ';
+  note += 'That works out to ' + effectivePct.toFixed(1) + '% off your total bill, which is lower than the advertised ' + discount + '% because the discount only applies to the ' + coverage + '% of your energy charges the subscription covers, and not at all to fixed charges. ';
+  if (escalator > utilRise) {
+    note += 'Warning: your subscription escalator (' + escalator + '%) is higher than your assumed utility rate increase (' + utilRise + '%), so savings shrink each year and could eventually reverse. Check whether the contract has a fixed discount instead. ';
+  } else if (utilRise > escalator) {
+    note += 'Your assumed utility rate increase (' + utilRise + '%) outpaces the subscription escalator (' + escalator + '%), so savings grow modestly over time. ';
+  }
+  note += 'Estimates exclude enrollment credits or sign-up bonuses some providers offer, and assume your usage stays roughly constant.';
+  document.getElementById('cs-note').textContent = note;
+
+  var r = document.getElementById('cs-result');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>

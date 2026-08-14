@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Net Metering Calculator – Solar Export Credit Value by Policy | EcoEnergyCalc</title>
+  <meta name="description" content="Free net metering calculator. See what your exported solar power is actually worth under full retail net metering vs net billing (NEM 3.0), and how much of your savings comes from self-consumption instead." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/net-metering-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Net Metering Calculator","url":"https://ecoenergycalc.com/tools/net-metering-calculator.html","description":"Free net metering calculator. See what your exported solar power is actually worth under full retail net metering vs net billing (NEM 3.0), and how much of your savings comes from self-consumption instead.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-08-10"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is the difference between net metering and net billing?","acceptedAnswer":{"@type":"Answer","text":"Under full retail net metering, every kWh you export earns a credit equal to the retail rate you pay for grid power — one exported kWh cancels out one imported kWh. Under net billing (California's NEM 3.0 is the best-known example), exports are credited at a much lower avoided-cost or wholesale rate, often roughly 4 to 8 cents per kWh, while you still buy grid power at full retail. The distinction matters enormously: the same array producing the same electricity can be worth hundreds of dollars per year more under full retail net metering than under net billing."}},
+    {"@type":"Question","name":"How much does NEM 3.0 reduce solar savings?","acceptedAnswer":{"@type":"Answer","text":"It depends almost entirely on how much of your production you consume directly rather than export. NEM 3.0 cut California export credits by roughly 75 percent, but it did not change the value of the solar power you use in your own home at the moment it is produced — that power still offsets electricity you would have bought at full retail. A household exporting most of its production sees a large hit; a household with high daytime usage or a battery sees a much smaller one. This is why self-consumption share is the single most important input in this calculator."}},
+    {"@type":"Question","name":"Does a battery make sense under net billing?","acceptedAnswer":{"@type":"Answer","text":"Under net billing, a battery stores midday production that would otherwise be exported at a low credit rate, then discharges it in the evening when you would otherwise buy power at full retail. That arbitrage is worth roughly the gap between your retail rate and your export rate for every kWh shifted. Under full retail net metering the grid already acts as a free one-for-one battery, so storage adds far less financial value and is usually justified by backup power rather than bill savings. Use the self-consumption slider in this calculator to model what a battery would do for you."}},
+    {"@type":"Question","name":"Is net metering going away?","acceptedAnswer":{"@type":"Answer","text":"Full retail net metering has been narrowed or replaced in several states, most visibly in California, and other states have opened proceedings to revisit it. Many states still offer full retail net metering. Existing customers are commonly grandfathered onto the policy in force when their system was interconnected, frequently for 20 years, which is why the interconnection date on a solar contract carries real financial value. Because these rules are set state by state and change periodically, confirm the current tariff with your own utility before signing anything."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Net Metering Calculator</p>
+        <span class="tool-category">Solar &amp; Renewables</span>
+        <h1>Net Metering Calculator</h1>
+        <p>Find out what your exported solar electricity is actually worth under your utility's policy — full retail net metering, net billing (NEM 3.0 style), or something in between — and how much of your savings comes from self-consumption rather than export credits.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Your Export Credit Value</h2>
+            <div class="form-group">
+              <label for="nm-production">Annual Solar Production (kWh)</label>
+              <input type="number" id="nm-production" value="9000" min="500" max="60000" step="100" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">A typical 6 kW system produces roughly 7,000–9,000 kWh/year in the U.S. Not sure? Use our <a href="/tools/solar-panel-count-calculator.html">panel count calculator</a>, or run NREL's free PVWatts tool for an address-specific figure.</p>
+            </div>
+            <div class="form-group">
+              <label for="nm-selfuse">Self-Consumption Share (%)</label>
+              <input type="number" id="nm-selfuse" value="35" min="0" max="100" step="5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">The share of production you use as it's generated instead of exporting. Typical home without a battery: 30–50%. With a battery: 70–90%. Work-from-home households and homes with daytime AC or EV charging land at the higher end.</p>
+            </div>
+            <div class="form-group">
+              <label for="nm-retail">Your Retail Electricity Rate (¢/kWh)</label>
+              <input type="number" id="nm-retail" value="18" min="5" max="60" step="0.5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">What you pay to buy power. U.S. average is about 18¢/kWh in 2026; California and the Northeast run far higher.</p>
+            </div>
+            <div class="form-group">
+              <label for="nm-policy">Your Utility's Export Policy</label>
+              <select id="nm-policy">
+                <option value="retail">Full retail net metering (1 kWh export = 1 kWh credit)</option>
+                <option value="partial">Partial credit (~70% of retail)</option>
+                <option value="netbilling" selected>Net billing / NEM 3.0 style (avoided cost)</option>
+                <option value="custom">Custom export rate (enter below)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="nm-export">Custom Export Rate (¢/kWh)</label>
+              <input type="number" id="nm-export" value="6" min="0" max="60" step="0.5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Only used when "Custom export rate" is selected above. Net billing credits commonly land around 4–8¢/kWh. Your utility's rate sheet or your solar bid should state this explicitly.</p>
+            </div>
+            <button class="btn-primary" onclick="calcNetMetering()">Calculate Export Value</button>
+            <div class="result-box-tool" id="nm-result">
+              <h3>Your Annual Solar Bill Savings</h3>
+              <div class="result-amount" id="nm-total"></div>
+              <div class="table-scroll">
+                <table id="nm-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="nm-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How This Calculator Works</h2>
+            <p>Solar savings come from two completely different sources, and most calculators blur them together. This one separates them deliberately, because the split is what determines whether a change in net metering policy hurts you a lot or barely at all.</p>
+            <p><strong>Self-consumed power</strong> is electricity your panels produce that your home uses immediately. It never touches the export meter. Every kWh in this bucket offsets a kWh you would otherwise have bought at full retail rate — so it's worth your retail rate, and no net metering policy change can reduce that value.</p>
+            <p><strong>Exported power</strong> is the surplus that flows to the grid. This is the only portion your utility's export policy governs, and it's where full retail net metering and net billing diverge sharply.</p>
+            <p>The calculator multiplies each bucket by its own rate and adds them together. It uses annual totals rather than hour-by-hour modeling, which keeps the inputs simple while still showing the structural point clearly.</p>
+
+            <h2>Why Self-Consumption Share Matters More Than the Policy</h2>
+            <p>Run the calculator twice — once at 30% self-consumption and once at 80% — and the difference between full retail net metering and net billing shrinks dramatically at the higher figure. That's the whole story of solar economics under modern export rules.</p>
+            <p>If you export most of your production, your savings are highly exposed to whatever your utility decides to pay for exports. If you consume most of it as you generate it, your savings are anchored to the retail rate you're avoiding, and export policy becomes a secondary concern.</p>
+            <p>This is why battery storage changed from a backup-power purchase to a financial one in net billing states. A battery doesn't create energy; it moves your production from the export bucket to the self-consumption bucket. The value of that shift is roughly the gap between your retail rate and your export rate, for every kWh moved.</p>
+
+            <h2>What This Calculator Doesn't Model</h2>
+            <p>Deliberately kept out of scope so the core comparison stays readable and honest:</p>
+            <ul>
+              <li><strong>Time-of-use rates.</strong> Many solar households are on TOU tariffs where both the retail rate and the export credit vary by hour and season. TOU generally improves battery economics beyond what's shown here.</li>
+              <li><strong>Non-bypassable charges and fixed fees.</strong> Most utilities levy per-kWh charges or monthly connection fees that solar cannot offset. Your bill will not reach zero even if your production exceeds your consumption.</li>
+              <li><strong>True-up and credit rollover rules.</strong> Some utilities roll unused credits forward indefinitely; others zero them out annually, sometimes without cash payout for a surplus.</li>
+              <li><strong>Rate escalation and panel degradation.</strong> This is a snapshot of year one. Over 25 years, rising retail rates tend to increase savings while panel output declines roughly 0.5%/year.</li>
+            </ul>
+            <p>For the full lifetime picture including system cost and payback period, use our <a href="/tools/solar-panel-roi.html">solar panel ROI calculator</a> alongside this one.</p>
+
+            <h2>Checking Your Own Utility's Policy</h2>
+            <p>The export rate is the single number most worth verifying before you sign a solar contract, and it's the one most often glossed over in sales presentations. Three places to confirm it:</p>
+            <ul>
+              <li><strong>Your utility's residential rate sheet</strong>, usually filed publicly and searchable for terms like "net metering," "net billing," "excess generation credit," or "avoided cost."</li>
+              <li><strong>Your state public utility commission</strong>, which approves these tariffs and posts pending changes. Worth checking for open proceedings that could change your terms.</li>
+              <li><strong>The solar bid itself.</strong> Ask the installer in writing what export rate their savings estimate assumes. If the number they used is higher than your utility's published rate, the entire savings projection is inflated.</li>
+            </ul>
+            <p>Also ask about grandfathering. Many states lock customers onto the policy in effect at interconnection, often for 20 years — which means the date your system goes live can be worth thousands of dollars.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/solar-panel-roi.html">Solar Panel ROI Calculator</a></li>
+              <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings Calculator</a></li>
+              <li><a href="/tools/battery-storage.html">Battery Storage Calculator</a></li>
+              <li><a href="/tools/solar-panel-count-calculator.html">How Many Solar Panels Do I Need?</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/net-metering-vs-net-billing.html">Net Metering vs Net Billing Explained</a></li>
+              <li><a href="/blog/solar-panel-guide.html">Complete Solar Panel Guide</a></li>
+              <li><a href="/blog/solar-panel-cost-2026.html">Solar Panel Cost in 2026</a></li>
+              <li><a href="/blog/solar-incentives-by-state.html">Solar Incentives by State</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Full retail NEM: <strong>1 kWh export = 1 kWh credit</strong></li>
+              <li>Net billing credit: <strong>often ~4–8¢/kWh</strong></li>
+              <li>Self-consumption without battery: <strong>30–50%</strong></li>
+              <li>With battery: <strong>70–90%</strong></li>
+              <li>Grandfathering: <strong>commonly 20 years</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is the difference between net metering and net billing?</h3>
+      <p>Under full retail net metering, every kWh you export earns a credit equal to the retail rate you pay for grid power — one exported kWh cancels out one imported kWh. Under net billing (California's NEM 3.0 is the best-known example), exports are credited at a much lower avoided-cost or wholesale rate, often roughly 4 to 8 cents per kWh, while you still buy grid power at full retail. The distinction matters enormously: the same array producing the same electricity can be worth hundreds of dollars per year more under full retail net metering than under net billing.</p>
+      <h3>How much does NEM 3.0 reduce solar savings?</h3>
+      <p>It depends almost entirely on how much of your production you consume directly rather than export. NEM 3.0 cut California export credits by roughly 75 percent, but it did not change the value of the solar power you use in your own home at the moment it is produced — that power still offsets electricity you would have bought at full retail. A household exporting most of its production sees a large hit; a household with high daytime usage or a battery sees a much smaller one. This is why self-consumption share is the single most important input in this calculator.</p>
+      <h3>Does a battery make sense under net billing?</h3>
+      <p>Under net billing, a battery stores midday production that would otherwise be exported at a low credit rate, then discharges it in the evening when you would otherwise buy power at full retail. That arbitrage is worth roughly the gap between your retail rate and your export rate for every kWh shifted. Under full retail net metering the grid already acts as a free one-for-one battery, so storage adds far less financial value and is usually justified by backup power rather than bill savings. Use the self-consumption slider in this calculator to model what a battery would do for you.</p>
+      <h3>Is net metering going away?</h3>
+      <p>Full retail net metering has been narrowed or replaced in several states, most visibly in California, and other states have opened proceedings to revisit it. Many states still offer full retail net metering. Existing customers are commonly grandfathered onto the policy in force when their system was interconnected, frequently for 20 years, which is why the interconnection date on a solar contract carries real financial value. Because these rules are set state by state and change periodically, confirm the current tariff with your own utility before signing anything.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcNetMetering() {
+  var production = parseFloat(document.getElementById('nm-production').value);
+  if (isNaN(production) || production <= 0) production = 9000;
+  var selfPct = parseFloat(document.getElementById('nm-selfuse').value);
+  if (isNaN(selfPct)) selfPct = 35;
+  if (selfPct < 0) selfPct = 0;
+  if (selfPct > 100) selfPct = 100;
+  var retail = parseFloat(document.getElementById('nm-retail').value);
+  if (isNaN(retail) || retail <= 0) retail = 18;
+  var policy = document.getElementById('nm-policy').value;
+  var customExport = parseFloat(document.getElementById('nm-export').value);
+  if (isNaN(customExport) || customExport < 0) customExport = 6;
+
+  var retailRate = retail / 100;
+  var exportRate;
+  var policyLabel;
+  if (policy === 'retail') {
+    exportRate = retailRate;
+    policyLabel = 'Full retail net metering';
+  } else if (policy === 'partial') {
+    exportRate = retailRate * 0.7;
+    policyLabel = 'Partial credit (~70% of retail)';
+  } else if (policy === 'netbilling') {
+    exportRate = retailRate * 0.25;
+    policyLabel = 'Net billing / NEM 3.0 style';
+  } else {
+    exportRate = customExport / 100;
+    policyLabel = 'Custom export rate';
+  }
+
+  var selfKwh = production * (selfPct / 100);
+  var exportKwh = production - selfKwh;
+  var selfValue = selfKwh * retailRate;
+  var exportValue = exportKwh * exportRate;
+  var total = selfValue + exportValue;
+  var retailBenchmark = production * retailRate;
+  var lostVsRetail = retailBenchmark - total;
+  var blended = production > 0 ? (total / production) * 100 : 0;
+
+  var money = function(v) { return '$' + Math.round(v).toLocaleString(); };
+  var kwh = function(v) { return Math.round(v).toLocaleString() + ' kWh'; };
+
+  document.getElementById('nm-total').textContent = money(total) + '/year';
+
+  var rows =
+    '<tr><th>Component</th><th>Amount</th><th>Value</th></tr>' +
+    '<tr><td>Self-consumed (at ' + retail.toFixed(1) + '¢ retail)</td><td>' + kwh(selfKwh) + '</td><td>' + money(selfValue) + '</td></tr>' +
+    '<tr><td>Exported (at ' + (exportRate * 100).toFixed(1) + '¢ credit)</td><td>' + kwh(exportKwh) + '</td><td>' + money(exportValue) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Total annual bill savings</td><td>' + kwh(production) + '</td><td>' + money(total) + '</td></tr>' +
+    '<tr><td>Blended value per kWh produced</td><td colspan="2">' + blended.toFixed(1) + '¢/kWh</td></tr>';
+
+  if (policy !== 'retail') {
+    rows += '<tr><td>Lost vs. full retail net metering</td><td colspan="2">' + money(lostVsRetail) + '/year</td></tr>';
+  }
+  document.getElementById('nm-table').innerHTML = rows;
+
+  var note = 'Policy modeled: ' + policyLabel + '. ';
+  if (policy === 'retail') {
+    note += 'Under full retail net metering every kWh is worth the same, so your self-consumption share does not change your savings — the grid effectively acts as a free battery. This is the most favorable policy for homeowners, and it is worth confirming how long you would be grandfathered onto it.';
+  } else {
+    var shiftValue = (retailRate - exportRate) * exportKwh;
+    note += 'Because exports are credited below retail, every kWh you shift from export to self-consumption is worth an extra ' + ((retailRate - exportRate) * 100).toFixed(1) + '¢. Moving all ' + kwh(exportKwh) + ' of your current exports into self-consumption — the theoretical maximum a battery could capture — would be worth up to ' + money(shiftValue) + '/year, which is the number to weigh against battery cost.';
+  }
+  note += ' Estimates exclude fixed monthly fees, non-bypassable charges, time-of-use variation, and credit rollover rules, all of which your utility applies on top of this.';
+  document.getElementById('nm-note').textContent = note;
+
+  var r = document.getElementById('nm-result');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>

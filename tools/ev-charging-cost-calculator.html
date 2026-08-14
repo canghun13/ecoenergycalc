@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EV Charging Cost Calculator – Home vs Public, With Off-Peak Savings | EcoEnergyCalc</title>
+  <meta name="description" content="Free EV charging cost calculator. See your monthly and annual home charging cost, how much a time-of-use off-peak rate would save you, what public DC fast charging adds, and how it all compares to gas." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/ev-charging-cost-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"EV Charging Cost Calculator","url":"https://ecoenergycalc.com/tools/ev-charging-cost-calculator.html","description":"Free EV charging cost calculator. See your monthly and annual home charging cost, how much a time-of-use off-peak rate would save you, what public DC fast charging adds, and how it all compares to gas.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-08-10"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does it cost to charge an EV at home per month?","acceptedAnswer":{"@type":"Answer","text":"For a typical driver covering 1,000 miles per month in an EV averaging 3.3 miles per kWh, home charging uses roughly 303 kWh. At the 2026 U.S. average residential rate of about 18 cents per kWh, that works out to roughly 55 dollars per month. Your figure varies widely by state: the same driving costs closer to 33 dollars in low-rate states and can exceed 150 dollars in Hawaii. Switching to an off-peak time-of-use rate typically cuts the bill by 30 to 50 percent."}},
+    {"@type":"Question","name":"Does Level 2 charging cost more than Level 1?","acceptedAnswer":{"@type":"Answer","text":"No. A kilowatt-hour costs the same regardless of how fast it is delivered, so Level 1 and Level 2 charging cost effectively the same per kWh on your bill. Level 2 is simply faster. The real financial difference is the upfront cost of installing a 240-volt circuit and wallbox. Level 2 can indirectly save money, though, because it charges fast enough to fit entirely inside a narrow overnight off-peak window, while Level 1 may spill into expensive peak hours."}},
+    {"@type":"Question","name":"Is public fast charging much more expensive than home charging?","acceptedAnswer":{"@type":"Answer","text":"Yes, typically two to three times more. Home charging happens at residential rates around 18 cents per kWh nationally, while public DC fast charging commonly runs 35 to 50 cents per kWh because the price includes hardware, real estate, maintenance, payment processing, and profit. A driver who relies heavily on public fast charging because they lack home charging access sees dramatically smaller savings versus gasoline, which is why the public charging share input matters in this calculator."}},
+    {"@type":"Question","name":"Will charging an EV at home increase my electric bill a lot?","acceptedAnswer":{"@type":"Answer","text":"It adds a noticeable but manageable amount for most households. Roughly 300 kWh per month for a typical driver is a meaningful addition to average U.S. household usage of about 900 kWh per month, so expect your electricity bill to rise by something in the neighborhood of a third. The offset is that you stop buying gasoline entirely. Check whether your utility offers an EV-specific or time-of-use rate before you start charging, since overnight rates are often substantially cheaper."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › EV Charging Cost Calculator</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>EV Charging Cost Calculator</h1>
+        <p>Work out what charging your electric car actually costs each month — at home, on an off-peak time-of-use rate, and with public fast charging mixed in — plus what you'd have spent on gasoline for the same miles.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Calculate Your Charging Cost</h2>
+            <div class="form-group">
+              <label for="ev-miles">Miles Driven Per Month</label>
+              <input type="number" id="ev-miles" value="1000" min="50" max="10000" step="50" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">U.S. average is roughly 1,100 miles/month (about 13,500/year). Check your odometer over a few months if you're unsure.</p>
+            </div>
+            <div class="form-group">
+              <label for="ev-efficiency">EV Efficiency (miles per kWh)</label>
+              <input type="number" id="ev-efficiency" value="3.3" min="1" max="8" step="0.1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Most EVs land between 2.5 and 4.0 mi/kWh. Efficient sedans reach 4.0+; large electric trucks and SUVs often sit near 2.0–2.5. Cold weather and highway speeds reduce this significantly.</p>
+            </div>
+            <div class="form-group">
+              <label for="ev-rate">Home Electricity Rate (¢/kWh)</label>
+              <input type="number" id="ev-rate" value="18" min="5" max="60" step="0.5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">2026 U.S. average is about 18¢/kWh. Your bill shows your actual rate.</p>
+            </div>
+            <div class="form-group">
+              <label for="ev-offpeak">Off-Peak / EV Rate (¢/kWh, optional)</label>
+              <input type="number" id="ev-offpeak" value="10" min="0" max="60" step="0.5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Many utilities offer overnight time-of-use or EV-specific rates 30–50% below standard. Enter 0 to skip this comparison.</p>
+            </div>
+            <div class="form-group">
+              <label for="ev-public">Share Charged at Public Fast Chargers (%)</label>
+              <input type="number" id="ev-public" value="10" min="0" max="100" step="5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Most owners with home charging use public DC fast charging for 5–15% of their miles. Drivers without home charging may be at 80–100%.</p>
+            </div>
+            <div class="form-group">
+              <label for="ev-publicrate">Public Fast Charging Rate (¢/kWh)</label>
+              <input type="number" id="ev-publicrate" value="42" min="10" max="120" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Public DC fast charging commonly runs 35–50¢/kWh in 2026, varying by network and state.</p>
+            </div>
+            <div class="form-group">
+              <label for="ev-gasprice">Gas Price for Comparison ($/gallon)</label>
+              <input type="number" id="ev-gasprice" value="3.50" min="1" max="10" step="0.05" />
+            </div>
+            <div class="form-group">
+              <label for="ev-mpg">Comparison Gas Car MPG</label>
+              <input type="number" id="ev-mpg" value="27.5" min="5" max="80" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcEvCharging()">Calculate Charging Cost</button>
+            <div class="result-box-tool" id="ev-result">
+              <h3>Your EV Charging Cost</h3>
+              <div class="result-amount" id="ev-total"></div>
+              <div class="table-scroll">
+                <table id="ev-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="ev-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>How EV Charging Cost Is Calculated</h2>
+            <p>The arithmetic is simple, which is why the inputs matter more than the formula. Energy needed equals miles driven divided by your car's efficiency in miles per kWh. Cost equals that energy multiplied by your electricity rate.</p>
+            <p>What complicates it in practice is that most drivers pay more than one rate. Home charging at residential rates, public fast charging at commercial rates, and — if your utility offers it — a cheaper overnight window all apply to different slices of the same monthly total. This calculator splits those out rather than averaging them into a single misleading number.</p>
+            <p>One thing worth knowing upfront: a kilowatt-hour costs the same whether it arrives slowly or quickly. <strong>Level 1 and Level 2 home charging cost identically per kWh.</strong> Level 2 is faster, not cheaper. The financial case for Level 2 is the wallbox install cost weighed against convenience — plus one genuine indirect saving covered below.</p>
+
+            <h2>Why Off-Peak Rates Are the Biggest Lever</h2>
+            <p>EV charging is unusually well suited to time-of-use pricing. Most charging happens overnight while the car sits idle, which is exactly when utilities most want to shift load — so off-peak windows are often 30–50% below the standard rate, and some utilities publish dedicated EV tariffs that go lower still.</p>
+            <p>Because an EV represents a large, highly schedulable block of consumption, moving it to off-peak is one of the few household changes that cuts a bill substantially without requiring any behavioral sacrifice. You set a charge schedule in the car or the app once and never think about it again.</p>
+            <p>This is also the one place Level 2 charging genuinely saves money rather than just time. A Level 1 charger adding roughly 3–5 miles of range per hour may need to run 10+ hours to replenish a day's driving, which can spill past the end of the off-peak window into peak-rate hours. Level 2 typically finishes inside it.</p>
+            <p>Before switching tariffs, check what a time-of-use plan does to the <em>rest</em> of your household usage — evening cooking, laundry, and air conditioning may land in peak hours and offset some of the charging savings. Our <a href="/tools/electric-bill.html">electric bill calculator</a> helps model your whole-home picture.</p>
+
+            <h2>Public Fast Charging: The Cost You Didn't Budget For</h2>
+            <p>Public DC fast charging typically costs two to three times home charging per kWh. The price covers hardware, real estate, grid connection, maintenance, payment processing, and margin — none of which apply to the outlet in your garage.</p>
+            <p>For an owner who charges at home and uses public chargers for occasional road trips, this barely registers. For someone in an apartment without home charging access, it dominates the calculation and can erase most of the savings versus gasoline. If you're weighing an EV purchase and don't have a home charging option, run this calculator with the public share set to 80% or higher before deciding.</p>
+
+            <h2>What Reduces Real-World Efficiency</h2>
+            <p>The miles-per-kWh figure on a spec sheet is a best case. Actual consumption is worse under conditions that are entirely normal:</p>
+            <ul>
+              <li><strong>Cold weather.</strong> Battery chemistry slows and cabin heating draws directly from the pack. Winter efficiency losses of 20–40% are common.</li>
+              <li><strong>Highway speeds.</strong> Aerodynamic drag rises with the square of speed, so EVs are less efficient at 75 mph than at 55 — the opposite of the city-versus-highway pattern gas cars follow.</li>
+              <li><strong>Charging losses.</strong> Some energy is lost as heat between the wall and the battery. Your meter records slightly more than the pack receives.</li>
+              <li><strong>Terrain and load.</strong> Hills, roof racks, and heavy cargo all cost range, though regenerative braking recovers some of the climb on the way back down.</li>
+            </ul>
+            <p>If you want a conservative estimate, reduce the manufacturer's efficiency figure by 10–15% before entering it.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/car-vs-ev-carbon.html">Car vs EV Carbon Calculator</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/electric-bill-spike-calculator.html">Electric Bill Spike Calculator</a></li>
+              <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-much-does-an-ev-save-on-fuel-costs.html">How Much Does an EV Save on Fuel?</a></li>
+              <li><a href="/blog/ev-vs-gas-true-cost.html">EV vs Gas: True Cost of Ownership</a></li>
+              <li><a href="/blog/reduce-electric-bill.html">15 Ways to Reduce Your Electric Bill</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Typical home charging: <strong>~$55/month</strong></li>
+              <li>U.S. average rate: <strong>~18¢/kWh</strong></li>
+              <li>Public DC fast: <strong>35–50¢/kWh</strong></li>
+              <li>Off-peak savings: <strong>often 30–50%</strong></li>
+              <li>Level 1 vs Level 2: <strong>same cost per kWh</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much does it cost to charge an EV at home per month?</h3>
+      <p>For a typical driver covering 1,000 miles per month in an EV averaging 3.3 miles per kWh, home charging uses roughly 303 kWh. At the 2026 U.S. average residential rate of about 18 cents per kWh, that works out to roughly 55 dollars per month. Your figure varies widely by state: the same driving costs closer to 33 dollars in low-rate states and can exceed 150 dollars in Hawaii. Switching to an off-peak time-of-use rate typically cuts the bill by 30 to 50 percent.</p>
+      <h3>Does Level 2 charging cost more than Level 1?</h3>
+      <p>No. A kilowatt-hour costs the same regardless of how fast it is delivered, so Level 1 and Level 2 charging cost effectively the same per kWh on your bill. Level 2 is simply faster. The real financial difference is the upfront cost of installing a 240-volt circuit and wallbox. Level 2 can indirectly save money, though, because it charges fast enough to fit entirely inside a narrow overnight off-peak window, while Level 1 may spill into expensive peak hours.</p>
+      <h3>Is public fast charging much more expensive than home charging?</h3>
+      <p>Yes, typically two to three times more. Home charging happens at residential rates around 18 cents per kWh nationally, while public DC fast charging commonly runs 35 to 50 cents per kWh because the price includes hardware, real estate, maintenance, payment processing, and profit. A driver who relies heavily on public fast charging because they lack home charging access sees dramatically smaller savings versus gasoline, which is why the public charging share input matters in this calculator.</p>
+      <h3>Will charging an EV at home increase my electric bill a lot?</h3>
+      <p>It adds a noticeable but manageable amount for most households. Roughly 300 kWh per month for a typical driver is a meaningful addition to average U.S. household usage of about 900 kWh per month, so expect your electricity bill to rise by something in the neighborhood of a third. The offset is that you stop buying gasoline entirely. Check whether your utility offers an EV-specific or time-of-use rate before you start charging, since overnight rates are often substantially cheaper.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcEvCharging() {
+  var miles = parseFloat(document.getElementById('ev-miles').value);
+  if (isNaN(miles) || miles <= 0) miles = 1000;
+  var eff = parseFloat(document.getElementById('ev-efficiency').value);
+  if (isNaN(eff) || eff <= 0) eff = 3.3;
+  var rate = parseFloat(document.getElementById('ev-rate').value);
+  if (isNaN(rate) || rate < 0) rate = 18;
+  var offpeak = parseFloat(document.getElementById('ev-offpeak').value);
+  if (isNaN(offpeak) || offpeak < 0) offpeak = 0;
+  var publicPct = parseFloat(document.getElementById('ev-public').value);
+  if (isNaN(publicPct)) publicPct = 10;
+  if (publicPct < 0) publicPct = 0;
+  if (publicPct > 100) publicPct = 100;
+  var publicRate = parseFloat(document.getElementById('ev-publicrate').value);
+  if (isNaN(publicRate) || publicRate < 0) publicRate = 42;
+  var gasPrice = parseFloat(document.getElementById('ev-gasprice').value);
+  if (isNaN(gasPrice) || gasPrice <= 0) gasPrice = 3.50;
+  var mpg = parseFloat(document.getElementById('ev-mpg').value);
+  if (isNaN(mpg) || mpg <= 0) mpg = 27.5;
+
+  var kwhTotal = miles / eff;
+  var kwhPublic = kwhTotal * (publicPct / 100);
+  var kwhHome = kwhTotal - kwhPublic;
+
+  var homeCost = kwhHome * (rate / 100);
+  var publicCost = kwhPublic * (publicRate / 100);
+  var monthlyCost = homeCost + publicCost;
+
+  var gasMonthly = (miles / mpg) * gasPrice;
+  var savings = gasMonthly - monthlyCost;
+  var costPerMile = miles > 0 ? monthlyCost / miles : 0;
+
+  var money = function(v) { return '$' + v.toFixed(2); };
+  var whole = function(v) { return '$' + Math.round(v).toLocaleString(); };
+
+  document.getElementById('ev-total').textContent = whole(monthlyCost) + '/month';
+
+  var rows =
+    '<tr><th>Item</th><th>Amount</th><th>Cost</th></tr>' +
+    '<tr><td>Energy needed (' + miles.toLocaleString() + ' mi ÷ ' + eff + ' mi/kWh)</td><td>' + Math.round(kwhTotal).toLocaleString() + ' kWh</td><td>—</td></tr>' +
+    '<tr><td>Home charging at ' + rate.toFixed(1) + '¢</td><td>' + Math.round(kwhHome).toLocaleString() + ' kWh</td><td>' + money(homeCost) + '</td></tr>';
+
+  if (publicPct > 0) {
+    rows += '<tr><td>Public fast charging at ' + publicRate.toFixed(0) + '¢</td><td>' + Math.round(kwhPublic).toLocaleString() + ' kWh</td><td>' + money(publicCost) + '</td></tr>';
+  }
+
+  rows +=
+    '<tr style="font-weight:700;"><td>Total monthly charging cost</td><td>' + Math.round(kwhTotal).toLocaleString() + ' kWh</td><td>' + money(monthlyCost) + '</td></tr>' +
+    '<tr><td>Annual charging cost</td><td colspan="2">' + whole(monthlyCost * 12) + '/year</td></tr>' +
+    '<tr><td>Cost per mile</td><td colspan="2">' + (costPerMile * 100).toFixed(1) + '¢/mile</td></tr>' +
+    '<tr><td>Same miles in a ' + mpg + ' MPG gas car</td><td colspan="2">' + money(gasMonthly) + '/month</td></tr>' +
+    '<tr style="font-weight:700;"><td>' + (savings >= 0 ? 'Monthly savings vs gas' : 'Monthly extra vs gas') + '</td><td colspan="2">' + money(Math.abs(savings)) + '</td></tr>';
+
+  var offpeakCost = null;
+  if (offpeak > 0) {
+    offpeakCost = kwhHome * (offpeak / 100) + publicCost;
+    rows += '<tr><td>If home charging moved to ' + offpeak.toFixed(1) + '¢ off-peak</td><td colspan="2">' + money(offpeakCost) + '/month</td></tr>';
+    rows += '<tr style="font-weight:700;"><td>Annual saving from off-peak charging</td><td colspan="2">' + whole((monthlyCost - offpeakCost) * 12) + '/year</td></tr>';
+  }
+
+  document.getElementById('ev-table').innerHTML = rows;
+
+  var note = 'Level 1 and Level 2 home charging cost the same per kWh — Level 2 is faster, not cheaper. ';
+  if (offpeak > 0 && offpeakCost !== null) {
+    note += 'Shifting your home charging to an off-peak window would save about ' + whole((monthlyCost - offpeakCost) * 12) + ' a year, which is usually the single largest lever available since charging is easy to schedule. Before switching tariffs, check what peak pricing would do to your evening household usage. ';
+  }
+  if (publicPct >= 50) {
+    note += 'You have public fast charging set at ' + publicPct + '% of your miles, which is why the cost is high — public DC rates run two to three times residential. If home charging is an option for you, it changes this result dramatically. ';
+  }
+  note += 'Estimates exclude charger installation cost, charging losses between wall and battery (typically a few percent), and any monthly network subscription fees.';
+  document.getElementById('ev-note').textContent = note;
+
+  var r = document.getElementById('ev-result');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
