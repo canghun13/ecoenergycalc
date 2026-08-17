@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Water Bill Benchmark Calculator – Is My Water Usage Normal? | EcoEnergyCalc</title>
+  <meta name="description" content="Enter the usage number from your water bill in any unit — CCF, CF, gallons, m³ or litres — and see whether it's normal for your household size, plus what a high reading usually means." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/water-bill-benchmark-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Water Bill Benchmark Calculator","url":"https://ecoenergycalc.com/tools/water-bill-benchmark-calculator.html","description":"Enter the usage number from your water bill in any unit — CCF, CF, gallons, m³ or litres — and see whether it's normal for your household size, plus what a high reading usually means.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-08-17"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is CCF on my water bill?","acceptedAnswer":{"@type":"Answer","text":"CCF stands for centum (hundred) cubic feet and is the most common billing unit used by U.S. water utilities. Some bills label the same unit HCF. One CCF equals 100 cubic feet, which is about 748 gallons. Be careful not to confuse CCF with plain CF: a bill showing 8 CCF means roughly 5,984 gallons, while a bill showing 8 CF means only about 60 gallons. If your number is in single or double digits it is almost certainly CCF, and if it is in the hundreds or thousands it is almost certainly CF."}},
+    {"@type":"Question","name":"How much water should a household use per month?","acceptedAnswer":{"@type":"Answer","text":"EPA WaterSense puts average indoor use at about 82 gallons per person per day, which works out to roughly 2,460 gallons a month for one person, 4,920 for two, 7,380 for three, and 9,840 for a family of four. In CCF that is about 3.3, 6.6, 9.9 and 13.2 respectively. Households with lawn irrigation, a pool, or a well-established garden often run considerably higher in summer without anything being wrong."}},
+    {"@type":"Question","name":"Is 800 cubic feet of water a month a lot?","acceptedAnswer":{"@type":"Answer","text":"For a three-person household, no — that is actually below average. 800 cubic feet equals about 5,984 gallons, which over a 30-day month works out to roughly 66 gallons per person per day against a national average near 82. For a one-person household the same 800 CF would be about 199 gallons per person per day, which is very high and would usually point to a leak or heavy outdoor watering. Household size is what turns the same number from low to alarming."}},
+    {"@type":"Question","name":"What water usage indicates a leak?","acceptedAnswer":{"@type":"Answer","text":"There is no single threshold, but a reading well above roughly 120 gallons per person per day with no outdoor irrigation is a common warning sign. A continuously running toilet alone can waste 200 gallons a day, which would add about 6,000 gallons to a monthly bill. The most reliable test is free: turn off every water-using fixture and appliance, note your meter reading, wait two hours without using any water, and read it again. Any movement means water is escaping somewhere."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Water Bill Benchmark Calculator</p>
+        <span class="tool-category">Water &amp; Environment</span>
+        <h1>Water Bill Benchmark Calculator</h1>
+        <p>Most water calculators ask about your showers and toilets and guess what you use. This one works the other way round: put in the number that's actually printed on your bill — in whatever unit it uses — and find out whether that number is normal for a household your size.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Is My Water Usage Normal?</h2>
+            <div class="form-group">
+              <label for="wb-amount">Usage Number From Your Bill</label>
+              <input type="number" id="wb-amount" value="800" min="0.1" max="500000" step="0.1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Look for a line labelled "consumption," "usage," or "water used." Enter just the number — pick the unit below.</p>
+            </div>
+            <div class="form-group">
+              <label for="wb-unit">Unit On Your Bill</label>
+              <select id="wb-unit">
+                <option value="cf" selected>CF — cubic feet (1 CF = 7.48 gal)</option>
+                <option value="ccf">CCF or HCF — hundred cubic feet (1 CCF = 748 gal)</option>
+                <option value="gal">Gallons</option>
+                <option value="kgal">Thousand gallons (1,000 gal units)</option>
+                <option value="m3">Cubic metres (m³)</option>
+                <option value="litre">Litres</option>
+              </select>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;"><strong>CF vs CCF is the most common mix-up.</strong> If your number is in single or double digits it's almost certainly CCF. If it's in the hundreds or thousands, it's almost certainly CF.</p>
+            </div>
+            <div class="form-group">
+              <label for="wb-people">People in Your Household</label>
+              <input type="number" id="wb-people" value="3" min="1" max="15" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="wb-days">Days in the Billing Period</label>
+              <input type="number" id="wb-days" value="30" min="1" max="200" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Monthly bills are usually 28–31 days. Many utilities bill every two months (around 60) or quarterly (around 90). Your bill states the service period.</p>
+            </div>
+            <div class="form-group">
+              <label for="wb-outdoor">Outdoor Watering During This Period</label>
+              <select id="wb-outdoor">
+                <option value="none" selected>None — no lawn or garden watering</option>
+                <option value="some">Some — occasional garden or small lawn</option>
+                <option value="heavy">Heavy — regular lawn irrigation or pool</option>
+              </select>
+            </div>
+            <button class="btn-primary" onclick="calcWaterBenchmark()">Check My Usage</button>
+            <div class="result-box-tool" id="wb-result">
+              <h3>Your Water Usage Benchmark</h3>
+              <div class="result-amount" id="wb-verdict"></div>
+              <div class="table-scroll">
+                <table id="wb-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="wb-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>The Unit Confusion That Trips Everyone Up</h2>
+            <p>Water utilities bill in units almost nobody uses in daily life, and the two most common ones look nearly identical on paper.</p>
+            <ul>
+              <li><strong>CCF (or HCF)</strong> means one hundred cubic feet. One CCF is about <strong>748 gallons</strong>. The "C" is from the Latin <em>centum</em>.</li>
+              <li><strong>CF</strong> means a single cubic foot — about <strong>7.48 gallons</strong>.</li>
+            </ul>
+            <p>They differ by a factor of 100, so mixing them up turns a normal bill into an apparent catastrophe or vice versa. The quick sanity check: a typical household lands somewhere between 3 and 15 CCF a month, or between 300 and 1,500 CF. If your bill reads "8," it's CCF. If it reads "800," it's CF. Both describe roughly the same amount of water.</p>
+            <p>Outside the U.S. you'll usually see cubic metres (1 m³ = about 264 gallons) or litres. This calculator accepts all of them and converts everything to gallons per person per day, which is the only figure that lets you compare households of different sizes fairly.</p>
+
+            <h2>What Counts as Normal</h2>
+            <p>EPA WaterSense puts average American indoor use at roughly <strong>82 gallons per person per day</strong>. Once outdoor watering is included the national figure often cited is closer to 100. Both numbers are averages across wildly different climates and lot sizes, so treat them as a reference point rather than a target.</p>
+            <p>Translated into monthly totals at 82 gallons per person per day:</p>
+            <ul>
+              <li><strong>1 person:</strong> about 2,460 gal — roughly 3.3 CCF or 329 CF</li>
+              <li><strong>2 people:</strong> about 4,920 gal — roughly 6.6 CCF or 658 CF</li>
+              <li><strong>3 people:</strong> about 7,380 gal — roughly 9.9 CCF or 987 CF</li>
+              <li><strong>4 people:</strong> about 9,840 gal — roughly 13.2 CCF or 1,315 CF</li>
+              <li><strong>5 people:</strong> about 12,300 gal — roughly 16.4 CCF or 1,644 CF</li>
+            </ul>
+            <p>Per-person use tends to fall as household size rises, because dishwashers, laundry loads and outdoor watering are shared. A single-person household running slightly above 82 gallons a day is entirely ordinary; a family of five at the same per-person rate is using more than most.</p>
+
+            <h2>When a High Number Means Something Is Wrong</h2>
+            <p>Above roughly 120 gallons per person per day with no outdoor watering, it's worth investigating rather than assuming your family is just wasteful. The usual causes, in rough order of how often they turn out to be the answer:</p>
+            <ul>
+              <li><strong>A running toilet.</strong> The single most common culprit by a wide margin. A continuously running flapper wastes around 200 gallons a day — about 6,000 gallons on a monthly bill — and it's often silent. Put a few drops of food colouring in the tank, wait 15 minutes without flushing, and check whether colour appears in the bowl.</li>
+              <li><strong>Irrigation you've forgotten about.</strong> A stuck valve or a controller still running its summer schedule in October can quietly double a bill.</li>
+              <li><strong>A dripping faucet or leaking supply line.</strong> Individually small, but a drip a second is roughly 3,000 gallons a year.</li>
+              <li><strong>A billing period that isn't a month.</strong> Two-monthly and quarterly bills routinely get mistaken for monthly ones, making usage look two or three times worse than it is. This calculator asks for the number of days precisely because of that.</li>
+              <li><strong>An estimated read.</strong> Some bills are estimates rather than actual meter readings, and the correction lands on a later bill as a spike.</li>
+            </ul>
+            <p>The definitive test costs nothing: shut off every fixture and water-using appliance, write down the meter reading, wait two hours using no water at all, and read it again. Any movement means water is going somewhere it shouldn't.</p>
+
+            <h2>What This Calculator Doesn't Tell You</h2>
+            <p>It benchmarks your <em>volume</em>, not your <em>bill</em>. Two households using identical water can pay very different amounts, because rates vary enormously by city, most utilities use tiered pricing where the rate climbs with consumption, and sewer charges — often calculated from your water usage and frequently larger than the water charge itself — sit on top. Fixed monthly service fees apply regardless of use.</p>
+            <p>So if your usage checks out as normal but the bill still feels high, the problem is your rate structure rather than your consumption, and the fix is a call to your utility rather than shorter showers.</p>
+            <p>To see where your water actually goes and model specific changes, use our <a href="/tools/water-usage.html">household water usage calculator</a>, which works from fixtures and habits instead of the bill. For the laundry side specifically, the <a href="/tools/washing-machine-water-usage.html">washing machine water usage calculator</a> breaks down per-load consumption by machine type.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/water-usage.html">Household Water Usage Calculator</a></li>
+              <li><a href="/tools/washing-machine-water-usage.html">Washing Machine Water Usage</a></li>
+              <li><a href="/tools/rainwater-harvesting.html">Rainwater Harvesting Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-much-water-should-a-family-of-4-use.html">How Much Water Should a Family of 4 Use?</a></li>
+              <li><a href="/blog/how-to-reduce-water-usage-at-home.html">How to Reduce Water Usage at Home</a></li>
+              <li><a href="/blog/how-much-water-does-a-washing-machine-use.html">How Much Water Does a Washing Machine Use?</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>1 CCF (HCF) = <strong>748 gallons</strong></li>
+              <li>1 CF = <strong>7.48 gallons</strong></li>
+              <li>1 m³ = <strong>264 gallons</strong></li>
+              <li>U.S. average: <strong>~82 gal/person/day</strong></li>
+              <li>Running toilet: <strong>~200 gal/day wasted</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is CCF on my water bill?</h3>
+      <p>CCF stands for centum (hundred) cubic feet and is the most common billing unit used by U.S. water utilities. Some bills label the same unit HCF. One CCF equals 100 cubic feet, which is about 748 gallons. Be careful not to confuse CCF with plain CF: a bill showing 8 CCF means roughly 5,984 gallons, while a bill showing 8 CF means only about 60 gallons. If your number is in single or double digits it is almost certainly CCF, and if it is in the hundreds or thousands it is almost certainly CF.</p>
+      <h3>How much water should a household use per month?</h3>
+      <p>EPA WaterSense puts average indoor use at about 82 gallons per person per day, which works out to roughly 2,460 gallons a month for one person, 4,920 for two, 7,380 for three, and 9,840 for a family of four. In CCF that is about 3.3, 6.6, 9.9 and 13.2 respectively. Households with lawn irrigation, a pool, or a well-established garden often run considerably higher in summer without anything being wrong.</p>
+      <h3>Is 800 cubic feet of water a month a lot?</h3>
+      <p>For a three-person household, no — that is actually below average. 800 cubic feet equals about 5,984 gallons, which over a 30-day month works out to roughly 66 gallons per person per day against a national average near 82. For a one-person household the same 800 CF would be about 199 gallons per person per day, which is very high and would usually point to a leak or heavy outdoor watering. Household size is what turns the same number from low to alarming.</p>
+      <h3>What water usage indicates a leak?</h3>
+      <p>There is no single threshold, but a reading well above roughly 120 gallons per person per day with no outdoor irrigation is a common warning sign. A continuously running toilet alone can waste 200 gallons a day, which would add about 6,000 gallons to a monthly bill. The most reliable test is free: turn off every water-using fixture and appliance, note your meter reading, wait two hours without using any water, and read it again. Any movement means water is escaping somewhere.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcWaterBenchmark() {
+  var amount = parseFloat(document.getElementById('wb-amount').value);
+  if (isNaN(amount) || amount <= 0) amount = 800;
+  var unit = document.getElementById('wb-unit').value;
+  var people = parseFloat(document.getElementById('wb-people').value);
+  if (isNaN(people) || people < 1) people = 1;
+  var days = parseFloat(document.getElementById('wb-days').value);
+  if (isNaN(days) || days < 1) days = 30;
+  var outdoor = document.getElementById('wb-outdoor').value;
+
+  var factors = { cf: 7.480519, ccf: 748.0519, gal: 1, kgal: 1000, m3: 264.172, litre: 0.264172 };
+  var unitNames = { cf: 'CF (cubic feet)', ccf: 'CCF / HCF', gal: 'gallons', kgal: 'thousand gallons', m3: 'm³', litre: 'litres' };
+  var gallons = amount * factors[unit];
+  var gpcd = gallons / days / people;
+
+  // Baseline expectation rises slightly for smaller households (shared fixed uses)
+  var baseline = 82;
+  if (outdoor === 'some') baseline = 105;
+  if (outdoor === 'heavy') baseline = 145;
+
+  var pct = (gpcd / baseline) * 100;
+  var expectedMonth = baseline * people * days;
+
+  var verdict, tone;
+  if (pct < 70) { verdict = 'Well below average'; tone = 'Your usage is comfortably under the benchmark for a household this size. Nothing here suggests a problem.'; }
+  else if (pct < 115) { verdict = 'Normal'; tone = 'Your usage sits in the ordinary range for a household this size. Nothing here suggests a leak.'; }
+  else if (pct < 160) { verdict = 'Somewhat above average'; tone = 'Higher than typical, though not alarming on its own. Long showers, frequent laundry, older fixtures, or a partially running toilet would all produce a number in this range.'; }
+  else { verdict = 'Much higher than expected'; tone = 'This is far enough above the benchmark that a leak is worth ruling out before assuming it is behavioural. A continuously running toilet alone wastes around 200 gallons a day.'; }
+
+  var num = function(v) { return Math.round(v).toLocaleString(); };
+
+  document.getElementById('wb-verdict').textContent = gpcd.toFixed(0) + ' gal/person/day — ' + verdict;
+
+  var rows =
+    '<tr><th>Measure</th><th>Your household</th><th>Benchmark</th></tr>' +
+    '<tr><td>Bill reading</td><td>' + amount.toLocaleString() + ' ' + unitNames[unit] + '</td><td>—</td></tr>' +
+    '<tr><td>Converted to gallons</td><td>' + num(gallons) + ' gal</td><td>' + num(expectedMonth) + ' gal</td></tr>' +
+    '<tr><td>Per day (whole household)</td><td>' + num(gallons / days) + ' gal</td><td>' + num(baseline * people) + ' gal</td></tr>' +
+    '<tr style="font-weight:700;"><td>Per person per day</td><td>' + gpcd.toFixed(1) + ' gal</td><td>' + baseline + ' gal</td></tr>' +
+    '<tr><td>Compared to benchmark</td><td colspan="2">' + pct.toFixed(0) + '% of expected</td></tr>' +
+    '<tr><td>Same usage in other units</td><td colspan="2">' + (gallons / 748.0519).toFixed(1) + ' CCF · ' + num(gallons / 7.480519) + ' CF · ' + (gallons / 264.172).toFixed(1) + ' m³</td></tr>';
+
+  if (pct >= 160) {
+    var excess = gallons - expectedMonth;
+    rows += '<tr style="font-weight:700;"><td>Unexplained volume above benchmark</td><td colspan="2">' + num(excess) + ' gal (' + num(excess / days) + ' gal/day)</td></tr>';
+  }
+  document.getElementById('wb-table').innerHTML = rows;
+
+  var note = tone + ' ';
+  if (outdoor === 'none') {
+    note += 'Benchmark used: 82 gal/person/day, the EPA WaterSense figure for indoor use. ';
+  } else if (outdoor === 'some') {
+    note += 'Benchmark raised to 105 gal/person/day to account for the occasional outdoor watering you selected. ';
+  } else {
+    note += 'Benchmark raised to 145 gal/person/day to account for regular irrigation or a pool, which commonly doubles summer usage. ';
+  }
+  if (days > 45) {
+    note += 'You entered a ' + days + '-day period, so this is a multi-month bill — the totals above cover that whole span, not one month. ';
+  }
+  note += 'This benchmarks volume, not cost: rates, tiered pricing, sewer charges and fixed fees vary hugely by utility, so normal usage can still produce an expensive bill.';
+  document.getElementById('wb-note').textContent = note;
+
+  var r = document.getElementById('wb-result');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
