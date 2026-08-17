@@ -37,6 +37,28 @@ water-usage 187@6.19 · washing-machine-use(blog) 32@5.13 · dryer-energy-cost 2
 
 검증: node 실행으로 800CF/3인=66gpcd(정상), 800CF/1인=199(누수의심), 8CCF/3인=66(CF·CCF 등가), 20CCF/2인/60일=124.7 전부 수동검산 일치.
 
+## 0-B2. ⚠️ 빌드 상태 확인 방법이 바뀌었다 — `/pages/builds` API를 믿지 말 것
+
+이번 세션에서 `/pages/builds` API가 `status: errored, duration: 0`을 반환해 빌드 실패로 오판했음. **실제로는 Actions 기반 배포가 정상 성공하고 있었다.** 이 레포는 `build_type: legacy`로 표시되지만 실제 배포는 `pages build and deployment` 워크플로로 돌아가며, 레거시 빌드 API는 그 상태를 반영하지 못한다.
+
+**앞으로 배포 확인은 반드시 아래 두 가지로 할 것:**
+```
+# 1) 워크플로 결과 (이게 진짜)
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "https://api.github.com/repos/canghun13/ecoenergycalc/actions/runs?per_page=5" \
+  | python3 -c "import sys,json;[print(r['name'],r['conclusion'],r['head_sha'][:7]) for r in json.load(sys.stdin)['workflow_runs'][:5]]"
+
+# 2) 배포 상태
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "https://api.github.com/repos/canghun13/ecoenergycalc/deployments?per_page=1"
+```
+- 연속 푸시 시 앞선 실행이 `cancelled`로 뜨는 건 **정상**(동시성 제어로 최신 커밋만 배포). 실패가 아님.
+- 참고: 과거 세션들이 "빌드 API가 이전 커밋에 머물러 있다"며 기다린 것도 같은 원인. 그냥 워크플로를 보면 된다.
+
+**부수 조치**: `.nojekyll` 추가함(커밋 `0d2415b`). 이 사이트는 수기 정적 HTML이라 Jekyll이 불필요하고, 143KB 한글 `handover.md` 파싱 리스크만 있었음. 배포 속도도 개선됨.
+
+**⚠️ 다음 세션에서 사용자와 상의할 것**: `handover.md`가 현재 공개 URL(`https://ecoenergycalc.com/handover.md`)로 접근 가능하다. 전략·수익화 방침이 담긴 내부 문서이므로 처리 여부(robots.txt 차단 / 리포지토리 외부로 이동 / 그대로 유지) 결정 필요.
+
 ## 0-C. 색인 현황 (사용자 제공 드릴다운 기준, 2026-08-17)
 
 - **v20 신규 4페이지는 8/15에 이미 크롤됨** → "크롤링됨 - 현재 색인이 생성되지 않음". 생성 2일 만의 크롤이므로 **정상 궤도**. 색인은 통상 수주 걸리니 다음 세션에서 재확인만 할 것.
