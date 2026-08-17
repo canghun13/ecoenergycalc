@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Internal working files — not site content, no search value
+Disallow: /handover.md
+Disallow: /README.md
+Disallow: /scripts/
+
 Sitemap: https://ecoenergycalc.com/sitemap.xml

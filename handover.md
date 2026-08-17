@@ -57,7 +57,9 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 
 **부수 조치**: `.nojekyll` 추가함(커밋 `0d2415b`). 이 사이트는 수기 정적 HTML이라 Jekyll이 불필요하고, 143KB 한글 `handover.md` 파싱 리스크만 있었음. 배포 속도도 개선됨.
 
-**⚠️ 다음 세션에서 사용자와 상의할 것**: `handover.md`가 현재 공개 URL(`https://ecoenergycalc.com/handover.md`)로 접근 가능하다. 전략·수익화 방침이 담긴 내부 문서이므로 처리 여부(robots.txt 차단 / 리포지토리 외부로 이동 / 그대로 유지) 결정 필요.
+**✅ handover.md 노출 처리 완료 (커밋 `robots.txt`)**: 매 세션 이 문서를 읽어야 하는 워크플로 때문에 레포 밖으로 뺄 수는 없으므로, `robots.txt`에 `Disallow: /handover.md`, `/README.md`, `/scripts/`를 추가해 검색 크롤링을 차단함.
+- 확인 결과 handover.md는 sitemap·llms.txt·내부 HTML 링크 **어디에도 없어서** URL을 직접 추측해야만 접근 가능한 상태였음. 크롤 차단으로 검색 노출 경로는 닫힘.
+- **한계(알고 있을 것)**: robots.txt는 크롤만 막고 파일 접근 자체는 막지 않는다. GitHub Pages는 커스텀 헤더(`X-Robots-Tag`)를 지원하지 않아 이 이상은 불가능. 진짜로 비공개가 필요해지면 별도 private 레포로 분리하는 수밖에 없음.
 
 ## 0-C. 색인 현황 (사용자 제공 드릴다운 기준, 2026-08-17)
 
