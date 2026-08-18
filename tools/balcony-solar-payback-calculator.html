@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balcony Solar Payback Calculator – Plug-In Solar Real Savings | EcoEnergyCalc</title>
+  <meta name="description" content="Plug-in balcony solar can't export surplus to the grid, so anything above your always-on load is thrown away. This calculator shows what you actually keep, real payback with the expired federal credit, and honest savings." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/balcony-solar-payback-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Balcony Solar Payback Calculator","url":"https://ecoenergycalc.com/tools/balcony-solar-payback-calculator.html","description":"Plug-in balcony solar can't export surplus to the grid, so anything above your always-on load is thrown away. This calculator shows what you actually keep, real payback with the expired federal credit, and honest savings.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-08-24"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is balcony solar worth it in the US?","acceptedAnswer":{"@type":"Answer","text":"It depends heavily on your always-on electrical load and your electricity rate. Because plug-in systems use zero-export controls, any power produced above what your home is drawing at that moment is simply discarded rather than credited. A household with a high steady baseline draw and an expensive electricity rate can see payback in roughly 6 to 10 years on an 800-watt kit. A small apartment with a low baseline load may waste a third or more of everything the panels produce, pushing payback past the useful life of the equipment. Run your own numbers before buying."}},
+    {"@type":"Question","name":"How much does balcony solar save per month?","acceptedAnswer":{"@type":"Answer","text":"A typical 800-watt kit produces roughly 1,000 to 1,200 kWh a year in decent sun, but you only save on the portion you consume as it is generated. At the 2026 U.S. average rate of about 18 cents per kWh, keeping 900 kWh of that is worth about 162 dollars a year, or roughly 13 dollars a month. Solar.com estimates a standard 800-watt kit covers 15 to 25 percent of a typical apartment's electricity use. Households in high-rate states like California or Massachusetts save proportionally more."}},
+    {"@type":"Question","name":"Which states allow plug-in balcony solar?","acceptedAnswer":{"@type":"Answer","text":"As of August 2026, eight states have signed plug-in solar legislation: Utah, Maine, Virginia, Colorado, Maryland, Connecticut, Vermont and New Hampshire. Utah was first, with HB 340 signed in March 2025, creating a category for small portable solar devices up to 1,200 watts that are exempt from standard interconnection requirements. Roughly 22 more states have introduced legislation in the past year. Because the legal landscape is changing quickly, verify your own state's current status before purchasing, and check HOA or lease terms separately since those can restrict railing mounting even where state law permits the system."}},
+    {"@type":"Question","name":"Does balcony solar still qualify for the federal tax credit?","acceptedAnswer":{"@type":"Answer","text":"No. The 30 percent federal Residential Clean Energy Credit under Section 25D expired on December 31, 2025, so systems purchased and placed in service in 2026 receive no federal credit. This matters when reading older guides and vendor pages, many of which still show after-credit pricing and payback figures that no longer apply. Add roughly 30 percent back to any net cost you see quoted with a credit applied. Some state or utility incentives may still exist, so check locally."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Balcony Solar Payback Calculator</p>
+        <span class="tool-category">Solar &amp; Renewables</span>
+        <h1>Balcony Solar Payback Calculator</h1>
+        <p>Plug-in solar kits can't send surplus power to the grid — anything produced above what your home is drawing at that moment is thrown away. Most vendor calculators quietly ignore that. This one models it, so you see what you'd actually keep.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>What Would You Actually Save?</h2>
+            <div class="form-group">
+              <label for="bs-watts">System Size (watts AC output)</label>
+              <input type="number" id="bs-watts" value="800" min="100" max="2000" step="50" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Most US kits are 600–800W. States with plug-in laws typically cap devices at 1,200W. Use the inverter's AC rating, not the panels' combined DC rating.</p>
+            </div>
+            <div class="form-group">
+              <label for="bs-baseline">Your Always-On Load (watts)</label>
+              <input type="number" id="bs-baseline" value="300" min="20" max="3000" step="10" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;"><strong>The single most important input.</strong> This is what your home draws continuously — fridge, router, standby electronics. Small apartment: 100–250W. Typical home: 250–500W. With a home office or a second fridge: 500W+. A $25 plug-in energy meter or your utility's hourly data will tell you exactly.</p>
+            </div>
+            <div class="form-group">
+              <label for="bs-sun">Peak Sun Hours per Day (annual average)</label>
+              <input type="number" id="bs-sun" value="4.5" min="1" max="8" step="0.1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Southwest US: 5.5–6.5. Midwest/Northeast: 3.8–4.5. Pacific Northwest: 3.2–3.8. Balcony mounting is usually vertical or steeply tilted and often not due south, so knock 15–30% off a rooftop figure.</p>
+            </div>
+            <div class="form-group">
+              <label for="bs-rate">Your Electricity Rate (¢/kWh)</label>
+              <input type="number" id="bs-rate" value="18" min="5" max="60" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="bs-cost">Kit Cost Installed ($)</label>
+              <input type="number" id="bs-cost" value="1800" min="200" max="8000" step="50" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Complete 800W kits run roughly $1,650–1,980 in 2026. A DIY build (microinverter around $250 plus your own panels) can come in well under that. <strong>The 30% federal credit expired Dec 31, 2025</strong> — enter the full price you'll actually pay.</p>
+            </div>
+            <div class="form-group">
+              <label for="bs-daylight">Daylight Window (hours/day, annual average)</label>
+              <input type="number" id="bs-daylight" value="12" min="6" max="16" step="0.5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Used to spread production across the day so surplus can be estimated. 12 is a reasonable US annual average.</p>
+            </div>
+            <button class="btn-primary" onclick="calcBalconySolar()">Calculate Real Payback</button>
+            <div class="result-box-tool" id="bs-result">
+              <h3>Your Balcony Solar Numbers</h3>
+              <div class="result-amount" id="bs-payback"></div>
+              <div class="table-scroll">
+                <table id="bs-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="bs-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Why Surplus Gets Thrown Away</h2>
+            <p>A rooftop solar system with a net metering or net billing agreement can push excess production onto the grid and get credited for it. Plug-in balcony systems generally cannot. They're legal precisely <em>because</em> they don't export — the enabling laws carve out a device category exempt from interconnection rules on the condition that the system uses zero-export controls and anti-islanding.</p>
+            <p>The practical consequence: if your panels are making 400W at 1pm and your apartment is only drawing 150W, that extra 250W isn't banked anywhere. It's simply not produced. The inverter throttles back.</p>
+            <p>This is why <strong>your always-on load matters more than your panel size.</strong> Buying a bigger kit doesn't help if your home can't absorb the output in real time. A 400W kit in a home with a 400W baseline can outperform an 800W kit in a home with a 150W baseline, despite costing half as much.</p>
+
+            <div class="callout">
+              <strong>The question vendor calculators don't ask:</strong> "What is your home drawing at noon on a Tuesday when nobody's home?" That number — not your monthly bill, not your roof — determines what balcony solar is worth to you.
+            </div>
+
+            <h2>How to Find Your Always-On Load</h2>
+            <p>Three ways, in order of accuracy:</p>
+            <ul>
+              <li><strong>Your utility's hourly usage data.</strong> Most utilities with smart meters let you download interval data from your online account. Look at 2–4am on a weekday — that's close to pure baseline. This is free and exact.</li>
+              <li><strong>A whole-home energy monitor</strong> ($150–300) clamps onto your main panel and reads continuously. Overkill just for this decision, but useful if you're optimizing generally.</li>
+              <li><strong>Estimate from appliances.</strong> Fridge 60–150W averaged, Wi-Fi router and modem 10–20W, cable/streaming box 15–30W, standby electronics across a home 30–80W, plus anything genuinely always running. Add a bit for a second fridge or freezer in the garage.</li>
+            </ul>
+            <p>If you work from home during daylight hours, your effective baseline is considerably higher than the overnight figure — computers, monitors, lights and a heat pump or window AC cycling all count. That materially improves balcony solar economics, and it's the profile these systems suit best.</p>
+
+            <h2>What This Calculator Assumes</h2>
+            <p>Production is spread across the daylight window on a smooth curve peaking at midday, scaled so the daily total matches your peak-sun-hours input with a 15% system derate for wiring, inverter efficiency, heat and soiling. Consumption is treated as a flat baseline across the day.</p>
+            <p>That flat-baseline assumption is deliberately conservative in one direction and optimistic in another. Real homes have spikes — a kettle, a microwave, an AC compressor kicking in — that would soak up surplus the model discards. But real homes also have days when nobody's in and the fridge is the only thing running. On balance the estimate lands in a realistic range, but treat it as a planning figure rather than a guarantee.</p>
+            <p>Also excluded: panel degradation of roughly 0.5% per year, any inverter replacement over the system's life, and electricity rate increases, which would shorten payback if rates keep climbing at their recent pace.</p>
+
+            <h2>Legality Before Economics</h2>
+            <p>Balcony solar only became legal in parts of the US recently. Standard interconnection rules were written for 5–25 kW rooftop systems and made no exception for a 400W panel on a railing, which effectively made plug-in solar impractical nationwide through 2024.</p>
+            <p>Utah's HB 340, signed March 2025, was the first US law to create a separate exempt device category, modelled on Germany's roughly 800W <em>Balkonkraftwerk</em> framework. As of August 2026, eight states have signed legislation — Utah, Maine, Virginia, Colorado, Maryland, Connecticut, Vermont and New Hampshire — with roughly 22 more having introduced bills in the past year.</p>
+            <p>Two things worth checking separately from state law:</p>
+            <ul>
+              <li><strong>Your lease or HOA.</strong> State legalization doesn't automatically override a rule about attaching anything to a railing. Utah's law is unusual in explicitly protecting tenants; most aren't.</li>
+              <li><strong>UL 3700 certification.</strong> This safety standard for plug-in solar was only published in December 2025, with certification testing opening in January 2026. Many kits on sale carry component-level certification (the microinverter is UL 1741 listed) without whole-system certification. If your state's law requires certified equipment, verify what's actually certified.</li>
+            </ul>
+            <p>For a full breakdown of state rules and whether the economics work for renters specifically, see our <a href="/blog/is-balcony-solar-worth-it.html">balcony solar guide</a>. If you can't install anything at all, <a href="/compare/balcony-solar-vs-community-solar.html">community solar is the alternative worth comparing</a>.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/community-solar-savings-calculator.html">Community Solar Savings Calculator</a></li>
+              <li><a href="/tools/solar-panel-roi.html">Solar Panel ROI Calculator</a></li>
+              <li><a href="/tools/net-metering-calculator.html">Net Metering Calculator</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/is-balcony-solar-worth-it.html">Is Balcony Solar Worth It?</a></li>
+              <li><a href="/compare/balcony-solar-vs-community-solar.html">Balcony Solar vs Community Solar</a></li>
+              <li><a href="/blog/is-community-solar-worth-it.html">Is Community Solar Worth It?</a></li>
+              <li><a href="/blog/solar-panel-cost-2026.html">Solar Panel Cost in 2026</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Legal in <strong>8 states</strong> (Aug 2026)</li>
+              <li>Typical cap: <strong>1,200W</strong></li>
+              <li>800W kit: <strong>~$1,650–1,980</strong></li>
+              <li>Covers <strong>15–25%</strong> of apartment use</li>
+              <li>Federal credit: <strong>expired Dec 2025</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Is balcony solar worth it in the US?</h3>
+      <p>It depends heavily on your always-on electrical load and your electricity rate. Because plug-in systems use zero-export controls, any power produced above what your home is drawing at that moment is simply discarded rather than credited. A household with a high steady baseline draw and an expensive electricity rate can see payback in roughly 6 to 10 years on an 800-watt kit. A small apartment with a low baseline load may waste a third or more of everything the panels produce, pushing payback past the useful life of the equipment. Run your own numbers before buying.</p>
+      <h3>How much does balcony solar save per month?</h3>
+      <p>A typical 800-watt kit produces roughly 1,000 to 1,200 kWh a year in decent sun, but you only save on the portion you consume as it is generated. At the 2026 U.S. average rate of about 18 cents per kWh, keeping 900 kWh of that is worth about 162 dollars a year, or roughly 13 dollars a month. Solar.com estimates a standard 800-watt kit covers 15 to 25 percent of a typical apartment's electricity use. Households in high-rate states like California or Massachusetts save proportionally more.</p>
+      <h3>Which states allow plug-in balcony solar?</h3>
+      <p>As of August 2026, eight states have signed plug-in solar legislation: Utah, Maine, Virginia, Colorado, Maryland, Connecticut, Vermont and New Hampshire. Utah was first, with HB 340 signed in March 2025, creating a category for small portable solar devices up to 1,200 watts that are exempt from standard interconnection requirements. Roughly 22 more states have introduced legislation in the past year. Because the legal landscape is changing quickly, verify your own state's current status before purchasing, and check HOA or lease terms separately since those can restrict railing mounting even where state law permits the system.</p>
+      <h3>Does balcony solar still qualify for the federal tax credit?</h3>
+      <p>No. The 30 percent federal Residential Clean Energy Credit under Section 25D expired on December 31, 2025, so systems purchased and placed in service in 2026 receive no federal credit. This matters when reading older guides and vendor pages, many of which still show after-credit pricing and payback figures that no longer apply. Add roughly 30 percent back to any net cost you see quoted with a credit applied. Some state or utility incentives may still exist, so check locally.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcBalconySolar() {
+  var watts = parseFloat(document.getElementById('bs-watts').value);
+  if (isNaN(watts) || watts <= 0) watts = 800;
+  var baseline = parseFloat(document.getElementById('bs-baseline').value);
+  if (isNaN(baseline) || baseline < 0) baseline = 300;
+  var sun = parseFloat(document.getElementById('bs-sun').value);
+  if (isNaN(sun) || sun <= 0) sun = 4.5;
+  var rate = parseFloat(document.getElementById('bs-rate').value);
+  if (isNaN(rate) || rate <= 0) rate = 18;
+  var cost = parseFloat(document.getElementById('bs-cost').value);
+  if (isNaN(cost) || cost < 0) cost = 1800;
+  var L = parseFloat(document.getElementById('bs-daylight').value);
+  if (isNaN(L) || L < 4) L = 12;
+
+  var derate = 0.85;
+  // Effective peak so that the area under the curve equals watts * sun * derate
+  var pmax = watts * sun * derate * Math.PI / (2 * L);
+
+  var steps = 240, usedWh = 0, wastedWh = 0;
+  for (var i = 0; i < steps; i++) {
+    var h = (i + 0.5) * L / steps;
+    var gen = pmax * Math.sin(Math.PI * h / L);
+    var u = Math.min(gen, baseline);
+    usedWh += u * (L / steps);
+    wastedWh += (gen - u) * (L / steps);
+  }
+  var dailyUsed = usedWh / 1000, dailyWasted = wastedWh / 1000;
+  var dailyTotal = dailyUsed + dailyWasted;
+  var annualUsed = dailyUsed * 365, annualTotal = dailyTotal * 365, annualWasted = dailyWasted * 365;
+  var selfPct = dailyTotal > 0 ? (dailyUsed / dailyTotal) * 100 : 0;
+  var annualSaving = annualUsed * (rate / 100);
+  var payback = annualSaving > 0 ? cost / annualSaving : 999;
+  var lifetime25 = annualSaving * 25 - cost;
+
+  var money = function(v) { return '$' + Math.round(v).toLocaleString(); };
+  var kwh = function(v) { return Math.round(v).toLocaleString() + ' kWh'; };
+
+  document.getElementById('bs-payback').textContent = payback > 40 ? 'Payback: beyond equipment life' : 'Payback: ' + payback.toFixed(1) + ' years';
+
+  var rows =
+    '<tr><th>Measure</th><th>Value</th></tr>' +
+    '<tr><td>Effective peak output (after 15% derate)</td><td>' + Math.round(pmax) + ' W</td></tr>' +
+    '<tr><td>Annual production potential</td><td>' + kwh(annualTotal) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Actually used (offsets your bill)</td><td>' + kwh(annualUsed) + '</td></tr>' +
+    '<tr><td>Thrown away (above your baseline load)</td><td>' + kwh(annualWasted) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Self-consumption rate</td><td>' + selfPct.toFixed(0) + '%</td></tr>' +
+    '<tr><td>Annual bill savings at ' + rate.toFixed(1) + '¢</td><td>' + money(annualSaving) + '</td></tr>' +
+    '<tr><td>Monthly savings</td><td>' + money(annualSaving / 12) + '</td></tr>' +
+    '<tr><td>Kit cost</td><td>' + money(cost) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Payback period</td><td>' + (payback > 40 ? 'Beyond equipment life' : payback.toFixed(1) + ' years') + '</td></tr>' +
+    '<tr><td>Net position after 25 years</td><td>' + money(lifetime25) + '</td></tr>';
+
+  // What a right-sized system would look like
+  if (selfPct < 90) {
+    var idealWatts = baseline * 2 * L / (sun * derate * Math.PI);
+    rows += '<tr><td>Size that would waste almost nothing</td><td>about ' + Math.round(idealWatts / 50) * 50 + ' W</td></tr>';
+  }
+  document.getElementById('bs-table').innerHTML = rows;
+
+  var note = '';
+  if (selfPct >= 95) {
+    note = 'Your baseline load absorbs essentially everything these panels make, which is the ideal case for plug-in solar — no capacity is wasted. If anything, you could support a larger system than this. ';
+  } else if (selfPct >= 80) {
+    note = 'You are using most of what the system produces, which is a reasonable outcome. A modest amount is still discarded at midday peaks. ';
+  } else if (selfPct >= 60) {
+    note = 'Roughly ' + (100 - selfPct).toFixed(0) + '% of production is being thrown away because your home cannot absorb it in real time. A smaller, cheaper kit would deliver nearly the same savings — or shift a daytime load (dishwasher, laundry, EV trickle charge) into midday to soak up the surplus. ';
+  } else {
+    note = 'Warning: more than ' + (100 - selfPct).toFixed(0) + '% of what these panels produce would be discarded. Your always-on load is far too low for a system this size. Either buy a much smaller kit or move flexible loads into daylight hours before spending this money. ';
+  }
+  if (payback > 25) {
+    note += 'At these inputs the kit does not pay for itself within a typical 25-year panel life, so treat it as an environmental or hobby purchase rather than a financial one. ';
+  }
+  note += 'Assumes a 15% system derate and a flat baseline load; excludes panel degradation, any inverter replacement, and future rate increases. The 30% federal credit expired Dec 31, 2025 and is not applied.';
+  document.getElementById('bs-note').textContent = note;
+
+  var r = document.getElementById('bs-result');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
