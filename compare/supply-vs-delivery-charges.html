@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supply vs Delivery Charges: What Switching Suppliers Actually Saves | EcoEnergyCalc</title>
+  <meta name="description" content="Switching electricity suppliers only touches the supply half of your bill. See what portion of your bill is actually shoppable, what a cheaper rate really saves, and when switching isn't worth it." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/compare/supply-vs-delivery-charges.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Supply vs Delivery Charges: What Switching Suppliers Actually Saves","description":"Switching electricity suppliers only touches the supply half of your bill. See what portion is actually shoppable and what a cheaper rate really saves.","url":"https://ecoenergycalc.com/compare/supply-vs-delivery-charges.html","datePublished":"2026-08-31","dateModified":"2026-08-31","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="article-page">
+    <div class="container">
+      <div class="article-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Supply vs Delivery Charges</p>
+        <span class="article-tag">Energy Savings</span>
+        <h1>Supply vs Delivery Charges: What Switching Suppliers Actually Saves</h1>
+        <p class="article-meta">7 min read · August 2026</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <p>Your electric bill has two halves that behave completely differently. One is competitive and shoppable in some states. The other is a regulated monopoly you cannot change at any price. Most comparison sites are run by suppliers, so they tend to quote savings against your <em>whole</em> bill — when switching only ever touches part of it.</p>
+
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>How Much of Your Bill Is Actually Shoppable?</h2>
+            <div class="form-group"><label for="sd-kwh">Monthly Usage (kWh)</label><input type="number" id="sd-kwh" value="1000" min="1" max="50000" step="10" /></div>
+            <div class="form-group"><label for="sd-supply">Your Current Supply Rate (¢/kWh)</label><input type="number" id="sd-supply" value="13.5" min="0" max="80" step="0.1" /></div>
+            <div class="form-group"><label for="sd-delivery">Your Delivery Rate (¢/kWh)</label><input type="number" id="sd-delivery" value="10.5" min="0" max="80" step="0.1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Divide your delivery section total by your kWh if no rate is shown. Include transmission and per-kWh surcharges.</p>
+            </div>
+            <div class="form-group"><label for="sd-fixed">Fixed / Customer Charge ($/month)</label><input type="number" id="sd-fixed" value="15" min="0" max="300" step="0.5" /></div>
+            <div class="form-group"><label for="sd-offer">Supplier's Offered Rate (¢/kWh)</label><input type="number" id="sd-offer" value="11" min="0" max="80" step="0.1" /></div>
+            <div class="form-group"><label for="sd-fee">Supplier's Monthly Fee ($)</label><input type="number" id="sd-fee" value="0" min="0" max="50" step="0.5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Many low headline rates carry a monthly charge. Check the contract or Electricity Facts Label.</p>
+            </div>
+            <button class="btn-primary" onclick="calcSupplyDelivery()">Show What Switching Saves</button>
+            <div class="result-box-tool" id="sd-result">
+              <h3>Your Bill, Split</h3>
+              <div class="result-amount" id="sd-headline"></div>
+              <div class="table-scroll"><table id="sd-table" style="width:100%;min-width:480px;"></table></div>
+              <p class="result-note" id="sd-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body">
+            <h2>What Each Half Actually Pays For</h2>
+            <p><strong>Supply</strong> — also called generation or energy charge — is the electricity itself: fuel, power plant operation, and the generator's margin. In deregulated states you can buy this from a competing supplier instead of your utility. In regulated states (Florida, Georgia, Alabama and others) the utility handles it and typically passes the cost through without markup.</p>
+            <p><strong>Delivery</strong> — distribution, transmission, or the TDU charge in Texas — is everything that moves the electricity to your outlet: poles, wires, substations, the meter, and the crews who fix outages. Your local utility owns all of it. No supplier switch changes this line, because the same wires carry the power regardless of who generated it.</p>
+
+            <div class="callout">
+              <strong>The distinction that matters:</strong> a supplier offering "2¢ per kWh cheaper" is discounting only the supply half. If delivery and fixed charges are 55% of your bill, that offer touches 45% of what you pay.
+            </div>
+
+            <h2>Why Delivery Now Exceeds Supply on Many Bills</h2>
+            <p>This surprises people, and it's become common in the Northeast and California. Shipping the electricity genuinely costs more than making it in some territories.</p>
+            <p>The reason is that delivery is where utility capital spending lands — aging infrastructure replacement, storm and wildfire hardening, grid modernisation for EVs and electrification — and utilities recover that through rate cases. Requests reached a record ~$31 billion nationally across 2025, more than double the prior year. Supply, by contrast, is often a straight pass-through carrying no utility profit.</p>
+            <p>One Connecticut breakdown puts a typical Eversource residential bill at roughly 30% supply, 42% delivery and 28% taxes and public benefit charges. On a bill shaped like that, supplier shopping addresses under a third of the total.</p>
+
+            <h2>When Switching Is Worth It — and When It Isn't</h2>
+            <p><strong>Worth considering if:</strong> you're in a deregulated state, your usage is high (savings scale with kWh), you're currently on a default or variable rate you never chose, and you can find a fixed-rate offer meaningfully below your current supply rate after fees.</p>
+            <p><strong>Probably not worth it if:</strong> you're in a regulated state (there's nothing to shop), your usage is low enough that a few cents per kWh is trivial against a monthly fee, or the offer is a teaser that resets in three months to something worse than your default rate.</p>
+            <p>Three traps worth naming, because supplier-run comparison sites rarely lead with them:</p>
+            <ul>
+              <li><strong>Teaser rates.</strong> 8¢ for three months, then 18¢. Read the contract term, not the headline.</li>
+              <li><strong>Monthly fees.</strong> A rate 1¢ lower with a $10 monthly fee is worse than your default rate below 1,000 kWh.</li>
+              <li><strong>Early termination charges.</strong> If the rate jumps after the promo period, leaving may cost you.</li>
+            </ul>
+            <p>Also worth knowing: switching suppliers does not affect reliability. Your utility still maintains the wires and restores outages regardless of who supplies your power. That's a persistent myth.</p>
+
+            <h2>The Half You Can't Shop</h2>
+            <p>If delivery is what rose on your bill, supplier shopping won't help. Two things still do:</p>
+            <p><strong>Use fewer kilowatt-hours.</strong> Delivery charges are mostly billed per kWh, not as a flat fee, so conservation reduces them — this is the part people miss when they conclude "delivery is fixed, so saving energy is pointless."</p>
+            <p><strong>Use the programs your surcharges fund.</strong> A line item on your bill pays for state efficiency programs — free home energy audits, discounted insulation, heat pump and appliance rebates. You're funding those whether or not you claim them.</p>
+            <p>Fixed customer charges are the genuine dead weight: they don't fall with usage at all, and they hit low-usage households hardest in percentage terms. Nothing you do at home changes them.</p>
+
+            <h2>Working Out What Changed on Your Own Bill</h2>
+            <p>If your bill rose and you're not sure which half caused it, the fastest way to find out is to compare two bills a year apart and split the change into usage, supply rate, delivery rate and fixed charges. Our <a href="/tools/bill-increase-breakdown-calculator.html">bill increase breakdown calculator</a> does that attribution, and our article on <a href="/blog/why-did-my-electric-bill-go-up-when-i-used-less.html">why bills rise even when usage falls</a> walks through a worked example.</p>
+            <p>For what's pushing rates up nationally — rate cases, capacity auction prices, and the contested role of data centre demand — see <a href="/blog/why-electric-bills-are-rising-ai-data-centers.html">why electric bills are rising</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/bill-increase-breakdown-calculator.html">Bill Increase Breakdown Calculator</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/electric-bill-spike-calculator.html">Electric Bill Spike Calculator</a></li>
+              <li><a href="/tools/budget-billing-estimator.html">Budget Billing Estimator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/why-did-my-electric-bill-go-up-when-i-used-less.html">Why Did My Bill Go Up When I Used Less?</a></li>
+              <li><a href="/blog/why-electric-bills-are-rising-ai-data-centers.html">Why Electric Bills Are Rising</a></li>
+              <li><a href="/blog/reduce-electric-bill.html">15 Ways to Reduce Your Electric Bill</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Switching changes: <strong>supply only</strong></li>
+              <li>Delivery set by: <strong>local utility</strong></li>
+              <li>Typical CT bill: <strong>30% supply / 42% delivery</strong></li>
+              <li>Reliability after switching: <strong>unchanged</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcSupplyDelivery() {
+  var g = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v < 0) ? d : v; };
+  var kwh = g('sd-kwh', 1000); if (kwh <= 0) kwh = 1;
+  var sup = g('sd-supply', 13.5) / 100;
+  var del = g('sd-delivery', 10.5) / 100;
+  var fix = g('sd-fixed', 15);
+  var offer = g('sd-offer', 11) / 100;
+  var fee = g('sd-fee', 0);
+
+  var supplyCost = kwh * sup;
+  var deliveryCost = kwh * del;
+  var total = supplyCost + deliveryCost + fix;
+  var shoppablePct = total > 0 ? (supplyCost / total) * 100 : 0;
+
+  var newSupply = kwh * offer + fee;
+  var monthlySaving = supplyCost - newSupply;
+  var annualSaving = monthlySaving * 12;
+  var newTotal = total - monthlySaving;
+  var totalPct = total > 0 ? (monthlySaving / total) * 100 : 0;
+
+  var money = function (v) { return '$' + v.toFixed(2); };
+  var m = function (v) { return (v >= 0 ? '+$' : '−$') + Math.abs(v).toFixed(2); };
+
+  document.getElementById('sd-headline').textContent =
+    shoppablePct.toFixed(0) + '% of your bill is shoppable';
+
+  document.getElementById('sd-table').innerHTML =
+    '<tr><th>Component</th><th>Monthly</th><th>Can you shop it?</th></tr>' +
+    '<tr><td>Supply (' + (sup * 100).toFixed(1) + '¢/kWh)</td><td>' + money(supplyCost) + '</td><td><strong>Yes</strong>, if deregulated</td></tr>' +
+    '<tr><td>Delivery (' + (del * 100).toFixed(1) + '¢/kWh)</td><td>' + money(deliveryCost) + '</td><td>No — utility monopoly</td></tr>' +
+    '<tr><td>Fixed charge</td><td>' + money(fix) + '</td><td>No — applies at any usage</td></tr>' +
+    '<tr style="font-weight:700;"><td>Bill before taxes</td><td>' + money(total) + '</td><td>' + shoppablePct.toFixed(0) + '% shoppable</td></tr>' +
+    '<tr style="background:var(--card);"><td colspan="3"><strong>If you switch to ' + (offer * 100).toFixed(1) + '¢' + (fee > 0 ? ' + ' + money(fee) + '/mo fee' : '') + '</strong></td></tr>' +
+    '<tr><td>New supply cost</td><td>' + money(newSupply) + '</td><td>—</td></tr>' +
+    '<tr><td>New bill before taxes</td><td>' + money(newTotal) + '</td><td>—</td></tr>' +
+    '<tr style="font-weight:700;"><td>Monthly change</td><td>' + m(monthlySaving) + '</td><td>' + (monthlySaving >= 0 ? '−' : '+') + Math.abs(totalPct).toFixed(1) + '% of bill</td></tr>' +
+    '<tr><td>Over 12 months</td><td>' + m(annualSaving) + '</td><td>—</td></tr>';
+
+  var note = '';
+  if (monthlySaving > 0) {
+    note = 'That offer saves ' + money(monthlySaving) + ' a month — but note it cuts your total bill by only ' + totalPct.toFixed(1) + '%, not the ' + (sup > 0 ? ((sup - offer) / sup * 100).toFixed(0) : '0') + '% discount it represents on the supply rate alone, because delivery and fixed charges are untouched. ';
+    if (annualSaving < 60) {
+      note += 'At ' + money(annualSaving) + ' a year, weigh that against the hassle and the risk of the rate changing after any promotional period. ';
+    }
+    note += 'Before signing, confirm the contract length, whether the rate is fixed or variable, and any early termination fee. ';
+  } else if (monthlySaving === 0) {
+    note = 'That offer is a wash against your current supply rate once fees are counted. ';
+  } else {
+    note = 'That offer would cost you ' + money(Math.abs(monthlySaving)) + ' more per month than your current supply rate once the monthly fee is included — a lower headline rate does not automatically mean a lower bill. ';
+  }
+  note += 'Delivery of ' + money(deliveryCost) + ' and fixed charges of ' + money(fix) + ' stay the same regardless of supplier. Excludes taxes and percentage surcharges, which apply on top of both scenarios.';
+  document.getElementById('sd-note').textContent = note;
+
+  var r = document.getElementById('sd-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

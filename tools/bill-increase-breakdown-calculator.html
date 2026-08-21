@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electric Bill Increase Breakdown – Why Did My Bill Go Up? | EcoEnergyCalc</title>
+  <meta name="description" content="Compare two electric bills and see exactly where the increase came from — usage, supply rate, delivery charges, or fixed fees. Answers the case where you used less power but paid more." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/bill-increase-breakdown-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Electric Bill Increase Breakdown Calculator","url":"https://ecoenergycalc.com/tools/bill-increase-breakdown-calculator.html","description":"Compare two electric bills and see exactly where the increase came from — usage, supply rate, delivery charges, or fixed fees.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-08-31"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Why did my electric bill go up when I used less electricity?","acceptedAnswer":{"@type":"Answer","text":"Because your bill is the product of usage and rates, and rates have been climbing faster than most households cut consumption. A 20 percent drop in kilowatt-hours saves you 20 percent of the variable portion only, while a rate increase applies to every kilowatt-hour you still use, and fixed monthly charges do not fall at all. If your supply rate rose 50 percent and your delivery rate rose 50 percent, cutting usage by 20 percent still leaves you paying more. This calculator separates those forces so you can see which one actually drove your increase."}},
+    {"@type":"Question","name":"Why is my delivery charge higher than my electricity supply charge?","acceptedAnswer":{"@type":"Answer","text":"This is increasingly common, especially in the Northeast and California. Delivery charges fund poles, wires, substations, storm hardening and grid modernisation, and utilities have been filing large rate cases to recover those costs — a record roughly 31 billion dollars in requested increases across 2025. Supply, meanwhile, is a pass-through in most regulated markets, so it does not carry the utility's profit margin. A bill where delivery exceeds supply is not necessarily an error; it usually means your local grid costs more to maintain than the electricity costs to generate."}},
+    {"@type":"Question","name":"Does switching electricity suppliers lower my whole bill?","acceptedAnswer":{"@type":"Answer","text":"No. Switching only changes the supply portion. Delivery charges are set by your local utility and stay identical no matter who supplies your power, because the same wires deliver it either way. If delivery is half your bill, a supplier offering two cents per kWh less is discounting only the other half. That is why comparing a supplier's advertised rate against your total bill is misleading — compare it against your current supply rate alone, and check for monthly fees or teaser rates that expire."}},
+    {"@type":"Question","name":"What is a capacity charge on my electric bill?","acceptedAnswer":{"@type":"Answer","text":"A capacity charge pays generators to guarantee they can supply power during peak demand, whether or not that power ends up being used. Regional grid operators set these prices at auction, and recent auction results have risen sharply because of retiring plants, delays connecting new generation, and rising demand from data centres. In some territories capacity costs alone added roughly ten dollars a month to the average residential bill. It usually appears inside your supply charge rather than as a separate line, which is why a bill can rise even when your utility has not filed a rate case."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Bill Increase Breakdown</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Electric Bill Increase Breakdown</h1>
+        <p>Cut your usage and the bill still went up? Enter two bills — this month and a year ago — and this splits the change into exactly four causes: how much you used, what supply cost, what delivery cost, and fixed fees. Most bill calculators only read one bill. This one compares two.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Compare Two Bills</h2>
+            <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:18px;">Use the same month one year apart if you can — that removes the seasonal difference and isolates what actually changed.</p>
+
+            <h3 style="font-family:var(--font-display);font-size:1rem;margin:20px 0 12px;">Earlier bill</h3>
+            <div class="form-group">
+              <label for="bd-kwh0">Usage (kWh)</label>
+              <input type="number" id="bd-kwh0" value="1000" min="1" max="50000" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="bd-sup0">Supply / Generation Rate (¢/kWh)</label>
+              <input type="number" id="bd-sup0" value="9" min="0" max="80" step="0.1" />
+            </div>
+            <div class="form-group">
+              <label for="bd-del0">Delivery / Distribution Rate (¢/kWh)</label>
+              <input type="number" id="bd-del0" value="7" min="0" max="80" step="0.1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Divide the delivery section total by your kWh if your bill doesn't state a rate. Include transmission and per-kWh surcharges here.</p>
+            </div>
+            <div class="form-group">
+              <label for="bd-fix0">Fixed / Customer Charge ($)</label>
+              <input type="number" id="bd-fix0" value="12" min="0" max="300" step="0.5" />
+            </div>
+
+            <h3 style="font-family:var(--font-display);font-size:1rem;margin:28px 0 12px;">Recent bill</h3>
+            <div class="form-group">
+              <label for="bd-kwh1">Usage (kWh)</label>
+              <input type="number" id="bd-kwh1" value="800" min="1" max="50000" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="bd-sup1">Supply / Generation Rate (¢/kWh)</label>
+              <input type="number" id="bd-sup1" value="13.5" min="0" max="80" step="0.1" />
+            </div>
+            <div class="form-group">
+              <label for="bd-del1">Delivery / Distribution Rate (¢/kWh)</label>
+              <input type="number" id="bd-del1" value="10.5" min="0" max="80" step="0.1" />
+            </div>
+            <div class="form-group">
+              <label for="bd-fix1">Fixed / Customer Charge ($)</label>
+              <input type="number" id="bd-fix1" value="18" min="0" max="300" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="bd-tax">Taxes &amp; Percentage Surcharges (%)</label>
+              <input type="number" id="bd-tax" value="8" min="0" max="40" step="0.5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Applied to both bills. Enter 0 if your rates already include tax.</p>
+            </div>
+            <button class="btn-primary" onclick="calcBillBreakdown()">Break Down the Change</button>
+            <div class="result-box-tool" id="bd-result">
+              <h3>Where Your Increase Came From</h3>
+              <div class="result-amount" id="bd-headline"></div>
+              <div class="table-scroll">
+                <table id="bd-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="bd-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Why "I Used Less and Paid More" Happens</h2>
+            <p>Your bill isn't one number, it's a multiplication: kilowatt-hours × rate, plus fees. Cutting usage only moves one of those terms, and it only moves the variable part.</p>
+            <p>Take the default example above. Usage dropped 200 kWh — a real 20% cut that saved $32. But the supply rate rose from 9¢ to 13.5¢ and delivery from 7¢ to 10.5¢, which together added $64 on the reduced usage. The fixed charge went up $6 and didn't care about consumption at all. Net result: the bill rose 22% despite using a fifth less power.</p>
+            <p>That's the arithmetic behind a complaint you'll see constantly right now — households reporting flat or lower usage alongside bills up 20–30%. It isn't a metering error and it usually isn't your appliances. It's the rate side of the equation moving faster than the usage side.</p>
+
+            <div class="callout">
+              <strong>The useful takeaway:</strong> if the breakdown shows rates and fees drove your increase, then buying efficient appliances won't fix it — the lever is your supply rate, your rate plan, or reducing usage far more aggressively than you have been.
+            </div>
+
+            <h2>Finding These Numbers on Your Bill</h2>
+            <p>Most US bills separate supply from delivery, though the labels vary:</p>
+            <ul>
+              <li><strong>Supply</strong> may appear as "supply," "generation," "energy charge," or your third-party supplier's name. This is the electricity itself.</li>
+              <li><strong>Delivery</strong> may appear as "delivery," "distribution," "transmission," or in Texas as the TDU charge. This is the poles, wires and substations.</li>
+              <li><strong>Fixed</strong> is usually "customer charge," "basic service charge," or "meter charge" — a flat monthly amount that applies at any usage level.</li>
+            </ul>
+            <p>If your bill only gives totals rather than rates, divide each section by the kWh for that period. If supply and delivery are bundled into one rate — normal in fully regulated states like Florida, Georgia and Alabama — put the whole rate in the supply field and leave delivery at zero. The comparison still works.</p>
+            <p>One thing to check before blaming rates: <strong>the number of billing days.</strong> Periods vary from 28 to 34 days, and an occasional bill covers a longer span after a meter-reading schedule shifts. If one of your two bills covers noticeably more days, part of the "usage increase" is just a longer period.</p>
+
+            <h2>What's Actually Driving Rate Increases</h2>
+            <p>Three things, and only one of them is about you.</p>
+            <p><strong>Delivery rate cases.</strong> Utilities recover grid spending through rate increases approved by state regulators. Requests hit a record — roughly $31 billion nationally across 2025, more than double the prior year — covering aging infrastructure, storm hardening and grid modernisation. This is why delivery charges now exceed supply charges on many Northeast and California bills.</p>
+            <p><strong>Capacity costs.</strong> Regional grid operators run auctions that pay generators to be available at peak, and recent auction prices jumped sharply because plants are retiring, new generation is slow to connect, and demand is rising. In some territories capacity alone added around $10 a month to a typical residential bill. It's usually buried inside your supply charge, so your bill can rise without your utility ever filing a rate case.</p>
+            <p><strong>Demand growth from data centres.</strong> This is genuinely contested. Some analysis found large loads put downward pressure on average prices through 2024 by spreading fixed costs across more sales; other analysis expects the opposite as demand outpaces supply. What isn't contested is that it's become a political flashpoint, with legislation proposed to shift grid-upgrade costs onto large users. We cover the evidence in our <a href="/blog/why-electric-bills-are-rising-ai-data-centers.html">article on data centres and electricity prices</a>.</p>
+
+            <h2>What You Can Actually Do</h2>
+            <p>The right response depends entirely on which bucket dominated your increase:</p>
+            <ul>
+              <li><strong>Supply rate drove it, and you're in a deregulated state.</strong> You can shop. But compare against your current <em>supply</em> rate only, never your total bill — see our <a href="/compare/supply-vs-delivery-charges.html">supply vs delivery comparison</a> for what switching does and doesn't touch.</li>
+              <li><strong>Delivery rate drove it.</strong> You can't shop this. The only levers are using fewer kilowatt-hours (delivery is mostly per-kWh, so conservation does reduce it) and taking the efficiency programs your bill already funds through surcharges — many utilities offer free energy audits and heavy rebates.</li>
+              <li><strong>Fixed charges drove it.</strong> Nothing you do with consumption helps. This is a regulatory matter, and it hits low-usage households hardest.</li>
+              <li><strong>Usage drove it.</strong> Now efficiency work pays off. Our <a href="/tools/electric-bill-spike-calculator.html">bill spike calculator</a> identifies which appliances are responsible.</li>
+            </ul>
+            <p>Also worth checking whether a time-of-use plan fits your pattern, and whether budget billing would at least smooth the volatility — though as our <a href="/blog/is-budget-billing-worth-it.html">budget billing guide</a> explains, that changes when you pay rather than how much.</p>
+
+            <h2>Limits of This Tool</h2>
+            <p>It assumes both periods use a flat rate structure. If you're on a tiered plan where the rate climbs with consumption, or a time-of-use plan, your effective rate shifts with your usage pattern and the attribution blurs — the totals still hold but the split between "usage" and "rate" becomes approximate. It also applies one tax percentage to both periods, and treats a longer billing period as higher usage, which is technically true but may not be what you meant to measure.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/electric-bill-spike-calculator.html">Electric Bill Spike Calculator</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/budget-billing-estimator.html">Budget Billing Estimator</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/why-did-my-electric-bill-go-up-when-i-used-less.html">Why Did My Bill Go Up When I Used Less?</a></li>
+              <li><a href="/compare/supply-vs-delivery-charges.html">Supply vs Delivery Charges</a></li>
+              <li><a href="/blog/why-electric-bills-are-rising-ai-data-centers.html">Why Electric Bills Are Rising</a></li>
+              <li><a href="/blog/reduce-electric-bill.html">15 Ways to Reduce Your Electric Bill</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>2025 rate hike requests: <strong>~$31 billion</strong></li>
+              <li>Switching supplier touches: <strong>supply only</strong></li>
+              <li>Delivery is set by: <strong>your local utility</strong></li>
+              <li>Fixed charges fall with usage: <strong>never</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Why did my electric bill go up when I used less electricity?</h3>
+      <p>Because your bill is the product of usage and rates, and rates have been climbing faster than most households cut consumption. A 20 percent drop in kilowatt-hours saves you 20 percent of the variable portion only, while a rate increase applies to every kilowatt-hour you still use, and fixed monthly charges do not fall at all. If your supply rate rose 50 percent and your delivery rate rose 50 percent, cutting usage by 20 percent still leaves you paying more. This calculator separates those forces so you can see which one actually drove your increase.</p>
+      <h3>Why is my delivery charge higher than my electricity supply charge?</h3>
+      <p>This is increasingly common, especially in the Northeast and California. Delivery charges fund poles, wires, substations, storm hardening and grid modernisation, and utilities have been filing large rate cases to recover those costs — a record roughly 31 billion dollars in requested increases across 2025. Supply, meanwhile, is a pass-through in most regulated markets, so it does not carry the utility's profit margin. A bill where delivery exceeds supply is not necessarily an error; it usually means your local grid costs more to maintain than the electricity costs to generate.</p>
+      <h3>Does switching electricity suppliers lower my whole bill?</h3>
+      <p>No. Switching only changes the supply portion. Delivery charges are set by your local utility and stay identical no matter who supplies your power, because the same wires deliver it either way. If delivery is half your bill, a supplier offering two cents per kWh less is discounting only the other half. That is why comparing a supplier's advertised rate against your total bill is misleading — compare it against your current supply rate alone, and check for monthly fees or teaser rates that expire.</p>
+      <h3>What is a capacity charge on my electric bill?</h3>
+      <p>A capacity charge pays generators to guarantee they can supply power during peak demand, whether or not that power ends up being used. Regional grid operators set these prices at auction, and recent auction results have risen sharply because of retiring plants, delays connecting new generation, and rising demand from data centres. In some territories capacity costs alone added roughly ten dollars a month to the average residential bill. It usually appears inside your supply charge rather than as a separate line, which is why a bill can rise even when your utility has not filed a rate case.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcBillBreakdown() {
+  var g = function(id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v < 0) ? d : v; };
+  var k0 = g('bd-kwh0', 1000), s0 = g('bd-sup0', 9) / 100, d0 = g('bd-del0', 7) / 100, f0 = g('bd-fix0', 12);
+  var k1 = g('bd-kwh1', 800), s1 = g('bd-sup1', 13.5) / 100, d1 = g('bd-del1', 10.5) / 100, f1 = g('bd-fix1', 18);
+  var t = g('bd-tax', 8) / 100;
+  if (k0 <= 0) k0 = 1;
+  if (k1 <= 0) k1 = 1;
+
+  var base0 = k0 * (s0 + d0) + f0, base1 = k1 * (s1 + d1) + f1;
+  var tot0 = base0 * (1 + t), tot1 = base1 * (1 + t);
+  var diff = tot1 - tot0;
+
+  var eUsage = (k1 - k0) * (s0 + d0);
+  var eSupply = k1 * (s1 - s0);
+  var eDelivery = k1 * (d1 - d0);
+  var eFixed = f1 - f0;
+  var eTax = base1 * t - base0 * t;
+
+  var m = function(v) { return (v >= 0 ? '+$' : '−$') + Math.abs(v).toFixed(2); };
+  var money = function(v) { return '$' + v.toFixed(2); };
+  var pct = tot0 > 0 ? (diff / tot0) * 100 : 0;
+
+  document.getElementById('bd-headline').textContent =
+    (diff >= 0 ? 'Bill up ' : 'Bill down ') + money(Math.abs(diff)) + ' (' + Math.abs(pct).toFixed(0) + '%)';
+
+  var usagePct = ((k1 - k0) / k0) * 100;
+  var rows =
+    '<tr><th>Cause</th><th>Effect on bill</th></tr>' +
+    '<tr><td>Earlier bill total</td><td>' + money(tot0) + '</td></tr>' +
+    '<tr><td>Recent bill total</td><td>' + money(tot1) + '</td></tr>' +
+    '<tr style="background:var(--card);"><td><strong>Change</strong></td><td><strong>' + m(diff) + '</strong></td></tr>' +
+    '<tr><td>Your usage (' + (usagePct >= 0 ? '+' : '') + usagePct.toFixed(0) + '%, ' + Math.round(k1 - k0) + ' kWh)</td><td>' + m(eUsage) + '</td></tr>' +
+    '<tr><td>Supply rate (' + (s0 * 100).toFixed(1) + '¢ → ' + (s1 * 100).toFixed(1) + '¢)</td><td>' + m(eSupply) + '</td></tr>' +
+    '<tr><td>Delivery rate (' + (d0 * 100).toFixed(1) + '¢ → ' + (d1 * 100).toFixed(1) + '¢)</td><td>' + m(eDelivery) + '</td></tr>' +
+    '<tr><td>Fixed charge (' + money(f0) + ' → ' + money(f1) + ')</td><td>' + m(eFixed) + '</td></tr>' +
+    '<tr><td>Taxes &amp; percentage surcharges</td><td>' + m(eTax) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Total explained</td><td>' + m(eUsage + eSupply + eDelivery + eFixed + eTax) + '</td></tr>' +
+    '<tr><td>Your all-in cost per kWh</td><td>' + (k0 > 0 ? (tot0 / k0 * 100).toFixed(1) : '—') + '¢ → ' + (tot1 / k1 * 100).toFixed(1) + '¢</td></tr>';
+  document.getElementById('bd-table').innerHTML = rows;
+
+  // Identify dominant driver among the increase-side effects
+  var drivers = [
+    { n: 'your usage going up', v: eUsage, k: 'usage' },
+    { n: 'the supply rate', v: eSupply, k: 'supply' },
+    { n: 'the delivery rate', v: eDelivery, k: 'delivery' },
+    { n: 'fixed charges', v: eFixed, k: 'fixed' }
+  ];
+  var risers = drivers.filter(function (x) { return x.v > 0; }).sort(function (a, b) { return b.v - a.v; });
+  var note = '';
+
+  if (diff <= 0) {
+    note = 'Your bill went down. ';
+    if (eUsage < 0) note += 'Using ' + Math.abs(Math.round(k1 - k0)) + ' kWh less saved you ' + money(Math.abs(eUsage)) + '. ';
+  } else if (risers.length) {
+    var top = risers[0];
+    note = 'The biggest single driver was ' + top.n + ', adding ' + money(top.v) + '. ';
+    if (eUsage < 0) {
+      note += 'Note that you actually used ' + Math.abs(Math.round(k1 - k0)) + ' kWh less, which saved ' + money(Math.abs(eUsage)) + ' — but rate and fee increases of ' + money(eSupply + eDelivery + eFixed) + ' more than wiped that out. This is the "I used less and paid more" case, and it is not a metering error. ';
+    }
+    var rateShare = eSupply + eDelivery;
+    if (rateShare > 0 && rateShare > Math.abs(eUsage)) {
+      note += 'Because rates rather than consumption drove this, buying more efficient appliances will not undo it. ';
+      if (eDelivery >= eSupply && eDelivery > 0) {
+        note += 'Delivery moved most — and you cannot shop that portion, since your local utility sets it regardless of who supplies your power. Your levers are cutting kWh (delivery is mostly per-kWh, so conservation does help) and using the efficiency programs your surcharges already fund. ';
+      } else if (eSupply > 0) {
+        note += 'Supply moved most, which is the part you may be able to shop in a deregulated state — but compare offers against your current supply rate alone, not your total bill. ';
+      }
+    }
+    if (eFixed > 0 && eFixed >= rateShare) {
+      note += 'Fixed charges rose ' + money(eFixed) + ', and no amount of conservation reduces those. ';
+    }
+  }
+  note += 'Check that both bills cover a similar number of days before drawing conclusions — billing periods vary from 28 to 34 days, and a longer period looks like higher usage here.';
+  document.getElementById('bd-note').textContent = note;
+
+  var r = document.getElementById('bd-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
