@@ -1,3 +1,48 @@
+# EcoEnergyCalc 인수인계 — v24 세션 (2026-08-31, 주간 데이터 확인)
+
+## 0-X1. 📈 Bing 폭증 — 977노출/20클릭 (전주 340/6에서 3배)
+
+| | Google (GSC 3개월) | Bing (주간) |
+|---|---|---|
+| 노출 | 489 | **977** |
+| **클릭** | **0** | **20** |
+| 평균 순위 | 68~78위 | **5위권** |
+| CTR | 0% | 6.49% |
+
+- **v21에서 세운 "Bing이 주력 채널" 판단이 완전히 확증됨.** 계속 이 기준으로 갈 것.
+- Bing 페이지 1위: `tools/water-usage.html` **484노출/5클릭** — 압도적 단일 자산. 2위 `washing-machine-water-usage` 117, 3위 `blog/how-much-water-does-a-washing-machine-use` 107.
+- **클러스터별 Bing 성과**: 물/세탁 135노출·6클릭 / 건조기 46·0 / 나무·오프셋 46·3 / 비행·운전 34·**6클릭(CTR 17.6%, 최고)** / 난방연료 25·4 / 냉장 21·1 / 태양광 12·2.
+- Google은 여전히 클릭 0. 노출은 445→489로 완만 증가, 순위 68위대 정체.
+
+## 0-X2. ✅ v24 작업: 미터법 대응 (커밋 `b3d11f4`, 133 → 134파일)
+
+**발견**: Bing 물/세탁 쿼리가 **미터법·드럼용량 기준**으로 들어오는데 사이트에 `litre`/`kg` 언급이 **0건**이었음.
+- 실제 쿼리: `ifb 8kg washing machine water usage per cycle`, `washing machine water use per cycle gallons **liters**`(8노출), `water usage hoover 700l series`(**클릭 발생**), `large capacity washer`, `5 star washing machine`
+- GSC 국가: 미국 338 다음이 **영국 59**, 필리핀 11, 인도 10, 터키 7, 베트남 6, 태국 4 — 미터법권이 2위 그룹 전체
+
+**신규**: `tools/washing-machine-water-efficiency-calculator.html` — L/kg 효율 판정
+- 경쟁은 실재(waterconsumptioncalculator.online kg별 페이지군, inthewash 60종, love2laundry L/kg 표)하나 **전부 정적 표 또는 단순 곱셈**. "내 기계가 효율적인가" 판정 도구가 없음 → water-bill-benchmark에서 검증된 역방향 벤치마크 패턴 재사용.
+- 벤치마크는 실측 13종에서 도출: **3.90~6.72 L/kg, 중앙값 5.31**. 전면/상부/반자동 별도 척도(상부식 13~22 L/kg는 구조적으로 다른 계급).
+- kg↔cu ft(1 cu ft ≈ 2.8 kg), 리터↔갤런 양방향.
+
+**보강(신규보다 레버리지 큼)**: Bing 3위 페이지 `blog/how-much-water-does-a-washing-machine-use.html`(107노출)에 kg별 리터 섹션 신설, 2위 tool 사이드바 연결.
+
+## 0-X3. ⚠️ 색인: 구글 미크롤 7건이 3주째 그대로
+
+사용자 제공 드릴다운(2026-08-24) 기준:
+- **`1970-01-01`(미크롤) 7건**: why-electric-bills-are-rising-ai-data-centers, community-solar-vs-rooftop-solar, gas-dryer-vs-heat-pump-dryer, solar-shingles-vs-solar-panels, tankless-vs-tank-water-heater, ai-carbon-footprint-calculator, **water-bill-benchmark-calculator(v21 신규가 여기 합류)**
+- **크롤됐으나 미색인 1건**: `bill-increase-breakdown-calculator`(2026-08-22 크롤) — v23 신규가 3일 만에 크롤된 건 정상
+- v20에서 홈 링크를 추가한 뒤 3주가 지났는데 미크롤 7건에 변화 없음. **홈 링크 추가만으로는 구글 크롤을 유도하지 못한다는 게 확인됨.**
+- ⚠️ 단 **이 중 3건은 Bing에서 이미 노출 중**(ai-carbon-footprint 9노출, gas-dryer-vs-heat-pump 1노출, water-usage 계열). 구글만의 문제이고, 우리 실제 트래픽 채널은 Bing이므로 **여기에 더 이상 리소스를 쓰지 말 것.** 다음 세션에서도 그대로면 무시하고 Bing 최적화에 집중하는 게 맞다.
+
+## 0-X4. 다음 세션 후보 (우선순위 순)
+
+1. **비행 vs 운전 클러스터가 CTR 17.6%로 최고** — 34노출에 6클릭. `compare/driving-vs-flying-carbon.html`(35노출·6클릭·3.2위)이 이미 강함. radiative forcing·acres는 이미 커버돼 있으니 신규보다 **이 페이지 자체를 더 두껍게** 하는 게 나을 수 있음.
+2. **건조기 클러스터는 46노출인데 클릭 0** — 순위는 5~6위대로 나쁘지 않은데 CTR이 0. 커버리지 문제가 아니라 **title/description 문제일 가능성**. 다음 세션에서 이 4개 페이지 메타 문구를 점검할 것.
+3. 물 클러스터는 이미 최대 자산이므로 미터법 대응 효과를 2~3주 뒤 재측정.
+
+---
+
 # EcoEnergyCalc 인수인계 — v23 세션 (2026-08-31)
 
 ## 0-Y. ✅ v23 신규 클러스터: Bill Breakdown (공급/배송 요금 분해) — 커밋 `4d1a157`, 130 → 133파일
