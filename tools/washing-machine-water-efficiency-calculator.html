@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Washing Machine Water Efficiency Calculator – Litres per kg | EcoEnergyCalc</title>
+  <meta name="description" content="Enter your washer's drum capacity in kg or cubic feet and its water use in litres or gallons. Get litres per kg — the efficiency measure that lets you compare a 7kg machine against a 12kg one fairly." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/washing-machine-water-efficiency-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Washing Machine Water Efficiency Calculator","url":"https://ecoenergycalc.com/tools/washing-machine-water-efficiency-calculator.html","description":"Enter your washer's drum capacity in kg or cubic feet and its water use in litres or gallons. Get litres per kg — the efficiency measure that lets you compare machines of different sizes fairly.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-08-31"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much water does a 7kg washing machine use per cycle?","acceptedAnswer":{"@type":"Answer","text":"A 7kg front-loader typically uses about 40 to 55 litres per normal cycle. Efficient models come in nearer 34 litres. A 7kg top-loader is a different class entirely, commonly using 100 to 170 litres because it fills the drum to submerge the clothes rather than tumbling them through a shallow pool. Divide litres by drum capacity to get litres per kg, which is the figure that lets you compare your machine against models of a different size."}},
+    {"@type":"Question","name":"What is a good litres per kg figure for a washing machine?","acceptedAnswer":{"@type":"Answer","text":"For front-loaders, the range across popular models runs roughly 3.9 to 6.7 litres per kg, with a median near 5.3. Under about 4.5 is excellent, 4.5 to 5.5 is good, 5.5 to 6.5 is average and above 6.5 is poor. Top-loaders operate in a completely different range, commonly 13 to 22 litres per kg, so never compare the two classes directly on this measure."}},
+    {"@type":"Question","name":"Do bigger washing machines use more water?","acceptedAnswer":{"@type":"Answer","text":"More per cycle, but usually less per kilogram of laundry. A 12kg drum uses more total water than a 7kg drum, yet large machines tend to be more water-efficient per kg washed because the fill volume does not scale linearly with drum size. That is why a full load in a large machine can be more efficient than two half loads in a small one, and why litres per kg is a fairer comparison than litres per cycle."}},
+    {"@type":"Question","name":"Does a good energy rating mean a washing machine uses less water?","acceptedAnswer":{"@type":"Answer","text":"No, and this catches many buyers out. Energy labels in most markets rate electricity consumption, not water consumption. A machine can earn a top energy rating while using notably more water than a lower-rated model. Water consumption is normally printed as a separate figure on the label, usually as litres per cycle or litres per year based on an assumed number of cycles. Check that number specifically rather than assuming the energy grade covers it."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Washing Machine Water Efficiency</p>
+        <span class="tool-category">Water &amp; Environment</span>
+        <h1>Washing Machine Water Efficiency Calculator</h1>
+        <p>Litres per cycle tells you almost nothing on its own — a 12kg machine will always use more than a 7kg one. What matters is litres per kilogram of drum capacity. Enter your machine's figures in metric or imperial and find out where it actually sits.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Rate Your Machine</h2>
+            <div class="form-group">
+              <label for="we-type">Machine Type</label>
+              <select id="we-type">
+                <option value="front" selected>Front-loader</option>
+                <option value="top">Top-loader (agitator or impeller)</option>
+                <option value="semi">Semi-automatic twin tub</option>
+              </select>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">These are judged on separate scales — a top-loader uses roughly three times the water per kg by design, so comparing it to a front-loader isn't meaningful.</p>
+            </div>
+            <div class="form-group">
+              <label for="we-cap">Drum Capacity</label>
+              <input type="number" id="we-cap" value="8" min="0.5" max="30" step="0.1" />
+              <select id="we-capunit" style="margin-top:8px;">
+                <option value="kg" selected>kg (metric — UK, EU, India, Australia)</option>
+                <option value="cuft">cubic feet (US)</option>
+              </select>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Printed on the machine, the door seal, or the spec sheet. US machines list cubic feet; roughly 1 cu ft ≈ 2.8 kg of laundry capacity.</p>
+            </div>
+            <div class="form-group">
+              <label for="we-water">Water Used Per Cycle</label>
+              <input type="number" id="we-water" value="45" min="1" max="500" step="0.1" />
+              <select id="we-waterunit" style="margin-top:8px;">
+                <option value="l" selected>litres</option>
+                <option value="gal">US gallons</option>
+              </select>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">On the energy label as litres per cycle, or litres per year divided by the assumed cycle count (often 220). Don't know it? Leave the default and compare the typical figures below instead.</p>
+            </div>
+            <div class="form-group">
+              <label for="we-loads">Loads per Week</label>
+              <input type="number" id="we-loads" value="5" min="0.5" max="50" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="we-people">People in Household (optional)</label>
+              <input type="number" id="we-people" value="4" min="1" max="15" step="1" />
+            </div>
+            <button class="btn-primary" onclick="calcWasherEfficiency()">Rate My Machine</button>
+            <div class="result-box-tool" id="we-result">
+              <h3>Your Machine's Water Efficiency</h3>
+              <div class="result-amount" id="we-verdict"></div>
+              <div class="table-scroll">
+                <table id="we-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="we-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Why Litres Per Cycle Is the Wrong Number</h2>
+            <p>If you compare two machines on litres per cycle alone, the smaller drum wins every time — and that tells you nothing useful, because the smaller drum also washes less laundry.</p>
+            <p>Divide by capacity and the picture changes. Across popular front-loaders the range runs roughly <strong>3.9 to 6.7 litres per kg</strong>, with a median around 5.3. On that measure large machines often come out ahead: a 12kg drum using 57 litres works out at 4.75 L/kg, better than an 8kg drum using 53.8 litres at 6.72 L/kg. The fill volume doesn't scale linearly with drum size.</p>
+            <p>The practical consequence is one of the more counterintuitive things about laundry: <strong>one full load in a big machine usually beats two half loads in a small one</strong>, both for water and energy. Waiting until you have a full load is the single easiest efficiency gain available, and it costs nothing.</p>
+
+            <div class="callout">
+              <strong>Watch the class boundary:</strong> top-loaders typically sit around 13–22 L/kg because they submerge the clothes rather than tumbling them. A "bad" front-loader is still far more water-efficient than a good top-loader. This calculator scores each type against its own benchmark.
+            </div>
+
+            <h2>Typical Water Use by Capacity</h2>
+            <p>Front-loaders, normal cotton cycle, drawn from popular models across UK and EU markets:</p>
+            <ul>
+              <li><strong>7 kg:</strong> around 34–50 litres (efficient models near 34)</li>
+              <li><strong>8 kg:</strong> around 32–54 litres — the widest spread of any size</li>
+              <li><strong>9 kg:</strong> around 43–56 litres</li>
+              <li><strong>10 kg:</strong> around 39–60 litres</li>
+              <li><strong>11–12 kg:</strong> around 54–58 litres</li>
+            </ul>
+            <p>Note how much overlap there is. An efficient 10kg machine (39 L) uses less water than an inefficient 8kg one (54 L) while washing 25% more laundry. Capacity alone predicts very little.</p>
+            <p>Top-loaders and semi-automatics run far higher — commonly 100–170 litres for a 7–8kg load — because the cleaning action requires the clothes to be submerged rather than tumbled.</p>
+
+            <h2>The Energy Rating Trap</h2>
+            <p>This surprises a lot of buyers: <strong>energy labels rate electricity, not water.</strong> A machine can carry a top energy grade and still use noticeably more water than a lower-graded model.</p>
+            <p>Water consumption is usually printed as a separate figure on the label — litres per cycle, or litres per year based on an assumed cycle count. If water is what you care about (because you're on a meter, in a drought region, or on a private well), read that number specifically rather than trusting the letter grade.</p>
+
+            <h2>Where the Water Actually Goes</h2>
+            <p>Roughly speaking, a wash cycle splits into the main wash and the rinses, and rinses often account for more than half the total. That's why programs matter as much as machines:</p>
+            <ul>
+              <li><strong>Heavy or stain programs</strong> add rinse cycles and run longer — often the biggest single swing on the dial.</li>
+              <li><strong>Eco mode</strong> genuinely uses less water, achieving it through longer, cooler cycles rather than less cleaning.</li>
+              <li><strong>Quick wash</strong> uses less water per cycle but doesn't clean heavily soiled loads well, which can mean rewashing — a net loss.</li>
+              <li><strong>Excess detergent</strong> creates foam the machine must rinse away, sometimes triggering extra rinse cycles automatically. Using the stated dose is a real saving, not just marketing.</li>
+            </ul>
+
+            <h2>Should You Replace a Thirsty Machine?</h2>
+            <p>Water savings alone rarely justify replacing a working machine. Going from a 6.7 L/kg machine to a 4.0 L/kg one at 8kg and five loads a week saves roughly 5,600 litres a year — real, but worth only a modest amount at most municipal water rates.</p>
+            <p>The case strengthens considerably when you add the energy side, since most of a wash's cost is heating water rather than moving the drum, and when the old machine is a top-loader rather than an inefficient front-loader. Our <a href="/tools/washing-machine-water-usage.html">washing machine water usage calculator</a> works out the annual cost in dollars including water heating, and the <a href="/compare/front-load-vs-top-load-washer.html">front-load vs top-load comparison</a> covers the bigger structural gap.</p>
+            <p>If you're checking whether your whole household's water use is reasonable rather than just the washer, our <a href="/tools/water-bill-benchmark-calculator.html">water bill benchmark calculator</a> takes the figure straight off your bill in any unit.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/washing-machine-water-usage.html">Washing Machine Water Usage &amp; Cost</a></li>
+              <li><a href="/tools/water-bill-benchmark-calculator.html">Water Bill Benchmark Calculator</a></li>
+              <li><a href="/tools/water-usage.html">Household Water Usage Calculator</a></li>
+              <li><a href="/tools/washing-machine-energy-cost.html">Washing Machine Energy Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-much-water-does-a-washing-machine-use.html">How Much Water Does a Washing Machine Use?</a></li>
+              <li><a href="/compare/front-load-vs-top-load-washer.html">Front-Load vs Top-Load Washer</a></li>
+              <li><a href="/blog/how-to-save-on-laundry-energy-costs.html">How to Save on Laundry Costs</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Front-loader median: <strong>~5.3 L/kg</strong></li>
+              <li>Best-in-class: <strong>~3.9 L/kg</strong></li>
+              <li>Top-loader typical: <strong>13–22 L/kg</strong></li>
+              <li>1 cu ft ≈ <strong>2.8 kg</strong> capacity</li>
+              <li>Energy labels rate: <strong>electricity, not water</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much water does a 7kg washing machine use per cycle?</h3>
+      <p>A 7kg front-loader typically uses about 40 to 55 litres per normal cycle. Efficient models come in nearer 34 litres. A 7kg top-loader is a different class entirely, commonly using 100 to 170 litres because it fills the drum to submerge the clothes rather than tumbling them through a shallow pool. Divide litres by drum capacity to get litres per kg, which is the figure that lets you compare your machine against models of a different size.</p>
+      <h3>What is a good litres per kg figure for a washing machine?</h3>
+      <p>For front-loaders, the range across popular models runs roughly 3.9 to 6.7 litres per kg, with a median near 5.3. Under about 4.5 is excellent, 4.5 to 5.5 is good, 5.5 to 6.5 is average and above 6.5 is poor. Top-loaders operate in a completely different range, commonly 13 to 22 litres per kg, so never compare the two classes directly on this measure.</p>
+      <h3>Do bigger washing machines use more water?</h3>
+      <p>More per cycle, but usually less per kilogram of laundry. A 12kg drum uses more total water than a 7kg drum, yet large machines tend to be more water-efficient per kg washed because the fill volume does not scale linearly with drum size. That is why a full load in a large machine can be more efficient than two half loads in a small one, and why litres per kg is a fairer comparison than litres per cycle.</p>
+      <h3>Does a good energy rating mean a washing machine uses less water?</h3>
+      <p>No, and this catches many buyers out. Energy labels in most markets rate electricity consumption, not water consumption. A machine can earn a top energy rating while using notably more water than a lower-rated model. Water consumption is normally printed as a separate figure on the label, usually as litres per cycle or litres per year based on an assumed number of cycles. Check that number specifically rather than assuming the energy grade covers it.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcWasherEfficiency() {
+  var g = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v <= 0) ? d : v; };
+  var type = document.getElementById('we-type').value;
+  var cap = g('we-cap', 8);
+  var capUnit = document.getElementById('we-capunit').value;
+  var water = g('we-water', 45);
+  var waterUnit = document.getElementById('we-waterunit').value;
+  var loads = g('we-loads', 5);
+  var people = g('we-people', 4);
+
+  var capKg = capUnit === 'cuft' ? cap * 2.8 : cap;
+  var litres = waterUnit === 'gal' ? water * 3.78541 : water;
+  var gallons = litres / 3.78541;
+  var lpk = litres / capKg;
+
+  // Benchmarks differ fundamentally by machine class
+  var bands, median, label;
+  if (type === 'front') {
+    bands = [4.5, 5.5, 6.5]; median = 5.3; label = 'front-loaders';
+  } else if (type === 'top') {
+    bands = [13, 17, 21]; median = 17; label = 'top-loaders';
+  } else {
+    bands = [11, 14, 18]; median = 14; label = 'semi-automatic machines';
+  }
+
+  var verdict, tone;
+  if (lpk < bands[0]) {
+    verdict = 'Excellent';
+    tone = 'Your machine is among the more water-efficient in its class. There is little to gain from replacing it on water grounds.';
+  } else if (lpk < bands[1]) {
+    verdict = 'Good';
+    tone = 'Your machine sits comfortably on the efficient side of typical for ' + label + '.';
+  } else if (lpk < bands[2]) {
+    verdict = 'Average';
+    tone = 'Your machine is around the middle of the range for ' + label + '. Program choice will move your actual usage more than the machine does.';
+  } else {
+    verdict = 'Below average';
+    tone = 'Your machine uses more water per kg than most ' + label + '. Worth checking whether you are running heavier programs than needed before blaming the hardware.';
+  }
+
+  var annualL = litres * loads * 52;
+  var perPersonL = annualL / people;
+  var num = function (v) { return Math.round(v).toLocaleString(); };
+
+  document.getElementById('we-verdict').textContent = lpk.toFixed(2) + ' L/kg — ' + verdict;
+
+  var rows =
+    '<tr><th>Measure</th><th>Your machine</th><th>Typical ' + label + '</th></tr>' +
+    '<tr><td>Drum capacity</td><td>' + capKg.toFixed(1) + ' kg (' + (capKg / 2.8).toFixed(1) + ' cu ft)</td><td>—</td></tr>' +
+    '<tr><td>Water per cycle</td><td>' + litres.toFixed(1) + ' L (' + gallons.toFixed(1) + ' gal)</td><td>—</td></tr>' +
+    '<tr style="font-weight:700;"><td>Water per kg capacity</td><td>' + lpk.toFixed(2) + ' L/kg</td><td>' + median.toFixed(1) + ' L/kg</td></tr>' +
+    '<tr><td>Versus the median</td><td colspan="2">' + (lpk <= median ? num((1 - lpk / median) * 100) + '% better' : num((lpk / median - 1) * 100) + '% worse') + '</td></tr>' +
+    '<tr><td>Annual water use (' + loads + ' loads/week)</td><td>' + num(annualL) + ' L</td><td>' + num(median * capKg * loads * 52) + ' L</td></tr>' +
+    '<tr><td>Annual, in gallons</td><td>' + num(annualL / 3.78541) + ' gal</td><td>' + num(median * capKg * loads * 52 / 3.78541) + ' gal</td></tr>' +
+    '<tr><td>Per person per year</td><td>' + num(perPersonL) + ' L (' + num(perPersonL / 3.78541) + ' gal)</td><td>—</td></tr>';
+
+  // What a best-in-class machine would save
+  var bestLpk = type === 'front' ? 3.9 : (type === 'top' ? 11 : 9);
+  if (lpk > bestLpk) {
+    var saveL = (litres - bestLpk * capKg) * loads * 52;
+    rows += '<tr><td>If replaced with a best-in-class ' + (type === 'front' ? 'front-loader' : 'model') + ' (' + bestLpk + ' L/kg)</td><td colspan="2">saves ' + num(saveL) + ' L/year (' + num(saveL / 3.78541) + ' gal)</td></tr>';
+  }
+  document.getElementById('we-table').innerHTML = rows;
+
+  var note = tone + ' ';
+  if (type !== 'front') {
+    note += 'Bear in mind that ' + label + ' are scored on their own scale here — even an excellent one uses roughly three times the water per kg of a typical front-loader, because the clothes have to be submerged rather than tumbled. ';
+  }
+  note += 'Remember that litres per cycle on its own favours small drums: one full load in a large machine generally beats two half loads in a small one. ';
+  note += 'Also note energy labels rate electricity, not water — a top energy grade does not guarantee low water use, so read the litres figure separately.';
+  document.getElementById('we-note').textContent = note;
+
+  var r = document.getElementById('we-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
