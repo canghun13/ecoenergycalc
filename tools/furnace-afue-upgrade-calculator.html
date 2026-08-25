@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Furnace AFUE Upgrade Calculator – 80% vs 95% and the 2028 Rule | EcoEnergyCalc</title>
+  <meta name="description" content="From December 2028 every new residential furnace must be 95% AFUE. Should you buy a cheap 80% unit before then or go condensing now? Enter your gas use and see the actual payback." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/furnace-afue-upgrade-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Furnace AFUE Upgrade Calculator","url":"https://ecoenergycalc.com/tools/furnace-afue-upgrade-calculator.html","description":"Compare 80% and 95% AFUE furnaces including venting retrofit cost, and see whether buying a non-condensing unit before the December 2028 rule actually saves money.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-09-07"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Should I buy an 80% furnace before the 2028 rule takes effect?","acceptedAnswer":{"@type":"Answer","text":"For most households with a working furnace, no. The upfront saving on a non-condensing unit is typically 800 to 1,500 dollars including the venting difference, while the efficiency gap costs roughly 15.8 percent more gas every year for the 15 to 20 year life of the equipment. At 700 therms a year and 1.70 dollars per therm that is about 188 dollars annually, so the premium pays back in around six years and the condensing unit is ahead by roughly 2,500 dollars over twenty. Replacing a furnace that still works, purely to beat a deadline, usually costs more than it saves."}},
+    {"@type":"Question","name":"What is the 2028 furnace efficiency rule?","acceptedAnswer":{"@type":"Answer","text":"Starting December 18, 2028, all residential gas furnaces manufactured in the United States must reach at least 95 percent AFUE. That effectively ends production of non-condensing furnaces, which typically run around 80 percent. The rule applies to the date of manufacture, not the date of sale or installation, so distributors may continue selling existing inventory afterwards. The Department of Energy upheld the standard in late 2025 after legal challenges, though separate legislation to overhaul the standards program has been introduced since."}},
+    {"@type":"Question","name":"How much does a condensing furnace cost to install versus non-condensing?","acceptedAnswer":{"@type":"Answer","text":"A condensing furnace typically costs 800 to 1,500 dollars more installed. The equipment itself is somewhat more expensive, but most of the gap is the installation: condensing units exhaust cool, acidic flue gas that cannot use an existing metal chimney, so they need new PVC venting run to a sidewall, plus a condensate drain and often a condensate pump. Homes where a drain is hard to reach or the venting run is awkward sit at the top of that range or above it."}},
+    {"@type":"Question","name":"Why does DOE say the furnace rule only saves about 50 dollars a year?","acceptedAnswer":{"@type":"Answer","text":"Because that figure is a national average across all affected households, and it is net of the higher purchase price rather than gross fuel savings. It includes homes in mild climates that barely run a furnace and blends in the roughly one in twenty households expected to switch to a heat pump instead. A household in a cold climate burning 700 to 1,000 therms a year sees considerably larger gross savings than the national average implies, which is why running your own numbers is more useful than the headline figure."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Furnace AFUE Upgrade Calculator</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Furnace AFUE Upgrade Calculator</h1>
+        <p>From December 2028, every new residential gas furnace must hit 95% AFUE — non-condensing 80% units stop being made. That's prompting a lot of "should I buy a cheap one now" advice. Put your own numbers in and find out whether that actually holds up.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Compare 80% vs 95% AFUE</h2>
+            <div class="form-group">
+              <label for="fa-therms">Annual Gas Use for Heating (therms)</label>
+              <input type="number" id="fa-therms" value="700" min="10" max="5000" step="10" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">From your winter gas bills — total the heating-season therms, or take your annual total and subtract roughly 20–25 therms/month for water heating and cooking. Typical: 400–600 mild climate, 600–900 moderate, 900–1,400 cold.</p>
+            </div>
+            <div class="form-group">
+              <label for="fa-oldafue">Current / Cheaper Option AFUE (%)</label>
+              <input type="number" id="fa-oldafue" value="80" min="55" max="98" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Non-condensing units are typically 80%. Pre-1992 furnaces can be 60–70%. The AFUE is on the yellow EnergyGuide label or the nameplate.</p>
+            </div>
+            <div class="form-group">
+              <label for="fa-newafue">Condensing Option AFUE (%)</label>
+              <input type="number" id="fa-newafue" value="95" min="90" max="99" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="fa-gas">Natural Gas Price ($/therm)</label>
+              <input type="number" id="fa-gas" value="1.70" min="0.3" max="6" step="0.05" />
+            </div>
+            <div class="form-group">
+              <label for="fa-premium">Extra Cost of the Condensing Unit, Installed ($)</label>
+              <input type="number" id="fa-premium" value="1200" min="0" max="8000" step="50" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Usually $800–1,500. Most of it is installation, not equipment — PVC venting to a sidewall, a condensate drain, and often a condensate pump. Get this figure as a line item from your quotes rather than guessing.</p>
+            </div>
+            <div class="form-group">
+              <label for="fa-life">Expected Equipment Life (years)</label>
+              <input type="number" id="fa-life" value="18" min="5" max="35" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Gas furnaces typically last 15–20 years with maintenance.</p>
+            </div>
+            <div class="form-group">
+              <label for="fa-escalation">Gas Price Increase (%/year)</label>
+              <input type="number" id="fa-escalation" value="3" min="0" max="15" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcFurnaceAfue()">Run the Numbers</button>
+            <div class="result-box-tool" id="fa-result">
+              <h3>Your Furnace Decision</h3>
+              <div class="result-amount" id="fa-headline"></div>
+              <div class="table-scroll">
+                <table id="fa-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="fa-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>The Arithmetic Behind the Deadline</h2>
+            <p>Going from 80% to 95% AFUE doesn't cut your gas bill by 15 percentage points — it cuts it by <strong>15.8%</strong>. The reason is that AFUE measures how much of the fuel becomes usable heat, so the saving is the ratio, not the difference: 1 − (0.80 ÷ 0.95).</p>
+            <p>That distinction matters because a lot of the coverage rounds it to "15% more efficient" and moves on. What you actually want is the dollar figure at your own gas consumption, which is what the calculator above produces.</p>
+            <p>The counterintuitive result for most households: <strong>buying a non-condensing furnace before the deadline usually loses money.</strong> You save $800–1,500 once and then pay roughly 16% extra on gas for 15–20 years. Only at low gas consumption, cheap gas, or a genuinely expensive venting retrofit does the cheaper unit come out ahead.</p>
+
+            <div class="callout">
+              <strong>Worth being clear about:</strong> none of this argues for replacing a furnace that still works. The deadline applies to manufacture, not ownership — nobody has to remove a working 80% furnace, and replacing functional equipment early to beat a rule is usually the most expensive option of all.
+            </div>
+
+            <h2>Where the Condensing Premium Comes From</h2>
+            <p>The equipment price gap between an 80% and 95% furnace is smaller than people expect. Most of the difference is installation, and it comes from how the two exhaust:</p>
+            <ul>
+              <li><strong>Non-condensing (80%)</strong> sends hot flue gas up a conventional metal chimney or B-vent. The heat carries the exhaust up naturally.</li>
+              <li><strong>Condensing (95%+)</strong> extracts so much heat that the flue gas comes out cool and wet, and mildly acidic. It cannot go up a metal chimney — it needs <strong>PVC venting</strong> run to a sidewall, plus a <strong>condensate drain</strong>, and frequently a condensate pump if there's no gravity drain nearby.</li>
+            </ul>
+            <p>So the premium depends heavily on your house. A basement with a floor drain and an easy exterior wall sits at the low end. A furnace in an interior closet or attic with no nearby drain sits at the high end or above it. That's why the calculator asks you to enter the figure from your own quotes rather than assuming one.</p>
+            <p>One knock-on effect worth asking about: if your water heater currently shares the chimney with the furnace, removing the furnace from that chimney can leave the flue oversized for the water heater alone, which can cause draft or condensation problems. A good installer will raise this; not all do.</p>
+
+            <h2>Why the DOE Figure Looks So Small</h2>
+            <p>You'll see the rule described as saving about <strong>$350 over the furnace's lifetime</strong>, or up to <strong>$50 a year</strong>. If your own calculation came out several times higher, both numbers can still be right.</p>
+            <p>The DOE figure is a <em>national average, net of the higher purchase price</em>. It blends in households in mild climates that barely run a furnace, and it accounts for the roughly one in twenty households expected to install a heat pump instead. A household burning 700–1,000 therms in a cold climate is nowhere near that average.</p>
+            <p>The practical takeaway is that national averages are a poor guide to an individual decision here — the spread between a Houston household and a Minneapolis one is enormous.</p>
+
+            <h2>What the Rule Actually Says</h2>
+            <p>Residential gas furnaces <strong>manufactured</strong> on or after <strong>December 18, 2028</strong> must meet 95% AFUE or higher. Key points that get muddled in the coverage:</p>
+            <ul>
+              <li>It applies to the <strong>date of manufacture</strong>, not sale or installation. Distributors can keep selling existing 80% inventory after the date, so availability won't vanish overnight.</li>
+              <li>It applies to <strong>new equipment</strong>. There is no requirement to replace a working furnace, and no inspection regime attached.</li>
+              <li>DOE upheld the standard in late 2025 after legal challenge. Separate legislation to overhaul how these standards are set has since been introduced in Congress, so the picture could shift — check the current status before making a decision that depends on the date.</li>
+            </ul>
+            <p>There is a genuine policy dispute here, and it's worth stating both sides plainly. Efficiency advocates and DOE point to lifetime bill savings and emissions reductions. Gas industry groups and some manufacturers argue the standards raise equipment costs and narrow consumer choice, particularly for homes where the venting retrofit is expensive. Which argument matters more to you depends largely on your own gas consumption and house — which is the question the calculator answers.</p>
+
+            <h2>The Option the Deadline Debate Skips</h2>
+            <p>If your furnace is near end of life anyway, the 80%-versus-95% question isn't the only one on the table. A heat pump replaces the furnace entirely and, in much of the country, now costs less to run than gas — though the 30% federal credit expired at the end of 2025, which changed that calculation considerably.</p>
+            <p>Our <a href="/blog/is-a-heat-pump-worth-it-without-tax-credit.html">heat pump economics without the tax credit</a> covers where that lands now, and <a href="/compare/heat-pump-vs-furnace-vs-boiler.html">heat pump vs furnace vs boiler</a> compares annual running costs across all three. If you want to check the fuel side first, the <a href="/tools/heating-cost-by-fuel.html">heating cost by fuel calculator</a> puts gas, electric resistance, heat pump, propane and oil on the same per-BTU basis.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel Calculator</a></li>
+              <li><a href="/tools/heating-vs-cooling.html">Heating vs Cooling Cost Calculator</a></li>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings Calculator</a></li>
+              <li><a href="/tools/home-energy-cost.html">Home Energy Cost Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/furnace-efficiency-rule-2028.html">The 2028 Furnace Rule Explained</a></li>
+              <li><a href="/blog/is-a-heat-pump-worth-it-without-tax-credit.html">Heat Pump Without the Tax Credit</a></li>
+              <li><a href="/compare/heat-pump-vs-furnace-vs-boiler.html">Heat Pump vs Furnace vs Boiler</a></li>
+              <li><a href="/blog/how-to-lower-your-heating-bill.html">How to Lower Your Heating Bill</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Rule starts: <strong>Dec 18, 2028</strong></li>
+              <li>Applies to: <strong>date of manufacture</strong></li>
+              <li>80% → 95% saves: <strong>15.8% of gas</strong></li>
+              <li>Condensing premium: <strong>$800–1,500</strong></li>
+              <li>Working furnaces: <strong>no need to replace</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Should I buy an 80% furnace before the 2028 rule takes effect?</h3>
+      <p>For most households with a working furnace, no. The upfront saving on a non-condensing unit is typically 800 to 1,500 dollars including the venting difference, while the efficiency gap costs roughly 15.8 percent more gas every year for the 15 to 20 year life of the equipment. At 700 therms a year and 1.70 dollars per therm that is about 188 dollars annually, so the premium pays back in around six years and the condensing unit is ahead by roughly 2,500 dollars over twenty. Replacing a furnace that still works, purely to beat a deadline, usually costs more than it saves.</p>
+      <h3>What is the 2028 furnace efficiency rule?</h3>
+      <p>Starting December 18, 2028, all residential gas furnaces manufactured in the United States must reach at least 95 percent AFUE. That effectively ends production of non-condensing furnaces, which typically run around 80 percent. The rule applies to the date of manufacture, not the date of sale or installation, so distributors may continue selling existing inventory afterwards. The Department of Energy upheld the standard in late 2025 after legal challenges, though separate legislation to overhaul the standards program has been introduced since.</p>
+      <h3>How much does a condensing furnace cost to install versus non-condensing?</h3>
+      <p>A condensing furnace typically costs 800 to 1,500 dollars more installed. The equipment itself is somewhat more expensive, but most of the gap is the installation: condensing units exhaust cool, acidic flue gas that cannot use an existing metal chimney, so they need new PVC venting run to a sidewall, plus a condensate drain and often a condensate pump. Homes where a drain is hard to reach or the venting run is awkward sit at the top of that range or above it.</p>
+      <h3>Why does DOE say the furnace rule only saves about 50 dollars a year?</h3>
+      <p>Because that figure is a national average across all affected households, and it is net of the higher purchase price rather than gross fuel savings. It includes homes in mild climates that barely run a furnace and blends in the roughly one in twenty households expected to switch to a heat pump instead. A household in a cold climate burning 700 to 1,000 therms a year sees considerably larger gross savings than the national average implies, which is why running your own numbers is more useful than the headline figure.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcFurnaceAfue() {
+  var g = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v <= 0) ? d : v; };
+  var therms = g('fa-therms', 700);
+  var oldA = g('fa-oldafue', 80) / 100;
+  var newA = g('fa-newafue', 95) / 100;
+  var gas = g('fa-gas', 1.70);
+  var premium = parseFloat(document.getElementById('fa-premium').value);
+  if (isNaN(premium) || premium < 0) premium = 1200;
+  var life = Math.round(g('fa-life', 18));
+  var esc = parseFloat(document.getElementById('fa-escalation').value);
+  if (isNaN(esc) || esc < 0) esc = 0;
+
+  if (newA <= oldA) {
+    document.getElementById('fa-headline').textContent = 'Set the condensing AFUE above the cheaper option';
+    document.getElementById('fa-table').innerHTML = '';
+    document.getElementById('fa-note').textContent = 'The second AFUE needs to be higher than the first for this comparison to mean anything. A condensing furnace is normally 95–98% against 80% for non-condensing.';
+    document.getElementById('fa-result').classList.add('visible');
+    return;
+  }
+
+  var savePct = (1 - oldA / newA) * 100;
+  var thermsSaved = therms * (1 - oldA / newA);
+  var year1 = thermsSaved * gas;
+
+  var cumulative = 0, payback = null;
+  for (var y = 0; y < life; y++) {
+    cumulative += year1 * Math.pow(1 + esc / 100, y);
+    if (payback === null && cumulative >= premium) payback = y + 1;
+  }
+  var net = cumulative - premium;
+
+  var money = function (v) { return '$' + Math.round(Math.abs(v)).toLocaleString(); };
+
+  document.getElementById('fa-headline').textContent =
+    net >= 0
+      ? 'Condensing wins by ' + money(net) + ' over ' + life + ' years'
+      : 'Non-condensing wins by ' + money(net) + ' over ' + life + ' years';
+
+  var rows =
+    '<tr><th>Measure</th><th>Value</th></tr>' +
+    '<tr><td>Efficiency gain</td><td>' + (oldA * 100).toFixed(0) + '% → ' + (newA * 100).toFixed(0) + '% AFUE</td></tr>' +
+    '<tr><td>Gas actually saved</td><td>' + savePct.toFixed(1) + '% (' + Math.round(thermsSaved) + ' therms/yr)</td></tr>' +
+    '<tr style="font-weight:700;"><td>Year 1 savings</td><td>' + money(year1) + '</td></tr>' +
+    '<tr><td>Extra cost of condensing unit</td><td>' + money(premium) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Payback on the premium</td><td>' + (payback ? payback + ' years' : 'Not within ' + life + ' years') + '</td></tr>' +
+    '<tr><td>Total fuel saved over ' + life + ' years</td><td>' + money(cumulative) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Net position after ' + life + ' years</td><td>' + (net >= 0 ? '+' : '−') + money(net) + '</td></tr>' +
+    '<tr><td>Break-even premium</td><td>' + money(cumulative) + ' — above this the cheaper unit wins</td></tr>';
+  document.getElementById('fa-table').innerHTML = rows;
+
+  var note = '';
+  if (net >= 0) {
+    note = 'At your numbers the condensing furnace comes out ahead, so buying a non-condensing unit to beat the December 2028 deadline would cost you money rather than save it. ';
+    if (payback && payback <= 7) {
+      note += 'The premium pays for itself in ' + payback + ' years against equipment that lasts ' + life + ', which is a comfortable margin. ';
+    } else if (payback) {
+      note += 'The premium takes ' + payback + ' years to pay back out of a ' + life + '-year life, so the margin is real but not huge — worth getting a firm venting quote before deciding. ';
+    }
+  } else {
+    note = 'At your numbers the cheaper unit wins, which usually means either low gas consumption, cheap gas, or an unusually expensive venting retrofit. Double-check the premium figure against an itemised quote, since ' + money(premium) + ' is above the typical $800–1,500 range if that is where you landed. ';
+  }
+  note += 'Important: none of this means you should replace a furnace that still works. The rule applies to manufacture, not ownership — nobody has to remove a functioning 80% unit, and replacing working equipment early is normally the most expensive choice available. ';
+  note += 'Excludes maintenance differences, any state or utility rebate, and the heat pump option, which is worth pricing separately if your furnace is near end of life.';
+  document.getElementById('fa-note').textContent = note;
+
+  var r = document.getElementById('fa-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
