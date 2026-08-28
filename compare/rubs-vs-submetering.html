@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RUBS vs Submetering: Which Apartment Utility Billing Is Better? | EcoEnergyCalc</title>
+  <meta name="description" content="Submetering bills your actual usage; RUBS bills a formula based on your unit's size or occupancy. See which one rewards conservation, who each favours, and what to ask before signing a lease." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/compare/rubs-vs-submetering.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"RUBS vs Submetering: Which Apartment Utility Billing Is Better?","description":"Compare formula-based RUBS allocation against submetered actual usage for apartment utility billing.","url":"https://ecoenergycalc.com/compare/rubs-vs-submetering.html","datePublished":"2026-09-14","dateModified":"2026-09-14","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="article-page">
+    <div class="container">
+      <div class="article-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › RUBS vs Submetering</p>
+        <span class="article-tag">Energy Savings</span>
+        <h1>RUBS vs Submetering: Which Apartment Utility Billing Is Better?</h1>
+        <p class="article-meta">7 min read · September 2026</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <p>Both systems pass building utility costs to residents. The difference is whether the number on your statement reflects what you used or what your apartment looks like on a spreadsheet — and that single distinction decides whether conserving energy saves you anything at all.</p>
+
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>What Each Would Cost You</h2>
+            <div class="form-group"><label for="rs-bill">Building's Total Utility Bill ($)</label><input type="number" id="rs-bill" value="3000" min="1" max="500000" step="1" /></div>
+            <div class="form-group"><label for="rs-units">Units in Building</label><input type="number" id="rs-units" value="20" min="2" max="2000" step="1" /></div>
+            <div class="form-group"><label for="rs-mysf">Your Unit (sq ft)</label><input type="number" id="rs-mysf" value="850" min="50" max="20000" step="10" /></div>
+            <div class="form-group"><label for="rs-totsf">Total Building (sq ft)</label><input type="number" id="rs-totsf" value="17000" min="100" max="5000000" step="100" /></div>
+            <div class="form-group"><label for="rs-usage">Your Usage vs the Building Average (%)</label><input type="number" id="rs-usage" value="70" min="10" max="300" step="5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">100 = you use exactly the average for your unit size. Below 100 if you're frugal, travel often, or are out all day; above if you run AC hard, work from home, or have a big household.</p>
+            </div>
+            <div class="form-group"><label for="rs-fee">Monthly Billing Admin Fee ($)</label><input type="number" id="rs-fee" value="5" min="0" max="200" step="0.5" /></div>
+            <button class="btn-primary" onclick="calcRubsVsSub()">Compare Both Methods</button>
+            <div class="result-box-tool" id="rs-result">
+              <h3>Your Bill Under Each System</h3>
+              <div class="result-amount" id="rs-headline"></div>
+              <div class="table-scroll"><table id="rs-table" style="width:100%;min-width:480px;"></table></div>
+              <p class="result-note" id="rs-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body">
+            <h2>The Core Difference</h2>
+            <p><strong>Submetering</strong> puts a physical meter on your unit. You're billed for the kilowatt-hours or gallons that passed through it. Use less, pay less — the same relationship as a normal utility account, just with the landlord or a billing company in the middle.</p>
+            <p><strong>RUBS</strong> — Ratio Utility Billing System — has no meter on your unit. The landlord divides the master-metered bill using a formula based on square footage, occupant count, bedroom count, or a blend. Your bill reflects your apartment's characteristics, not your behaviour.</p>
+
+            <div class="callout">
+              <strong>The consequence renters miss:</strong> under a square-footage or bedroom-count formula, turning off lights and taking shorter showers changes your bill by exactly nothing. Your share is fixed by your unit's size. Conservation only pays under submetering — or, partially, under an occupancy formula if someone actually moves out.
+            </div>
+
+            <h2>Who Each System Favours</h2>
+            <p><strong>Submetering is better for you if</strong> you use less than average for your unit size — you travel, you're out all day, you're careful with heating and cooling, or you live alone in a larger apartment. You capture the full benefit of using less.</p>
+            <p><strong>RUBS is better for you if</strong> you use more than average — a big household, someone home all day, heavy AC use, or an apartment full of appliances. Under RUBS, part of your consumption is effectively subsidised by lighter users in the building.</p>
+            <p>That's the honest summary, and it explains why the debate isn't really about fairness in the abstract. RUBS is not a worse deal for everyone; it's a worse deal for efficient households and a better one for heavy users. Submetering reverses that.</p>
+
+            <h2>Why Buildings Choose RUBS Anyway</h2>
+            <p>Mostly cost and feasibility. Submetering means installing physical meters in every unit, which is expensive and sometimes impractical — older buildings often have plumbing or electrical runs that serve multiple units, making a per-unit meter physically impossible without major work. RUBS can be implemented in days with no hardware.</p>
+            <p>Property management guidance is fairly open about the other reason: RUBS is a way to recover utility costs without capital expenditure. That's a legitimate business consideration, but it's worth knowing that the material written about these systems is overwhelmingly aimed at the party doing the billing rather than the party receiving it.</p>
+
+            <h2>What's Regulated and What Isn't</h2>
+            <p>The formula itself is largely unregulated — no law dictates which method a landlord must use, and it can differ by utility within the same building. What generally does apply across most states:</p>
+            <ul>
+              <li>The billing method must be <strong>disclosed in the lease before signing</strong>.</li>
+              <li>A landlord generally <strong>cannot convert included utilities to RUBS mid-lease</strong> without tenant consent.</li>
+              <li>The <strong>total billed to all tenants combined cannot exceed the landlord's actual bill</strong>, though a separately disclosed admin fee is usually permitted on top.</li>
+            </ul>
+            <p>That last one is the practically useful check, because it's arithmetic rather than judgement. Our <a href="/tools/rubs-utility-bill-checker.html">apartment utility bill checker</a> runs it against your own statement, and the <a href="/blog/is-my-apartment-utility-bill-fair.html">renter's guide to RUBS</a> covers what to request in writing.</p>
+
+            <h2>Neither of These Is a Shared Meter</h2>
+            <p>Worth separating out, because it's the one situation with real legal weight. A <strong>shared meter</strong> is when your own individual meter also serves something outside your unit — a hallway light, a common water heater, part of another apartment. That's prohibited or tightly restricted in many states, with remedies that can include the landlord being required to take over the account.</p>
+            <p>If you have your own meter and the bill is impossible for your usage, that's the thing to rule out before anything else. Ask the utility or an electrician to trace the circuit.</p>
+
+            <h2>What to Ask Before Signing a Lease</h2>
+            <ul>
+              <li><strong>Is the unit submetered, or is billing allocated?</strong> If allocated, which formula, and does it differ by utility?</li>
+              <li><strong>How are common areas treated?</strong> Pool pumps, hallway lighting, laundry and irrigation are operating costs, and best practice is to deduct them before allocating.</li>
+              <li><strong>What's the admin fee</strong>, and where is it disclosed?</li>
+              <li><strong>What did a comparable unit pay</strong> over the last twelve months? Reasonable to ask, and a summer and winter figure tells you more than an average.</li>
+            </ul>
+            <p>If you're an efficient household looking at a RUBS building, factor the allocated charge into your rent comparison as a fixed cost rather than something you can manage down — because under most formulas, you can't.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/rubs-utility-bill-checker.html">Apartment Utility Bill Checker</a></li>
+              <li><a href="/tools/bill-increase-breakdown-calculator.html">Bill Increase Breakdown Calculator</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/water-bill-benchmark-calculator.html">Water Bill Benchmark Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/is-my-apartment-utility-bill-fair.html">Is My Apartment Utility Bill Fair?</a></li>
+              <li><a href="/blog/why-did-my-electric-bill-go-up-when-i-used-less.html">Why Did My Bill Go Up When I Used Less?</a></li>
+              <li><a href="/blog/is-community-solar-worth-it.html">Solar Options for Renters</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Submetering bills: <strong>actual usage</strong></li>
+              <li>RUBS bills: <strong>a formula</strong></li>
+              <li>Conservation pays under: <strong>submetering only</strong></li>
+              <li>Formula set by law: <strong>no</strong></li>
+              <li>Shared meter: <strong>a separate, often illegal, issue</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcRubsVsSub() {
+  var g = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v <= 0) ? d : v; };
+  var gz = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v < 0) ? d : v; };
+  var bill = g('rs-bill', 3000);
+  var units = Math.max(2, Math.round(g('rs-units', 20)));
+  var mysf = g('rs-mysf', 850);
+  var totsf = g('rs-totsf', 17000);
+  var usagePct = g('rs-usage', 70) / 100;
+  var fee = gz('rs-fee', 5);
+
+  var sfShare = Math.min(1, mysf / totsf);
+  var rubs = bill * sfShare;
+
+  // Submetered: your share of consumption = size share scaled by how you use vs average.
+  // Normalise so that if every unit used at 100%, shares sum to the whole bill.
+  var sub = bill * sfShare * usagePct;
+
+  var rubsTotal = rubs + fee, subTotal = sub + fee;
+  var diff = rubsTotal - subTotal;
+
+  var money = function (v) { return '$' + v.toFixed(2); };
+
+  document.getElementById('rs-headline').textContent =
+    diff > 0.5 ? 'Submetering saves you ' + money(diff) + '/month'
+    : diff < -0.5 ? 'RUBS saves you ' + money(-diff) + '/month'
+    : 'Roughly the same either way';
+
+  document.getElementById('rs-table').innerHTML =
+    '<tr><th></th><th>RUBS (formula)</th><th>Submetered (actual)</th></tr>' +
+    '<tr><td>Basis</td><td>' + (sfShare * 100).toFixed(1) + '% of building sq ft</td><td>Your metered usage</td></tr>' +
+    '<tr><td>Allocated / metered charge</td><td>' + money(rubs) + '</td><td>' + money(sub) + '</td></tr>' +
+    '<tr><td>Admin fee</td><td>' + money(fee) + '</td><td>' + money(fee) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Monthly total</td><td>' + money(rubsTotal) + '</td><td>' + money(subTotal) + '</td></tr>' +
+    '<tr><td>Over 12 months</td><td>' + money(rubsTotal * 12) + '</td><td>' + money(subTotal * 12) + '</td></tr>' +
+    '<tr><td>Does cutting usage 20% help?</td><td>No — share is fixed by sq ft</td><td>Yes — saves ' + money(sub * 0.2) + '/mo</td></tr>';
+
+  var note = '';
+  if (usagePct < 0.95) {
+    note = 'You use about ' + Math.round((1 - usagePct) * 100) + '% less than average for a unit your size, so submetering rewards that and RUBS does not — under a square-footage formula you pay the same as a neighbour who uses far more. ';
+  } else if (usagePct > 1.05) {
+    note = 'You use about ' + Math.round((usagePct - 1) * 100) + '% more than average for a unit your size, so RUBS works in your favour here: part of your consumption is effectively covered by lighter users in the building. ';
+  } else {
+    note = 'You use about the average for a unit your size, so the two methods land in a similar place. The difference would show up if your habits changed. ';
+  }
+  note += 'Note the asymmetry that matters most: under RUBS with a square-footage or bedroom formula, conservation changes your bill by nothing at all, because your share is set by the apartment rather than your behaviour. ';
+  note += 'This models a square-footage allocation, which is the most common for electricity and gas; occupancy formulas behave differently. It also assumes the building recovers exactly its actual bill — worth verifying separately, since that is the one part of RUBS that is generally enforceable.';
+  document.getElementById('rs-note').textContent = note;
+
+  var r = document.getElementById('rs-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

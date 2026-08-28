@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apartment Utility Bill Checker (RUBS) – Is Your Share Fair? | EcoEnergyCalc</title>
+  <meta name="description" content="Landlord splitting the building's utility bill by formula instead of a meter? Work out what your share should be under each allocation method, and check whether the building is recovering more than it actually paid." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/rubs-utility-bill-checker.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Apartment Utility Bill Checker (RUBS)","url":"https://ecoenergycalc.com/tools/rubs-utility-bill-checker.html","description":"Work out what your share of a master-metered apartment utility bill should be under each RUBS allocation formula, and check for over-recovery.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-09-14"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is RUBS on my apartment bill?","acceptedAnswer":{"@type":"Answer","text":"RUBS stands for Ratio Utility Billing System. Instead of metering each apartment, the landlord tracks the whole building's usage on a single master meter and then divides that bill among tenants using a formula — usually based on square footage, the number of occupants, bedroom count, or a blend of these. It is not a measurement of what you personally used. Because no law dictates which formula must be used, two identical apartments in different buildings can be billed very differently for the same consumption."}},
+    {"@type":"Question","name":"Can my landlord charge more than the actual utility bill?","acceptedAnswer":{"@type":"Answer","text":"In most states, no. A widely applied requirement is that the total billed to all tenants combined cannot exceed the landlord's actual utility bill from the provider, though a separately disclosed administrative or service fee is often permitted on top. This is the single most useful thing a tenant can check: if your charge divided by your allocation share implies a building-wide recovery well above the actual bill, something is wrong with the formula, the inputs, or the disclosure. Rules vary by state, so confirm your local requirements."}},
+    {"@type":"Question","name":"Should common area utilities be deducted before RUBS allocation?","acceptedAnswer":{"@type":"Answer","text":"Best practice is yes, and some jurisdictions require it. Hallway lighting, laundry rooms, pool pumps, leasing offices and irrigation are the landlord's operating costs rather than any tenant's consumption. Where common areas are not separately metered, a percentage deduction is normally applied before the remainder is allocated to units. If your lease is silent on common area treatment, that is worth asking about in writing — on a building with a pool or extensive landscaping, the common area share can be substantial."}},
+    {"@type":"Question","name":"Is a shared meter the same as RUBS?","acceptedAnswer":{"@type":"Answer","text":"No, and the distinction matters legally. RUBS means the landlord divides a master-metered bill by formula. A shared meter means your own individual meter is also serving something outside your unit — a hallway light, a common water heater, or another apartment. Shared meter arrangements are prohibited or tightly restricted in many states, and remedies can include the landlord being required to take over the account. If your bill seems impossible for your usage and you have your own meter, having an electrician or the utility trace the circuit is worth doing."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Apartment Utility Bill Checker</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Apartment Utility Bill Checker (RUBS)</h1>
+        <p>If your building splits one master-metered utility bill among tenants by formula rather than by meter, you have no direct way to see whether your share is right. This works out what you'd owe under each of the standard allocation methods — and flags whether the building appears to be recovering more than it actually paid.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Check Your Allocation</h2>
+            <div class="form-group">
+              <label for="ru-bill">Building's Total Utility Bill ($)</label>
+              <input type="number" id="ru-bill" value="3000" min="1" max="500000" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Your statement should show this. If it doesn't, you can request it — most states requiring RUBS disclosure also require the master bill be made available on request.</p>
+            </div>
+            <div class="form-group">
+              <label for="ru-common">Common Area Share Deducted First (%)</label>
+              <input type="number" id="ru-common" value="0" min="0" max="60" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Hallway lights, laundry, pool pump, leasing office, irrigation. Enter 0 if your statement doesn't mention a deduction — that absence is itself worth asking about.</p>
+            </div>
+            <div class="form-group">
+              <label for="ru-units">Total Units in the Building</label>
+              <input type="number" id="ru-units" value="20" min="2" max="2000" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="ru-mysf">Your Unit Size (sq ft)</label>
+              <input type="number" id="ru-mysf" value="850" min="50" max="20000" step="10" />
+            </div>
+            <div class="form-group">
+              <label for="ru-totsf">Total Rentable Sq Ft in Building</label>
+              <input type="number" id="ru-totsf" value="17000" min="100" max="5000000" step="100" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Don't know it? Multiply the unit count by an average unit size — the result is approximate but still useful for sanity-checking.</p>
+            </div>
+            <div class="form-group">
+              <label for="ru-myocc">Occupants in Your Unit</label>
+              <input type="number" id="ru-myocc" value="2" min="1" max="30" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="ru-totocc">Total Occupants in Building</label>
+              <input type="number" id="ru-totocc" value="44" min="1" max="10000" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Often estimated by the billing company rather than counted. If they use an assumed average per unit, ask what figure they used.</p>
+            </div>
+            <div class="form-group">
+              <label for="ru-mybr">Bedrooms in Your Unit</label>
+              <input type="number" id="ru-mybr" value="2" min="0" max="15" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="ru-totbr">Total Bedrooms in Building</label>
+              <input type="number" id="ru-totbr" value="38" min="1" max="10000" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="ru-charged">What You Were Actually Charged ($)</label>
+              <input type="number" id="ru-charged" value="210" min="0" max="50000" step="0.01" />
+            </div>
+            <div class="form-group">
+              <label for="ru-fee">Admin / Service Fee Included in That ($)</label>
+              <input type="number" id="ru-fee" value="5" min="0" max="500" step="0.01" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Billing companies typically charge a per-unit monthly fee. It should be disclosed separately in your lease.</p>
+            </div>
+            <button class="btn-primary" onclick="calcRubs()">Check My Share</button>
+            <div class="result-box-tool" id="ru-result">
+              <h3>Your Allocation Under Each Formula</h3>
+              <div class="result-amount" id="ru-headline"></div>
+              <div class="table-scroll">
+                <table id="ru-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="ru-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Why This Is Hard to Check</h2>
+            <p>Almost everything written about RUBS is aimed at landlords and property managers — how to implement it, how to "recover utility costs," how to explain it to residents. Very little is written for the person receiving the bill, which leaves tenants with a charge they can't verify and no obvious way to test it.</p>
+            <p>The core problem is that <strong>no law dictates which formula must be used.</strong> The DC Attorney General's guidance puts it plainly: the formula can vary from property to property and by utility. Two identical apartments in different buildings can be billed very differently for the same consumption, and both can be perfectly legal.</p>
+            <p>What that means practically is that "my bill seems high" is not, by itself, evidence of anything. What <em>is</em> checkable is whether the numbers are internally consistent — which is what this calculator tests.</p>
+
+            <div class="callout">
+              <strong>The check that actually has teeth:</strong> in most states the total billed to all tenants combined cannot exceed the landlord's actual utility bill. Divide your charge by your allocation share and you get the implied building-wide recovery. If that lands well above the master bill, something is wrong with the formula, the inputs, or the disclosure — and that's a concrete, specific question to put in writing.
+            </div>
+
+            <h2>The Standard Allocation Formulas</h2>
+            <ul>
+              <li><strong>Equal split.</strong> Total ÷ number of units. Simple, and reasonable when units are near-identical. Penalises small and single-occupant units heavily otherwise.</li>
+              <li><strong>Square footage.</strong> Your share = total × (your sq ft ÷ building sq ft). Commonly used for electricity and gas, since heating and cooling load scales with space.</li>
+              <li><strong>Occupancy.</strong> Your share = total × (your occupants ÷ total occupants). Commonly used for water and sewer, since consumption tracks people rather than floor area.</li>
+              <li><strong>Bedroom count.</strong> A proxy for occupancy that doesn't require counting people. Often used where occupancy data is unreliable.</li>
+              <li><strong>Hybrid.</strong> Typically a 50/50 blend of square footage and occupancy. Widely regarded as the most equitable, and increasingly the default.</li>
+            </ul>
+            <p>Notice how different these can be for the same apartment. A large unit with one occupant does best under occupancy and worst under square footage; a small crowded unit is the reverse. Which formula your building picked matters more to your bill than anything you do with the lights.</p>
+
+            <h2>Common Areas: The Deduction That's Often Missing</h2>
+            <p>Hallway lighting, laundry rooms, pool pumps, the leasing office and landscape irrigation are the landlord's operating expenses, not any tenant's consumption. Best practice — and a requirement in some jurisdictions — is to deduct a common area share before allocating the remainder to units.</p>
+            <p>If your statement makes no mention of a common area deduction, that's worth asking about in writing. On a property with a pool, a gym or significant irrigation, the common area share can be substantial, and allocating it to residents shifts a real operating cost onto tenants.</p>
+
+            <h2>RUBS Is Not the Same as a Shared Meter</h2>
+            <p>These get conflated constantly and the legal position is very different.</p>
+            <p><strong>RUBS</strong> means the landlord divides a master-metered bill by formula. Legal in most states, subject to disclosure requirements.</p>
+            <p><strong>A shared meter</strong> means your own individual meter is also serving something outside your unit — a hallway light, a common water heater, or part of another apartment. This is prohibited or tightly restricted in many states, and remedies can be significant, including requiring the landlord to take over the account.</p>
+            <p>If you have your own meter and the bill seems impossible for your usage, that's a different investigation: ask the utility or an electrician to trace what's actually on your circuit. Our <a href="/tools/bill-increase-breakdown-calculator.html">bill increase breakdown calculator</a> can help separate a usage change from a rate change first, so you know which problem you're chasing.</p>
+
+            <h2>What to Do With the Result</h2>
+            <p>If the numbers look off, the productive move is a specific written request rather than a general complaint. Reasonable things to ask for:</p>
+            <ul>
+              <li>The <strong>allocation formula</strong> in writing, including which factors and weights are used for each utility.</li>
+              <li>A copy of the <strong>master utility bill</strong> for the period being allocated.</li>
+              <li>The <strong>inputs used for your unit</strong> — the square footage and occupant count on file, which are sometimes simply wrong.</li>
+              <li>How <strong>common areas</strong> are treated.</li>
+              <li>The <strong>admin fee</strong> and where it's disclosed in your lease.</li>
+            </ul>
+            <p>Two things worth knowing before you start: the method and formula generally must be <strong>disclosed in the lease before you sign</strong>, and a landlord generally <strong>cannot convert an included-utilities arrangement to RUBS mid-lease</strong> without your consent. If either happened, that's a stronger position than a fairness argument.</p>
+            <p>Requirements vary by state, and several state attorney general offices publish tenant guidance on utility billing. Your state AG or local tenants' rights organisation is the right place to confirm what applies to you — this calculator checks arithmetic, not law.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/bill-increase-breakdown-calculator.html">Bill Increase Breakdown Calculator</a></li>
+              <li><a href="/tools/water-bill-benchmark-calculator.html">Water Bill Benchmark Calculator</a></li>
+              <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
+              <li><a href="/tools/electric-bill-spike-calculator.html">Electric Bill Spike Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/is-my-apartment-utility-bill-fair.html">Is My Apartment Utility Bill Fair?</a></li>
+              <li><a href="/compare/rubs-vs-submetering.html">RUBS vs Submetering</a></li>
+              <li><a href="/blog/why-did-my-electric-bill-go-up-when-i-used-less.html">Why Did My Bill Go Up When I Used Less?</a></li>
+              <li><a href="/blog/is-community-solar-worth-it.html">Is Community Solar Worth It?</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>RUBS measures: <strong>a formula, not your usage</strong></li>
+              <li>Formula set by law: <strong>no — varies by property</strong></li>
+              <li>Total billed vs actual bill: <strong>usually capped</strong></li>
+              <li>Mid-lease switch to RUBS: <strong>generally needs consent</strong></li>
+              <li>Shared meter: <strong>different issue, often illegal</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is RUBS on my apartment bill?</h3>
+      <p>RUBS stands for Ratio Utility Billing System. Instead of metering each apartment, the landlord tracks the whole building's usage on a single master meter and then divides that bill among tenants using a formula — usually based on square footage, the number of occupants, bedroom count, or a blend of these. It is not a measurement of what you personally used. Because no law dictates which formula must be used, two identical apartments in different buildings can be billed very differently for the same consumption.</p>
+      <h3>Can my landlord charge more than the actual utility bill?</h3>
+      <p>In most states, no. A widely applied requirement is that the total billed to all tenants combined cannot exceed the landlord's actual utility bill from the provider, though a separately disclosed administrative or service fee is often permitted on top. This is the single most useful thing a tenant can check: if your charge divided by your allocation share implies a building-wide recovery well above the actual bill, something is wrong with the formula, the inputs, or the disclosure. Rules vary by state, so confirm your local requirements.</p>
+      <h3>Should common area utilities be deducted before RUBS allocation?</h3>
+      <p>Best practice is yes, and some jurisdictions require it. Hallway lighting, laundry rooms, pool pumps, leasing offices and irrigation are the landlord's operating costs rather than any tenant's consumption. Where common areas are not separately metered, a percentage deduction is normally applied before the remainder is allocated to units. If your lease is silent on common area treatment, that is worth asking about in writing — on a building with a pool or extensive landscaping, the common area share can be substantial.</p>
+      <h3>Is a shared meter the same as RUBS?</h3>
+      <p>No, and the distinction matters legally. RUBS means the landlord divides a master-metered bill by formula. A shared meter means your own individual meter is also serving something outside your unit — a hallway light, a common water heater, or another apartment. Shared meter arrangements are prohibited or tightly restricted in many states, and remedies can include the landlord being required to take over the account. If your bill seems impossible for your usage and you have your own meter, having an electrician or the utility trace the circuit is worth doing.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcRubs() {
+  var g = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v <= 0) ? d : v; };
+  var gz = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v < 0) ? d : v; };
+  var bill = g('ru-bill', 3000);
+  var commonPct = gz('ru-common', 0);
+  if (commonPct > 90) commonPct = 90;
+  var units = Math.max(2, Math.round(g('ru-units', 20)));
+  var mysf = g('ru-mysf', 850), totsf = g('ru-totsf', 17000);
+  var myocc = g('ru-myocc', 2), totocc = g('ru-totocc', 44);
+  var mybr = gz('ru-mybr', 2), totbr = g('ru-totbr', 38);
+  var charged = gz('ru-charged', 210);
+  var fee = gz('ru-fee', 5);
+
+  var pool = bill * (1 - commonPct / 100);
+  var netCharged = Math.max(0, charged - fee);
+
+  var eq = pool / units;
+  var sfShare = Math.min(1, mysf / totsf), sf = pool * sfShare;
+  var occShare = Math.min(1, myocc / totocc), occ = pool * occShare;
+  var brShare = mybr > 0 ? Math.min(1, mybr / totbr) : 0, br = pool * brShare;
+  var hy = (sf + occ) / 2;
+
+  var opts = [
+    { n: 'Equal split (per unit)', v: eq, s: 1 / units },
+    { n: 'Square footage', v: sf, s: sfShare },
+    { n: 'Occupancy', v: occ, s: occShare },
+    { n: 'Bedroom count', v: br, s: brShare },
+    { n: 'Hybrid (50% sq ft / 50% occupancy)', v: hy, s: (sfShare + occShare) / 2 }
+  ].filter(function (o) { return o.v > 0; });
+
+  var lo = Math.min.apply(null, opts.map(function (o) { return o.v; }));
+  var hi = Math.max.apply(null, opts.map(function (o) { return o.v; }));
+
+  var money = function (v) { return '$' + v.toFixed(2); };
+
+  var status;
+  if (netCharged <= hi * 1.02 && netCharged >= lo * 0.98) status = 'Within the normal range';
+  else if (netCharged > hi * 1.02) status = 'Above every standard formula';
+  else status = 'Below every standard formula';
+
+  document.getElementById('ru-headline').textContent = money(netCharged) + ' charged — ' + status;
+
+  var rows = '<tr><th>Allocation method</th><th>Your share</th><th>vs charged</th></tr>';
+  opts.forEach(function (o) {
+    var d = netCharged - o.v;
+    rows += '<tr><td>' + o.n + '</td><td>' + money(o.v) + '</td><td>' + (d >= 0 ? '+' : '−') + money(Math.abs(d)).slice(1) + '</td></tr>';
+  });
+  rows += '<tr style="background:var(--card);"><td colspan="3"><strong>Over-recovery check</strong></td></tr>';
+  rows += '<tr><td>Charged, excluding admin fee</td><td colspan="2">' + money(netCharged) + '</td></tr>';
+
+  // Implied building-wide recovery using the formula closest to what you were charged
+  var closest = opts.reduce(function (a, b) {
+    return Math.abs(b.v - netCharged) < Math.abs(a.v - netCharged) ? b : a;
+  });
+  var impliedTotal = closest.s > 0 ? netCharged / closest.s : 0;
+  var overPct = pool > 0 ? (impliedTotal / pool - 1) * 100 : 0;
+
+  rows += '<tr><td>Closest matching formula</td><td colspan="2">' + closest.n + '</td></tr>' +
+    '<tr><td>Implied building-wide recovery</td><td colspan="2">' + money(impliedTotal) + '</td></tr>' +
+    '<tr><td>Allocatable pool' + (commonPct > 0 ? ' (after ' + commonPct + '% common area)' : '') + '</td><td colspan="2">' + money(pool) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Recovery vs actual</td><td colspan="2">' + (overPct >= 0 ? '+' : '') + overPct.toFixed(0) + '%</td></tr>';
+  if (fee > 0) rows += '<tr><td>Admin fee across ' + units + ' units</td><td colspan="2">' + money(fee * units) + '/month building-wide</td></tr>';
+  document.getElementById('ru-table').innerHTML = rows;
+
+  var note = '';
+  if (netCharged > hi * 1.02) {
+    note = 'Your charge is above what every standard formula produces — the highest, ' + opts.reduce(function(a,b){return b.v>a.v?b:a;}).n.toLowerCase() + ', gives ' + money(hi) + '. ';
+  } else if (netCharged < lo * 0.98) {
+    note = 'Your charge is below every standard formula, so you appear to be paying less than a straightforward allocation would produce. ';
+  } else {
+    note = 'Your charge sits inside the range the standard formulas produce (' + money(lo) + ' to ' + money(hi) + '), which is what you would expect if the allocation is being applied normally. ';
+  }
+  if (overPct > 10) {
+    note += 'More importantly: scaling your charge across the building implies a total recovery of ' + money(impliedTotal) + ' against an allocatable pool of ' + money(pool) + ' — about ' + overPct.toFixed(0) + '% more than was actually spent. In most states the combined total billed to tenants cannot exceed the landlord\'s actual bill, so this is the specific thing to ask about in writing. Request the allocation formula, the master bill for the period, and the square footage and occupant count on file for your unit. ';
+  } else if (overPct < -10) {
+    note += 'Scaling your charge across the building implies a recovery of ' + money(impliedTotal) + ' against a ' + money(pool) + ' pool, so the building appears to be absorbing part of the cost rather than over-recovering. ';
+  } else {
+    note += 'Scaling your charge across the building implies roughly the actual bill amount, which suggests the allocation is internally consistent. ';
+  }
+  if (commonPct === 0) {
+    note += 'You entered no common area deduction — if your statement never mentions one, ask how hallway lighting, laundry, irrigation and any pool or gym are treated, since those are operating costs rather than tenant consumption. ';
+  }
+  note += 'This checks arithmetic, not law: no statute dictates which formula a landlord must use, and requirements vary by state. Your state attorney general or a local tenants\' rights organisation is the right place to confirm what applies to you.';
+  document.getElementById('ru-note').textContent = note;
+
+  var r = document.getElementById('ru-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
