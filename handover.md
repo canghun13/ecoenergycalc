@@ -1,3 +1,47 @@
+# EcoEnergyCalc 인수인계 — v27 세션 (2026-09-21, 주간 데이터)
+
+## 0-U1. 📈 Bing 또 2배 — 1,534노출 / 41클릭
+
+| | Google (GSC 3개월) | Bing (주간) |
+|---|---|---|
+| 노출 | 469 | **1,534** (전주 977) |
+| **클릭** | **0** | **41** (전주 20) |
+| 평균 순위 | 68~74위 | **5~6위** |
+
+- GA(8/03~8/30): 활성 214명(전 135), 이벤트 1,176. **Bing계열 155세션**(bing 61 + ddg 61 + ecosia 21 + yahoo 12) — 전주 72에서 또 2배. **google/organic 0 유지.**
+- Bing 최대 자산: `tools/water-usage.html` **771노출/10클릭**. 2위 washing-machine-water-usage 197, 3위 how-much-water-does-a-washing-machine-use 126.
+- **v26 신규 3개 클러스터 전부 GA에 등장 시작**(RUBS 툴·compare, 발코니, 화로 각 1~3뷰). 색인·노출까지는 시간이 더 필요.
+- 단일 최다 클릭 키워드: **`home carbon footprint calculator` 3클릭 @6위** → `tools/home-carbon-footprint.html`. 순위를 올리면 바로 먹히는 자리이니 다음 세션 후보.
+
+## 0-U2. ✅ v27 작업: 최고 전환 자산 보강 (커밋 `88a043a`) — 신규 없음, 파일 수 140 유지
+
+이번 주는 **신규를 만들지 않고 기존 자산의 결함을 고쳤다.** 근거는 아래.
+
+### ⚠️ `compare/driving-vs-flying-carbon.html` 모델 결함 발견·수정 (중요)
+이 페이지는 **Bing 38노출/7클릭(CTR 18.4%, 사이트 최고)이자 GA 2위 페이지(46뷰/33명)**인 최고 전환 자산인데, **계산기가 틀려 있었다.**
+- 비행 계수가 거리와 무관한 고정값(255g/pass-mile)이라 **200마일이든 3,000마일이든 승자가 동일**했음. 그런데 같은 페이지 본문은 "이착륙이 단거리 연료의 25~40%"라고 서술 — **본문과 모델이 정면 모순**.
+- 거리 의존 모델로 교체: **이착륙 고정분 32,250g/승객/사이클 + 순항 215g/pass-mile**. 본문 서술에 맞게 보정했고(500마일 이착륙 비중 23%, 200마일 43%), 800마일 실효계수가 기존 255g와 일치해 연속성 유지.
+- 좌석등급을 절대값 → **배수(1 / 1.49 / 2.24)**로 변경해 거리 모델과 결합.
+- **손익분기 거리 신규 출력.** Bing 쿼리가 정확히 이걸 묻는다: `driving versus flying for a long trip which is less emmitting?`, `co2 of flying per mile vs driving (assume car is 45 mpg)`.
+- 검증: 20mpg 1인 → 141마일, 30mpg 1인 → 397마일, 45mpg 1인 및 2인 이상 → 전 거리 운전 우세.
+- **본문 정정**: "300마일 미만은 탑승인원과 무관하게 운전 승리"는 모델과 배치(1인 SUV는 140마일에서도 비행 유리). "탑승인원이 거리보다 중요하다"로 재작성.
+- ⚠️ **교훈: 잘 팔리는 페이지일수록 계산 로직을 한 번 검산할 것.** 이 결함은 노출 상위 페이지에 수개월간 있었다.
+
+### `tools/dryer-energy-cost.html` 시간당 비용 추가
+v24가 남긴 "건조기 CTR 0 = title 문제 가능성"을 재검증한 결과 **title/description은 쿼리와 잘 맞음(CTR 문제 아님)**. 실제 갭은 쿼리가 **시간 단위**로 들어온다는 것: `run a dryer for 140 minutes`, `15 hours a month`, `220 volts dryer cost to run for a hour time`(클릭 발생). 분당 입력은 받으면서 시간당 출력이 없었음 → 행 추가(검산 $0.90/h 일치).
+
+## 0-U3. 진입하지 않기로 판단한 건
+
+**수영장 물 사용** — Bing에 `estate in bryn mawr pa have a pool` 등 쿼리가 있고 사이트 커버리지 0건이지만, larryspool(증발·급수 계산기 2종), completecalculators, cal87 등 **풀 전문 사이트가 이미 성숙하게 운영 중**이고 우리 코어(에너지·기후)도 아님. 무리한 진입 안 함. 다음 세션에서도 같은 판단 유지 권장.
+
+## 0-U4. 색인 (사용자 제공 기준, 2026-08-31)
+
+- **미크롤 7건 변화 없음**(4주째): why-electric-bills-are-rising-ai-data-centers, community-solar-vs-rooftop-solar, gas-dryer-vs-heat-pump-dryer, solar-shingles-vs-solar-panels, tankless-vs-tank-water-heater, ai-carbon-footprint-calculator, water-bill-benchmark-calculator
+- 크롤됐으나 미색인 1건: `bill-increase-breakdown-calculator`(8/22 크롤)
+- **v24의 판단 유지**: 이 중 일부는 Bing에서 이미 노출·클릭 중(ai-carbon-footprint 12노출/1클릭). **구글 색인에 리소스 쓰지 말 것.**
+
+---
+
 # EcoEnergyCalc 인수인계 — v26 세션 (2026-09-14)
 
 ## 0-V. ✅ v26 신규 클러스터: 아파트 유틸리티 배분(RUBS) — 커밋 `487c025`, 137 → 140파일
