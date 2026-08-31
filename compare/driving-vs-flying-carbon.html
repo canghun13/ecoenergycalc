@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Driving vs Flying: Calculate the Carbon Footprint for Your Trip","description":"Enter your trip details to compare the exact CO₂ emissions of driving vs flying — adjusting for number of passengers and vehicle type.","url":"https://ecoenergycalc.com/compare/driving-vs-flying-carbon.html","datePublished":"2026-06-26","dateModified":"2026-06-26","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Driving vs Flying: Calculate the Carbon Footprint for Your Trip","description":"Enter your trip details to compare the exact CO₂ emissions of driving vs flying — adjusting for number of passengers and vehicle type.","url":"https://ecoenergycalc.com/compare/driving-vs-flying-carbon.html","datePublished":"2026-06-26","dateModified":"2026-09-21","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -38,9 +38,9 @@
             <div class="form-group">
               <label for="df-flight">Flight Class</label>
               <select id="df-flight">
-                <option value="255">Economy (255g CO₂/passenger-mile)</option>
-                <option value="380">Business (380g CO₂/passenger-mile)</option>
-                <option value="570">First Class (570g CO₂/passenger-mile)</option>
+                <option value="1">Economy</option>
+                <option value="1.49">Business (~1.5× economy — more space per seat)</option>
+                <option value="2.24">First Class (~2.2× economy)</option>
               </select>
             </div>
             <button class="btn-primary" onclick="calcDriveFly()">Compare Carbon</button>
@@ -49,7 +49,7 @@
               <div class="table-scroll">
                 <table id="df-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Driving emissions: 8,887g CO₂ per gallon of gasoline. Flying includes non-CO₂ warming effects (radiative forcing multiplier ~2x). Round-trip shown.</p>
+              <p class="result-note" id="df-note"></p>
             </div>
           </div>
           <div class="article-body">
@@ -60,7 +60,15 @@
             <p>Raw CO₂ emissions understate aviation's climate impact. High-altitude emissions have additional warming effects through contrail formation, NOₓ reactions, and water vapor that don't occur at ground level. The IPCC and multiple peer-reviewed studies estimate aviation's effective climate impact is 2–4× its CO₂ alone when these non-CO₂ effects are included. This means a flight that appears carbon-comparable to driving may actually be 2–3× worse from a total warming perspective. This is an area of active scientific research, and the multiplier is debated, but the direction is clear and uncontested.</p>
 
             <h2>Distance Matters Most</h2>
-            <p>For short trips (under 300 miles), driving almost always wins on carbon regardless of occupancy, because takeoff and landing consume a disproportionate share of aviation fuel. The taxi-takeoff-landing phase accounts for roughly 25% of fuel on a 500-mile flight and 40% on a 200-mile flight. For trips over 1,000 miles, flying becomes more competitive on carbon — not because it's efficient, but because driving 1,200 miles alone in a large SUV also generates substantial emissions and neither option is particularly clean.</p>
+            <p>Takeoff and landing burn a fixed amount of fuel no matter how far you fly, so short flights are far worse per mile than long ones. That phase is roughly a quarter of the emissions on a 500-mile flight and closer to half on a 150-mile one. The practical effect: a plane emits around 430 g per passenger-mile on a 150-mile hop but only about 226 g on a 3,000-mile one.</p>
+            <p>Driving works the opposite way — its per-mile rate never changes with distance. It only changes with <strong>who is in the car</strong>. That's why there is a break-even distance, and why it moves so much:</p>
+            <ul>
+              <li><strong>Alone in a 20 MPG SUV:</strong> flying is lower-carbon beyond roughly 140 miles</li>
+              <li><strong>Alone in a 30 MPG car:</strong> beyond roughly 400 miles</li>
+              <li><strong>Alone in a 45 MPG hybrid:</strong> driving wins at any distance</li>
+              <li><strong>Two or more people in a 30 MPG car:</strong> driving wins at any distance</li>
+            </ul>
+            <p>So the common claim that "driving always wins under 300 miles regardless of occupancy" isn't quite right — a solo driver in a thirsty vehicle can be worse than flying on a fairly short trip. Occupancy matters more than distance for most of these comparisons. The calculator above works out the break-even for your own car and party size.</p>
 
             <h2>Practical Carbon Reduction Strategies</h2>
             <p>If you must fly: economy class, direct flights (takeoff and landing are the expensive parts), and choosing carriers with newer, more efficient fleets (A320neo, 737 MAX, A350 vs. older models) can reduce per-passenger emissions 20–35%. On the ground: electric vehicles on the average U.S. grid already emit less per mile than driving ICE, and as the grid decarbonizes, this advantage grows. A BEV in the Pacific Northwest on hydro power emits effectively zero transport-phase carbon. High-speed rail, where available, beats both on carbon — Amtrak Northeast Corridor emits about 0.06 kg CO₂/passenger mile.</p>
@@ -102,25 +110,54 @@
 <script>
 function calcDriveFly() {
   const dist=parseFloat(document.getElementById('df-dist').value)||500;
-  const pass=parseFloat(document.getElementById('df-pass').value)||2;
+  const pass=Math.max(1,parseFloat(document.getElementById('df-pass').value)||2);
   const mpg=parseFloat(document.getElementById('df-mpg').value)||30;
-  const flightGco2=parseFloat(document.getElementById('df-flight').value)||255;
+  const classMult=parseFloat(document.getElementById('df-flight').value)||1;
+
+  // Distance-dependent aviation model: a fixed takeoff/landing (LTO) burn per passenger
+  // per flight, plus a per-mile cruise rate. This is why short flights are far worse
+  // per mile than long ones.
+  const LTO=32250*classMult;   // g CO2 per passenger per takeoff-landing cycle
+  const CRUISE=215*classMult;  // g CO2 per passenger-mile in cruise
+  const GAL=8887;              // g CO2 per gallon of gasoline
 
   const roundDist=dist*2;
-  // Driving: 8887g CO2 per gallon
-  const totalDriveCo2=roundDist/mpg*8887; // total for whole car
+  const totalDriveCo2=roundDist/mpg*GAL;
   const perPersonDriveCo2=totalDriveCo2/pass;
-  // Flying
-  const flightCo2=roundDist*flightGco2; // per person
-  const fmt=kg=>(kg/1000).toFixed(1)+' kg CO₂';
-  const winner=perPersonDriveCo2<flightCo2?'🚗 Driving wins':'✈️ Flying wins';
+  const flightCo2=(LTO+CRUISE*dist)*2;          // round trip = 2 LTO cycles
+  const flightEff=flightCo2/roundDist;          // effective g per passenger-mile
+  const drivePerMile=GAL/mpg/pass;              // g per passenger-mile
+  const ltoShare=LTO/(LTO+CRUISE*dist)*100;
+
+  // Break-even: where driving per passenger-mile equals flying's effective rate
+  const breakEven=drivePerMile>CRUISE ? LTO/(drivePerMile-CRUISE) : null;
+
+  const fmt=g=>(g/1000).toFixed(1)+' kg CO₂';
+  const driveWins=perPersonDriveCo2<flightCo2;
+  const winner=driveWins?'🚗 Driving wins':'✈️ Flying wins';
+
   document.getElementById('df-table').innerHTML=`
-    <tr><th></th><th>Driving (${pass} person${pass>1?'s':''})</th><th>Flying (economy)</th></tr>
-    <tr><td>Total CO₂ (whole trip)</td><td>${fmt(totalDriveCo2)}</td><td>${fmt(flightCo2*pass)} (${pass} passengers)</td></tr>
-    <tr><td>CO₂ per person</td><td>${fmt(perPersonDriveCo2)}</td><td>${fmt(flightCo2)}</td></tr>
+    <tr><th></th><th>Driving (${pass} person${pass>1?'s':''})</th><th>Flying</th></tr>
+    <tr><td>Total CO₂ (whole trip)</td><td>${fmt(totalDriveCo2)}</td><td>${fmt(flightCo2*pass)} (${pass} passenger${pass>1?'s':''})</td></tr>
+    <tr style="font-weight:700;"><td>CO₂ per person</td><td>${fmt(perPersonDriveCo2)}</td><td>${fmt(flightCo2)}</td></tr>
+    <tr><td>Per passenger-mile</td><td>${Math.round(drivePerMile)} g</td><td>${Math.round(flightEff)} g</td></tr>
+    <tr><td>Takeoff/landing share of the flight</td><td colspan="2">${ltoShare.toFixed(0)}% of its emissions</td></tr>
     <tr style="font-weight:700;"><td>Lower carbon option</td><td colspan="2">${winner} (per person)</td></tr>
-    <tr><td>Difference per person</td><td colspan="2">${fmt(Math.abs(perPersonDriveCo2-flightCo2))} less for ${perPersonDriveCo2<flightCo2?'driving':'flying'}</td></tr>
+    <tr><td>Difference per person</td><td colspan="2">${fmt(Math.abs(perPersonDriveCo2-flightCo2))} less for ${driveWins?'driving':'flying'}</td></tr>
+    <tr style="font-weight:700;"><td>Your break-even distance</td><td colspan="2">${breakEven?'about '+Math.round(breakEven/10)*10+' miles one-way':'driving wins at every distance'}</td></tr>
   `;
+
+  let note='';
+  if(breakEven===null){
+    note='With '+pass+' '+(pass>1?'people':'person')+' in a '+mpg+' MPG car you are at '+Math.round(drivePerMile)+' g per passenger-mile, below what a plane emits even at cruise, so driving is the lower-carbon option at any distance. Occupancy is doing most of that work — the same car with one person aboard would look very different.';
+  } else if(dist<breakEven){
+    note='Below roughly '+Math.round(breakEven/10)*10+' miles one-way, driving wins for your car and party size; above it, flying does. Your '+dist+'-mile trip sits under that line. Short flights are penalised because takeoff and landing burn a fixed amount of fuel regardless of trip length — here that is '+ltoShare.toFixed(0)+'% of the flight\'s emissions.';
+  } else {
+    note='Above roughly '+Math.round(breakEven/10)*10+' miles one-way, flying wins for your car and party size, and your '+dist+'-mile trip is past that point. The fastest way to flip this is passengers: adding one more person to the car halves your per-person driving emissions, while a plane seat is a plane seat.';
+  }
+  note+=' Figures include a radiative forcing multiplier for aviation and assume gasoline at 8,887 g CO₂ per gallon. They exclude the emissions of getting to and from airports, and any hotel night a long drive would require.';
+  document.getElementById('df-note').textContent=note;
+
   const r=document.getElementById('df-result'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 </script>

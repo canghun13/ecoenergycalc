@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Clothes Dryer Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/dryer-energy-cost.html","description":"Clothes dryer energy cost calculator: find out exactly how much your dryer costs to run per load, per month, and per year. Compare electric vs gas dryers.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-24","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Clothes Dryer Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/dryer-energy-cost.html","description":"Clothes dryer energy cost calculator: find out exactly how much your dryer costs to run per load, per month, and per year. Compare electric vs gas dryers.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-24","dateModified":"2026-09-21","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -214,6 +214,7 @@ function calcDryer() {
     <tr><td>Electricity cost per load</td><td>${fmt2(elecCostPerLoad)}</td></tr>
     ${extraRow}
     <tr><td>Total cost per load</td><td>${fmt2(totalCostPerLoad)}</td></tr>
+    <tr><td>Cost per hour of running</td><td>${fmt2(totalCostPerLoad/(minutes/60))}</td></tr>
     <tr><td>Monthly cost (${loadsPerWeek} loads/wk)</td><td>${fmt2(monthlyCost)}</td></tr>
     <tr style="font-weight:700;"><td>Annual total</td><td>${fmtR(annualCost)}</td></tr>
     <tr><td>Annual electricity used</td><td>${Math.round(annualKwh)} kWh</td></tr>
