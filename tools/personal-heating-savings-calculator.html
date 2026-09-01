@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Heating Savings Calculator – Blanket vs Turning the Heat Up | EcoEnergyCalc</title>
+  <meta name="description" content="Heating the person instead of the house only saves money if the thermostat actually comes down. This nets your setback savings against what the blanket or heated throw costs to run — with the safety floors nobody mentions." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/personal-heating-savings-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Personal Heating Savings Calculator","url":"https://ecoenergycalc.com/tools/personal-heating-savings-calculator.html","description":"Nets thermostat setback savings against the running cost of an electric blanket, heated throw or heated mattress pad.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-09-28"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does an electric blanket cost to run per night?","acceptedAnswer":{"@type":"Answer","text":"Very little. A typical 100-watt electric blanket run for 8 hours uses 0.8 kWh, which at the 2026 U.S. average of about 18.4 cents per kWh costs roughly 15 cents a night, or about 22 dollars across a 150-night heating season. A heated throw at 120 to 180 watts costs proportionally more. The device cost is almost never the deciding number — what matters is whether owning it lets you turn the thermostat down, because that is where the real money is."}},
+    {"@type":"Question","name":"Is an electric blanket cheaper than central heating?","acceptedAnswer":{"@type":"Answer","text":"Per hour of use, dramatically — a 100-watt blanket draws roughly one thirty-fifth of what a central system does while running. But that comparison is misleading on its own, because a blanket only warms the person while central heating warms the house. The blanket saves money only to the extent it lets you lower the thermostat. If you run a blanket and keep the thermostat where it was, you have added a small cost and saved nothing."}},
+    {"@type":"Question","name":"How much does turning the thermostat down save?","acceptedAnswer":{"@type":"Answer","text":"The Department of Energy figure is roughly 1 percent of heating cost for each degree Fahrenheit of setback sustained over 8 hours, with savings of up to about 10 percent a year from setting back 7 to 10 degrees for 8 hours daily. On a 1,200 dollar annual heating bill a 7-degree overnight setback is around 84 dollars a year. The percentage is the same whatever your fuel, so households with larger heating bills save proportionally more in dollars."}},
+    {"@type":"Question","name":"How low can I safely set my thermostat?","acceptedAnswer":{"@type":"Answer","text":"Common guidance is not to let the house drop below about 55°F, which is the usual floor for avoiding frozen pipes, and to be cautious below about 60°F because cold surfaces plus normal household humidity encourage condensation and mould. The World Health Organization suggests a minimum indoor temperature around 64°F for general health, and closer to 68°F where infants, elderly or unwell people are present. Personal heating is a way to be comfortable at a lower thermostat setting, not a reason to push the house below these floors."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Personal Heating Savings Calculator</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Personal Heating Savings Calculator</h1>
+        <p>"Heat the person, not the house" only saves money if the thermostat actually comes down. Most guides just tell you what a blanket costs to run — a couple of cents an hour, which was never the interesting number. This nets the setback savings against the device cost so you can see what the swap is really worth.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>What Would the Swap Save You?</h2>
+            <div class="form-group">
+              <label for="ph-annual">Your Annual Heating Cost ($)</label>
+              <input type="number" id="ph-annual" value="1200" min="50" max="20000" step="10" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Add up your winter heating bills, or take the increase over your summer baseline. Typical: $600–900 mild climate gas, $1,100–1,600 moderate, $1,800+ cold or electric resistance. Not sure? Use our <a href="/tools/heating-cost-by-fuel.html">heating cost by fuel calculator</a>.</p>
+            </div>
+            <div class="form-group">
+              <label for="ph-degrees">Thermostat Setback (°F)</label>
+              <input type="number" id="ph-degrees" value="7" min="1" max="25" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">How many degrees lower you'd set it while using the personal heating. DOE's guidance is 7–10°F.</p>
+            </div>
+            <div class="form-group">
+              <label for="ph-hours">Hours Per Day at the Lower Setting</label>
+              <input type="number" id="ph-hours" value="8" min="1" max="24" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Overnight setback is typically 8. If you're also setting back while working from home in one room, count those hours too.</p>
+            </div>
+            <div class="form-group">
+              <label for="ph-device">Personal Heating Device</label>
+              <select id="ph-device">
+                <option value="60">Heated mattress pad (~60W)</option>
+                <option value="100" selected>Electric blanket, full/queen (~100W)</option>
+                <option value="150">Electric blanket, king (~150W)</option>
+                <option value="130">Heated throw (~130W)</option>
+                <option value="55">Heated foot warmer (~55W)</option>
+                <option value="1500">Space heater, one room (~1,500W)</option>
+                <option value="0">Custom wattage (enter below)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ph-watts">Custom Wattage (W)</label>
+              <input type="number" id="ph-watts" value="100" min="5" max="5000" step="5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Only used when "Custom wattage" is selected. The rating is on the controller or the label.</p>
+            </div>
+            <div class="form-group">
+              <label for="ph-devhours">Device Hours Per Day</label>
+              <input type="number" id="ph-devhours" value="8" min="0.5" max="24" step="0.5" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Most blankets cycle a thermostat rather than drawing full power the whole time, so this is a conservative (high) estimate.</p>
+            </div>
+            <div class="form-group">
+              <label for="ph-days">Heating Season Length (days)</label>
+              <input type="number" id="ph-days" value="150" min="10" max="365" step="5" />
+            </div>
+            <div class="form-group">
+              <label for="ph-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="ph-rate" value="18" min="5" max="60" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="ph-setpoint">Resulting Thermostat Setting (°F)</label>
+              <input type="number" id="ph-setpoint" value="61" min="35" max="80" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Used only to flag safety floors — see the notes below the result.</p>
+            </div>
+            <button class="btn-primary" onclick="calcPersonalHeating()">Calculate Net Savings</button>
+            <div class="result-box-tool" id="ph-result">
+              <h3>Your Net Saving</h3>
+              <div class="result-amount" id="ph-headline"></div>
+              <div class="table-scroll">
+                <table id="ph-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="ph-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Why the Device Cost Is the Wrong Thing to Focus On</h2>
+            <p>Search for what an electric blanket costs to run and you'll find dozens of articles telling you it's about two cents an hour. That's true and almost useless, because nobody buys a blanket <em>instead of</em> heating their house — they buy it hoping to heat the house less.</p>
+            <p>So the real equation has two sides:</p>
+            <ul>
+              <li><strong>What you save</strong> by lowering the thermostat — roughly 1% of your heating cost per °F of setback sustained over 8 hours, per Department of Energy guidance.</li>
+              <li><strong>What you spend</strong> running the device — usually trivial, $20–30 across a whole season for a blanket.</li>
+            </ul>
+            <p>The asymmetry is the point. A 100W blanket costs about $22 for a 150-night season, while a 7°F overnight setback on a $1,200 heating bill saves about $84. Net: roughly $62. Bump the setback to 10°F over 10 hours and the net approaches $130.</p>
+
+            <div class="callout">
+              <strong>The failure mode:</strong> buying the blanket and not touching the thermostat. That adds $22 of electricity and saves nothing. The device is only a means of making a lower setting tolerable — the setting is what generates the savings.
+            </div>
+
+            <h2>Why a Space Heater Is a Different Animal</h2>
+            <p>Personal heating devices draw 55–150 watts. A space heater draws 1,500 — roughly fifteen times more. That changes the arithmetic completely.</p>
+            <p>A space heater can still win, but only when it lets you set back the <em>whole house</em> substantially while heating one occupied room. Run it 8 hours a day for a 150-day season and it costs about $324 in electricity at 18¢/kWh, so you need a large setback on a large heating bill to come out ahead. If your central heat is gas — usually cheaper per delivered BTU than electric resistance — the space heater has to overcome that gap too.</p>
+            <p>Select it in the dropdown above and the calculator will show you whether it actually nets out. Our <a href="/tools/space-heater-cost-calculator.html">space heater cost calculator</a> and <a href="/compare/central-heat-vs-space-heater.html">central heat vs space heater comparison</a> go deeper on that specific trade.</p>
+
+            <h2>The Safety Floors Nobody Mentions</h2>
+            <p>Most coverage of this topic stops at "it's cheaper." Three limits are worth knowing before you set the thermostat aggressively low:</p>
+            <ul>
+              <li><strong>Around 55°F — frozen pipes.</strong> This is the usual floor recommended for an unoccupied house. Pipes in exterior walls, crawl spaces and unheated garages freeze before the thermostat's room does.</li>
+              <li><strong>Around 60°F — condensation and mould.</strong> Warm moist air from cooking, showering and breathing condenses on cold surfaces. This is the failure mode people hit when they heat only themselves through a whole winter, and it's a genuine reason not to simply turn everything off.</li>
+              <li><strong>Around 64°F — general health guidance.</strong> The World Health Organization suggests this as a minimum indoor temperature, and closer to 68°F where infants, elderly or unwell people are in the home. Personal heating is a way to be comfortable at a lower setting, not a licence to go below these.</li>
+            </ul>
+            <p>Running a bathroom or kitchen extractor fan and cracking a window briefly after showering does more for condensation risk than an extra degree on the thermostat, and costs nothing.</p>
+
+            <h2>What Actually Makes a Lower Setting Comfortable</h2>
+            <p>The device is one lever. Several others are free and matter as much:</p>
+            <ul>
+              <li><strong>Draughts.</strong> Air movement across skin reads as cold regardless of air temperature. Sealing gaps around doors, windows and outlets is the highest-return comfort fix in most homes.</li>
+              <li><strong>Humidity.</strong> Dry air feels colder at the same temperature. Winter indoor humidity often drops below 30%; bringing it to 40–45% lets many people sit comfortably a degree or two lower. Our <a href="/tools/humidifier-running-cost.html">humidifier running cost calculator</a> covers what that costs to run.</li>
+              <li><strong>Cold surfaces.</strong> You radiate heat to cold windows and uninsulated walls. Heavy curtains closed at dusk make a measurable difference to how a room feels.</li>
+              <li><strong>Where you actually sit.</strong> Moving a chair away from a large window is free and often worth more than a degree.</li>
+            </ul>
+            <p>If you're weighing this against structural fixes, our <a href="/tools/insulation-savings.html">insulation savings calculator</a> compares the returns — insulation lowers your heating bill without requiring you to feel colder, which personal heating does not.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/space-heater-cost-calculator.html">Space Heater Cost Calculator</a></li>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel Calculator</a></li>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings Calculator</a></li>
+              <li><a href="/tools/humidifier-running-cost.html">Humidifier Running Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/is-an-electric-blanket-cheaper-than-heating.html">Is an Electric Blanket Cheaper Than Heating?</a></li>
+              <li><a href="/compare/electric-blanket-vs-space-heater.html">Electric Blanket vs Space Heater</a></li>
+              <li><a href="/blog/best-thermostat-settings-to-save-money.html">Best Thermostat Settings to Save Money</a></li>
+              <li><a href="/blog/how-to-lower-your-heating-bill.html">How to Lower Your Heating Bill</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Setback saving: <strong>~1% per °F over 8 hrs</strong></li>
+              <li>100W blanket, 150 nights: <strong>~$22</strong></li>
+              <li>Space heater is: <strong>~15× a blanket</strong></li>
+              <li>Pipe-freeze floor: <strong>~55°F</strong></li>
+              <li>Mould risk below: <strong>~60°F</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much does an electric blanket cost to run per night?</h3>
+      <p>Very little. A typical 100-watt electric blanket run for 8 hours uses 0.8 kWh, which at the 2026 U.S. average of about 18.4 cents per kWh costs roughly 15 cents a night, or about 22 dollars across a 150-night heating season. A heated throw at 120 to 180 watts costs proportionally more. The device cost is almost never the deciding number — what matters is whether owning it lets you turn the thermostat down, because that is where the real money is.</p>
+      <h3>Is an electric blanket cheaper than central heating?</h3>
+      <p>Per hour of use, dramatically — a 100-watt blanket draws roughly one thirty-fifth of what a central system does while running. But that comparison is misleading on its own, because a blanket only warms the person while central heating warms the house. The blanket saves money only to the extent it lets you lower the thermostat. If you run a blanket and keep the thermostat where it was, you have added a small cost and saved nothing.</p>
+      <h3>How much does turning the thermostat down save?</h3>
+      <p>The Department of Energy figure is roughly 1 percent of heating cost for each degree Fahrenheit of setback sustained over 8 hours, with savings of up to about 10 percent a year from setting back 7 to 10 degrees for 8 hours daily. On a 1,200 dollar annual heating bill a 7-degree overnight setback is around 84 dollars a year. The percentage is the same whatever your fuel, so households with larger heating bills save proportionally more in dollars.</p>
+      <h3>How low can I safely set my thermostat?</h3>
+      <p>Common guidance is not to let the house drop below about 55°F, which is the usual floor for avoiding frozen pipes, and to be cautious below about 60°F because cold surfaces plus normal household humidity encourage condensation and mould. The World Health Organization suggests a minimum indoor temperature around 64°F for general health, and closer to 68°F where infants, elderly or unwell people are present. Personal heating is a way to be comfortable at a lower thermostat setting, not a reason to push the house below these floors.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcPersonalHeating() {
+  var g = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v <= 0) ? d : v; };
+  var annual = g('ph-annual', 1200);
+  var degrees = g('ph-degrees', 7);
+  var hours = Math.min(24, g('ph-hours', 8));
+  var sel = parseFloat(document.getElementById('ph-device').value);
+  var watts = (sel > 0) ? sel : g('ph-watts', 100);
+  var devHours = Math.min(24, g('ph-devhours', 8));
+  var days = Math.min(365, g('ph-days', 150));
+  var rate = g('ph-rate', 18) / 100;
+  var setpoint = g('ph-setpoint', 61);
+
+  // DOE guidance: ~1% of heating cost per °F of setback sustained 8 hours/day.
+  // Scale by actual setback hours; cap to keep long-duration inputs sane.
+  var savingPct = Math.min(degrees * (hours / 8) * 1.0, 30);
+  var setbackSaving = annual * savingPct / 100;
+  var deviceKwh = (watts / 1000) * devHours * days;
+  var deviceCost = deviceKwh * rate;
+  var net = setbackSaving - deviceCost;
+
+  var money = function (v) { return '$' + Math.abs(v).toFixed(0); };
+  var money2 = function (v) { return '$' + Math.abs(v).toFixed(2); };
+
+  document.getElementById('ph-headline').textContent =
+    net >= 0 ? 'Net saving: ' + money(net) + '/season' : 'Net cost: ' + money(net) + '/season';
+
+  var rows =
+    '<tr><th>Item</th><th>Per season</th></tr>' +
+    '<tr><td>Setback saving (' + degrees + '°F for ' + hours + " hrs/day)</td><td>" + money(setbackSaving) + ' (' + savingPct.toFixed(1) + '% of heating)</td></tr>' +
+    '<tr><td>Device electricity (' + Math.round(watts) + 'W × ' + devHours + ' hrs × ' + Math.round(days) + ' days)</td><td>−' + money(deviceCost) + ' (' + Math.round(deviceKwh) + ' kWh)</td></tr>' +
+    '<tr style="font-weight:700;"><td>Net' + (net >= 0 ? ' saving' : ' cost') + '</td><td>' + (net >= 0 ? '' : '−') + money(net) + '</td></tr>' +
+    '<tr><td>Device cost per night</td><td>' + money2(deviceCost / days) + '</td></tr>' +
+    '<tr><td>Device cost per hour</td><td>' + money2((watts / 1000) * rate) + '</td></tr>' +
+    '<tr><td>Break-even setback</td><td>' + (annual > 0 ? (deviceCost / annual * 100 / (hours / 8)).toFixed(1) + '°F' : '—') + ' — below this the device costs more than it saves</td></tr>';
+  document.getElementById('ph-table').innerHTML = rows;
+
+  var note = '';
+  if (net >= 0) {
+    note = 'The swap works out at these inputs. Note where the money comes from: the setback is worth ' + money(setbackSaving) + ' and the device only costs ' + money(deviceCost) + ' — so the thermostat is doing essentially all the work. ';
+    note += 'The failure mode is buying the device and not actually lowering the setting, which adds ' + money(deviceCost) + ' and saves nothing. ';
+  } else {
+    note = 'At these inputs the device costs more than the setback saves. ';
+    if (watts >= 800) {
+      note += 'That is mostly the wattage — at ' + Math.round(watts) + 'W this is a space heater rather than a personal heating device, drawing roughly fifteen times what a blanket does. It only wins when it lets you set back the whole house substantially while heating one occupied room. ';
+    } else {
+      note += 'Either the setback is too small to be worth much or the heating bill is low enough that a percentage of it does not amount to much. ';
+    }
+  }
+  if (setpoint < 55) {
+    note += '⚠️ A setting of ' + Math.round(setpoint) + '°F is below the ~55°F floor normally recommended for avoiding frozen pipes — pipes in exterior walls, crawl spaces and unheated garages get colder than the thermostat reads. Raise the setting. ';
+  } else if (setpoint < 60) {
+    note += '⚠️ At ' + Math.round(setpoint) + '°F you are below roughly 60°F, where cold surfaces plus normal household humidity encourage condensation and mould. If you go this low, ventilate after showering and cooking, and watch cold exterior walls. ';
+  } else if (setpoint < 64) {
+    note += 'At ' + Math.round(setpoint) + '°F you are just under the ~64°F the WHO suggests as a general minimum, and below the ~68°F suggested where infants, elderly or unwell people are in the home. Fine for many healthy adults, worth reconsidering otherwise. ';
+  }
+  note += 'Setback savings use the DOE rule of roughly 1% of heating cost per °F over 8 hours, which is a national rule of thumb — poorly insulated homes recover less because they lose heat faster. Device wattage assumes continuous draw, so real blanket costs are usually lower since they cycle a thermostat.';
+  document.getElementById('ph-note').textContent = note;
+
+  var r = document.getElementById('ph-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

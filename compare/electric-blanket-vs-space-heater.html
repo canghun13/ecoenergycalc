@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electric Blanket vs Space Heater: Which Actually Saves More? | EcoEnergyCalc</title>
+  <meta name="description" content="A space heater draws about 15× what an electric blanket does. See what each costs across a season, how big a thermostat setback each one buys you, and when the heater is still the right call." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/compare/electric-blanket-vs-space-heater.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Electric Blanket vs Space Heater: Which Actually Saves More?","description":"Compare season running cost, comfort coverage and the thermostat setback each device realistically buys you.","url":"https://ecoenergycalc.com/compare/electric-blanket-vs-space-heater.html","datePublished":"2026-09-28","dateModified":"2026-09-28","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <section class="article-page">
+    <div class="container">
+      <div class="article-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Electric Blanket vs Space Heater</p>
+        <span class="article-tag">Energy Savings</span>
+        <h1>Electric Blanket vs Space Heater: Which Actually Saves More?</h1>
+        <p class="article-meta">7 min read · September 2026</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <p>Both are pitched as ways to stop heating the whole house. They are not remotely the same thing: a space heater draws roughly <strong>15 times</strong> what an electric blanket does. What they buy you is different too — a blanket keeps one person warm, a heater keeps a room usable. The right answer depends on which of those you actually need.</p>
+
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Compare Both Over a Season</h2>
+            <div class="form-group"><label for="bs-annual">Annual Heating Cost ($)</label><input type="number" id="bs-annual" value="1200" min="50" max="20000" step="10" /></div>
+            <div class="form-group"><label for="bs-rate">Electricity Rate (¢/kWh)</label><input type="number" id="bs-rate" value="18" min="5" max="60" step="0.5" /></div>
+            <div class="form-group"><label for="bs-days">Heating Season (days)</label><input type="number" id="bs-days" value="150" min="10" max="365" step="5" /></div>
+            <div class="form-group"><label for="bs-blanket-w">Blanket Wattage (W)</label><input type="number" id="bs-blanket-w" value="100" min="20" max="400" step="10" /></div>
+            <div class="form-group"><label for="bs-blanket-h">Blanket Hours/Day</label><input type="number" id="bs-blanket-h" value="8" min="1" max="24" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Usually overnight only — a blanket doesn't help while you're moving around.</p>
+            </div>
+            <div class="form-group"><label for="bs-blanket-sb">Setback the Blanket Enables (°F)</label><input type="number" id="bs-blanket-sb" value="7" min="0" max="25" step="1" /></div>
+            <div class="form-group"><label for="bs-heater-w">Space Heater Wattage (W)</label><input type="number" id="bs-heater-w" value="1500" min="200" max="5000" step="100" /></div>
+            <div class="form-group"><label for="bs-heater-h">Heater Hours/Day</label><input type="number" id="bs-heater-h" value="8" min="1" max="24" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Heaters cycle on a thermostat too — 50–70% duty is typical, so this is a high estimate.</p>
+            </div>
+            <div class="form-group"><label for="bs-heater-sb">Setback the Heater Enables (°F)</label><input type="number" id="bs-heater-sb" value="10" min="0" max="25" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Usually larger, because you can leave the rest of the house genuinely cold while one room stays usable.</p>
+            </div>
+            <button class="btn-primary" onclick="calcBlanketHeater()">Compare</button>
+            <div class="result-box-tool" id="bs-result">
+              <h3>Season Comparison</h3>
+              <div class="result-amount" id="bs-headline"></div>
+              <div class="table-scroll"><table id="bs-table" style="width:100%;min-width:480px;"></table></div>
+              <p class="result-note" id="bs-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body">
+            <h2>The Wattage Gap Decides Most of It</h2>
+            <p>An electric blanket runs 60–150W. A space heater runs 1,500W — that's the practical ceiling on a standard 15-amp US circuit, and almost every portable heater sits at it. At 18.4¢/kWh:</p>
+            <ul>
+              <li><strong>100W blanket:</strong> ~2¢/hour, ~15¢/night, <strong>~$22 per 150-night season</strong></li>
+              <li><strong>1,500W heater:</strong> ~28¢/hour, ~$2.21/night, <strong>~$331 per season</strong></li>
+            </ul>
+            <p>Both numbers are ceilings — each device cycles a thermostat rather than drawing continuously — but the ratio holds. The heater costs roughly fifteen times as much to run.</p>
+
+            <div class="callout">
+              <strong>Neither one saves anything on its own.</strong> Both are added electricity cost. The saving comes entirely from the thermostat setback each one lets you tolerate. That's why the calculator asks how many degrees each buys you — it's the only input that generates money.
+            </div>
+
+            <h2>What Each One Actually Buys</h2>
+            <p><strong>The blanket buys you the night.</strong> You're stationary, under covers, for 8 hours. That's exactly the window where a deep setback is easiest anyway, and where a blanket removes the last objection to it. It does nothing for the other 16 hours.</p>
+            <p><strong>The heater buys you a room.</strong> You can move around, use a desk, have someone else in there. That's what makes a bigger whole-house setback possible — you're not just tolerating cold, you're relocating the heating. If you work from home in one room while the rest of the house sits empty, this is the case where a heater genuinely earns its running cost.</p>
+            <p>The trap is running a space heater <em>without</em> setting the rest of the house back. Then you've added $331 of electricity to a heating bill you didn't reduce.</p>
+
+            <h2>The Fuel Question People Skip</h2>
+            <p>A space heater is 100% efficient at turning electricity into heat, which sounds unbeatable until you compare delivered cost per BTU. At the 2026 US averages of 18.4¢/kWh and $1.70/therm, electric resistance heat costs roughly $53 per million BTU while a 95% gas furnace delivers heat at about $18 per million BTU — <strong>gas is around three times cheaper per unit of heat.</strong></p>
+            <p>So if your central heat is natural gas, a space heater has to overcome a 3× fuel-cost disadvantage before it saves anything. It can — heating one room instead of six is a big enough reduction to clear that gap — but the margin is much thinner than the "100% efficient" framing suggests. If your central heat is a heat pump, the gap is wider still, since a heat pump delivers 2.5–3.5 units of heat per unit of electricity while the space heater delivers one.</p>
+            <p>Where a space heater looks best: <strong>electric resistance central heat</strong> (baseboards, electric furnace). There it's the same fuel at the same price, so heating less space is a straight win. Our <a href="/tools/heating-cost-by-fuel.html">heating cost by fuel calculator</a> puts every option on the same per-BTU basis.</p>
+
+            <h2>Safety Differences Worth Knowing</h2>
+            <p>Space heaters are a recognised fire risk in a way blankets largely aren't. Practical rules: plug directly into a wall outlet rather than an extension cord or power strip, keep three feet of clearance from anything combustible, use a model with tip-over and overheat shutoff, and don't run one unattended overnight. A 1,500W heater on a shared 15-amp circuit is also close to the limit — running it alongside other loads on the same circuit trips breakers.</p>
+            <p>Electric blankets have their own rule set: don't use them with anyone who can't feel heat properly or can't move to adjust the setting, don't tuck them tightly or run them under a heavy mattress topper where heat can build, and replace old units rather than repairing frayed wiring.</p>
+
+            <h2>The Floors That Apply to Both</h2>
+            <p>Whichever you use, the point is a lower thermostat — and there are limits on how low:</p>
+            <ul>
+              <li><strong>~55°F:</strong> the usual floor against frozen pipes. Pipes in exterior walls and crawl spaces run colder than the thermostat reads.</li>
+              <li><strong>~60°F:</strong> below this, cold surfaces plus normal humidity encourage condensation and mould — the actual failure mode for people who heat only themselves all winter.</li>
+              <li><strong>~64°F:</strong> the WHO's suggested general minimum, closer to 68°F with infants, elderly or unwell people in the house.</li>
+            </ul>
+            <p>Our <a href="/tools/personal-heating-savings-calculator.html">personal heating savings calculator</a> flags these against whatever setting you enter, and <a href="/blog/is-an-electric-blanket-cheaper-than-heating.html">is an electric blanket cheaper than heating</a> works through the full season maths.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/personal-heating-savings-calculator.html">Personal Heating Savings Calculator</a></li>
+              <li><a href="/tools/space-heater-cost-calculator.html">Space Heater Cost Calculator</a></li>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel Calculator</a></li>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/is-an-electric-blanket-cheaper-than-heating.html">Is an Electric Blanket Cheaper Than Heating?</a></li>
+              <li><a href="/compare/central-heat-vs-space-heater.html">Central Heat vs Space Heater</a></li>
+              <li><a href="/blog/best-thermostat-settings-to-save-money.html">Best Thermostat Settings to Save Money</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Blanket: <strong>~2¢/hour</strong></li>
+              <li>Space heater: <strong>~28¢/hour</strong></li>
+              <li>Ratio: <strong>~15×</strong></li>
+              <li>Gas vs electric resistance heat: <strong>~3× cheaper per BTU</strong></li>
+              <li>Neither saves without a <strong>setback</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcBlanketHeater() {
+  var g = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v <= 0) ? d : v; };
+  var gz = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v < 0) ? d : v; };
+  var annual = g('bs-annual', 1200);
+  var rate = g('bs-rate', 18) / 100;
+  var days = Math.min(365, g('bs-days', 150));
+  var bw = g('bs-blanket-w', 100), bh = Math.min(24, g('bs-blanket-h', 8)), bsb = gz('bs-blanket-sb', 7);
+  var hw = g('bs-heater-w', 1500), hh = Math.min(24, g('bs-heater-h', 8)), hsb = gz('bs-heater-sb', 10);
+
+  var bCost = (bw / 1000) * bh * days * rate;
+  var hCost = (hw / 1000) * hh * days * rate;
+  var bSave = annual * Math.min(bsb * (bh / 8), 30) / 100;
+  var hSave = annual * Math.min(hsb * (hh / 8), 30) / 100;
+  var bNet = bSave - bCost, hNet = hSave - hCost;
+
+  var m = function (v) { return '$' + Math.abs(v).toFixed(0); };
+  var m2 = function (v) { return '$' + v.toFixed(2); };
+
+  var best = bNet >= hNet ? 'Blanket' : 'Space heater';
+  document.getElementById('bs-headline').textContent =
+    best + ' comes out ahead by ' + m(bNet - hNet) + '/season';
+
+  document.getElementById('bs-table').innerHTML =
+    '<tr><th></th><th>Electric blanket</th><th>Space heater</th></tr>' +
+    '<tr><td>Power draw</td><td>' + Math.round(bw) + ' W</td><td>' + Math.round(hw) + ' W</td></tr>' +
+    '<tr><td>Cost per hour</td><td>' + m2((bw / 1000) * rate) + '</td><td>' + m2((hw / 1000) * rate) + '</td></tr>' +
+    '<tr><td>Running cost, season</td><td>−' + m(bCost) + '</td><td>−' + m(hCost) + '</td></tr>' +
+    '<tr><td>Setback it enables</td><td>' + bsb + '°F × ' + bh + ' hrs</td><td>' + hsb + '°F × ' + hh + ' hrs</td></tr>' +
+    '<tr><td>Heating saved</td><td>+' + m(bSave) + '</td><td>+' + m(hSave) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Net for the season</td><td>' + (bNet >= 0 ? '+' : '−') + m(bNet) + '</td><td>' + (hNet >= 0 ? '+' : '−') + m(hNet) + '</td></tr>' +
+    '<tr><td>Setback needed to break even</td><td>' + (annual > 0 ? (bCost / annual * 100 / (bh / 8)).toFixed(1) : '—') + '°F</td><td>' + (annual > 0 ? (hCost / annual * 100 / (hh / 8)).toFixed(1) : '—') + '°F</td></tr>';
+
+  var note = '';
+  if (bNet >= hNet) {
+    note = 'The blanket wins at these inputs. It costs ' + m(bCost) + ' against the heater\'s ' + m(hCost) + ', and the heater would need to unlock a much larger setback to justify the gap — specifically ' + (annual > 0 ? (hCost / annual * 100 / (hh / 8)).toFixed(1) : '—') + '°F just to break even. ';
+  } else {
+    note = 'The heater wins at these inputs, which means you have credited it with a big enough setback to overcome running costs ' + (hCost / bCost).toFixed(0) + '× the blanket\'s. That is realistic if you genuinely leave most of the house cold and live in one room. If the rest of the house stays warm, re-run this with a smaller heater setback. ';
+  }
+  if (hNet < 0) {
+    note += 'Note the heater is net-negative on its own — it would add ' + m(hCost) + ' while saving only ' + m(hSave) + '. ';
+  }
+  note += 'One thing this cannot model: if your central heat is gas or a heat pump, a space heater is burning a more expensive fuel per delivered BTU, so it has to clear that gap too. Both devices assume continuous draw, so real costs run lower since each cycles a thermostat.';
+  document.getElementById('bs-note').textContent = note;
+
+  var r = document.getElementById('bs-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
