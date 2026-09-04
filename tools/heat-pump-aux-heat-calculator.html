@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heat Pump Auxiliary Heat Cost Calculator – What AUX Is Costing You | EcoEnergyCalc</title>
+  <meta name="description" content="Your thermostat's AUX light is where heat pump bills blow up. Work out what auxiliary heat actually cost you last month, and whether it's running more than it should for your climate." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/heat-pump-aux-heat-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Heat Pump Auxiliary Heat Cost Calculator","url":"https://ecoenergycalc.com/tools/heat-pump-aux-heat-calculator.html","description":"Calculate what auxiliary heat strips cost on a heat pump, and diagnose whether AUX is running more than it should.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-10-05"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Why does auxiliary heat make my electric bill so high?","acceptedAnswer":{"@type":"Answer","text":"Because auxiliary heat is electric resistance — the same technology as a space heater or hair dryer — running at roughly 100 percent efficiency, while the heat pump itself delivers 2.5 to 3.5 units of heat per unit of electricity. A heat pump might draw 4 kW while running normally; add a 10 kW strip bank and the system pulls 14 kW. At the 2026 U.S. average of about 18.4 cents per kWh that is roughly 74 cents an hour versus 2.58 dollars an hour, about three and a half times more. A hundred hours of auxiliary runtime in a cold month adds around 184 dollars to a bill."}},
+    {"@type":"Question","name":"What is the difference between AUX heat and emergency heat?","acceptedAnswer":{"@type":"Answer","text":"Auxiliary heat is automatic — the thermostat brings the resistance strips on to help the heat pump when it cannot keep up, and the heat pump keeps running alongside them. Emergency heat is a manual setting that shuts the heat pump off entirely and runs on strips alone. Because the heat pump is the efficient part, emergency heat is almost always the more expensive of the two, and it is meant only for when the heat pump is broken. Switching to emergency heat simply because it is cold outside is one of the most expensive mistakes a heat pump owner can make."}},
+    {"@type":"Question","name":"At what temperature does auxiliary heat normally turn on?","acceptedAnswer":{"@type":"Answer","text":"For a conventional heat pump, typically somewhere between 30 and 40°F, which is where its output falls below what the house is losing. Cold-climate models with variable-speed compressors hold their own much lower, often to 5 to 15°F. If your AUX indicator is lighting up at 45°F or above, that is not normal — the usual causes are a thermostat lockout set wrong, a large thermostat setback forcing a fast recovery, low refrigerant charge, a stuck reversing valve, or an iced outdoor coil from a failed defrost cycle."}},
+    {"@type":"Question","name":"Should I turn down my thermostat at night with a heat pump?","acceptedAnswer":{"@type":"Answer","text":"Use much smaller setbacks than you would with a furnace, and let the thermostat manage recovery. A furnace can reheat a house quickly at normal efficiency, so a deep overnight setback saves money. A heat pump recovers slowly, and a thermostat that sees the house far below setpoint will call in the resistance strips to catch up — which can cost more than the setback saved. Two to three degrees is generally safe. If your thermostat has an adaptive or smart recovery feature designed for heat pumps, leaving it enabled is usually better than a manual schedule."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Heat Pump Auxiliary Heat Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Heat Pump Auxiliary Heat Cost Calculator</h1>
+        <p>Heat pump bills don't blow up because the heat pump is inefficient. They blow up because the resistance strips behind it switch on. Every article on this says AUX is "2–5× more expensive" and stops there — this works out what it actually cost you, and whether it's running more than it should.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>What Did AUX Cost You?</h2>
+            <div class="form-group">
+              <label for="ax-strips">Auxiliary Strip Capacity (kW)</label>
+              <select id="ax-strips">
+                <option value="5">5 kW (small system / mild climate)</option>
+                <option value="10" selected>10 kW (most common)</option>
+                <option value="15">15 kW (larger home / cold climate)</option>
+                <option value="20">20 kW (large or all-electric home)</option>
+              </select>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">On the air handler's data plate, often written as "KW" or as a heater kit number like HKR-10. If you can't find it, 10 kW is the usual default.</p>
+            </div>
+            <div class="form-group">
+              <label for="ax-hp">Heat Pump Draw While Running (kW)</label>
+              <input type="number" id="ax-hp" value="4" min="0.5" max="15" step="0.1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Typically 3–5 kW for a 2.5–3.5 ton residential unit. This is the compressor and fans, not the strips.</p>
+            </div>
+            <div class="form-group">
+              <label for="ax-auxhours">Auxiliary Heat Hours (this month)</label>
+              <input type="number" id="ax-auxhours" value="60" min="0" max="744" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Ecobee, Nest and most smart thermostats report this directly in their monthly runtime report — look for "Aux Heat" or "Heat Stage 2". If you don't have that data, estimate from how many hours the AUX light was on during cold spells.</p>
+            </div>
+            <div class="form-group">
+              <label for="ax-hphours">Heat Pump Hours (this month, excluding aux hours)</label>
+              <input type="number" id="ax-hphours" value="280" min="0" max="744" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Total heating runtime minus the aux hours above. Same runtime report. A cold month often totals 300–450 hours.</p>
+            </div>
+            <div class="form-group">
+              <label for="ax-rate">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="ax-rate" value="18" min="5" max="60" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="ax-emhours">Emergency Heat Hours (if you switched it on)</label>
+              <input type="number" id="ax-emhours" value="0" min="0" max="744" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Only if you manually selected EM HEAT on the thermostat. This runs strips alone with the heat pump off.</p>
+            </div>
+            <div class="form-group">
+              <label for="ax-lowtemp">Coldest Outdoor Temp AUX Came On (°F)</label>
+              <input type="number" id="ax-lowtemp" value="35" min="-30" max="70" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">The <em>warmest</em> outdoor temperature at which you noticed the AUX indicator. Used to flag whether it's engaging earlier than it should.</p>
+            </div>
+            <div class="form-group">
+              <label for="ax-type">Heat Pump Type</label>
+              <select id="ax-type">
+                <option value="standard" selected>Standard / single-stage</option>
+                <option value="cold">Cold-climate (variable speed, rated to low temps)</option>
+              </select>
+            </div>
+            <button class="btn-primary" onclick="calcAuxHeat()">Calculate AUX Cost</button>
+            <div class="result-box-tool" id="ax-result">
+              <h3>Your Auxiliary Heat Bill</h3>
+              <div class="result-amount" id="ax-headline"></div>
+              <div class="table-scroll">
+                <table id="ax-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="ax-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Why Strips Cost So Much More</h2>
+            <p>A heat pump doesn't make heat, it moves it — delivering roughly 2.5 to 3.5 units of heat for every unit of electricity. Auxiliary strips are electric resistance, the same principle as a hair dryer, delivering exactly one unit per unit. So the strips aren't slightly worse, they're <strong>two to three times worse per unit of heat</strong>, and they draw far more power to boot.</p>
+            <p>At the 2026 U.S. average of 18.4¢/kWh, with a 4 kW heat pump and a 10 kW strip bank:</p>
+            <ul>
+              <li><strong>Heat pump alone:</strong> 4 kW → about <strong>74¢/hour</strong></li>
+              <li><strong>Heat pump + 10 kW aux:</strong> 14 kW → about <strong>$2.58/hour</strong> (3.5× more)</li>
+              <li><strong>Emergency heat, 15 kW strips alone:</strong> about <strong>$2.76/hour</strong></li>
+            </ul>
+            <p>A hundred hours of aux runtime in a cold month — which is not unusual during a prolonged freeze — adds roughly <strong>$184</strong> to the bill. That's the whole explanation for "my heat pump bill doubled and I didn't touch the thermostat."</p>
+
+            <div class="callout">
+              <strong>The most expensive button on your thermostat:</strong> EM HEAT. Auxiliary heat is automatic and runs <em>alongside</em> the heat pump. Emergency heat is manual and shuts the heat pump <em>off</em>, running on strips alone. Selecting it because it's cold outside throws away the efficient part of your system. It's meant for when the heat pump is broken.
+            </div>
+
+            <h2>When AUX Is Normal and When It Isn't</h2>
+            <p>Some auxiliary runtime is expected and correct. A conventional heat pump's output falls as it gets colder, and at some outdoor temperature — the <strong>balance point</strong> — it can no longer match what the house is losing. Below that, strips fill the gap. Typical balance points:</p>
+            <ul>
+              <li><strong>Standard heat pump:</strong> roughly 30–40°F</li>
+              <li><strong>Cold-climate / variable speed:</strong> often 5–15°F</li>
+            </ul>
+            <p>Aux also runs briefly during <strong>defrost cycles</strong>, when the outdoor coil ices up and the system temporarily reverses to melt it. That's normal and short.</p>
+            <p>What isn't normal is AUX engaging at 45°F or above, or staying lit for hours in mild weather. The usual causes, roughly in order of how often they turn out to be the answer:</p>
+            <ul>
+              <li><strong>Thermostat lockout set wrong or missing.</strong> Many thermostats have an outdoor-temperature lockout that prevents strips running above a set point. If it was never configured, the strips are free to come on whenever the thermostat feels behind.</li>
+              <li><strong>A large thermostat setback.</strong> Covered below — this is the one homeowners cause themselves.</li>
+              <li><strong>Low refrigerant charge</strong>, which cuts capacity so the heat pump falls behind earlier than it should.</li>
+              <li><strong>A failed defrost board or outdoor fan</strong>, leaving the coil iced and the system unable to produce heat.</li>
+              <li><strong>A reversing valve stuck in cooling</strong>, in which case the heat pump is contributing nothing and strips are doing all the work.</li>
+            </ul>
+            <p>A burning-dust smell when strips first run in autumn is normal. Continuous AUX in mild weather is a service call, not a setting.</p>
+
+            <h2>The Setback Trap</h2>
+            <p>This is the one that catches people who did everything else right, and it directly contradicts standard thermostat advice.</p>
+            <p>With a gas furnace, a deep overnight setback saves money — the furnace reheats the house quickly at its normal efficiency. With a heat pump, recovery is slow by design. A thermostat that wakes up and sees the house 8°F below setpoint concludes the heat pump can't cope and <strong>calls in the resistance strips to catch up</strong>. You then pay strip rates for the entire recovery period, which can exceed everything the setback saved overnight.</p>
+            <p>Practical guidance for heat pump owners: keep setbacks to <strong>2–3°F</strong> rather than the 7–10°F that works for furnaces, and if your thermostat has an adaptive or smart recovery mode built for heat pumps, leave it enabled rather than running a manual schedule.</p>
+            <p>Our <a href="/tools/personal-heating-savings-calculator.html">personal heating savings calculator</a> and <a href="/blog/best-thermostat-settings-to-save-money.html">thermostat settings guide</a> use the standard DOE setback rule, which assumes a furnace. If you have a heat pump with strips, treat those recommendations as an upper bound and scale down.</p>
+
+            <h2>What Actually Reduces AUX Runtime</h2>
+            <ul>
+              <li><strong>Set the outdoor lockout.</strong> Most thermostats let you specify a temperature above which strips cannot run. Setting it just below your balance point stops the strips being used as a shortcut on mild days. Worth asking your installer to configure if you're not sure.</li>
+              <li><strong>Shrink or remove setbacks</strong>, per above.</li>
+              <li><strong>Reduce the heat loss.</strong> Air sealing and insulation lower the balance point itself — a tighter house stays ahead of its losses to a colder outdoor temperature, so strips engage less often. See our <a href="/tools/insulation-savings.html">insulation savings calculator</a>.</li>
+              <li><strong>Get the charge and defrost checked</strong> if AUX runs in mild weather. This is diagnosis, not efficiency tuning.</li>
+              <li><strong>Change the filter.</strong> Restricted airflow makes the system fall behind and reach for strips. Cheapest thing on this list.</li>
+            </ul>
+            <p>If you're weighing whether the heat pump was the right call at all, our <a href="/compare/heat-pump-vs-furnace-vs-boiler.html">heat pump vs furnace vs boiler comparison</a> and <a href="/blog/is-a-heat-pump-worth-it-without-tax-credit.html">heat pump economics without the tax credit</a> cover the wider picture — and note that a well-configured heat pump that rarely touches its strips is still cheaper to run than resistance heat by a wide margin.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel Calculator</a></li>
+              <li><a href="/tools/personal-heating-savings-calculator.html">Personal Heating Savings Calculator</a></li>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings Calculator</a></li>
+              <li><a href="/tools/bill-increase-breakdown-calculator.html">Bill Increase Breakdown Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/why-is-my-heat-pump-electric-bill-so-high.html">Why Is My Heat Pump Bill So High?</a></li>
+              <li><a href="/compare/auxiliary-heat-vs-emergency-heat.html">Auxiliary Heat vs Emergency Heat</a></li>
+              <li><a href="/blog/is-a-heat-pump-worth-it-without-tax-credit.html">Heat Pump Without the Tax Credit</a></li>
+              <li><a href="/compare/heat-pump-vs-furnace-vs-boiler.html">Heat Pump vs Furnace vs Boiler</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Strips run at: <strong>COP 1.0</strong></li>
+              <li>Heat pump: <strong>COP 2.5–3.5</strong></li>
+              <li>AUX hour costs: <strong>~3.5× normal</strong></li>
+              <li>Standard balance point: <strong>30–40°F</strong></li>
+              <li>Heat pump setback: <strong>2–3°F, not 7–10</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Why does auxiliary heat make my electric bill so high?</h3>
+      <p>Because auxiliary heat is electric resistance — the same technology as a space heater or hair dryer — running at roughly 100 percent efficiency, while the heat pump itself delivers 2.5 to 3.5 units of heat per unit of electricity. A heat pump might draw 4 kW while running normally; add a 10 kW strip bank and the system pulls 14 kW. At the 2026 U.S. average of about 18.4 cents per kWh that is roughly 74 cents an hour versus 2.58 dollars an hour, about three and a half times more. A hundred hours of auxiliary runtime in a cold month adds around 184 dollars to a bill.</p>
+      <h3>What is the difference between AUX heat and emergency heat?</h3>
+      <p>Auxiliary heat is automatic — the thermostat brings the resistance strips on to help the heat pump when it cannot keep up, and the heat pump keeps running alongside them. Emergency heat is a manual setting that shuts the heat pump off entirely and runs on strips alone. Because the heat pump is the efficient part, emergency heat is almost always the more expensive of the two, and it is meant only for when the heat pump is broken. Switching to emergency heat simply because it is cold outside is one of the most expensive mistakes a heat pump owner can make.</p>
+      <h3>At what temperature does auxiliary heat normally turn on?</h3>
+      <p>For a conventional heat pump, typically somewhere between 30 and 40°F, which is where its output falls below what the house is losing. Cold-climate models with variable-speed compressors hold their own much lower, often to 5 to 15°F. If your AUX indicator is lighting up at 45°F or above, that is not normal — the usual causes are a thermostat lockout set wrong, a large thermostat setback forcing a fast recovery, low refrigerant charge, a stuck reversing valve, or an iced outdoor coil from a failed defrost cycle.</p>
+      <h3>Should I turn down my thermostat at night with a heat pump?</h3>
+      <p>Use much smaller setbacks than you would with a furnace, and let the thermostat manage recovery. A furnace can reheat a house quickly at normal efficiency, so a deep overnight setback saves money. A heat pump recovers slowly, and a thermostat that sees the house far below setpoint will call in the resistance strips to catch up — which can cost more than the setback saved. Two to three degrees is generally safe. If your thermostat has an adaptive or smart recovery feature designed for heat pumps, leaving it enabled is usually better than a manual schedule.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcAuxHeat() {
+  var g = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v <= 0) ? d : v; };
+  var gz = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v < 0) ? d : v; };
+  var strips = parseFloat(document.getElementById('ax-strips').value) || 10;
+  var hpKw = g('ax-hp', 4);
+  var auxH = gz('ax-auxhours', 60);
+  var hpH = gz('ax-hphours', 280);
+  var rate = g('ax-rate', 18) / 100;
+  var emH = gz('ax-emhours', 0);
+  var lowTemp = parseFloat(document.getElementById('ax-lowtemp').value);
+  if (isNaN(lowTemp)) lowTemp = 35;
+  var type = document.getElementById('ax-type').value;
+
+  var hpOnlyCost = hpH * hpKw * rate;
+  var auxCost = auxH * (hpKw + strips) * rate;
+  var auxExtra = auxH * strips * rate;              // the surcharge vs running heat pump alone
+  var emCost = emH * strips * rate;
+  var emExtra = emH * strips * rate - emH * hpKw * rate * 0; // strips alone; heat pump off
+  var total = hpOnlyCost + auxCost + emCost;
+  var totalHours = hpH + auxH + emH;
+  var auxShareHours = totalHours > 0 ? ((auxH + emH) / totalHours) * 100 : 0;
+  var auxShareCost = total > 0 ? ((auxCost + emCost) / total) * 100 : 0;
+
+  var money = function (v) { return '$' + Math.round(v).toLocaleString(); };
+  var money2 = function (v) { return '$' + v.toFixed(2); };
+
+  document.getElementById('ax-headline').textContent =
+    'AUX added ' + money(auxExtra + emCost) + ' this month';
+
+  var rows =
+    '<tr><th>Item</th><th>Hours</th><th>Cost</th></tr>' +
+    '<tr><td>Heat pump alone (' + hpKw + ' kW)</td><td>' + Math.round(hpH) + '</td><td>' + money(hpOnlyCost) + '</td></tr>' +
+    '<tr><td>Heat pump + AUX strips (' + (hpKw + strips) + ' kW)</td><td>' + Math.round(auxH) + '</td><td>' + money(auxCost) + '</td></tr>';
+  if (emH > 0) {
+    rows += '<tr><td>Emergency heat, strips alone (' + strips + ' kW)</td><td>' + Math.round(emH) + '</td><td>' + money(emCost) + '</td></tr>';
+  }
+  rows +=
+    '<tr style="font-weight:700;"><td>Total heating electricity</td><td>' + Math.round(totalHours) + '</td><td>' + money(total) + '</td></tr>' +
+    '<tr style="background:var(--card);"><td colspan="3"><strong>What the strips cost you</strong></td></tr>' +
+    '<tr><td>Cost per hour, heat pump only</td><td colspan="2">' + money2(hpKw * rate) + '</td></tr>' +
+    '<tr><td>Cost per hour, with AUX</td><td colspan="2">' + money2((hpKw + strips) * rate) + ' (' + ((hpKw + strips) / hpKw).toFixed(1) + '× more)</td></tr>' +
+    '<tr style="font-weight:700;"><td>Extra paid because strips ran</td><td colspan="2">' + money(auxExtra + emCost) + '</td></tr>' +
+    '<tr><td>AUX share of heating runtime</td><td colspan="2">' + auxShareHours.toFixed(0) + '%</td></tr>' +
+    '<tr><td>AUX share of heating cost</td><td colspan="2">' + auxShareCost.toFixed(0) + '%</td></tr>';
+
+  // If aux were eliminated entirely (hypothetical ceiling on savings)
+  if (auxH > 0) {
+    rows += '<tr><td>If strips never ran at all</td><td colspan="2">bill would be ' + money(total - auxExtra - emCost) + '</td></tr>';
+  }
+  document.getElementById('ax-table').innerHTML = rows;
+
+  var expected = type === 'cold' ? 15 : 40;
+  var note = '';
+
+  if (auxShareHours < 5) {
+    note = 'Auxiliary heat is barely running — under 5% of your heating hours. That is what a correctly configured system looks like, and there is little to recover here. ';
+  } else if (auxShareHours < 20) {
+    note = 'AUX is running ' + auxShareHours.toFixed(0) + '% of heating hours, which is within the normal range for a cold month. It still costs you ' + money(auxExtra + emCost) + ', so it is worth checking the lockout setting, but nothing here looks broken. ';
+  } else if (auxShareHours < 40) {
+    note = 'AUX at ' + auxShareHours.toFixed(0) + '% of heating hours is high. That is ' + auxShareCost.toFixed(0) + '% of your heating cost going to resistance strips. Worth investigating the thermostat lockout setting and your setback schedule before assuming it is just the weather. ';
+  } else {
+    note = '⚠️ AUX at ' + auxShareHours.toFixed(0) + '% of heating hours is very high and is consuming ' + auxShareCost.toFixed(0) + '% of your heating cost. Unless you had an extraordinary cold spell, something is likely wrong — low refrigerant, an iced coil from a failed defrost, a reversing valve stuck in cooling, or a missing outdoor lockout. This is a service call rather than a settings tweak. ';
+  }
+
+  if (lowTemp > expected + 5) {
+    note += 'You also noted AUX coming on at ' + Math.round(lowTemp) + '°F. For a ' + (type === 'cold' ? 'cold-climate' : 'standard') + ' heat pump the balance point should be nearer ' + expected + '°F or below, so engaging that early points to a lockout that was never configured, an oversized setback, or reduced capacity. ';
+  }
+
+  if (emH > 0) {
+    note += '⚠️ You logged ' + Math.round(emH) + ' hours of emergency heat, which cost ' + money(emCost) + '. Emergency heat switches the heat pump off entirely and runs on strips alone — it is for when the heat pump is broken, not for cold weather. If the system was working, those hours were spent throwing away the efficient part of your system. ';
+  }
+
+  note += 'Assumes strips draw their full rated capacity while energised and the heat pump draws a constant kW; both cycle in reality, so treat this as an upper bound. Excludes the indoor blower, which runs in all modes.';
+  document.getElementById('ax-note').textContent = note;
+
+  var r = document.getElementById('ax-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
