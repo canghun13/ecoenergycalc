@@ -1,3 +1,63 @@
+# EcoEnergyCalc 인수인계 — v30 세션 (2026-10-12, 주간 데이터)
+
+## 0-R1. 📈 Bing 2,758노출 / 70클릭 (전주 1,534/41)
+
+| | Google (GSC 3개월) | Bing (주간) |
+|---|---|---|
+| 노출 | 577 | **2,758** |
+| **클릭** | **0** | **70** |
+| 평균 순위 | 68~77위 | **5~6위** |
+| CTR | 0% | **10.57%** |
+
+- GA(8/10~9/06): 활성 **268명**(전 214), 이벤트 1,322. bing 79 + duckduckgo 78 = 157+ 세션. **google/organic 0 유지.**
+- Bing 최대 자산 `tools/water-usage.html` **1,368노출/12클릭**. 2위 washing-machine-water-usage 384/7, 3위 how-much-water-does-a-washing-machine-use 229.
+- **GA 1위 페이지는 `compare/driving-vs-flying-carbon`(53뷰/39명)** — v27에서 모델 결함을 고친 그 페이지. Bing에서도 64노출/11클릭 @3.11로 CTR 최고. 수정이 통했다는 신호.
+
+## 0-R2. ✅ v30 작업: 급등 자산 보강 (커밋 `77cfc16`) — 신규 없음, 파일 146 유지
+
+### `tools/heating-cost-by-fuel.html`에 지역별 연료가 프리셋 추가
+**이 도구가 급등했다**: Bing 183노출/**9클릭** @4.93위(전주 14/1), GA 4위 페이지(24뷰/21명). 난방 시즌 진입 신호.
+
+**갭**: 유입 쿼리가 명확히 **지역 특정**인데 도구는 4개 연료가를 수동 입력만 받았음 — 자기 프로판·오일 가격을 모르는 사용자가 답을 못 얻고 있었다.
+- `which is cheaper in 11975 - propane or natural gas or electric heat?` (ZIP, 클릭 발생)
+- `heating a home in longview wa which is more expensive natural gas or electricity`
+- `average monthly heating bills across new york counties. compare oil, gas, and heat pump`
+- `cheapest home heating oil vs propane vs electric` (**2클릭 @2위**)
+
+**조치**: 지역 선택(Northeast/Midwest/South/West) 시 4개 연료가 자동 입력.
+
+**★ 차별화 근거 — 지역 편차가 순위를 뒤집는다** (실측 확인, 본문에 명시):
+- 프로판 동부 $3.26/gal vs 중서부 $1.96/gal = **동일 연료 66% 차이**
+- 동일 조건(1,800sqft, cold)에서 **동북부는 오일($1,648) < 프로판($2,272)인데 중서부는 프로판($1,377) < 오일($1,477)로 역전**
+- 남부는 히트펌프 $1,007 ≈ 가스 $1,008로 사실상 동률
+- → "한 지역용 조언이 다른 지역에선 틀리다". 전국 평균만 제시하는 경쟁사와의 차별점.
+
+**안전장치**: 프리셋은 출발점이지 견적이 아님을 라벨·안내문·본문 **3곳**에 명시하고 "반드시 본인 청구서로 덮어쓰라"고 반복. 지역 내 편차도 크다는 점 기재. **이 문구들 유지할 것.**
+
+## 0-R3. ✅ 색인 — 4주 정체가 드디어 풀렸다
+
+- **`water-bill-benchmark-calculator`가 `1970-01-01`(미크롤) → `2026-09-05` 크롤됨.** v21에 만들어 4주 넘게 정체돼 있던 페이지.
+- **미크롤 목록에서 빠진 것**: `community-solar-vs-rooftop-solar`, `tankless-vs-tank-water-heater` — 다음 버킷으로 이동한 것으로 보임.
+- 현재 "발견됨-미크롤"은 대부분 **v28/v29 신규**(electric blanket, heat pump aux 계열)로, 생성 1~2주차라 정상.
+- → **v24~v27에서 "구글에 리소스 쓰지 말 것"이라 판단했는데, 방치해도 시간이 지나면 크롤이 진행된다는 게 확인됐다.** 이 판단 유지. 별도 조치 불필요.
+
+## 0-R4. ⚠️ 운영 메모: 토큰이 세션 중간에 revoke될 수 있음
+
+v30 세션에서 작업 도중 토큰이 401로 죽었다(사용자가 실수로 revoke). **로컬 커밋은 살아있었고 새 토큰으로 remote만 재설정해 푸시 성공.**
+```
+git remote set-url origin https://<NEW_TOKEN>@github.com/canghun13/ecoenergycalc.git
+git push origin main
+```
+→ 푸시 실패 시 작업을 다시 하지 말 것. `git log`로 로컬 커밋 확인 후 remote만 갈아끼우면 된다.
+
+## 0-R5. 다음 세션 후보
+
+1. **`home carbon footprint calculator` 3클릭 @6위** — 여전히 단일 최다 클릭 키워드. v27부터 계속 후보로 남아있음. 순위를 올리면 바로 먹히는 자리.
+2. **난방 시즌이 시작됐다** — heating-cost-by-fuel, heating-vs-cooling(33/3), v29 AUX 클러스터, v28 개인난방이 모두 11~2월에 피크. **다음 2~3주 데이터로 이 4개를 함께 측정할 것.**
+3. 물 클러스터는 여전히 압도적 1위(1,368노출)이므로 계속 방어.
+
+---
+
 # EcoEnergyCalc 인수인계 — v29 세션 (2026-10-05)
 
 ## 0-S. ✅ v29 신규 클러스터: 히트펌프 보조열(AUX) — 커밋 `43b7172`, 143 → 146파일
