@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Heating Cost by Fuel Type Calculator","url":"https://ecoenergycalc.com/tools/heating-cost-by-fuel.html","description":"Compare annual home heating costs by fuel type — natural gas, electricity, propane, heating oil, and heat pump.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Heating Cost by Fuel Type Calculator","url":"https://ecoenergycalc.com/tools/heating-cost-by-fuel.html","description":"Compare annual home heating costs by fuel type — natural gas, electricity, propane, heating oil, and heat pump.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-10-12","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -45,6 +45,20 @@
               <label for="hf-size">Home Size (sq ft)</label>
               <input type="number" id="hf-size" value="1800" min="200" max="10000" />
             </div>
+
+            <div class="form-group">
+              <label for="hf-region">Your Region (auto-fills typical fuel prices)</label>
+              <select id="hf-region" onchange="applyRegionPrices()">
+                <option value="custom" selected>Custom — I'll enter my own prices</option>
+                <option value="northeast">Northeast (NY, New England, NJ, PA)</option>
+                <option value="midwest">Midwest (IL, OH, MI, MN, WI, IA)</option>
+                <option value="south">South (GA, TX, FL, NC, TN)</option>
+                <option value="west">West (CA, WA, OR, CO, AZ)</option>
+              </select>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Regional fuel prices vary enormously — propane on the East Coast has run around <strong>$3.26/gal against roughly $1.96 in the Midwest</strong>, a 66% gap for the identical fuel. Picking a region fills in typical levels so you can get a sensible answer without hunting for four separate prices. <strong>Always overwrite with your own bill or a local quote if you have one</strong> — these are regional averages, not your price.</p>
+            </div>
+
+            <p class="result-note" id="hf-regionnote" style="display:none;margin:-8px 0 16px;"></p>
 
             <div class="form-group">
               <label for="hf-climate">Climate Zone</label>
@@ -89,6 +103,19 @@
           </div>
 
           <div class="article-body" style="margin-top:48px;">
+            <h2>Why the Cheapest Fuel Depends on Where You Live</h2>
+            <p>"Which heating fuel is cheapest" has no national answer, because regional price spreads are far larger than most people expect. Propane on the East Coast has run around <strong>$3.26/gal against roughly $1.96 in the Midwest</strong> — a 66% gap for the identical product, driven by pipeline access, storage, and delivery distance.</p>
+            <p>Big enough that the <em>ranking</em> flips. Running the same 1,800 sq ft cold-climate home through this calculator on typical regional prices:</p>
+            <ul>
+              <li><strong>Northeast:</strong> natural gas ≈ $1,229 → heating oil ≈ $1,648 → heat pump ≈ $1,679 → propane ≈ $2,272</li>
+              <li><strong>Midwest:</strong> natural gas ≈ $725 → heat pump ≈ $1,074 → <strong>propane ≈ $1,377 → heating oil ≈ $1,477</strong></li>
+              <li><strong>South:</strong> heat pump ≈ $1,007 ≈ natural gas ≈ $1,008 (effectively tied)</li>
+              <li><strong>West:</strong> natural gas ≈ $1,103 → heat pump ≈ $1,611 → heating oil ≈ $1,670</li>
+            </ul>
+            <p>Note the reversal: in the Northeast heating oil beats propane, in the Midwest propane beats heating oil. Advice written for one region is actively wrong in the other. In the South a heat pump and natural gas are close enough that the decision comes down to whether you need cooling anyway — and there, a heat pump gives you both.</p>
+            <p>Natural gas wins in every region where it's available, which is the one genuinely national conclusion. The real question for most households is what to do when it <em>isn't</em> available on your street — and that's where the regional spread decides between propane, oil and a heat pump.</p>
+            <p>Use the region selector above to load typical prices, then overwrite them with your own bill. Regional averages hide wide variation within a region, and a delivered-fuel quote can differ substantially from the state average depending on your supplier and contract.</p>
+
             <h2>How to Calculate Heating Costs by Fuel Type</h2>
             <p>Comparing heating costs across fuel types isn't straightforward because each fuel has different energy content and each heating system has different efficiency. A therm of natural gas contains 100,000 BTU of energy, but an 80% efficient furnace only delivers 80,000 BTU of usable heat. A heat pump, by contrast, moves heat rather than generating it — so it can deliver 2.5x more heat energy than the electricity it consumes.</p>
             <p>The formula that matters is: <strong>Cost = (Heat needed ÷ System efficiency) × Fuel price per unit of energy</strong>. Once you convert everything to a common unit (BTU of delivered heat), the comparison becomes apples-to-apples.</p>
@@ -175,6 +202,31 @@
 <script>
 // Annual heat load in kBTU per sq ft by climate zone (EIA-based estimates)
 const heatLoad = { hot: 8, mixed: 18, cold: 28, veryCold: 40 };
+
+// Typical regional residential fuel prices. Derived from EIA regional reporting
+// (PADD/census region averages). These are starting points, not quotes — the
+// spread within a region is wide and users should overwrite with their own bill.
+var regionPrices = {
+  northeast: { gas: 1.95, elec: 25, propane: 3.30, oil: 3.85, label: 'Northeast' },
+  midwest:   { gas: 1.15, elec: 16, propane: 2.00, oil: 3.45, label: 'Midwest' },
+  south:     { gas: 1.60, elec: 15, propane: 2.85, oil: 3.70, label: 'South' },
+  west:      { gas: 1.75, elec: 24, propane: 2.75, oil: 3.90, label: 'West' }
+};
+
+function applyRegionPrices() {
+  var r = document.getElementById('hf-region').value;
+  if (r === 'custom' || !regionPrices[r]) return;
+  var p = regionPrices[r];
+  document.getElementById('hf-gas').value = p.gas;
+  document.getElementById('hf-elec').value = p.elec;
+  document.getElementById('hf-propane').value = p.propane;
+  document.getElementById('hf-oil').value = p.oil;
+  var n = document.getElementById('hf-regionnote');
+  if (n) {
+    n.textContent = 'Filled in typical ' + p.label + ' prices. These are regional averages — replace any of them with a figure from your own bill or a local quote for a result you can rely on.';
+    n.style.display = 'block';
+  }
+}
 
 function calcFuelCost() {
   const size   = parseFloat(document.getElementById('hf-size').value) || 1800;
