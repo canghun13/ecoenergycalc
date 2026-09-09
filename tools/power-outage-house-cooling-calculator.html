@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Long Will My House Stay Warm Without Power? Calculator | EcoEnergyCalc</title>
+  <meta name="description" content="Contractor blogs say 6–24 hours. The real answer ranges from under 2 hours to over a day depending on your insulation and the outdoor temperature. Get the timeline for your house." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/power-outage-house-cooling-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Power Outage House Cooling Calculator","url":"https://ecoenergycalc.com/tools/power-outage-house-cooling-calculator.html","description":"Estimate how fast your house cools during a winter power outage and how long until pipes are at risk.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-10-19"}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How long will a house stay warm without power?","acceptedAnswer":{"@type":"Answer","text":"It depends far more on your insulation and the outdoor temperature than the commonly quoted 6 to 24 hour range suggests. An average home starting at 68°F with 20°F outside takes roughly 7 hours to fall to 55°F, the point where pipes start being at risk. A poorly insulated home with 0°F outside can reach that in about 2 hours. A well-insulated home with 40°F outside may take over 20 hours. Those are the same question with answers an order of magnitude apart, which is why a single number is not useful."}},
+    {"@type":"Question","name":"How long before pipes freeze in a power outage?","acceptedAnswer":{"@type":"Answer","text":"Indoor air reaching 55°F is the usual point to start worrying, but the pipes that actually burst are rarely in the heated space. Pipes in exterior walls, crawl spaces, attics and unheated garages run far colder than your thermostat reads and can freeze while the living area still feels merely chilly. Common guidance is that exposed, uninsulated pipes can begin freezing within about 4 to 6 hours in sub-freezing conditions. Treat the indoor timeline from this calculator as the point to take protective action, not the moment damage begins."}},
+    {"@type":"Question","name":"Does pre-heating the house before a storm help?","acceptedAnswer":{"@type":"Answer","text":"Yes, and it is one of the few genuinely free things you can do. Heat stored in the building's mass has to be lost before the interior cools, so starting warmer shifts the whole curve. For an average home with 20°F outside, raising the thermostat from 68 to 75°F before the power goes out buys roughly three extra hours before the interior reaches 55°F. It is not transformative, but three hours can be the difference between an inconvenience and burst plumbing, and it costs one evening of slightly higher heating."}},
+    {"@type":"Question","name":"At what indoor temperature does a house become dangerous?","acceptedAnswer":{"@type":"Answer","text":"Around 60°F you lose comfort and condensation risk rises. Around 55°F is the standard floor for protecting plumbing and the point at which most guidance says to take action. Below about 50°F, hypothermia risk becomes a genuine concern for infants, elderly people and anyone unwell, and pets are affected too. Below 40°F the house should be treated as unsafe to occupy overnight. These thresholds are about the whole household, not just discomfort, and they arrive faster than most people expect in a poorly insulated home."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Power Outage House Cooling</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>How Long Will My House Stay Warm Without Power?</h1>
+        <p>Search this and you'll get "6–10 hours" from one contractor blog, "8–12" from another and "12–24" from a third. None of them ask about your insulation or how cold it is outside — the two things that actually decide it. This works out the timeline for your house.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Your Cooling Timeline</h2>
+            <div class="form-group">
+              <label for="oc-indoor">Indoor Temperature Now (°F)</label>
+              <input type="number" id="oc-indoor" value="68" min="40" max="85" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="oc-outdoor">Outdoor Temperature (°F)</label>
+              <input type="number" id="oc-outdoor" value="20" min="-40" max="70" step="1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Use the forecast low for the outage period, not the current reading — most of the cooling happens overnight.</p>
+            </div>
+            <div class="form-group">
+              <label for="oc-house">Your House</label>
+              <select id="oc-house">
+                <option value="10">Pre-1950, little or no insulation, single-pane windows</option>
+                <option value="15">1950–1980, some insulation, drafty</option>
+                <option value="22" selected>1980–2000, standard insulation, double-pane</option>
+                <option value="32">2000s+, well insulated and air-sealed</option>
+                <option value="45">New build or deep retrofit, very tight envelope</option>
+              </select>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">If you're unsure, pick by how the house feels in winter: if rooms near exterior walls are noticeably cold and you feel draughts, choose a lower tier.</p>
+            </div>
+            <div class="form-group">
+              <label for="oc-wind">Wind</label>
+              <select id="oc-wind">
+                <option value="1.0" selected>Calm or light</option>
+                <option value="0.85">Breezy (10–20 mph)</option>
+                <option value="0.72">Windy (20+ mph) or exposed site</option>
+              </select>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Wind drives cold air through every gap in the envelope. It matters more on a leaky house than a tight one.</p>
+            </div>
+            <div class="form-group">
+              <label for="oc-fire">Alternative Heat Source</label>
+              <select id="oc-fire">
+                <option value="0" selected>None</option>
+                <option value="6">Wood stove or fireplace insert (in use)</option>
+                <option value="3">Open fireplace (in use)</option>
+                <option value="4">Portable propane or kerosene heater (ventilated)</option>
+              </select>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Roughly how many degrees this holds the interior above where it would otherwise settle. Read the safety note below before using any combustion heater indoors.</p>
+            </div>
+            <button class="btn-primary" onclick="calcOutageCooling()">Calculate Timeline</button>
+            <div class="result-box-tool" id="oc-result">
+              <h3>Your House's Cooling Timeline</h3>
+              <div class="result-amount" id="oc-headline"></div>
+              <div class="table-scroll">
+                <table id="oc-table" style="width:100%;min-width:480px;"></table>
+              </div>
+              <p class="result-note" id="oc-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Why "6 to 24 Hours" Is a Useless Answer</h2>
+            <p>Houses cool the way a cup of coffee does — fast at first while the gap between inside and outside is large, then progressively slower. That's <strong>exponential decay</strong>, and it's governed by one property of your building: how long it takes to lose most of its stored heat, which engineers call the time constant.</p>
+            <p>Two things dominate the result, and neither appears in the usual advice:</p>
+            <ul>
+              <li><strong>How cold it is outside.</strong> The rate of heat loss is proportional to the indoor-outdoor gap. At 40°F outside you have hours of slack; at −10°F the same house drops through the same range several times faster.</li>
+              <li><strong>How well the envelope holds heat.</strong> A tight, well-insulated house can have a time constant three to four times that of a draughty pre-war one.</li>
+            </ul>
+            <p>Put those together and the honest range for "how long until pipes are at risk" is roughly <strong>under 2 hours to over 28 hours</strong> — not 6 to 24. Some worked examples, all starting at 68°F and measuring the time to reach 55°F:</p>
+            <ul>
+              <li><strong>Pre-1950 uninsulated, 0°F out:</strong> about <strong>2 hours</strong></li>
+              <li><strong>1980s standard, 20°F out:</strong> about <strong>7 hours</strong> (this is the case the "6–10 hours" articles describe)</li>
+              <li><strong>Well insulated, 20°F out:</strong> about <strong>10 hours</strong></li>
+              <li><strong>Well insulated, 40°F out:</strong> about <strong>20 hours</strong></li>
+              <li><strong>Very tight envelope, 40°F out:</strong> about <strong>28 hours</strong></li>
+            </ul>
+            <p>The reason this matters isn't academic. If you're in the two-hour case and you're reading advice written for the seven-hour case, you'll make the wrong call about whether to stay.</p>
+
+            <div class="callout">
+              <strong>Pre-heating actually works, and it's free.</strong> Heat stored in the structure has to be lost before the air cools. Raising the thermostat from 68 to 75°F before an outage buys an average house roughly <strong>three extra hours</strong> before it hits 55°F. Do it when a storm is forecast, not after the lights go out.
+            </div>
+
+            <h2>The Temperatures That Matter</h2>
+            <ul>
+              <li><strong>60°F</strong> — comfort is gone and condensation risk rises on cold surfaces.</li>
+              <li><strong>55°F</strong> — the standard floor for protecting plumbing. This is the number to plan around.</li>
+              <li><strong>50°F</strong> — hypothermia risk becomes real for infants, elderly people, anyone unwell, and pets.</li>
+              <li><strong>40°F</strong> — treat the house as unsafe to sleep in.</li>
+            </ul>
+            <p>These are the same thresholds we use in our <a href="/tools/personal-heating-savings-calculator.html">personal heating savings calculator</a>, where they set the floor on how far you should turn the thermostat down deliberately.</p>
+
+            <h2>Your Pipes Are Colder Than Your Thermostat</h2>
+            <p>This is the single most important caveat, and the calculator can't model it for you.</p>
+            <p>The pipes that actually burst are almost never in the heated space. They're in <strong>exterior walls, crawl spaces, attics, and unheated garages</strong> — places that track outdoor temperature far more closely than your living room does. Common guidance is that exposed, uninsulated pipes can begin freezing within about four to six hours of sub-freezing exposure, which can be well before your thermostat reads 55°F.</p>
+            <p>So treat the indoor timeline above as <strong>when to act</strong>, not when damage starts. The standard protective steps — opening cabinet doors under sinks so household air reaches the plumbing, letting faucets drip so water keeps moving, and knowing where your main shutoff is — cost nothing and buy real margin.</p>
+            <p>If an extended outage in deep cold is likely, draining the system is the definitive answer. That's a decision to make before you lose the ability to make it comfortably.</p>
+
+            <h2>What Extends the Timeline</h2>
+            <ul>
+              <li><strong>Close off unused rooms.</strong> Shrinking the heated volume concentrates what heat remains where people are.</li>
+              <li><strong>Cover windows.</strong> Blankets or heavy curtains over glass cut a large share of radiant loss. Glass is the weakest part of almost every envelope.</li>
+              <li><strong>Block draughts</strong> at doors and unused fireplaces. Air leakage matters more as the house cools, because you can't feel it once everything is cold.</li>
+              <li><strong>Don't open exterior doors more than you must.</strong> Each opening dumps warm air you can't replace.</li>
+              <li><strong>Insulation and air sealing</strong> extend this permanently, not just during outages. Our <a href="/tools/insulation-savings.html">insulation savings calculator</a> covers the bill savings; the outage resilience is a benefit that never shows up in a payback calculation.</li>
+            </ul>
+
+            <h2>A Safety Note We're Not Going to Soften</h2>
+            <p>This calculator is about heat loss, not about how to generate heat. But the failure modes in outages kill people every winter, so:</p>
+            <ul>
+              <li><strong>Never run a generator indoors</strong> — not in a garage, not in a shed, not near an open window. Carbon monoxide is odourless and outages are when it kills. Keep it well away from doors, windows and vents.</li>
+              <li><strong>Never heat a home with a stove, oven, grill or camp stove.</strong> Same reason.</li>
+              <li><strong>Never backfeed</strong> a generator into a wall outlet. It can electrocute utility workers restoring your power.</li>
+              <li><strong>Combustion heaters need ventilation</strong> and a working CO alarm. Battery-powered CO alarms are the one purchase that matters most here.</li>
+              <li>If the house is heading below 40°F and you have somewhere else to go, <strong>go</strong>. A warming centre is not a failure.</li>
+            </ul>
+            <p>If you're weighing backup power for future outages, our <a href="/compare/solar-vs-generator.html">solar vs generator comparison</a> covers the trade-offs, and our <a href="/tools/battery-storage.html">battery storage calculator</a> covers sizing. Note that most gas and oil heating systems need only a modest amount of electricity to run their controls and blower — backing up the heating alone is far cheaper than backing up a whole house.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings Calculator</a></li>
+              <li><a href="/tools/personal-heating-savings-calculator.html">Personal Heating Savings Calculator</a></li>
+              <li><a href="/tools/battery-storage.html">Battery Storage Calculator</a></li>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-long-will-my-house-stay-warm-without-power.html">How Long a House Stays Warm Without Power</a></li>
+              <li><a href="/compare/solar-vs-generator.html">Solar vs Generator for Backup</a></li>
+              <li><a href="/blog/how-to-lower-your-heating-bill.html">How to Lower Your Heating Bill</a></li>
+              <li><a href="/blog/why-is-my-heat-pump-electric-bill-so-high.html">Why Is My Heat Pump Bill So High?</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Real range: <strong>~2 to 28+ hours</strong></li>
+              <li>Pipe-risk floor: <strong>55°F indoors</strong></li>
+              <li>Pre-heating 7°F buys: <strong>~3 hours</strong></li>
+              <li>Exposed pipes freeze in: <strong>~4–6 hrs</strong></li>
+              <li>Never run a generator: <strong>indoors</strong></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How long will a house stay warm without power?</h3>
+      <p>It depends far more on your insulation and the outdoor temperature than the commonly quoted 6 to 24 hour range suggests. An average home starting at 68°F with 20°F outside takes roughly 7 hours to fall to 55°F, the point where pipes start being at risk. A poorly insulated home with 0°F outside can reach that in about 2 hours. A well-insulated home with 40°F outside may take over 20 hours. Those are the same question with answers an order of magnitude apart, which is why a single number is not useful.</p>
+      <h3>How long before pipes freeze in a power outage?</h3>
+      <p>Indoor air reaching 55°F is the usual point to start worrying, but the pipes that actually burst are rarely in the heated space. Pipes in exterior walls, crawl spaces, attics and unheated garages run far colder than your thermostat reads and can freeze while the living area still feels merely chilly. Common guidance is that exposed, uninsulated pipes can begin freezing within about 4 to 6 hours in sub-freezing conditions. Treat the indoor timeline from this calculator as the point to take protective action, not the moment damage begins.</p>
+      <h3>Does pre-heating the house before a storm help?</h3>
+      <p>Yes, and it is one of the few genuinely free things you can do. Heat stored in the building's mass has to be lost before the interior cools, so starting warmer shifts the whole curve. For an average home with 20°F outside, raising the thermostat from 68 to 75°F before the power goes out buys roughly three extra hours before the interior reaches 55°F. It is not transformative, but three hours can be the difference between an inconvenience and burst plumbing, and it costs one evening of slightly higher heating.</p>
+      <h3>At what indoor temperature does a house become dangerous?</h3>
+      <p>Around 60°F you lose comfort and condensation risk rises. Around 55°F is the standard floor for protecting plumbing and the point at which most guidance says to take action. Below about 50°F, hypothermia risk becomes a genuine concern for infants, elderly people and anyone unwell, and pets are affected too. Below 40°F the house should be treated as unsafe to occupy overnight. These thresholds are about the whole household, not just discomfort, and they arrive faster than most people expect in a poorly insulated home.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcOutageCooling() {
+  var g = function (id, d) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? d : v; };
+  var tin = g('oc-indoor', 68);
+  var tout = g('oc-outdoor', 20);
+  var tauBase = parseFloat(document.getElementById('oc-house').value) || 22;
+  var windMult = parseFloat(document.getElementById('oc-wind').value) || 1;
+  var fireBoost = parseFloat(document.getElementById('oc-fire').value) || 0;
+
+  var tau = tauBase * windMult;
+  // An alternative heat source raises the temperature the house settles toward.
+  var floor = tout + fireBoost;
+  if (floor >= tin) floor = tin - 0.5;
+
+  var tempAt = function (h) { return floor + (tin - floor) * Math.exp(-h / tau); };
+  var hoursTo = function (target) {
+    if (target >= tin) return 0;
+    if (target <= floor) return null;
+    return -tau * Math.log((target - floor) / (tin - floor));
+  };
+
+  var fmtH = function (h) {
+    if (h === null) return 'never — settles above this';
+    if (h < 1) return Math.round(h * 60) + ' min';
+    return h.toFixed(1) + ' hrs';
+  };
+
+  var h55 = hoursTo(55);
+  document.getElementById('oc-headline').textContent =
+    h55 === null ? 'Stays above 55°F indefinitely' : 'Reaches 55°F in ' + fmtH(h55);
+
+  var rows =
+    '<tr><th>Hours without heat</th><th>Indoor temperature</th></tr>';
+  [1, 3, 6, 12, 24, 48].forEach(function (h) {
+    var t = tempAt(h);
+    var flag = t < 40 ? ' ⚠️' : (t < 50 ? ' ⚠' : '');
+    rows += '<tr><td>' + h + ' hrs</td><td>' + t.toFixed(0) + '°F' + flag + '</td></tr>';
+  });
+  rows += '<tr style="background:var(--card);"><td colspan="2"><strong>Time to reach each threshold</strong></td></tr>' +
+    '<tr><td>60°F — comfort gone, condensation risk</td><td>' + fmtH(hoursTo(60)) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>55°F — plumbing at risk, act now</td><td>' + fmtH(h55) + '</td></tr>' +
+    '<tr><td>50°F — hypothermia risk for vulnerable people</td><td>' + fmtH(hoursTo(50)) + '</td></tr>' +
+    '<tr><td>40°F — unsafe to occupy overnight</td><td>' + fmtH(hoursTo(40)) + '</td></tr>';
+
+  // Pre-heating benefit
+  if (h55 !== null && tin < 75) {
+    var preTau = tau;
+    var preH = (55 > floor) ? -preTau * Math.log((55 - floor) / (75 - floor)) : null;
+    if (preH !== null) {
+      rows += '<tr><td>If you pre-heat to 75°F first</td><td>' + fmtH(preH) + ' (+' + (preH - h55).toFixed(1) + ' hrs)</td></tr>';
+    }
+  }
+  rows += '<tr><td>Your house\'s time constant</td><td>' + tau.toFixed(0) + ' hrs' + (windMult < 1 ? ' (wind-adjusted)' : '') + '</td></tr>';
+  document.getElementById('oc-table').innerHTML = rows;
+
+  var note = '';
+  if (h55 === null) {
+    note = 'With the heat source you selected the house settles above 55°F, so plumbing inside the heated envelope should be fine. Pipes in exterior walls, crawl spaces and unheated garages are a separate problem — they track outdoor temperature, not your thermostat. ';
+  } else if (h55 < 4) {
+    note = '⚠️ Under four hours to the plumbing threshold. That is a fast-cooling situation — an older envelope, a hard freeze outside, or both. Take protective steps immediately rather than waiting to see how long the outage lasts: open cabinet doors under sinks, set faucets to a slow drip, and locate your main shutoff. If the outage looks like it will run overnight, have somewhere else to go. ';
+  } else if (h55 < 10) {
+    note = 'You have a working margin but not a comfortable one. Use it now rather than later — cover windows with blankets, close off unused rooms, and start pipe protection before the house is cold. ';
+  } else {
+    note = 'You have a substantial margin, which usually means a decent envelope, mild outdoor temperatures, or both. Still worth covering windows and closing off unused rooms early, since these are much more effective before the house cools than after. ';
+  }
+
+  if (tin < 74) {
+    note += 'If an outage is forecast rather than already happening, pre-heating the house is free and shifts the whole curve — the table above shows what starting at 75°F would buy you. ';
+  }
+
+  note += '⚠️ The pipes that actually burst are usually in exterior walls, crawl spaces, attics and unheated garages, and those run far colder than your thermostat reads — exposed uninsulated pipes can begin freezing within about 4–6 hours of sub-freezing exposure regardless of what the indoor timeline says. ';
+  note += 'Never run a generator, grill or camp stove indoors or in a garage, and never heat with a stove or oven — carbon monoxide is what kills people during outages. ';
+  note += 'This models a single well-mixed space cooling exponentially; real houses vary room to room, and the time constant is an estimate from construction era rather than a measurement of your specific building.';
+  document.getElementById('oc-note').textContent = note;
+
+  var r = document.getElementById('oc-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
