@@ -1,3 +1,60 @@
+# EcoEnergyCalc 인수인계 — v32 세션 (2026-10-26, 주간 데이터)
+
+## 0-P1. 📈 Bing 클릭이 8배로 — 주별 6 → 21 → 23 → 24 → **50**
+
+| | Google (GSC 3개월) | Bing (32일) |
+|---|---|---|
+| 노출 | 659 | **5,684** |
+| **클릭** | **0** | **124** |
+| 평균 순위 | 70~77위 | 5~6위 |
+
+- 주별 클릭 추이가 핵심: **6 → 21 → 23 → 24 → 50(주37).** 최근 7일만 1,575노출/51클릭.
+- GA(8/17~9/13): 활성 **357명**(전 268), 이벤트 1,672. Bing계열 218세션(bing 102 + ddg 76 + ecosia 21 + yahoo 19).
+- **google/organic이 처음으로 1 기록.** 0에서 벗어난 첫 신호이나 아직 의미 부여할 수준은 아님.
+- **GA 3위 = `heating-cost-by-fuel` 36뷰/32명(전주 24뷰) — v30 지역 프리셋 작업 후 50% 상승. 효과 확인됨.** GA 1위는 여전히 driving-vs-flying(52뷰), v27 모델 수정 이후 계속 선두.
+
+## 0-P2. ⚠️ v32는 신규 클러스터를 만들지 않았다 — 판단 근거 (중요)
+
+세 가지를 검토하고 전부 기각했다. **같은 판단을 반복하지 않도록 근거를 남긴다.**
+
+**1) 이번 주 Bing 자료에 키워드·페이지 리포트가 없었다.** 일별 총계(`SearchPerformanceOverview`)만 업로드돼 실증 기반 타겟팅이 불가능했다. → **다음 세션에 `KeywordReport`와 `PageTrafficReport`를 함께 요청할 것.** 이 둘이 없으면 우리 주력 채널을 못 본다.
+
+**2) GSC 최대 수요인 태양광 CO2 클러스터는 온페이지로 풀 문제가 아니다.**
+- 쿼리 6종 합계 **142노출**: `solar panel carbon offset calculator` 34@83.9, `solar panels carbon footprint calculator` 31@84.2, `solar carbon footprint calculator` 30@94.7, `solar carbon offset calculator` 21@85.4, `co2 emission reduction with solar calculator` 15@84.9, `solar co2 offset calculator` 11@94.1
+- **점검 결과 `tools/solar-co2-offset-calculator.html`에 결함이 없다**: 일조 지역 + 전력망 지역 셀렉터 둘 다 있고, 본문도 eGRID 지역계수·탄소 회수기간(1~4년)·탄소 크레딧 구분까지 다룸. title/desc도 v20에서 이미 정렬됨.
+- 84~95위는 **사이트 전체 구글 순위(70~85)와 같은 수준**이다. 페이지 문제가 아니라 도메인 권위 문제. v20에서 홈 앵커 수정도 이미 시도했고 효과 없었음.
+- → **이 클러스터를 다시 "고칠 것"으로 올리지 말 것.** 구글 권위가 올라오면 자연히 따라온다.
+
+**3) 겨울 단전 유예(winter shutoff moratorium)는 의도적으로 진입하지 않았다.**
+- 커버리지 0건(`moratorium`/`arrears`/`past due`)이고 시즌상 타이밍도 최적이었으나 **기각.**
+- 이유: **법률·복지 영역**이고 주별로 매년 바뀐다. LIHEAP Clearinghouse(liheapch.acf.gov)와 주 법률구조 사이트가 정본이다. 우리는 50개 주 유예 날짜·소득기준을 최신으로 유지할 수단이 없고, **틀리면 취약가구가 난방을 잃는다.**
+- 우리 원칙과도 일치한다(v26 RUBS 계산기에 "산술을 검증하지 법을 판단하지 않는다"고 명시한 것과 같은 선). **다음 세션에서도 이 판단을 유지할 것.**
+
+## 0-P3. ✅ v32 작업: 난방 페이지에 요금 지원 안내 (커밋 `50ce4c5`) — 파일 148 유지
+
+위 3번의 책임 있는 최소 조치. 난방비를 계산하고 "못 내겠다"가 되는 사용자를 빈손으로 돌려보내지 않기 위해 `tools/heating-cost-by-fuel.html`과 `blog/how-to-lower-your-heating-bill.html`에 지원 안내 섹션 추가.
+
+**서술 원칙 (유지할 것)**:
+- LIHEAP 존재, crisis 구성요소(단전 임박·연료 소진 시), 의료적 필요 보호, 대부분 한랭주의 동절기 단전 제한을 **일반론으로만** 서술
+- **날짜·소득기준은 의도적으로 미기재.** 낡은 수치가 사람 난방을 끊을 수 있다는 이유를 본문에 명시함
+- LIHEAP Clearinghouse와 주 PUC를 정본으로 안내
+- 실무 포인트 2개: **단전 유예는 채무 면제가 아니다**(청구는 계속 쌓임), **연체 전에 전화하는 편이 분할납부 협상이 쉽다**
+
+## 0-P4. 색인 (사용자 제공, 2026-09-14)
+
+- 크롤됐으나 미색인 1건: `water-bill-benchmark-calculator`(9/05 크롤)
+- 발견-미크롤 10건 중 **6건이 v28/v29 신규**(electric blanket 2, heat pump aux 3, personal heating 1) — 생성 1~3주차라 **정상 진행**
+- 장기 미크롤 잔존 4건: `why-electric-bills-are-rising-ai-data-centers`, `gas-dryer-vs-heat-pump-dryer`, `solar-shingles-vs-solar-panels`, `ai-carbon-footprint-calculator`
+- **`community-solar-vs-rooftop-solar`와 `tankless-vs-tank-water-heater`는 목록에서 빠짐** — 다음 단계로 이동. v30에서 확인한 "방치해도 시간이 지나면 진행된다"가 재확인됨. **구글 색인에 리소스 쓰지 않는 판단 유지.**
+
+## 0-P5. 다음 세션
+
+1. **Bing KeywordReport·PageTrafficReport를 꼭 받을 것** (0-P2 참조)
+2. **난방 시즌 4종**(v28 개인난방, v29 AUX, v31 정전냉각, v30 지역 프리셋)을 11~12월 데이터로 함께 측정. v30은 이미 +50% 확인됨.
+3. `home carbon footprint calculator`는 v27부터 계속 후보로 남아 있으나 Bing 키워드 데이터 없이는 판단 보류.
+
+---
+
 # EcoEnergyCalc 인수인계 — v31 세션 (2026-10-19)
 
 ## 0-Q. ✅ v31 신규 클러스터: 정전 시 주택 냉각 타임라인 — 커밋 `d10b6f3`, 146 → 148파일
