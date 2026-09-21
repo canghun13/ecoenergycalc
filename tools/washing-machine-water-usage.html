@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Washing Machine Water Usage Calculator","url":"https://ecoenergycalc.com/tools/washing-machine-water-usage.html","description":"Calculate your washing machine's water usage per load and annually. Compare standard vs ENERGY STAR washer water consumption.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-29","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Washing Machine Water Usage Calculator","url":"https://ecoenergycalc.com/tools/washing-machine-water-usage.html","description":"Calculate your washing machine's water usage per load and annually. Compare standard vs ENERGY STAR washer water consumption.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-29","dateModified":"2026-11-02","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -74,7 +74,49 @@
             </div>
           </div>
 
+          <div class="calc-box" style="margin-top:32px;">
+            <h2>Know Your Exact Model? Get Its Real Number</h2>
+            <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:16px;">The estimate above uses typical figures by washer type. If you want the actual water use of <em>your</em> washer — a Bosch 500, a GE top-loader, an older machine — every model sold in the U.S. has an official <strong>Integrated Water Factor (IWF)</strong> on file. Enter it here.</p>
+            <div class="form-group">
+              <label for="iwf-val">Integrated Water Factor (IWF)</label>
+              <input type="number" id="iwf-val" value="3.2" min="0.5" max="20" step="0.1" />
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Gallons per cycle per cubic foot. Lower is better. See below for where to look it up by model number.</p>
+            </div>
+            <div class="form-group">
+              <label for="iwf-cap">Drum Capacity (cubic feet)</label>
+              <input type="number" id="iwf-cap" value="4.5" min="0.5" max="8" step="0.1" />
+            </div>
+            <div class="form-group">
+              <label for="iwf-type">Washer Type</label>
+              <select id="iwf-type">
+                <option value="front">Front-load</option>
+                <option value="top">Top-load</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="iwf-loads">Loads Per Week</label>
+              <input type="number" id="iwf-loads" value="5" min="0.5" max="50" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcIwf()">Calculate From IWF</button>
+            <div class="result-box-tool" id="iwf-result">
+              <h3>Your Model's Water Use</h3>
+              <div class="result-amount" id="iwf-headline"></div>
+              <div class="table-scroll"><table id="iwf-table" style="width:100%;min-width:420px;"></table></div>
+              <p class="result-note" id="iwf-note"></p>
+            </div>
+          </div>
+
           <div class="article-body" style="margin-top:48px;">
+            <h2>Where to Find Your Washer's IWF</h2>
+            <p>Two official databases list the water factor for washers by model number. Use your model number from the sticker inside the lid or door frame.</p>
+            <ul>
+              <li><strong>ENERGY STAR Product Finder</strong> (energystar.gov) — lists IWF, capacity and annual water use for every ENERGY STAR certified washer. Fastest option if your machine is certified.</li>
+              <li><strong>U.S. Department of Energy Compliance Certification Database</strong> (regulations.doe.gov, search "clothes washers") — covers <em>all</em> models sold in the U.S., certified or not. This is the one to use for older or non-ENERGY STAR machines, which the ENERGY STAR finder won't show.</li>
+            </ul>
+            <p>For reference, current federal minimums require an IWF of <strong>4.7 or lower for standard front-loaders</strong> and <strong>6.5 or lower for standard top-loaders</strong>. ENERGY STAR certification has required roughly <strong>3.2 for front-loaders and 4.3 for top-loaders</strong> — check the current criteria on energystar.gov, as they are tightened periodically. A real example: a 5.8 cu ft front-loader with an IWF of 2.6 uses about 15 gallons per cycle.</p>
+            <p>Very old machines may predate the IWF metric. Models certified before March 2015 were rated with a plain "Water Factor" (WF), which works the same way but was measured under an older test procedure, so treat those numbers as approximate. Machines made before federal water standards began in 2011 may not have any figure on record — for those, the type-based estimate above is the best you can do.</p>
+
+
             <h2>Water Usage by Washer Type</h2>
             <p>Washer technology has advanced significantly — modern ENERGY STAR models use less than one-third the water of older standard top-loaders. Here's how the main types compare:</p>
             <div class="table-scroll">
@@ -191,6 +233,59 @@ function calcWasherWater() {
   var r = document.getElementById('wm-result');
   r.classList.add('visible');
   r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+
+<script>
+function calcIwf() {
+  var g = function (id, d) { var v = parseFloat(document.getElementById(id).value); return (isNaN(v) || v <= 0) ? d : v; };
+  var iwf = g('iwf-val', 3.2);
+  var cap = g('iwf-cap', 4.5);
+  var type = document.getElementById('iwf-type').value;
+  var loads = g('iwf-loads', 5);
+
+  var galPerCycle = iwf * cap;
+  var litres = galPerCycle * 3.78541;
+  var annualGal = galPerCycle * loads * 52;
+  var fed = type === 'front' ? 4.7 : 6.5;
+  var es = type === 'front' ? 3.2 : 4.3;
+
+  var tier;
+  if (iwf <= es) tier = 'ENERGY STAR level';
+  else if (iwf <= fed) tier = 'Meets federal minimum, not ENERGY STAR';
+  else tier = 'Above current federal limit — older machine';
+
+  var n = function (v) { return Math.round(v).toLocaleString(); };
+  document.getElementById('iwf-headline').textContent = galPerCycle.toFixed(1) + ' gallons per cycle';
+
+  var rows =
+    '<tr><th>Measure</th><th>Value</th></tr>' +
+    '<tr><td>Water per cycle</td><td>' + galPerCycle.toFixed(1) + ' gal (' + litres.toFixed(0) + ' L)</td></tr>' +
+    '<tr><td>Per year (' + loads + ' loads/week)</td><td>' + n(annualGal) + ' gal</td></tr>' +
+    '<tr style="font-weight:700;"><td>Efficiency tier</td><td>' + tier + '</td></tr>' +
+    '<tr><td>' + (type === 'front' ? 'Front' : 'Top') + '-load ENERGY STAR benchmark</td><td>IWF ' + es + ' → ' + (es * cap).toFixed(1) + ' gal/cycle</td></tr>' +
+    '<tr><td>Federal minimum</td><td>IWF ' + fed + ' → ' + (fed * cap).toFixed(1) + ' gal/cycle</td></tr>';
+
+  if (iwf > es) {
+    var save = (iwf - es) * cap * loads * 52;
+    rows += '<tr><td>Saved per year by an ENERGY STAR model of the same size</td><td>' + n(save) + ' gal</td></tr>';
+  }
+  document.getElementById('iwf-table').innerHTML = rows;
+
+  var note = '';
+  if (iwf > fed) {
+    note = 'An IWF above ' + fed + ' is above the current federal limit for a standard ' + (type === 'front' ? 'front' : 'top') + '-loader, which usually means the machine predates today\'s standards. It is still perfectly legal to own and use — the limits apply to new machines being sold, not to ones already in homes. ';
+  } else if (iwf > es) {
+    note = 'Your washer meets the federal minimum but sits above ENERGY STAR levels. ';
+  } else {
+    note = 'Your washer is at ENERGY STAR water-efficiency levels, so there is little to gain on water by replacing it. ';
+  }
+  note += 'IWF is measured across a standard mix of cycles in a lab, so heavy-duty, sanitise or extra-rinse settings will use more than this figure and a quick cold wash will use less.';
+  document.getElementById('iwf-note').textContent = note;
+
+  var r = document.getElementById('iwf-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 </script>
 </body>
