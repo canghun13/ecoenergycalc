@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Heat Pump Water Heater vs Electric: Is the Upgrade Worth It for You?","description":"Enter your electricity rate and water usage to calculate your exact annual savings and payback period for a heat pump water heater upgrade.","url":"https://ecoenergycalc.com/compare/heat-pump-water-heater-vs-electric.html","datePublished":"2026-06-26","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Heat Pump Water Heater vs Electric: Is the Upgrade Worth It for You?","description":"Enter your electricity rate and water usage to calculate your exact annual savings and payback period for a heat pump water heater upgrade.","url":"https://ecoenergycalc.com/compare/heat-pump-water-heater-vs-electric.html","datePublished":"2026-06-26","dateModified":"2026-09-28","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -103,7 +103,7 @@ function calcHPWH() {
   const rebate=parseFloat(document.getElementById('hp-wh-rebate').value)||0;
 
   const btuPerGal=8.33*60;
-  const annualKwh=(gal*365*btuPerGal)/(1e6*293.07);
+  const annualKwh=(gal*365*btuPerGal)/3412; // BTU -> kWh (was /(1e6*293.07), ~86,000x too small)
   const stdAnnual=(annualKwh/0.95)*elec;
   const hpAnnual=(annualKwh/2.5)*elec;
   const annualSavings=stdAnnual-hpAnnual;

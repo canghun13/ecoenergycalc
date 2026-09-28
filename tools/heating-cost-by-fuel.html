@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Heating Cost by Fuel Type Calculator","url":"https://ecoenergycalc.com/tools/heating-cost-by-fuel.html","description":"Compare annual home heating costs by fuel type — natural gas, electricity, propane, heating oil, and heat pump.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-10-26","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Heating Cost by Fuel Type Calculator","url":"https://ecoenergycalc.com/tools/heating-cost-by-fuel.html","description":"Compare annual home heating costs by fuel type — natural gas, electricity, propane, heating oil, and heat pump.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-09-28","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -21,7 +21,10 @@
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"What is the cheapest fuel to heat a home with?","acceptedAnswer":{"@type":"Answer","text":"Natural gas is typically the cheapest heating fuel per BTU in most U.S. markets, followed closely by heat pumps (which can beat gas in mild climates due to high efficiency). Electric resistance heat and propane are usually the most expensive; heating oil falls in between."}},
     {"@type":"Question","name":"Is it cheaper to heat with electric or gas?","acceptedAnswer":{"@type":"Answer","text":"Gas is cheaper in most U.S. markets at current rates — roughly $0.015/kBTU for gas vs $0.038/kBTU for electric resistance heat. However, a modern heat pump (COP 3.0+) can cost as little as $0.014/kBTU, beating both gas and electric resistance."}},
-    {"@type":"Question","name":"Is propane or heating oil cheaper?","acceptedAnswer":{"@type":"Answer","text":"Costs vary by region and season, but heating oil is generally slightly cheaper per BTU than propane in most Northeast U.S. markets. Both are significantly more expensive than natural gas where gas service is available — propane and oil are typically used in areas without gas lines."}}
+    {"@type":"Question","name":"Is propane or heating oil cheaper?","acceptedAnswer":{"@type":"Answer","text":"Costs vary by region and season, but heating oil is generally slightly cheaper per BTU than propane in most Northeast U.S. markets. Both are significantly more expensive than natural gas where gas service is available — propane and oil are typically used in areas without gas lines."}},
+    {"@type":"Question","name":"How much more does it cost to heat a home with 9 ft ceilings instead of 8 ft?","acceptedAnswer":{"@type":"Answer","text":"About 6% more, not the 12.5% the extra air volume suggests. Only part of your heat loss grows with ceiling height — wall conduction and air infiltration do, but your roof and floor are fixed by footprint and don't gain a square foot, and a taller room usually has the same windows. Roughly 10 ft ceilings add about 13% and 12 ft about 25%. HVAC sizing guidance quotes a larger figure, near 10% of capacity per extra foot, because that covers peak output on the coldest hour with margin for stratification, not the fuel you burn over a season."}},
+    {"@type":"Question","name":"Does a house with the same volume but a smaller footprint cost the same to heat?","acceptedAnswer":{"@type":"Answer","text":"No, and the difference runs the opposite way to most people's intuition. A 3,000 sq ft home with 8 ft ceilings and a 2,675 sq ft home with 9 ft ceilings hold almost identical air — about 24,000 cubic feet each — but the taller, smaller one costs roughly 5% less to heat. Roof and floor losses are set by footprint, and those two surfaces are the largest in the house. If you are comparing floor plans, adding square footage costs more than adding ceiling height."}},
+    {"@type":"Question","name":"Why does propane cost more per MMBtu than natural gas?","acceptedAnswer":{"@type":"Answer","text":"Energy content, not efficiency. A therm of natural gas carries 100,000 BTU while a gallon of propane carries 91,500, and propane is trucked and stored rather than piped. At $1.70 per therm and $2.50 per gallon through furnaces of the same 80% efficiency, gas delivers heat at roughly $21 per MMBtu against about $34 for propane. Comparing delivered heat rather than the unit each fuel is sold in is the only way to line them up — it is also why a heat pump at a COP of 2.5 delivers heat for about $21 per MMBtu on 18-cent electricity, matching gas, while electric resistance on the same power costs about $53."}}
   ]}
   </script>
 </head>
@@ -44,6 +47,17 @@
             <div class="form-group">
               <label for="hf-size">Home Size (sq ft)</label>
               <input type="number" id="hf-size" value="1800" min="200" max="10000" />
+            </div>
+
+            <div class="form-group">
+              <label for="hf-ceiling">Ceiling Height</label>
+              <select id="hf-ceiling">
+                <option value="8" selected>8 ft — standard</option>
+                <option value="9">9 ft</option>
+                <option value="10">10 ft</option>
+                <option value="12">12 ft / vaulted (average height)</option>
+              </select>
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Cost-per-square-foot figures assume 8 ft ceilings. Taller ceilings raise the bill — but by <strong>less than the volume increase suggests</strong>, because your two largest heat-losing surfaces don't get any bigger. See the explanation below.</small>
             </div>
 
             <div class="form-group">
@@ -98,7 +112,7 @@
               <h3>Annual Heating Cost Comparison</h3>
               <div class="result-amount" id="hf-winner"></div>
               <table id="hf-breakdown"></table>
-              <p class="result-note">Estimates based on EIA regional heat load data and typical system efficiencies. Actual costs vary by home insulation, thermostat settings, and system age. Heat pump estimates assume a modern unit with COP of 2.5 in mixed climates and 2.0 in cold climates.</p>
+              <p class="result-note">Estimates based on EIA regional heat load data and typical system efficiencies. Actual costs vary by home insulation, thermostat settings, and system age. Heat pump estimates assume a modern unit with COP of 2.5 in mixed climates and 2.0 in cold climates. The <strong>per-MMBtu figure</strong> under each total is the price of a million BTU of delivered heat after efficiency losses — it does not change with house size, so you can carry it to any other home on the same fuel prices.</p>
             </div>
           </div>
 
@@ -115,6 +129,23 @@
             <p>Note the reversal: in the Northeast heating oil beats propane, in the Midwest propane beats heating oil. Advice written for one region is actively wrong in the other. In the South a heat pump and natural gas are close enough that the decision comes down to whether you need cooling anyway — and there, a heat pump gives you both.</p>
             <p>Natural gas wins in every region where it's available, which is the one genuinely national conclusion. The real question for most households is what to do when it <em>isn't</em> available on your street — and that's where the regional spread decides between propane, oil and a heat pump.</p>
             <p>Use the region selector above to load typical prices, then overwrite them with your own bill. Regional averages hide wide variation within a region, and a delivered-fuel quote can differ substantially from the state average depending on your supplier and contract.</p>
+
+            <h2>Ceiling Height: Why a Taller House Costs Less Extra Than You'd Think</h2>
+            <p>Almost every heating estimate you'll find — including the cost-per-square-foot figures underneath this one — is built on a housing stock with 8 ft ceilings. If yours are 9, 10 or vaulted, the usual instinct is to scale by volume: 9 ft ceilings are 12.5% more air, so 12.5% more heat. That overstates it, and by roughly double.</p>
+            <p>Split your annual heat loss into the part a taller ceiling actually grows and the part it doesn't:</p>
+            <ul>
+              <li><strong>Grows with height.</strong> Wall conduction, because wall area is perimeter × height. And air infiltration, because leakage is air changes × volume — and infiltration alone can run to about a third of the heating energy a house uses in a year.</li>
+              <li><strong>Doesn't grow at all.</strong> Your ceiling or roof, and your floor or slab. Those are the two largest single surfaces in the house and both are fixed by footprint — a 9 ft ceiling doesn't add a square foot to either. Windows and doors usually don't change either; a taller room generally has the same windows in it.</li>
+            </ul>
+            <p>Take those two groups at roughly half the load each and a foot of extra ceiling adds around 6%, not 12.5%. That's the adjustment this calculator applies: <strong>9 ft ≈ +6%, 10 ft ≈ +13%, 12 ft ≈ +25%</strong>.</p>
+            <p>You will see a larger number quoted — HVAC sizing guidance commonly adds about 10% of <em>capacity</em> per foot over eight. That isn't a contradiction, it's a different question. Sizing is about peak output on the coldest hour of the year, with extra margin for stratification, and an undersized furnace is a callback the contractor has to drive back out for. Annual fuel burned is a different quantity, and it follows the envelope.</p>
+            <p><strong>One consequence worth spelling out, because it's the opposite of what most people assume.</strong> Compare a 3,000 sq ft house with 8 ft ceilings against a 2,675 sq ft house with 9 ft ceilings. Those two hold almost exactly the same air — 24,000 against 24,075 cubic feet. But in a mixed climate on average gas prices, the taller, smaller house runs about <strong>5% cheaper</strong> to heat. Equal volume does not mean equal cost. Footprint is what drives the roof and floor losses, and those are the surfaces doing the most work. If you are choosing between plans, square footage is the more expensive dimension to add.</p>
+            <p>Two caveats. Above about 10 feet, and especially with a vaulted or open-to-above space, <strong>stratification</strong> starts to matter on its own: warm air collects overhead where nobody is, the thermostat down at chest height keeps calling for heat, and the trade typically adds 10–15% for it. A ceiling fan on low winter reverse recovers much of that, which is why we haven't built it into the number — whether you pay it depends on what you've done about it. And for a vaulted ceiling, enter the <em>average</em> height, not the height at the peak.</p>
+
+            <h2>What a Million BTU of Heat Actually Costs</h2>
+            <p>The per-MMBtu figure under each result is the one number worth writing down. It's what a million BTU of <em>delivered</em> heat costs you after the equipment's efficiency is taken out — and unlike the annual total, it doesn't depend on your house at all. Same fuel prices, same figure, whether you're heating 1,200 sq ft or 5,300.</p>
+            <p>It also explains a comparison that confuses a lot of people: <strong>why propane costs more per MMBtu than natural gas even when the per-gallon price looks reasonable.</strong> A therm of natural gas is 100,000 BTU. A gallon of propane is only 91,500. So at $1.70/therm and $2.50/gal, through furnaces of the same 80% efficiency, gas delivers heat at about $21/MMBtu while propane is around $34 — roughly 60% more, for what the burner treats as nearly the same job. The gap is energy content and delivery economics, not efficiency.</p>
+            <p>The same arithmetic is why a heat pump can beat natural gas on electricity that looks expensive per kWh. Electric resistance at 18¢/kWh delivers heat at about $53/MMBtu. A heat pump running at a COP of 2.5 moves 2.5 units of heat per unit of electricity, so the same electricity delivers the same heat at about $21/MMBtu — into a dead heat with gas. Compare fuels on delivered heat, never on the sticker price of the unit they're sold in.</p>
 
             <h2>If You Can't Afford Your Heating Bill</h2>
             <p>If the number above is more than your household can cover, that is a common situation this winter and there is established help for it. Two things worth knowing:</p>
@@ -203,6 +234,12 @@
       <p>Gas is cheaper in most U.S. markets at current rates — roughly $0.015/kBTU for gas vs $0.038/kBTU for electric resistance heat. However, a modern heat pump (COP 3.0+) can cost as little as $0.014/kBTU, beating both gas and electric resistance.</p>
       <h3>Is propane or heating oil cheaper?</h3>
       <p>Costs vary by region and season, but heating oil is generally slightly cheaper per BTU than propane in most Northeast U.S. markets. Both are significantly more expensive than natural gas where gas service is available — propane and oil are typically used in areas without gas lines.</p>
+      <h3>How much more does it cost to heat a home with 9 ft ceilings instead of 8 ft?</h3>
+      <p>About 6% more, not the 12.5% the extra air volume suggests. Only part of your heat loss grows with ceiling height — wall conduction and air infiltration do, but your roof and floor are fixed by footprint and don't gain a square foot, and a taller room usually has the same windows. Roughly 10 ft ceilings add about 13% and 12 ft about 25%. HVAC sizing guidance quotes a larger figure, near 10% of capacity per extra foot, because that covers peak output on the coldest hour with margin for stratification, not the fuel you burn over a season.</p>
+      <h3>Does a house with the same volume but a smaller footprint cost the same to heat?</h3>
+      <p>No, and the difference runs the opposite way to most people's intuition. A 3,000 sq ft home with 8 ft ceilings and a 2,675 sq ft home with 9 ft ceilings hold almost identical air — about 24,000 cubic feet each — but the taller, smaller one costs roughly 5% less to heat. Roof and floor losses are set by footprint, and those two surfaces are the largest in the house. If you are comparing floor plans, adding square footage costs more than adding ceiling height.</p>
+      <h3>Why does propane cost more per MMBtu than natural gas?</h3>
+      <p>Energy content, not efficiency. A therm of natural gas carries 100,000 BTU while a gallon of propane carries 91,500, and propane is trucked and stored rather than piped. At $1.70 per therm and $2.50 per gallon through furnaces of the same 80% efficiency, gas delivers heat at roughly $21 per MMBtu against about $34 for propane. Comparing delivered heat rather than the unit each fuel is sold in is the only way to line them up — it is also why a heat pump at a COP of 2.5 delivers heat for about $21 per MMBtu on 18-cent electricity, matching gas, while electric resistance on the same power costs about $53.</p>
     </div>
     </div>
   </section>
@@ -237,15 +274,40 @@ function applyRegionPrices() {
   }
 }
 
+// Ceiling-height factor for ANNUAL ENERGY USE (not equipment sizing).
+// The published kBTU/sq ft heat-load figures are built on a housing stock with
+// roughly 8 ft ceilings, so 8 ft is the 1.00 baseline.
+//
+// Raising the ceiling does not scale the whole load. Split the annual load into
+// the part that grows with height and the part that does not:
+//   GROWS  - wall conduction (wall area = perimeter x height) and infiltration
+//            (air changes x volume). Infiltration alone runs up to about a third
+//            of annual heating energy in a typical house.
+//   FLAT   - ceiling/roof and floor/slab conduction (the two largest single
+//            surfaces, both set by footprint) and windows and doors, which are
+//            normally the same units in a taller room.
+// Taking those two groups at roughly half the load each gives:
+//   factor = 0.5 + 0.5 * (height / 8)
+// 9 ft -> 1.063, 10 ft -> 1.125, 12 ft -> 1.25.
+//
+// This is deliberately lower than the HVAC sizing rule of thumb (about +10% of
+// capacity per foot over 8). That rule answers a different question: peak output
+// on the coldest hour, with margin added for stratification. Oversizing a furnace
+// is a callback, so the trade rounds up. Annual fuel burned is envelope-driven.
+function ceilingFactor(h) {
+  return 0.5 + 0.5 * (h / 8);
+}
+
 function calcFuelCost() {
   const size   = parseFloat(document.getElementById('hf-size').value) || 1800;
+  const hgt    = parseFloat(document.getElementById('hf-ceiling').value) || 8;
   const zone   = document.getElementById('hf-climate').value;
   const gasR   = parseFloat(document.getElementById('hf-gas').value) || 1.70;
   const elecR  = parseFloat(document.getElementById('hf-elec').value) || 18;
   const propR  = parseFloat(document.getElementById('hf-propane').value) || 2.50;
   const oilR   = parseFloat(document.getElementById('hf-oil').value) || 3.80;
 
-  const totalBtu = size * heatLoad[zone] * 1000; // BTU/yr needed
+  const totalBtu = size * heatLoad[zone] * 1000 * ceilingFactor(hgt); // BTU/yr needed
 
   // System efficiencies
   const gasEff   = 0.80;  // 80 AFUE standard furnace
@@ -275,10 +337,19 @@ function calcFuelCost() {
 
   document.getElementById('hf-winner').textContent = winner.name + ' — ' + fmt(winner.cost) + '/yr cheapest';
 
-  document.getElementById('hf-breakdown').innerHTML = costs.map((c, i) => `
+  // Delivered-heat price: what a million BTU of usable heat actually costs once
+  // the equipment's efficiency is taken out. Independent of house size, so it
+  // travels between homes in a way the annual total does not.
+  const mmbtu = totalBtu / 1000000;
+  const perMM = v => '$' + (v / mmbtu).toFixed(2);
+
+  document.getElementById('hf-breakdown').innerHTML =
+    // Per-MMBtu sits under the annual figure (not its own column) so the table
+    // keeps three columns and fits a phone screen.
+    costs.map((c, i) => `
     <tr style="${i === 0 ? 'font-weight:700;' : ''}">
       <td>${i === 0 ? '🏆 ' : ''}${c.name}</td>
-      <td>${fmt(c.cost)}/yr</td>
+      <td>${fmt(c.cost)}/yr<br><span style="font-weight:400;color:var(--text-muted);font-size:0.8em;white-space:nowrap;">${perMM(c.cost)}/MMBtu</span></td>
       <td style="color:var(--text-muted);font-size:0.85em;">${i === 0 ? 'cheapest' : '+' + fmt(c.cost - winner.cost) + ' more'}</td>
     </tr>`).join('');
 

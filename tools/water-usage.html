@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
     <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Water Usage Calculator","url":"https://ecoenergycalc.com/tools/water-usage.html","description":"Calculate your household water usage by activity — showers, toilets, laundry, outdoor watering. See how you compare to the U.S. average and find the biggest savings opportunities.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-11-02","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Water Usage Calculator","url":"https://ecoenergycalc.com/tools/water-usage.html","description":"Calculate your household water usage by activity — showers, toilets, laundry, outdoor watering. See how you compare to the U.S. average and find the biggest savings opportunities.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-09-28","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -75,6 +75,7 @@
             <div class="form-group">
               <label for="wu-lawn">Outdoor Watering (hrs/week in season)</label>
               <input type="number" id="wu-lawn" value="2" min="0" max="20" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Assumes about 2 gallons per minute over a 26-week watering season, averaged across the whole year. A garden hose left wide open delivers several times that, so if you water by hand at full flow, enter more hours.</small>
             </div>
             <button class="btn-primary" onclick="calcWater()">Calculate Water Usage</button>
             <div class="result-box-tool" id="wu-result">
@@ -200,8 +201,14 @@ function calcWater() {
   const showerDaily = showerMin * showerFlow * people;
   const toiletDaily = toiletFlow * 5 * people; // 5 flushes/day
   const faucetDaily = 10 * people; // avg faucet use
-  const dishDaily = 4; // dishwasher/laundry avg
-  const lawnDaily = lawnHrs * 60 * 2 * (26 / 7); // ~2 gpm, 26 weeks/yr avg
+  // Clothes washer ~9 + dishwasher ~0.5 gal per person per day
+  // (Water Research Foundation, Residential End Uses of Water, 2016).
+  // Was a flat 4 gal/day for the whole household regardless of size.
+  const dishDaily = 9.5 * people;
+  // hrs/week x 60 min x ~2 gpm = gallons per watering week; spread over a
+  // 26-week season across 365 days to get a year-round daily average.
+  // (Previously multiplied by 26/7, which inflated this line ~52x.)
+  const lawnDaily = lawnHrs * 60 * 2 * 26 / 365;
   const totalDaily = showerDaily + toiletDaily + faucetDaily + dishDaily + lawnDaily;
   const totalYearly = totalDaily * 365;
 

@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Central Heat vs Space Heater: Which Is Cheaper?","description":"When does a space heater save money vs central heat? Compare heating costs by fuel type, home size, and thermostat setback to find the break-even point.","url":"https://ecoenergycalc.com/compare/central-heat-vs-space-heater.html","datePublished":"2026-07-06","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Central Heat vs Space Heater: Which Is Cheaper?","description":"When does a space heater save money vs central heat? Compare heating costs by fuel type, home size, and thermostat setback to find the break-even point.","url":"https://ecoenergycalc.com/compare/central-heat-vs-space-heater.html","datePublished":"2026-07-06","dateModified":"2026-09-28","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -136,8 +136,8 @@ function calcHeat() {
     <tr><td>Monthly heating bill</td><td><strong>$${bill.toFixed(0)}</strong></td><td><strong>$${totalWithHeater.toFixed(0)}</strong></td></tr>
     <tr><td>Central heat cost</td><td>$${bill.toFixed(0)}</td><td>$${newCentralBill.toFixed(0)} (${setback}°F lower)</td></tr>
     <tr><td>Space heater cost</td><td>—</td><td>$${spaceHeaterCost.toFixed(0)} (${hours}hrs/day)</td></tr>
-    <tr><td>Monthly difference</td><td>—</td><td><strong style="color:${netSaving>0?'#4ade80':'#f87171'}">${netSaving>0?'Save':'Cost extra'} $${fmt(netSaving)}/mo</strong></td></tr>
-    <tr><td>Annual difference</td><td>—</td><td><strong>${netSaving>0?'Save':'Cost extra'} $${fmt(netSaving*12)}/yr</strong></td></tr>
+    <tr><td>Monthly difference</td><td>—</td><td><strong style="color:${netSaving>0?'#4ade80':'#f87171'}">${netSaving>0?'Save':'Cost extra'} ${fmt(netSaving)}/mo</strong></td></tr>
+    <tr><td>Annual difference</td><td>—</td><td><strong>${netSaving>0?'Save':'Cost extra'} ${fmt(netSaving*12)}/yr</strong></td></tr>
   `;
   const r = document.getElementById('hs-result');
   r.classList.add('visible');

@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Smart Thermostat vs Programmable: Which Saves More Money?","description":"Enter your annual HVAC cost to calculate exact annual savings and payback period for both thermostat types.","url":"https://ecoenergycalc.com/compare/smart-thermostat-vs-programmable.html","datePublished":"2026-06-26","dateModified":"2026-07-24","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Smart Thermostat vs Programmable: Which Saves More Money?","description":"Enter your annual HVAC cost to calculate exact annual savings and payback period for both thermostat types.","url":"https://ecoenergycalc.com/compare/smart-thermostat-vs-programmable.html","datePublished":"2026-06-26","dateModified":"2026-09-28","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -137,7 +137,7 @@ function calcThermostat() {
     <tr><th></th><th>Programmable</th><th>Smart Thermostat</th></tr>
     <tr><td>Device cost</td><td>${fmt(progCost)}</td><td>${fmt(smartNet)} (after rebate)</td></tr>
     <tr><td>Annual savings (% of HVAC)</td><td>${fmt(progSavings)} (10%)</td><td>${fmt(smartSavings)} (12%)</td></tr>
-    <tr><td>Payback period</td><td>${progPayback.toFixed(1)} months</td><td>${smartPayback.toFixed(1)} months</td></tr>
+    <tr><td>Payback period</td><td>${(progPayback*12).toFixed(1)} months</td><td>${(smartPayback*12).toFixed(1)} months</td></tr>
     <tr><td>5-Year net savings</td><td>${fmt(progSavings*5-progCost)}</td><td>${fmt(smartSavings*5-smartNet)}</td></tr>
     <tr><td>Requires manual setup?</td><td>✅ Yes — must be programmed</td><td>❌ No — learns automatically</td></tr>
   `;

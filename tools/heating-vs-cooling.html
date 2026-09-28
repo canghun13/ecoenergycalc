@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
     <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Heating vs Cooling Cost Calculator","url":"https://ecoenergycalc.com/tools/heating-vs-cooling.html","description":"Does it cost more to heat or cool your home? Compare annual heating and cooling costs by climate, system type, and home size. Real numbers by region.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Heating vs Cooling Cost Calculator","url":"https://ecoenergycalc.com/tools/heating-vs-cooling.html","description":"Does it cost more to heat or cool your home? Compare annual heating and cooling costs by climate, system type, and home size. Real numbers by region.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-09-28","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -135,7 +135,7 @@
               <li><strong>Air sealing:</strong> Leaky ducts and envelope gaps force both the furnace and AC to run longer. The DOE estimates that sealing leaky ducts alone can reduce heating and cooling costs by up to 20%.</li>
               <li><strong>Insulation upgrades:</strong> Attic insulation reduces heat gain in summer and heat loss in winter. See our <a href="/tools/insulation-savings.html">Insulation Savings Calculator</a> for estimated payback at your home's specifications.</li>
               <li><strong>Smart thermostat:</strong> A programmable or smart thermostat that adjusts setpoints during unoccupied hours saves 10% per year on heating and cooling combined, according to the DOE. Most smart thermostats pay for themselves in 1–2 years.</li>
-              <li><strong>Heat pump replacement:</strong> Replacing an aging gas furnace and central AC with a heat pump system handles both heating and cooling with a single high-efficiency unit. Payback periods of 5–8 years are common, and IRA tax credits (up to $2,000) improve the math further.</li>
+              <li><strong>Heat pump replacement:</strong> Replacing an aging gas furnace and central AC with a heat pump system handles both heating and cooling with a single high-efficiency unit. The federal heat pump tax credit ended after December 31, 2025, so paybacks are longer than they were; income-qualified households may still get a state HEEHRA rebate.</li>
             </ul>
           </div>
         </div>
@@ -230,7 +230,7 @@ function calcHVC() {
   if (heatSys === 'gas_furnace') heatingCost = (totalHeatBtu / 100000) * gasRate / 0.8;
   else if (heatSys === 'electric_furnace') heatingCost = (totalHeatBtu / 3412) * (elecRate / 100);
   else if (heatSys === 'heat_pump') heatingCost = (totalHeatBtu / 3412 / 2.5) * (elecRate / 100);
-  else if (heatSys === 'oil_boiler') heatingCost = (totalHeatBtu / 100000) * 4.0 / 0.85;
+  else if (heatSys === 'oil_boiler') heatingCost = (totalHeatBtu / 138500) * 3.80 / 0.85; // $/gal, 138,500 BTU/gal (was /100000, overstated ~38%)
 
   let coolingCost = 0;
   if (coolSys !== 'none') {

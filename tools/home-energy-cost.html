@@ -12,14 +12,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Home Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/home-energy-cost.html","description":"Estimate your annual home energy cost based on location and usage.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Home Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/home-energy-cost.html","description":"Estimate your annual home energy cost based on location and usage.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-09-28","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"What is the average home energy bill in the US?","acceptedAnswer":{"@type":"Answer","text":"The average U.S. household spends about $1,800–$2,200 per year on home energy (electricity plus gas/heating fuel), or roughly $150–$185/month. This varies significantly by climate, home size, and local utility rates — homes in extreme climates (very hot or very cold) often pay 30–50% more."}},
+    {"@type":"Question","name":"What is the average home energy bill in the US?","acceptedAnswer":{"@type":"Answer","text":"The average U.S. household spends about $2,000–$3,000 per year on home energy (electricity plus gas/heating fuel), or roughly $170–$250/month. This varies significantly by climate, home size, and local utility rates — homes in extreme climates (very hot or very cold) often pay 30–50% more."}},
     {"@type":"Question","name":"What uses the most energy in a home?","acceptedAnswer":{"@type":"Answer","text":"Heating and cooling (HVAC) account for 43–51% of the average home's energy use — the single largest category. Water heating is next at 14–18%, followed by appliances, lighting, and electronics."}},
     {"@type":"Question","name":"How can I estimate my annual energy cost before moving?","acceptedAnswer":{"@type":"Answer","text":"Use this calculator with your new home's size, location, and heating/cooling system type to get an estimate before you move. For the most accurate number, ask the seller or landlord for the last 12 months of utility bills, since actual usage varies by insulation quality and household habits."}}
   ]}
@@ -59,7 +59,8 @@
             <div class="form-group">
               <label for="heating-fuel">Primary Heating Fuel</label>
               <select id="heating-fuel">
-                <option value="electric">Electric</option>
+                <option value="electric">Electric – heat pump</option>
+                <option value="electric_resist">Electric – baseboard / resistance</option>
                 <option value="gas" selected>Natural Gas</option>
                 <option value="oil">Heating Oil</option>
                 <option value="propane">Propane</option>
@@ -80,7 +81,7 @@
               <h3>Estimated Annual Energy Cost</h3>
               <div class="result-amount" id="hec-total"></div>
               <table id="hec-breakdown"></table>
-              <p class="result-note">Based on EIA national averages. Actual costs vary by utility provider and usage habits.</p>
+              <p class="result-note">Heating and cooling use the same climate loads as our Heating vs Cooling calculator; fuel prices and efficiencies match the Heating Cost by Fuel calculator ($1.70/therm gas, $3.80/gal oil, $2.50/gal propane). Water heating assumes about 25 gallons of hot water per person per day. Actual costs vary with insulation, thermostat habits and your utility's rates.</p>
             </div>
           </div>
           <div class="article-body" style="margin-top:48px;">
@@ -151,7 +152,7 @@
     <div class="article-body" style="max-width:800px;">
       <h2>Frequently Asked Questions</h2>
       <h3>What is the average home energy bill in the US?</h3>
-      <p>The average U.S. household spends about $1,800–$2,200 per year on home energy (electricity plus gas/heating fuel), or roughly $150–$185/month. This varies significantly by climate, home size, and local utility rates — homes in extreme climates (very hot or very cold) often pay 30–50% more.</p>
+      <p>The average U.S. household spends about $2,000–$3,000 per year on home energy (electricity plus gas/heating fuel), or roughly $170–$250/month. This varies significantly by climate, home size, and local utility rates — homes in extreme climates (very hot or very cold) often pay 30–50% more.</p>
       <h3>What uses the most energy in a home?</h3>
       <p>Heating and cooling (HVAC) account for 43–51% of the average home's energy use — the single largest category. Water heating is next at 14–18%, followed by appliances, lighting, and electronics.</p>
       <h3>How can I estimate my annual energy cost before moving?</h3>
@@ -168,31 +169,55 @@ function calcHomeEnergy() {
   const rate = parseFloat(document.getElementById('elec-rate').value) || 18;
   const fuel = document.getElementById('heating-fuel').value;
   const occ = parseFloat(document.getElementById('occupants').value) || 2;
+  const elec = rate / 100;
 
-  // Base kWh per sqft by climate
-  const baseKwh = { hot: 12, mixed: 9, cold: 8, mild: 7 };
-  const elecKwh = size * baseKwh[climate];
+  // Heating and cooling loads (kBTU per sq ft per year) - the same tables used by
+  // /tools/heating-vs-cooling.html so the site's calculators agree with each other.
+  const heatLoad = { hot: 8, mixed: 18, cold: 30, mild: 10 };
+  const coolLoad = { hot: 22, mixed: 12, cold: 4, mild: 8 };
+  const heatBtu = size * heatLoad[climate] * 1000;
+  const coolBtu = size * coolLoad[climate] * 1000;
 
-  // Heating cost
-  const heatingMultiplier = { hot: 0.15, mixed: 0.35, cold: 0.5, mild: 0.2 };
-  const heatingBase = size * 0.05 * heatingMultiplier[climate];
-  const fuelCost = { electric: rate / 100 * 3412, gas: 1.1, oil: 4.2, propane: 2.6 };
-  const heatingCost = heatingBase * fuelCost[fuel];
+  // Heating: same fuel prices and efficiencies as /tools/heating-cost-by-fuel.html
+  // (Previously mixed units and returned ~$19,000/yr for electric heat.)
+  const heatCostByFuel = {
+    gas:             (heatBtu / 100000 / 0.80) * 1.70,
+    oil:             (heatBtu / 138500 / 0.85) * 3.80,
+    propane:         (heatBtu / 91500  / 0.80) * 2.50,
+    electric:        (heatBtu / 3412 / (climate === 'cold' ? 2.2 : 2.5)) * elec, // heat pump
+    electric_resist: (heatBtu / 3412) * elec
+  };
+  const heatingCost = heatCostByFuel[fuel];
 
-  const elecCost = elecKwh * (rate / 100);
-  const waterCost = occ * 180;
-  const applianceCost = size * 0.3 + occ * 80;
-  const total = elecCost + heatingCost + waterCost + applianceCost;
+  // Cooling: central AC / heat pump at SEER 16
+  const coolingCost = (coolBtu / 16000) * elec;
 
+  // Water heating: ~25 gal of hot water per person per day at a 60F rise (500 BTU/gal).
+  // Tank on the same fuel as the heating system: 95% electric, 67% fossil.
+  const whBtu = occ * 25 * 365 * 500;
+  const whCostByFuel = {
+    gas:     (whBtu / 100000 / 0.67) * 1.70,
+    oil:     (whBtu / 138500 / 0.67) * 3.80,
+    propane: (whBtu / 91500  / 0.67) * 2.50
+  };
+  const waterCost = (fuel in whCostByFuel) ? whCostByFuel[fuel] : (whBtu / 3412 / 0.95) * elec;
+
+  // Lighting, appliances, electronics and refrigeration: about 6,000 kWh/yr for a
+  // two-person home (EIA Residential Energy Consumption Survey), scaled by occupancy.
+  const baseKwh = 3500 + 1300 * occ;
+  const applianceCost = baseKwh * elec;
+
+  const total = heatingCost + coolingCost + waterCost + applianceCost;
   const fmt = v => '$' + Math.round(v).toLocaleString();
 
   document.getElementById('hec-total').textContent = fmt(total) + '/yr';
   document.getElementById('hec-breakdown').innerHTML = `
-    <tr><td>Electricity</td><td>${fmt(elecCost)}</td></tr>
     <tr><td>Heating</td><td>${fmt(heatingCost)}</td></tr>
+    <tr><td>Cooling</td><td>${fmt(coolingCost)}</td></tr>
     <tr><td>Water heating</td><td>${fmt(waterCost)}</td></tr>
-    <tr><td>Appliances & lighting</td><td>${fmt(applianceCost)}</td></tr>
+    <tr><td>Lighting, appliances &amp; electronics (${Math.round(baseKwh).toLocaleString()} kWh)</td><td>${fmt(applianceCost)}</td></tr>
     <tr style="font-weight:700;"><td>Total (annual)</td><td>${fmt(total)}</td></tr>
+    <tr><td>Per month</td><td>${fmt(total / 12)}</td></tr>
   `;
   const r = document.getElementById('hec-result');
   r.classList.add('visible');

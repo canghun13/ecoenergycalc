@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Gas Dryer vs Heat Pump Dryer: Cost, Efficiency & Payback","description":"Compare gas dryer vs heat pump dryer running costs, payback period, and which option saves more money long-term at your local energy rates.","url":"https://ecoenergycalc.com/compare/gas-dryer-vs-heat-pump-dryer.html","datePublished":"2026-07-06","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Gas Dryer vs Heat Pump Dryer: Cost, Efficiency & Payback","description":"Compare gas dryer vs heat pump dryer running costs, payback period, and which option saves more money long-term at your local energy rates.","url":"https://ecoenergycalc.com/compare/gas-dryer-vs-heat-pump-dryer.html","datePublished":"2026-07-06","dateModified":"2026-09-28","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -34,7 +34,7 @@
           <div class="calc-box" style="margin:32px 0;">
             <h2>Gas vs Heat Pump Dryer Cost Calculator</h2>
             <div class="form-group"><label for="gd-loads">Loads per Week</label><input type="number" id="gd-loads" value="5" min="1" max="20" /></div>
-            <div class="form-group"><label for="gd-gas">Gas Rate ($/therm)</label><input type="number" id="gd-gas" value="70" min="0.50" max="3.00" step="0.05" /></div>
+            <div class="form-group"><label for="gd-gas">Gas Rate ($/therm)</label><input type="number" id="gd-gas" value="1.70" min="0.50" max="3.00" step="0.05" /></div>
             <div class="form-group"><label for="gd-elec">Electricity Rate (¢/kWh)</label><input type="number" id="gd-elec" value="18" min="5" max="50" step="0.1" /></div>
             <div class="form-group"><label for="gd-premium">Heat Pump Dryer Price Premium ($)</label><input type="number" id="gd-premium" value="700" min="0" max="1500" step="50" /><small>Full difference in purchase price vs gas dryer — no federal credit applies in 2026</small></div>
             <button class="btn-primary" onclick="calcDryer()">Compare Dryer Costs</button>
@@ -53,7 +53,7 @@
             <p>The no-vent advantage is significant for apartments, condos, and homes where running a vent duct is difficult or impossible. It also means heat pump dryers don't pull conditioned air from the home in winter (conventional dryers can add meaningfully to heating costs in cold climates by exhausting warm indoor air).</p>
 
             <h2>Gas Dryer: No Longer a Clear Cost Advantage</h2>
-            <p>At average U.S. gas prices ($1.70/therm) and electricity rates (18¢/kWh), a gas dryer costs about $0.34 per load — roughly $87/year at 5 loads/week. A heat pump dryer at 800W average draw costs about $0.34/load — about $88/year at the same usage. The two are now essentially tied on operating cost; gas no longer carries the meaningful per-load edge it once did, so the heat pump dryer's other advantages (no vent duct, gentler on fabrics, lower peak electricity draw) become the more relevant differentiators for most households.</p>
+            <p>At average U.S. gas prices ($1.70/therm) and electricity rates (18¢/kWh), a gas dryer costs about $0.34 per load — roughly $87/year at 5 loads/week. A heat pump dryer drawing about 800W over its longer cycle (roughly 1.9 kWh a load) costs about $0.34/load — about $88/year at the same usage. The two are now essentially tied on operating cost; gas no longer carries the meaningful per-load edge it once did, so the heat pump dryer's other advantages (no vent duct, gentler on fabrics, lower peak electricity draw) become the more relevant differentiators for most households.</p>
             <p>In high-electricity-rate states like California (25¢/kWh) or Hawaii (40¢/kWh), the math flips: gas dryers maintain their per-load advantage if gas is available, but all-electric homes with heat pump dryers beat conventional electric dryers significantly. For a full breakdown of dryer running costs by type, see our <a href="/blog/how-much-does-it-cost-to-run-a-dryer.html">dryer cost guide</a> or use the <a href="/tools/dryer-energy-cost.html">Dryer Energy Cost Calculator</a>.</p>
 
             <h2>Tax Credit vs. Rebate: Get This Distinction Right</h2>
@@ -113,8 +113,10 @@ function calcDryer() {
   const loadsPerYear = loads * 52;
   // Gas dryer: 22000 BTU/load (0.75hr) = 0.165 therm + 0.4kWh electric
   const gasCostPerLoad = (0.165 * gasRate) + (0.4 * elecRate);
-  // Heat pump dryer: 0.8kW avg * 1.0hr (longer cycle)
-  const hpCostPerLoad = 0.8 * elecRate;
+  // Heat pump dryer: ~0.8 kW average draw over a ~2.4 hr cycle = ~1.9 kWh/load.
+  // (Was 0.8 kW x 1.0 hr = 0.8 kWh, which contradicted this page's own text and
+  // /compare/electric-vs-gas-dryer.html, both at ~1.9 kWh / $0.34 per load.)
+  const hpCostPerLoad = 1.9 * elecRate;
   const gasAnnual = gasCostPerLoad * loadsPerYear;
   const hpAnnual = hpCostPerLoad * loadsPerYear;
   const annualDiff = gasAnnual - hpAnnual;
@@ -127,7 +129,7 @@ function calcDryer() {
     <tr><td>Cost per load</td><td>${fmt(gasCostPerLoad)}</td><td>${fmt(hpCostPerLoad)}</td></tr>
     <tr><td>Annual cost (${loads} loads/wk)</td><td><strong>${fmtA(gasAnnual)}</strong></td><td><strong>${fmtA(hpAnnual)}</strong></td></tr>
     <tr><td>10-year running cost</td><td>${fmtA(gasAnnual*10)}</td><td>${fmtA(hpAnnual*10)}</td></tr>
-    <tr><td>Price premium payback</td><td>—</td><td><strong>${annualDiff > 0 ? payback + ' years' : 'HP costs more to run'}</strong></td></tr>
+    <tr><td>Price premium payback</td><td>—</td><td><strong>${annualDiff <= 0 ? 'HP costs more to run' : (premium / annualDiff > 30 ? 'Does not pay back on energy alone' : payback + ' years')}</strong></td></tr>
     <tr><td>Vent duct required?</td><td>✅ Yes</td><td>❌ No</td></tr>
     <tr><td>Federal tax credit?</td><td>❌ No</td><td>❌ Not eligible (dryers excluded from 25C)</td></tr>
     <tr><td>HEEHRA state rebate (if income-qualified)?</td><td>❌ No</td><td>✅ Up to $840, where funded</td></tr>

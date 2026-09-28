@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Heat Pump vs Furnace vs Gas Boiler: Which Heating System Costs Less for Your Home?","description":"Enter your home size and local energy rates to compare the annual heating cost and payback period for a heat pump, gas furnace, and gas boiler.","url":"https://ecoenergycalc.com/compare/heat-pump-vs-furnace-vs-boiler.html","datePublished":"2026-06-26","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Heat Pump vs Furnace vs Gas Boiler: Which Heating System Costs Less for Your Home?","description":"Enter your home size and local energy rates to compare the annual heating cost and payback period for a heat pump, gas furnace, and gas boiler.","url":"https://ecoenergycalc.com/compare/heat-pump-vs-furnace-vs-boiler.html","datePublished":"2026-06-26","dateModified":"2026-09-28","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -35,22 +35,22 @@
             <div class="form-group"><label for="hp-sqft">Home Size (sq ft)</label><input type="number" id="hp-sqft" value="2000" min="500" max="6000" step="100" /></div>
             <div class="form-group"><label for="hp-hdd">Heating Degree Days (HDD) per Year <span style="font-weight:400;font-size:.9em">— Chicago: 6,500 | Atlanta: 3,000 | Miami: 200</span></label><input type="number" id="hp-hdd" value="5000" min="200" max="10000" step="100" /></div>
             <div class="form-group"><label for="hp-elec">Electricity Rate (¢/kWh)</label><input type="number" id="hp-elec" value="18" min="5" max="50" step="0.5" /></div>
-            <div class="form-group"><label for="hp-gas">Natural Gas Rate ($/therm)</label><input type="number" id="hp-gas" value="70" min="0.50" max="4" step="0.05" /></div>
+            <div class="form-group"><label for="hp-gas">Natural Gas Rate ($/therm)</label><input type="number" id="hp-gas" value="1.70" min="0.50" max="4" step="0.05" /></div>
             <button class="btn-primary" onclick="calcHeating()">Compare Heating Systems</button>
             <div class="result-box-tool" id="hp-result">
               <h3>Annual Heating Cost</h3>
               <div class="table-scroll">
                 <table id="hp-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Heat pump COP 2.5 average (varies with temperature). Gas furnace 95% AFUE. Gas boiler 85% AFUE. Insulation factor: 6 BTU/hr/sq ft/°F HDD. Installation costs: heat pump $6,000, furnace $3,500, boiler $6,000. No federal tax credit applied — the heat pump ITC expired December 31, 2025.</p>
+              <p class="result-note">Heat pump COP 2.5 average (varies with temperature). Gas furnace 95% AFUE. Gas boiler 85% AFUE. Heat loss factor: 0.15 BTU/hr per sq ft per °F — a typical average-insulated home (about 18,000 BTU per sq ft per year at 5,000 HDD). Installation costs: heat pump $6,000, furnace $3,500, boiler $6,000. No federal tax credit applied — the heat pump ITC expired December 31, 2025.</p>
             </div>
           </div>
           <div class="article-body">
 <h2>Heat Pumps in 2025: The Economics Have Shifted</h2>
-            <p>Heat pump efficiency is measured in COP (Coefficient of Performance) — the ratio of heat produced to electricity consumed. Modern air-source heat pumps achieve COP 2.5–4.0 in moderate temperatures. At COP 3.0, a heat pump delivers 3 units of heat per unit of electricity consumed. Compare this to a 95% AFUE gas furnace that delivers 0.95 units of heat per unit of gas. At national average prices ($0.16/kWh electricity, $1.40/therm gas), a heat pump at COP 3.0 costs about $0.053/kBTU delivered heat. A 95% furnace costs about $0.149/kBTU. The heat pump is 2.8× cheaper per unit of heat — even accounting for higher electricity rates than gas.</p>
+            <p>Heat pump efficiency is measured in COP (Coefficient of Performance) — the ratio of heat produced to electricity consumed. Modern air-source heat pumps achieve COP 2.5–4.0 in moderate temperatures. At COP 3.0, a heat pump delivers 3 units of heat per unit of electricity consumed. Compare this to a 95% AFUE gas furnace that delivers 0.95 units of heat per unit of gas. At national average prices (18¢/kWh electricity, $1.70/therm gas), a heat pump at COP 3.0 costs about $0.018/kBTU of delivered heat, and a 95% AFUE furnace costs about the same, $0.018/kBTU — effectively a tie. At a more conservative seasonal COP of 2.5, which is what the calculator above assumes, the heat pump runs about 18% more ($0.021/kBTU). A heat pump's efficiency advantage is real, but on national-average prices it is almost exactly cancelled by electricity costing more per BTU than gas. Which one wins in your home comes down to your local rates and how cold your winters get, since a heat pump's COP falls as the outdoor temperature drops. Against electric resistance heat, at about $0.053/kBTU, a COP 3.0 heat pump is three times cheaper.</p>
 
             <h2>Cold Climate Performance: The Old Limitation Is Largely Resolved</h2>
-            <p>The historical knock on heat pumps — that they lose effectiveness below 32°F — applies to 2005-era equipment. Modern cold-climate heat pumps (Mitsubishi H2i, Bosch Climate 5000, LG Therma V) maintain COP greater than 1.5 at 0°F and some are rated to -13°F. This matters enormously in climate zones 5–7 (New England, Upper Midwest, Mountain states). The crossover point — where a heat pump's efficiency advantage over gas disappears — has shifted from roughly 20°F in older units to below -5°F in current cold-climate models. For most of the U.S. heating season, modern heat pumps maintain their efficiency advantage throughout.</p>
+            <p>The historical knock on heat pumps — that they lose effectiveness below 32°F — applies to 2005-era equipment. Modern cold-climate heat pumps (Mitsubishi H2i, Bosch Climate 5000, LG Therma V) maintain COP greater than 1.5 at 0°F and some are rated to -13°F. This matters enormously in climate zones 5–7 (New England, Upper Midwest, Mountain states). The crossover point — where a heat pump's efficiency advantage over gas disappears — has shifted from roughly 20°F in older units to below -5°F in current cold-climate models. For most of the U.S. heating season, modern heat pumps maintain their efficiency advantage throughout. Keep in mind that an efficiency advantage is not the same thing as a cost advantage: as the section above shows, on national-average prices a heat pump and a high-efficiency gas furnace come out about even per unit of heat, so it is your local electricity and gas rates that decide which one produces the lower bill.</p>
 
             <h2>Boilers vs Forced Air: Distribution System Compatibility</h2>
             <p>Heat pumps work best with forced-air distribution systems (ductwork). Homes with hot-water baseboard or radiator systems (typical in Northeast cities and older construction) face a compatibility challenge. Hydronic (water-based) heat pumps exist but cost 30–50% more than air-to-air systems. Mini-split heat pumps bypass the ductwork issue entirely by delivering heat directly to zones — often the most practical heat pump solution for homes with boilers. Installing 3–4 mini-splits throughout a home ($15,000–$25,000) provides both heating and cooling without touching existing boiler or ductwork.</p>
@@ -110,7 +110,11 @@ function calcHeating() {
   const gas=parseFloat(document.getElementById('hp-gas').value)||1.70;
 
   // Estimated annual BTU load
-  const btuLoad = sqft * 6 * hdd * 24; // simplified load calculation
+  // Whole-house heat loss coefficient of ~0.15 BTU/hr per sq ft per degree F.
+  // (Was 6, which overstated the load about 40x and produced $25k+/yr bills.)
+  // 0.15 x 24 h x ~5,000 HDD = 18 kBTU/sq ft/yr, which matches the mixed-climate
+  // load used by /tools/heating-cost-by-fuel.html, so the two tools agree.
+  const btuLoad = sqft * 0.15 * hdd * 24;
   const mmbtu = btuLoad / 1e6;
 
   // Heat pump: COP 2.5, electricity

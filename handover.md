@@ -1,3 +1,82 @@
+# EcoEnergyCalc 인수인계 — v34 세션 (2026-09-28, 주간 데이터)
+
+> ⚠️ **날짜 교정**: v31~v33 헤더의 날짜(10-19 / 10-26 / 11-02)는 틀렸다. 실제 커밋일은 09-09 / 09-14 / 09-21. 이 드리프트가 JSON-LD `dateModified`·`datePublished`와 sitemap `lastmod`에까지 **미래 날짜**로 박혀 있었다(10개 파일 + sitemap 5건). v34에서 전부 실제 커밋일로 교정. **앞으로 날짜는 `git log` 또는 시스템 날짜 기준으로만 쓸 것.**
+
+## 0-N1. 📈 데이터 (Bing 9/28, GA 8/31~9/27)
+
+- **`heating-cost-by-fuel` = Bing 클릭 1위(911노출/48클릭/5.27%) + GA 1위(84뷰/65명).** 전주 604/33. 명실상부 최대 수익 페이지.
+- GA 활성 **673명**(전 613). google/organic **8**(전 1) — 처음으로 의미 있는 숫자. bing 139 · ddg 94 · yahoo 28 · ecosia 18.
+- ⚠️ GA 국가에서 **싱가포르 274명** — 봇/프록시로 추정. 수익 판단에서 제외할 것.
+- 물 CTR 재측정: `water-usage` 0.9%(기준 0.92), 세탁기 블로그 0.2%(기준 0.25). **v33이 9/21 배포라 아직 유효한 측정 아님** — 다음 주에 다시 볼 것.
+- 색인(사용자 제공): 발견-미크롤 6건, **전주와 동일 목록**. 변화 없음, 손대지 않음.
+
+## 0-N2. ✅ heating-cost-by-fuel 보강 — 천장 높이 + $/MMBtu
+
+**근거 쿼리**: 난방 쿼리 중 노출 1위가 `how much does it cost heating 3000 sq ft home with 8 ft ceilings vs 2675 sq ft home with 9 ft ceilings`(7노출/0클릭 @9.1). 그 외 `why is per mmbtu cost of propane more than natural gas`, `cost per btu heating oil`, `heating fuel cost comparison chart`, sq ft 특정 쿼리 다수(1200/1700/5300 sq ft).
+
+**경쟁**: 천장 높이 콘텐츠는 포럼(건축비 논의) + **HVAC 업계용**(HVAC Laboratory의 Manual J 사이징 가이드)뿐. **천장 높이를 받는 소비자용 난방비 계산기는 없음** → 검증된 렌즈("업계용만 있고 소비자용 없음") 5번째 적중.
+
+**조치**
+- 천장 높이 셀렉터(8/9/10/12ft). 계수 `0.5 + 0.5 × (h/8)` → 9ft +6%, 10ft +13%, 12ft +25%. **8ft = 1.00이라 기본값 결과는 기존과 완전히 동일.**
+- 근거: 높이에 비례하는 건 벽 전도 + 침기(연간 난방 에너지의 최대 1/3, CED Engineering). 지붕·바닥(최대 면적 2개)과 창문은 불변. 둘을 절반씩으로 봄.
+- ★ **업계 경험칙(1ft당 +10%)과 다른 이유를 본문에 명시**: 그건 최대 부하 *용량 사이징*(+층화 마진)이고, 우리는 *연간 연료 소비*. 반직관적 핵심 결론: **3,000sqft@8ft와 2,675sqft@9ft는 공기량이 같지만(24,000 vs 24,075 cu ft) 후자가 약 5% 싸다** — 발자국(footprint)이 지붕·바닥 손실을 결정하므로.
+- 층화(stratification)는 숫자에 넣지 않고 본문에 명시(업계 +10~15%, 천장팬으로 대부분 회수 가능하므로 사용자 상황에 따라 다름).
+- **$/MMBtu**: 각 연료 결과 밑에 표시(주택 크기와 무관한 값). 프로판이 가스보다 MMBtu당 비싼 이유(91,500 vs 100,000 BTU) 설명. FAQ 3개 추가.
+- ⚠️ 처음엔 4열 표로 넣었다가 **375px에서 174px 가로 넘침** 발견 → 금액 셀 아래 작은 글씨로 합쳐 3열 유지. 수익 1위 페이지라 모바일 확인 필수였다.
+- **설명문(meta description)은 건드리지 않음** — 이미 사이트 최고 CTR 페이지. 잘 되는 스니펫은 유지.
+
+## 0-N3. 🚨 감사 중 발견한 실제 계산 버그 (이번 세션의 진짜 성과)
+
+전 계산기 100개를 **기본값으로 실제 실행**해서 결과 크기를 눈으로 점검했다. 구조 스캔·FAQ 스캔·node --check는 전부 통과하던 상태였는데 아래가 전부 숨어 있었다. **→ 앞으로 매 세션 "전 계산기 기본값 실행 + 결과 크기 상식 점검"을 표준 검증에 포함할 것.** 스크립트는 handover 하단 참고.
+
+| 페이지 | 버그 | 기간 | 영향 |
+|---|---|---|---|
+| **compare 8개** (electric-heat-vs-gas-heat, heat-pump-vs-furnace-vs-boiler, induction-vs-gas-vs-electric-stove, gas-dryer-vs-heat-pump-dryer, propane-vs-natural-gas, **electric-vs-gas-water-heater**, electric-vs-gas-dryer, tankless-vs-tank-water-heater) | 가스 기본값 `value="70"`($70/therm). 원인: 8/10 커밋 `f9ea463` 일괄 치환이 `1.10`→`70`으로 망가뜨림. JS fallback은 1.70이었지만 `parseFloat("70")`이 truthy라 fallback 미작동 | **7주** | 기본값으로 누르면 가스가 천문학적으로 비싸게 나와 **결론이 뒤집힘**. electric-vs-gas-water-heater는 Bing CTR 16.67% 페이지 |
+| **tools/water-usage** (사이트 노출 1위, 2,451) | 실외 급수 `× (26/7)` → 실제의 ~52배. 기본값 결과 **971 gal/day**(정상 ~110) | 5/19부터 | "우리 집 정상인가" 의도로 v33에서 설명문까지 맞췄는데 **계산기가 모든 사용자에게 "평균보다 800갤런 초과"라고 답하고 있었다** |
+| 同 | 세탁·식기 물이 가구당 고정 4gal/day | 5/19부터 | 1인당 9.5gal(WRF 2016)로 수정 |
+| heat-pump-vs-furnace-vs-boiler | 열손실계수 6 → 부하 ~40배. 기본값 **$25,768/yr** | 6/26부터 | 0.15로 교정(= heating-cost-by-fuel 18 kBTU/sqft와 일치) |
+| heat-pump-water-heater-vs-electric, solar-water-heater-vs-electric | BTU→kWh를 `/(1e6*293.07)` → ~86,000배 작음. **0 kWh, 회수기간 164,105년** | 6/26부터 | `/3412`. 결과가 electric-vs-gas-water-heater($506/$192)와 정확히 일치 |
+| tools/home-energy-cost | 단위 혼재. 전기난방 선택 시 **$19,346/yr**, 가스 $35/yr, 전기 이중계산 | 5/19부터 | 모델 재구성: heating-vs-cooling 부하표 + heating-cost-by-fuel 연료가·효율 + 온수(인당 25gal/day) + 가전(3,500+1,300×인원 kWh). 기본값 $2,261(본문 "$2,000~3,000"과 일치). '전기-히트펌프/전기-저항' 옵션 분리 |
+| heating-vs-cooling | 난방유를 `/100000` BTU로 계산(실제 138,500/gal) → 38% 과대 | — | 교정 |
+| gas-dryer-vs-heat-pump-dryer | 히트펌프 건조기 0.8kWh/load → 본문($0.34)·타 페이지와 모순 | — | 1.9kWh로 통일. 30년 넘는 회수기간은 "에너지만으론 회수 안 됨" 표시 |
+| smart-thermostat | 연 단위 회수기간을 "months"로 표시(0.3 months) | — | ×12 |
+| central-heat-vs-space-heater | `$$22` 이중 달러 | — | 수정 |
+
+## 0-N4. 본문 사실 오류 수정
+
+- **$/kBTU 소수점 오류**: electric-heat-vs-gas-heat("전기저항이 가스보다 *약간* 비쌈" → 실제 **약 3배**), heat-pump-vs-furnace-vs-boiler("히트펌프가 2.8배 쌈" → 실제 **동률**), 루이지애나 "전기저항이 가스보다 쌈"(틀림 — 전기저항이 95% 가스를 이기려면 6¢/kWh 미만 필요). electric-vs-gas-dryer 무배기 건조기 "$0.046/load"(→ $0.63~0.72, 결론도 반대).
+- **"미국 평균 16¢/kWh" 잔존** 정리: space-heater 블로그(수치 전부 재계산), ac-running-cost(3개월 시즌 합계가 30일치로 계산돼 있던 산술 오류도 수정), ceiling-fan-vs-ac, ev-vs-gas-car, glossary 2곳. 전부 해당 페이지 계산기 기본값과 일치시킴.
+- **25C 세액공제를 현행처럼 쓴 곳 17건** 정리(2025-12-31 종료). 13개 파일. 특히 틀린 것: appliance-energy-cost "히트펌프 건조기 $840 IRA 세액공제"(건조기는 원래 25C 대상 아님, $840은 HEEHRA 리베이트), compare 허브 "히트펌프 건조기는 30% IRA 세액공제 대상". **HEEHRA(소득 기준 주 리베이트)와 25C(세액공제)를 혼동하지 말 것.**
+
+## 0-N5. ⏸ 의도적으로 남긴 것 1건 (진단 완료, 다음 세션 대상)
+
+**tools/hot-tub-running-cost** — 본문 "$36~50/월 @13~16¢"와 계산기 기본값(인플레이터블 $80/월, 대형 빌트인 $143/월)이 2~3배 어긋남. 원인은 요금이 아니라 **계산기 기본값**(히터 30% 듀티 24시간 + 1,200W 펌프 4시간 — 인플레이터블의 순환펌프는 ~100W대). 요금 라벨만 바꾸면 틀린 숫자를 덮는 것이라 **손대지 않았다.** 신뢰할 소스(CEC Title 20 포터블 스파 대기전력 기준 등)로 듀티·펌프 기본값을 정한 뒤 본문과 함께 한 번에 고칠 것. 트래픽은 미미(GSC 10노출 @88, Bing 없음)하나 겨울 쿼리("are hot tubs expensive to run")라 시즌 전에 처리 권장.
+
+## 0-N6. 다음 세션
+
+1. **물 두 페이지 CTR 재측정** (기준 0.92% / 0.25%). ★ 이제 water-usage 계산기가 정상 결과를 내므로 **체류·전환 지표도 함께** 볼 것 — 이전엔 모든 사용자가 "평균 800갤런 초과"를 봤다.
+2. heating-cost-by-fuel 유입 쿼리 주간 확인 계속. 천장 높이 쿼리 CTR 변화 확인. **캐나다 쿼리 다수**(halifax, nova scotia, winnipeg, edmonton, vernon bc) — 단위(GJ/리터/CAD)가 달라 현재 미대응. 비중이 더 커지면 검토하되 RPM이 미국보다 낮으니 우선순위는 낮게.
+3. hot-tub 기본값 수정(0-N5).
+4. 표준 검증에 **전 계산기 기본값 실행** 추가 (아래 스크립트).
+
+### 전 계산기 실행 스크립트 (매 세션 재생성)
+```js
+// run.js — node run.js <file.html> <fnName> ['{"id":"override"}']
+// 페이지의 input value / select selected 를 그대로 읽어 DOM 스텁으로 계산 함수를 실행하고 결과 텍스트를 출력
+const fs=require('fs');const [,,file,fn,ov]=process.argv;const html=fs.readFileSync(file,'utf8');const vals={};
+for(const m of html.matchAll(/<input[^>]*>/g)){const t=m[0];const id=(t.match(/id="([^"]+)"/)||[])[1];const v=(t.match(/value="([^"]*)"/)||[])[1];if(id)vals[id]=v??'';}
+for(const m of html.matchAll(/<select[^>]*id="([^"]+)"[^>]*>([\s\S]*?)<\/select>/g)){vals[m[1]]=(m[2].match(/<option[^>]*value="([^"]*)"[^>]*selected/)||m[2].match(/<option[^>]*value="([^"]*)"/)||[])[1];}
+if(ov)Object.assign(vals,JSON.parse(ov));const els={};
+const mk=id=>els[id]||(els[id]={id,get value(){return vals[id]},set value(v){vals[id]=v},textContent:'',innerHTML:'',style:{},classList:{add(){},remove(){},toggle(){}},scrollIntoView(){},addEventListener(){}});
+global.document={getElementById:mk,querySelector:()=>mk('_q'),querySelectorAll:()=>[],addEventListener(){}};global.window=global;
+eval([...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]).join('\n'));eval(fn+'()');
+for(const k in els){const t=(els[k].textContent||els[k].innerHTML).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();if(t)console.log(k,':',t.slice(0,300));}
+```
+루프: `for f in tools/*.html compare/*.html; do for fn in $(grep -oE 'onclick="[a-zA-Z]+\(\)"' $f | sed -E 's/onclick="([a-zA-Z]+)\(\)"/\1/' | sort -u); do node run.js $f $fn; done; done`
+추가로 **input 기본값이 자기 min/max 범위를 벗어나는지** 검사하면 `value="70"` 류를 즉시 잡는다.
+
+---
+
 # EcoEnergyCalc 인수인계 — v33 세션 (2026-11-02, 주간 데이터)
 
 ## 0-O1. 📈 GA 거의 2배 + 구글 첫 클릭

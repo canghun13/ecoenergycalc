@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Window Insulation vs Window Replacement: Cost & Savings Comparison","description":"Compare the cost, energy savings, and payback period of window insulation film vs full window replacement to find the most cost-effective option for your home.","url":"https://ecoenergycalc.com/compare/window-insulation-vs-replacement.html","datePublished":"2026-07-06","dateModified":"2026-07-06","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Window Insulation vs Window Replacement: Cost & Savings Comparison","description":"Compare the cost, energy savings, and payback period of window insulation film vs full window replacement to find the most cost-effective option for your home.","url":"https://ecoenergycalc.com/compare/window-insulation-vs-replacement.html","datePublished":"2026-07-06","dateModified":"2026-09-28","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -63,7 +63,7 @@
             <h2>Window Replacement: When It's Worth the Cost</h2>
             <p>Full replacement makes financial sense in a narrower set of circumstances than most window companies suggest. The typical payback for replacing double-pane with triple-pane windows is 15–30 years — often longer than the warranty on the new windows. DOE data supports this: window replacement ranks low in energy efficiency ROI compared to insulation, air sealing, and HVAC upgrades.</p>
             <p>Replacement makes sense when: windows are single-pane (the energy penalty is severe, often 25–35% of heating load in cold climates), seals have failed creating persistent fogging, frames are deteriorating and causing air infiltration, or you're replacing windows anyway for other reasons (renovation, damage) and can upgrade efficiency at marginal additional cost.</p>
-            <p>The IRA provides a 30% tax credit (up to $600 per year) on ENERGY STAR certified windows and skylights, which meaningfully improves the economics in high-energy-cost markets. Compare double vs triple pane options in our <a href="/compare/double-vs-triple-pane-windows.html">Double vs Triple Pane Windows</a> guide.</p>
+            <p>The IRA's 30% tax credit on ENERGY STAR certified windows and skylights (up to $600 per year) ended for windows placed in service after December 31, 2025, so 2026 replacements carry their full cost — which makes the payback gap against window film even wider. Compare double vs triple pane options in our <a href="/compare/double-vs-triple-pane-windows.html">Double vs Triple Pane Windows</a> guide.</p>
 
             <h2>The Air Sealing Opportunity</h2>
             <p>Before spending money on either film or replacement windows, check for air infiltration. Gaps around window frames, deteriorated weatherstripping, and failed caulking are often responsible for more heat loss than the glass itself. A $10 tube of caulk and $5 of weatherstripping applied to a leaky window can match the energy savings of full replacement at 100x lower cost. Check for drafts by running a hand around window frames on a cold windy day — you'll feel infiltration that film and replacement can both help with, but caulking addresses directly.</p>
@@ -139,7 +139,7 @@ function calcWindow() {
     <tr><td>Annual energy savings</td><td>${fmt(filmAnnual)}/yr</td><td>${fmt(replaceAnnual)}/yr</td></tr>
     <tr><td>Simple payback</td><td><strong>${filmPayback} years</strong></td><td><strong>${replacePayback} years</strong></td></tr>
     <tr><td>10-year net savings</td><td>${fmt(filmAnnual*10 - filmTotal)}</td><td>${fmt(replaceAnnual*10 - replaceTotal)}</td></tr>
-    <tr><td>IRA tax credit</td><td>❌ No</td><td>✅ 30% up to $600/yr</td></tr>
+    <tr><td>Federal tax credit</td><td>❌ No</td><td>❌ Expired Dec 2025</td></tr>
   `;
   const r = document.getElementById('wi-result');
   r.classList.add('visible');
