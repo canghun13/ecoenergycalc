@@ -288,18 +288,10 @@ img { max-width: 100%; display: block; }
 /* ===========================
    AdSense
 =========================== */
-.adslot {
-  min-height: 100px;
-  background: var(--bg-alt);
-  border: 1px dashed var(--border);
-  border-radius: var(--radius);
-  margin: 32px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-}
+/* Ad slots stay hidden until a real ad unit is placed inside them.
+   Empty dashed boxes read as an unfinished site to reviewers and visitors. */
+.adslot { display: none; margin: 32px 0; }
+.adslot:has(ins.adsbygoogle) { display: block; }
 
 /* ===========================
    Section Commons

@@ -1,3 +1,14 @@
+# EcoEnergyCalc 인수인계 — v34.1 (2026-09-29, 애드센스 심사 점검)
+
+- **ads.txt 신설** (`google.com, pub-5592663499707350, DIRECT, f08c47fec0942fa0`). 그전엔 404였다.
+- **빈 광고 자리(.adslot) 숨김.** 122곳이 100px 점선 빈 상자로 보였고, 홈 히어로 바로 아래에도 있었다 → 미완성 사이트처럼 보임. CSS에서 기본 `display:none`, 안에 `ins.adsbygoogle`가 들어가면 자동 표시. **수동 광고 단위를 넣을 때 이 div 안에 넣으면 된다.**
+- **홈 하단 디렉토리 배지**: 숨김 링크(launchbison, `display:none`) 삭제 — Google 스팸 정책의 hidden links에 해당. `boostdomainrating.com`(DR 부스팅 서비스) 삭제. 나머지 8개는 `rel="nofollow"` 처리(상호 링크 = link scheme 소지). **배지·상호링크 추가 시 nofollow 필수, 숨김 금지.**
+- 개인정보처리방침에 AdSense 필수 문구(제3자 공급업체 쿠키, aboutads.info, EEA 동의) 보강. → **AdSense 콘솔 '개인정보 보호 및 메시지 > 유럽 규정' 메시지를 켜야 방침 문구와 일치.**
+- 홈 "18+ tools" → "50+", llms.txt "38개·데이터 수집 없음" 문구 정정. `assets/js/nav.js.bak` 삭제.
+- 148페이지 전수: JS 오류 0, 푸터(개인정보·연락처·공시) 전 페이지 노출, 깨진 링크 0, 중복 title/description 0, 본문 중앙값 약 1,000단어.
+
+---
+
 # EcoEnergyCalc 인수인계 — v34 세션 (2026-09-28, 주간 데이터)
 
 > ⚠️ **날짜 교정**: v31~v33 헤더의 날짜(10-19 / 10-26 / 11-02)는 틀렸다. 실제 커밋일은 09-09 / 09-14 / 09-21. 이 드리프트가 JSON-LD `dateModified`·`datePublished`와 sitemap `lastmod`에까지 **미래 날짜**로 박혀 있었다(10개 파일 + sitemap 5건). v34에서 전부 실제 커밋일로 교정. **앞으로 날짜는 `git log` 또는 시스템 날짜 기준으로만 쓸 것.**
