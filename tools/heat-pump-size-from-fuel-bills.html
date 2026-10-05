@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heat Pump Size Calculator From Your Oil, Propane or Gas Bills | EcoEnergyCalc</title>
+  <meta name="description" content="Your fuel bills already measured your home's heat loss. Turn a year of oil, propane or gas use into the heat pump size your house needs on its coldest day — and see how it compares with your boiler." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/heat-pump-size-from-fuel-bills.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Heat Pump Size Calculator From Fuel Bills","url":"https://ecoenergycalc.com/tools/heat-pump-size-from-fuel-bills.html","description":"Estimate your home's design heat load and the heat pump capacity you need from a year of heating oil, propane, natural gas or electric heating use, using heating degree days and your local design temperature.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-10-05","dateModified":"2026-10-05","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How do I size a heat pump from my oil or gas usage?","acceptedAnswer":{"@type":"Answer","text":"Take one year of fuel, subtract what went to hot water, and multiply by the fuel's energy content and your system's efficiency to get the heat your house actually used. Divide that by your location's heating degree days times 24 to get the heat loss per degree, then multiply by the difference between 65°F and your design temperature. For a Boston house that burned 800 gallons of oil with three people on the same boiler for hot water, that works out to about 30,000 BTU per hour, or two and a half tons."}},
+    {"@type":"Question","name":"Is it okay to size a heat pump to match my old boiler?","acceptedAnswer":{"@type":"Answer","text":"Usually not. Boilers and furnaces are routinely installed far larger than the house needs, and a heat pump sized to the old nameplate costs more up front and runs less efficiently because it cycles on and off. Size it to the heat load your fuel bills show, then check that the unit delivers that load at your design temperature, not just at its nominal rating."}},
+    {"@type":"Question","name":"What capacity should I look for on a heat pump spec sheet?","acceptedAnswer":{"@type":"Answer","text":"Look for the heating capacity at your design temperature, or at 5°F if your design temperature is near or below that, rather than the headline number, which is measured at 47°F. Cold-climate models list capacity and efficiency at 5°F and 17°F; NEEP's cold-climate specification requires a COP of at least 1.75 at 5°F for ducted central systems."}},
+    {"@type":"Question","name":"Why might my fuel bills underestimate my heat load?","acceptedAnswer":{"@type":"Answer","text":"Anything that heated the house without showing up on the bill hides part of the load: a wood stove, space heaters, a fireplace, or rooms that were closed off. A mild winter, a part of the year when the house was empty, or oil deliveries that don't line up with the heating season can also skew one year's number. Averaging two or three years and using the degree days for those same years gives the most reliable result."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Heat Pump Size From Fuel Bills</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Heat Pump Size Calculator From Your Fuel Bills</h1>
+        <p>A square-foot rule guesses at how much heat your house loses. Last winter's oil, propane or gas bills measured it. This turns a year of fuel into the heat load on your coldest design day — the number a heat pump actually has to meet.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Your Heat Load From Fuel Use</h2>
+            <div class="form-group">
+              <label for="hs-fuel">Heating Fuel</label>
+              <select id="hs-fuel" onchange="hsFuelDefaults()">
+                <option value="oil" selected>Heating oil (gallons)</option>
+                <option value="propane">Propane (gallons)</option>
+                <option value="gas">Natural gas (therms)</option>
+                <option value="elec">Electric baseboard / resistance (kWh)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="hs-amount" id="hs-amount-label">Fuel Used in One Year (gallons)</label>
+              <input type="number" id="hs-amount" value="800" min="0" step="10" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Add up 12 months of bills or deliveries. Two or three years averaged is better than one — oil and propane deliveries rarely line up neatly with a heating season.</small>
+            </div>
+            <div class="form-group">
+              <label for="hs-eff">Heating System Efficiency (%)</label>
+              <input type="number" id="hs-eff" value="80" min="40" max="100" step="1" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Older oil boiler: 75–80. Standard gas furnace or boiler: 80. Condensing: 92–95. Electric resistance: 100. If unsure, a higher number errs toward a larger heat pump.</small>
+            </div>
+            <div class="form-group">
+              <label for="hs-dhw">Does the Same Fuel Heat Your Hot Water?</label>
+              <select id="hs-dhw" onchange="hsDhwToggle()">
+                <option value="yes" selected>Yes</option>
+                <option value="no">No — separate water heater</option>
+              </select>
+            </div>
+            <div id="hs-dhw-group">
+              <div class="form-group">
+                <label for="hs-people">People in the Household</label>
+                <input type="number" id="hs-people" value="3" min="1" max="10" />
+              </div>
+              <div class="form-group">
+                <label for="hs-summer">Or: Fuel Used in a Typical Summer Month (optional)</label>
+                <input type="number" id="hs-summer" placeholder="e.g. 15" min="0" step="0.5" />
+                <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">A summer month's bill is hot water only. If you have it, it beats the household-size estimate.</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="hs-city">Nearest City</label>
+              <select id="hs-city" onchange="hsCityToggle()">
+                <option value="custom">Other — I'll enter my own numbers</option>
+                <option value="boston" selected>Boston, MA</option>
+                <option value="hartford">Hartford, CT</option>
+                <option value="providence">Providence, RI</option>
+                <option value="concord">Concord, NH</option>
+                <option value="albany">Albany, NY</option>
+                <option value="buffalo">Buffalo, NY</option>
+                <option value="nyc">New York, NY</option>
+                <option value="newark">Newark, NJ</option>
+                <option value="philadelphia">Philadelphia, PA</option>
+                <option value="harrisburg">Harrisburg, PA</option>
+                <option value="pittsburgh">Pittsburgh, PA</option>
+                <option value="baltimore">Baltimore, MD</option>
+                <option value="dc">Washington, DC</option>
+                <option value="cleveland">Cleveland, OH</option>
+                <option value="columbus">Columbus, OH</option>
+                <option value="detroit">Detroit, MI</option>
+                <option value="chicago">Chicago, IL</option>
+                <option value="milwaukee">Milwaukee, WI</option>
+                <option value="minneapolis">Minneapolis, MN</option>
+                <option value="indianapolis">Indianapolis, IN</option>
+                <option value="denver">Denver, CO</option>
+                <option value="seattle">Seattle, WA</option>
+                <option value="portland_or">Portland, OR</option>
+                <option value="raleigh">Raleigh, NC</option>
+                <option value="atlanta">Atlanta, GA</option>
+              </select>
+            </div>
+            <div id="hs-custom-group" style="display:none;">
+              <div class="form-group">
+                <label for="hs-hdd">Heating Degree Days (base 65°F) per Year</label>
+                <input type="number" id="hs-hdd" value="5500" min="200" max="12000" step="10" />
+                <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Free from degreedays.net for the nearest weather station. Use the same 12 months as your fuel figure if you can.</small>
+              </div>
+              <div class="form-group">
+                <label for="hs-design">Heating Design Temperature (°F)</label>
+                <input type="number" id="hs-design" value="5" min="-40" max="50" />
+                <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">The cold extreme your system is sized for — roughly the temperature only the coldest few nights of a year fall below.</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="hs-sqft">Heated Floor Area (sq ft, optional)</label>
+              <input type="number" id="hs-sqft" placeholder="e.g. 1800" min="0" step="50" />
+            </div>
+            <div class="form-group">
+              <label for="hs-boiler">Current Boiler or Furnace Output (BTU/hr, optional)</label>
+              <input type="number" id="hs-boiler" placeholder="e.g. 105000" min="0" step="1000" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">On the rating plate as "output", "DOE heating capacity" or "net I=B=R". Not the input rating.</small>
+            </div>
+            <button class="btn-primary" onclick="calcHeatPumpSize()">Calculate My Heat Load</button>
+            <div class="result-box-tool" id="hs-result">
+              <h3>Your Design Heat Load</h3>
+              <div class="result-amount" id="hs-headline"></div>
+              <table id="hs-table"></table>
+              <p class="result-note" id="hs-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Why Your Fuel Bills Beat a Square-Foot Rule</h2>
+            <p>Most heat pump quotes start from the size of the house. That number can't see your insulation, your windows, how leaky the attic is, or whether you keep the house at 64 or 72. Two houses with identical floor plans can need heat pumps a ton apart.</p>
+            <p>Your fuel use has already accounted for all of it. Every gallon of oil or therm of gas you burned last winter replaced heat that left the house through those walls, windows and gaps, across a full season of real weather. Dividing that by how cold the season was gives your home's heat loss per degree of temperature difference — a measured figure, not an estimate. It's the same billing-analysis method New York's housing agency sets out for space-heating load calculations in its clean-energy programs.</p>
+
+            <h2>How the Calculation Works</h2>
+            <ol>
+              <li><strong>Remove hot water.</strong> If the same boiler or fuel heats your water, that share has nothing to do with the house's heat loss. A summer month's use, times 12, is the cleanest way to take it out. Otherwise we estimate it from household size (about 25 gallons of hot water per person per day).</li>
+              <li><strong>Convert to heat delivered.</strong> Heating fuel × energy content (138,500 BTU per gallon of oil, 91,500 per gallon of propane, 100,000 per therm, 3,412 per kWh) × system efficiency.</li>
+              <li><strong>Divide by the season.</strong> Heat delivered ÷ (heating degree days × 24) gives BTU per hour for every degree the outside is colder than 65°F.</li>
+              <li><strong>Apply your design day.</strong> Multiply by (65°F − design temperature). That's the heat load on a night as cold as your system needs to handle.</li>
+            </ol>
+            <p>For the default example — a Boston house burning 800 gallons of oil a year at 80% efficiency, with three people on the same boiler for hot water — the result is about <strong>30,000 BTU/hr at 8°F, or roughly 2.5 tons</strong>. A typical oil boiler in a house like that is rated somewhere above 100,000 BTU/hr.</p>
+
+            <h2>Don't Size the Heat Pump to the Boiler</h2>
+            <p>The most common sizing shortcut is to match the old equipment's rating. That carries forward whatever oversizing the boiler had, and boilers have historically been installed far larger than the houses they heat — partly to recover hot water quickly, partly as a safety margin nobody ever revisited. If you enter your current boiler's output above, the calculator shows how its rating compares with your measured load.</p>
+            <p>An oversized heat pump costs more to buy and runs worse: it spends more of the season cycling on and off instead of running long and slow, which is where inverter heat pumps are most efficient.</p>
+
+            <h2>The Number to Check on a Spec Sheet</h2>
+            <p>The capacity in a heat pump's model name or headline is measured at 47°F. Heat pumps lose capacity as it gets colder, so that figure tells you little about your design night. What matters is the capacity <strong>at your design temperature</strong> — or at 5°F, the lowest standard rating point, if your design temperature is near or below it.</p>
+            <p>Cold-climate models list their capacity and efficiency at 5°F, 17°F and 47°F. NEEP's cold-climate specification, which many utility rebate programs use as their qualifying list, requires ducted systems to reach a COP of at least 1.75 at 5°F. The calculator gives your load at 47°F, 17°F, 5°F and your design temperature so you can line it up against those columns directly.</p>
+            <p>If you plan to keep the boiler as backup, you don't need to cover the design load in full. A heat pump that meets the load down to the high teens covers every hour warmer than that on its own — in coastal Northeast cities, where January averages around 30°F, that's most of the winter — and the boiler picks up the coldest nights. Whether your existing baseboard or radiators could run on a heat pump instead is a separate question — our <a href="/tools/baseboard-heat-pump-calculator.html">baseboard heat pump calculator</a> answers it with the load from this page.</p>
+
+            <h2>Where This Method Goes Wrong</h2>
+            <ul>
+              <li><strong>Heat the bills didn't see.</strong> A wood stove, space heaters, a gas fireplace, or rooms left closed all carry part of the load without showing up in your fuel figure. The result will come out low.</li>
+              <li><strong>An unusual year.</strong> A mild winter, or months when the house was empty, skews a single year. Average two or three years, and if you can, use the actual degree days for those years from degreedays.net rather than the long-term normals built into the city list.</li>
+              <li><strong>Delivered fuel timing.</strong> Oil and propane are bought in deliveries, not by the month. Twelve months of deliveries can easily contain thirteen or eleven months of burning.</li>
+              <li><strong>Efficiency.</strong> An old boiler's real seasonal efficiency is often below its rating. Using a lower efficiency gives a smaller load, so when in doubt err high.</li>
+              <li><strong>Changes since.</strong> New windows, insulation or air sealing after the billing year lower the load; an addition raises it.</li>
+            </ul>
+            <p>The city list uses NOAA 1981–2010 normal heating degree days and ASHRAE 99.6% heating design temperatures. Recent winters have generally run a little milder than those normals; a professional Manual J load calculation is still the right step before a large purchase, and a good installer will welcome your fuel-use figure as a cross-check.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/baseboard-heat-pump-calculator.html">Will My Baseboard Work With a Heat Pump?</a></li>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel Calculator</a></li>
+              <li><a href="/tools/heat-pump-aux-heat-calculator.html">Heat Pump AUX Heat Cost</a></li>
+              <li><a href="/tools/furnace-afue-upgrade-calculator.html">Furnace AFUE Upgrade Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/can-a-heat-pump-replace-a-boiler.html">Can a Heat Pump Replace Your Boiler?</a></li>
+              <li><a href="/compare/heat-pump-vs-furnace-vs-boiler.html">Heat Pump vs Furnace vs Boiler</a></li>
+              <li><a href="/blog/is-a-heat-pump-worth-it-without-tax-credit.html">Is a Heat Pump Worth It Without the Tax Credit?</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>1 ton: <strong>12,000 BTU/hr</strong></li>
+              <li>Headline capacity measured at: <strong>47°F</strong></li>
+              <li>Check capacity at: <strong>your design temp or 5°F</strong></li>
+              <li>NEEP cold-climate COP at 5°F: <strong>≥ 1.75 (ducted)</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#heating-degree-days">Heating degree days</a></li>
+              <li><a href="/glossary/#design-temperature">Design temperature</a></li>
+              <li><a href="/glossary/#cop">COP</a></li>
+              <li><a href="/glossary/#btu">BTU</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How do I size a heat pump from my oil or gas usage?</h3>
+      <p>Take one year of fuel, subtract what went to hot water, and multiply by the fuel's energy content and your system's efficiency to get the heat your house actually used. Divide that by your location's heating degree days times 24 to get the heat loss per degree, then multiply by the difference between 65°F and your design temperature. For a Boston house that burned 800 gallons of oil with three people on the same boiler for hot water, that works out to about 30,000 BTU per hour, or two and a half tons.</p>
+      <h3>Is it okay to size a heat pump to match my old boiler?</h3>
+      <p>Usually not. Boilers and furnaces are routinely installed far larger than the house needs, and a heat pump sized to the old nameplate costs more up front and runs less efficiently because it cycles on and off. Size it to the heat load your fuel bills show, then check that the unit delivers that load at your design temperature, not just at its nominal rating.</p>
+      <h3>What capacity should I look for on a heat pump spec sheet?</h3>
+      <p>Look for the heating capacity at your design temperature, or at 5°F if your design temperature is near or below that, rather than the headline number, which is measured at 47°F. Cold-climate models list capacity and efficiency at 5°F and 17°F; NEEP's cold-climate specification requires a COP of at least 1.75 at 5°F for ducted central systems.</p>
+      <h3>Why might my fuel bills underestimate my heat load?</h3>
+      <p>Anything that heated the house without showing up on the bill hides part of the load: a wood stove, space heaters, a fireplace, or rooms that were closed off. A mild winter, a part of the year when the house was empty, or oil deliveries that don't line up with the heating season can also skew one year's number. Averaging two or three years and using the degree days for those same years gives the most reliable result.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+// NOAA 1981-2010 normal heating degree days (base 65F) and ASHRAE 99.6% heating design dry-bulb (F).
+var CITY = {
+  boston: { hdd: 5681, design: 8 },
+  hartford: { hdd: 5839, design: 3 },
+  providence: { hdd: 5618, design: 6 },
+  concord: { hdd: 7235, design: -6 },
+  albany: { hdd: 6680, design: -3 },
+  buffalo: { hdd: 6617, design: 2 },
+  nyc: { hdd: 4664, design: 13 },
+  newark: { hdd: 4872, design: 10 },
+  philadelphia: { hdd: 4613, design: 12 },
+  harrisburg: { hdd: 5269, design: 8 },
+  pittsburgh: { hdd: 5710, design: 2 },
+  baltimore: { hdd: 4764, design: 12 },
+  dc: { hdd: 4031, design: 16 },
+  cleveland: { hdd: 5762, design: 1 },
+  columbus: { hdd: 5250, design: 1 },
+  detroit: { hdd: 6168, design: 0 },
+  chicago: { hdd: 6340, design: -5 },
+  milwaukee: { hdd: 6894, design: -5 },
+  minneapolis: { hdd: 7580, design: -15 },
+  indianapolis: { hdd: 5348, design: -2 },
+  denver: { hdd: 6058, design: -4 },
+  seattle: { hdd: 4697, design: 24 },
+  portland_or: { hdd: 4278, design: 22 },
+  raleigh: { hdd: 3247, design: 16 },
+  atlanta: { hdd: 2768, design: 19 }
+};
+var FUEL = {
+  oil:     { btu: 138500, eff: 80,  unit: 'gallons', amount: 800 },
+  propane: { btu: 91500,  eff: 80,  unit: 'gallons', amount: 900 },
+  gas:     { btu: 100000, eff: 80,  unit: 'therms',  amount: 900 },
+  elec:    { btu: 3412,   eff: 100, unit: 'kWh',     amount: 15000 }
+};
+function hsFuelDefaults() {
+  var f = FUEL[document.getElementById('hs-fuel').value];
+  document.getElementById('hs-amount').value = f.amount;
+  document.getElementById('hs-eff').value = f.eff;
+  document.getElementById('hs-amount-label').textContent = 'Fuel Used in One Year (' + f.unit + ')';
+}
+function hsDhwToggle() {
+  document.getElementById('hs-dhw-group').style.display = document.getElementById('hs-dhw').value === 'yes' ? 'block' : 'none';
+}
+function hsCityToggle() {
+  document.getElementById('hs-custom-group').style.display = document.getElementById('hs-city').value === 'custom' ? 'block' : 'none';
+}
+function calcHeatPumpSize() {
+  var num = function (id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? null : v; };
+  var fuelKey = document.getElementById('hs-fuel').value;
+  var f = FUEL[fuelKey];
+  var amount = num('hs-amount'); if (amount === null) amount = f.amount;
+  var eff = (num('hs-eff') || f.eff) / 100;
+  var city = document.getElementById('hs-city').value;
+  var hdd, design;
+  if (city === 'custom' || !CITY[city]) { hdd = num('hs-hdd') || 5500; design = num('hs-design'); if (design === null) design = 5; }
+  else { hdd = CITY[city].hdd; design = CITY[city].design; }
+
+  // Hot water: summer-month use x 12, else ~25 gal/person/day x 500 BTU/gal (60F rise),
+  // made by the same appliance at 67% (the water-heating efficiency used across this site).
+  var dhwFuel = 0, dhwHow = '';
+  if (document.getElementById('hs-dhw').value === 'yes') {
+    var summer = num('hs-summer');
+    if (summer !== null && summer > 0) { dhwFuel = summer * 12; dhwHow = 'from your summer use'; }
+    else {
+      var people = num('hs-people') || 3;
+      dhwFuel = people * 25 * 365 * 500 / 0.67 / f.btu;
+      dhwHow = 'estimated for ' + people + (people === 1 ? ' person' : ' people');
+    }
+  }
+  var heatFuel = amount - dhwFuel;
+  var fmt = function (v) { return Math.round(v).toLocaleString(); };
+  var res = document.getElementById('hs-result');
+  if (heatFuel <= 0) {
+    document.getElementById('hs-headline').textContent = 'Check your numbers';
+    document.getElementById('hs-table').innerHTML = '';
+    document.getElementById('hs-note').textContent = 'After removing hot water (' + fmt(dhwFuel) + ' ' + f.unit + '), nothing is left for space heating. Make sure the annual figure covers a full heating season.';
+    res.classList.add('visible'); res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    return;
+  }
+  var delivered = heatFuel * f.btu * eff;          // BTU/yr into the house
+  var ua = delivered / (hdd * 24);                  // BTU/hr per degree F
+  var loadAt = function (t) { return Math.max(0, ua * (65 - t)); };
+  var design_load = loadAt(design);
+  var tons = design_load / 12000;
+
+  document.getElementById('hs-headline').textContent = fmt(design_load) + ' BTU/hr at ' + design + '°F (' + tons.toFixed(1) + ' tons)';
+  var rows = '';
+  rows += '<tr><td>Fuel for space heating' + (dhwFuel > 0 ? ' (after ' + fmt(dhwFuel) + ' ' + f.unit + ' for hot water, ' + dhwHow + ')' : '') + '</td><td>' + fmt(heatFuel) + ' ' + f.unit + '/yr</td></tr>';
+  rows += '<tr><td>Heat delivered to the house</td><td>' + (delivered / 1e6).toFixed(1) + ' MMBtu/yr</td></tr>';
+  rows += '<tr><td>Heat loss per °F of outdoor difference</td><td>' + fmt(ua) + ' BTU/hr·°F</td></tr>';
+  rows += '<tr><td>Load at 47°F (mild day)</td><td>' + fmt(loadAt(47)) + ' BTU/hr</td></tr>';
+  rows += '<tr><td>Load at 17°F</td><td>' + fmt(loadAt(17)) + ' BTU/hr</td></tr>';
+  rows += '<tr><td>Load at 5°F</td><td>' + fmt(loadAt(5)) + ' BTU/hr</td></tr>';
+  rows += '<tr style="font-weight:700;"><td>Load at your design temperature (' + design + '°F)</td><td>' + fmt(design_load) + ' BTU/hr</td></tr>';
+  var sqft = num('hs-sqft');
+  if (sqft && sqft > 0) rows += '<tr><td>Per square foot</td><td>' + (design_load / sqft).toFixed(1) + ' BTU/hr per sq ft</td></tr>';
+  var boiler = num('hs-boiler');
+  if (boiler && boiler > 0) rows += '<tr><td>Your current boiler/furnace output</td><td>' + fmt(boiler) + ' BTU/hr — ' + (boiler / design_load).toFixed(1) + '× your design load</td></tr>';
+  document.getElementById('hs-table').innerHTML = rows;
+
+  var whole = design >= 5
+    ? 'look for a heat pump (or set of mini-splits) rated to deliver at least ' + fmt(design_load) + ' BTU/hr at ' + design + '°F'
+    : 'you need about ' + fmt(design_load) + ' BTU/hr at ' + design + '°F; most spec sheets stop at 5°F, where the unit should deliver at least ' + fmt(loadAt(5)) + ' BTU/hr and still have headroom';
+  document.getElementById('hs-note').textContent = 'To heat the whole house without backup, ' + whole + ' — use the low-temperature capacity in the spec sheet or NEEP listing, not the headline rating. Keeping the boiler as backup instead, a unit that delivers ' + fmt(loadAt(17)) + ' BTU/hr at 17°F covers every hour warmer than 17°F on its own. Based on ' + fmt(hdd) + ' heating degree days.';
+  res.classList.add('visible');
+  res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

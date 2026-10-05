@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will My Baseboard Heat Work With a Heat Pump? Calculator | EcoEnergyCalc</title>
+  <meta name="description" content="Baseboard is rated at 180°F water; heat pumps run near 120°F. Find the water temperature your house needs on a cold night, and the outdoor temperature where a heat pump can take over from the boiler." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/baseboard-heat-pump-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Baseboard Heat Pump Compatibility Calculator","url":"https://ecoenergycalc.com/tools/baseboard-heat-pump-calculator.html","description":"Check whether existing hot-water fin-tube baseboard can heat your home at heat pump water temperatures, the water temperature needed on your design day, and the outdoor switchover temperature for a heat pump and boiler hybrid.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-10-05","dateModified":"2026-10-05","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Can I use a heat pump with baseboard heating?","acceptedAnswer":{"@type":"Answer","text":"Often partly, sometimes fully. Fin-tube baseboard is rated at boiler temperatures around 180°F, while air-to-water heat pumps run most efficiently at about 120°F and top out around 130–140°F. At those temperatures a typical baseboard element gives roughly a third of its rated output, so it works if you have plenty of baseboard relative to your real heat load, or on milder days with the boiler covering the coldest ones. Comparing your measured heat load with the feet of baseboard you have tells you which case you are in."}},
+    {"@type":"Question","name":"How much heat does baseboard give off at 120 degrees?","acceptedAnswer":{"@type":"Answer","text":"About 37% of its 180°F rating. A typical residential element rated around 550 BTU per hour per foot at 180°F average water gives roughly 200 BTU per hour per foot at 120°F. Output falls faster than the temperature difference alone suggests, because baseboard heats mostly by convection, which weakens as the element cools."}},
+    {"@type":"Question","name":"What is a hybrid heat pump and boiler setup?","acceptedAnswer":{"@type":"Answer","text":"The heat pump heats the house whenever the outdoor temperature is mild enough for it to meet the load at a water temperature it can supply efficiently, and the existing boiler takes over below that switchover temperature. It avoids replacing radiators or baseboard, keeps a backup in place, and lets the cheaper source run at each temperature. The switchover point depends on how much baseboard you have relative to your heat load."}},
+    {"@type":"Question","name":"Is it better to add mini-splits and keep the boiler?","acceptedAnswer":{"@type":"Answer","text":"For many homes with baseboard or radiators, yes. Ductless mini-splits deliver warm air directly and don't depend on water temperature, so they can carry most of the season while the boiler handles the coldest nights and hot water. An air-to-water heat pump makes the most sense when the existing emitters can run at low water temperatures, or when the home has radiant floors, which are designed for low-temperature water."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Baseboard Heat Pump Calculator</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Will My Baseboard Heat Work With a Heat Pump?</h1>
+        <p>Hot-water baseboard was sized for a boiler running around 180°F. An air-to-water heat pump is happiest near 120°F. Whether your baseboard can live with that depends on one comparison — how much baseboard you have against how much heat your house really loses — and this does it for you.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Your Baseboard vs Your Heat Load</h2>
+            <div class="form-group">
+              <label for="bb-load">Design Heat Load (BTU/hr)</label>
+              <input type="number" id="bb-load" value="30000" min="1000" max="300000" step="500" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Don't know it? Our <a href="/tools/heat-pump-size-from-fuel-bills.html">fuel-bill heat load calculator</a> works it out from last winter's oil, propane or gas use. Avoid using your boiler's rating — it's usually far larger than the house needs.</small>
+            </div>
+            <div class="form-group">
+              <label for="bb-city">Nearest City (sets the design temperature)</label>
+              <select id="bb-city" onchange="bbCityToggle()">
+                <option value="custom">Other — I'll enter my own numbers</option>
+                <option value="boston" selected>Boston, MA</option>
+                <option value="hartford">Hartford, CT</option>
+                <option value="providence">Providence, RI</option>
+                <option value="concord">Concord, NH</option>
+                <option value="albany">Albany, NY</option>
+                <option value="buffalo">Buffalo, NY</option>
+                <option value="nyc">New York, NY</option>
+                <option value="newark">Newark, NJ</option>
+                <option value="philadelphia">Philadelphia, PA</option>
+                <option value="harrisburg">Harrisburg, PA</option>
+                <option value="pittsburgh">Pittsburgh, PA</option>
+                <option value="baltimore">Baltimore, MD</option>
+                <option value="dc">Washington, DC</option>
+                <option value="cleveland">Cleveland, OH</option>
+                <option value="columbus">Columbus, OH</option>
+                <option value="detroit">Detroit, MI</option>
+                <option value="chicago">Chicago, IL</option>
+                <option value="milwaukee">Milwaukee, WI</option>
+                <option value="minneapolis">Minneapolis, MN</option>
+                <option value="indianapolis">Indianapolis, IN</option>
+                <option value="denver">Denver, CO</option>
+                <option value="seattle">Seattle, WA</option>
+                <option value="portland_or">Portland, OR</option>
+                <option value="raleigh">Raleigh, NC</option>
+                <option value="atlanta">Atlanta, GA</option>
+              </select>
+            </div>
+            <div class="form-group" id="bb-custom-group" style="display:none;">
+              <label for="bb-design">Heating Design Temperature (°F)</label>
+              <input type="number" id="bb-design" value="5" min="-40" max="50" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Use the same design temperature your heat load was calculated for.</small>
+            </div>
+            <div class="form-group">
+              <label for="bb-feet">Total Length of Finned Baseboard Element (feet)</label>
+              <input type="number" id="bb-feet" value="80" min="1" max="1000" step="1" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Add up every room. Measure the finned element itself (lift the cover) — it's usually a few inches to a foot shorter than the enclosure.</small>
+            </div>
+            <div class="form-group">
+              <label for="bb-rating">Baseboard Rating at 180°F Average Water (BTU/hr per foot)</label>
+              <input type="number" id="bb-rating" value="550" min="200" max="1200" step="10" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Typical residential fin-tube: roughly 500–600. The brand and model are usually printed inside the cover; the manufacturer's table gives the exact figure.</small>
+            </div>
+            <div class="form-group">
+              <label for="bb-supply">Highest Water Temperature the Heat Pump Will Supply (°F)</label>
+              <input type="number" id="bb-supply" value="130" min="90" max="160" step="1" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Most air-to-water heat pumps run efficiently at or below about 120°F and top out around 130–140°F. Check the model's spec sheet.</small>
+            </div>
+            <button class="btn-primary" onclick="calcBaseboard()">Check My Baseboard</button>
+            <div class="result-box-tool" id="bb-result">
+              <h3>Can Your Baseboard Run on a Heat Pump?</h3>
+              <div class="result-amount" id="bb-headline"></div>
+              <table id="bb-table"></table>
+              <p class="result-note" id="bb-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Why Water Temperature Is the Whole Question</h2>
+            <p>A boiler doesn't care much what temperature it heats water to. A heat pump does. The hotter the water it has to make, the harder its compressor works and the lower its efficiency — and most air-to-water units simply can't go much past 130–140°F. Hot-water baseboard, meanwhile, is rated with water averaging around 180°F, because that's what boilers have always supplied.</p>
+            <p>So the question isn't whether a heat pump can heat your water. It's whether your baseboard, running on cooler water, still puts enough heat into the rooms on a cold night.</p>
+
+            <h2>Baseboard Output Falls Faster Than You'd Expect</h2>
+            <p>A common shortcut says baseboard output is proportional to how much hotter the water is than the room — so 120°F water, at 55 degrees above a 65°F room instead of 115, would give about 48% of the 180°F rating. The real figure is lower. Baseboard heats mostly by convection, and convection weakens as the element cools, so output falls with roughly the 1.35 power of the temperature difference. Manufacturers' output curves follow this, and the European radiator standard uses an exponent of about 1.3 for the same reason.</p>
+            <ul>
+              <li><strong>180°F average water:</strong> 100% of rating (about 550 BTU/hr per foot for a typical element)</li>
+              <li><strong>140°F:</strong> about 56% (≈310 BTU/hr per foot)</li>
+              <li><strong>120°F:</strong> about 37% (≈200 BTU/hr per foot)</li>
+              <li><strong>110°F:</strong> about 28% (≈155 BTU/hr per foot)</li>
+            </ul>
+            <p>That's the bad news. The good news is on the other side of the comparison.</p>
+
+            <h2>Your House Probably Needs Less Than the Baseboard Was Sized For</h2>
+            <p>Baseboard was installed to cover a heat-loss estimate made decades ago, often by rule of thumb, often before newer windows, insulation or air sealing. If your real load — measured from your fuel bills — is well below what the baseboard can deliver at 180°F, you have slack, and it's that slack that lets cooler water do the job.</p>
+            <p>Heat loss also depends on the weather. Your design load applies only on the coldest nights of the year. At 35°F outside, a house loses roughly half of what it loses at 8°F. Baseboard that can't carry the design night on heat-pump water can still carry the house on every milder day — which is why the result above gives you a <strong>switchover temperature</strong> rather than a simple yes or no.</p>
+
+            <h2>Three Ways It Plays Out</h2>
+            <ul>
+              <li><strong>Enough baseboard.</strong> If the design-day water temperature comes in at or under what the heat pump can supply, an air-to-water heat pump can carry the whole house through your existing baseboard.</li>
+              <li><strong>Hybrid with the boiler.</strong> If it only works above a switchover temperature, the heat pump runs whenever it's milder than that and the boiler takes the coldest nights. Nothing in the house changes, and you keep a backup.</li>
+              <li><strong>Add emitters, or go ductless.</strong> Extra baseboard or panel radiators in the coldest rooms lower the water temperature the whole system needs. Or skip the water entirely: ductless mini-splits heat the air directly and don't care what temperature the boiler loop runs at, which is why mini-splits plus the existing boiler is the most common route in American hot-water homes.</li>
+            </ul>
+            <p>Radiant floors are the opposite case. They were designed for low-temperature water in the first place and generally pair well with an air-to-water heat pump.</p>
+            <p>For what heat pump capacity the house needs in the first place, use our <a href="/tools/heat-pump-size-from-fuel-bills.html">fuel-bill heat load calculator</a>. For whether running it saves money against oil, propane or gas at your prices, see the <a href="/tools/heating-cost-by-fuel.html">heating cost by fuel calculator</a>.</p>
+
+            <h2>Assumptions</h2>
+            <p>Output is scaled from the 180°F rating with an exponent of 1.35, against 65°F air entering the baseboard at floor level. The water temperature in the results is the <em>average</em> in the baseboard; we assume a 20°F drop around the loop, so the heat pump's supply runs 10°F above it. Cast-iron radiators follow a similar curve, but are rated differently (in square feet of EDR), so this tool is set up for fin-tube baseboard. A hydronic designer will confirm room by room — a single cold room with too little baseboard can set the water temperature for the whole house.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/heat-pump-size-from-fuel-bills.html">Heat Pump Size From Fuel Bills</a></li>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel Calculator</a></li>
+              <li><a href="/tools/heat-pump-aux-heat-calculator.html">Heat Pump AUX Heat Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/can-a-heat-pump-replace-a-boiler.html">Can a Heat Pump Replace Your Boiler?</a></li>
+              <li><a href="/compare/heat-pump-vs-furnace-vs-boiler.html">Heat Pump vs Furnace vs Boiler</a></li>
+              <li><a href="/compare/condensing-vs-non-condensing-furnace.html">Condensing vs Non-Condensing Furnace</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Baseboard rated at: <strong>~180°F water</strong></li>
+              <li>Heat pump sweet spot: <strong>~120°F or less</strong></li>
+              <li>Output at 120°F: <strong>~37% of rating</strong></li>
+              <li>Load at 35°F vs design night: <strong>about half</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#design-temperature">Design temperature</a></li>
+              <li><a href="/glossary/#cop">COP</a></li>
+              <li><a href="/glossary/#btu">BTU</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Can I use a heat pump with baseboard heating?</h3>
+      <p>Often partly, sometimes fully. Fin-tube baseboard is rated at boiler temperatures around 180°F, while air-to-water heat pumps run most efficiently at about 120°F and top out around 130–140°F. At those temperatures a typical baseboard element gives roughly a third of its rated output, so it works if you have plenty of baseboard relative to your real heat load, or on milder days with the boiler covering the coldest ones. Comparing your measured heat load with the feet of baseboard you have tells you which case you are in.</p>
+      <h3>How much heat does baseboard give off at 120 degrees?</h3>
+      <p>About 37% of its 180°F rating. A typical residential element rated around 550 BTU per hour per foot at 180°F average water gives roughly 200 BTU per hour per foot at 120°F. Output falls faster than the temperature difference alone suggests, because baseboard heats mostly by convection, which weakens as the element cools.</p>
+      <h3>What is a hybrid heat pump and boiler setup?</h3>
+      <p>The heat pump heats the house whenever the outdoor temperature is mild enough for it to meet the load at a water temperature it can supply efficiently, and the existing boiler takes over below that switchover temperature. It avoids replacing radiators or baseboard, keeps a backup in place, and lets the cheaper source run at each temperature. The switchover point depends on how much baseboard you have relative to your heat load.</p>
+      <h3>Is it better to add mini-splits and keep the boiler?</h3>
+      <p>For many homes with baseboard or radiators, yes. Ductless mini-splits deliver warm air directly and don't depend on water temperature, so they can carry most of the season while the boiler handles the coldest nights and hot water. An air-to-water heat pump makes the most sense when the existing emitters can run at low water temperatures, or when the home has radiant floors, which are designed for low-temperature water.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+// ASHRAE 99.6% heating design dry-bulb (F); hdd unused here but kept identical to the sizing tool.
+var CITY = {
+  boston: { hdd: 5681, design: 8 },
+  hartford: { hdd: 5839, design: 3 },
+  providence: { hdd: 5618, design: 6 },
+  concord: { hdd: 7235, design: -6 },
+  albany: { hdd: 6680, design: -3 },
+  buffalo: { hdd: 6617, design: 2 },
+  nyc: { hdd: 4664, design: 13 },
+  newark: { hdd: 4872, design: 10 },
+  philadelphia: { hdd: 4613, design: 12 },
+  harrisburg: { hdd: 5269, design: 8 },
+  pittsburgh: { hdd: 5710, design: 2 },
+  baltimore: { hdd: 4764, design: 12 },
+  dc: { hdd: 4031, design: 16 },
+  cleveland: { hdd: 5762, design: 1 },
+  columbus: { hdd: 5250, design: 1 },
+  detroit: { hdd: 6168, design: 0 },
+  chicago: { hdd: 6340, design: -5 },
+  milwaukee: { hdd: 6894, design: -5 },
+  minneapolis: { hdd: 7580, design: -15 },
+  indianapolis: { hdd: 5348, design: -2 },
+  denver: { hdd: 6058, design: -4 },
+  seattle: { hdd: 4697, design: 24 },
+  portland_or: { hdd: 4278, design: 22 },
+  raleigh: { hdd: 3247, design: 16 },
+  atlanta: { hdd: 2768, design: 19 }
+};
+function bbCityToggle() {
+  document.getElementById('bb-custom-group').style.display = document.getElementById('bb-city').value === 'custom' ? 'block' : 'none';
+}
+function calcBaseboard() {
+  var num = function (id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? null : v; };
+  var load = num('bb-load') || 30000;
+  var city = document.getElementById('bb-city').value;
+  var design = (city === 'custom' || !CITY[city]) ? num('bb-design') : CITY[city].design;
+  if (design === null) design = 5;
+  var feet = num('bb-feet') || 80;
+  var r180 = num('bb-rating') || 550;
+  var supplyMax = num('bb-supply') || 130;
+
+  var AIR = 65, N = 1.35, DROP = 20;          // entering air F, emitter exponent, loop temperature drop F
+  var rated = feet * r180;                     // BTU/hr at 180F average water
+  var capAt = function (avg) { return avg <= AIR ? 0 : rated * Math.pow((avg - AIR) / (180 - AIR), N); };
+  var avgNeeded = function (q) { return AIR + (180 - AIR) * Math.pow(q / rated, 1 / N); };
+  var ua = load / Math.max(1, AIR - design);   // load per degree below 65F
+  var switchAt = function (cap) { return AIR - cap / ua; };   // outdoor temp where load = cap
+
+  var needAvg = avgNeeded(load);
+  var needSupply = needAvg + DROP / 2;
+  var maxAvg = supplyMax - DROP / 2;
+  var effAvg = 120 - DROP / 2;
+  var capMax = capAt(maxAvg), capEff = capAt(effAvg);
+  var tMax = switchAt(capMax), tEff = switchAt(capEff);
+  var feetNeeded = load / (r180 * Math.pow((maxAvg - AIR) / (180 - AIR), N));
+  var fmt = function (v) { return Math.round(v).toLocaleString(); };
+  var deg = function (t) { return Math.round(t) + '°F'; };
+
+  var headline, note;
+  if (needSupply <= 120) {
+    headline = 'Yes — about ' + deg(needSupply) + ' water on the design night (' + deg(design) + ')';
+    note = 'Your baseboard can heat the whole house at water temperatures a heat pump makes efficiently, even on the design night.';
+  } else if (needSupply <= supplyMax) {
+    headline = 'Yes, at ' + deg(needSupply) + ' water on the coldest nights';
+    note = 'The baseboard can carry the design night within the heat pump\'s ' + deg(supplyMax) + ' limit, but efficiency drops at those temperatures. Above ' + deg(tEff) + ' outside it runs at 120°F or less.';
+  } else {
+    headline = 'Partly — heat pump above ' + deg(tMax) + ', boiler below';
+    note = 'On the design night the baseboard would need ' + deg(needSupply) + ' water, more than the heat pump supplies. A hybrid works: the heat pump carries the house whenever it\'s warmer than about ' + deg(tMax) + ' outside, and the boiler takes the colder hours. Covering the design night on heat-pump water alone would take about ' + fmt(feetNeeded) + ' feet of baseboard (' + fmt(Math.max(0, feetNeeded - feet)) + ' more), or mini-splits for part of the load.';
+  }
+
+  var rows = '';
+  rows += '<tr><td>Baseboard output at 180°F (boiler water)</td><td>' + fmt(rated) + ' BTU/hr</td></tr>';
+  rows += '<tr><td>Baseboard output at ' + deg(maxAvg) + ' average (' + deg(supplyMax) + ' supply)</td><td>' + fmt(capMax) + ' BTU/hr</td></tr>';
+  rows += '<tr><td>Baseboard output at 110°F average (120°F supply)</td><td>' + fmt(capEff) + ' BTU/hr</td></tr>';
+  rows += '<tr><td>Your load on the design night (' + deg(design) + ')</td><td>' + fmt(load) + ' BTU/hr</td></tr>';
+  rows += '<tr style="font-weight:700;"><td>Supply water needed on the design night</td><td>' + deg(needSupply) + '</td></tr>';
+  rows += '<tr><td>Heat pump at ' + deg(supplyMax) + ' supply carries the house</td><td>' + (tMax <= design ? 'every day' : 'above ' + deg(tMax) + ' outside') + '</td></tr>';
+  rows += '<tr><td>Heat pump at an efficient 120°F carries the house</td><td>' + (tEff <= design ? 'every day' : 'above ' + deg(tEff) + ' outside') + '</td></tr>';
+  document.getElementById('bb-headline').textContent = headline;
+  document.getElementById('bb-table').innerHTML = rows;
+  document.getElementById('bb-note').textContent = note + ' Assumes a 20°F drop around the loop and 65°F air entering the baseboard.';
+  var r = document.getElementById('bb-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

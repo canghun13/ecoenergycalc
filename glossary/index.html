@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/assets/css/style.css" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"DefinedTermSet","name":"Energy & Carbon Glossary","description":"Definitions of energy efficiency, heating/cooling, and carbon footprint terms used across EcoEnergyCalc's calculators.","url":"https://ecoenergycalc.com/glossary/","dateModified":"2026-09-28","hasDefinedTerm":[
+  {"@context":"https://schema.org","@type":"DefinedTermSet","name":"Energy & Carbon Glossary","description":"Definitions of energy efficiency, heating/cooling, and carbon footprint terms used across EcoEnergyCalc's calculators.","url":"https://ecoenergycalc.com/glossary/","dateModified":"2026-10-05","hasDefinedTerm":[
     {"@type":"DefinedTerm","name":"BTU (British Thermal Unit)","description":"A unit of heat energy. One BTU is the energy needed to raise one pound of water by 1°F. Used to rate the heating/cooling capacity of furnaces, AC units, and space heaters."},
     {"@type":"DefinedTerm","name":"SEER (Seasonal Energy Efficiency Ratio)","description":"A measure of air conditioner cooling efficiency — cooling output (BTU) divided by energy input (watt-hours) over a typical season. Higher SEER means lower electricity use for the same cooling."},
     {"@type":"DefinedTerm","name":"kWh (Kilowatt-Hour)","description":"The standard unit of electricity billing — the energy used by a 1,000-watt device running for one hour. Electric bills are calculated as kWh used × rate per kWh."},
@@ -22,6 +22,8 @@
     {"@type":"DefinedTerm","name":"Therm","description":"A unit of natural gas energy equal to 100,000 BTU, used by utilities to bill residential gas usage for heating, water heating, and cooking."},
     {"@type":"DefinedTerm","name":"ENERGY STAR","description":"A U.S. EPA certification for appliances and equipment that meet defined energy efficiency standards, typically using 10-50% less energy than standard models."},
     {"@type":"DefinedTerm","name":"COP (Coefficient of Performance)","description":"A ratio measuring heat pump efficiency — the amount of heating or cooling output delivered per unit of electricity consumed. A COP of 3 means 3 units of heat delivered per 1 unit of electricity used."},
+    {"@type":"DefinedTerm","name":"Heating Degree Days (HDD)","description":"A measure of how cold a period was: the sum, over each day, of how far the average outdoor temperature fell below 65°F. Used to normalize heating fuel use and to estimate a home's heat loss."},
+    {"@type":"DefinedTerm","name":"Design Temperature","description":"The cold extreme a heating system is sized for, published by ASHRAE for each weather station; only the coldest few hours of a typical year fall below it."},
     {"@type":"DefinedTerm","name":"MPGe (Miles Per Gallon Equivalent)","description":"A rating that converts an electric vehicle's energy consumption into a gasoline-equivalent fuel economy figure, allowing direct comparison between EVs and gas cars."},
     {"@type":"DefinedTerm","name":"HSPF (Heating Seasonal Performance Factor)","description":"A measure of heat pump heating efficiency over a typical season — total heat output (BTU) divided by total electricity used (watt-hours). Higher HSPF means lower heating costs."},
     {"@type":"DefinedTerm","name":"AFUE (Annual Fuel Utilization Efficiency)","description":"The percentage of fuel energy a furnace or boiler converts into usable heat. An AFUE of 95% means 95% of the fuel's energy becomes heat, with 5% lost as exhaust."},
@@ -108,6 +110,20 @@
           <p>COP measures heat pump efficiency as a ratio: units of heating or cooling delivered per unit of electricity consumed. A COP of 3 means the heat pump delivers 3 kWh of heat for every 1 kWh of electricity it uses — moving heat rather than generating it from scratch.</p>
           <p><strong>Where you'll see it:</strong> Heat pump specifications, heat pump water heaters, and heat pump dryers. Standard electric resistance heating (baseboards, space heaters) has a COP of exactly 1 — one unit of heat per unit of electricity. Modern heat pumps typically run COP 2.5–4 in moderate climates, meaning they're 2.5–4x more efficient than resistance heating for the same warmth.</p>
           <p><strong>Why it matters:</strong> This is the core reason heat pumps are the recommended electric heating upgrade over baseboards or space heaters — same fuel (electricity), far more heat delivered per dollar. See <a href="/blog/heat-pump-vs-furnace.html">Heat Pump vs Furnace</a> and <a href="/compare/gas-dryer-vs-heat-pump-dryer.html">Gas Dryer vs Heat Pump Dryer</a>.</p>
+        </div>
+
+        <div class="glossary-term" data-term="heating degree days hdd climate heating season fuel use">
+          <h2 id="heating-degree-days">Heating Degree Days (HDD)</h2>
+          <p>A measure of how cold a place or a season was. For each day, take how far the average outdoor temperature fell below 65°F and add them up: a day averaging 35°F contributes 30 degree days, a day at 65°F or warmer contributes none. Boston averages about 5,700 heating degree days a year, Minneapolis about 7,600, Atlanta about 2,800.</p>
+          <p><strong>Where you'll see it:</strong> Weather and utility data, energy audits, and fuel delivery companies (which use degree days to schedule oil and propane deliveries).</p>
+          <p><strong>Why it matters:</strong> Dividing a year of heating fuel by that year's degree days gives your home's heat loss per degree — the basis for sizing a heat pump from your bills. Try it in our <a href="/tools/heat-pump-size-from-fuel-bills.html">heat pump size calculator</a>.</p>
+        </div>
+
+        <div class="glossary-term" data-term="design temperature heating design day sizing manual j ashrae">
+          <h2 id="design-temperature">Design Temperature</h2>
+          <p>The cold extreme a heating system is sized for — a temperature that only the coldest few hours of a typical year fall below. ASHRAE publishes it for weather stations across the country; its 99.6% value, for example, is about 8°F for Boston, 13°F for New York and −15°F for Minneapolis.</p>
+          <p><strong>Where you'll see it:</strong> Manual J load calculations, heat pump sizing, and hydronic (boiler and baseboard) design.</p>
+          <p><strong>Why it matters:</strong> Your heat load on the design day is the capacity a heat pump has to deliver at that temperature, not at the 47°F where its headline rating is measured. See our <a href="/tools/heat-pump-size-from-fuel-bills.html">heat pump size calculator</a> and <a href="/tools/baseboard-heat-pump-calculator.html">baseboard heat pump calculator</a>.</p>
         </div>
 
         <div class="glossary-term" data-term="mpge miles per gallon equivalent electric vehicle">

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hot Tub Running Cost Calculator – Inflatable vs Built-In | EcoEnergyCalc</title>
-  <meta name="description" content="Hot tub running cost calculator: find your daily, monthly, and yearly electricity cost for both inflatable and built-in hot tubs, plus which type costs less to run." />
+  <meta name="description" content="Hot tub running cost by tub size and outdoor temperature, built on California's spa efficiency standard. Why winter months cost 3× summer, and why inflatables aren't cheaper to run." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/tools/hot-tub-running-cost.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,16 +12,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Hot Tub Running Cost Calculator","url":"https://ecoenergycalc.com/tools/hot-tub-running-cost.html","description":"Calculate hot tub running cost per day, month, and year for both inflatable and built-in hot tubs, based on heater wattage, pump usage, and electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-07-16","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Hot Tub Running Cost Calculator","url":"https://ecoenergycalc.com/tools/hot-tub-running-cost.html","description":"Calculate hot tub running cost per day and month for inflatable and hard-shell tubs, from tub size, outdoor temperature and electricity rate, based on California's spa standby power standard.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-07-16","dateModified":"2026-10-05","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"How much does it cost to run a hot tub per month?","acceptedAnswer":{"@type":"Answer","text":"A built-in hot tub (240V, ~1,500W heater plus ~1,500W pump) typically costs $30-$50 per month to run at the U.S. average electricity rate of 13-16 cents per kWh, or $300-$600 per year. An inflatable hot tub costs less, typically $10-$30 per month, since it uses a smaller 120V heater (around 1,300-1,500W) and has less water volume to heat, though thinner walls mean it loses heat faster in cold weather."}},
-    {"@type":"Question","name":"Is an inflatable hot tub cheaper to run than a built-in hot tub?","acceptedAnswer":{"@type":"Answer","text":"Yes, in most climates. Inflatable hot tubs use less water and a lower-wattage 120V heater, so daily heating costs are typically 30-50% lower than a built-in 240V spa. However, in cold climates, an inflatable hot tub's thinner vinyl walls lose heat much faster than a built-in spa's rigid, insulated shell, so the heater has to cycle on more often to compensate. In winter, that gap can shrink or even reverse for uninsulated inflatable models."}},
-    {"@type":"Question","name":"What uses more electricity in a hot tub, the heater or the pump?","acceptedAnswer":{"@type":"Answer","text":"The heater uses more electricity per hour when actively heating (1,500-6,000 watts depending on voltage), but it only runs intermittently once the water reaches temperature. The circulation pump uses less power per hour (1,000-1,500 watts) but often runs for longer stretches or continuously on some models, so over a full day the pump can account for a meaningful share of total electricity use even though its wattage is lower."}}
+    {"@type":"Question","name":"How much does it cost to run a hot tub per month?","acceptedAnswer":{"@type":"Answer","text":"With a tight cover and normal use, a hard-shell hot tub of about 300 gallons costs roughly $35-$55 a month at 18 cents per kWh when the average outdoor temperature is 40-60°F, and $70 or more in a 20°F winter month. A 250-gallon inflatable costs about $48 a month at 60°F and $70-$95 in cold weather. Most of that energy goes to holding the water at temperature, not to the pump or the time you spend in it."}},
+    {"@type":"Question","name":"Is an inflatable hot tub cheaper to run than a built-in hot tub?","acceptedAnswer":{"@type":"Answer","text":"Usually not per month, and never per gallon. California's efficiency standard lets an inflatable spa lose almost twice as much heat per gallon as a hard-shell spa, so a 250-gallon inflatable built to that limit uses about as much electricity as a 450-gallon hard-shell tub, and about a third more than a 300-gallon one. Inflatables are cheaper to buy, not to run, and the gap grows in cold weather."}},
+    {"@type":"Question","name":"What uses more electricity in a hot tub, the heater or the pump?","acceptedAnswer":{"@type":"Answer","text":"The heater, by a wide margin. In California's analysis, holding the water at temperature with the cover on (the heater making up heat loss plus the circulation pump) accounts for about three-quarters of a typical spa's energy, and actual use, with the cover off and jets running, makes up the rest. That is why cover condition and outdoor temperature matter far more than pump wattage."}}
   ]}
   </script>
 </head>
@@ -41,28 +41,31 @@
             <h2>Calculate Hot Tub Running Cost</h2>
             <div class="form-group">
               <label for="ht-type">Hot Tub Type</label>
-              <select id="ht-type">
-                <option value="inflatable" selected>Inflatable / Portable (120V, ~1,400W)</option>
-                <option value="builtin_small">Built-In / Hard-Shell – Small (120V, ~1,500W)</option>
-                <option value="builtin_large">Built-In / Hard-Shell – Large (240V, ~3,000W)</option>
-                <option value="custom">Custom wattage</option>
+              <select id="ht-type" onchange="htTypeDefaults()">
+                <option value="inflatable" selected>Inflatable / portable</option>
+                <option value="hardshell">Hard-shell (acrylic, foam-insulated)</option>
               </select>
             </div>
-            <div class="form-group" id="ht-custom-group" style="display:none;">
-              <label for="ht-custom-watts">Custom Combined Wattage (heater + pump, W)</label>
-              <input type="number" id="ht-custom-watts" placeholder="e.g. 2500" min="0" />
+            <div class="form-group">
+              <label for="ht-gal">Water Volume (gallons)</label>
+              <input type="number" id="ht-gal" value="250" min="50" max="1500" step="10" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Typical: inflatables 150–300 gal, hard-shell 300–500 gal. It's on the spec sheet.</small>
             </div>
             <div class="form-group">
-              <label for="ht-duty">Heater Duty Cycle (% of time actively heating)</label>
-              <input type="number" id="ht-duty" placeholder="e.g. 30" min="1" max="100" value="30" />
+              <label for="ht-out">Average Outdoor Temperature (°F)</label>
+              <input type="number" id="ht-out" value="45" min="-30" max="100" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Use the month's average, not the daytime high. Indoors or in an enclosed room, enter that room's temperature.</small>
             </div>
             <div class="form-group">
-              <label for="ht-pump">Pump-Only Hours Per Day (filtration, no active heating)</label>
-              <input type="number" id="ht-pump" placeholder="e.g. 4" min="0" max="24" value="4" />
+              <label for="ht-set">Water Set Temperature (°F)</label>
+              <input type="number" id="ht-set" value="102" min="80" max="104" />
             </div>
             <div class="form-group">
-              <label for="ht-pump-watts">Pump Wattage (W)</label>
-              <input type="number" id="ht-pump-watts" value="1200" min="0" />
+              <label for="ht-use">How Often It's Used</label>
+              <select id="ht-use">
+                <option value="typical" selected>Normal use — a few soaks a week</option>
+                <option value="idle">Rarely — cover stays on</option>
+              </select>
             </div>
             <div class="form-group">
               <label for="ht-rate">Electricity Rate (¢/kWh)</label>
@@ -73,31 +76,29 @@
               <h3>Hot Tub Running Cost</h3>
               <div class="result-amount" id="ht-monthly"></div>
               <table id="ht-breakdown"></table>
-              <p class="result-note">Heater duty cycle assumes the thermostat cycles the heater on and off once your set temperature is reached — this varies a lot with outdoor temperature, insulation, and cover quality.</p>
+              <p class="result-note">Based on the most standby power California's spa efficiency standard allows (hard-shell 3.75 × V<sup>2/3</sup> + 40 W, inflatable 7 × V<sup>2/3</sup> W, tested with a 102°F tub, cool air and the cover on), scaled to your outdoor and water temperatures. Normal use adds a third on top, from California's finding that holding temperature is about 75% of a spa's energy. Assumes a tight, dry cover; a waterlogged or poorly fitting cover, wind, or an inflatable not built to the standard can push the real figure well above this.</p>
             </div>
           </div>
           <div class="article-body" style="margin-top:48px;">
             <h2>How Much Does It Cost to Run a Hot Tub?</h2>
-            <p>A built-in hot tub with a 240V heater (about 3,000W combined with the pump) running at a 30% heater duty cycle costs roughly <strong>$1.20-$1.70 per day</strong>, or about <strong>$36-$50 per month</strong>, at the U.S. average electricity rate of 13-16¢/kWh. An inflatable hot tub with a smaller 120V heater typically costs <strong>$0.35-$1.00 per day</strong>, or <strong>$10-$30 per month</strong> — noticeably less in most conditions, though the gap narrows in cold climates.</p>
-            <p>Unlike most appliances, a hot tub's electricity use isn't just about wattage — it's about how often the heater has to fight heat loss. A well-insulated, well-covered spa in a mild climate might run its heater 15-20% of the time. The same spa in a cold, windy location with a worn-out cover could run 50% or more of the time just to hold temperature, roughly doubling or tripling the electricity cost with the exact same equipment.</p>
-
-            <h3>Inflatable vs Built-In Hot Tub: Running Cost Comparison</h3>
+            <p>Most of a hot tub's electric bill isn't the time you spend in it. It's the hours in between, when the heater keeps 300 gallons of water at 102°F under a cover while the air around it is 40 or 50 degrees colder. California's analysis put that "holding temperature" energy at about <strong>three-quarters</strong> of what a typical spa uses. So the two numbers that decide your bill are how well the tub holds heat, and how cold it is outside.</p>
+            <p>Since 2019, California has capped how much power a portable spa may draw while holding temperature, and published the formula. That gives a defensible baseline for any tub size: a well-covered spa built to the standard. At 18¢/kWh with normal use:</p>
             <div class="table-scroll">
             <table style="width:100%;min-width:520px;">
-              <tr><th></th><th>Inflatable / Portable</th><th>Built-In / Hard-Shell</th></tr>
-              <tr><td>Typical heater voltage</td><td>120V</td><td>120V (small) or 240V (large)</td></tr>
-              <tr><td>Typical combined wattage</td><td>1,300–1,500W</td><td>1,500–4,500W+</td></tr>
-              <tr><td>Insulation</td><td>Thin vinyl walls, loses heat faster</td><td>Rigid shell, foam-insulated</td></tr>
-              <tr><td>Typical monthly cost (mild climate)</td><td>$10–$25</td><td>$30–$50</td></tr>
-              <tr><td>Typical monthly cost (cold climate)</td><td>$40–$80+</td><td>$50–$90</td></tr>
-              <tr><td>Water volume</td><td>150–250 gallons</td><td>300–500 gallons</td></tr>
+              <tr><th>Average outdoor temp</th><th>Inflatable, 250 gal</th><th>Hard-shell, 300 gal</th><th>Hard-shell, 450 gal</th></tr>
+              <tr><td>75°F (summer)</td><td>~$31/mo</td><td>~$23/mo</td><td>~$29/mo</td></tr>
+              <tr><td>60°F (spring / fall)</td><td>~$48/mo</td><td>~$36/mo</td><td>~$45/mo</td></tr>
+              <tr><td>40°F (mild winter)</td><td>~$71/mo</td><td>~$53/mo</td><td>~$66/mo</td></tr>
+              <tr><td>20°F (cold winter)</td><td>~$94/mo</td><td>~$70/mo</td><td>~$88/mo</td></tr>
             </table>
             </div>
-            <p>The key takeaway: an inflatable hot tub costs less to run in mild weather because it heats less water with a smaller heater. But in cold climates its thinner walls can cause it to lose the cost advantage — or even become more expensive per month than a well-insulated built-in spa, since it has to run its heater far more often to fight ambient heat loss.</p>
+            <p>Two things stand out. First, <strong>a winter month can cost three times a summer month</strong> for the same tub, because the heat loss tracks the gap between the water and the air — 27 degrees in July, 82 degrees in a 20°F January. Annual cost is best estimated month by month rather than from one average.</p>
+            <p>Second, <strong>the inflatable is not the cheap one to run.</strong> The standard lets an inflatable spa lose almost twice as much heat per gallon as a hard-shell spa, which reflects what thin vinyl walls actually do. A 250-gallon inflatable built right up to its limit uses about as much electricity as a 450-gallon hard-shell tub, and about a third more than a 300-gallon one. Inflatables are cheaper to buy, not cheaper to keep hot — and budget models sold outside California don't have to meet the standard at all.</p>
+            <p>Treat these as a floor rather than a ceiling. They assume a dry, tight-fitting cover and a sheltered spot. A waterlogged cover, a gap at the hinge, or a windy deck all raise heat loss beyond what the standard's test allows.</p>
 
             <h3>What Affects Hot Tub Running Cost</h3>
             <ul>
-              <li><strong>Cover quality:</strong> A thick, well-fitting, waterlogged-free cover is the single biggest factor in heater duty cycle. A worn-out or ill-fitting cover can double heating costs.</li>
+              <li><strong>Cover quality:</strong> A thick, well-fitting, waterlogged-free cover is the single biggest factor in heater duty cycle. A worn-out, waterlogged or ill-fitting cover lets heat escape far faster than the standard's test allows.</li>
               <li><strong>Set temperature:</strong> Each degree above 100°F (38°C) meaningfully increases heater runtime. Dropping the set point 2-4°F when not in use saves noticeably over a month.</li>
               <li><strong>Ambient temperature and wind:</strong> Cold, windy locations force the heater to run far more often than sheltered, mild-climate placements.</li>
               <li><strong>Pump run schedule:</strong> Some spas run the filtration pump continuously; others cycle it a few hours a day. Continuous pump operation adds a steady baseline cost even when the heater isn't active.</li>
@@ -131,10 +132,10 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Inflatable (mild climate): <strong>~$10-25/mo</strong></li>
-              <li>Built-in 240V (mild climate): <strong>~$36-50/mo</strong></li>
-              <li>Biggest cost factor: <strong>cover quality</strong></li>
-              <li>Cold climate can flip the gap: <strong>yes</strong></li>
+              <li>Hard-shell 300 gal, 60°F: <strong>~$36/mo</strong></li>
+              <li>Same tub, 20°F: <strong>~$70/mo</strong></li>
+              <li>Holding temperature: <strong>~75% of energy</strong></li>
+              <li>Inflatable vs hard-shell, per gallon: <strong>~2× heat loss</strong></li>
             </ul>
           </div>
           <div class="sidebar-box">
@@ -154,48 +155,53 @@
     <div class="article-body" style="max-width:800px;">
       <h2>Frequently Asked Questions</h2>
       <h3>How much does it cost to run a hot tub per month?</h3>
-      <p>A built-in hot tub (240V, ~1,500W heater plus ~1,500W pump) typically costs $30-$50 per month to run at the U.S. average electricity rate of 13-16 cents per kWh, or $300-$600 per year. An inflatable hot tub costs less, typically $10-$30 per month, since it uses a smaller 120V heater (around 1,300-1,500W) and has less water volume to heat, though thinner walls mean it loses heat faster in cold weather.</p>
+      <p>With a tight cover and normal use, a hard-shell hot tub of about 300 gallons costs roughly $35-$55 a month at 18 cents per kWh when the average outdoor temperature is 40-60°F, and $70 or more in a 20°F winter month. A 250-gallon inflatable costs about $48 a month at 60°F and $70-$95 in cold weather. Most of that energy goes to holding the water at temperature, not to the pump or the time you spend in it.</p>
       <h3>Is an inflatable hot tub cheaper to run than a built-in hot tub?</h3>
-      <p>Yes, in most climates. Inflatable hot tubs use less water and a lower-wattage 120V heater, so daily heating costs are typically 30-50% lower than a built-in 240V spa. However, in cold climates, an inflatable hot tub's thinner vinyl walls lose heat much faster than a built-in spa's rigid, insulated shell, so the heater has to cycle on more often to compensate. In winter, that gap can shrink or even reverse for uninsulated inflatable models.</p>
+      <p>Usually not per month, and never per gallon. California's efficiency standard lets an inflatable spa lose almost twice as much heat per gallon as a hard-shell spa, so a 250-gallon inflatable built to that limit uses about as much electricity as a 450-gallon hard-shell tub, and about a third more than a 300-gallon one. Inflatables are cheaper to buy, not to run, and the gap grows in cold weather.</p>
       <h3>What uses more electricity in a hot tub, the heater or the pump?</h3>
-      <p>The heater uses more electricity per hour when actively heating (1,500-6,000 watts depending on voltage), but it only runs intermittently once the water reaches temperature. The circulation pump uses less power per hour (1,000-1,500 watts) but often runs for longer stretches or continuously on some models, so over a full day the pump can account for a meaningful share of total electricity use even though its wattage is lower.</p>
+      <p>The heater, by a wide margin. In California's analysis, holding the water at temperature with the cover on (the heater making up heat loss plus the circulation pump) accounts for about three-quarters of a typical spa's energy, and actual use, with the cover off and jets running, makes up the rest. That is why cover condition and outdoor temperature matter far more than pump wattage.</p>
     </div>
     </div>
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
 <script>
-document.getElementById('ht-type').addEventListener('change', function() {
-  document.getElementById('ht-custom-group').style.display = this.value === 'custom' ? 'block' : 'none';
-});
-
+function htTypeDefaults() {
+  var t = document.getElementById('ht-type').value;
+  document.getElementById('ht-gal').value = t === 'inflatable' ? 250 : 350;
+}
 function calcHotTub() {
-  const typeSel = document.getElementById('ht-type').value;
-  const wattsMap = { inflatable: 1400, builtin_small: 1500, builtin_large: 3000 };
-  const heaterWatts = typeSel === 'custom'
-    ? (parseFloat(document.getElementById('ht-custom-watts').value) || 1400)
-    : wattsMap[typeSel];
-  const duty = (parseFloat(document.getElementById('ht-duty').value) || 30) / 100;
-  const pumpHours = parseFloat(document.getElementById('ht-pump').value) || 4;
-  const pumpWatts = parseFloat(document.getElementById('ht-pump-watts').value) || 1200;
-  const rate = parseFloat(document.getElementById('ht-rate').value) || 18;
+  const type = document.getElementById('ht-type').value;
+  const gal  = parseFloat(document.getElementById('ht-gal').value) || (type === 'inflatable' ? 250 : 350);
+  const tout = parseFloat(document.getElementById('ht-out').value);
+  const tOut = isNaN(tout) ? 45 : tout;
+  const tSet = parseFloat(document.getElementById('ht-set').value) || 102;
+  const use  = document.getElementById('ht-use').value;
+  const rate = (parseFloat(document.getElementById('ht-rate').value) || 18) / 100;
 
-  const heaterKwhPerDay = (heaterWatts / 1000) * 24 * duty;
-  const pumpKwhPerDay = (pumpWatts / 1000) * pumpHours;
-  const totalKwhPerDay = heaterKwhPerDay + pumpKwhPerDay;
-  const costPerDay = totalKwhPerDay * (rate / 100);
-  const costPerMonth = costPerDay * 30;
-  const costPerYear = costPerDay * 365;
+  // Maximum normalized standby power allowed by California Title 20 / APSP-14 (2019):
+  //   standard (hard-shell) spa: 3.75 x V^(2/3) + 40 W ; inflatable: 7 x V^(2/3) W
+  // Test: water at 102F, ambient air at ~60F (max 63F), cover on.
+  const v23 = Math.pow(gal, 2 / 3);
+  const testW = type === 'inflatable' ? 7 * v23 : 3.75 * v23 + 40;
 
+  // Heat loss scales with the water-to-air temperature difference.
+  const factor = Math.max(0, (tSet - tOut) / (102 - 60));
+  const holdW = testW * factor;
+
+  // CEC: holding temperature ~75% of a typical spa's energy -> normal use adds 1/3.
+  const useMult = use === 'typical' ? 4 / 3 : 1;
+  const kwhDay = holdW * 24 / 1000 * useMult;
+  const costDay = kwhDay * rate;
   const fmt = v => '$' + v.toFixed(2);
 
-  document.getElementById('ht-monthly').textContent = fmt(costPerMonth) + '/mo';
+  document.getElementById('ht-monthly').textContent = '$' + Math.round(costDay * 30) + '/mo';
   document.getElementById('ht-breakdown').innerHTML = `
-    <tr><td>Heater cost per day</td><td>${fmt(heaterKwhPerDay * (rate/100))}</td></tr>
-    <tr><td>Pump cost per day</td><td>${fmt(pumpKwhPerDay * (rate/100))}</td></tr>
-    <tr style="font-weight:700;"><td>Total cost per day</td><td>${fmt(costPerDay)}</td></tr>
-    <tr style="font-weight:700;"><td>Cost per month</td><td>${fmt(costPerMonth)}</td></tr>
-    <tr><td>Estimated annual cost</td><td>${fmt(costPerYear)}</td></tr>
+    <tr><td>Average power to hold ${tSet}°F</td><td>${Math.round(holdW)} W</td></tr>
+    <tr><td>Energy per day${use === 'typical' ? ' (incl. normal use)' : ''}</td><td>${kwhDay.toFixed(1)} kWh</td></tr>
+    <tr><td>Cost per day</td><td>${fmt(costDay)}</td></tr>
+    <tr style="font-weight:700;"><td>Cost per month (30 days)</td><td>${fmt(costDay * 30)}</td></tr>
+    <tr><td>If every month were this temperature</td><td>${'$' + Math.round(costDay * 365).toLocaleString()}/yr</td></tr>
   `;
   const r = document.getElementById('ht-result');
   r.classList.add('visible');
