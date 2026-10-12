@@ -1,3 +1,45 @@
+# EcoEnergyCalc 인수인계 — v36 세션 (2026-10-12, 주간 데이터)
+
+## 0-L1. 데이터
+
+- GA(9/14~10/11): 활성 **984명**(전 808). google/organic **41**(전 26), bing 208, ddg 139.
+- GSC: 하루 노출 **800~930** 유지, 클릭 하루 1~5. 3개월 누적 39클릭/11,406노출. 국가: 미국 8,954노출.
+- Bing: `heating-cost-by-fuel` **1,570/80클릭/5.1%**(전 1,178/61) 1위 유지. `ai-water-footprint-calculator` **1,479노출**(2주 만에 4배) — "how much water does ai use per prompt" 43노출 @7.0 **0클릭**, "how much water does chat gpt use" 20 @7.5 0클릭.
+- 색인(사용자 제공): 발견-미크롤 6건, 4주 연속 동일. v35 신규 3페이지는 목록에 없음. 손대지 않음.
+
+## 0-L2. 물 클러스터 저CTR — 두 엔진 모두에서 확인 (가설 기록)
+
+- 같은 페이지가 Bing·Google 둘 다 낮다: water-usage(Bing 0.81% / Google 0.28% @12), 세탁기 블로그(0.39% / 0% @7.9), water-bill-benchmark(Google 0.32% @8.9).
+- 이 페이지들을 부르는 쿼리는 "how many gallons does a family of 4 use per month" 같은 **단답형**이다. 검색 결과 화면(AI 요약·추천 스니펫)에서 답이 끝나는 **제로클릭 쿼리**일 가능성이 높다. 스니펫을 두 번 고쳐도(v33) 변화가 없는 것과도 맞는다.
+- → **물 페이지 스니펫은 더 손대지 않는다.** 클릭을 받는 건 "우리 집 기준"이 필요한 계산형 쿼리. 확인하려면 GSC 페이지→쿼리 드릴다운이 필요(요청 대상).
+
+## 0-L3. ✅ 신규: `compare/propane-vs-heating-oil.html` (152파일)
+
+- **근거**: GSC "is propane cheaper than oil" @3, "oil vs propane heating cost" @3, "propane vs oil heat cost calculator" @3, "disadvantages of propane heat" @3 — 우리가 이미 상위인데 전용 페이지가 없었다. Bing 난방 쿼리 중 oil/propane 비교 다수.
+- **경쟁**: 상위권이 대부분 **연료 판매업체 블로그**(Shipley, Moyer, Kauffman, Dollarwise — 프로판 회사는 프로판, 오일 회사는 오일 결론). 렌즈 1 적용: 중립 계산기.
+- **차별점**: ① 지역별 결론 역전 표(heating-cost-by-fuel과 같은 지역가 사용): 800gal 오일 가구 기준 북동부 오일 $500 저렴, 중서부 프로판 $528 저렴. ② **손익분기 프로판 가격** = 오일가 × (91,500×프로판효율)/(138,500×오일효율). 콘덴싱 95% vs 오일 86% → **오일가의 73%**, 비콘덴싱 80%면 61%. ③ 전환 가치 = 연 절감액 × 15년(전환 견적 상한). 전환 비용 추정치는 근거가 없어 넣지 않음. ④ 히트펌프 열 동시 표시(COP는 heating-cost-by-fuel의 기후 매핑과 동일: 북동부·중서부 2.2, 남부·서부 2.5).
+- 효율 근거: **DOE 2021 보일러 최저 AFUE** — 오일 온수 86%, 가스(프로판 포함) 온수 84%, 오일 증기 85%, 가스 증기 82% (US Boiler 자료). 오일 퍼니스 83%.
+- 등록: 비교 허브·홈 "Popular comparisons"·사이트맵. heating-cost-by-fuel(본문+사이드바), propane-vs-natural-gas, 보일러 블로그에서 링크.
+
+## 0-L4. ✅ 보강
+
+- **ai-water-footprint-calculator**: title/H1을 "How Much Water Does AI Use Per Prompt?"로(쿼리 의도 일치). 본문의 **"공개한 곳은 두 곳뿐" → 사실 오류 수정**: Mistral이 2025년 7월 전 과정 평가에서 400토큰 답변당 **45 mL**, 1.14 gCO₂e 공개(데이터센터 냉각 외 전력·하드웨어 포함 → 다른 두 곳보다 100배 이상 큼). 계산기에 Mistral 옵션 추가. Copilot·Claude·Meta는 미공개로 명시. FAQ "Copilot per prompt" 추가. 기존 FAQ의 "하루 수백 건이어도 연 몇 리터" **과소 주장 수정**(100건/일 = 현장 수치로 연 12L, 10mL 전 과정 추정으로 연 365L).
+- **propane-vs-natural-gas**: 잔존 $1.40/therm 기준 수치와 "2~3배" 표현을 $1.70 기준으로 재계산(약 1.3~2배, 퀵팩트 MMBtu당 가스 ~$18).
+- **compare/index.html**: 카드 2개 `</a>` 누락(프로판 vs 가스, 창문 단열) — 뒤 카드까지 링크가 이어지는 마크업 오류. 수정.
+
+## 0-L5. 표준 검증에 추가
+
+- **`<a>` / `</a>` 개수 균형 검사**를 전 페이지에 추가 (scan.py는 div/section/script/table만 봤다).
+- 그 외 유지: 계산기 103개 기본값 실행, input 범위, 375px 가로넘침.
+
+## 0-L6. 다음 세션
+
+1. GSC **페이지→쿼리 드릴다운** (물 클러스터 제로클릭 가설 확인, AI water 클릭 0 원인).
+2. AI water 제목 변경 효과: 기준선 Bing 1,479노출/21클릭/1.42%, "per prompt" 43노출 0클릭.
+3. propane-vs-heating-oil 노출 확인(11월).
+
+---
+
 # EcoEnergyCalc 인수인계 — v35 세션 (2026-10-05, 주간 데이터)
 
 ## 0-M1. 🚀 구글이 열렸다 (가장 중요한 변화)

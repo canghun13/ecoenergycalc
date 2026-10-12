@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propane vs Heating Oil: Which Is Cheaper to Heat Your Home? | EcoEnergyCalc</title>
+  <meta name="description" content="Neither fuel wins everywhere — oil comes out ahead in the Northeast, propane in the Midwest. Enter your prices for your break-even propane price, the yearly difference, and what converting is worth." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/compare/propane-vs-heating-oil.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Propane vs Heating Oil: Which Is Cheaper to Heat Your Home?","description":"Neither fuel wins everywhere — oil comes out ahead in the Northeast, propane in the Midwest. Enter your prices for your break-even propane price, the yearly difference, and what converting is worth.","url":"https://ecoenergycalc.com/compare/propane-vs-heating-oil.html","datePublished":"2026-10-12","dateModified":"2026-10-12","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is propane cheaper than heating oil?","acceptedAnswer":{"@type":"Answer","text":"It depends on where you live. Propane has only about two-thirds of the energy of heating oil per gallon, so it has to be well under oil's price to come out ahead. Comparing a new 95% condensing propane system with a new 86% oil boiler, propane wins when it costs less than about 73% of the oil price per gallon. At typical regional prices that makes oil cheaper in the Northeast and propane cheaper in the Midwest; for an 800-gallon oil home the gap is roughly $500 a year either way."}},
+    {"@type":"Question","name":"Is it worth converting from oil to propane?","acceptedAnswer":{"@type":"Answer","text":"Only where propane's price is clearly below its break-even, and only if the savings cover the conversion over the new system's life. If converting saves $500 a year, a quote above about $7,500 won't pay back over 15 years on fuel alone. In the Northeast, at typical prices, converting usually costs more to run, not less. It is also worth pricing a heat pump before choosing either fuel."}},
+    {"@type":"Question","name":"Why does propane cost less per gallon but more to heat with?","acceptedAnswer":{"@type":"Answer","text":"Because a gallon of propane holds about 91,500 BTU and a gallon of heating oil about 138,500 BTU. Propane has to be around a third cheaper per gallon just to break even on energy, before efficiency. Condensing propane furnaces and boilers claw some of that back at 95% efficiency against about 86% for a new oil boiler, which is why the break-even comes out near 73% of the oil price rather than 66%."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="article-page">
+    <div class="container">
+      <div class="article-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/compare/">Compare</a> › Propane vs Heating Oil</p>
+        <span class="article-tag">Energy Savings</span>
+        <h1>Propane vs Heating Oil: Which Is Cheaper for Your Home?</h1>
+        <p class="article-meta">8 min read · October 2026</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <p>Past the end of the gas main, most homes heat with one of two delivered fuels. Search for which one is cheaper and nearly every answer comes from someone who sells one of them — propane companies conclude propane, oil dealers conclude oil. Both are right somewhere. The answer turns on your local prices and on one efficiency gap most comparisons skip.</p>
+          <div class="calc-box" style="margin:32px 0;">
+            <h2>Propane vs Oil Cost Calculator</h2>
+            <div class="form-group">
+              <label for="pvo-region">Your Region (fills typical prices)</label>
+              <select id="pvo-region" onchange="pvoRegion()">
+                <option value="custom">Custom — I'll enter my own prices</option>
+                <option value="northeast" selected>Northeast (NY, New England, NJ, PA)</option>
+                <option value="midwest">Midwest (IL, OH, MI, MN, WI, IA)</option>
+                <option value="south">South (GA, TX, FL, NC, TN)</option>
+                <option value="west">West (CA, WA, OR, CO, AZ)</option>
+              </select>
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Regional averages — the same ones our heating cost by fuel calculator uses. Replace them with your own delivery prices for a real answer.</small>
+            </div>
+            <div class="form-group">
+              <label for="pvo-oil">Heating Oil Price ($/gallon)</label>
+              <input type="number" id="pvo-oil" value="3.85" min="1" max="8" step="0.01" />
+            </div>
+            <div class="form-group">
+              <label for="pvo-propane">Propane Price ($/gallon)</label>
+              <input type="number" id="pvo-propane" value="3.30" min="0.5" max="8" step="0.01" />
+            </div>
+            <div class="form-group">
+              <label for="pvo-current">You Heat With Now</label>
+              <select id="pvo-current">
+                <option value="oil" selected>Heating oil</option>
+                <option value="propane">Propane</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pvo-gal">Gallons Used Per Year</label>
+              <input type="number" id="pvo-gal" value="800" min="50" max="5000" step="10" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">A year of deliveries, including hot water if the same system makes it.</small>
+            </div>
+            <div class="form-group">
+              <label for="pvo-cureff">Efficiency of Your Current System (%)</label>
+              <input type="number" id="pvo-cureff" value="80" min="50" max="99" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="pvo-oileff">New Oil Boiler or Furnace Efficiency (%)</label>
+              <input type="number" id="pvo-oileff" value="86" min="70" max="97" step="1" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">86% is the federal minimum for a new oil-fired hot-water boiler (83% for an oil furnace). Condensing oil equipment exists but is uncommon.</small>
+            </div>
+            <div class="form-group">
+              <label for="pvo-propeff">New Propane Boiler or Furnace Efficiency (%)</label>
+              <input type="number" id="pvo-propeff" value="95" min="70" max="99" step="1" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Condensing propane equipment: 95% or more. Non-condensing: 80–84%.</small>
+            </div>
+            <div class="form-group">
+              <label for="pvo-elec">Electricity Rate (¢/kWh) — for the heat pump comparison</label>
+              <input type="number" id="pvo-elec" value="25" min="5" max="60" step="0.1" />
+            </div>
+            <div class="form-group">
+              <label for="pvo-cop">Heat Pump Seasonal COP</label>
+              <input type="number" id="pvo-cop" value="2.2" min="1" max="5" step="0.1" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">About 2.2 averaged over a cold-climate winter, 2.5 in milder regions — the same assumptions as our other heating calculators.</small>
+            </div>
+            <button class="btn-primary" onclick="calcPropaneOil()">Compare Propane and Oil</button>
+            <div class="result-box-tool" id="pvo-result">
+              <h3>Propane vs Oil for Your Home</h3>
+              <div class="result-amount" id="pvo-headline"></div>
+              <table id="pvo-table"></table>
+              <p class="result-note" id="pvo-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body">
+            <h2>Why the Answer Flips by Region</h2>
+            <p>Take a home that burns 800 gallons of oil a year in an older 80% boiler, and price a new 86% oil boiler against a new 95% condensing propane system at typical regional prices:</p>
+            <div class="table-scroll">
+            <table style="width:100%;min-width:520px;">
+              <tr><th>Region</th><th>Oil / propane price</th><th>New oil</th><th>New propane</th><th>Break-even propane price</th></tr>
+              <tr><td>Northeast</td><td>$3.85 / $3.30</td><td><strong>$2,865</strong></td><td>$3,365</td><td>$2.81</td></tr>
+              <tr><td>Midwest</td><td>$3.45 / $2.00</td><td>$2,567</td><td><strong>$2,039</strong></td><td>$2.52</td></tr>
+              <tr><td>South</td><td>$3.70 / $2.85</td><td><strong>$2,753</strong></td><td>$2,906</td><td>$2.70</td></tr>
+              <tr><td>West</td><td>$3.90 / $2.75</td><td>$2,902</td><td><strong>$2,804</strong></td><td>$2.85</td></tr>
+            </table>
+            </div>
+            <p>In the Northeast, where most oil-heated homes are, oil is about $500 a year cheaper. In the Midwest it's the other way round by about the same amount, because Midwest propane is cheap and oil isn't. The South and West are close enough that your own delivery prices decide it. A single national answer is wrong for half the country whichever way it points.</p>
+
+            <h2>The Number That Matters: Propane's Break-Even Price</h2>
+            <p>A gallon of heating oil holds about 138,500 BTU. A gallon of propane holds about 91,500 — two-thirds as much. So per gallon, propane has to be about a third cheaper just to match oil on energy.</p>
+            <p>Efficiency moves that line, and it moves it in propane's favor. Propane can burn in a condensing furnace or boiler at 95% or better, while new oil equipment sits around the federal minimums of 86% for a hot-water boiler and 83% for a furnace; condensing oil units exist but are rare. Put a 95% propane system against an 86% oil boiler and the rule of thumb becomes:</p>
+            <div class="callout">
+              <strong>Propane wins when its price per gallon is below about 73% of oil's.</strong> With a non-condensing propane unit, the line drops to about 61%. At $3.85 oil that's $2.81 propane — or $2.37 if the propane system isn't condensing.
+            </div>
+            <p>That's why a conversion quote that includes a non-condensing propane furnace is a poor deal in most places: it gives away the one advantage propane has.</p>
+
+            <h2>Price It Against a Heat Pump Too</h2>
+            <p>If your oil system is due for replacement, the real choice is often three-way. On the same 800-gallon home at the same regional prices, a heat pump running at a seasonal COP of 2.2 to 2.5 comes out at about <strong>$2,950 in the Northeast</strong> — close to new oil — but <strong>$1,900 in the Midwest, $1,560 in the South and $2,490 in the West</strong>, below both delivered fuels. Many homes keep the existing system for the coldest nights and let a heat pump carry the rest of the season, which beats either fuel on its own. Our <a href="/blog/can-a-heat-pump-replace-a-boiler.html">guide to replacing a boiler with a heat pump</a> covers how that works with baseboard and radiators, and the <a href="/tools/heat-pump-size-from-fuel-bills.html">heat pump size calculator</a> turns your oil deliveries into the capacity you'd need.</p>
+
+            <h2>Beyond the Price per Gallon</h2>
+            <ul>
+              <li><strong>Who owns the tank.</strong> Propane tanks are often leased from the supplier, which usually means you can only buy from that supplier. An owned tank lets you shop around each fill. Oil tanks are typically owned by the homeowner.</li>
+              <li><strong>Price plans.</strong> Both fuels are sold on pre-buy, capped and will-call plans. A cheap summer pre-buy price can make either fuel look better than its winter market price; compare like with like.</li>
+              <li><strong>Maintenance.</strong> Oil burners need regular cleaning and nozzle changes to hold their efficiency; condensing propane equipment needs its condensate drain and venting kept clear.</li>
+              <li><strong>What else it can run.</strong> Propane can also fuel a range, dryer, water heater or generator. Oil heats the house and the water, and that's it.</li>
+              <li><strong>The old tank.</strong> Converting from oil means dealing with the existing oil tank; ask whether removal or abandonment is in the quote.</li>
+            </ul>
+            <p>To see these fuels alongside natural gas, electric resistance and a heat pump at once, use the <a href="/tools/heating-cost-by-fuel.html">heating cost by fuel calculator</a>. If gas service is available on your street, <a href="/compare/propane-vs-natural-gas.html">propane vs natural gas</a> is the comparison to run instead.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel Calculator</a></li>
+              <li><a href="/tools/heat-pump-size-from-fuel-bills.html">Heat Pump Size From Fuel Bills</a></li>
+              <li><a href="/tools/furnace-afue-upgrade-calculator.html">Furnace AFUE Upgrade Calculator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Comparisons</h3>
+            <ul>
+              <li><a href="/compare/propane-vs-natural-gas.html">Propane vs Natural Gas</a></li>
+              <li><a href="/compare/heat-pump-vs-furnace-vs-boiler.html">Heat Pump vs Furnace vs Boiler</a></li>
+              <li><a href="/compare/condensing-vs-non-condensing-furnace.html">Condensing vs Non-Condensing Furnace</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Heating oil: <strong>~138,500 BTU/gal</strong></li>
+              <li>Propane: <strong>~91,500 BTU/gal</strong></li>
+              <li>Propane break-even (95% vs 86%): <strong>~73% of oil price</strong></li>
+              <li>New oil boiler minimum: <strong>86% AFUE</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#afue">What is AFUE?</a></li>
+              <li><a href="/glossary/#btu">What is a BTU?</a></li>
+              <li><a href="/glossary/#condensing-furnace">Condensing furnace</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Is propane cheaper than heating oil?</h3>
+      <p>It depends on where you live. Propane has only about two-thirds of the energy of heating oil per gallon, so it has to be well under oil's price to come out ahead. Comparing a new 95% condensing propane system with a new 86% oil boiler, propane wins when it costs less than about 73% of the oil price per gallon. At typical regional prices that makes oil cheaper in the Northeast and propane cheaper in the Midwest; for an 800-gallon oil home the gap is roughly $500 a year either way.</p>
+      <h3>Is it worth converting from oil to propane?</h3>
+      <p>Only where propane's price is clearly below its break-even, and only if the savings cover the conversion over the new system's life. If converting saves $500 a year, a quote above about $7,500 won't pay back over 15 years on fuel alone. In the Northeast, at typical prices, converting usually costs more to run, not less. It is also worth pricing a heat pump before choosing either fuel.</p>
+      <h3>Why does propane cost less per gallon but more to heat with?</h3>
+      <p>Because a gallon of propane holds about 91,500 BTU and a gallon of heating oil about 138,500 BTU. Propane has to be around a third cheaper per gallon just to break even on energy, before efficiency. Condensing propane furnaces and boilers claw some of that back at 95% efficiency against about 86% for a new oil boiler, which is why the break-even comes out near 73% of the oil price rather than 66%.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+// Same regional averages as /tools/heating-cost-by-fuel.html; COP follows that tool's climate mapping.
+var PVO_REGION = {
+  northeast: { oil: 3.85, propane: 3.30, elec: 25, cop: 2.2 },
+  midwest:   { oil: 3.45, propane: 2.00, elec: 16, cop: 2.2 },
+  south:     { oil: 3.70, propane: 2.85, elec: 15, cop: 2.5 },
+  west:      { oil: 3.90, propane: 2.75, elec: 24, cop: 2.5 }
+};
+function pvoRegion() {
+  var r = PVO_REGION[document.getElementById('pvo-region').value];
+  if (!r) return;
+  document.getElementById('pvo-oil').value = r.oil;
+  document.getElementById('pvo-propane').value = r.propane;
+  document.getElementById('pvo-elec').value = r.elec;
+  document.getElementById('pvo-cop').value = r.cop;
+}
+function calcPropaneOil() {
+  var num = function (id, d) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? d : v; };
+  var OIL_BTU = 138500, PROP_BTU = 91500, YEARS = 15;
+  var oilP = num('pvo-oil', 3.85), propP = num('pvo-propane', 3.30);
+  var cur = document.getElementById('pvo-current').value;
+  var gal = num('pvo-gal', 800), curEff = num('pvo-cureff', 80) / 100;
+  var oilEff = num('pvo-oileff', 86) / 100, propEff = num('pvo-propeff', 95) / 100;
+  var elec = num('pvo-elec', 25) / 100, cop = num('pvo-cop', 2.2);
+
+  var delivered = gal * (cur === 'oil' ? OIL_BTU : PROP_BTU) * curEff;   // BTU/yr the house uses
+  var oilGal = delivered / (OIL_BTU * oilEff), propGal = delivered / (PROP_BTU * propEff);
+  var oilCost = oilGal * oilP, propCost = propGal * propP;
+  var hpCost = delivered / 3412 / cop * elec;
+  var mm = delivered / 1e6;
+  var breakEven = oilP * (PROP_BTU * propEff) / (OIL_BTU * oilEff);
+  var diff = propCost - oilCost;
+  var fmt = function (v) { return '$' + Math.round(v).toLocaleString(); };
+
+  var headline = diff < 0 ? 'Propane is cheaper by ' + fmt(-diff) + '/yr' : 'Oil is cheaper by ' + fmt(diff) + '/yr';
+  var rows = '';
+  rows += '<tr><td>Heat your home uses</td><td>' + mm.toFixed(1) + ' MMBtu/yr</td></tr>';
+  rows += '<tr><td>New oil system (' + Math.round(oilEff * 100) + '%)</td><td>' + Math.round(oilGal).toLocaleString() + ' gal · ' + fmt(oilCost) + '/yr</td></tr>';
+  rows += '<tr><td>New propane system (' + Math.round(propEff * 100) + '%)</td><td>' + Math.round(propGal).toLocaleString() + ' gal · ' + fmt(propCost) + '/yr</td></tr>';
+  rows += '<tr><td>Heat pump (COP ' + cop + ')</td><td>' + fmt(hpCost) + '/yr</td></tr>';
+  rows += '<tr><td>Cost per MMBtu of heat: oil / propane / heat pump</td><td>' + fmt(oilCost / mm) + ' / ' + fmt(propCost / mm) + ' / ' + fmt(hpCost / mm) + '</td></tr>';
+  rows += '<tr style="font-weight:700;"><td>Break-even propane price</td><td>$' + breakEven.toFixed(2) + '/gal (yours: $' + propP.toFixed(2) + ')</td></tr>';
+  document.getElementById('pvo-headline').textContent = headline;
+  document.getElementById('pvo-table').innerHTML = rows;
+
+  var note;
+  if (cur === 'oil') {
+    note = diff < 0
+      ? 'Switching to propane saves about ' + fmt(-diff) + ' a year, or ' + fmt(-diff * YEARS) + ' over a ' + YEARS + '-year system life. A conversion quote above that won\'t pay back on fuel alone.'
+      : 'Converting to propane would cost about ' + fmt(diff) + ' a year more to run at these prices, so a conversion doesn\'t pay on fuel. Propane would need to fall below $' + breakEven.toFixed(2) + ' a gallon.';
+  } else {
+    note = diff > 0
+      ? 'Switching to oil saves about ' + fmt(diff) + ' a year, or ' + fmt(diff * YEARS) + ' over a ' + YEARS + '-year system life.'
+      : 'Staying on propane is the cheaper fuel at these prices, by about ' + fmt(-diff) + ' a year.';
+  }
+  var cheapestFuel = Math.min(oilCost, propCost);
+  if (hpCost < cheapestFuel) note += ' A heat pump at COP ' + cop + ' would run about ' + fmt(cheapestFuel - hpCost) + ' a year below the cheaper fuel.';
+  document.getElementById('pvo-note').textContent = note + ' Compares new equipment for both fuels.';
+  var r = document.getElementById('pvo-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

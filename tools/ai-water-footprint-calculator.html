@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Water Footprint Calculator – How Much Water Does ChatGPT Use? | EcoEnergyCalc</title>
-  <meta name="description" content="Free AI water footprint calculator — estimate the water behind your ChatGPT or Gemini use, and see why estimates range from 5 drops to a full bottle per prompt." />
+  <title>How Much Water Does AI Use Per Prompt? ChatGPT vs Gemini Calculator | EcoEnergyCalc</title>
+  <meta name="description" content="Official per-prompt AI water figures differ by more than 100× because they count different things. See what OpenAI, Google and Mistral have disclosed — and calculate the water behind your own use." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/tools/ai-water-footprint-calculator.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"AI Water Footprint Calculator","url":"https://ecoenergycalc.com/tools/ai-water-footprint-calculator.html","description":"Free AI water footprint calculator — estimate the water behind your ChatGPT or Gemini use, and see why estimates range from 5 drops to a full bottle per prompt.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-07-20"}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"AI Water Footprint Calculator","url":"https://ecoenergycalc.com/tools/ai-water-footprint-calculator.html","description":"Free AI water footprint calculator — estimate the water behind your ChatGPT or Gemini use, and see why estimates range from 5 drops to a full bottle per prompt.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-10-12"}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -21,7 +21,8 @@
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"How much water does one ChatGPT query really use?","acceptedAnswer":{"@type":"Answer","text":"It depends entirely on what you count. OpenAI's Sam Altman disclosed in June 2025 that an average query uses about 0.32 mL of water for on-site cooling — roughly one-fifteenth of a teaspoon. A widely cited UC Riverside study, which also counts the water used at the power plants generating the electricity, put a short GPT-3-era conversation at up to 500 mL, a full bottle. Both numbers are legitimate; they're just measuring different things (direct cooling only vs. full lifecycle including electricity generation)."}},
     {"@type":"Question","name":"Why do AI water usage estimates vary so much, from 5 drops to a full bottle?","acceptedAnswer":{"@type":"Answer","text":"The 5-drops figure (0.26 mL, from Google's own Gemini disclosure) counts only the water evaporated on-site to cool the data center. The full-bottle figure (up to 500 mL) also counts the water used off-site at power plants to generate the electricity that runs the query — for most U.S. power sources, generating electricity itself consumes water for cooling. Neither figure is wrong; they answer different questions, and most viral headlines don't specify which one they mean."}},
-    {"@type":"Question","name":"Does my personal AI use meaningfully affect water supplies?","acceptedAnswer":{"@type":"Answer","text":"Not at the individual level. Even a heavy personal habit of hundreds of queries a day adds up to a few liters of water a year under most estimates — far less than a single load of laundry (30–170 liters) or one 10-minute shower (about 95 liters). The real water story is about aggregate, industry-wide data center demand as usage scales into billions of daily queries, concentrated in specific drought-stressed regions — not any one person's habits."}}
+    {"@type":"Question","name":"Does my personal AI use meaningfully affect water supplies?","acceptedAnswer":{"@type":"Answer","text":"Not at the individual level. A hundred prompts a day adds up to about 12 liters of water a year on the companies' on-site figures, or roughly 365 liters \u2014 about four 10-minute showers \u2014 on a 10 mL full-lifecycle estimate. One load of laundry uses 30 to 170 liters. The real water story is aggregate data center demand as usage scales into billions of daily queries, concentrated in particular regions."}},
+    {"@type":"Question","name":"How much water does Copilot use per prompt?","acceptedAnswer":{"@type":"Answer","text":"Microsoft has not published a per-prompt water figure for Copilot. Copilot is built largely on OpenAI's models running in Microsoft data centers, so OpenAI's disclosed figure of about 0.32 mL of on-site cooling water per ChatGPT query is the closest reference, while full-lifecycle estimates that include power-plant water range from a few milliliters to a few tens of milliliters per answer."}}
   ]}
   </script>
 </head>
@@ -32,7 +33,7 @@
       <div class="tool-page-header">
         <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › AI Water Footprint</p>
         <span class="tool-category">Water Usage</span>
-        <h1>AI Water Footprint Calculator</h1>
+        <h1>How Much Water Does AI Use Per Prompt?</h1>
         <p>Estimate the water behind your ChatGPT or Gemini use — and see exactly why headlines disagree by a factor of nearly 2,000, from "5 drops" to "a full bottle" per prompt.</p>
       </div>
       <div class="tool-layout">
@@ -49,6 +50,7 @@
                 <option value="0.26">Google Gemini, disclosed — direct cooling only (0.26 mL/query)</option>
                 <option value="0.32" selected>OpenAI ChatGPT, disclosed — direct cooling only (0.32 mL/query)</option>
                 <option value="10">Full lifecycle incl. power-plant cooling, independent estimate (~10 mL/query)</option>
+                <option value="45">Mistral Le Chat, disclosed — full life-cycle (45 mL per 400-token answer)</option>
               </select>
             </div>
             <button class="btn-primary" onclick="calcAiWater()">Calculate Water Footprint</button>
@@ -56,7 +58,7 @@
               <h3>Your Estimated AI Water Footprint</h3>
               <div class="result-amount" id="aw-annual"></div>
               <table id="aw-breakdown"></table>
-              <p class="result-note">Direct-cooling figures come from OpenAI (0.32 mL/query, Sam Altman, June 2025) and Google (0.26 mL/query, official Gemini technical report, Aug 2025). The full-lifecycle figure reflects independent research (UC Riverside/Ren et al.) that also counts water consumed generating the electricity — treat it as an order-of-magnitude estimate, since no provider publishes a complete verified lifecycle figure.</p>
+              <p class="result-note">Direct-cooling figures come from OpenAI (0.32 mL/query, Sam Altman, June 2025) and Google (0.26 mL/query, official Gemini technical report, Aug 2025). The ~10 mL full-lifecycle figure reflects independent research (UC Riverside/Ren et al.) that also counts water consumed generating the electricity — treat it as an order-of-magnitude estimate. The 45 mL option is Mistral's own life-cycle assessment (July 2025) for a 400-token Le Chat answer, the only provider-published full life-cycle figure.</p>
             </div>
           </div>
 
@@ -66,7 +68,9 @@
             <p>This calculator lets you compare both bases side by side, the same way our <a href="/tools/ai-carbon-footprint-calculator.html">AI Carbon Footprint Calculator</a> compares disclosed energy figures for CO2. Neither number is "the" true water footprint of AI — they answer different questions about where you draw the measurement boundary.</p>
 
             <h2>What We Actually Know: The Disclosed Figures</h2>
-            <p>As of mid-2026, only two AI providers have published concrete per-query water figures. In June 2025, OpenAI CEO Sam Altman stated that an average ChatGPT query uses <strong>about 0.000085 gallons of water — roughly 0.32 mL, or one-fifteenth of a teaspoon</strong> — describing it as direct, on-site cooling only. In August 2025, Google's official Gemini technical report disclosed that a median text prompt uses <strong>0.24 watt-hours of electricity and 0.26 mL of water</strong>, about five drops, also counting on-site cooling only. Neither company has published a complete lifecycle figure that includes off-site power generation water, which is exactly why independent researchers have filled that gap with their own estimates — and why those estimates vary so much depending on assumed grid mix, hardware generation, and prompt complexity.</p>
+            <p>As of October 2026, three AI providers have published per-response water figures — and each measures something different. In June 2025, OpenAI CEO Sam Altman stated that an average ChatGPT query uses <strong>about 0.000085 gallons of water — roughly 0.32 mL, or one-fifteenth of a teaspoon</strong> — describing it as direct, on-site cooling only. In August 2025, Google's official Gemini technical report disclosed that a median text prompt uses <strong>0.24 watt-hours of electricity and 0.26 mL of water</strong>, about five drops, also counting on-site cooling only.</p>
+            <p>Mistral took the opposite approach. In July 2025 it published a full life-cycle assessment of its Mistral Large 2 model, and put a single 400-token answer from its Le Chat assistant at <strong>about 45 mL of water</strong> and 1.14 g of CO₂e. That figure counts far more than the data center's cooling towers — the electricity supply and the hardware behind the answer as well — which is why it's more than a hundred times the other two. None of the three is wrong; they answer different questions.</p>
+            <p>Microsoft (Copilot), Anthropic (Claude) and Meta have not published a per-prompt water figure. Copilot is built largely on OpenAI's models running in Microsoft's data centers, so OpenAI's on-site figure is the closest disclosed reference, but Microsoft hasn't confirmed one for Copilot itself. Independent researchers have filled the gap with their own estimates — and those vary with the assumed grid mix, hardware generation, and how long the answer is.</p>
             <p>The oft-cited "full bottle" figure traces to a 2023 UC Riverside paper analyzing GPT-3-era Microsoft data centers, estimating around 500 mL for a short 20–50 prompt conversation when off-site electricity-generation water is included — that works out to roughly 10–25 mL per prompt on that older, less efficient infrastructure. More recent independent lifecycle estimates for current-generation models generally fall in the 1–10 mL per query range, reflecting faster, more water-efficient hardware and data centers since 2023.</p>
 
             <h2>Putting the Numbers in Perspective</h2>
@@ -124,7 +128,9 @@
       <h3>Why do AI water usage estimates vary so much, from 5 drops to a full bottle?</h3>
       <p>The 5-drops figure (0.26 mL, from Google's own Gemini disclosure) counts only the water evaporated on-site to cool the data center. The full-bottle figure (up to 500 mL) also counts the water used off-site at power plants to generate the electricity that runs the query — for most U.S. power sources, generating electricity itself consumes water for cooling. Neither figure is wrong; they answer different questions, and most viral headlines don't specify which one they mean.</p>
       <h3>Does my personal AI use meaningfully affect water supplies?</h3>
-      <p>Not at the individual level. Even a heavy personal habit of hundreds of queries a day adds up to a few liters of water a year under most estimates — far less than a single load of laundry (30–170 liters) or one 10-minute shower (about 95 liters). The real water story is about aggregate, industry-wide data center demand as usage scales into billions of daily queries, concentrated in specific drought-stressed regions — not any one person's habits.</p>
+      <p>Not at the individual level. A hundred prompts a day adds up to about 12 liters of water a year on the companies' on-site figures, or roughly 365 liters — about four 10-minute showers — on a 10 mL full-lifecycle estimate. One load of laundry uses 30 to 170 liters. The real water story is aggregate data center demand as usage scales into billions of daily queries, concentrated in particular regions.</p>
+      <h3>How much water does Copilot use per prompt?</h3>
+      <p>Microsoft has not published a per-prompt water figure for Copilot. Copilot is built largely on OpenAI's models running in Microsoft data centers, so OpenAI's disclosed figure of about 0.32 mL of on-site cooling water per ChatGPT query is the closest reference, while full-lifecycle estimates that include power-plant water range from a few milliliters to a few tens of milliliters per answer.</p>
     </div>
     </div>
   </section>
