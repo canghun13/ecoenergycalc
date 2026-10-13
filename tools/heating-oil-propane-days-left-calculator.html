@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Long Will My Heating Oil or Propane Last? Days-Left Calculator | EcoEnergyCalc</title>
+  <meta name="description" content="Turn your tank gauge into gallons — 1/4 on a 275-gallon oil tank is only about 58 — then see how many days you have left at this week's temperatures, and when to order before you run out." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/heating-oil-propane-days-left-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Heating Oil and Propane Days-Left Calculator","url":"https://ecoenergycalc.com/tools/heating-oil-propane-days-left-calculator.html","description":"Convert an oil or propane tank gauge reading to gallons and estimate how many days of fuel are left at the expected outdoor temperature, using your annual usage, heating degree days and hot water use.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-10-13","dateModified":"2026-10-13","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How long will 100 gallons of heating oil last?","acceptedAnswer":{"@type":"Answer","text":"For a typical New England home that burns about 800 gallons a year, including hot water, 100 gallons lasts roughly five weeks when the outdoor temperature averages 45\u00b0F, under four weeks at 35\u00b0F, about three weeks at 25\u00b0F and a little over two weeks at 15\u00b0F. A smaller or tighter house stretches that; a large or drafty one shortens it. The calculator works it out from your own annual usage and the temperatures you expect."}},
+    {"@type":"Question","name":"What does 1/4 on an oil tank gauge mean in gallons?","acceptedAnswer":{"@type":"Answer","text":"On the common 275-gallon vertical tank, 1/4 is only about 58 gallons, not 69. The float gauge measures the oil's depth, and the rounded bottom of the tank holds less oil per inch than the middle. Half is about 137 gallons and 3/4 about 216. Most dealers recommend ordering by 1/4."}},
+    {"@type":"Question","name":"What is a K-factor on my oil or propane delivery ticket?","acceptedAnswer":{"@type":"Answer","text":"It is the number of heating degree days it takes your home to burn one gallon. Dealers calculate it from the gallons delivered and the degree days since the previous delivery, then use it to schedule automatic deliveries. A higher K-factor means a more efficient or smaller house. Divide the degree days in a forecast by your K-factor to estimate how many gallons that weather will burn."}},
+    {"@type":"Question","name":"When should I order heating oil or propane?","acceptedAnswer":{"@type":"Answer","text":"Most dealers suggest ordering heating oil when the gauge reaches 1/4, and many propane suppliers ask will-call customers to order at 20 to 30 percent. Delivery can take several days in a cold snap, when everyone orders at once, and running a tank dry can mean a service call to restart the burner and bleed the fuel line."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Heating Oil &amp; Propane Days Left</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>How Long Will My Heating Oil or Propane Last?</h1>
+        <p>Your fuel dealer predicts when you'll run out with a number called a K-factor and the weather forecast. If you're on will-call, nobody's doing that for you. This does the same arithmetic with your tank gauge, last year's usage and the temperatures you're expecting.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Days of Fuel Left</h2>
+            <div class="form-group">
+              <label for="dl-fuel">Fuel</label>
+              <select id="dl-fuel" onchange="dlFuel()">
+                <option value="oil" selected>Heating oil</option>
+                <option value="propane">Propane</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dl-tank">Tank</label>
+              <select id="dl-tank">
+                <option value="ob275v" selected>275 gal — upright oval (most common indoor tank)</option>
+                <option value="ob275h">275 gal — oval lying flat</option>
+                <option value="ob330v">330 gal — upright oval</option>
+                <option value="ob330h">330 gal — oval lying flat</option>
+                <option value="cy500">500 gal — round, horizontal</option>
+                <option value="cy550">550 gal — round, horizontal</option>
+                <option value="cy1000">1,000 gal — round, horizontal</option>
+              </select>
+            </div>
+            <div class="form-group" id="dl-gauge-oil-group">
+              <label for="dl-gauge">Gauge Reading</label>
+              <select id="dl-gauge">
+                <option value="0.875">7/8 (just below F)</option>
+                <option value="0.75">3/4</option>
+                <option value="0.625">5/8</option>
+                <option value="0.5" selected>1/2</option>
+                <option value="0.375">3/8</option>
+                <option value="0.25">1/4</option>
+                <option value="0.125">1/8</option>
+              </select>
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">An oil float gauge shows the oil's <em>depth</em>, not its volume. Rounded tanks hold less per inch near the bottom, so 1/4 is well under a quarter of the gallons. We convert using the tank's shape.</small>
+            </div>
+            <div class="form-group" id="dl-gauge-prop-group" style="display:none;">
+              <label for="dl-pct">Gauge Reading (%)</label>
+              <input type="number" id="dl-pct" value="50" min="0" max="85" step="1" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Propane gauges read percent of the tank's volume. Tanks are filled to about 80%, never 100%.</small>
+            </div>
+            <div class="form-group">
+              <label for="dl-gallons">Or: Gallons in the Tank, if You Know Them (optional)</label>
+              <input type="number" id="dl-gallons" placeholder="e.g. 120" min="0" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="dl-annual" id="dl-annual-label">Gallons Used in a Year</label>
+              <input type="number" id="dl-annual" value="800" min="50" max="6000" step="10" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Add up last year's deliveries. Ignored if you enter a K-factor below.</small>
+            </div>
+            <div class="form-group">
+              <label for="dl-k">Your K-Factor (optional — on many delivery tickets)</label>
+              <input type="number" id="dl-k" placeholder="e.g. 8" min="0.5" max="40" step="0.1" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Degree days per gallon of heating fuel. If your dealer prints it, it's the most accurate input there is.</small>
+            </div>
+            <div class="form-group">
+              <label for="dl-dhw">Does the Same Fuel Heat Your Hot Water?</label>
+              <select id="dl-dhw">
+                <option value="yes" selected>Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dl-people">People in the Household</label>
+              <input type="number" id="dl-people" value="3" min="1" max="10" />
+            </div>
+            <div class="form-group">
+              <label for="dl-city">Nearest City</label>
+              <select id="dl-city" onchange="dlCity()">
+                <option value="custom">Other — I'll enter my own numbers</option>
+                <option value="boston" selected>Boston, MA</option>
+                <option value="hartford">Hartford, CT</option>
+                <option value="providence">Providence, RI</option>
+                <option value="concord">Concord, NH</option>
+                <option value="albany">Albany, NY</option>
+                <option value="buffalo">Buffalo, NY</option>
+                <option value="nyc">New York, NY</option>
+                <option value="newark">Newark, NJ</option>
+                <option value="philadelphia">Philadelphia, PA</option>
+                <option value="harrisburg">Harrisburg, PA</option>
+                <option value="pittsburgh">Pittsburgh, PA</option>
+                <option value="baltimore">Baltimore, MD</option>
+                <option value="dc">Washington, DC</option>
+                <option value="cleveland">Cleveland, OH</option>
+                <option value="columbus">Columbus, OH</option>
+                <option value="detroit">Detroit, MI</option>
+                <option value="chicago">Chicago, IL</option>
+                <option value="milwaukee">Milwaukee, WI</option>
+                <option value="minneapolis">Minneapolis, MN</option>
+                <option value="indianapolis">Indianapolis, IN</option>
+                <option value="denver">Denver, CO</option>
+                <option value="seattle">Seattle, WA</option>
+                <option value="portland_or">Portland, OR</option>
+                <option value="raleigh">Raleigh, NC</option>
+                <option value="atlanta">Atlanta, GA</option>
+              </select>
+            </div>
+            <div class="form-group" id="dl-hdd-group" style="display:none;">
+              <label for="dl-hdd">Heating Degree Days per Year (base 65°F)</label>
+              <input type="number" id="dl-hdd" value="5500" min="200" max="12000" step="10" />
+            </div>
+            <div class="form-group">
+              <label for="dl-temp">Average Outdoor Temperature Expected (°F)</label>
+              <input type="number" id="dl-temp" value="35" min="-30" max="64" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Average of the daily highs and lows over the next few weeks — the forecast's averages, not today's high.</small>
+            </div>
+            <div class="form-group">
+              <label for="dl-reorder" id="dl-reorder-label">Reorder When the Gauge Reads</label>
+              <select id="dl-reorder">
+                <option value="0.25" selected>1/4 (most dealers' advice)</option>
+                <option value="0.375">3/8 (cold snap or long delivery waits)</option>
+                <option value="0.125">1/8</option>
+              </select>
+              <input type="number" id="dl-reorder-pct" value="30" min="5" max="60" step="1" style="display:none;" />
+            </div>
+            <button class="btn-primary" onclick="calcDaysLeft()">How Long Will It Last?</button>
+            <div class="result-box-tool" id="dl-result">
+              <h3>Your Fuel Countdown</h3>
+              <div class="result-amount" id="dl-headline"></div>
+              <table id="dl-table"></table>
+              <table class="compact" id="dl-temps" style="width:100%;margin-top:12px;font-size:0.88em;"></table>
+              <p class="result-note" id="dl-note"></p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Your Gauge Is Showing Depth, Not Gallons</h2>
+            <p>The float gauge on an oil tank rides on the surface of the oil, so its marks — F, 3/4, 1/2, 1/4 — are fractions of the tank's <em>height</em>. The common 275-gallon tank is an upright oval with rounded top and bottom, and the rounded bottom holds much less oil per inch than the straight middle. The result:</p>
+            <ul>
+              <li><strong>3/4</strong> ≈ 216 gallons</li>
+              <li><strong>1/2</strong> ≈ 137 gallons</li>
+              <li><strong>1/4</strong> ≈ <strong>58 gallons</strong> — not the 69 you'd assume</li>
+              <li><strong>1/8</strong> ≈ 22 gallons</li>
+            </ul>
+            <p>That's why the needle seems to fall faster as it gets low: it does, per gallon burned. And "F" after a delivery usually means 240–250 gallons, not 275, because tanks are never filled to the brim. Round outdoor and underground tanks have the same effect, slightly stronger. Propane gauges are different — they're calibrated to read percent of volume directly, and propane tanks are filled to about 80% to leave room for the liquid to expand.</p>
+
+            <h2>How Dealers Predict When You'll Run Out</h2>
+            <p>Automatic-delivery customers rarely run out because the dealer tracks two numbers. <strong>Heating degree days</strong> measure how cold it's been: each day, take how far the day's average temperature falls below 65°F. A 35°F day is 30 degree days. Your <strong>K-factor</strong> is how many degree days your house gets through per gallon — worked out from the gallons in each delivery and the degree days since the one before. A house with a K-factor of 8 burns a gallon every 8 degree days, so a week averaging 35°F (210 degree days) burns about 26 gallons of heating oil.</p>
+            <p>Hot water doesn't depend on the weather, so it's handled separately as a fixed amount per day. That's why a tank still drains slowly in summer if the boiler makes your hot water. This calculator does the same: it splits your annual usage into a weather-driven part and a hot-water part, then runs both forward at the temperature you expect.</p>
+
+            <h2>Why "Days Left" Changes So Much With the Weather</h2>
+            <p>Heating fuel use tracks the gap between 65°F and the outdoor temperature, not the temperature itself. A week at 25°F has 40 degree days a day; a week at 45°F has 20. Same house, same thermostat, <strong>twice the oil</strong>. The table in your result shows how far the same tank goes at different temperatures — useful before a forecast cold snap, which is also when delivery waits are longest.</p>
+
+            <h2>Don't Plan to Run It to Empty</h2>
+            <ul>
+              <li><strong>The last few gallons aren't usable.</strong> Some fuel sits below the outlet, and the bottom of an older tank collects sludge that can clog the filter or nozzle if it gets drawn in.</li>
+              <li><strong>Running dry costs more than the fuel.</strong> An oil burner that runs out often needs a service call to bleed air out of the line and restart it. A propane system that runs empty has to be leak-checked before it can be relit.</li>
+              <li><strong>Deliveries slow down when it's coldest.</strong> Will-call orders pile up in a cold snap. Ordering at 1/4 (oil) or 20–30% (propane) builds in that buffer.</li>
+            </ul>
+            <p>Whether to lock in a price before winter is a separate question — our <a href="/compare/heating-oil-pre-buy-vs-cap-vs-market-price.html">pre-buy vs cap vs market price calculator</a> works out the break-even. And if you're wondering how much a typical tank lasts before you have your own numbers, see <a href="/blog/how-long-will-100-gallons-of-heating-oil-last.html">how long 100 gallons of heating oil lasts</a>.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/compare/heating-oil-pre-buy-vs-cap-vs-market-price.html">Pre-Buy vs Cap vs Market Price</a></li>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel</a></li>
+              <li><a href="/tools/heat-pump-size-from-fuel-bills.html">Heat Pump Size From Fuel Bills</a></li>
+              <li><a href="/compare/propane-vs-heating-oil.html">Propane vs Heating Oil</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-long-will-100-gallons-of-heating-oil-last.html">How Long Will 100 Gallons of Oil Last?</a></li>
+              <li><a href="/blog/how-to-lower-your-heating-bill.html">How to Lower Your Heating Bill</a></li>
+              <li><a href="/blog/can-a-heat-pump-replace-a-boiler.html">Can a Heat Pump Replace Your Boiler?</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>275-gal tank at 1/4: <strong>~58 gallons</strong></li>
+              <li>"Full" oil tank: <strong>~240–250 gal</strong></li>
+              <li>Propane fill limit: <strong>~80%</strong></li>
+              <li>25°F vs 45°F weather: <strong>2× the fuel</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#k-factor">K-factor</a></li>
+              <li><a href="/glossary/#heating-degree-days">Heating degree days</a></li>
+              <li><a href="/glossary/#btu">BTU</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How long will 100 gallons of heating oil last?</h3>
+      <p>For a typical New England home that burns about 800 gallons a year, including hot water, 100 gallons lasts roughly five weeks when the outdoor temperature averages 45°F, under four weeks at 35°F, about three weeks at 25°F and a little over two weeks at 15°F. A smaller or tighter house stretches that; a large or drafty one shortens it. The calculator works it out from your own annual usage and the temperatures you expect.</p>
+      <h3>What does 1/4 on an oil tank gauge mean in gallons?</h3>
+      <p>On the common 275-gallon vertical tank, 1/4 is only about 58 gallons, not 69. The float gauge measures the oil's depth, and the rounded bottom of the tank holds less oil per inch than the middle. Half is about 137 gallons and 3/4 about 216. Most dealers recommend ordering by 1/4.</p>
+      <h3>What is a K-factor on my oil or propane delivery ticket?</h3>
+      <p>It is the number of heating degree days it takes your home to burn one gallon. Dealers calculate it from the gallons delivered and the degree days since the previous delivery, then use it to schedule automatic deliveries. A higher K-factor means a more efficient or smaller house. Divide the degree days in a forecast by your K-factor to estimate how many gallons that weather will burn.</p>
+      <h3>When should I order heating oil or propane?</h3>
+      <p>Most dealers suggest ordering heating oil when the gauge reaches 1/4, and many propane suppliers ask will-call customers to order at 20 to 30 percent. Delivery can take several days in a cold snap, when everyone orders at once, and running a tank dry can mean a service call to restart the burner and bleed the fuel line.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+// NOAA 1981-2010 normal heating degree days (base 65F); design temps unused here.
+var CITY = {
+  boston: { hdd: 5681, design: 8 },
+  hartford: { hdd: 5839, design: 3 },
+  providence: { hdd: 5618, design: 6 },
+  concord: { hdd: 7235, design: -6 },
+  albany: { hdd: 6680, design: -3 },
+  buffalo: { hdd: 6617, design: 2 },
+  nyc: { hdd: 4664, design: 13 },
+  newark: { hdd: 4872, design: 10 },
+  philadelphia: { hdd: 4613, design: 12 },
+  harrisburg: { hdd: 5269, design: 8 },
+  pittsburgh: { hdd: 5710, design: 2 },
+  baltimore: { hdd: 4764, design: 12 },
+  dc: { hdd: 4031, design: 16 },
+  cleveland: { hdd: 5762, design: 1 },
+  columbus: { hdd: 5250, design: 1 },
+  detroit: { hdd: 6168, design: 0 },
+  chicago: { hdd: 6340, design: -5 },
+  milwaukee: { hdd: 6894, design: -5 },
+  minneapolis: { hdd: 7580, design: -15 },
+  indianapolis: { hdd: 5348, design: -2 },
+  denver: { hdd: 6058, design: -4 },
+  seattle: { hdd: 4697, design: 24 },
+  portland_or: { hdd: 4278, design: 22 },
+  raleigh: { hdd: 3247, design: 16 },
+  atlanta: { hdd: 2768, design: 19 }
+};
+var OIL_BTU = 138500, PROP_BTU = 91500;
+// Oil tank geometry. Upright/lying oval (obround) tanks: 27" x 44" cross-section,
+// 60" long (275) or 72" long (330), 231 in^3/gal, +2.2% for dished heads.
+// Round tanks: volume fraction of a horizontal cylinder; capacity as rated.
+var TANKS = {
+  ob275v: { kind: 'ov', len: 60, rated: 275 }, ob275h: { kind: 'oh', len: 60, rated: 275 },
+  ob330v: { kind: 'ov', len: 72, rated: 330 }, ob330h: { kind: 'oh', len: 72, rated: 330 },
+  cy500: { kind: 'cy', rated: 500 }, cy550: { kind: 'cy', rated: 550 }, cy1000: { kind: 'cy', rated: 1000 },
+  pr120: { kind: 'pr', rated: 120 }, pr250: { kind: 'pr', rated: 250 }, pr500: { kind: 'pr', rated: 500 }, pr1000: { kind: 'pr', rated: 1000 }
+};
+function seg(r, h) { h = Math.max(0, Math.min(2 * r, h)); return r * r * Math.acos((r - h) / r) - (r - h) * Math.sqrt(Math.max(0, 2 * r * h - h * h)); }
+function ovalArea(h, upright) {
+  var r = 13.5, W = 27, H = 44;
+  if (!upright) return 17 * h + seg(r, h);                 // lying flat: 27" tall
+  if (h <= r) return seg(r, h);
+  if (h <= H - r) return seg(r, r) + W * (h - r);
+  return seg(r, r) + W * (H - 2 * r) + (seg(r, h - (H - 2 * r)) - seg(r, r));
+}
+function gallonsAtFraction(t, f) {   // f = gauge fraction of height (oil) or of volume (propane)
+  if (t.kind === 'pr') return t.rated * f;
+  if (t.kind === 'cy') return t.rated * seg(1, 2 * f) / Math.PI;
+  var upright = t.kind === 'ov', H = upright ? 44 : 27;
+  return ovalArea(f * H, upright) * t.len / 231 * 1.022;
+}
+function dlFuel() {
+  var oil = document.getElementById('dl-fuel').value === 'oil';
+  var tank = document.getElementById('dl-tank');
+  tank.innerHTML = oil
+    ? '<option value="ob275v" selected>275 gal — upright oval (most common indoor tank)</option><option value="ob275h">275 gal — oval lying flat</option><option value="ob330v">330 gal — upright oval</option><option value="ob330h">330 gal — oval lying flat</option><option value="cy500">500 gal — round, horizontal</option><option value="cy550">550 gal — round, horizontal</option><option value="cy1000">1,000 gal — round, horizontal</option>'
+    : '<option value="pr120">120 gal</option><option value="pr250">250 gal</option><option value="pr500" selected>500 gal (most common for whole-house heat)</option><option value="pr1000">1,000 gal</option>';
+  document.getElementById('dl-gauge-oil-group').style.display = oil ? 'block' : 'none';
+  document.getElementById('dl-gauge-prop-group').style.display = oil ? 'none' : 'block';
+  document.getElementById('dl-reorder').style.display = oil ? 'block' : 'none';
+  document.getElementById('dl-reorder-pct').style.display = oil ? 'none' : 'block';
+  document.getElementById('dl-reorder-label').textContent = oil ? 'Reorder When the Gauge Reads' : 'Reorder When the Gauge Reads (%)';
+  document.getElementById('dl-annual').value = oil ? 800 : 1000;
+}
+function dlCity() {
+  document.getElementById('dl-hdd-group').style.display = document.getElementById('dl-city').value === 'custom' ? 'block' : 'none';
+}
+function calcDaysLeft() {
+  var num = function (id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? null : v; };
+  var oil = document.getElementById('dl-fuel').value === 'oil';
+  var btu = oil ? OIL_BTU : PROP_BTU;
+  var t = TANKS[document.getElementById('dl-tank').value] || (oil ? TANKS.ob275v : TANKS.pr500);
+  var fracNow = oil ? (num('dl-gauge') || 0.5) : Math.min(0.85, (num('dl-pct') === null ? 50 : num('dl-pct')) / 100);
+  var fracRe = oil ? (num('dl-reorder') || 0.25) : (num('dl-reorder-pct') || 30) / 100;
+  var galNow = num('dl-gallons') !== null ? num('dl-gallons') : gallonsAtFraction(t, fracNow);
+  var galRe = Math.min(galNow, gallonsAtFraction(t, fracRe));
+
+  var city = document.getElementById('dl-city').value;
+  var hdd = (city === 'custom' || !CITY[city]) ? (num('dl-hdd') || 5500) : CITY[city].hdd;
+  var people = num('dl-people') || 3;
+  // Hot water: ~25 gal/person/day x 500 BTU/gal, made at 67% (the site-wide water-heating assumption).
+  var dhwDay = document.getElementById('dl-dhw').value === 'yes' ? people * 25 * 500 / 0.67 / btu : 0;
+  var k = num('dl-k'), perDD, annual = num('dl-annual') || (oil ? 800 : 1000);
+  if (k && k > 0) { perDD = 1 / k; }
+  else { perDD = Math.max(0.0001, (annual - dhwDay * 365) / hdd); k = 1 / perDD; }
+  var temp = num('dl-temp'); if (temp === null) temp = 35;
+  var useAt = function (T) { return perDD * Math.max(0, 65 - T) + dhwDay; };
+  var days = function (gal, T) { var u = useAt(T); return u > 0 ? gal / u : Infinity; };
+  var fmtD = function (d) { return !isFinite(d) ? '—' : d <= 0 ? 'now' : d < 1 ? 'under 1' : Math.round(d).toLocaleString(); };
+  var dRe = days(galNow - galRe, temp), dEmpty = days(galNow, temp);
+  var when = new Date(); when.setDate(when.getDate() + Math.floor(dRe));
+  var whenTxt = isFinite(dRe) ? when.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) : '—';
+
+  document.getElementById('dl-headline').textContent = galNow <= galRe
+    ? 'Order now — you\'re at or below your reorder level'
+    : 'About ' + fmtD(dRe) + ' days until you should order (around ' + whenTxt + ')';
+  var rows = '';
+  rows += '<tr><td>Fuel in the tank now</td><td>' + Math.round(galNow) + ' gal</td></tr>';
+  rows += '<tr><td>Above your reorder level</td><td>' + Math.round(Math.max(0, galNow - galRe)) + ' gal</td></tr>';
+  rows += '<tr><td>Use per day at ' + temp + '°F' + (dhwDay > 0 ? ' (incl. ' + dhwDay.toFixed(2) + ' gal for hot water)' : '') + '</td><td>' + useAt(temp).toFixed(1) + ' gal</td></tr>';
+  rows += '<tr><td>Days until reorder level</td><td>' + fmtD(dRe) + '</td></tr>';
+  rows += '<tr style="font-weight:700;"><td>Days until the tank is empty</td><td>' + fmtD(dEmpty) + '</td></tr>';
+  rows += '<tr><td>Your K-factor (degree days per gallon)</td><td>' + k.toFixed(1) + '</td></tr>';
+  document.getElementById('dl-table').innerHTML = rows;
+  var tr = '<tr><th style="text-align:left;">Avg temp</th><th style="text-align:left;">Gal/day</th><th style="text-align:left;">Days to reorder</th><th style="text-align:left;">Days to empty</th></tr>';
+  [50, 40, 30, 20, 10].forEach(function (T) {
+    tr += '<tr><td>' + T + '°F</td><td>' + useAt(T).toFixed(1) + '</td><td>' + fmtD(days(galNow - galRe, T)) + '</td><td>' + fmtD(days(galNow, T)) + '</td></tr>';
+  });
+  document.getElementById('dl-temps').innerHTML = tr;
+  document.getElementById('dl-note').textContent = (num('dl-k') ? 'Based on your K-factor of ' + k.toFixed(1) : 'Based on ' + Math.round(annual) + ' gallons a year and ' + Math.round(hdd).toLocaleString() + ' normal heating degree days') + '. Gallons from the gauge are estimates — a stick reading is more accurate. Allow a few days for delivery, more in a cold snap.';
+  var r = document.getElementById('dl-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

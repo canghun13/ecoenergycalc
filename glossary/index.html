@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/assets/css/style.css" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"DefinedTermSet","name":"Energy & Carbon Glossary","description":"Definitions of energy efficiency, heating/cooling, and carbon footprint terms used across EcoEnergyCalc's calculators.","url":"https://ecoenergycalc.com/glossary/","dateModified":"2026-10-05","hasDefinedTerm":[
+  {"@context":"https://schema.org","@type":"DefinedTermSet","name":"Energy & Carbon Glossary","description":"Definitions of energy efficiency, heating/cooling, and carbon footprint terms used across EcoEnergyCalc's calculators.","url":"https://ecoenergycalc.com/glossary/","dateModified":"2026-10-13","hasDefinedTerm":[
     {"@type":"DefinedTerm","name":"BTU (British Thermal Unit)","description":"A unit of heat energy. One BTU is the energy needed to raise one pound of water by 1°F. Used to rate the heating/cooling capacity of furnaces, AC units, and space heaters."},
     {"@type":"DefinedTerm","name":"SEER (Seasonal Energy Efficiency Ratio)","description":"A measure of air conditioner cooling efficiency — cooling output (BTU) divided by energy input (watt-hours) over a typical season. Higher SEER means lower electricity use for the same cooling."},
     {"@type":"DefinedTerm","name":"kWh (Kilowatt-Hour)","description":"The standard unit of electricity billing — the energy used by a 1,000-watt device running for one hour. Electric bills are calculated as kWh used × rate per kWh."},
@@ -24,6 +24,7 @@
     {"@type":"DefinedTerm","name":"COP (Coefficient of Performance)","description":"A ratio measuring heat pump efficiency — the amount of heating or cooling output delivered per unit of electricity consumed. A COP of 3 means 3 units of heat delivered per 1 unit of electricity used."},
     {"@type":"DefinedTerm","name":"Heating Degree Days (HDD)","description":"A measure of how cold a period was: the sum, over each day, of how far the average outdoor temperature fell below 65°F. Used to normalize heating fuel use and to estimate a home's heat loss."},
     {"@type":"DefinedTerm","name":"Design Temperature","description":"The cold extreme a heating system is sized for, published by ASHRAE for each weather station; only the coldest few hours of a typical year fall below it."},
+    {"@type":"DefinedTerm","name":"K-Factor (Fuel Delivery)","description":"The number of heating degree days it takes a home to burn one gallon of heating oil or propane; used by fuel dealers to schedule automatic deliveries."},
     {"@type":"DefinedTerm","name":"MPGe (Miles Per Gallon Equivalent)","description":"A rating that converts an electric vehicle's energy consumption into a gasoline-equivalent fuel economy figure, allowing direct comparison between EVs and gas cars."},
     {"@type":"DefinedTerm","name":"HSPF (Heating Seasonal Performance Factor)","description":"A measure of heat pump heating efficiency over a typical season — total heat output (BTU) divided by total electricity used (watt-hours). Higher HSPF means lower heating costs."},
     {"@type":"DefinedTerm","name":"AFUE (Annual Fuel Utilization Efficiency)","description":"The percentage of fuel energy a furnace or boiler converts into usable heat. An AFUE of 95% means 95% of the fuel's energy becomes heat, with 5% lost as exhaust."},
@@ -117,6 +118,13 @@
           <p>A measure of how cold a place or a season was. For each day, take how far the average outdoor temperature fell below 65°F and add them up: a day averaging 35°F contributes 30 degree days, a day at 65°F or warmer contributes none. Boston averages about 5,700 heating degree days a year, Minneapolis about 7,600, Atlanta about 2,800.</p>
           <p><strong>Where you'll see it:</strong> Weather and utility data, energy audits, and fuel delivery companies (which use degree days to schedule oil and propane deliveries).</p>
           <p><strong>Why it matters:</strong> Dividing a year of heating fuel by that year's degree days gives your home's heat loss per degree — the basis for sizing a heat pump from your bills. Try it in our <a href="/tools/heat-pump-size-from-fuel-bills.html">heat pump size calculator</a>.</p>
+        </div>
+
+        <div class="glossary-term" data-term="k-factor k factor heating oil propane delivery degree days per gallon">
+          <h2 id="k-factor">K-Factor (Fuel Delivery)</h2>
+          <p>The number of heating degree days it takes a home to burn one gallon of heating oil or propane. Dealers calculate it from the gallons in each delivery and the degree days since the one before, then use it to schedule automatic deliveries before the tank runs low. A higher K-factor means a smaller or better-insulated house; a typical New England home that uses about 800 gallons a year has a K-factor around 8 to 9.</p>
+          <p><strong>Where you'll see it:</strong> Heating oil and propane delivery tickets and automatic-delivery account details.</p>
+          <p><strong>Why it matters:</strong> Divide the degree days in a forecast by your K-factor and you know how many gallons that weather will burn. Our <a href="/tools/heating-oil-propane-days-left-calculator.html">days-left calculator</a> uses it to estimate when you'll need to order.</p>
         </div>
 
         <div class="glossary-term" data-term="design temperature heating design day sizing manual j ashrae">

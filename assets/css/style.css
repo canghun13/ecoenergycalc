@@ -1146,6 +1146,8 @@ table th {
 table th:first-child { text-align: left; white-space: normal; }
 table:has(th) td { padding: 8px 10px; text-align: right; white-space: nowrap; }
 table:has(th) td:first-child { text-align: left; white-space: normal; color: var(--text-muted); font-weight: 400; }
+/* Compact result tables: several numeric columns that must fit a phone without a scroll wrapper */
+table.compact th, table.compact:has(th) td { padding: 6px 4px; white-space: normal; }
 
 .table-scroll {
   width: 100%;
