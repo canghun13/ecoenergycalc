@@ -280,6 +280,10 @@
 @keyframes mt-sweep { from { transform: rotate(0deg); } to { transform: rotate(var(--a)); } }
 @keyframes mt-spin { from { transform: translateX(0); } to { transform: translateX(94px); } }
 
+.hm-register { display: none; margin: 0; }
+.hm-register svg { width: 100%; max-width: 316px; height: auto; display: block; }
+.mt-unit-l { text-anchor: start; font-size: 13px; }
+
 /* ---------- Where the money goes ---------- */
 .hm-money {
   background: var(--hm-panel);
@@ -356,7 +360,7 @@
   color: var(--text);
 }
 .tp ul { list-style: none; margin-top: 10px; }
-.tp li { padding: 5px 0; }
+.tp li { padding: 5px 0; line-height: 1.4; }
 .tp a { color: var(--hm-sage); font-size: .95rem; }
 .tp a:hover { color: var(--text); }
 
@@ -400,7 +404,8 @@
 
 @media (max-width: 760px) {
   .hm-top { grid-template-columns: 1fr; gap: 0; }
-  .hm-meter { width: 170px; margin-top: 24px; }
+  .hm-meter { display: none; }
+  .hm-register { display: block; margin-top: 28px; }
   .hm-money, .hm-topics, .hm-h2h { padding: 48px 0; }
   .mg-row {
     grid-template-columns: minmax(0, 1fr) auto;
