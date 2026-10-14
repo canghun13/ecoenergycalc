@@ -1,3 +1,22 @@
+# EcoEnergyCalc 인수인계 — v38-2 (2026-10-14, 메인·푸터 개편)
+
+## 0-M1. 왜
+
+사용자의 다른 사이트들(GPAVault, MyInsuranceCalc, MyWellnessCalc, CookingCalcs)과 메인 구조가 같았다: 가운데 정렬 히어로 + 알약 배지 3개 + "50+ / 100% / $0" 숫자 3개 + 툴 카드 격자. 툴이 계속 늘어 카드 나열도 한계.
+
+## 0-M2. ✅ 변경
+
+- `index.html` 전면 교체 + 전용 `assets/css/home.css`.
+  - **히어로 = "청구서 원장(ledger)"**: 왼쪽 정렬 H1 + 실제 질문 8줄, 점선 리더, 오른쪽에 **각 계산기의 기본값 실제 결과**(노란색). 아래 캡션에 "기본 입력값 기준 예시" 명시. CookingCalcs(위젯+일러스트)와도 다른 구조.
+  - **계절 블록**: 월에 따라 JS로 난방(10~3월)/냉방(6~9월)/환절기(4~5월) 세트 자동 전환. 정적 기본값은 난방.
+  - **데이터 출처**(DOE·NOAA·EIA·EPA·NREL·USDA) + **최근 업데이트 6개**: sitemap.xml lastmod + 허브 3곳(/tools/, /compare/, /blog/)의 카드 h3로 **자동 생성** → 새 페이지 추가 시 메인 수정 불필요(사이트맵 lastmod와 허브 카드만 갱신하면 됨).
+  - 런칭 디렉터리 배지는 하단 "Listed on"으로 축소 유지(링크 그대로).
+- **푸터 사이트 전체 단순화**(`assets/js/nav.js`, style.css 푸터 블록 교체): 로고 + 링크 한 줄(Tools, Compare, Blog, Glossary, About, Contact, Privacy, Advertising disclosure) + 면책 한 줄. 툴 목록 없음.
+- **주의**: 메인 원장의 예시 결과는 계산기 기본값이 바뀌면 같이 고쳐야 한다(bill-increase-breakdown, oil days-left, power-outage, aux-heat, solar-panel-count, refrigerator, rubs, ev-charging).
+- 메인에서 툴 41개 링크가 빠졌지만 허브 3곳·사이트맵·헤더 메뉴로 모두 연결됨.
+
+---
+
 # EcoEnergyCalc 인수인계 — v38 세션 (2026-10-14, 초기 범용 페이지 업그레이드)
 
 ## 0-L1. 왜 했나

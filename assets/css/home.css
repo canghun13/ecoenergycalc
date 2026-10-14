@@ -1,0 +1,248 @@
+/* Homepage only. Site tokens come from style.css. */
+.home {
+  --hm-sage: #a9c2b0;
+  --hm-meter: #facc15;
+  --hm-rule: #1e4027;
+  --hm-panel: #0f2317;
+}
+
+/* ---------- Hero ---------- */
+.hm-hero { padding: 72px 0 56px; }
+
+.hm-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 5.4vw, 4.1rem);
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  max-width: 15ch;
+}
+
+.hm-lede {
+  margin-top: 20px;
+  max-width: 58ch;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--hm-sage);
+}
+
+/* ---------- Ledger ---------- */
+.lg { margin-top: 48px; }
+
+.lg-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 14px 10px;
+  border-bottom: 2px solid var(--text);
+  font-size: 0.85rem;
+  color: var(--hm-sage);
+}
+
+.lg-list { list-style: none; }
+
+.lg-list li { border-bottom: 1px solid var(--hm-rule); }
+
+.lg-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 16px 14px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.lg-q {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.lg-dots {
+  flex: 1 1 40px;
+  min-width: 24px;
+  border-bottom: 2px dotted #3b6b47;
+  transform: translateY(-5px);
+}
+
+.lg-a {
+  flex: none;
+  color: var(--hm-meter);
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.lg-row:hover { background: var(--hm-panel); text-decoration: none; }
+.lg-row:hover .lg-q { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.lg-row:focus-visible { outline: 2px solid var(--hm-meter); outline-offset: -2px; }
+
+.lg-cap {
+  margin-top: 12px;
+  padding: 0 14px;
+  font-size: 0.85rem;
+  color: var(--hm-sage);
+}
+
+.hm-browse {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin-top: 36px;
+  padding: 0 14px;
+}
+
+.hm-browse a {
+  color: var(--text);
+  font-weight: 600;
+  border-bottom: 1px solid var(--primary);
+  padding-bottom: 2px;
+}
+
+.hm-browse a:hover { color: var(--primary); text-decoration: none; }
+
+/* ---------- Shared section type ---------- */
+.hm-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+
+.hm-sub {
+  margin-top: 8px;
+  max-width: 60ch;
+  color: var(--hm-sage);
+  line-height: 1.6;
+}
+
+/* ---------- Season ---------- */
+.hm-season {
+  background: var(--hm-panel);
+  border-top: 1px solid var(--hm-rule);
+  border-bottom: 1px solid var(--hm-rule);
+  padding: 56px 0;
+}
+
+.ss-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 40px;
+  margin-top: 28px;
+}
+
+.ss-list li { border-top: 1px solid var(--hm-rule); }
+
+.ss-list a {
+  display: block;
+  padding: 16px 0 18px;
+  text-decoration: none;
+}
+
+.ss-t {
+  display: block;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.ss-d {
+  display: block;
+  margin-top: 4px;
+  color: var(--hm-sage);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.ss-list a:hover .ss-t { color: var(--primary); }
+.ss-list a:focus-visible, .rc-list a:focus-visible, .hm-browse a:focus-visible {
+  outline: 2px solid var(--hm-meter);
+  outline-offset: 3px;
+}
+
+/* ---------- Sources + recent ---------- */
+.hm-split { padding: 64px 0; }
+
+.hm-split-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 56px;
+}
+
+.src-list { margin-top: 24px; }
+
+.src-list div {
+  padding: 14px 0;
+  border-top: 1px solid var(--hm-rule);
+}
+
+.src-list dt { color: var(--text); font-weight: 600; }
+
+.src-list dd {
+  margin-top: 2px;
+  color: var(--hm-sage);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.rc-list { list-style: none; margin-top: 24px; }
+
+.rc-list li {
+  display: grid;
+  grid-template-columns: 4.2em minmax(0, 1fr);
+  column-gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--hm-rule);
+}
+
+.rc-list time {
+  grid-row: span 2;
+  color: var(--hm-meter);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  padding-top: 2px;
+}
+
+.rc-list a { color: var(--text); font-weight: 500; line-height: 1.4; }
+.rc-list a:hover { color: var(--primary); }
+
+.rc-k { color: var(--hm-sage); font-size: 0.82rem; }
+
+/* ---------- Listed on ---------- */
+.hm-listed {
+  border-top: 1px solid var(--hm-rule);
+  padding: 28px 0 36px;
+}
+
+.hm-listed p { font-size: 0.85rem; color: var(--hm-sage); margin-bottom: 12px; }
+
+.hm-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  opacity: 0.8;
+}
+
+.hm-badges img { height: 28px; width: auto; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 760px) {
+  .hm-hero { padding: 44px 0 40px; }
+  .lg { margin-top: 36px; }
+  .lg-head { display: none; }
+  .lg-list { border-top: 2px solid var(--text); }
+  .lg-row { flex-direction: column; gap: 4px; padding: 14px 4px; }
+  .lg-q { font-size: 1.08rem; }
+  .lg-dots { display: none; }
+  .lg-a { font-size: 1rem; white-space: normal; }
+  .lg-cap, .hm-browse { padding: 0 4px; }
+  .ss-list { grid-template-columns: 1fr; }
+  .hm-season { padding: 44px 0; }
+  .hm-split { padding: 48px 0; }
+  .hm-split-grid { grid-template-columns: 1fr; gap: 44px; }
+}

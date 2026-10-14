@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EcoEnergyCalc – Free Energy & Climate Calculators</title>
-  <meta name="description" content="Free energy cost and carbon footprint calculators. Calculate solar savings, electric bills, carbon emissions, and more — no signup required." />
+  <meta name="description" content="Energy cost calculators for real household decisions: why your bill went up, how long your heating oil will last, how many solar panels you need, and what your appliances cost to run — built on DOE, NOAA and EIA data." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="EcoEnergyCalc – Free Energy & Climate Calculators" />
-  <meta property="og:description" content="Free energy and carbon footprint calculators. Instant results, no signup." />
+  <meta property="og:description" content="Energy cost calculators for real household decisions, built on DOE, NOAA and EIA data." />
   <meta property="og:url" content="https://ecoenergycalc.com/" />
   <meta property="og:type" content="website" />
 
@@ -25,699 +25,191 @@
 <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"EcoEnergyCalc","url":"https://ecoenergycalc.com/","description":"Free energy and climate calculators — home energy costs, solar savings, carbon footprint, and more.","publisher":{"@type":"Organization","name":"EcoEnergyCalc","url":"https://ecoenergycalc.com/"}}
   </script>
+  <link rel="stylesheet" href="/assets/css/home.css" />
 </head>
-<body>
+<body class="home">
 
 <main>
-  <!-- Hero -->
-  <section class="hero">
+  <section class="hm-hero">
     <div class="container">
-      <div class="hero-badges">
-        <span class="badge">Free Forever</span>
-        <span class="badge">No Signup</span>
-        <span class="badge">Instant Results</span>
+      <h1>Energy math for the decisions on your bill.</h1>
+      <p class="hm-lede">Calculators for heating, cooling, solar and appliances, built on federal efficiency standards, NOAA weather data and EIA prices. Start with the question you have.</p>
+
+      <div class="lg" role="region" aria-labelledby="lg-cap">
+        <div class="lg-head" aria-hidden="true"><span>Your question</span><span>Sample result</span></div>
+        <ul class="lg-list">
+        <li><a class="lg-row" href="/tools/bill-increase-breakdown-calculator.html"><span class="lg-q">My bill went up even though I used less</span><span class="lg-dots" aria-hidden="true"></span><span class="lg-a">Rates +$64, usage −$32</span></a></li>
+        <li><a class="lg-row" href="/tools/heating-oil-propane-days-left-calculator.html"><span class="lg-q">Will my heating oil last until the next delivery?</span><span class="lg-dots" aria-hidden="true"></span><span class="lg-a">Order in 20 days</span></a></li>
+        <li><a class="lg-row" href="/tools/power-outage-house-cooling-calculator.html"><span class="lg-q">How long will the house stay warm if the power goes out?</span><span class="lg-dots" aria-hidden="true"></span><span class="lg-a">55°F after 6.9 hours</span></a></li>
+        <li><a class="lg-row" href="/tools/heat-pump-aux-heat-calculator.html"><span class="lg-q">Is backup heat running up my heat pump bill?</span><span class="lg-dots" aria-hidden="true"></span><span class="lg-a">Aux heat added $108</span></a></li>
+        <li><a class="lg-row" href="/tools/solar-panel-count-calculator.html"><span class="lg-q">How many solar panels do I need, and will they pay off?</span><span class="lg-dots" aria-hidden="true"></span><span class="lg-a">22 panels, 13-year payback</span></a></li>
+        <li><a class="lg-row" href="/tools/refrigerator-energy-cost.html"><span class="lg-q">What does a new refrigerator cost to run?</span><span class="lg-dots" aria-hidden="true"></span><span class="lg-a">$73 a year</span></a></li>
+        <li><a class="lg-row" href="/tools/rubs-utility-bill-checker.html"><span class="lg-q">Is my apartment's utility charge fair?</span><span class="lg-dots" aria-hidden="true"></span><span class="lg-a">$55 over an even split</span></a></li>
+        <li><a class="lg-row" href="/tools/ev-charging-cost-calculator.html"><span class="lg-q">What will charging an EV at home cost?</span><span class="lg-dots" aria-hidden="true"></span><span class="lg-a">$62 a month</span></a></li>
+        </ul>
+        <p class="lg-cap" id="lg-cap">Sample results use each calculator's default inputs. Yours will depend on your home, rates and weather.</p>
       </div>
-      <h1>Save energy.<br><em>Save the planet.</em></h1>
-      <p>Free calculators for energy costs, solar savings, and carbon footprint — all in one place.</p>
-      <a href="#tools" class="btn-calc">Explore Calculators ↓</a>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-number">50+</span>
-          <span class="stat-label">Free Tools</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">100%</span>
-          <span class="stat-label">No Signup</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">$0</span>
-          <span class="stat-label">Hidden Fees</span>
-        </div>
+
+      <nav class="hm-browse" aria-label="Browse the site">
+        <a href="/tools/">Browse all calculators</a>
+        <a href="/compare/">Side-by-side comparisons</a>
+        <a href="/blog/">Guides</a>
+        <a href="/glossary/">Energy terms explained</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="hm-season">
+    <div class="container">
+      <div class="ss-set" data-season="heating">
+        <h2 class="hm-h2">Heating season</h2>
+        <p class="hm-sub">Fuel deliveries, backup heat and cold snaps: the math that matters from October to March.</p>
+        <ul class="ss-list">
+          <li><a href="/tools/heating-cost-by-fuel.html"><span class="ss-t">Heating cost by fuel</span><span class="ss-d">Gas, oil, propane, electric and heat pump at your local prices.</span></a></li>
+          <li><a href="/compare/heating-oil-pre-buy-vs-cap-vs-market-price.html"><span class="ss-t">Pre-buy, price cap or pay as you go</span><span class="ss-d">How each oil contract plays out if prices fall, hold or spike.</span></a></li>
+          <li><a href="/tools/space-heater-cost-calculator.html"><span class="ss-t">Space heater cost</span><span class="ss-d">What one room heater adds to the bill, and when it beats the furnace.</span></a></li>
+          <li><a href="/compare/auxiliary-heat-vs-emergency-heat.html"><span class="ss-t">Aux heat vs emergency heat</span><span class="ss-d">What the thermostat setting does and what it costs per hour.</span></a></li>
+        </ul>
+      </div>
+      <div class="ss-set" data-season="cooling" hidden>
+        <h2 class="hm-h2">Cooling season</h2>
+        <p class="hm-sub">Air conditioning drives the summer bill. These answer where the money goes from June to September.</p>
+        <ul class="ss-list">
+          <li><a href="/tools/ac-running-cost.html"><span class="ss-t">AC running cost</span><span class="ss-d">Cost per hour, day and season from size and efficiency.</span></a></li>
+          <li><a href="/compare/ceiling-fan-vs-ac.html"><span class="ss-t">Ceiling fan vs AC</span><span class="ss-d">How much a fan can stretch the thermostat setpoint.</span></a></li>
+          <li><a href="/tools/dehumidifier-running-cost.html"><span class="ss-t">Dehumidifier cost</span><span class="ss-d">Running cost by pint rating and hours per day.</span></a></li>
+          <li><a href="/tools/pool-pump-running-cost.html"><span class="ss-t">Pool pump cost</span><span class="ss-d">Single-speed vs variable-speed pumps over a season.</span></a></li>
+        </ul>
+      </div>
+      <div class="ss-set" data-season="shoulder" hidden>
+        <h2 class="hm-h2">Between seasons</h2>
+        <p class="hm-sub">Spring is when replacements and upgrades get planned before the next heating or cooling bill.</p>
+        <ul class="ss-list">
+          <li><a href="/tools/heat-pump-size-from-fuel-bills.html"><span class="ss-t">Heat pump size from your fuel bills</span><span class="ss-d">Size a heat pump from last winter's actual usage.</span></a></li>
+          <li><a href="/tools/furnace-afue-upgrade-calculator.html"><span class="ss-t">Furnace upgrade payback</span><span class="ss-d">80% vs 95% AFUE, with venting costs and the 2028 rule.</span></a></li>
+          <li><a href="/tools/solar-panel-count-calculator.html"><span class="ss-t">Solar panel count and payback</span><span class="ss-d">Panels, roof space and payback under net metering or net billing.</span></a></li>
+          <li><a href="/compare/smart-thermostat-vs-programmable.html"><span class="ss-t">Smart vs programmable thermostat</span><span class="ss-d">What each saves and which homes see the difference.</span></a></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- AdSense -->
-  <div class="container">
-    <div class="adslot"><!-- AdSense code here --></div>
-  </div>
-
-  <!-- Tools Grid -->
-  <section class="tools-section" id="tools">
-    <div class="container">
-      <h2 class="section-title">Energy & Climate Calculators</h2>
-      <p class="section-sub">Pick a tool and get your result in seconds.</p>
-
-      <div class="tools-grid">
-
-        <a href="/tools/home-energy-cost.html" class="tool-card">
-          <span class="tool-card-badge">Most Popular</span>
-          <div class="tool-icon">🏠</div>
-          <h3>Home Energy Cost Calculator</h3>
-          <p>Estimate your total annual home energy bill based on location, home size, and usage habits.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/electric-bill.html" class="tool-card">
-          <div class="tool-icon">⚡</div>
-          <h3>Electric Bill Calculator</h3>
-          <p>Find out exactly what's driving your electric bill and where you can cut costs.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/led-vs-incandescent.html" class="tool-card">
-          <div class="tool-icon">💡</div>
-          <h3>LED vs Incandescent Savings Calculator</h3>
-          <p>See how much you save per year by switching to LED bulbs — down to the dollar.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/insulation-savings.html" class="tool-card">
-          <div class="tool-icon">🧱</div>
-          <h3>Insulation Savings Calculator</h3>
-          <p>Estimate annual heating and cooling savings from upgrading your home insulation.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/heating-vs-cooling.html" class="tool-card">
-          <div class="tool-icon">🌡️</div>
-          <h3>Heating vs Cooling Cost Calculator</h3>
-          <p>Compare heating and cooling costs by season and find where your energy dollars are going.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/furnace-afue-upgrade-calculator.html" class="tool-card">
-          <div class="tool-icon">🔥</div>
-          <h3>Furnace AFUE Upgrade Calculator</h3>
-          <p>80% vs 95% AFUE with venting costs — and whether beating the 2028 rule actually pays.</p>
-          <span class="tool-link">Run the numbers →</span>
-        </a>
-
-        <a href="/tools/heating-cost-by-fuel.html" class="tool-card">
-          <span class="tool-card-badge" style="background:#16a34a;color:#fff;">New</span>
-          <div class="tool-icon">🔥</div>
-          <h3>Heating Cost by Fuel Type Calculator</h3>
-          <p>Compare gas, electric, heat pump, propane, and oil heating costs side by side at your local rates.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/appliance-energy-cost.html" class="tool-card">
-          <div class="tool-icon">🔌</div>
-          <h3>Appliance Energy Cost Calculator</h3>
-          <p>Calculate how much any appliance costs to run per day, month, or year.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/solar-panel-savings.html" class="tool-card">
-          <div class="tool-icon">☀️</div>
-          <h3>Solar Panel Savings Calculator</h3>
-          <p>Estimate how much you'll save on electricity by going solar based on your location and usage.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/solar-panel-roi.html" class="tool-card">
-          <div class="tool-icon">📈</div>
-          <h3>Solar Panel ROI Calculator</h3>
-          <p>Find your solar payback period and long-term return on investment before you buy.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/solar-co2-offset-calculator.html" class="tool-card">
-          <div class="tool-icon">🌿</div>
-          <h3>Solar Carbon Footprint &amp; CO2 Offset Calculator</h3>
-          <p>Calculate the carbon footprint offset by your solar panels — tons of CO2 saved per year, per kWh, and the tree-planting equivalent.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/net-metering-calculator.html" class="tool-card">
-          <div class="tool-icon">🔌</div>
-          <h3>Net Metering Calculator</h3>
-          <p>See what your solar exports are really worth — full retail net metering vs net billing (NEM 3.0).</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/balcony-solar-payback-calculator.html" class="tool-card">
-          <div class="tool-icon">🪴</div>
-          <h3>Balcony Solar Payback Calculator</h3>
-          <p>Plug-in solar can't export surplus — see what you'd actually keep and the honest payback.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/community-solar-savings-calculator.html" class="tool-card">
-          <div class="tool-icon">🏘️</div>
-          <h3>Community Solar Savings Calculator</h3>
-          <p>No roof needed. Your real net savings after both bills — utility and subscription.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/wind-turbine.html" class="tool-card">
-          <div class="tool-icon">🌬️</div>
-          <h3>Wind Turbine Calculator</h3>
-          <p>Estimate how much electricity a small wind turbine would generate for your property.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/battery-storage.html" class="tool-card">
-          <div class="tool-icon">🔋</div>
-          <h3>Battery Storage Calculator</h3>
-          <p>Find the right battery storage size for your home solar setup and see the savings.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/carbon-footprint.html" class="tool-card">
-          <div class="tool-icon">🌍</div>
-          <h3>Carbon Footprint Calculator</h3>
-          <p>Calculate your total annual carbon footprint across energy, transport, food, and lifestyle.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/flight-carbon.html" class="tool-card">
-          <div class="tool-icon">✈️</div>
-          <h3>Flight Carbon Calculator</h3>
-          <p>See the CO₂ emissions of any flight route and find out how to offset them.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/car-vs-ev-carbon.html" class="tool-card">
-          <div class="tool-icon">🚗</div>
-          <h3>Car vs EV Carbon Calculator</h3>
-          <p>Compare the lifetime carbon emissions of a gas car vs an electric vehicle.</p>
-          <span class="tool-link">Compare now →</span>
-        </a>
-
-        <a href="/tools/diet-carbon.html" class="tool-card">
-          <div class="tool-icon">🥗</div>
-          <h3>Diet Carbon Calculator</h3>
-          <p>Find out how your diet contributes to your carbon footprint — and how to reduce it.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/home-carbon-footprint.html" class="tool-card">
-          <div class="tool-icon">🏡</div>
-          <h3>Home Carbon Footprint Calculator</h3>
-          <p>Calculate the carbon emissions from your home's heating, cooling, and appliances.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/washing-machine-water-efficiency-calculator.html" class="tool-card">
-          <div class="tool-icon">🧺</div>
-          <h3>Washer Water Efficiency (L/kg)</h3>
-          <p>Rate your washing machine in litres per kg — works in metric or imperial units.</p>
-          <span class="tool-link">Rate my machine →</span>
-        </a>
-
-        <a href="/tools/water-bill-benchmark-calculator.html" class="tool-card">
-          <div class="tool-icon">🚰</div>
-          <h3>Water Bill Benchmark Calculator</h3>
-          <p>Is your water usage normal? Enter the number off your bill in CCF, CF, gallons or m³ and find out.</p>
-          <span class="tool-link">Check now →</span>
-        </a>
-
-        <a href="/tools/water-usage.html" class="tool-card">
-          <div class="tool-icon">💧</div>
-          <h3>Water Usage Calculator</h3>
-          <p>Estimate your household water consumption and see where you can cut back.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/rainwater-harvesting.html" class="tool-card">
-          <span class="tool-card-badge" style="background:#16a34a;color:#fff;">New</span>
-          <div class="tool-icon">🌧️</div>
-          <h3>Rainwater Harvesting Calculator</h3>
-          <p>See how many gallons your roof can collect each year and estimate water bill savings.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/tree-planting-offset.html" class="tool-card">
-          <div class="tool-icon">🌳</div>
-          <h3>Tree Planting Offset Calculator</h3>
-          <p>Find out how many trees you'd need to plant to offset your carbon footprint.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/green-home-upgrade-roi.html" class="tool-card">
-          <span class="tool-card-badge" style="background:#16a34a;color:#fff;">New</span>
-          <div class="tool-icon">🏗️</div>
-          <h3>Green Home Upgrade ROI Calculator</h3>
-          <p>Calculate the return on investment for green upgrades like solar, insulation, and heat pumps.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-
-        <a href="/tools/power-outage-house-cooling-calculator.html" class="tool-card">
-          <div class="tool-icon">❄️</div>
-          <h3>How Long Will My House Stay Warm Without Power?</h3>
-          <p>Winter outage timeline for your house — including when pipes start being at risk.</p>
-          <span class="tool-link">Get my timeline →</span>
-        </a>
-
-        <a href="/tools/heating-oil-propane-days-left-calculator.html" class="tool-card">
-          <span class="tool-card-badge" style="background:#16a34a;color:#fff;">New</span>
-          <div class="tool-icon">⛽</div>
-          <h3>How Long Will My Oil or Propane Last?</h3>
-          <p>Your tank gauge in gallons, and the days you have left at this week's temperatures.</p>
-          <span class="tool-link">Check my tank →</span>
-        </a>
-
-        <a href="/tools/heat-pump-size-from-fuel-bills.html" class="tool-card">
-          <div class="tool-icon">📏</div>
-          <h3>Heat Pump Size From Your Fuel Bills</h3>
-          <p>Turn last winter's oil, propane or gas use into the heat pump size your house actually needs.</p>
-          <span class="tool-link">Size my heat pump →</span>
-        </a>
-
-        <a href="/tools/heat-pump-aux-heat-calculator.html" class="tool-card">
-          <div class="tool-icon">🌡️</div>
-          <h3>Heat Pump AUX Heat Cost Calculator</h3>
-          <p>Bill doubled in a cold snap? Find out what the backup heat strips actually cost you.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/personal-heating-savings-calculator.html" class="tool-card">
-          <div class="tool-icon">🛏️</div>
-          <h3>Personal Heating Savings Calculator</h3>
-          <p>Blanket instead of turning the heat up? See what the swap nets after the setback.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/space-heater-cost-calculator.html" class="tool-card">
-          <span class="tool-card-badge" style="background:#16a34a;color:#fff;">New</span>
-          <div class="tool-icon">🔥</div>
-          <h3>Space Heater Cost Calculator</h3>
-          <p>Find out exactly how much it costs to run a space heater per hour, day, and month.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/washing-machine-energy-cost.html" class="tool-card">
-          <span class="tool-card-badge" style="background:#16a34a;color:#fff;">New</span>
-          <div class="tool-icon">🧺</div>
-          <h3>Washing Machine Energy Cost</h3>
-          <p>Calculate the exact cost to run your washer per load, month, and year — including water and electricity.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/washing-machine-water-usage.html" class="tool-card">
-          <span class="tool-card-badge" style="background:#16a34a;color:#fff;">New</span>
-          <div class="tool-icon">🚿</div>
-          <h3>Washing Machine Water Usage Calculator</h3>
-          <p>How many gallons per load? Compare standard vs ENERGY STAR and see annual water savings.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/solar-panel-count-calculator.html" class="tool-card">
-          <span class="tool-card-badge" style="background:#16a34a;color:#fff;">New</span>
-          <div class="tool-icon">☀️</div>
-          <h3>How Many Solar Panels Do I Need?</h3>
-          <p>Enter your monthly electricity use and location — get exact panel count, system size, and payback.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/rubs-utility-bill-checker.html" class="tool-card">
-          <div class="tool-icon">🏢</div>
-          <h3>Apartment Utility Bill Checker</h3>
-          <p>Bill split by formula instead of a meter? Check whether your share adds up.</p>
-          <span class="tool-link">Check my share →</span>
-        </a>
-
-        <a href="/tools/bill-increase-breakdown-calculator.html" class="tool-card">
-          <div class="tool-icon">📊</div>
-          <h3>Electric Bill Increase Breakdown</h3>
-          <p>Used less but paid more? Compare two bills and see exactly what drove the increase.</p>
-          <span class="tool-link">Break it down →</span>
-        </a>
-
-        <a href="/tools/electric-bill-spike-calculator.html" class="tool-card">
-          <span class="tool-card-badge" style="background:#16a34a;color:#fff;">New</span>
-          <div class="tool-icon">⚡</div>
-          <h3>Why Is My Electric Bill So High?</h3>
-          <p>Find the cause of your electricity spike and see exactly how much each factor is costing you.</p>
-          <span class="tool-link">Diagnose now →</span>
-        </a>
-
-        <a href="/tools/ai-carbon-footprint-calculator.html" class="tool-card">
-          <div class="tool-icon">🤖</div>
-          <h3>AI Carbon Footprint Calculator</h3>
-          <p>Estimate the energy and CO2 behind your ChatGPT prompts, AI image generation, and daily AI use.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-        <a href="/tools/ev-charging-cost-calculator.html" class="tool-card">
-          <div class="tool-icon">🔋</div>
-          <h3>EV Charging Cost Calculator</h3>
-          <p>Monthly home charging cost, off-peak savings, public fast charging, and the comparison vs gas.</p>
-          <span class="tool-link">Calculate now →</span>
-        </a>
-
-
+  <section class="hm-split">
+    <div class="container hm-split-grid">
+      <div class="hm-sources">
+        <h2 class="hm-h2">Where the numbers come from</h2>
+        <p class="hm-sub">Each calculator states its assumptions under the result, so you can check the math or swap in your own figures.</p>
+        <dl class="src-list">
+          <div><dt>U.S. Department of Energy</dt><dd>Federal efficiency standards (10 CFR 430) behind the refrigerator, freezer, furnace and light bulb numbers.</dd></div>
+          <div><dt>NOAA</dt><dd>Heating degree days and winter design temperatures for 25 U.S. cities.</dd></div>
+          <div><dt>U.S. Energy Information Administration</dt><dd>Average and regional prices for electricity, natural gas, propane and heating oil.</dd></div>
+          <div><dt>U.S. Environmental Protection Agency</dt><dd>Carbon dioxide per kilowatt-hour, therm and gallon of fuel.</dd></div>
+          <div><dt>NREL</dt><dd>Peak sun hours and production assumptions for solar sizing.</dd></div>
+          <div><dt>USDA</dt><dd>Food safety timelines for freezers and refrigerators during outages.</dd></div>
+        </dl>
+      </div>
+      <div class="hm-recent">
+        <h2 class="hm-h2">Recently updated</h2>
+        <ul class="rc-list" id="rc-list">
+          <li><time datetime="2026-10-14">Oct 14</time><a href="/tools/solar-panel-count-calculator.html">How Many Solar Panels Do I Need?</a><span class="rc-k">Calculator</span></li>
+          <li><time datetime="2026-10-14">Oct 14</time><a href="/tools/led-vs-incandescent.html">LED vs Incandescent Savings Calculator</a><span class="rc-k">Calculator</span></li>
+          <li><time datetime="2026-10-14">Oct 14</time><a href="/tools/refrigerator-energy-cost.html">Refrigerator Energy Cost Calculator</a><span class="rc-k">Calculator</span></li>
+          <li><time datetime="2026-10-13">Oct 13</time><a href="/tools/heating-oil-propane-days-left-calculator.html">How Long Will My Oil or Propane Last?</a><span class="rc-k">Calculator</span></li>
+          <li><time datetime="2026-10-13">Oct 13</time><a href="/compare/heating-oil-pre-buy-vs-cap-vs-market-price.html">Heating Oil Pre-Buy vs Cap vs Market Price</a><span class="rc-k">Comparison</span></li>
+          <li><time datetime="2026-10-13">Oct 13</time><a href="/blog/how-long-will-100-gallons-of-heating-oil-last.html">How Long Will 100 Gallons of Heating Oil Last?</a><span class="rc-k">Guide</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Why Section -->
-  <section class="why-section">
+  <section class="hm-listed">
     <div class="container">
-      <h2 class="section-title">Simple tools for a <em>greener</em> home</h2>
-      <p class="section-sub">We built EcoEnergyCalc because understanding your energy use shouldn't require an engineering degree.</p>
-      <div class="why-grid">
-        <div class="why-item">
-          <span class="why-icon">🔬</span>
-          <h4>Science-based estimates</h4>
-          <p>All calculators use established energy formulas and real utility rate data.</p>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">🔒</span>
-          <h4>No account needed</h4>
-          <p>No email, no signup, no credit card. Just answers.</p>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">📱</span>
-          <h4>Works on any device</h4>
-          <p>Desktop, tablet, or phone — all tools work everywhere.</p>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">🆓</span>
-          <h4>Free forever</h4>
-          <p>All calculators are completely free with no hidden fees.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AdSense -->
-  <div class="container">
-    <div class="adslot"><!-- AdSense code here --></div>
-  </div>
-
-  <!-- Blog Preview -->
-  <section class="blog-section">
-    <div class="container">
-      <h2 class="section-title">From the blog</h2>
-      <p class="section-sub">Practical guides to help you save energy and reduce your footprint.</p>
-      <div class="blog-grid">
-
-        <a href="/blog/how-much-water-should-a-family-of-4-use.html" class="blog-card" data-date="2026-08-17">
-          <span class="blog-tag">Water & Environment</span>
-          <h3>How Much Water Should a Family of 4 Use?</h3>
-          <p>About 328 gallons a day, 9,840 a month — roughly 13 CCF. Benchmarks by household size, the CF vs CCF trap, and when a high number means a leak.</p>
-          <span class="blog-meta">8 min read · August 2026</span>
-        </a>
-
-        <a href="/blog/how-long-will-my-house-stay-warm-without-power.html" class="blog-card" data-date="2026-10-19">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>How Long Will My House Stay Warm Without Power?</h3>
-          <p>The usual "6 to 24 hours" hides a range from under 2 hours to over a day. What actually decides it, and the free step that buys you three more.</p>
-          <span class="blog-meta">7 min read · October 2026</span>
-        </a>
-
-        <a href="/blog/why-is-my-heat-pump-electric-bill-so-high.html" class="blog-card" data-date="2026-10-05">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>Why Is My Heat Pump Electric Bill So High?</h3>
-          <p>Cold snaps switch on resistance strips behind the scenes at roughly 3.5× the hourly cost. What's normal, what isn't, and the thermostat setback that triggers it.</p>
-          <span class="blog-meta">8 min read · October 2026</span>
-        </a>
-
-        <a href="/blog/is-an-electric-blanket-cheaper-than-heating.html" class="blog-card" data-date="2026-09-28">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>Is an Electric Blanket Cheaper Than Heating?</h3>
-          <p>About 15¢ a night to run — but that isn't the number that matters. The savings come from the thermostat setback it enables, plus three floors you shouldn't cross.</p>
-          <span class="blog-meta">8 min read · September 2026</span>
-        </a>
-
-        <a href="/blog/is-my-apartment-utility-bill-fair.html" class="blog-card" data-date="2026-09-14">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>Is My Apartment Utility Bill Fair? A Renter's Guide to RUBS</h3>
-          <p>No meter on your unit but still a monthly utility charge? How the allocation formulas work, what you can legally check, and the one calculation that has teeth.</p>
-          <span class="blog-meta">8 min read · September 2026</span>
-        </a>
-
-        <a href="/blog/furnace-efficiency-rule-2028.html" class="blog-card" data-date="2026-09-07">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>The 2028 Furnace Rule: What 95% AFUE Means for Homeowners</h3>
-          <p>Every new gas furnace must hit 95% AFUE from December 2028. Why "buy a cheap 80% now" usually loses money, and what the venting retrofit really costs.</p>
-          <span class="blog-meta">8 min read · September 2026</span>
-        </a>
-
-        <a href="/blog/why-did-my-electric-bill-go-up-when-i-used-less.html" class="blog-card" data-date="2026-08-31">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>Why Did My Electric Bill Go Up When I Used Less?</h3>
-          <p>Usage flat or down, bill up 20–30%. It isn't a meter fault — it's rates outrunning conservation. The arithmetic, and which fix matches which cause.</p>
-          <span class="blog-meta">8 min read · August 2026</span>
-        </a>
-
-        <a href="/blog/is-balcony-solar-worth-it.html" class="blog-card" data-date="2026-08-24">
-          <span class="blog-tag">Solar</span>
-          <h3>Is Balcony Solar Worth It? Plug-In Solar Math for US Renters</h3>
-          <p>Legal in 8 states now. An 800W kit is $1,650–1,980 with no federal credit left — and payback swings from 3.7 to 21 years on a number vendors never ask about.</p>
-          <span class="blog-meta">9 min read · August 2026</span>
-        </a>
-
-        <a href="/blog/is-community-solar-worth-it.html" class="blog-card" data-date="2026-08-10">
-          <span class="blog-tag">Solar</span>
-          <h3>Is Community Solar Worth It? The Two-Bill Math Explained</h3>
-          <p>No roof, no upfront cost — but you get two bills, not one. Real savings land near 7% of your bill, not the advertised 10%. Who it actually suits.</p>
-          <span class="blog-meta">9 min read · August 2026</span>
-        </a>
-
-        <a href="/blog/how-much-does-it-cost-to-charge-an-ev-at-home.html" class="blog-card" data-date="2026-08-10">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>How Much Does It Cost to Charge an EV at Home?</h3>
-          <p>About $55/month for typical driving — or $30 on an off-peak rate. State-by-state math, public charging costs, and the Level 1 vs Level 2 myth.</p>
-          <span class="blog-meta">9 min read · August 2026</span>
-        </a>
-
-        <a href="/blog/net-metering-vs-net-billing.html" class="blog-card" data-date="2026-08-10">
-          <span class="blog-tag">Solar</span>
-          <h3>Net Metering vs Net Billing: What Your Solar Exports Are Really Worth</h3>
-          <p>Full retail net metering credits exports 1:1. Net billing pays roughly 4–8¢/kWh instead. How to tell which you're on — and why self-consumption matters more than the policy.</p>
-          <span class="blog-meta">9 min read · August 2026</span>
-        </a>
-
-        <a href="/blog/why-electric-bills-are-rising-ai-data-centers.html" class="blog-card" data-date="2026-07-20">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>Why Your Electric Bill Keeps Rising: AI Data Centers Explained</h3>
-          <p>U.S. residential rates jumped from 15¢ to 18.4¢/kWh in four years. Here's how much of that is data center demand — and what it means for your bill.</p>
-          <span class="blog-meta">9 min read · July 2026</span>
-        </a>
-
-        <a href="/blog/how-much-does-it-cost-to-run-a-space-heater.html" class="blog-card" data-date="2026-07-06">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>How Much Does It Cost to Run a Space Heater?</h3>
-          <p>A 1,500W space heater costs $0.27/hr at average U.S. rates. See per-day and monthly costs — and whether space heaters actually save money vs. central heat.</p>
-          <span class="blog-meta">9 min read · July 2026</span>
-        </a>
-
-        <a href="/blog/how-much-does-it-cost-to-run-a-refrigerator.html" class="blog-card" data-date="2026-06-24">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>How Much Does It Cost to Run a Refrigerator?</h3>
-          <p>A modern refrigerator costs $95–237/year to run. Here's the full breakdown by model and age, plus whether upgrading to ENERGY STAR is worth it.</p>
-          <span class="blog-meta">9 min read · June 2026</span>
-        </a>
-
-        <a href="/blog/how-to-lower-electric-bill-in-summer.html" class="blog-card" data-date="2026-06-24">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>How to Lower Your Electric Bill in Summer</h3>
-          <p>11 proven strategies ranked by dollar impact to cut summer cooling costs by 20–40% without sacrificing comfort.</p>
-          <span class="blog-meta">10 min read · June 2026</span>
-        </a>
-
-        <a href="/blog/solar-panel-cost-2026.html" class="blog-card" data-date="2026-06-29">
-          <span class="blog-tag">Solar</span>
-          <h3>Solar Panel Cost in 2026: What Homeowners Actually Pay</h3>
-          <p>$15,000–$25,000 installed. The 30% federal tax credit expired Dec 31, 2025, so most 2026 buyers pay full price. Real costs by system size, state, and financing option.</p>
-          <span class="blog-meta">9 min read</span>
-        </a>
-
-        <a href="/blog/how-much-does-it-cost-to-run-ac.html" class="blog-card" data-date="2026-06-29">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>How Much Does It Cost to Run AC All Day?</h3>
-          <p>A 3-ton central AC running 8 hrs/day costs $5.04/day. Enter your AC size and rate — get exact hourly, daily, and monthly cost.</p>
-          <span class="blog-meta">8 min read</span>
-        </a>
-
-        <a href="/blog/how-much-co2-does-solar-save.html" class="blog-card" data-date="2026-06-18">
-          <span class="blog-tag">Solar</span>
-          <h3>How Much CO2 Does Solar Save? Real Numbers by System Size</h3>
-          <p>A 6kW solar system offsets ~5 metric tons of CO2 per year — equal to planting 230 trees. Here's the full carbon math.</p>
-          <span class="blog-meta">9 min read</span>
-        </a>
-
-        <a href="/blog/best-thermostat-settings-to-save-money.html" class="blog-card" data-date="2026-06-18">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>Best Thermostat Settings to Save Money on Heating and Cooling</h3>
-          <p>The right thermostat settings cut your HVAC bill by 10–15% with zero investment. Here are the exact temperatures — by season and time of day.</p>
-          <span class="blog-meta">8 min read</span>
-        </a>
-
-        <a href="/blog/how-to-save-on-laundry-energy-costs.html" class="blog-card" data-date="2026-06-12">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>How to Save on Laundry Energy Costs: Washer & Dryer Guide</h3>
-          <p>Your washer and dryer cost $210–350/year to run. Here's exactly where that money goes and what cuts it most.</p>
-          <span class="blog-meta">10 min read</span>
-        </a>
-
-        <a href="/blog/how-much-does-an-ev-save-on-fuel-costs.html" class="blog-card" data-date="2026-06-12">
-          <span class="blog-tag">Carbon & Transport</span>
-          <h3>How Much Does an EV Save on Fuel Costs? Real Numbers by State</h3>
-          <p>The average EV saves $800–1,400/year on fuel. Here's how to calculate your exact savings based on your state's rates.</p>
-          <span class="blog-meta">11 min read</span>
-        </a>
-
-      </div>
-      <a href="/blog/" class="view-all">View all articles →</a>
-    </div>
-  </section>
-
-  <!-- Comparisons Section -->
-  <section class="blog-section">
-    <div class="container">
-      <h2 class="section-title">Popular comparisons</h2>
-      <p class="section-sub">Side-by-side cost breakdowns to help you pick between two options.</p>
-      <div class="blog-grid">
-
-        <a href="/compare/propane-vs-heating-oil.html" class="blog-card">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>Propane vs Heating Oil</h3>
-          <p>Oil wins in the Northeast, propane in the Midwest. Your break-even propane price, and whether converting pays.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-        <a href="/compare/auxiliary-heat-vs-emergency-heat.html" class="blog-card">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>Auxiliary Heat vs Emergency Heat</h3>
-          <p>Same strips, opposite behaviour — one helps your heat pump, the other shuts it off. Why the cheaper-looking option costs more per unit of heat.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-        <a href="/compare/electric-blanket-vs-space-heater.html" class="blog-card">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>Electric Blanket vs Space Heater</h3>
-          <p>A space heater draws about 15× what a blanket does. Season running costs, the setback each one buys you, and when the heater is still the right call.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-        <a href="/compare/rubs-vs-submetering.html" class="blog-card">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>RUBS vs Submetering</h3>
-          <p>One bills your actual usage, the other bills a formula based on your apartment. Which rewards conservation — and who each system really favours.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-        <a href="/compare/condensing-vs-non-condensing-furnace.html" class="blog-card">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>Condensing vs Non-Condensing Furnace</h3>
-          <p>95% units cost more to install but cut gas use 15.8%. Compare venting requirements, running cost and total cost of ownership.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-        <a href="/compare/supply-vs-delivery-charges.html" class="blog-card">
-          <span class="blog-tag">Energy Savings</span>
-          <h3>Supply vs Delivery Charges</h3>
-          <p>Switching suppliers only touches half your bill. See how much of yours is actually shoppable — and when a cheaper headline rate ends up costing more.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-        <a href="/compare/balcony-solar-vs-community-solar.html" class="blog-card">
-          <span class="blog-tag">Solar</span>
-          <h3>Balcony Solar vs Community Solar</h3>
-          <p>The two solar options that don't need a roof. One you buy and own, the other costs nothing up front. Which suits your apartment.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-        <a href="/compare/community-solar-vs-rooftop-solar.html" class="blog-card">
-          <span class="blog-tag">Solar</span>
-          <h3>Community Solar vs Rooftop Solar</h3>
-          <p>Rooftop wins over 25 years if you own a suitable roof and stay put. Community solar costs $0 upfront and works for renters — see both sets of numbers.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-        <a href="/compare/tankless-vs-tank-water-heater.html" class="blog-card">
-          <span class="blog-tag">Water Heating</span>
-          <h3>Tankless vs Tank Water Heater</h3>
-          <p>Standby heat loss costs $66–511/year depending on fuel. See when tankless actually pays back — and why a heat pump water heater often beats both.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-        <a href="/compare/electric-vs-gas-dryer.html" class="blog-card">
-          <span class="blog-tag">Laundry</span>
-          <h3>Electric vs Gas Dryer</h3>
-          <p>Gas runs about $0.38/load vs $0.68 for electric at national average rates — but the install infrastructure usually decides it, not the operating cost.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-        <a href="/compare/gas-dryer-vs-heat-pump-dryer.html" class="blog-card">
-          <span class="blog-tag">Laundry</span>
-          <h3>Gas Dryer vs Heat Pump Dryer</h3>
-          <p>Rising gas prices have pulled these two to a near tie on running cost. Now the vent, the fabric care, and the rebate rules matter more than the bill.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-        <a href="/compare/solar-shingles-vs-solar-panels.html" class="blog-card">
-          <span class="blog-tag">Solar</span>
-          <h3>Solar Shingles vs Solar Panels</h3>
-          <p>Solar shingles look better and cost far more per watt. See the real price gap, efficiency difference, and when shingles are worth the premium.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-        <a href="/compare/vegan-vs-meat-diet-carbon.html" class="blog-card">
-          <span class="blog-tag">Carbon</span>
-          <h3>Vegan vs Meat Diet: Carbon Footprint</h3>
-          <p>Diet is one of the largest personal carbon levers after home energy and driving. Here's the tonnes-per-year difference, by food category.</p>
-          <span class="blog-meta">Compare impact →</span>
-        </a>
-
-        <a href="/compare/heat-pump-water-heater-vs-electric.html" class="blog-card">
-          <span class="blog-tag">Water Heating</span>
-          <h3>Heat Pump Water Heater vs Electric</h3>
-          <p>A heat pump water heater saves 2,600–3,300 kWh/year over electric resistance — worth $468–594/year. One of the biggest single-appliance savings available.</p>
-          <span class="blog-meta">Compare costs →</span>
-        </a>
-
-      </div>
-      <a href="/compare/" class="view-all">View all comparisons →</a>
-    </div>
-    <div class="container" style="padding-top:2rem;text-align:right;">
+      <p>Listed on</p>
+      <div class="hm-badges">
       <a href="https://newtool.site/item/eco-energy-calc" style="display:inline-block" target="_blank" rel="nofollow noopener noreferrer">
-        <img src="https://newtool.site/badges/newtool-light.svg" alt="Featured on NewTool.site" height="36px" width="auto" />
+        <img src="https://newtool.site/badges/newtool-light.svg" alt="Featured on NewTool.site" height="28" width="auto" />
       </a>
       <a href="https://www.foundrlist.com/product/ecoenergycalc?utm_source=badge&amp;utm_medium=embed" style="display:inline-block" target="_blank" rel="nofollow noopener">
-        <img src="https://www.foundrlist.com/api/badge/ecoenergycalc" alt="Featured on FoundrList" height="36px" />
+        <img src="https://www.foundrlist.com/api/badge/ecoenergycalc" alt="Featured on FoundrList" height="28" />
       </a>
-      <a rel="nofollow noopener" href="https://fazier.com" target="_blank" style="display:inline-block;"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=light" height="36px" alt="Fazier badge" /></a>
+      <a rel="nofollow noopener" href="https://fazier.com" target="_blank" style="display:inline-block;"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=light" height="28" alt="Fazier badge" /></a>
       <a href="https://findly.tools/ecoenergycalc?utm_source=ecoenergycalc" target="_blank" rel="nofollow noopener noreferrer" style="display:inline-block;">
-        <img src="https://findly.tools/badges/findly-tools-badge-light.svg" alt="Featured on Findly.tools" height="36px" />
+        <img src="https://findly.tools/badges/findly-tools-badge-light.svg" alt="Featured on Findly.tools" height="28" />
       </a>
-      <a rel="nofollow noopener" href="https://twelve.tools" target="_blank" style="display:inline-block"><img src="https://twelve.tools/badge0-white.svg" alt="Featured on Twelve Tools" height="36px"></a>
+      <a rel="nofollow noopener" href="https://twelve.tools" target="_blank" style="display:inline-block"><img src="https://twelve.tools/badge0-white.svg" alt="Featured on Twelve Tools" height="28"></a>
       <a rel="nofollow noopener" href="https://pitchwall.co/product/ecoenergycalc?utm_source=badge" target="_blank" style="display: inline-block">
         <img
           src="https://pitchwall.co/images/listed/pitchwall-dark.png"
-          height="36px"
+          height="28"
           alt="Listed on PitchWall"
         />
       </a>
       <a href="https://kittylaunch.com/p/ecoenergycalc" target="_blank" rel="nofollow noopener" style="display: inline-block">
-        <img src="https://kittylaunch.com/api/public/badges/launch_badge.svg?theme=dark&name=EcoEnergyCalc" height="36px" alt="EcoEnergyCalc on KittyLaunch" data-kittylaunch-badge="1" />
+        <img src="https://kittylaunch.com/api/public/badges/launch_badge.svg?theme=dark&name=EcoEnergyCalc" height="28" alt="EcoEnergyCalc on KittyLaunch" data-kittylaunch-badge="1" />
       </a>
       <a href="https://sellwithboost.com" target="_blank" rel="nofollow noopener noreferrer" style="display: inline-block">
-        <img src="https://sellwithboost.com/badge/listing-dark.svg" alt="Listed on Sell With boost" style="height: 36px; width: auto;" />
+        <img src="https://sellwithboost.com/badge/listing-dark.svg" alt="Listed on Sell With boost" style="height: 28px; width: auto;" />
       </a>
+    </div>
     </div>
   </section>
 </main>
 
 <script src="/assets/js/nav.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const grid = document.querySelector('.blog-section .blog-grid');
-  if (!grid) return;
-  const cards = Array.from(grid.querySelectorAll('.blog-card'));
-  cards.sort((a, b) => {
-    const da = a.dataset.date || '2000-01-01';
-    const db = b.dataset.date || '2000-01-01';
-    return db.localeCompare(da);
+(function () {
+  // Seasonal block: show the set that matches the current month.
+  var m = new Date().getMonth() + 1;
+  var season = (m >= 10 || m <= 3) ? 'heating' : (m >= 6 && m <= 9) ? 'cooling' : 'shoulder';
+  document.querySelectorAll('.ss-set').forEach(function (el) {
+    el.hidden = el.getAttribute('data-season') !== season;
   });
-  cards.forEach(c => grid.appendChild(c));
-});
+
+  // Recently updated: newest lastmod entries from the sitemap, titled from the hub pages.
+  var list = document.getElementById('rc-list');
+  if (!list || !window.fetch || !window.DOMParser) return;
+  var hubs = [['/tools/', 'Calculator'], ['/compare/', 'Comparison'], ['/blog/', 'Guide']];
+  Promise.all([fetch('/sitemap.xml').then(function (r) { return r.text(); })].concat(
+    hubs.map(function (h) { return fetch(h[0]).then(function (r) { return r.text(); }); })
+  )).then(function (res) {
+    var dp = new DOMParser();
+    var titles = {};
+    hubs.forEach(function (h, i) {
+      var doc = dp.parseFromString(res[i + 1], 'text/html');
+      doc.querySelectorAll('a[href].blog-card').forEach(function (a) {
+        var t = a.querySelector('h3');
+        if (t) titles[a.getAttribute('href')] = [t.textContent.trim(), h[1]];
+      });
+    });
+    var xml = dp.parseFromString(res[0], 'application/xml');
+    var items = [];
+    xml.querySelectorAll('url').forEach(function (u) {
+      var loc = (u.querySelector('loc') || {}).textContent || '';
+      var lm = (u.querySelector('lastmod') || {}).textContent || '';
+      var path = loc.replace(/^https?:\/\/[^/]+/, '');
+      if (lm && titles[path]) items.push([lm, path, titles[path][0], titles[path][1]]);
+    });
+    if (items.length < 3) return;
+    items.sort(function (a, b) { return b[0] < a[0] ? -1 : b[0] > a[0] ? 1 : 0; });
+    var mon = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    list.textContent = '';
+    items.slice(0, 6).forEach(function (it) {
+      var p = it[0].split('-');
+      var li = document.createElement('li');
+      var tm = document.createElement('time');
+      tm.setAttribute('datetime', it[0]);
+      tm.textContent = mon[+p[1] - 1] + ' ' + (+p[2]);
+      var a = document.createElement('a');
+      a.href = it[1];
+      a.textContent = it[2];
+      var k = document.createElement('span');
+      k.className = 'rc-k';
+      k.textContent = it[3];
+      li.appendChild(tm); li.appendChild(a); li.appendChild(k);
+      list.appendChild(li);
+    });
+  }).catch(function () {});
+})();
 </script>
 </body>
 </html>
-

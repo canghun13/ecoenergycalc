@@ -31,52 +31,20 @@ document.addEventListener('DOMContentLoaded', function () {
   const footer = `
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="logo">Eco<span>Energy</span>Calc</a>
-          <p>Free energy & climate calculators — no signup, no fees, instant results.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Tools</h4>
-          <ul>
-            <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
-            <li><a href="/tools/electric-bill.html">Electric Bill</a></li>
-            <li><a href="/tools/solar-panel-savings.html">Solar Panel Savings</a></li>
-            <li><a href="/tools/solar-panel-roi.html">Solar Panel ROI</a></li>
-            <li><a href="/tools/carbon-footprint.html">Carbon Footprint</a></li>
-            <li><a href="/tools/car-vs-ev-carbon.html">Car vs EV Carbon</a></li>
-            <li><a href="/tools/flight-carbon.html">Flight Carbon</a></li>
-            <li><a href="/tools/green-home-upgrade-roi.html">Green Home Upgrade ROI</a></li>
-            <li><a href="/tools/" style="font-weight:600;">View all tools →</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Compare</h4>
-          <ul>
-            <li><a href="/compare/ev-vs-gas-car.html">EV vs Gas Car</a></li>
-            <li><a href="/compare/heat-pump-vs-furnace-vs-boiler.html">Heat Pump vs Furnace</a></li>
-            <li><a href="/compare/solar-lease-vs-buy-vs-loan.html">Solar Lease vs Buy</a></li>
-            <li><a href="/compare/induction-vs-gas-vs-electric-stove.html">Induction vs Gas Stove</a></li>
-            <li><a href="/compare/tankless-vs-tank-water-heater.html">Tankless vs Tank Water Heater</a></li>
-            <li><a href="/compare/" style="font-weight:600;">View all comparisons →</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Site</h4>
-          <ul>
-            <li><a href="/blog/">Blog</a></li>
-            <li><a href="/glossary/">Glossary</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/disclosure.html">Advertising Disclosure</a></li>
-            <li><a href="/privacy.html">Privacy Policy</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-          </ul>
-        </div>
+      <div class="sf-row">
+        <a href="/" class="logo">Eco<span>Energy</span>Calc</a>
+        <nav class="sf-links" aria-label="Footer">
+          <a href="/tools/">Tools</a>
+          <a href="/compare/">Compare</a>
+          <a href="/blog/">Blog</a>
+          <a href="/glossary/">Glossary</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/disclosure.html">Advertising disclosure</a>
+        </nav>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; ${new Date().getFullYear()} EcoEnergyCalc.com &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="/disclosure.html">Disclosure</a> &middot; <a href="/contact.html">Contact</a></p>
-        <p class="disclaimer">This site provides estimates for informational purposes only. Always consult a qualified energy or financial professional before making major decisions.</p>
-      </div>
+      <p class="sf-note">&copy; ${new Date().getFullYear()} EcoEnergyCalc.com. Estimates are for information only; check major decisions with a qualified energy or financial professional.</p>
     </div>
   </footer>`;
 
