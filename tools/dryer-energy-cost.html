@@ -12,16 +12,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Clothes Dryer Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/dryer-energy-cost.html","description":"Clothes dryer energy cost calculator: find out exactly how much your dryer costs to run per load, per month, and per year. Compare electric vs gas dryers.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-24","dateModified":"2026-09-21","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Clothes Dryer Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/dryer-energy-cost.html","description":"Clothes dryer energy cost calculator: find out exactly how much your dryer costs to run per load, per month, and per year. Compare electric vs gas dryers.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-24","dateModified":"2026-10-14","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"How much does it cost to run a clothes dryer?","acceptedAnswer":{"@type":"Answer","text":"An electric dryer costs about $0.35–$0.55 per load (45–60 minutes at 3,000–5,000 watts), or roughly $10–16/month for 5 loads a week at 15¢/kWh. A gas dryer runs closer to $0.20–$0.30 per load since gas heat is cheaper per BTU than electric resistance heat."}},
-    {"@type":"Question","name":"What is the average cost of a clothes dryer per year?","acceptedAnswer":{"@type":"Answer","text":"For a typical household doing 5 loads per week, an electric dryer costs approximately $130–$210/year to run, while a gas dryer costs roughly $75–$120/year. Actual cost depends on your electricity/gas rates, dryer efficiency, and load frequency — use the calculator above for your exact numbers."}},
-    {"@type":"Question","name":"Is it cheaper to run a gas or electric dryer?","acceptedAnswer":{"@type":"Answer","text":"A gas dryer is typically 30–40% cheaper to run per load than an electric dryer, since natural gas costs less per unit of heat energy than electricity in most U.S. markets. However, gas dryers cost more upfront and require a gas line, so the break-even point depends on how many loads you run per year."}}
+    {"@type":"Question","name":"How much does it cost to run a clothes dryer?","acceptedAnswer":{"@type":"Answer","text":"At 18\u00a2/kWh, a standard 5,000-watt electric dryer costs about $0.68 for a 45-minute load and an ENERGY STAR 4,000-watt model about $0.54. A gas dryer costs about $0.38 a load at $1.70/therm, and a heat pump dryer about $0.34."}},
+    {"@type":"Question","name":"What is the average cost of a clothes dryer per year?","acceptedAnswer":{"@type":"Answer","text":"At 5 loads a week, a standard electric dryer costs about $176 a year, an ENERGY STAR electric model about $140, a gas dryer about $98 and a heat pump dryer about $88, using national average rates of 18\u00a2/kWh and $1.70/therm."}},
+    {"@type":"Question","name":"Is it cheaper to run a gas or electric dryer?","acceptedAnswer":{"@type":"Answer","text":"Gas is about 45% cheaper per load than a standard electric dryer at national average prices: roughly $0.38 versus $0.68. A heat pump electric dryer closes most of that gap at about $0.34 a load. Local rates decide the winner, so compare with your own electricity and gas prices."}},
+    {"@type":"Question","name":"Is a heat pump dryer worth it?","acceptedAnswer":{"@type":"Answer","text":"It saves about $53\u201388 a year at 5 loads a week compared with a conventional electric dryer, so a $300\u2013600 price premium pays back in roughly 4\u201312 years. It makes the most sense for large households, high electric rates, or homes where installing a dryer vent is difficult."}}
   ]}
   </script>
 </head>
@@ -44,13 +45,14 @@
               <select id="dryer-type" onchange="setDryerDefaults()">
                 <option value="electric_standard">Electric, standard (5,000W)</option>
                 <option value="electric_es" selected>Electric, ENERGY STAR (4,000W)</option>
-                <option value="heat_pump">Heat pump dryer (2,000W)</option>
-                <option value="gas">Gas dryer (electric motor only: 700W + gas)</option>
+                <option value="heat_pump">Heat pump dryer (2,000W, ~25% longer cycles)</option>
+                <option value="gas">Gas dryer (0.22 therms/hr + 700W motor)</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="dryer-time">Minutes Per Load</label>
+              <label for="dryer-time">Minutes Per Load (conventional cycle)</label>
               <input type="number" id="dryer-time" value="45" min="10" max="120" />
+              <small style="color:var(--text-muted);">For a heat pump dryer, enter what a standard dryer would take; the calculator adds the longer heat pump cycle.</small>
             </div>
             <div class="form-group">
               <label for="dryer-loads">Loads Per Week</label>
@@ -68,32 +70,35 @@
             <div class="result-box-tool" id="dryer-result">
               <h3>Dryer Running Cost</h3>
               <div class="result-amount" id="dryer-annual"></div>
-              <table id="dryer-breakdown"></table>
-              <p class="result-note">Electric dryer costs based on wattage × cycle time. Gas dryer costs include motor electricity plus natural gas at ~22,000 BTU/hour (0.22 therms/hour). Actual costs vary by dryer model, load size, and local utility rates.</p>
+              <table id="dryer-breakdown" class="compact" style="width:100%;"></table>
+              <h3 style="margin-top:18px;">Same Laundry on Other Dryers</h3>
+              <table id="dryer-compare" class="compact" style="width:100%;"></table>
+              <p class="result-note">Electric dryer cost = element wattage × cycle time. Heat pump dryers draw about 2,000W but run about 25% longer per load. Gas dryers burn about 22,000 BTU/hour (0.22 therms/hour) plus about 700W for the drum motor and controls. Real use varies with load size and how wet clothes leave the washer.</p>
             </div>
           </div>
 
           <div class="article-body" style="margin-top:48px;">
             <h2>How Much Does a Dryer Cost to Run?</h2>
-            <p>A standard electric dryer draws around 4,000–5,000 watts and runs 45–60 minutes per load. At the U.S. average electricity rate of 18¢/kWh, a single load costs roughly <strong>$0.54–$0.90</strong>. At 5 loads per week, that's <strong>$140–$234 per year</strong> just for the dryer — making it one of the top 5 energy-consuming appliances in the typical home.</p>
-            <p>Gas dryers are cheaper to run in most regions. A gas dryer uses about 22,000 BTU/hour of natural gas (0.22 therms/hour) plus a small amount of electricity to run the motor and controls. At an average gas rate of $1.70/therm and 45-minute cycles, gas fuel cost is about $0.28/load — compared to $0.54–$0.90 for a comparable electric dryer. Over a year at 5 loads/week, a gas dryer costs roughly $72–98 in gas vs. $140–234 in electricity.</p>
+            <p>A standard electric dryer draws around 4,000–5,000 watts and runs 45–60 minutes per load. At the U.S. average electricity rate of 18¢/kWh, a 45-minute load costs roughly <strong>$0.54–$0.68</strong>, and an hour-long load up to $0.90. At 5 loads per week, that's about <strong>$140–$234 per year</strong> just for the dryer — making it one of the top 5 energy-consuming appliances in the typical home.</p>
+            <p>Gas dryers are cheaper to run in most regions. A gas dryer uses about 22,000 BTU/hour of natural gas (0.22 therms/hour) plus a small amount of electricity to run the motor and controls. At an average gas rate of $1.70/therm and 45-minute cycles, gas costs about $0.28 a load and the motor about $0.09, for a total near $0.38 — compared with $0.54–$0.68 for an electric dryer on the same cycle. Over a year at 5 loads a week, that is about $98 for gas against $140–$176 for electric.</p>
 
             <h2>Electric vs Gas Dryer: Annual Cost Comparison</h2>
             <p>At 5 loads per week, 45-minute cycles, 18¢/kWh electricity, $1.70/therm gas:</p>
             <ul>
               <li><strong>Standard electric (5,000W):</strong> 3.75 kWh/load → $0.68/load → <strong>$176/year</strong></li>
               <li><strong>ENERGY STAR electric (4,000W):</strong> 3.0 kWh/load → $0.54/load → <strong>$140/year</strong></li>
-              <li><strong>Heat pump dryer (2,000W):</strong> 1.5 kWh/load → $0.27/load → <strong>$70/year</strong></li>
-              <li><strong>Gas dryer:</strong> 0.22 therms + 0.53 kWh/load → $0.47/load → <strong>$122/year</strong></li>
+              <li><strong>Heat pump dryer (2,000W, ~56-minute cycle):</strong> 1.9 kWh/load → $0.34/load → <strong>$88/year</strong></li>
+              <li><strong>Gas dryer:</strong> 0.165 therms + 0.53 kWh/load → $0.38/load → <strong>$98/year</strong></li>
             </ul>
-            <p>Heat pump dryers use 40–50% less energy than conventional electric dryers by recirculating heated air instead of exhausting it. They typically cost $300–600 more upfront, but annual savings of $70–105 mean a payback period of 3–9 years — and they run at lower temperatures, which is gentler on fabrics.</p>
+            <p>Heat pump dryers use roughly half the electricity of a standard electric dryer by recirculating warm air through a heat exchanger instead of venting it, even though each cycle runs longer. Against a 5,000W dryer they save about $88 a year at 5 loads a week; against an ENERGY STAR 4,000W model, about $53. With a $300–600 price premium, payback is roughly 4–12 years on electricity alone — fastest for big households and high electric rates. They need no outside vent, which can matter more than the savings in a condo or a closet laundry.</p>
+            <p>Gas and heat pump land within about $10 a year of each other at national average prices, so a household that already has a gas dryer has little reason to switch. Where they differ is local rates: at 25¢/kWh electricity and $1.15/therm gas, gas wins clearly; at 15¢ electricity and $1.95 gas, the heat pump does. Enter your own rates and the comparison table in the result does the math.</p>
 
             <h2>What Affects Dryer Running Cost Most?</h2>
             <p>Unlike washing machines, where water temperature dominates the energy bill, dryer costs are driven almost entirely by three factors:</p>
             <ul>
               <li><strong>Cycle time</strong> — The single biggest variable. A 45-minute cycle uses 25% less energy than a 60-minute one. The most effective way to cut dryer costs is to spin clothes longer in the washer (reducing moisture content) and clean the lint filter before every load to maintain airflow.</li>
               <li><strong>Dryer wattage</strong> — Standard electric dryers range from 4,000–6,000 watts. ENERGY STAR models are typically 4,000–4,500W. Heat pump dryers run at 1,800–2,200W.</li>
-              <li><strong>Load frequency</strong> — At $0.39–0.65/load, reducing from 7 loads to 5 loads per week saves $20–35/year with no other changes.</li>
+              <li><strong>Load frequency</strong> — At $0.38–0.68 a load, cutting from 7 loads to 5 a week saves about $40–70 a year with no other changes.</li>
             </ul>
 
             <h2>Tips to Lower Your Dryer Energy Bill</h2>
@@ -131,8 +136,9 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Standard electric dryer: <strong>~$127/yr</strong></li>
-              <li>Heat pump dryer: <strong>~$51/yr</strong></li>
+              <li>Standard electric dryer: <strong>~$176/yr</strong></li>
+              <li>Gas dryer: <strong>~$98/yr</strong></li>
+              <li>Heat pump dryer: <strong>~$88/yr</strong></li>
               <li>Clean lint filter saves: <strong>20–30%</strong> cycle time</li>
             </ul>
           </div>
@@ -154,11 +160,13 @@
     <div class="article-body" style="max-width:800px;">
       <h2>Frequently Asked Questions</h2>
       <h3>How much does it cost to run a clothes dryer?</h3>
-      <p>An electric dryer costs about $0.35–$0.55 per load (45–60 minutes at 3,000–5,000 watts), or roughly $10–16/month for 5 loads a week at 15¢/kWh. A gas dryer runs closer to $0.20–$0.30 per load since gas heat is cheaper per BTU than electric resistance heat.</p>
+      <p>At 18¢/kWh, a standard 5,000-watt electric dryer costs about $0.68 for a 45-minute load and an ENERGY STAR 4,000-watt model about $0.54. A gas dryer costs about $0.38 a load at $1.70/therm, and a heat pump dryer about $0.34.</p>
       <h3>What is the average cost of a clothes dryer per year?</h3>
-      <p>For a typical household doing 5 loads per week, an electric dryer costs approximately $130–$210/year to run, while a gas dryer costs roughly $75–$120/year. Actual cost depends on your electricity/gas rates, dryer efficiency, and load frequency — use the calculator above for your exact numbers.</p>
+      <p>At 5 loads a week, a standard electric dryer costs about $176 a year, an ENERGY STAR electric model about $140, a gas dryer about $98 and a heat pump dryer about $88, using national average rates of 18¢/kWh and $1.70/therm.</p>
       <h3>Is it cheaper to run a gas or electric dryer?</h3>
-      <p>A gas dryer is typically 30–40% cheaper to run per load than an electric dryer, since natural gas costs less per unit of heat energy than electricity in most U.S. markets. However, gas dryers cost more upfront and require a gas line, so the break-even point depends on how many loads you run per year.</p>
+      <p>Gas is about 45% cheaper per load than a standard electric dryer at national average prices: roughly $0.38 versus $0.68. A heat pump electric dryer closes most of that gap at about $0.34 a load. Local rates decide the winner, so compare with your own electricity and gas prices.</p>
+      <h3>Is a heat pump dryer worth it?</h3>
+      <p>It saves about $53–88 a year at 5 loads a week compared with a conventional electric dryer, so a $300–600 price premium pays back in roughly 4–12 years. It makes the most sense for large households, high electric rates, or homes where installing a dryer vent is difficult.</p>
     </div>
     </div>
   </section>
@@ -171,54 +179,60 @@ const dryerWatts = {
   heat_pump: 2000,
   gas: 700
 };
+const dryerNames = {
+  electric_standard: 'Standard electric',
+  electric_es: 'ENERGY STAR electric',
+  heat_pump: 'Heat pump',
+  gas: 'Gas'
+};
+const HP_TIME = 1.25;      // heat pump cycles run ~25% longer
+const GAS_THERM_HR = 0.22; // 22,000 BTU/hr burner
 
 function setDryerDefaults() {
   const type = document.getElementById('dryer-type').value;
   document.getElementById('gas-rate-group').style.display = type === 'gas' ? 'block' : 'none';
 }
 
+function dryerLoad(type, minutes, elecRate, gasRate) {
+  const hours = minutes / 60 * (type === 'heat_pump' ? HP_TIME : 1);
+  const kwh = dryerWatts[type] / 1000 * hours;
+  const therms = type === 'gas' ? GAS_THERM_HR * hours : 0;
+  return { hours: hours, kwh: kwh, therms: therms, elec: kwh * elecRate, gas: therms * gasRate, total: kwh * elecRate + therms * gasRate };
+}
+
 function calcDryer() {
   const type = document.getElementById('dryer-type').value;
   const minutes = parseFloat(document.getElementById('dryer-time').value) || 45;
   const loadsPerWeek = parseFloat(document.getElementById('dryer-loads').value) || 5;
-  const elecRate = parseFloat(document.getElementById('dryer-elec-rate').value) / 100 || 0.18;
+  const elecRate = (parseFloat(document.getElementById('dryer-elec-rate').value) || 18) / 100;
   const gasRate = parseFloat(document.getElementById('dryer-gas-rate').value) || 1.70;
-
-  const watts = dryerWatts[type];
-  const hours = minutes / 60;
-  const elecKwhPerLoad = (watts / 1000) * hours;
-  const elecCostPerLoad = elecKwhPerLoad * elecRate;
-
-  let gasCostPerLoad = 0;
-  let gasLabel = '';
-  if (type === 'gas') {
-    const thermsPerLoad = 0.22 * hours; // 22,000 BTU/hr = 0.22 therms/hr
-    gasCostPerLoad = thermsPerLoad * gasRate;
-    gasLabel = `Gas cost per load: $${gasCostPerLoad.toFixed(2)} (${thermsPerLoad.toFixed(3)} therms)`;
-  }
-
-  const totalCostPerLoad = elecCostPerLoad + gasCostPerLoad;
   const loadsPerYear = loadsPerWeek * 52;
-  const annualCost = totalCostPerLoad * loadsPerYear;
-  const monthlyCost = annualCost / 12;
-  const annualKwh = elecKwhPerLoad * loadsPerYear;
 
-  const fmt2 = v => '$' + v.toFixed(2);
-  const fmtR = v => '$' + Math.round(v);
+  const L = dryerLoad(type, minutes, elecRate, gasRate);
+  const annualCost = L.total * loadsPerYear;
+  const fmt2 = v => '$' + (Math.round(v * 100 + 1e-9) / 100).toFixed(2);
+  const fmtR = v => '$' + Math.round(v + 1e-9).toLocaleString();
 
-  let extraRow = type === 'gas' ? `<tr><td>Gas cost per load</td><td>${fmt2(gasCostPerLoad)}</td></tr>` : '';
+  let rows = '<tr><td>Cycle length</td><td>' + Math.round(L.hours * 60) + ' min</td></tr>' +
+    '<tr><td>Electricity per load</td><td>' + L.kwh.toFixed(2) + ' kWh (' + fmt2(L.elec) + ')</td></tr>';
+  if (type === 'gas') rows += '<tr><td>Gas per load</td><td>' + L.therms.toFixed(3) + ' therms (' + fmt2(L.gas) + ')</td></tr>';
+  rows += '<tr><td>Total cost per load</td><td>' + fmt2(L.total) + '</td></tr>' +
+    '<tr><td>Monthly (' + loadsPerWeek + ' loads/wk)</td><td>' + fmt2(annualCost / 12) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Annual total</td><td>' + fmtR(annualCost) + '</td></tr>' +
+    '<tr><td>Annual electricity</td><td>' + Math.round(L.kwh * loadsPerYear).toLocaleString() + ' kWh</td></tr>';
+
+  let cmp = '<tr><th>Dryer</th><th>Per load</th><th>Per year</th></tr>';
+  ['electric_standard', 'electric_es', 'heat_pump', 'gas'].forEach(function(t) {
+    const c = dryerLoad(t, minutes, elecRate, gasRate);
+    const yr = c.total * loadsPerYear;
+    const diff = yr - annualCost;
+    const tag = t === type ? ' (yours)' : (diff < 0 ? ' — saves ' + fmtR(-diff) : '');
+    cmp += '<tr' + (t === type ? ' style="font-weight:700;"' : '') + '><td>' + dryerNames[t] + tag + '</td><td>' + fmt2(c.total) + '</td><td>' + fmtR(yr) + '</td></tr>';
+  });
 
   document.getElementById('dryer-annual').textContent = fmtR(annualCost) + '/yr';
-  document.getElementById('dryer-breakdown').innerHTML = `
-    <tr><td>Electricity per load</td><td>${elecKwhPerLoad.toFixed(2)} kWh</td></tr>
-    <tr><td>Electricity cost per load</td><td>${fmt2(elecCostPerLoad)}</td></tr>
-    ${extraRow}
-    <tr><td>Total cost per load</td><td>${fmt2(totalCostPerLoad)}</td></tr>
-    <tr><td>Cost per hour of running</td><td>${fmt2(totalCostPerLoad/(minutes/60))}</td></tr>
-    <tr><td>Monthly cost (${loadsPerWeek} loads/wk)</td><td>${fmt2(monthlyCost)}</td></tr>
-    <tr style="font-weight:700;"><td>Annual total</td><td>${fmtR(annualCost)}</td></tr>
-    <tr><td>Annual electricity used</td><td>${Math.round(annualKwh)} kWh</td></tr>
-  `;
+  document.getElementById('dryer-breakdown').innerHTML = rows;
+  document.getElementById('dryer-compare').innerHTML = cmp;
   const r = document.getElementById('dryer-result');
   r.classList.add('visible');
   r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });

@@ -1,3 +1,32 @@
+# EcoEnergyCalc 인수인계 — v38 세션 (2026-10-14, 초기 범용 페이지 업그레이드)
+
+## 0-L1. 왜 했나
+
+초기(6~7월) 범용 계산기 9개가 "계산기 공장" 인상 + 부풀린 모델(냉장고 정격W×24, 풍력 이용률 22~42%, 가전 프리셋)이었다. 애드센스 '가치 없는 콘텐츠' 대응 겸 신뢰도 정비. **출처 있는 모델 + 남들이 안 하는 판단 포인트**를 각 페이지에 넣는 게 원칙.
+
+## 0-L2. ✅ 페이지별 변경 (12파일)
+
+- `tools/refrigerator-energy-cost.html` — 연방 최대 사용량 공식(10 CFR 430.32, 등급 3/5/5A/7/11A, AV=냉장+1.76×냉동) 기반 재구축. EnergyGuide 라벨 입력, 구형 실측 kWh/일 → 교체 절감·회수. 기본 18cu ft 상냉동 407kWh/$73. "먼저 측정" 섹션.
+  - `blog/how-much-does-it-cost-to-run-a-refrigerator.html` 수치 전부 이 공식으로 교체(제빙기 연방 차이 ~170kWh).
+- `tools/freezer-running-cost.html` — 연방 공식(등급 8/9/10, AV=1.73×용량). 체스트 vs 업라이트(무성에 +50%), "꽉 채우면 절약" 신화 정정(USDA 48h/24h는 정전 시 이야기).
+- `tools/wind-turbine.html` — AEO≈0.01328×D²(ft)×V³(mph)(Windustry) + 1/7 지수 풍속 보정 + 이용률 표시, 22% 초과·10mph 미만 경고. "kW보다 로터 크기", "타워 높이" 섹션.
+  - `compare/solar-panels-vs-wind-turbine.html` 풍력 모델도 같은 식으로 교체(kW→로터 직경 8.2×kW^0.46, CF 상한 22%). 기본 5kW·10mph: 3,925kWh, 회수 35년. 시애틀 태양광 수치 정정.
+- `tools/appliance-energy-cost.html` — 프리셋·문단 수치 정정(냉장고 45W 평균), **기본값 비어 있어 $0 나오던 문제 → 냉장고 프리셋 기본 선택**.
+- `tools/solar-panel-count-calculator.html` — 일사 드롭다운을 도시표와 일치(4.4 기본), **도시표 패널 수 오류 정정**(900kWh 시카고 16→22장), 설치단가 입력, **풀 넷미터링 vs 넷빌링 회수기간 동시 표시**(수출 4.5¢, 자가소비 35% — net-metering 계산기의 '소매가 25%'와 일치). 핵심 분석: 넷빌링에선 절반 규모가 더 빨리 회수(25.3년 vs 19.6년).
+  - `blog/how-many-solar-panels-do-i-need.html` 피닉스/시애틀 수치와 넷빌링 문단(“90~95%로 맞춰라” → 계산기 결론과 일치) 수정.
+- `tools/led-vs-incandescent.html` — 백열/할로겐/CFL × 밝기, LED 가격 → 전구당 회수기간·1년 회수 손익분기(60W 기준 하루 약 45분). "어느 소켓부터 바꿀까" 표, CFL은 교체 가치 낮음. CO₂ 단위 오류 수정(0.386 kg = 0.85 lb). **2023-08-01 45lm/W 규정 + LIT Act(S.1568) 2026-09-30 상원 위원회 통과·미입법** 반영(inside.lighting 2026-10 기사).
+- `tools/dryer-energy-cost.html` — 히트펌프 2,000W×1.25배 사이클(1.9kWh), 가스 $0.38/회 — 사이트 다른 건조기 페이지와 일치. 결과에 "다른 건조기 4종 비교표" 추가. 반올림 ε 처리.
+- `tools/carbon-footprint.html` — 항공 0.9t/편 → 국내 왕복 0.5t + 장거리 왕복 2t 입력 분리. 기본값 채움(886kWh, 12,000마일 → 10.9t).
+- `tools/electric-bill.html` — "평균 단가 ≠ 절약 1kWh 가치"(고정요금 제외 한계단가) 행·섹션 추가, 고정요금 비중 안내, spike/breakdown/budget 계산기 연결, 수치 정정(EV $540~900).
+
+## 0-L3. 남은 것 / 주의
+
+- `compare/wind-vs-solar-energy.html`, `compare/heat-pump-dryer-vs-electric.html`(일반 건조기 5kWh/회 가정)은 손대지 않음 — 다음에 수치 일관성 점검 대상.
+- 검증: scan/faq/links 0, 계산기 100개 기본값 실행 이상 없음, 입력 범위 0, 375/1280 오버플로 없음.
+- 측정: 2~4주 뒤 위 페이지들 GSC 노출·CTR 변화(특히 solar-panel-count, led, refrigerator).
+
+---
+
 # EcoEnergyCalc 인수인계 — v37 세션 (2026-10-13, 신규 발굴)
 
 ## 0-K1. 발굴 과정 (다음 신규 세션 참고)

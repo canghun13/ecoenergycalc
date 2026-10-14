@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LED vs Incandescent Savings Calculator | EcoEnergyCalc</title>
-  <meta name="description" content="See exactly how much you save per year by switching to LED bulbs. Free LED vs incandescent savings calculator — instant results." />
+  <title>LED vs Incandescent Savings Calculator – Payback Per Bulb | EcoEnergyCalc</title>
+  <meta name="description" content="Is it worth replacing working incandescent or halogen bulbs with LEDs? Get annual savings, payback per bulb, and the daily use where swapping pays off within a year — plus where the 2023 bulb rule stands." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/tools/led-vs-incandescent.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,10 +12,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
     <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"LED vs Incandescent Savings Calculator","url":"https://ecoenergycalc.com/tools/led-vs-incandescent.html","description":"See exactly how much you save per year by switching to LED bulbs. Free LED vs incandescent savings calculator — instant results.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"LED vs Incandescent Savings Calculator","url":"https://ecoenergycalc.com/tools/led-vs-incandescent.html","description":"Is it worth replacing working incandescent or halogen bulbs with LEDs? Get annual savings, payback per bulb, and the daily use where swapping pays off within a year — plus where the 2023 bulb rule stands.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-10-14","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is it worth replacing working incandescent bulbs with LEDs?","acceptedAnswer":{"@type":"Answer","text":"Yes, for any bulb used more than about 45 minutes a day. At 18\u00a2/kWh a $2.50 LED replacing a 60W incandescent pays for itself in about 3 months at 3 hours a day and in 2 months at 5 hours. For closets and attics used a few minutes a day, payback stretches to a decade, so let those bulbs burn out first."}},
+    {"@type":"Question","name":"How much does an LED save compared with a 60W incandescent?","acceptedAnswer":{"@type":"Answer","text":"A 9W LED uses 51 fewer watts. At 3 hours a day that is about 56 kWh a year, or roughly $10 at 18\u00a2/kWh. Twenty bulbs used that way save about $200 a year."}},
+    {"@type":"Question","name":"Are incandescent light bulbs banned in the US?","acceptedAnswer":{"@type":"Answer","text":"Since August 1, 2023, federal rules require general service bulbs to produce at least 45 lumens per watt, which standard and halogen incandescent bulbs can't meet. A Senate bill to repeal the rule cleared committee on September 30, 2026, but as of October 2026 it had not passed and the rule remains in effect. Appliance bulbs and a few specialty types are exempt."}},
+    {"@type":"Question","name":"Should I replace CFL bulbs with LEDs?","acceptedAnswer":{"@type":"Answer","text":"Not for the energy savings alone. A 13W CFL and a 9W LED give the same light, so the swap saves under $1 a year at 3 hours a day. Replace CFLs as they fail, or sooner in fixtures that run many hours a day, and recycle the old CFLs because they contain mercury."}}
+  ]}
+  </script>
 </head>
 <body>
 <main>
@@ -25,74 +33,87 @@
         <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › LED vs Incandescent</p>
         <span class="tool-category">Energy Savings</span>
         <h1>LED vs Incandescent Savings Calculator</h1>
-        <p>See exactly how much money you save each year by switching from incandescent to LED bulbs.</p>
+        <p>See what each swap saves per year, how fast one bulb pays for itself, and which sockets to change first — for standard incandescent, halogen and CFL bulbs.</p>
       </div>
       <div class="tool-layout">
         <div>
           <div class="calc-box">
             <h2>Calculate Your LED Savings</h2>
             <div class="form-group">
-              <label for="num-bulbs">Number of Bulbs to Replace</label>
-              <input type="number" id="num-bulbs" placeholder="e.g. 20" min="1" value="20" />
+              <label for="led-type">Bulb You're Replacing</label>
+              <select id="led-type">
+                <option value="inc" selected>Standard incandescent</option>
+                <option value="hal">Halogen incandescent ("energy saver")</option>
+                <option value="cfl">CFL (spiral)</option>
+              </select>
+              <small style="color:var(--text-muted);">Halogen bulbs look like ordinary incandescents but use about 28% less power. Check the wattage printed on the bulb.</small>
             </div>
             <div class="form-group">
-              <label for="inc-watts">Incandescent Bulb Wattage</label>
+              <label for="inc-watts">Brightness (Incandescent Equivalent)</label>
               <select id="inc-watts">
-                <option value="40">40W</option>
-                <option value="60" selected>60W</option>
-                <option value="75">75W</option>
-                <option value="100">100W</option>
+                <option value="40">40W equivalent (450 lumens)</option>
+                <option value="60" selected>60W equivalent (800 lumens)</option>
+                <option value="75">75W equivalent (1,100 lumens)</option>
+                <option value="100">100W equivalent (1,600 lumens)</option>
               </select>
             </div>
             <div class="form-group">
+              <label for="num-bulbs">Number of Bulbs</label>
+              <input type="number" id="num-bulbs" min="1" max="200" value="20" />
+            </div>
+            <div class="form-group">
               <label for="hours-day">Hours Used Per Day (per bulb)</label>
-              <input type="number" id="hours-day" placeholder="e.g. 3" min="0" max="24" value="3" />
+              <input type="number" id="hours-day" min="0.1" max="24" step="0.25" value="3" />
             </div>
             <div class="form-group">
               <label for="led-rate">Electricity Rate (¢/kWh)</label>
-              <input type="number" id="led-rate" placeholder="e.g. 18" min="0" step="0.1" value="18" />
+              <input type="number" id="led-rate" min="5" max="60" step="0.1" value="18" />
+            </div>
+            <div class="form-group">
+              <label for="led-price">LED Price Per Bulb ($)</label>
+              <input type="number" id="led-price" min="0.5" max="30" step="0.25" value="2.5" />
+              <small style="color:var(--text-muted);">Multi-pack A19 LEDs run about $1–$4 each. Smart bulbs cost $10–$25.</small>
             </div>
             <button class="btn-primary" onclick="calcLED()">Calculate Savings</button>
             <div class="result-box-tool" id="led-result">
               <h3>Annual Savings</h3>
               <div class="result-amount" id="led-savings"></div>
-              <table id="led-breakdown"></table>
-              <p class="result-note">LED equivalent uses ~75–80% less energy than incandescent for the same light output.</p>
+              <table id="led-breakdown" class="compact" style="width:100%;"></table>
+              <p class="result-note" id="led-note"></p>
+              <p class="result-note">LED wattages: 6W, 9W, 12W and 15W for 450, 800, 1,100 and 1,600 lumens. CO₂ uses the U.S. grid average of 0.386 kg (0.85 lb) per kWh.</p>
             </div>
           </div>
           <div class="article-body" style="margin-top:48px;">
-            <h2>Why LEDs Are Worth It</h2>
-            <p>LED bulbs use <strong>75–85% less energy</strong> than traditional incandescent bulbs and last 15–25 times longer. The math is straightforward: a 60W incandescent running 3 hours a day costs about $8.50/year in electricity. The equivalent 9W LED costs about $1.28/year — a saving of $7.22 per bulb annually. Across 20 bulbs, that's $144/year for doing nothing more than screwing in different bulbs.</p>
-            <p>The upfront cost of LEDs has dropped dramatically. A quality A19 LED now costs $2–5 per bulb at most retailers. At that price, a single bulb pays for itself in electricity savings within 3–6 months and then saves money for the next 15+ years of its rated life.</p>
+            <h2>Which Bulbs to Swap First</h2>
+            <p>An LED saves money only while it's switched on, so the same $2.50 bulb can pay for itself in weeks or take a decade. Payback for one bulb at 18¢/kWh:</p>
+            <div class="table-scroll">
+              <table class="compact" style="width:100%;border-collapse:collapse;margin-top:12px;font-size:.95rem;">
+              <thead><tr style="background:var(--card);text-align:left;"><th>Socket (use per day)</th><th>60W incandescent → 9W LED</th><th>43W halogen → 9W LED</th></tr></thead>
+              <tbody>
+                <tr><td>Porch light, dusk to dawn (12 hrs)</td><td>$40/yr · 3 weeks</td><td>$27/yr · 5 weeks</td></tr>
+                <tr style="background:var(--card);"><td>Kitchen or living room (5 hrs)</td><td>$16.75/yr · 2 months</td><td>$11.17/yr · 3 months</td></tr>
+                <tr><td>Bedroom lamp (3 hrs)</td><td>$10.05/yr · 3 months</td><td>$6.70/yr · 4.5 months</td></tr>
+                <tr style="background:var(--card);"><td>Hallway (1 hr)</td><td>$3.35/yr · 9 months</td><td>$2.23/yr · 13 months</td></tr>
+                <tr><td>Bathroom fan-light (15 min)</td><td>$0.84/yr · 3 years</td><td>$0.56/yr · 4.5 years</td></tr>
+                <tr style="background:var(--card);"><td>Closet or attic (5 min)</td><td>$0.28/yr · 9 years</td><td>$0.19/yr · 13 years</td></tr>
+              </tbody>
+              </table>
+            </div>
+            <p>The break-even line for a one-year payback is about <strong>45 minutes of use a day</strong> for a 60W incandescent, or roughly an hour for a halogen. Anything used longer than that is worth swapping today, working bulb or not. Closet, attic and crawlspace bulbs can stay until they burn out — the savings there are pennies, and an incandescent used five minutes a day can last 30 years.</p>
+            <p>Start with outdoor fixtures on dusk-to-dawn sensors and any high-wattage bulbs: a 100W incandescent replaced by a 15W LED saves $16.75 a year at only 3 hours a day.</p>
 
-            <h3>LED vs Incandescent: The Full Comparison</h3>
-            <p>The fundamental difference is efficiency. Incandescent bulbs produce light by heating a wire filament until it glows — a process that converts about 90% of electrical energy into heat and only 10% into visible light. LEDs (light-emitting diodes) produce light through an entirely different process that generates far less heat, which is why they're cool to the touch and use a fraction of the power.</p>
-            <ul>
-              <li><strong>Energy use:</strong> A 60W incandescent is replaced by a 9–10W LED at the same brightness (800 lumens)</li>
-              <li><strong>Lifespan:</strong> LEDs last 15,000–25,000 hours vs. 1,000–2,000 hours for incandescent. At 3 hrs/day, an LED lasts 13–22 years; incandescent lasts less than 2 years</li>
-              <li><strong>Heat output:</strong> LEDs run cool — a 9W LED generates about 3.4 BTU/hr of heat vs. 51 BTU/hr for a 60W incandescent. In summer, this also reduces air conditioning load</li>
-              <li><strong>Color quality:</strong> Modern LEDs are available in the full range from warm white (2700K, matching incandescent) to daylight (5000K+). Color Rendering Index (CRI) of 90+ is available and matches or exceeds incandescent quality</li>
-            </ul>
+            <h2>Halogens and CFLs Change the Math</h2>
+            <p>Many "incandescent" bulbs bought after 2012 are actually halogen incandescents — the 43W bulb that replaced the 60W. They save about a quarter of the energy on their own, so swapping one to LED is worth about two-thirds as much as swapping a true 60W incandescent. Still a fast payback in any room you use daily.</p>
+            <p>CFLs are different. A 13W CFL and a 9W LED produce the same light, so the swap saves 4 watts — under $1 a year at 3 hours a day, a payback of about three years. Replace working CFLs in fixtures that are on for many hours, otherwise replace them as they fail. Either way, take spent CFLs to a recycling drop-off: they contain a small amount of mercury and don't belong in the trash.</p>
 
-            <h3>Choosing the Right LED Bulb</h3>
-            <p>The most common mistake when buying LEDs is matching wattage instead of brightness. Wattage measures power consumption, not light output. For LEDs, look for <strong>lumens</strong> — the actual measure of brightness. Common equivalencies:</p>
-            <ul>
-              <li>40W incandescent → 450 lumens LED (typically 6W)</li>
-              <li>60W incandescent → 800 lumens LED (typically 9–10W)</li>
-              <li>75W incandescent → 1,100 lumens LED (typically 12–13W)</li>
-              <li>100W incandescent → 1,600 lumens LED (typically 15–16W)</li>
-            </ul>
-            <p>For color temperature: <strong>2700K</strong> is warm white, matching traditional incandescent light — best for living rooms and bedrooms. <strong>3000K</strong> is slightly cooler and works well in kitchens. <strong>4000K–5000K</strong> is daylight white, preferred for garages, workshops, and task lighting.</p>
-            <p>For dimmable fixtures, confirm the LED is labeled "dimmable" and check compatibility with your dimmer switch — older leading-edge dimmers often don't work well with LEDs. Most LED manufacturers publish compatibility lists on their websites.</p>
+            <h2>The 2023 Incandescent Bulb Rule — and the Repeal Bill</h2>
+            <p>Since August 1, 2023, Department of Energy rules have required general service bulbs to produce at least 45 lumens per watt. Standard incandescent (about 14 lm/W) and halogen bulbs (about 19 lm/W) can't meet that, so they've largely disappeared from store shelves. A second DOE rule from April 2024 raises the floor past 120 lumens per watt from 2028, which would also end sales of most CFLs.</p>
+            <p>A Senate bill to void both rules (the LIT Act, S.1568) cleared the Senate Energy and Natural Resources Committee on September 30, 2026, but as of October 2026 it has not passed either chamber, and the standards remain in force. Even if incandescents return to shelves, the numbers above still apply: a 60W incandescent costs about $11.83 a year to run at 3 hours a day versus $1.77 for an LED. A cheaper bulb doesn't change that.</p>
 
-
-            <h3>Smart Bulbs: Worth It?</h3>
-            <p>Smart LED bulbs (Philips Hue, LIFX, Wyze) add Wi-Fi or Zigbee control, color changing, and app/voice control on top of standard LED efficiency. They cost $10–25 per bulb vs. $2–5 for standard LEDs. The energy savings are identical — both use the same LED technology. The extra cost buys convenience and automation features, not additional efficiency. Where smart bulbs pay back in energy terms: automated scheduling (turning off lights you forget to turn off) and dimming (a bulb dimmed 50% uses roughly 40% less energy). If you'd otherwise leave lights on regularly, smart automation can add real savings. Otherwise, standard LEDs provide identical energy performance at a fraction of the cost.</p>
-
-            <h3>Disposing of Old Bulbs</h3>
-            <p>Incandescent bulbs can go in regular trash — they contain no hazardous materials. CFLs (compact fluorescent bulbs) contain mercury and must be recycled through a hazardous waste program, not thrown in the trash. Many hardware stores (Home Depot, Lowe's) accept CFLs for recycling. LED bulbs technically go in regular trash in most jurisdictions since they contain very small amounts of materials, but e-waste recycling programs will accept them. If you're replacing CFLs with LEDs (which you should — LEDs are more efficient and contain no mercury), take the CFLs to a recycling drop-off rather than disposing in the trash.</p>
-            <h3>Carbon Impact</h3>
-            <p>Beyond the bill savings, switching to LEDs has a measurable environmental impact. Every kWh of electricity not consumed avoids approximately 0.386 lbs of CO₂ emissions (EPA average for the U.S. grid). Switching 20 bulbs from 60W incandescent to 9W LED, used 3 hours per day, avoids about 360 lbs of CO₂ per year — equivalent to driving roughly 400 fewer miles in a typical gasoline car.</p>
+            <h2>Choosing the Right LED</h2>
+            <p>Match <strong>lumens</strong>, not watts: 450 lumens replaces a 40W bulb, 800 a 60W, 1,100 a 75W and 1,600 a 100W. For color, <strong>2700K</strong> matches the warm light of an incandescent, <strong>3000K</strong> suits kitchens and baths, and <strong>4000K–5000K</strong> is for garages and workspaces.</p>
+            <p>Two traps catch people. Fully enclosed fixtures trap heat and shorten LED life unless the bulb is rated for enclosed use. And older dimmers built for incandescent loads can make LEDs flicker or buzz — use bulbs labeled dimmable and, if needed, an LED-rated dimmer.</p>
+            <p>Smart bulbs use the same LED technology, so they save the same energy per hour on. They pay back only through behavior — schedules and motion triggers that shut off lights you'd otherwise leave on. For a fixture-by-fixture view of LED, CFL and incandescent lifespans and light quality, see the <a href="/compare/led-vs-cfl-vs-incandescent.html">LED vs CFL vs incandescent comparison</a>.</p>
           </div>
         </div>
         <div>
@@ -103,15 +124,17 @@
               <li><a href="/tools/electric-bill.html">Electric Bill Calculator</a></li>
               <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
               <li><a href="/tools/home-energy-cost.html">Home Energy Cost</a></li>
+              <li><a href="/compare/led-vs-cfl-vs-incandescent.html">LED vs CFL vs Incandescent</a></li>
             </ul>
           </div>
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Energy savings: <strong>~75%</strong></li>
-              <li>LED lifespan: <strong>~25,000 hrs</strong></li>
-              <li>Payback period: <strong>3–6 months</strong></li>
-              <li>CO₂ saved: <strong>~450 lbs/bulb/yr</strong></li>
+              <li>60W → 9W LED: <strong>85% less power</strong></li>
+              <li>1-year payback at: <strong>~45 min/day</strong></li>
+              <li>LED lifespan: <strong>15,000–25,000 hrs</strong></li>
+              <li>Federal 45 lm/W rule: <strong>since Aug 1, 2023</strong></li>
+              <li>CO₂ per 60W swap (3 hrs/day): <strong>~47 lbs/yr</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -119,34 +142,77 @@
       </div>
     </div>
   </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Is it worth replacing working incandescent bulbs with LEDs?</h3>
+      <p>Yes, for any bulb used more than about 45 minutes a day. At 18¢/kWh a $2.50 LED replacing a 60W incandescent pays for itself in about 3 months at 3 hours a day and in 2 months at 5 hours. For closets and attics used a few minutes a day, payback stretches to a decade, so let those bulbs burn out first.</p>
+      <h3>How much does an LED save compared with a 60W incandescent?</h3>
+      <p>A 9W LED uses 51 fewer watts. At 3 hours a day that is about 56 kWh a year, or roughly $10 at 18¢/kWh. Twenty bulbs used that way save about $200 a year.</p>
+      <h3>Are incandescent light bulbs banned in the US?</h3>
+      <p>Since August 1, 2023, federal rules require general service bulbs to produce at least 45 lumens per watt, which standard and halogen incandescent bulbs can't meet. A Senate bill to repeal the rule cleared committee on September 30, 2026, but as of October 2026 it had not passed and the rule remains in effect. Appliance bulbs and a few specialty types are exempt.</p>
+      <h3>Should I replace CFL bulbs with LEDs?</h3>
+      <p>Not for the energy savings alone. A 13W CFL and a 9W LED give the same light, so the swap saves under $1 a year at 3 hours a day. Replace CFLs as they fail, or sooner in fixtures that run many hours a day, and recycle the old CFLs because they contain mercury.</p>
+    </div>
+    </div>
+  </section>
 </main>
 <script src="/assets/js/nav.js"></script>
 <script>
 function calcLED() {
-  const n = parseFloat(document.getElementById('num-bulbs').value) || 20;
-  const incW = parseFloat(document.getElementById('inc-watts').value) || 60;
-  const hours = parseFloat(document.getElementById('hours-day').value) || 3;
-  const rate = parseFloat(document.getElementById('led-rate').value) || 18;
+  var W = {
+    inc: {40: 40, 60: 60, 75: 75, 100: 100},
+    hal: {40: 29, 60: 43, 75: 53, 100: 72},
+    cfl: {40: 9, 60: 13, 75: 18, 100: 23}
+  };
+  var LED = {40: 6, 60: 9, 75: 12, 100: 15};
+  var NAME = {inc: 'incandescent', hal: 'halogen', cfl: 'CFL'};
+  var type = document.getElementById('led-type').value || 'inc';
+  var eq = parseInt(document.getElementById('inc-watts').value, 10) || 60;
+  var n = parseFloat(document.getElementById('num-bulbs').value) || 20;
+  var hours = parseFloat(document.getElementById('hours-day').value) || 3;
+  hours = Math.min(hours, 24);
+  var rate = (parseFloat(document.getElementById('led-rate').value) || 18) / 100;
+  var price = parseFloat(document.getElementById('led-price').value);
+  if (isNaN(price) || price < 0) price = 2.5;
 
-  const ledW = incW * 0.15; // ~85% savings
-  const hoursYear = hours * 365;
-  const incKwh = (incW / 1000) * hoursYear * n;
-  const ledKwh = (ledW / 1000) * hoursYear * n;
-  const incCost = incKwh * (rate / 100);
-  const ledCost = ledKwh * (rate / 100);
-  const savings = incCost - ledCost;
-  const co2Saved = (incKwh - ledKwh) * 0.386; // lbs CO2 per kWh EPA
+  var oldW = W[type][eq], ledW = LED[eq];
+  var dW = oldW - ledW;
+  var perBulbKwh = dW / 1000 * hours * 365;
+  var perBulb = perBulbKwh * rate;
+  var total = perBulb * n;
+  var oldCost = oldW / 1000 * hours * 365 * rate * n;
+  var ledCost = ledW / 1000 * hours * 365 * rate * n;
+  var paybackMo = perBulb > 0 ? price / perBulb * 12 : Infinity;
+  var breakEvenMin = dW > 0 ? price / (dW / 1000 * 365 * rate) * 60 : Infinity;
+  var co2 = perBulbKwh * n * 0.85;
+  var ledYears = 25000 / (hours * 365);
 
-  const fmt = v => '$' + v.toFixed(2);
-  document.getElementById('led-savings').textContent = fmt(savings) + '/yr';
-  document.getElementById('led-breakdown').innerHTML = `
-    <tr><td>Incandescent annual cost</td><td>${fmt(incCost)}</td></tr>
-    <tr><td>LED annual cost</td><td>${fmt(ledCost)}</td></tr>
-    <tr style="font-weight:700;"><td>Annual savings</td><td>${fmt(savings)}</td></tr>
-    <tr><td>10-year savings</td><td>${'$' + Math.round(savings * 10).toLocaleString()}</td></tr>
-    <tr><td>CO₂ saved per year</td><td>${Math.round(co2Saved)} lbs</td></tr>
-  `;
-  const r = document.getElementById('led-result');
+  var fmt = function(v){ return '$' + v.toFixed(2); };
+  var pb = !isFinite(paybackMo) ? 'never' : paybackMo < 1 ? Math.max(1, Math.round(paybackMo * 4.35)) + ' weeks' : paybackMo < 24 ? paybackMo.toFixed(1) + ' months' : (paybackMo / 12).toFixed(1) + ' years';
+
+  document.getElementById('led-savings').textContent = '$' + Math.round(total).toLocaleString() + '/yr';
+  document.getElementById('led-breakdown').innerHTML =
+    '<tr><td>Current (' + n + ' × ' + oldW + 'W ' + NAME[type] + ')</td><td>' + fmt(oldCost) + '/yr</td></tr>' +
+    '<tr><td>LED (' + n + ' × ' + ledW + 'W)</td><td>' + fmt(ledCost) + '/yr</td></tr>' +
+    '<tr style="font-weight:700;"><td>Savings per bulb</td><td>' + fmt(perBulb) + '/yr</td></tr>' +
+    '<tr style="font-weight:700;"><td>Payback per bulb</td><td>' + pb + '</td></tr>' +
+    '<tr><td>Upfront for ' + n + ' LEDs</td><td>$' + Math.round(price * n).toLocaleString() + '</td></tr>' +
+    '<tr><td>10-year net savings</td><td>' + (total * 10 - price * n < 0 ? '−$' : '$') + Math.abs(Math.round(total * 10 - price * n)).toLocaleString() + '</td></tr>' +
+    '<tr><td>CO₂ avoided</td><td>' + Math.round(co2).toLocaleString() + ' lbs/yr</td></tr>';
+
+  var note;
+  if (paybackMo <= 12) {
+    note = 'Worth swapping now, even if the old bulbs still work. At these numbers each LED pays for itself once it\'s used more than about ' + Math.round(breakEvenMin) + ' minutes a day, and should last around ' + Math.min(Math.round(ledYears), 40) + ' years at your usage.';
+  } else if (paybackMo <= 36) {
+    note = 'Modest payback. Swap these when convenient or as the old bulbs fail; prioritize sockets used more than ' + Math.round(breakEvenMin) + ' minutes a day.';
+  } else {
+    note = 'Low-use sockets: savings are too small to justify replacing working bulbs. Let them burn out, then install LEDs.';
+  }
+  document.getElementById('led-note').textContent = note;
+
+  var r = document.getElementById('led-result');
   r.classList.add('visible');
   r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

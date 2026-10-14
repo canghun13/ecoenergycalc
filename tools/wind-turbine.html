@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wind Turbine Calculator – Estimate Home Wind Energy Output | EcoEnergyCalc</title>
-  <meta name="description" content="Estimate how much electricity a small wind turbine would generate for your property. Free wind turbine calculator — instant results." />
+  <title>Home Wind Turbine Calculator – Output From Rotor Size &amp; Wind Speed | EcoEnergyCalc</title>
+  <meta name="description" content="A small wind turbine's kW rating tells you little — rotor size and the wind at hub height decide its output. Estimate annual kWh, savings and payback with the rule of thumb wind consultants use." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/tools/wind-turbine.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,10 +12,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
     <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Wind Turbine Calculator","url":"https://ecoenergycalc.com/tools/wind-turbine.html","description":"Estimate how much electricity a small wind turbine would generate for your property. Free wind turbine calculator — instant results.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Wind Turbine Calculator","url":"https://ecoenergycalc.com/tools/wind-turbine.html","description":"Estimate how much electricity a small wind turbine would generate for your property. Free wind turbine calculator — instant results.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-10-14","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much electricity does a home wind turbine produce?","acceptedAnswer":{"@type":"Answer","text":"Far less than its rating suggests. A common rule of thumb is annual kWh \u2248 0.01328 \u00d7 rotor diameter\u00b2 (ft) \u00d7 average wind speed\u00b3 (mph) at hub height. A typical 5 kW turbine with an 18 ft rotor in a 10 mph average wind produces about 4,300 kWh a year; at 12 mph, about 7,400. Small turbines usually run at capacity factors of roughly 9% to 22%."}},
+    {"@type":"Question","name":"What wind speed do you need for a home wind turbine?","acceptedAnswer":{"@type":"Answer","text":"The U.S. Department of Energy says a small wind turbine needs an annual average wind speed of 10 mph or more at hub height. Because output rises with the cube of wind speed, a 12 mph site produces about 73% more than a 10 mph site with the same turbine."}},
+    {"@type":"Question","name":"How tall should a wind turbine tower be?","acceptedAnswer":{"@type":"Answer","text":"Tall enough that the bottom of the blades clears everything within about 500 feet by at least 30 feet, according to University of Missouri Extension, which notes that towers under about 45 feet usually compromise output. In open country, raising a hub from 33 to 80 feet adds roughly 13% to wind speed and close to 50% to energy."}}
+  ]}
+  </script>
 </head>
 <body>
 <main>
@@ -25,52 +32,66 @@
         <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Wind Turbine</p>
         <span class="tool-category">Solar & Renewables</span>
         <h1>Wind Turbine Calculator</h1>
-        <p>Estimate how much electricity a small residential wind turbine would generate and save based on your wind resource.</p>
+        <p>A "5 kW" turbine rarely makes anything like 5 kW. What it produces over a year comes down to two things: how big its rotor is and how hard the wind blows at the top of the tower. This estimates annual output from both, using the standard rule of thumb for small wind, and checks the result against what real small turbines achieve.</p>
       </div>
       <div class="tool-layout">
         <div>
           <div class="calc-box">
             <h2>Calculate Wind Output</h2>
             <div class="form-group">
-              <label for="wt-capacity">Turbine Rated Capacity (kW)</label>
-              <select id="wt-capacity">
-                <option value="1">1 kW (micro)</option>
-                <option value="2.5">2.5 kW (small home)</option>
-                <option value="5" selected>5 kW (average home)</option>
-                <option value="10">10 kW (large home / farm)</option>
+              <label for="wt-class">Turbine Size Class</label>
+              <select id="wt-class" onchange="wtClass()">
+                <option value="8|1">About 1 kW (8 ft rotor)</option>
+                <option value="12|2.4">About 2.5 kW (12 ft rotor)</option>
+                <option value="18|5" selected>About 5 kW (18 ft rotor)</option>
+                <option value="23|10">About 10 kW (23 ft rotor)</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="wt-wind">Average Wind Speed at Site</label>
-              <select id="wt-wind">
-                <option value="low">Low (under 10 mph) — not recommended</option>
-                <option value="medium" selected>Medium (10–13 mph) — good</option>
-                <option value="high">High (14–17 mph) — excellent</option>
-                <option value="very_high">Very High (18+ mph) — ideal</option>
-              </select>
+              <label for="wt-diam">Rotor Diameter (feet)</label>
+              <input type="number" id="wt-diam" value="18" min="3" max="60" step="0.5" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">From the spec sheet — the size class just fills in a typical figure. Rotor size matters far more than the kW rating.</small>
+            </div>
+            <div class="form-group">
+              <label for="wt-kw">Rated Power (kW, optional)</label>
+              <input type="number" id="wt-kw" value="5" min="0.1" max="100" step="0.1" />
+            </div>
+            <div class="form-group">
+              <label for="wt-speed">Average Annual Wind Speed (mph)</label>
+              <input type="number" id="wt-speed" value="10" min="3" max="25" step="0.1" />
+            </div>
+            <div class="form-group">
+              <label for="wt-measured">Height That Speed Was Measured At (feet)</label>
+              <input type="number" id="wt-measured" value="33" min="5" max="400" step="1" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Weather stations and many wind maps report at 33 ft (10 m). If your figure is already at hub height, enter the hub height here.</small>
+            </div>
+            <div class="form-group">
+              <label for="wt-hub">Tower (Hub) Height (feet)</label>
+              <input type="number" id="wt-hub" value="80" min="10" max="400" step="1" />
             </div>
             <div class="form-group">
               <label for="wt-rate">Electricity Rate (¢/kWh)</label>
               <input type="number" id="wt-rate" value="18" min="0" step="0.1" />
             </div>
             <div class="form-group">
-              <label for="wt-cost">Installed System Cost ($)</label>
+              <label for="wt-cost">Installed Cost ($, optional)</label>
               <input type="number" id="wt-cost" placeholder="e.g. 30000" min="0" />
             </div>
-            <button class="btn-primary" onclick="calcWind()">Calculate Output</button>
+            <button class="btn-primary" onclick="calcWind()">Estimate Output</button>
             <div class="result-box-tool" id="wt-result">
               <h3>Estimated Annual Output</h3>
               <div class="result-amount" id="wt-kwh"></div>
               <table id="wt-breakdown"></table>
-              <p class="result-note">Wind output is highly site-specific. A professional wind resource assessment is recommended before purchase.</p>
+              <p class="result-note" id="wt-note"></p>
             </div>
           </div>
+
           <div class="article-body" style="margin-top:48px;">
             <h2>Is a Home Wind Turbine Right for You?</h2>
             <p>Small wind turbines are best suited for rural or semi-rural properties with consistent wind speeds above 10 mph at turbine height. Unlike solar, wind generates power 24/7 — but requires more land, higher towers, and more maintenance.</p>
             <h3>Minimum Requirements</h3>
             <ul>
-              <li>Average wind speed of at least 10 mph at 80–100 ft height</li>
+              <li>Average wind speed of at least 10 mph at hub height (DOE)</li>
               <li>Enough land to install a tower (typically 1+ acre)</li>
               <li>Local zoning allows turbine installation</li>
               <li>Utility allows net metering for excess power</li>
@@ -78,12 +99,20 @@
             <h3>Federal Incentives</h3>
             <p>Small wind turbines used to qualify for the same 30% federal tax credit as solar under the IRA, but that credit (Section 25D) was terminated by the One Big Beautiful Bill Act for anything placed in service after December 31, 2025. 2026 installations no longer qualify — check dsireusa.org for any state or utility wind incentives still available.</p>
 
+            <h2>Rotor Size Matters More Than the kW Rating</h2>
+            <p>A small turbine's kW rating is its output at a "rated" wind speed the manufacturer chooses — often well above what most sites see on average. Two "5 kW" turbines can produce very different amounts of electricity. What actually captures energy is the swept area of the rotor, which grows with the square of its diameter: a 23 ft rotor sweeps about 60% more area than an 18 ft one.</p>
+            <p>That's why the standard back-of-envelope estimate for small wind, published by the nonprofit Windustry among others, uses rotor diameter and nothing else about the turbine: <strong>annual kWh ≈ 0.01328 × D² × V³</strong>, with D the rotor diameter in feet and V the average wind speed in mph at hub height. For an 18 ft rotor in a 10 mph average wind at hub height, that's about 4,300 kWh a year — not the 43,800 a "5 kW" label might suggest if it ran flat out. Certified small turbines also carry a <em>rated annual energy</em> figure at an 11.2 mph (5 m/s) average under the AWEA small-turbine standard; use it to compare models, not the kW.</p>
+            <p>A sanity check: capacity factors in small wind — actual output as a share of the rated maximum — run about 9% to 22%, according to University of Missouri Extension. If a dealer's estimate implies more, ask how it was calculated.</p>
+
+            <h2>Every Mile per Hour Counts — and So Does the Tower</h2>
+            <p>Because output rises with the cube of wind speed, small differences matter enormously. Going from a 10 mph to a 12 mph average raises output by about 73%. That also makes tower height the cheapest upgrade available: in open country, wind speed typically rises with roughly the one-seventh power of height, so moving a hub from 33 ft to 80 ft adds about 13% to the wind speed and close to <strong>50% to the energy</strong>. University of Missouri Extension advises keeping the bottom of the blades at least 30 feet above anything within 500 feet; towers under about 45 feet usually compromise output, and rooftop turbines are almost never worth it.</p>
+
             <h2>Wind vs Solar: Which Is Right for Your Property?</h2>
             <p>For most homeowners, solar panels are the more practical choice — they work on any roof, have no moving parts, require minimal maintenance, and are easier to permit in most jurisdictions. Wind turbines make the most sense for rural or semi-rural properties with consistent high winds, sufficient land, and local zoning that permits tall structures. If you have both good sun and good wind resources, a hybrid system can provide more consistent year-round power generation.</p>
             <p>The fundamental advantage of wind over solar is timing: wind often blows hardest at night and in winter, complementing solar's daytime summer peak. In regions with strong year-round winds — the Great Plains, coastal areas, mountain passes — small wind turbines can generate more electricity per dollar than solar in the right conditions.</p>
 
             <h2>What Wind Speed Do You Actually Need?</h2>
-            <p>This is the most important question for small wind viability. The DOE recommends a minimum average wind speed of 10 mph (4.5 m/s) at hub height for a small wind turbine to be economically viable. Wind speed must be measured at the height your turbine tower would stand — typically 80–120 feet — not at ground level. Wind speeds increase significantly with height; a site with 7 mph at ground level might have 11 mph at 100 feet.</p>
+            <p>This is the most important question for small wind viability. The DOE recommends a minimum average wind speed of 10 mph (4.5 m/s) at hub height for a small wind turbine to be economically viable. Wind speed must be measured at the height your turbine tower would stand — typically 80–120 feet — not at ground level. Wind speeds increase with height — in open country, a 9 mph reading at 33 feet typically becomes about 10.5 mph at 100 feet, and more over rough ground where the low-level wind is slowed by trees and buildings.</p>
             <p>Wind power output scales with the cube of wind speed: doubling the wind speed increases power output eightfold. This means the difference between a 10 mph and 14 mph site is enormous in terms of annual production. Before investing in a turbine, a professional wind resource assessment using a calibrated anemometer mounted at tower height for at least 12 months is strongly recommended for larger installations.</p>
 
             <h2>Permitting and Zoning Considerations</h2>
@@ -113,29 +142,53 @@
       </div>
     </div>
   </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much electricity does a home wind turbine produce?</h3>
+      <p>Far less than its rating suggests. A common rule of thumb is annual kWh ≈ 0.01328 × rotor diameter² (ft) × average wind speed³ (mph) at hub height. A typical 5 kW turbine with an 18 ft rotor in a 10 mph average wind produces about 4,300 kWh a year; at 12 mph, about 7,400. Small turbines usually run at capacity factors of roughly 9% to 22%.</p>
+      <h3>What wind speed do you need for a home wind turbine?</h3>
+      <p>The U.S. Department of Energy says a small wind turbine needs an annual average wind speed of 10 mph or more at hub height. Because output rises with the cube of wind speed, a 12 mph site produces about 73% more than a 10 mph site with the same turbine.</p>
+      <h3>How tall should a wind turbine tower be?</h3>
+      <p>Tall enough that the bottom of the blades clears everything within about 500 feet by at least 30 feet, according to University of Missouri Extension, which notes that towers under about 45 feet usually compromise output. In open country, raising a hub from 33 to 80 feet adds roughly 13% to wind speed and close to 50% to energy.</p>
+    </div>
+    </div>
+  </section>
 </main>
 <script src="/assets/js/nav.js"></script>
 <script>
+function wtClass() {
+  var v = document.getElementById('wt-class').value.split('|');
+  document.getElementById('wt-diam').value = v[0];
+  document.getElementById('wt-kw').value = v[1];
+}
 function calcWind() {
-  const kw = parseFloat(document.getElementById('wt-capacity').value) || 5;
-  const wind = document.getElementById('wt-wind').value;
-  const rate = parseFloat(document.getElementById('wt-rate').value) || 18;
-  const cost = parseFloat(document.getElementById('wt-cost').value) || 0;
-
-  const cf = { low: 0.10, medium: 0.22, high: 0.32, very_high: 0.42 };
-  const annualKwh = kw * cf[wind] * 8760;
-  const annualSavings = annualKwh * (rate / 100);
-  const payback = cost > 0 ? cost / annualSavings : null; // no federal credit — expired Dec 2025
-
-  const fmt = v => '$' + Math.round(v).toLocaleString();
-  document.getElementById('wt-kwh').textContent = Math.round(annualKwh).toLocaleString() + ' kWh/yr';
-  document.getElementById('wt-breakdown').innerHTML = `
-    <tr><td>Capacity factor</td><td>${Math.round(cf[wind]*100)}%</td></tr>
-    <tr><td>Annual production</td><td>${Math.round(annualKwh).toLocaleString()} kWh</td></tr>
-    <tr style="font-weight:700;"><td>Annual savings</td><td>${fmt(annualSavings)}</td></tr>
-    ${cost > 0 ? `<tr><td>Payback period</td><td>${payback.toFixed(1)} years</td></tr>` : ''}
-  `;
-  const r = document.getElementById('wt-result');
+  var num = function (id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? null : v; };
+  var D = num('wt-diam') || 18, kw = num('wt-kw');
+  var v0 = num('wt-speed') || 10, h0 = num('wt-measured') || 33, hub = num('wt-hub') || h0;
+  var rate = (num('wt-rate') || 18) / 100, cost = num('wt-cost');
+  // Wind shear: power law with exponent 1/7 (open terrain).
+  var V = v0 * Math.pow(hub / h0, 1 / 7);
+  // Rule-of-thumb annual energy output for small wind (Windustry): AEO = 0.01328 D^2 V^3 (ft, mph).
+  var aeo = 0.01328 * D * D * Math.pow(V, 3);
+  var save = aeo * rate;
+  var fmt = function (v) { return '$' + Math.round(v).toLocaleString(); };
+  var rows = '';
+  rows += '<tr><td>Wind speed at hub height (' + Math.round(hub) + ' ft)</td><td>' + V.toFixed(1) + ' mph</td></tr>';
+  rows += '<tr><td>Swept area</td><td>' + Math.round(Math.PI * D * D / 4) + ' sq ft</td></tr>';
+  if (kw) rows += '<tr><td>Capacity factor</td><td>' + (aeo / (kw * 8760) * 100).toFixed(1) + '%</td></tr>';
+  rows += '<tr><td>Annual production</td><td>' + Math.round(aeo).toLocaleString() + ' kWh</td></tr>';
+  rows += '<tr style="font-weight:700;"><td>Annual savings</td><td>' + fmt(save) + '</td></tr>';
+  if (cost) rows += '<tr><td>Simple payback</td><td>' + (save > 0 ? (cost / save).toFixed(1) + ' years' : '—') + '</td></tr>';
+  var notes = [];
+  if (V < 10) notes.push('Below the 10 mph hub-height average the Department of Energy gives as the minimum for small wind.');
+  if (kw && aeo / (kw * 8760) > 0.22) notes.push('This implies a capacity factor above the roughly 22% that small turbines rarely exceed — double-check the wind speed and rotor size.');
+  notes.push('Rule-of-thumb estimate: real output depends on the turbine\'s power curve, turbulence and the wind\'s distribution. Savings assume every kWh offsets retail electricity.');
+  document.getElementById('wt-kwh').textContent = Math.round(aeo).toLocaleString() + ' kWh/yr';
+  document.getElementById('wt-breakdown').innerHTML = rows;
+  document.getElementById('wt-note').textContent = notes.join(' ');
+  var r = document.getElementById('wt-result');
   r.classList.add('visible');
   r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

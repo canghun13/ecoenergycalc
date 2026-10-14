@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Refrigerator Energy Cost Calculator – Annual Running Cost | EcoEnergyCalc</title>
-  <meta name="description" content="Calculate how much your refrigerator costs to run per day, month, and year. Compare old vs new models and see how much an ENERGY STAR upgrade actually saves." />
+  <meta name="description" content="What a new fridge really uses — from the federal efficiency limits, by type and size — and whether replacing your old one pays. Includes how to measure your current fridge for under $30." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/tools/refrigerator-energy-cost.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,10 +12,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Refrigerator Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/refrigerator-energy-cost.html","description":"Calculate how much your refrigerator costs to run per day, month, and year. Compare old vs new models and see how much an ENERGY STAR upgrade actually saves.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-24","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Refrigerator Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/refrigerator-energy-cost.html","description":"Estimate refrigerator running cost from the federal energy limit for its type and size, or from its EnergyGuide label, and check whether replacing an old fridge pays, and year. Compare old vs new models and see how much an ENERGY STAR upgrade actually saves.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-06-24","dateModified":"2026-10-14","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does it cost to run a refrigerator per year?","acceptedAnswer":{"@type":"Answer","text":"A new 18 cubic foot top-freezer refrigerator uses about 405 kWh a year at the federal limit, roughly $73 at 18 cents per kWh. A 26 cubic foot French-door model with ice and water in the door uses around 770 kWh, about $139. ENERGY STAR models use about 9% less. Older refrigerators can use far more, so measuring yours with a plug-in meter is the only way to know."}},
+    {"@type":"Question","name":"How many watts does a refrigerator use?","acceptedAnswer":{"@type":"Answer","text":"A refrigerator's compressor typically draws 100 to 250 watts while it runs, but it cycles on and off, so the average over a day is much lower \u2014 about 45 to 90 watts for most new full-size models. Multiplying the running wattage by 24 hours overstates a fridge's energy use by two to three times."}},
+    {"@type":"Question","name":"Should I replace my old refrigerator to save energy?","acceptedAnswer":{"@type":"Answer","text":"Only if it uses a lot more than a new one. Measure it with a plug-in power meter for two or three days. If it uses under about 1.5 kWh a day, it's close to a new model and won't pay to replace on electricity. Over about 3 kWh a day, a new fridge usually pays for itself within its lifetime."}}
+  ]}
+  </script>
 </head>
 <body>
 <main>
@@ -25,7 +32,7 @@
         <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Refrigerator Energy Cost</p>
         <span class="tool-category">Energy Savings</span>
         <h1>Refrigerator Energy Cost Calculator</h1>
-        <p>Find out exactly how much your refrigerator costs to run annually — and how much you'd save by upgrading to an ENERGY STAR model or replacing an old unit.</p>
+        <p>Most fridge cost estimates multiply a guessed wattage by 24 hours and come out far too high. This one starts from the federal efficiency limit for your type and size of fridge — the ceiling every new model must meet — and, if you measure your old one, tells you whether replacing it pays.</p>
       </div>
       <div class="tool-layout">
         <div>
@@ -34,19 +41,38 @@
             <div class="form-group">
               <label for="fridge-type">Refrigerator Type</label>
               <select id="fridge-type" onchange="setFridgeDefaults()">
-                <option value="top_old">Top-freezer, pre-2000 (150W average running)</option>
-                <option value="top_modern" selected>Top-freezer, modern (80W average running)</option>
-                <option value="top_es">Top-freezer, ENERGY STAR (60W average running)</option>
-                <option value="french_modern">French door, modern (120W average running)</option>
-                <option value="french_es">French door, ENERGY STAR (90W average running)</option>
-                <option value="side_modern">Side-by-side, modern (130W average running)</option>
-                <option value="mini">Mini fridge (35W average running)</option>
-                <option value="custom">Custom — enter wattage below</option>
+                <option value="top" selected>Top freezer</option>
+                <option value="bottom">Bottom freezer (no ice through the door)</option>
+                <option value="french">French door with ice/water in the door</option>
+                <option value="side">Side-by-side with ice/water in the door</option>
+                <option value="mini">Mini / compact fridge</option>
               </select>
             </div>
-            <div class="form-group" id="custom-watts-group" style="display:none;">
-              <label for="fridge-watts">Average Running Wattage</label>
-              <input type="number" id="fridge-watts" value="80" min="10" max="500" />
+            <div class="form-group">
+              <label for="fridge-size">Total Size (cubic feet)</label>
+              <input type="number" id="fridge-size" value="18" min="1.5" max="35" step="0.5" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">On the spec sheet or inside the door. Typical: top freezer 18, bottom freezer 22, French door and side-by-side 26, mini 4.4.</small>
+            </div>
+            <div class="form-group">
+              <label for="fridge-es">Efficiency</label>
+              <select id="fridge-es">
+                <option value="1" selected>Standard new model (meets the federal limit)</option>
+                <option value="0.91">ENERGY STAR certified (about 9% better)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fridge-label">Or: EnergyGuide Label (kWh/yr, optional)</label>
+              <input type="number" id="fridge-label" placeholder="e.g. 410" min="50" max="3000" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">The yellow label's kWh figure, if you have it. Overrides the estimate.</small>
+            </div>
+            <div class="form-group">
+              <label for="fridge-old">Your Current Fridge, Measured (kWh per day, optional)</label>
+              <input type="number" id="fridge-old" placeholder="e.g. 3.0" min="0.2" max="15" step="0.1" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">From a plug-in power meter left on for 2–3 full days, divided by the days. Enter it to see whether replacing pays.</small>
+            </div>
+            <div class="form-group">
+              <label for="fridge-price">Price of the New Fridge ($, optional)</label>
+              <input type="number" id="fridge-price" placeholder="e.g. 900" min="0" />
             </div>
             <div class="form-group">
               <label for="fridge-elec-rate">Electricity Rate (¢/kWh)</label>
@@ -57,43 +83,48 @@
               <h3>Refrigerator Running Cost</h3>
               <div class="result-amount" id="fridge-annual"></div>
               <table id="fridge-breakdown"></table>
-              <p class="result-note">Refrigerator wattage shown is average running wattage, not peak wattage. Fridges cycle on and off — the compressor runs roughly 30–50% of the time. Actual costs depend on ambient temperature, door-opening frequency, and fridge age. Data based on DOE and ENERGY STAR standards.</p>
+              <p class="result-note" id="fridge-note"></p>
             </div>
           </div>
 
           <div class="article-body" style="margin-top:48px;">
-            <h2>How Much Does a Refrigerator Cost to Run?</h2>
-            <p>The refrigerator is one of the few appliances that runs 24 hours a day, 365 days a year — making it a significant contributor to the annual electricity bill even though it doesn't draw as much power as a dryer or air conditioner. A modern top-freezer refrigerator running at an average of 80 watts costs about <strong>$126/year</strong> at the U.S. average rate of 18¢/kWh. An older pre-2000 model drawing 150 watts costs nearly <strong>$237/year</strong>.</p>
-            <p>The key figure to understand is <em>average running wattage</em>, not rated wattage. Refrigerator compressors cycle on and off — typically running about 30–50% of the time. A fridge rated at 200W peak might only average 80–100W when measured over 24 hours. The most accurate way to find your fridge's real consumption is to check its EnergyGuide label (annual kWh) or use a plug-in energy monitor.</p>
+            <h2>What a New Refrigerator Actually Uses</h2>
+            <p>Every refrigerator sold in the U.S. since September 2014 has to stay under a federal energy limit set by its type and its "adjusted volume" (the fresh-food space plus a weighted freezer space). Those limits are public, which makes them a far better starting point than the usual "a fridge uses 100–200 watts" — a figure that confuses the compressor's draw while running with its average over a day.</p>
+            <p>At 18¢/kWh, here's what new models at the federal limit use:</p>
+            <div class="table-scroll">
+            <table style="width:100%;min-width:480px;">
+              <tr><th>Type and typical size</th><th>kWh per year</th><th>Cost per year</th><th>ENERGY STAR</th></tr>
+              <tr><td>Top freezer, 18 cu ft</td><td>~405</td><td>~$73</td><td>~$67</td></tr>
+              <tr><td>Bottom freezer, 22 cu ft</td><td>~555</td><td>~$100</td><td>~$91</td></tr>
+              <tr><td>French door with door ice, 26 cu ft</td><td>~770</td><td>~$139</td><td>~$127</td></tr>
+              <tr><td>Side-by-side with door ice, 26 cu ft</td><td>~715</td><td>~$129</td><td>~$117</td></tr>
+              <tr><td>Mini fridge, 4.4 cu ft</td><td>~255</td><td>~$46</td><td>—</td></tr>
+            </table>
+            </div>
+            <p>Two things stand out. <strong>Ice and water in the door costs real money</strong> — the federal limit for a bottom-freezer fridge with through-the-door ice is about 170 kWh a year higher than for the same fridge without it, and the in-door ice maker is part of why French-door and side-by-side models top the table. And <strong>a mini fridge isn't cheap to run for its size</strong>: at a quarter of the volume of a full-size top-freezer, it uses more than half the electricity.</p>
 
-            <h2>Refrigerator Annual Cost by Type</h2>
-            <p>At 18¢/kWh, estimated annual running costs by fridge type:</p>
+            <h2>Is Replacing Your Old Fridge Worth It? Measure First</h2>
+            <p>Old refrigerators use more — ENERGY STAR estimates one over 15 years old costs around $95 a year more to run than a certified model — but "old" covers a huge range. A 2010 fridge in good shape may be close to a new one; a 1995 unit with a tired door seal can use several times as much. Guessing from age is how people end up replacing a fridge that was fine, or keeping one that's costing them $150 a year.</p>
+            <p>A plug-in power meter costs $20–30. Plug the fridge into it for two or three full days — long enough to cover defrost cycles and normal door openings — and divide the kWh by the days. Enter that above with the price of the replacement you're considering, and the calculator shows the yearly saving and payback. As a rough guide:</p>
             <ul>
-              <li><strong>Pre-2000 top-freezer (150W avg):</strong> ~$237/year</li>
-              <li><strong>Modern top-freezer (80W avg):</strong> ~$126/year</li>
-              <li><strong>ENERGY STAR top-freezer (60W avg):</strong> ~$95/year</li>
-              <li><strong>Modern French door (120W avg):</strong> ~$189/year</li>
-              <li><strong>ENERGY STAR French door (90W avg):</strong> ~$142/year</li>
-              <li><strong>Modern side-by-side (130W avg):</strong> ~$205/year</li>
-              <li><strong>Mini fridge (35W avg):</strong> ~$55/year</li>
+              <li><strong>Under about 1.5 kWh/day:</strong> close to a new full-size model. Replacing it won't pay on electricity.</li>
+              <li><strong>2–3 kWh/day:</strong> replacing it with a new top- or bottom-freezer model saves roughly $30–$125 a year at 18¢. Worth it if the fridge needs repairs anyway.</li>
+              <li><strong>Over 3 kWh/day:</strong> likely a pre-2000 unit or a failing seal or compressor. Replacement usually pays back within the life of the new fridge.</li>
             </ul>
-            <p>Replacing a pre-2000 refrigerator with a modern ENERGY STAR top-freezer saves roughly $140/year in electricity. Over a 15-year lifespan, that's $2,100 in savings — often exceeding the cost of a new mid-range refrigerator.</p>
 
-            <h2>Is Upgrading Your Refrigerator Worth It?</h2>
-            <p>If your refrigerator was made before 2001, upgrading is almost always financially justified on electricity savings alone — even before accounting for potential reliability repairs on an aging unit. Post-2001 fridges are significantly more efficient, so the case for replacement is weaker unless the unit is failing.</p>
-            <p>ENERGY STAR certified refrigerators must meet efficiency standards at least 9% better than the federal minimum. In practice, ENERGY STAR top-freezer models use 15–25% less energy than non-certified equivalents of the same size. For a household replacing a standard modern model with an ENERGY STAR one, annual savings are modest ($30–50/year) — making the payback period on a premium ENERGY STAR model quite long unless other factors (size, features, reliability) also favor the upgrade.</p>
+            <h2>The Second Fridge in the Garage</h2>
+            <p>The most common place for an old fridge to keep running is the garage or basement, as a beer or overflow fridge. ENERGY STAR's advice is blunt: if you need a second refrigerator year-round, replace the old one with a new certified model; if you don't really need it, unplug it. A garage also works against any fridge — summer heat makes the compressor run longer, and in a cold winter garage some models struggle to keep the freezer section cold because the thermostat sits in the fresh-food side. Check the manual for the model's rated ambient range before putting it there.</p>
 
             <h2>Tips to Reduce Refrigerator Energy Use</h2>
             <ul>
-              <li><strong>Set the right temperature</strong> — The FDA recommends 35–38°F for the fridge compartment and 0°F for the freezer. Colder settings waste energy with no food safety benefit.</li>
-              <li><strong>Keep the coils clean</strong> — Dust on condenser coils forces the compressor to work harder. Vacuuming the coils once a year (usually accessible at the back or bottom) can improve efficiency by 10–15%.</li>
-              <li><strong>Don't leave the door open</strong> — Every minute the door is open lets warm air in and forces the compressor to run longer.</li>
-              <li><strong>Keep it full (but not packed)</strong> — A well-stocked fridge holds temperature better than an empty one. Thermal mass helps. But overpacking blocks airflow and increases compressor load.</li>
-              <li><strong>Check door seals</strong> — A deteriorated gasket lets cold air escape continuously. Test by closing the door on a piece of paper — it should resist pulling out.</li>
-              <li><strong>Move it away from heat sources</strong> — A fridge next to the oven or in direct sunlight works harder to maintain temperature. A few degrees of ambient heat can increase energy use by 10–15%.</li>
+              <li><strong>Set the right temperature</strong> — 35–38°F for the fresh-food side and 0°F for the freezer, as DOE recommends. Colder wastes energy with no food-safety benefit.</li>
+              <li><strong>Keep the condenser coils clean</strong> — dust on the coils at the back or bottom makes the compressor work harder. A vacuum once or twice a year.</li>
+              <li><strong>Check the door seal</strong> — close the door on a sheet of paper; if it slides out easily, the gasket is leaking cold air all day.</li>
+              <li><strong>Give it room to breathe</strong> — a fridge squeezed against the wall, next to the oven or in direct sun has to shed its heat into warmer air.</li>
+              <li><strong>Don't stand with the door open</strong> — every opening swaps cold air for warm, humid air the fridge then has to cool and dry.</li>
             </ul>
 
-            <p>For a full breakdown of home appliance energy costs, see our <a href="/tools/freezer-running-cost.html">Chest & Upright Freezer Running Cost Calculator</a>, the <a href="/tools/appliance-energy-cost.html">Appliance Energy Cost Calculator</a>, or the <a href="/blog/how-much-does-it-cost-to-run-a-refrigerator.html">complete refrigerator running cost guide</a>.</p>
+            <p>For a full breakdown of home appliance energy costs, see our <a href="/tools/freezer-running-cost.html">Chest &amp; Upright Freezer Running Cost Calculator</a>, the <a href="/tools/appliance-energy-cost.html">Appliance Energy Cost Calculator</a>, or the complete <a href="/blog/how-much-does-it-cost-to-run-a-refrigerator.html">refrigerator running cost guide</a>.</p>
           </div>
         </div>
         <div>
@@ -117,9 +148,10 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Pre-2000 fridge: <strong>~$171/yr</strong></li>
-              <li>Modern ENERGY STAR: <strong>~$68/yr</strong></li>
-              <li>Upgrade savings: <strong>~$100/yr</strong></li>
+              <li>New 18 cu ft top freezer: <strong>~$73/yr</strong></li>
+              <li>French door with door ice: <strong>~$139/yr</strong></li>
+              <li>Over 15 years old (ENERGY STAR): <strong>~$95/yr more</strong></li>
+              <li>Best first step: <strong>measure it</strong></li>
             </ul>
           </div>
           <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
@@ -127,56 +159,66 @@
       </div>
     </div>
   </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much does it cost to run a refrigerator per year?</h3>
+      <p>A new 18 cubic foot top-freezer refrigerator uses about 405 kWh a year at the federal limit, roughly $73 at 18 cents per kWh. A 26 cubic foot French-door model with ice and water in the door uses around 770 kWh, about $139. ENERGY STAR models use about 9% less. Older refrigerators can use far more, so measuring yours with a plug-in meter is the only way to know.</p>
+      <h3>How many watts does a refrigerator use?</h3>
+      <p>A refrigerator's compressor typically draws 100 to 250 watts while it runs, but it cycles on and off, so the average over a day is much lower — about 45 to 90 watts for most new full-size models. Multiplying the running wattage by 24 hours overstates a fridge's energy use by two to three times.</p>
+      <h3>Should I replace my old refrigerator to save energy?</h3>
+      <p>Only if it uses a lot more than a new one. Measure it with a plug-in power meter for two or three days. If it uses under about 1.5 kWh a day, it's close to a new model and won't pay to replace on electricity. Over about 3 kWh a day, a new fridge usually pays for itself within its lifetime.</p>
+    </div>
+    </div>
+  </section>
 </main>
 <script src="/assets/js/nav.js"></script>
 <script>
-const fridgeWatts = {
-  top_old: 150,
-  top_modern: 80,
-  top_es: 60,
-  french_modern: 120,
-  french_es: 90,
-  side_modern: 130,
-  mini: 35,
-  custom: null
+// Federal maximum energy use for products made since Sept 15, 2014 (10 CFR 430.32(a)), kWh/yr,
+// in terms of adjusted volume AV = fresh-food volume + 1.76 x freezer volume.
+var FRIDGE = {
+  top:    { a: 8.07, b: 233.7, frz: 0.25, size: 18 },   // class 3
+  bottom: { a: 8.85, b: 317.0, frz: 0.30, size: 22 },   // class 5
+  french: { a: 9.25, b: 475.4, frz: 0.31, size: 26 },   // class 5A, through-the-door ice
+  side:   { a: 8.54, b: 432.8, frz: 0.36, size: 26 },   // class 7, through-the-door ice
+  mini:   { a: 7.84, b: 219.1, frz: 0.00, size: 4.4 }   // compact, manual defrost
 };
-
 function setFridgeDefaults() {
-  const type = document.getElementById('fridge-type').value;
-  const customGroup = document.getElementById('custom-watts-group');
-  customGroup.style.display = type === 'custom' ? 'block' : 'none';
-  if (type !== 'custom') {
-    document.getElementById('fridge-watts').value = fridgeWatts[type];
-  }
+  var f = FRIDGE[document.getElementById('fridge-type').value];
+  document.getElementById('fridge-size').value = f.size;
 }
-
 function calcFridge() {
-  const type = document.getElementById('fridge-type').value;
-  const watts = type === 'custom'
-    ? parseFloat(document.getElementById('fridge-watts').value) || 80
-    : fridgeWatts[type];
-  const elecRate = parseFloat(document.getElementById('fridge-elec-rate').value) / 100 || 0.18;
-
-  const dailyKwh = (watts / 1000) * 24;
-  const monthlyKwh = dailyKwh * 30.44;
-  const annualKwh = dailyKwh * 365;
-  const dailyCost = dailyKwh * elecRate;
-  const monthlyCost = monthlyKwh * elecRate;
-  const annualCost = annualKwh * elecRate;
-
-  const fmt2 = v => '$' + v.toFixed(2);
-  const fmtR = v => '$' + Math.round(v);
-
-  document.getElementById('fridge-annual').textContent = fmtR(annualCost) + '/yr';
-  document.getElementById('fridge-breakdown').innerHTML = `
-    <tr><td>Average running wattage</td><td>${watts}W</td></tr>
-    <tr><td>Daily energy use</td><td>${dailyKwh.toFixed(2)} kWh</td></tr>
-    <tr><td>Daily cost</td><td>${fmt2(dailyCost)}</td></tr>
-    <tr><td>Monthly cost</td><td>${fmt2(monthlyCost)}</td></tr>
-    <tr style="font-weight:700;"><td>Annual cost</td><td>${fmtR(annualCost)}</td></tr>
-    <tr><td>Annual energy use</td><td>${Math.round(annualKwh)} kWh</td></tr>
-  `;
-  const r = document.getElementById('fridge-result');
+  var num = function (id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? null : v; };
+  var type = document.getElementById('fridge-type').value, f = FRIDGE[type] || FRIDGE.top;
+  var size = num('fridge-size') || f.size;
+  var es = parseFloat(document.getElementById('fridge-es').value) || 1;
+  var rate = (num('fridge-elec-rate') || 18) / 100;
+  var av = size * (1 - f.frz) + 1.76 * size * f.frz;
+  var est = (f.a * av + f.b) * es;
+  var label = num('fridge-label');
+  var newKwh = label || est;
+  var fmt2 = function (v) { return '$' + v.toFixed(2); };
+  var fmtR = function (v) { return '$' + Math.round(v).toLocaleString(); };
+  var rows = '';
+  rows += '<tr><td>' + (label ? 'EnergyGuide label' : 'Estimated use (' + (es < 1 ? 'ENERGY STAR' : 'federal limit') + ')') + '</td><td>' + Math.round(newKwh) + ' kWh/yr</td></tr>';
+  rows += '<tr><td>Average power over a day</td><td>' + Math.round(newKwh / 8.76) + ' W</td></tr>';
+  rows += '<tr><td>Monthly cost</td><td>' + fmt2(newKwh * rate / 12) + '</td></tr>';
+  rows += '<tr style="font-weight:700;"><td>Annual cost</td><td>' + fmtR(newKwh * rate) + '</td></tr>';
+  var note = 'Estimate from the federal maximum for this type and size; most new models come in at or a little below it. Real use rises in a hot room or with frequent door openings.';
+  var old = num('fridge-old');
+  if (old) {
+    var oldKwh = old * 365, save = (oldKwh - newKwh) * rate, price = num('fridge-price');
+    rows += '<tr><td>Your current fridge (measured)</td><td>' + Math.round(oldKwh) + ' kWh/yr · ' + fmtR(oldKwh * rate) + '</td></tr>';
+    rows += '<tr style="font-weight:700;"><td>Yearly saving from replacing</td><td>' + (save > 0 ? fmtR(save) : 'none') + '</td></tr>';
+    if (price && save > 0) rows += '<tr><td>Payback on the new fridge</td><td>' + (price / save).toFixed(1) + ' years</td></tr>';
+    note = save <= 0 ? 'Your current fridge already uses no more than a new one would. Keep it running.'
+      : (price && price / save > 14 ? 'At this saving the new fridge would not pay for itself within a typical 12–15 year life on electricity alone.' : 'Savings assume the new fridge uses what the estimate or label says.');
+  }
+  document.getElementById('fridge-annual').textContent = fmtR(newKwh * rate) + '/yr';
+  document.getElementById('fridge-breakdown').innerHTML = rows;
+  document.getElementById('fridge-note').textContent = note;
+  var r = document.getElementById('fridge-result');
   r.classList.add('visible');
   r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

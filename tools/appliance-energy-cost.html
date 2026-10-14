@@ -12,15 +12,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
     <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Appliance Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/appliance-energy-cost.html","description":"Calculate the exact running cost of any home appliance per day, month, and year. Enter wattage and usage hours to see what your refrigerator, dryer, AC, or EV charger actually costs.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-09-28","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Appliance Energy Cost Calculator","url":"https://ecoenergycalc.com/tools/appliance-energy-cost.html","description":"Calculate the exact running cost of any home appliance per day, month, and year. Enter wattage and usage hours to see what your refrigerator, dryer, AC, or EV charger actually costs.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","dateModified":"2026-10-14","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"How do I calculate the energy cost of an appliance?","acceptedAnswer":{"@type":"Answer","text":"The formula is: (wattage ÷ 1000) × hours used per day × your electricity rate per kWh = daily cost. For example, a 1,500W space heater run 4 hours/day at 15¢/kWh costs about $0.90/day, or $27/month. Multiply by 30 for monthly cost, or 365 for annual cost."}},
-    {"@type":"Question","name":"How much do household appliances cost to run?","acceptedAnswer":{"@type":"Answer","text":"Typical monthly running costs at 15¢/kWh: refrigerator $10–15, clothes dryer $9–13, central AC $50–150, water heater $30–45, dishwasher $6–10, and a desktop computer $3–8. Actual cost depends heavily on wattage and hours of daily use — use the calculator above for your exact numbers."}},
+    {"@type":"Question","name":"How do I calculate the energy cost of an appliance?","acceptedAnswer":{"@type":"Answer","text":"The formula is: (wattage ÷ 1000) × hours used per day × your electricity rate per kWh = daily cost. For example, a 1,500W space heater run 4 hours/day at 18¢/kWh costs about $1.08/day, or $32/month. Multiply by 30 for monthly cost, or 365 for annual cost."}},
+    {"@type":"Question","name":"How much do household appliances cost to run?","acceptedAnswer":{"@type":"Answer","text":"Typical monthly running costs at 18¢/kWh: a new refrigerator $6–12, a clothes dryer $12–15 (5 loads a week), central AC $110–160 in summer months, an electric water heater $40–70, a dishwasher $5–7, and a desktop computer $6–8. Actual cost depends heavily on wattage and hours of daily use — use the calculator above for your exact numbers."}},
     {"@type":"Question","name":"What uses the most electricity among home appliances?","acceptedAnswer":{"@type":"Answer","text":"Among individual appliances (excluding HVAC), electric water heaters, clothes dryers, and refrigerators typically use the most electricity, since they run for long hours or draw high wattage continuously. HVAC systems as a category use more than any single appliance — see our heating vs cooling calculator for that comparison."}},
     {"@type":"Question","name":"How do I work out the electricity usage of an appliance without a wattage label?","acceptedAnswer":{"@type":"Answer","text":"If the label only lists amps and volts, multiply them to get watts (amps × volts = watts). If no label exists, check the manufacturer's spec sheet online, or use a plug-in energy monitor ($15–25) to measure actual real-world wattage, which is often lower than the rated maximum."}}
   ]}
@@ -44,7 +44,7 @@
               <label for="appliance-preset">Choose an Appliance (or enter custom)</label>
               <select id="appliance-preset" onchange="setPreset()">
                 <option value="">— Custom —</option>
-                <option value="fridge">Refrigerator (150W)</option>
+                <option value="fridge" selected>Refrigerator, new full-size (45W average)</option>
                 <option value="washer">Washing Machine (500W)</option>
                 <option value="dryer">Electric Dryer (5000W)</option>
                 <option value="dishwasher">Dishwasher (1800W)</option>
@@ -60,11 +60,11 @@
             </div>
             <div class="form-group">
               <label for="app-watts">Appliance Wattage (W)</label>
-              <input type="number" id="app-watts" placeholder="e.g. 150" min="0" />
+              <input type="number" id="app-watts" placeholder="e.g. 150" min="0" value="45" />
             </div>
             <div class="form-group">
               <label for="app-hours">Hours Used Per Day</label>
-              <input type="number" id="app-hours" placeholder="e.g. 24" min="0" max="24" step="0.5" />
+              <input type="number" id="app-hours" placeholder="e.g. 24" min="0" max="24" step="0.5" value="24" />
             </div>
             <div class="form-group">
               <label for="app-rate">Electricity Rate (¢/kWh)</label>
@@ -87,12 +87,12 @@
             <h3>Annual Running Costs: Common Appliances</h3>
             <p>Based on the national average electricity rate of 18¢/kWh and typical usage patterns:</p>
             <ul>
-              <li><strong>Central air conditioner (3-ton):</strong> $550–950/year (run 8 hrs/day, 120 days)</li>
-              <li><strong>Electric water heater:</strong> $550–830/year (runs continuously)</li>
-              <li><strong>Electric dryer:</strong> $140–210/year (1 load/day at 45 min)</li>
-              <li><strong>Refrigerator (newer model):</strong> $70–110/year (runs 24/7 at 150W avg)</li>
-              <li><strong>Dishwasher:</strong> $48–70/year (1 run/day)</li>
-              <li><strong>EV charger (Level 2, 7.2kW):</strong> $690–970/year (charging 1 hr/day)</li>
+              <li><strong>Central air conditioner (3-ton):</strong> $450–650/year (8 hrs/day for 120 days, SEER 14 down to 10)</li>
+              <li><strong>Electric water heater:</strong> $500–800/year (two to four people)</li>
+              <li><strong>Electric dryer:</strong> $195–245/year (1 load/day at 45 min)</li>
+              <li><strong>Refrigerator (new):</strong> $73–139/year (averages 45–90W over a day, by size and type)</li>
+              <li><strong>Dishwasher:</strong> $65–80/year (1 run/day)</li>
+              <li><strong>EV charger (Level 2, 7.2kW):</strong> about $470/year (charging 1 hr/day)</li>
               <li><strong>Desktop computer + monitor:</strong> $70–140/year (6 hrs/day)</li>
               <li><strong>55" LED TV:</strong> $20–35/year (4 hrs/day)</li>
               <li><strong>LED bulb (9W):</strong> $1–3/year (3 hrs/day)</li>
@@ -100,7 +100,7 @@
 
             <h3>How to Calculate kWh for Any Appliance</h3>
             <p>The formula is: <strong>kWh = (Watts × Hours per day) ÷ 1,000</strong>. Multiply by your electricity rate to get the daily cost, then by 365 for annual. For appliances that don't run continuously — like a washer or oven — use the number of hours actually running per day on average. An oven used 45 minutes every other day = 0.375 hrs/day.</p>
-            <p>Finding wattage: the nameplate rating is on a sticker on the back or bottom of most appliances. For variable-load appliances like refrigerators and air conditioners, the nameplate shows maximum wattage — average consumption is typically 30–50% of that. A smart plug with energy monitoring (brands: Kasa, Emporia, Shelly) gives you the real measured wattage for any appliance and is the most accurate way to find true consumption.</p>
+            <p>Finding wattage: the nameplate rating is on a sticker on the back or bottom of most appliances. For anything with a compressor or a thermostat — refrigerators, freezers, air conditioners, space heaters — the nameplate shows the draw while it's running, and the average over a day is a fraction of that. A smart plug with energy monitoring (brands: Kasa, Emporia, Shelly) gives you the real measured wattage for any appliance and is the most accurate way to find true consumption.</p>
 
             <h3>Phantom Load: The Hidden Drain</h3>
             <p>Many appliances draw power even when "off" — this is called standby or phantom power. Common offenders: cable boxes (15–20W continuously), older TVs and monitors (5–15W), game consoles in standby (10–15W), and desktop computers in sleep mode (3–10W). Across a typical home, standby power accounts for 5–10% of total electricity use — roughly $50–100/year for nothing.</p>
@@ -111,21 +111,21 @@
           
 
             <h3>When to Repair vs Replace Appliances</h3>
-            <p>The general rule: if repair costs more than 50% of a new appliance's cost and the appliance is past half its expected lifespan, replace it. But energy efficiency adds another dimension. A 15-year-old refrigerator consuming 1,400 kWh/year costs about $182/year in electricity. A new ENERGY STAR model might use 400 kWh/year — saving $130/year. Even without immediate repair needs, the electricity savings often justify replacement within 3–5 years. Check the EnergyGuide label on new appliances (the yellow tag) and compare to your current appliance's actual consumption — a smart plug with energy monitoring can measure this precisely.</p>
+            <p>The general rule: if repair costs more than 50% of a new appliance's cost and the appliance is past half its expected lifespan, replace it. But energy efficiency adds another dimension. A refrigerator that measures 1,100 kWh a year costs about $198 a year at 18¢; a new 18 cu ft top-freezer at around 405 kWh costs $73 — a $125 yearly saving that pays back a $900 fridge in about seven years. A fridge that measures 550 kWh saves almost nothing by being replaced. That spread is why measuring matters more than the age of the appliance. Check the EnergyGuide label on new appliances (the yellow tag) and compare to your current appliance's actual consumption — a smart plug with energy monitoring can measure this precisely.</p>
 
             <h3>Using Smart Plugs to Measure Actual Consumption</h3>
-            <p>The wattage on an appliance label is its peak or rated draw — actual consumption often differs. A refrigerator rated at 150W only runs its compressor 30–40% of the time; a space heater with a thermostat cycles on and off. A smart plug with energy monitoring (Kasa EP25, Emporia Vue 2, or similar; typically $15–25) measures actual kWh consumed over time, not just the nameplate wattage. Plugging in your refrigerator, TV, or gaming console for a week gives you the real number to use in this calculator. These monitors often reveal surprising results — an old second refrigerator in the garage can cost $150+/year, far more than most owners realize.</p>
+            <p>The wattage on an appliance label is its peak or rated draw — actual consumption often differs. A refrigerator whose compressor draws 150W while running averages only about 45–90W over a day; a space heater with a thermostat cycles on and off. A smart plug with energy monitoring (Kasa EP25, Emporia Vue 2, or similar; typically $15–25) measures actual kWh consumed over time, not just the nameplate wattage. Plugging in your refrigerator, TV, or gaming console for a week gives you the real number to use in this calculator. These monitors often reveal surprising results — an old second refrigerator in the garage can cost $150+/year, far more than most owners realize.</p>
 
             <h2>The True Cost of Always-On Appliances</h2>
-            <p>Appliances that run continuously — refrigerators, freezers, certain water heaters, internet routers, cable boxes — accumulate cost invisibly because there's no single moment of use to notice. A 150W refrigerator running 24/7 uses 1,314 kWh/year. At 18¢/kWh, that's $237/year. An older 250W refrigerator from 2005 costs $394/year — a difference of $157 annually compared to a modern ENERGY STAR model.</p>
+            <p>Appliances that run continuously — refrigerators, freezers, certain water heaters, internet routers, cable boxes — accumulate cost invisibly because there's no single moment of use to notice. This is also where the most common calculation mistake happens: multiplying a refrigerator's running wattage by 24 hours. A fridge that draws 150W while its compressor runs would cost $237 a year if it ran nonstop — but it doesn't. A new 18 cu ft top-freezer actually uses about 405 kWh a year, roughly $73. Use the annual kWh on the yellow EnergyGuide label, or measure, rather than nameplate watts × 24. Our <a href="/tools/refrigerator-energy-cost.html">refrigerator calculator</a> estimates it from the federal efficiency limit for your fridge's type and size.</p>
             <p>Cable boxes are a surprisingly significant always-on load. A typical cable box draws 15–20W continuously — even when you think it's off — costing $17–23/year in standby power alone. A streaming device replacing a cable box typically uses 3–5W in standby and 5–10W while streaming, reducing that cost to $4–6/year. For households with multiple cable boxes, the savings from switching to streaming can easily exceed $50/year in electricity alone, before counting the subscription cost difference.</p>
 
             <h2>Clothes Dryers: The Most Overlooked High-Load Appliance</h2>
-            <p>Electric dryers are among the highest-wattage appliances in any home at 4,000–6,000W — but because they're used intermittently, many households underestimate their cost. At 5,000W and 45 minutes per load, one load costs about 20¢ at the national average rate. At 5 loads per week, that's $52/year. At 8 loads per week for a large family, it's $83/year.</p>
-            <p>Heat pump dryers use 50–60% less energy than conventional electric dryers by recirculating heated air rather than venting it. At 5 loads/week, a heat pump dryer saves roughly $25–40/year. The upfront cost premium ($300–600 more than a conventional dryer) typically pays back in 8–12 years in electricity savings alone. Dryers were never eligible for the federal tax credit, but income-qualified households may get a point-of-sale rebate of up to $840 through their state's HEEHRA program, which shortens that payback considerably.</p>
+            <p>Electric dryers are among the highest-wattage appliances in any home at 4,000–6,000W — but because they're used intermittently, many households underestimate their cost. At 5,000W and 45 minutes per load, one load uses 3.75 kWh and costs about 68¢ at 18¢/kWh. At 5 loads per week, that's about $175 a year; at 8 loads a week for a large family, about $280.</p>
+            <p>Heat pump dryers use 50–60% less energy than conventional electric dryers by recirculating heated air rather than venting it. At 5 loads a week, a heat pump dryer using about 1.9 kWh a load saves roughly $50–90 a year against a conventional electric dryer. The upfront premium ($300–600 more) pays back in roughly 4–12 years on electricity alone. Dryers were never eligible for the federal tax credit, but income-qualified households may get a point-of-sale rebate of up to $840 through their state's HEEHRA program, which shortens that payback considerably.</p>
 
             <h2>EV Chargers: The Newest High-Load Addition</h2>
-            <p>A Level 2 home EV charger at 7,200W charging for 1.5 hours daily uses about 3.9 kWh/day — roughly $257/year at 18¢/kWh. This is significantly less than the gasoline equivalent: driving 12,000 miles/year at 30 mpg costs about $1,400 in gas at $3.50/gallon. The EV "fuel cost" is roughly 82% lower. Many utilities offer time-of-use rates where overnight EV charging costs 6–8¢/kWh instead of 18¢/kWh, cutting that annual cost to $85–110 and improving the EV economics further.</p>
+            <p>Driving 12,000 miles a year in an EV that goes 3.5 miles per kWh takes about 3,430 kWh — around 9.4 kWh a day, or 1.3 hours on a 7.2 kW Level 2 charger. At 18¢/kWh that's about $620 a year, against about $1,560 in gasoline for a 30 mpg car at $3.90 a gallon — roughly 60% less. Utilities with time-of-use rates often price overnight charging well below the standard rate, which widens the gap further; our <a href="/tools/ev-charging-cost-calculator.html">EV charging cost calculator</a> works it out with your rates.</p>
           </div>
         </div>
         <div>
@@ -198,9 +198,9 @@
     <div class="article-body" style="max-width:800px;">
       <h2>Frequently Asked Questions</h2>
       <h3>How do I calculate the energy cost of an appliance?</h3>
-      <p>The formula is: (wattage ÷ 1000) × hours used per day × your electricity rate per kWh = daily cost. For example, a 1,500W space heater run 4 hours/day at 15¢/kWh costs about $0.90/day, or $27/month. Multiply by 30 for monthly cost, or 365 for annual cost.</p>
+      <p>The formula is: (wattage ÷ 1000) × hours used per day × your electricity rate per kWh = daily cost. For example, a 1,500W space heater run 4 hours/day at 18¢/kWh costs about $1.08/day, or $32/month. Multiply by 30 for monthly cost, or 365 for annual cost.</p>
       <h3>How much do household appliances cost to run?</h3>
-      <p>Typical monthly running costs at 15¢/kWh: refrigerator $10–15, clothes dryer $9–13, central AC $50–150, water heater $30–45, dishwasher $6–10, and a desktop computer $3–8. Actual cost depends heavily on wattage and hours of daily use — use the calculator above for your exact numbers.</p>
+      <p>Typical monthly running costs at 18¢/kWh: a new refrigerator $6–12, a clothes dryer $12–15 (5 loads a week), central AC $110–160 in summer months, an electric water heater $40–70, a dishwasher $5–7, and a desktop computer $6–8. Actual cost depends heavily on wattage and hours of daily use — use the calculator above for your exact numbers.</p>
       <h3>What uses the most electricity among home appliances?</h3>
       <p>Among individual appliances (excluding HVAC), electric water heaters, clothes dryers, and refrigerators typically use the most electricity, since they run for long hours or draw high wattage continuously. HVAC systems as a category use more than any single appliance — see our heating vs cooling calculator for that comparison.</p>
       <h3>How do I work out the electricity usage of an appliance without a wattage label?</h3>
@@ -212,7 +212,7 @@
 <script src="/assets/js/nav.js"></script>
 <script>
 const presets = {
-  fridge: [150, 24], washer: [500, 1], dryer: [5000, 1], dishwasher: [1800, 1],
+  fridge: [45, 24], washer: [500, 1], dryer: [5000, 1], dishwasher: [1800, 1],
   oven: [2400, 1], microwave: [1000, 0.25], tv: [100, 4], pc: [200, 4],
   laptop: [50, 6], ac_window: [1200, 8], heater: [1500, 6], ev_charger: [7200, 2]
 };

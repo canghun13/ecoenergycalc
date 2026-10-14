@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chest & Upright Freezer Running Cost Calculator | EcoEnergyCalc</title>
-  <meta name="description" content="Chest and upright freezer running cost calculator: find out how much your deep freezer costs to run per day, month, and year by size and type." />
+  <meta name="description" content="What a chest or upright freezer really costs to run, from the federal efficiency limits by type and size. Why frost-free uprights use 50% more, the full-freezer myth, and when replacing an old freezer pays." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/tools/freezer-running-cost.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,16 +12,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Chest & Upright Freezer Running Cost Calculator","url":"https://ecoenergycalc.com/tools/freezer-running-cost.html","description":"Calculate how much a chest or upright deep freezer costs to run per day, month, and year based on size, type, and electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-07-16","dateModified":"2026-08-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Chest & Upright Freezer Running Cost Calculator","url":"https://ecoenergycalc.com/tools/freezer-running-cost.html","description":"Calculate how much a chest or upright deep freezer costs to run per day, month, and year based on size, type, and electricity rate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-07-16","dateModified":"2026-10-14","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"How much does it cost to run a chest freezer?","acceptedAnswer":{"@type":"Answer","text":"A compact 5-9 cu ft chest freezer costs about $34/year to run at the U.S. average electricity rate of 13 cents per kWh. A mid-size 12-18 cu ft chest freezer costs around $51/year, and a large 20-25 cu ft chest freezer costs about $63/year. These figures assume the freezer runs continuously, which is normal - freezers cycle the compressor on and off automatically."}},
-    {"@type":"Question","name":"Is a chest freezer or upright freezer cheaper to run?","acceptedAnswer":{"@type":"Answer","text":"A chest freezer is typically 15-25% cheaper to run than an upright freezer of similar capacity. Chest freezers open from the top, so cold air (which is denser than warm air) stays inside the unit when you open the lid, while upright freezers spill cold air out the front every time the door opens. Chest freezers also tend to have thicker insulation and fewer seams to leak cold air through."}},
-    {"@type":"Question","name":"Is a second freezer worth the electricity cost?","acceptedAnswer":{"@type":"Answer","text":"For most households, yes. A mid-size chest freezer costs roughly $4-5/month to run, which is easily offset by buying meat, produce, or bulk items on sale or in bulk and freezing the surplus. The math works best if you actually use the extra storage regularly - an underused second freezer is pure running cost with no offsetting savings."}}
+    {"@type":"Question","name":"How much does it cost to run a chest freezer?","acceptedAnswer":{"@type":"Answer","text":"A new 15 cubic foot chest freezer uses about 297 kWh a year at the federal efficiency limit, roughly $53 at 18 cents per kWh, or about $4.50 a month. A small 7 cubic foot model costs about $35 a year and a 22 cubic foot model about $69. ENERGY STAR models use at least 10% less."}},
+    {"@type":"Question","name":"Is a chest freezer or upright freezer cheaper to run?","acceptedAnswer":{"@type":"Answer","text":"A chest freezer. At the same size, a frost-free upright is allowed to use about 50% more electricity than a chest freezer, mainly because of its automatic defrost heating. A manual-defrost upright closes most of that gap, using only about 14% more than a chest."}},
+    {"@type":"Question","name":"Does a full freezer use less electricity?","acceptedAnswer":{"@type":"Answer","text":"Only slightly. A freezer's steady energy use depends on heat leaking through its walls, which doesn't change with what's inside, though a full freezer loses less cold air when opened. The bigger benefit is in a power outage: USDA says a full freezer holds a safe temperature for about 48 hours and a half-full one for about 24."}},
+    {"@type":"Question","name":"Is a second freezer worth the electricity cost?","acceptedAnswer":{"@type":"Answer","text":"A new mid-size chest freezer costs around $4\u20135 a month to run, which bulk buying or freezing garden produce can easily cover. An old second freezer can cost several times that, so measure it with a plug-in power meter before deciding whether to keep, replace or unplug it."}}
   ]}
   </script>
 </head>
@@ -33,26 +34,44 @@
         <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Freezer Running Cost</p>
         <span class="tool-category">Energy Savings</span>
         <h1>Chest & Upright Freezer Running Cost Calculator</h1>
-        <p>Find out exactly what your chest or upright deep freezer costs to run — per day, per month, and per year — based on its size and type.</p>
+        <p>A new chest freezer costs less to run than most people guess — about $53 a year for a 15 cubic foot model. A frost-free upright of the same size costs half as much again. This works out yours from the federal efficiency limit for its type and size, or from its label, and tells you whether replacing an old one pays.</p>
       </div>
       <div class="tool-layout">
         <div>
           <div class="calc-box">
             <h2>Calculate Freezer Running Cost</h2>
             <div class="form-group">
-              <label for="fz-type">Freezer Type & Size</label>
+              <label for="fz-type">Freezer Type</label>
               <select id="fz-type" onchange="setFreezerDefaults()">
-                <option value="30">Compact chest freezer, 5-9 cu ft (~30W average running)</option>
-                <option value="45" selected>Mid-size chest freezer, 12-18 cu ft (~45W average running)</option>
-                <option value="55">Large chest freezer, 20-25 cu ft (~55W average running)</option>
-                <option value="50">Upright freezer, manual-defrost (~50W average running)</option>
-                <option value="70">Upright freezer, frost-free (~70W average running)</option>
-                <option value="custom">Custom — enter wattage below</option>
+                <option value="chest" selected>Chest freezer</option>
+                <option value="upman">Upright, manual defrost</option>
+                <option value="upff">Upright, frost-free (automatic defrost)</option>
               </select>
             </div>
-            <div class="form-group" id="fz-custom-group" style="display:none;">
-              <label for="fz-custom-watts">Average Running Wattage</label>
-              <input type="number" id="fz-custom-watts" value="50" min="10" max="500" />
+            <div class="form-group">
+              <label for="fz-size">Size (cubic feet)</label>
+              <input type="number" id="fz-size" value="15" min="2" max="30" step="0.5" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">Small chest freezers run 5–7 cu ft, mid-size 12–16, large 20–25. Uprights are commonly 13–21.</small>
+            </div>
+            <div class="form-group">
+              <label for="fz-es">Efficiency</label>
+              <select id="fz-es">
+                <option value="1" selected>Standard new model (meets the federal limit)</option>
+                <option value="0.9">ENERGY STAR certified (at least 10% better)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fz-label">Or: EnergyGuide Label (kWh/yr, optional)</label>
+              <input type="number" id="fz-label" placeholder="e.g. 290" min="50" max="2000" />
+            </div>
+            <div class="form-group">
+              <label for="fz-old">Your Current Freezer, Measured (kWh per day, optional)</label>
+              <input type="number" id="fz-old" placeholder="e.g. 2.0" min="0.1" max="10" step="0.1" />
+              <small style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;display:block;">From a plug-in power meter over 2–3 full days. Enter it to see whether a new freezer pays for itself.</small>
+            </div>
+            <div class="form-group">
+              <label for="fz-price">Price of a New Freezer ($, optional)</label>
+              <input type="number" id="fz-price" placeholder="e.g. 450" min="0" />
             </div>
             <div class="form-group">
               <label for="fz-rate">Electricity Rate (¢/kWh)</label>
@@ -63,50 +82,53 @@
               <h3>Freezer Running Cost</h3>
               <div class="result-amount" id="fz-annual"></div>
               <table id="fz-breakdown"></table>
-              <p class="result-note">Wattage shown is average running wattage (accounts for the compressor cycling on and off), not peak wattage. Actual cost depends on ambient temperature, how often it's opened, and how full it is. Based on ENERGY STAR and DOE typical-use data.</p>
+              <p class="result-note" id="fz-note"></p>
             </div>
           </div>
+
           <div class="article-body" style="margin-top:48px;">
-            <h2>How Much Does It Cost to Run a Chest or Deep Freezer?</h2>
-            <p>A compact 5-9 cu ft chest freezer costs about <strong>$47/year</strong> to run at the U.S. average electricity rate of 18¢/kWh. A mid-size 12-18 cu ft chest freezer costs around <strong>$71/year</strong>, and a large 20-25 cu ft model costs about <strong>$87/year</strong>. An upright (vertical) freezer of similar capacity costs noticeably more — a frost-free upright can run <strong>$110/year</strong> or higher. Freezers run 24 hours a day, but the compressor cycles on and off, so the "average running wattage" figure already accounts for that — you don't need to estimate hours of use like you would for a space heater or dehumidifier.</p>
+            <h2>How Much Does It Cost to Run a Chest or Upright Freezer?</h2>
+            <p>Every freezer sold in the U.S. since 2014 must stay under a federal energy limit based on its type and adjusted volume. Those limits make a better yardstick than guessed wattages, and they show the real differences between freezer types. At 18¢/kWh, new models at the limit cost:</p>
+            <div class="table-scroll">
+            <table style="width:100%;min-width:480px;">
+              <tr><th>Type and size</th><th>kWh per year</th><th>Cost per year</th><th>ENERGY STAR</th></tr>
+              <tr><td>Chest, 7 cu ft</td><td>~196</td><td>~$35</td><td>~$32</td></tr>
+              <tr><td>Chest, 15 cu ft</td><td>~297</td><td>~$53</td><td>~$48</td></tr>
+              <tr><td>Chest, 22 cu ft</td><td>~385</td><td>~$69</td><td>~$62</td></tr>
+              <tr><td>Upright, manual defrost, 15 cu ft</td><td>~338</td><td>~$61</td><td>~$55</td></tr>
+              <tr><td>Upright, frost-free, 15 cu ft</td><td>~452</td><td>~$81</td><td>~$73</td></tr>
+              <tr><td>Upright, frost-free, 20 cu ft</td><td>~527</td><td>~$95</td><td>~$85</td></tr>
+            </table>
+            </div>
+            <p>ENERGY STAR's own averages line up: about 215 kWh a year for a certified chest freezer and about 395 kWh for a certified upright.</p>
 
-            <h3>Freezer Cost by Type & Size</h3>
-            <p>Estimated annual running cost at 18¢/kWh:</p>
+            <h2>Chest vs Upright: Frost-Free Is the Expensive Part</h2>
+            <p>At the same 15 cubic feet, a frost-free upright is allowed to use about <strong>50% more</strong> electricity than a chest freezer, while a manual-defrost upright is only about 14% more. Most of the gap isn't the door — it's the automatic defrost, which periodically heats the coils to melt frost and then has to remove that heat again. A chest freezer also keeps its cold air when you open the lid, because cold air is denser and stays put, while an upright's spills out the front.</p>
+            <p>So if convenience points you to an upright, a manual-defrost model gets you most of the way to chest-freezer running costs. Frost-free is worth it only if defrosting by hand a couple of times a year is a dealbreaker.</p>
+
+            <h2>Does a Full Freezer Use Less Electricity?</h2>
+            <p>Less than the common advice suggests. In steady running, a freezer's energy use is set by how much heat leaks through its walls and seal, and that depends on the temperature difference with the room — not on what's inside. A full freezer does lose less cold air when you open it, so it helps a little if it's opened often.</p>
+            <p>Where fullness really matters is a power outage. USDA guidance is that a full freezer holds a safe temperature for about <strong>48 hours</strong>, and a half-full one for about <strong>24 hours</strong>, if the door stays closed. Frozen water bottles filling the empty space are cheap insurance. Our <a href="/tools/power-outage-house-cooling-calculator.html">power outage calculator</a> covers how fast the rest of the house cools.</p>
+
+            <h2>Is Your Old Freezer Worth Replacing?</h2>
+            <p>ENERGY STAR estimates that replacing an old freezer with a certified model saves about $300 over a new freezer's 12-year life — but old freezers vary widely, and a gasket that no longer seals can matter more than the freezer's age. A $20–30 plug-in power meter left on for two or three days tells you what yours actually uses. Enter it above with the price of a replacement:</p>
             <ul>
-              <li><strong>Compact chest freezer, 5-9 cu ft (~30W avg):</strong> ~$3.94/month · ~$47/year</li>
-              <li><strong>Mid-size chest freezer, 12-18 cu ft (~45W avg):</strong> ~$5.91/month · ~$71/year</li>
-              <li><strong>Large chest freezer, 20-25 cu ft (~55W avg):</strong> ~$7.23/month · ~$87/year</li>
-              <li><strong>Upright freezer, manual-defrost (~50W avg):</strong> ~$6.57/month · ~$79/year</li>
-              <li><strong>Upright freezer, frost-free (~70W avg):</strong> ~$9.20/month · ~$110/year</li>
+              <li><strong>Close to the new-model figure</strong> (for a 15 cu ft chest, under about 1 kWh a day): keep it. A new one won't pay back on electricity.</li>
+              <li><strong>Around double</strong>: a new freezer saves $50 or more a year — worth it if the old one needs work anyway.</li>
+              <li><strong>Several times the new figure</strong>, or the compressor seems to run constantly: check the seal and coils first, then replace.</li>
             </ul>
 
-            <h3>Chest Freezer vs. Upright Freezer: Which Costs Less to Run?</h3>
-            <p>Chest freezers are typically <strong>15-25% cheaper to run</strong> than upright freezers of similar capacity, for two physical reasons. First, chest freezers open from the top — since cold air is denser than warm air, it stays pooled inside the chest when you lift the lid, whereas an upright freezer's cold air spills straight out the front door every time you open it. Second, chest freezers generally have thicker insulation and a simpler, more airtight seal design. The tradeoff is organization: uprights are far easier to see into and organize with shelves and bins, while chest freezers require digging and often benefit from wire baskets to avoid a "lost at the bottom" problem. Frost-free upright models cost the most to run of all, since the automatic defrost cycle periodically heats the coils, adding energy use on top of the compressor.</p>
+            <h2>Garage Freezers</h2>
+            <p>ENERGY STAR advises keeping a freezer indoors, such as in a basement, unless you live in a mild climate — extreme temperatures are hard on the compressor and can shorten its life. In summer a hot garage makes the compressor run longer; in a cold one, some models aren't designed to run at all. If it has to go in the garage, check that the model is rated for it.</p>
 
-            <h3>Is a Second Freezer Worth the Running Cost?</h3>
-            <p>For most households, yes — a mid-size chest freezer costs roughly $6-7/month to run, which is easy to offset by buying meat, produce, or other staples on sale or in bulk and freezing the surplus. A single large sale purchase (a quarter of beef, a bulk order of chicken, a big box store membership haul) can save far more than a year of running cost in one transaction. The math only breaks down if the extra freezer sits mostly empty or its contents go unused and get freezer-burned — at that point it's pure running cost with no offsetting savings, and a smaller unit (or none at all) would be cheaper overall.</p>
-
-            <h3>What Affects Freezer Running Cost</h3>
+            <h2>Tips to Lower Freezer Running Cost</h2>
             <ul>
-              <li><strong>Size and type:</strong> Larger units use more electricity in absolute terms, but chest freezers are more efficient per cubic foot than uprights.</li>
-              <li><strong>Frost-free vs. manual defrost:</strong> Frost-free models use extra energy for automatic defrost heating cycles; manual-defrost units use less energy but need periodic manual defrosting to stay efficient.</li>
-              <li><strong>How full it is:</strong> A fairly full freezer holds cold better than a mostly empty one, since frozen contents act as thermal mass that reduces compressor cycling.</li>
-              <li><strong>Ambient temperature:</strong> A freezer in an unconditioned garage or shed works harder in summer heat than one in a climate-controlled basement.</li>
-              <li><strong>Door/lid seal condition:</strong> A worn gasket lets cold air leak out continuously, forcing the compressor to run far more than normal.</li>
-              <li><strong>ENERGY STAR certification:</strong> Certified models use roughly 10-20% less energy than non-certified units of the same size.</li>
+              <li><strong>Keep it at 0°F</strong> — the standard safe temperature. Colder wastes energy with no benefit.</li>
+              <li><strong>Check the seal</strong> — close the lid or door on a sheet of paper. If it slides out easily, the gasket is leaking.</li>
+              <li><strong>Defrost manual models</strong> before frost passes about 1/4 inch — it insulates the coils and makes the compressor work harder.</li>
+              <li><strong>Give the coils room</strong> — leave a few inches behind and around the freezer, and vacuum the coils once a year.</li>
+              <li><strong>Unplug a second freezer you don't need</strong> — it costs the same to run nearly empty as full.</li>
             </ul>
-
-            <h3>Tips to Lower Freezer Running Cost</h3>
-            <ul>
-              <li><strong>Keep it reasonably full.</strong> Frozen food acts as thermal mass and reduces how often the compressor has to run. Fill empty space with water bottles if needed.</li>
-              <li><strong>Check the door/lid seal.</strong> Close it on a piece of paper — if it slides out easily, the gasket needs replacing.</li>
-              <li><strong>Set the right temperature.</strong> 0°F (-18°C) is the standard safe freezer temperature; colder settings waste energy with no food safety benefit.</li>
-              <li><strong>Manually defrost when frost builds up past 1/4 inch</strong> on manual-defrost models — thick frost acts as insulation against the cooling coils, making the compressor work harder.</li>
-              <li><strong>Locate it in a cool, stable spot</strong> — avoid direct sun, furnace rooms, or an un-insulated garage in hot climates.</li>
-              <li><strong>Choose a chest freezer over an upright</strong> if running cost is the priority and you don't mind the reduced visibility and organization.</li>
-            </ul>
-
-            <p>For related running-cost calculators, see our <a href="/tools/refrigerator-energy-cost.html">Refrigerator Energy Cost Calculator</a> or the <a href="/tools/appliance-energy-cost.html">Appliance Energy Cost Calculator</a>.</p>
           </div>
         </div>
         <div>
@@ -123,10 +145,10 @@
           <div class="sidebar-box">
             <h3>Quick Facts</h3>
             <ul>
-              <li>Compact chest freezer: <strong>~$34/yr</strong></li>
-              <li>Mid-size chest freezer: <strong>~$51/yr</strong></li>
-              <li>Frost-free upright: <strong>~$80/yr</strong></li>
-              <li>Chest vs. upright savings: <strong>~15-25%</strong></li>
+              <li>New 15 cu ft chest: <strong>~$53/yr</strong></li>
+              <li>15 cu ft frost-free upright: <strong>~$81/yr</strong></li>
+              <li>Full freezer in an outage: <strong>~48 hrs</strong></li>
+              <li>Half-full: <strong>~24 hrs</strong></li>
             </ul>
           </div>
           <div class="sidebar-box">
@@ -147,56 +169,59 @@
     <div class="article-body" style="max-width:800px;">
       <h2>Frequently Asked Questions</h2>
       <h3>How much does it cost to run a chest freezer?</h3>
-      <p>A compact 5-9 cu ft chest freezer costs about $34/year to run at the U.S. average electricity rate of 13 cents per kWh. A mid-size 12-18 cu ft chest freezer costs around $51/year, and a large 20-25 cu ft chest freezer costs about $63/year. These figures assume the freezer runs continuously, which is normal - freezers cycle the compressor on and off automatically.</p>
+      <p>A new 15 cubic foot chest freezer uses about 297 kWh a year at the federal efficiency limit, roughly $53 at 18 cents per kWh, or about $4.50 a month. A small 7 cubic foot model costs about $35 a year and a 22 cubic foot model about $69. ENERGY STAR models use at least 10% less.</p>
       <h3>Is a chest freezer or upright freezer cheaper to run?</h3>
-      <p>A chest freezer is typically 15-25% cheaper to run than an upright freezer of similar capacity. Chest freezers open from the top, so cold air (which is denser than warm air) stays inside the unit when you open the lid, while upright freezers spill cold air out the front every time the door opens. Chest freezers also tend to have thicker insulation and fewer seams to leak cold air through.</p>
+      <p>A chest freezer. At the same size, a frost-free upright is allowed to use about 50% more electricity than a chest freezer, mainly because of its automatic defrost heating. A manual-defrost upright closes most of that gap, using only about 14% more than a chest.</p>
+      <h3>Does a full freezer use less electricity?</h3>
+      <p>Only slightly. A freezer's steady energy use depends on heat leaking through its walls, which doesn't change with what's inside, though a full freezer loses less cold air when opened. The bigger benefit is in a power outage: USDA says a full freezer holds a safe temperature for about 48 hours and a half-full one for about 24.</p>
       <h3>Is a second freezer worth the electricity cost?</h3>
-      <p>For most households, yes. A mid-size chest freezer costs roughly $4-5/month to run, which is easily offset by buying meat, produce, or bulk items on sale or in bulk and freezing the surplus. The math works best if you actually use the extra storage regularly - an underused second freezer is pure running cost with no offsetting savings.</p>
+      <p>A new mid-size chest freezer costs around $4–5 a month to run, which bulk buying or freezing garden produce can easily cover. An old second freezer can cost several times that, so measure it with a plug-in power meter before deciding whether to keep, replace or unplug it.</p>
     </div>
     </div>
   </section>
 </main>
 <script src="/assets/js/nav.js"></script>
 <script>
-const freezerWatts = {
-  '30': 30,
-  '45': 45,
-  '55': 55,
-  '50': 50,
-  '70': 70
+// Federal maximum energy use, freezers made since Sept 15, 2014 (10 CFR 430.32(a)), kWh/yr,
+// with adjusted volume AV = 1.73 x volume.
+var FZ = {
+  chest: { a: 7.29, b: 107.8, size: 15 },   // class 10
+  upman: { a: 5.57, b: 193.7, size: 15 },   // class 8, upright manual defrost
+  upff:  { a: 8.62, b: 228.3, size: 20 }    // class 9, upright automatic defrost
 };
-
-document.getElementById('fz-type').addEventListener('change', function() {
-  document.getElementById('fz-custom-group').style.display = this.value === 'custom' ? 'block' : 'none';
-});
-
+function setFreezerDefaults() {
+  document.getElementById('fz-size').value = FZ[document.getElementById('fz-type').value].size;
+}
 function calcFreezer() {
-  const type = document.getElementById('fz-type').value;
-  const watts = type === 'custom'
-    ? (parseFloat(document.getElementById('fz-custom-watts').value) || 50)
-    : parseFloat(type);
-  const rate = parseFloat(document.getElementById('fz-rate').value) / 100 || 0.18;
-
-  const dailyKwh = (watts / 1000) * 24;
-  const monthlyKwh = dailyKwh * 30.44;
-  const annualKwh = dailyKwh * 365;
-  const dailyCost = dailyKwh * rate;
-  const monthlyCost = monthlyKwh * rate;
-  const annualCost = annualKwh * rate;
-
-  const fmt2 = v => '$' + v.toFixed(2);
-  const fmtR = v => '$' + Math.round(v);
-
-  document.getElementById('fz-annual').textContent = fmtR(annualCost) + '/yr';
-  document.getElementById('fz-breakdown').innerHTML = `
-    <tr><td>Average running wattage</td><td>${watts}W</td></tr>
-    <tr><td>Daily energy use</td><td>${dailyKwh.toFixed(2)} kWh</td></tr>
-    <tr><td>Daily cost</td><td>${fmt2(dailyCost)}</td></tr>
-    <tr><td>Monthly cost</td><td>${fmt2(monthlyCost)}</td></tr>
-    <tr style="font-weight:700;"><td>Annual cost</td><td>${fmtR(annualCost)}</td></tr>
-    <tr><td>Annual energy use</td><td>${Math.round(annualKwh)} kWh</td></tr>
-  `;
-  const r = document.getElementById('fz-result');
+  var num = function (id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? null : v; };
+  var f = FZ[document.getElementById('fz-type').value] || FZ.chest;
+  var size = num('fz-size') || f.size;
+  var es = parseFloat(document.getElementById('fz-es').value) || 1;
+  var rate = (num('fz-rate') || 18) / 100;
+  var est = (f.a * 1.73 * size + f.b) * es;
+  var label = num('fz-label');
+  var kwh = label || est;
+  var fmt2 = function (v) { return '$' + v.toFixed(2); };
+  var fmtR = function (v) { return '$' + Math.round(v).toLocaleString(); };
+  var rows = '';
+  rows += '<tr><td>' + (label ? 'EnergyGuide label' : 'Estimated use (' + (es < 1 ? 'ENERGY STAR' : 'federal limit') + ')') + '</td><td>' + Math.round(kwh) + ' kWh/yr</td></tr>';
+  rows += '<tr><td>Average power over a day</td><td>' + Math.round(kwh / 8.76) + ' W</td></tr>';
+  rows += '<tr><td>Monthly cost</td><td>' + fmt2(kwh * rate / 12) + '</td></tr>';
+  rows += '<tr style="font-weight:700;"><td>Annual cost</td><td>' + fmtR(kwh * rate) + '</td></tr>';
+  var note = 'Estimate from the federal maximum for this type and size; most new models come in at or a little below it. A hot garage or frequent opening raises it.';
+  var old = num('fz-old');
+  if (old) {
+    var oldKwh = old * 365, save = (oldKwh - kwh) * rate, price = num('fz-price');
+    rows += '<tr><td>Your current freezer (measured)</td><td>' + Math.round(oldKwh) + ' kWh/yr · ' + fmtR(oldKwh * rate) + '</td></tr>';
+    rows += '<tr style="font-weight:700;"><td>Yearly saving from replacing</td><td>' + (save > 0 ? fmtR(save) : 'none') + '</td></tr>';
+    if (price && save > 0) rows += '<tr><td>Payback on the new freezer</td><td>' + (price / save).toFixed(1) + ' years</td></tr>';
+    note = save <= 0 ? 'Your current freezer already uses no more than a new one would. Keep it.'
+      : (price && price / save > 12 ? 'At this saving a new freezer would not pay for itself within a typical 12-year life on electricity alone.' : 'Savings assume the new freezer uses what the estimate or label says.');
+  }
+  document.getElementById('fz-annual').textContent = fmtR(kwh * rate) + '/yr';
+  document.getElementById('fz-breakdown').innerHTML = rows;
+  document.getElementById('fz-note').textContent = note;
+  var r = document.getElementById('fz-result');
   r.classList.add('visible');
   r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

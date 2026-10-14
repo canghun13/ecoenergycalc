@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"Solar Panels vs Home Wind Turbine: Which Generates More for Your Home?","description":"Enter your location's sun hours and wind speed to compare annual output and payback for solar panels vs a small home wind turbine.","url":"https://ecoenergycalc.com/compare/solar-panels-vs-wind-turbine.html","datePublished":"2026-06-26","dateModified":"2026-08-10","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"Solar Panels vs Home Wind Turbine: Which Generates More for Your Home?","description":"Enter your location's sun hours and wind speed to compare annual output and payback for solar panels vs a small home wind turbine.","url":"https://ecoenergycalc.com/compare/solar-panels-vs-wind-turbine.html","datePublished":"2026-06-26","dateModified":"2026-10-14","publisher":{"@type":"Organization","name":"EcoEnergyCalc"}}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -45,7 +45,7 @@
               <input type="number" id="sw-wind-kw" value="5" min="1" max="20" step="0.5" />
             </div>
             <div class="form-group">
-              <label for="sw-wind-speed">Average Wind Speed (mph)</label>
+              <label for="sw-wind-speed">Average Wind Speed at Hub Height (mph)</label>
               <input type="number" id="sw-wind-speed" value="10" min="4" max="25" step="0.5" />
             </div>
             <div class="form-group">
@@ -58,12 +58,12 @@
               <div class="table-scroll">
                 <table id="sw-table" style="width:100%;min-width:480px;"></table>
               </div>
-              <p class="result-note">Solar: production = kW × sun hours × 365 × 0.80. Wind: uses power curve estimate — output scales with cube of wind speed. Both costs shown are full installed price — no federal tax credit applied (expired December 31, 2025).</p>
+              <p class="result-note">Solar: production = kW × sun hours × 365 × 0.80. Wind: annual energy ≈ 0.01328 × rotor diameter² (ft) × wind speed³ (mph), with rotor size estimated from the kW rating and capacity factor capped at 22%, the top of the measured range for small turbines. Both costs shown are full installed price — no federal tax credit applied (expired December 31, 2025).</p>
             </div>
           </div>
           <div class="article-body">
 <h2>Output Is the Wrong Comparison — Location Is Everything</h2>
-            <p>A 6 kW solar array in Phoenix produces roughly 10,900 kWh/year. The same array in Seattle produces about 7,300 kWh. A small residential wind turbine (1.5–3 kW rated) requires average wind speeds of at least 10–12 mph at hub height to produce meaningful power — a condition that applies to coastal areas, open plains, and ridgelines, but eliminates most suburban and urban properties entirely. Before comparing costs, answer one question: does your site actually have adequate wind? The National Renewable Energy Laboratory's Wind Resource Map (windexchange.energy.gov) shows whether your location exceeds 5.5 m/s average — the minimum viable threshold.</p>
+            <p>A 6 kW solar array in Phoenix produces roughly 11,400 kWh/year. The same array in Seattle produces about 6,100 kWh. A small residential wind turbine (1.5–3 kW rated) requires average wind speeds of at least 10–12 mph at hub height to produce meaningful power — a condition that applies to coastal areas, open plains, and ridgelines, but eliminates most suburban and urban properties entirely. Before comparing costs, answer one question: does your site actually have adequate wind? The National Renewable Energy Laboratory's Wind Resource Map (windexchange.energy.gov) shows whether your location exceeds 5.5 m/s average — the minimum viable threshold.</p>
 
             <h2>Solar Wins on Cost per kWh Generated — Almost Everywhere</h2>
             <p>Residential solar panels have fallen to $2.50–$3.50/watt installed (2024–2025). Small residential wind turbines run $15,000–$75,000 installed for 1–10 kW capacity, with much higher variability in output. The all-in levelized cost of energy (LCOE) for residential solar is now $0.06–$0.10/kWh in most U.S. markets. Residential wind typically runs $0.15–$0.30/kWh when sited correctly — and worse when wind is marginal. The solar cost advantage is structural: mass production of panels has created massive economies of scale that small wind hasn't achieved.</p>
@@ -124,8 +124,9 @@ function calcSolarWind() {
 
   // Wind annual kWh (simplified power curve)
   // Capacity factor scales roughly with (v/12)^3 where 12mph = ~25% capacity factor
-  const cf = Math.min(0.45, 0.25 * Math.pow(windMph / 12, 3));
-  const windKwh = windKw * cf * 8760;
+  // Rotor diameter (ft) estimated from rating: ~8 ft at 1 kW, ~12 ft at 2.4 kW, ~17 ft at 5 kW, ~23 ft at 10 kW
+  const diam = 8.2 * Math.pow(windKw, 0.46);
+  const windKwh = Math.min(0.01328 * diam * diam * Math.pow(windMph, 3), windKw * 8760 * 0.22);
   const windCost = windKw * 1000 * 5.00; // ~$5/W installed, no federal credit (ITC expired Dec 2025)
   const windSavings = windKwh * rate;
   const windPayback = windSavings > 0 ? windCost / windSavings : 999;
