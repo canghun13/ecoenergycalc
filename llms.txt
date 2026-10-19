@@ -82,6 +82,8 @@ Tools for water usage and rainwater harvesting.
 
 In-depth guides on energy savings, solar, carbon reduction, and environmental topics.
 
+- [How Much Does It Cost to Heat a House?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-heat-a-house.html): Annual and January heating cost by square footage, climate zone and fuel (gas, heat pump, propane, oil, electric), cost per square foot, and regional price effects
+- [How Long Will 100 Gallons of Heating Oil Last?](https://ecoenergycalc.com/blog/how-long-will-100-gallons-of-heating-oil-last.html): Days per 100 gallons by house size and outdoor temperature, what tank gauge fractions mean in gallons, and 500-gallon propane tank duration
 - [How Much Does It Cost to Run a Refrigerator?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-a-refrigerator.html): Annual, monthly, and daily running costs by refrigerator type and age — with ENERGY STAR upgrade payback analysis
 - [How to Lower Your Electric Bill in Summer](https://ecoenergycalc.com/blog/how-to-lower-electric-bill-in-summer.html): 11 proven strategies ranked by dollar impact to cut summer cooling costs by 20–40% without sacrificing comfort
 - [How Much CO2 Does Solar Save? Real Numbers by System Size](https://ecoenergycalc.com/blog/how-much-co2-does-solar-save.html): Full carbon math behind residential solar — annual and lifetime CO2 offset by system size, grid region, and real-world equivalents

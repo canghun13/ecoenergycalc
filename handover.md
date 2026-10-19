@@ -1,3 +1,32 @@
+# EcoEnergyCalc 인수인계 — v39 세션 (2026-10-19, 주간 데이터)
+
+## 0-N1. 데이터
+
+- GA(9/21~10/18): 활성 **1,026명**(전 984). google/organic **59**(전 41), bing 243, ddg 145, yahoo 59, ecosia 38. copilot·gemini ai-assistant 유입 첫 등장(4).
+- GSC: 하루 노출 650~930 유지, 평균 순위는 20~35로 **하락처럼 보이지만 깊은 순위 신규 노출 증가 탓**("in 2026 solar panels" 887노출 @75 → solar-panel-cost-2026). 3개월 59클릭.
+  - v38 재구축 효과 신호: **wind-turbine 7클릭/371 @6.4(사이트 1위)**, freezer 3클릭/362 @5.6, power-outage 3클릭 @5.3, budget-billing 18.8% CTR.
+- Bing: heating-cost-by-fuel **1,969/97/4.93%**(전 1,570/80) 계속 1위. ai-water **2,337노출/28클릭**, "per prompt" 75노출 @7.0 여전히 0클릭(제목 변경 효과 없음 — 순위 7이 원인, 더 손대지 않음). 난방 연료 비교 쿼리들이 @1~2에서 클릭.
+- 색인(사용자 제공): 크롤링-미색인 2(v37 신규 2개, 10/13 크롤 — 정상 대기). **발견-미크롤 6→8**: can-a-heat-pump-replace-a-boiler, ai-data-centers 블로그, aux-vs-emergency, electric-blanket-vs-space-heater, gas-dryer-vs-heat-pump-dryer, solar-shingles, ai-carbon-footprint, baseboard-heat-pump. 손대지 않음(aux-vs-emergency는 메인 계절 블록에서 이미 링크).
+
+## 0-N2. ✅ 신규: `blog/how-much-does-it-cost-to-heat-a-house.html` (156파일)
+
+- **근거**: Bing "how much does it cost heating 3000 sq ft home…", "how much more is it to heat a 1200 sf home with electric vs gas"; Google "heating and cooling costs", "calculate heating costs", "heating cost calculator". 난방 시즌 + 난방 클러스터가 Bing 최고 수익 페이지.
+- **경쟁**: SERP가 포럼(early-retirement, anandtech, heatinghelp)과 저품질 스팸(risingsunartscentre 등) → 약함. 관심은 큼(포럼 스레드 다수).
+- **내용**: heating-cost-by-fuel 모델 그대로(kBTU/sqft 8/18/28/40, 가스·프로판 80%, 오일 85%, HP COP 2.5/2.5/2.2/2.0, 전국가 $1.70/18¢/$2.50/$3.80). 표 5개: 2,000sqft×기후, 혼합기후 크기별(1,000~3,000), **1월 청구액**(NOAA 1991–2020 시카고 1월 HDD 1,234/5,974=20.7%), **sqft당 비용**, 지역가(heating-cost-by-fuel 프리셋). FAQ 5개(1,500/2,000/3,000sqft, 겨울 월 비용, 가장 싼 난방).
+- 등록: 블로그 허브, 사이트맵, llms.txt(100갤런 블로그도 누락돼 있어 함께 추가), heating-cost-by-fuel 사이드바, how-to-lower-your-heating-bill·is-it-cheaper-to-heat-or-cool 본문 링크.
+
+## 0-N3. ✅ 보강: `compare/electric-vs-gas-water-heater.html`
+
+- **근거**: Google 변형 쿼리 다수(is gas water heater cheaper than electric 41 @36, electric versus gas 34 @42, monthly cost 17 @50, operating cost 15 @53 …, 페이지 512노출 @45). Bing @3.7, 12클릭.
+- **오류 수정**: 본문에 옛 수치($1.40/therm, 0.64EF 250therm $350, 4,210kWh $758, HPWH COP 3.5 $216, FAQ "4~6년 회수")가 계산기($231/$506/$192)와 불일치 → 전부 계산기 기준으로 교체.
+- **추가**: 제목·H1에 월 비용(가스 $19 vs 전기 $42), 결과표 월/연 열, **손익분기 규칙**(전기탱크가 가스 이기려면 ¢ < 4.8×가스$/therm ≈ 8.2¢; HPWH가 가스탱크 이기려면 ¢ < 12.7× ≈ 22¢; 탱크리스 대비 10.2×) — 계산기가 입력값으로 동적 문구 출력, **지역별 표**(북동부·중서부·서부는 가스 우위, 남부만 HPWH 우위), "지금 가진 게 뭐냐에 따라" 전환 판단 섹션, FAQ 4개.
+
+## 0-N4. 보류
+
+- 냉장고 **구매가** 쿼리("how much does a refrigerator/fridge cost" 합계 ~214노출 @22~28): 구매가 출처가 약함(Synchrony 2022 범위 $400~$11,000 수준, Fixr 접근 실패). 출처 확보되면 냉장고 블로그에 "구매가 + 수명 운영비" 섹션 추가.
+
+---
+
 # EcoEnergyCalc 인수인계 — v38-2 (2026-10-14, 메인·푸터 개편)
 
 ## 0-M1. 왜
