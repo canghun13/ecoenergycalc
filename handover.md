@@ -1,3 +1,29 @@
+# EcoEnergyCalc 인수인계 — v40 세션 (2026-10-21, 신규 발굴)
+
+## 0-O1. 발굴 (다음 신규 세션 참고)
+
+- 후보: 듀얼퓨얼 전환온도, 펠릿·장작 난방비/소요량, 발전기 프로판 런타임, (보류) 냉장고 구매가.
+- **듀얼퓨얼 전환온도**: SERP = 포럼(Sense 커뮤니티, heatinghelp, bobistheoilguy, lemmy) + HVAC 블로그 1개(pickhvac) + **NEEA 2026 기술문서**. 관심 많고 경쟁 약함 → 채택.
+- **펠릿/장작**: SERP = 포럼만(hearth.com, tractorbynet, arboristsite, 심지어 toyota-4runner 포럼). "how many tons of pellets" 스레드 다수 → 채택.
+- 발전기 프로판 런타임: 판매사(Bluetti, Anker, Powerblanket) + 스팸 → 렌즈 1 해당, **다음 후보로 남김**(정전 클러스터 확장용).
+- 네이버: 미국 대상 사이트라 의미 있는 신호 없음.
+
+## 0-O2. ✅ 신규 4페이지 (160파일, 계산기 55)
+
+- `tools/dual-fuel-switchover-calculator.html` — 경제적 전환점(손익분기 COP = 전기$/kWh × 293.07 × AFUE ÷ 연료$/MMBtu, NEEA 문서와 일치) + 열적 균형점(용량 47/17°F 선형 vs 65°F 기준 직선 열손실) → 둘 중 높은 값 권장. COP 곡선: 47/17°F(+선택 5°F) 선형 보간·외삽, 하한 1.0. 프리셋(대표값, 사용자 교체 권장): 단단 3.6/2.3, 인버터 4.2/2.8/2.1, 한랭지 4.0/2.9/2.3; 용량 36,000/21,600·26,000·31,000. 50°F 이상은 "50°F or warmer"로 표시(47°F 위 외삽 신뢰 낮음). 기본값 결과: 32°F(경제) / 26°F(열적).
+  - 근거: **NEEA 2026 "Dual Fuel Gas Furnace and Heat Pump System Control"**(포틀랜드 30→40°F 전환 시 가스 105→309therm, $821→$912; 미줄라 프로판은 20°F 이하가 최저, 배관가스는 40°F가 최저), **ENERGY STAR 한랭지: 5°F COP ≥ 1.75**.
+- `blog/dual-fuel-heat-pump-switchover-temperature.html` — 가스가($1.00/1.50/2.00)×전기(12/18/24/30¢) 전환온도 표(95%·80% 퍼니스, 단단/인버터), 프로판·오일 표, 열적 균형점, 흔한 실수 3가지.
+- `tools/pellet-firewood-heating-cost-calculator.html` — 펠릿·장작 vs 가스·프로판·오일·HP·전기 시즌 비용 + 톤/포대/코드 + **펠릿 손익분기 가격**(프로판 $2.50 대비 $437/톤, 오일 $3.80 대비 $413, 가스 $1.70 대비 $272, HP $270, 전기 $675). 난방 부하는 heating-cost-by-fuel과 동일(8/18/28/40 kBTU/sqft).
+  - 근거: **USDA FPL Fuel Value Calculator**(펠릿 16.4 MMBtu/톤, 건조 장작 20 MMBtu/코드), **EPA 인증 난로 기본 효율**(40 CFR 60.536(i)(3): 비촉매 63%, 촉매 72%, 펠릿 78%). 구형 비인증 50%는 근사치로 표기.
+- `blog/how-many-tons-of-pellets-do-i-need.html` — 톤/포대·코드 표(크기×기후), 기온별 하루 포대 수(3 BTU/sqft/도일 가정 = 혼합기후 18 kBTU/sqft ÷ 시카고 5,974 HDD), FAQ 4개.
+- 등록: tools·blog 허브, 사이트맵, llms.txt(계산기 수 55), 메인 난방 시즌 블록(6개로), 사이드바 교차링크(aux-heat, heat-pump-vs-furnace, aux-vs-emergency, heating-cost-by-fuel, propane-vs-heating-oil), 난방비 블로그 본문 링크.
+
+## 0-O3. 측정
+
+- 11~12월: "dual fuel switchover temperature", "heat pump balance point gas furnace", "how many tons of pellets", "pellet stove vs propane cost", "how many cords of wood for winter".
+
+---
+
 # EcoEnergyCalc 인수인계 — v39 세션 (2026-10-19, 주간 데이터)
 
 ## 0-N1. 데이터

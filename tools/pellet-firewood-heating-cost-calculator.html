@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pellet Stove vs Propane, Oil &amp; Gas Cost Calculator – Firewood Too | EcoEnergyCalc</title>
+  <meta name="description" content="Compare a season of heat from wood pellets or firewood against propane, heating oil, natural gas, heat pump and electric — with tons, bags and cords needed and the pellet price where each one breaks even." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/pellet-firewood-heating-cost-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Pellet and Firewood Heating Cost Calculator","url":"https://ecoenergycalc.com/tools/pellet-firewood-heating-cost-calculator.html","description":"Compare a season of heat from wood pellets or firewood against propane, heating oil, natural gas, heat pump and electric — with tons, bags and cords needed and the pellet price where each one breaks even.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-10-21","dateModified":"2026-10-21","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is a pellet stove cheaper than propane?","acceptedAnswer":{"@type":"Answer","text":"Usually, yes. With a 78% efficient pellet stove and an 80% propane furnace, pellets are cheaper whenever they cost less than about 175 times the propane price per gallon \u2014 about $437 a ton at $2.50 propane. At $350 a ton, pellets cost about 20% less than $2.50 propane for the same heat."}},
+    {"@type":"Question","name":"Is heating with pellets cheaper than natural gas?","acceptedAnswer":{"@type":"Answer","text":"Rarely. Pellets would need to cost under about $270 a ton to match natural gas at $1.70 a therm in an 80% furnace, and a high-efficiency gas furnace raises the bar further. Where there's a gas line, pellets save money mainly as zone heat for a room the furnace heats poorly."}},
+    {"@type":"Question","name":"Which is cheaper, pellets or firewood?","acceptedAnswer":{"@type":"Answer","text":"Firewood, if you can buy seasoned hardwood at a fair price. At $300 a cord in an EPA-certified non-catalytic stove, wood costs about $24 per million BTU of heat versus about $27 for pellets at $350 a ton. Pellets are cleaner, need less handling and burn more steadily, which is what people pay the premium for."}},
+    {"@type":"Question","name":"How much does it cost to heat with a pellet stove per month?","acceptedAnswer":{"@type":"Answer","text":"For a 2,000 sq ft home in a mixed climate heated entirely by pellets, a season takes about 2.8 tons, roughly $985 at $350 a ton. About a fifth of that falls in January, so expect around $200 for the coldest month and much less in fall and spring."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Pellet &amp; Firewood Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Pellet Stove &amp; Firewood Heating Cost Calculator</h1>
+        <p>How much a season of pellet or wood heat costs next to propane, oil, gas, a heat pump or baseboard heat — and how many tons, bags or cords you'll burn. Enter your prices to see which is cheapest and the pellet price where each fuel breaks even.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Pellet &amp; Firewood Heating Cost</h2>
+            <div class="form-group">
+              <label for="pf-size">Area the Stove Heats (sq ft)</label>
+              <input type="number" id="pf-size" value="2000" min="200" max="8000" step="100" />
+              <small style="color:var(--text-muted);">The floor area the stove actually keeps warm. A stove in an open living area often heats less than the whole house.</small>
+            </div>
+            <div class="form-group">
+              <label for="pf-climate">Climate</label>
+              <select id="pf-climate">
+                <option value="hot">Hot (Atlanta, Dallas, Phoenix)</option>
+                <option value="mixed" selected>Mixed (Chicago, DC, Denver)</option>
+                <option value="cold">Cold (Boston, Hartford)</option>
+                <option value="veryCold">Very cold (Minneapolis, Buffalo)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pf-share">Share of Heat From the Stove (%)</label>
+              <input type="number" id="pf-share" value="100" min="10" max="100" step="5" />
+              <small style="color:var(--text-muted);">100% if the stove is your main heat. Lower if a furnace or heat pump carries part of the load.</small>
+            </div>
+            <div class="form-group">
+              <label for="pf-pellet">Pellet Price ($ per ton)</label>
+              <input type="number" id="pf-pellet" value="350" min="100" max="900" step="10" />
+              <small style="color:var(--text-muted);">A ton is 50 bags of 40 lb. At $7 a bag that's $350.</small>
+            </div>
+            <div class="form-group">
+              <label for="pf-peff">Pellet Stove Efficiency (%)</label>
+              <input type="number" id="pf-peff" value="78" min="40" max="95" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="pf-cord">Firewood Price ($ per full cord)</label>
+              <input type="number" id="pf-cord" value="300" min="0" max="900" step="10" />
+              <small style="color:var(--text-muted);">A full cord is 4 × 4 × 8 ft (128 cubic feet). A "face cord" or "rick" is often a third of that.</small>
+            </div>
+            <div class="form-group">
+              <label for="pf-weff">Wood Stove Type</label>
+              <select id="pf-weff">
+                <option value="72">EPA-certified catalytic (72%)</option>
+                <option value="63" selected>EPA-certified non-catalytic (63%)</option>
+                <option value="50">Older uncertified stove (about 50%)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pf-gas">Natural Gas ($/therm)</label>
+              <input type="number" id="pf-gas" value="1.70" min="0.3" max="6" step="0.05" />
+            </div>
+            <div class="form-group">
+              <label for="pf-prop">Propane ($/gallon)</label>
+              <input type="number" id="pf-prop" value="2.50" min="0.5" max="8" step="0.05" />
+            </div>
+            <div class="form-group">
+              <label for="pf-oil">Heating Oil ($/gallon)</label>
+              <input type="number" id="pf-oil" value="3.80" min="1" max="8" step="0.05" />
+            </div>
+            <div class="form-group">
+              <label for="pf-elec">Electricity (¢/kWh)</label>
+              <input type="number" id="pf-elec" value="18" min="3" max="60" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcPellet()">Compare Heating Costs</button>
+            <div class="result-box-tool" id="pf-result">
+              <h3>One Heating Season</h3>
+              <div class="result-amount" id="pf-headline"></div>
+              <table id="pf-table" class="compact" style="width:100%;"></table>
+              <table id="pf-be" class="compact" style="width:100%;margin-top:12px;font-size:0.9em;"></table>
+              <p class="result-note" id="pf-note"></p>
+              <p class="result-note">Heat content from the USDA Forest Products Laboratory Fuel Value Calculator: 16.4 million BTU per ton of premium pellets and 20 million BTU per cord of seasoned firewood. Stove efficiencies are EPA's default values for certified heaters. Furnaces: gas and propane 80%, oil 85%; heat pump COP 2.5 (2.2 cold, 2.0 very cold). Annual heat need uses the same climate figures as our heating cost calculator.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>The Break-Even Pellet Price</h2>
+            <p>Pellets are a good deal only against some fuels. With a 78%-efficient pellet stove, a ton of pellets delivers about 12.8 million BTU into the house. That makes the price at which pellets tie each alternative easy to work out:</p>
+            <ul>
+              <li><strong>vs propane at $2.50/gal (80% furnace):</strong> pellets win below about <strong>$437 a ton</strong>; at $3.30 propane, below $577.</li>
+              <li><strong>vs heating oil at $3.80/gal (85%):</strong> below about <strong>$413 a ton</strong>.</li>
+              <li><strong>vs electric baseboard at 18¢:</strong> below about $675 a ton — almost always.</li>
+              <li><strong>vs natural gas at $1.70/therm (80%) or a heat pump at 18¢:</strong> below about <strong>$270 a ton</strong>, which most buyers don't see.</li>
+            </ul>
+            <p>That's why pellet and wood stoves are popular where homes run on propane, oil or electric heat, and rare where there's a gas line. The calculator works out these break-even prices for your own fuel prices.</p>
+
+            <h2>Firewood: Cheapest When the Price Is Right and the Wood Is Dry</h2>
+            <p>A cord of seasoned firewood holds about 20 million BTU, a little more than a ton of pellets, but most wood stoves burn it less efficiently. At $300 a cord in an EPA-certified non-catalytic stove, firewood costs about $24 per million BTU of heat, a bit cheaper than pellets at $350 a ton ($27) and far below propane ($34) or oil ($32).</p>
+            <p>Two things move that number more than the price. Wet wood: firewood that hasn't dried to about 20% moisture wastes a big share of its heat boiling off water. And the stove: EPA uses a default of 72% for certified catalytic stoves and 63% for non-catalytic ones, while old uncertified stoves can run far lower. Moving from an old stove to a certified one can cut your wood use by a fifth to a third for the same warmth.</p>
+
+            <h2>Zone Heating Changes the Math</h2>
+            <p>Most stoves heat the room they're in best and the far bedrooms least. If your stove carries the living area while a furnace or heat pump covers the rest, enter the area it really heats, or a share below 100%. The savings then come from the fuel the furnace no longer burns, which is what the "saves vs" figures show.</p>
+            <p>To see how many tons or cords to stock for winter, by house size and climate, see <a href="/blog/how-many-tons-of-pellets-do-i-need.html">how many tons of pellets (or cords of wood) you need</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel</a></li>
+              <li><a href="/compare/propane-vs-heating-oil.html">Propane vs Heating Oil</a></li>
+              <li><a href="/tools/heating-oil-propane-days-left-calculator.html">Oil or Propane Days Left</a></li>
+              <li><a href="/tools/space-heater-cost-calculator.html">Space Heater Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-many-tons-of-pellets-do-i-need.html">How Many Tons of Pellets Do I Need?</a></li>
+              <li><a href="/blog/how-much-does-it-cost-to-heat-a-house.html">Cost to Heat a House by Sq Ft</a></li>
+              <li><a href="/blog/how-to-lower-your-heating-bill.html">How to Lower Your Heating Bill</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Ton of pellets: <strong>16.4 million BTU</strong></li>
+              <li>Cord of seasoned wood: <strong>~20 million BTU</strong></li>
+              <li>Pellets beat $2.50 propane below: <strong>~$437/ton</strong></li>
+              <li>Full cord: <strong>128 cubic feet</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#btu">BTU</a></li>
+              <li><a href="/glossary/#afue">AFUE</a></li>
+              <li><a href="/glossary/#heating-degree-days">Heating degree days</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Is a pellet stove cheaper than propane?</h3>
+      <p>Usually, yes. With a 78% efficient pellet stove and an 80% propane furnace, pellets are cheaper whenever they cost less than about 175 times the propane price per gallon — about $437 a ton at $2.50 propane. At $350 a ton, pellets cost about 20% less than $2.50 propane for the same heat.</p>
+      <h3>Is heating with pellets cheaper than natural gas?</h3>
+      <p>Rarely. Pellets would need to cost under about $270 a ton to match natural gas at $1.70 a therm in an 80% furnace, and a high-efficiency gas furnace raises the bar further. Where there's a gas line, pellets save money mainly as zone heat for a room the furnace heats poorly.</p>
+      <h3>Which is cheaper, pellets or firewood?</h3>
+      <p>Firewood, if you can buy seasoned hardwood at a fair price. At $300 a cord in an EPA-certified non-catalytic stove, wood costs about $24 per million BTU of heat versus about $27 for pellets at $350 a ton. Pellets are cleaner, need less handling and burn more steadily, which is what people pay the premium for.</p>
+      <h3>How much does it cost to heat with a pellet stove per month?</h3>
+      <p>For a 2,000 sq ft home in a mixed climate heated entirely by pellets, a season takes about 2.8 tons, roughly $985 at $350 a ton. About a fifth of that falls in January, so expect around $200 for the coldest month and much less in fall and spring.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+var PF_LOAD = { hot: 8, mixed: 18, cold: 28, veryCold: 40 };   // thousand BTU per sq ft per year
+var PF_COP = { hot: 2.5, mixed: 2.5, cold: 2.2, veryCold: 2.0 };
+function calcPellet() {
+  var size = parseFloat(document.getElementById('pf-size').value) || 2000;
+  var zone = document.getElementById('pf-climate').value || 'mixed';
+  var share = Math.min(Math.max(parseFloat(document.getElementById('pf-share').value) || 100, 0), 100) / 100;
+  var pellet = parseFloat(document.getElementById('pf-pellet').value) || 350;
+  var peff = (parseFloat(document.getElementById('pf-peff').value) || 78) / 100;
+  var cord = parseFloat(document.getElementById('pf-cord').value);
+  if (isNaN(cord)) cord = 300;
+  var weff = (parseFloat(document.getElementById('pf-weff').value) || 63) / 100;
+  var gas = parseFloat(document.getElementById('pf-gas').value) || 1.70;
+  var prop = parseFloat(document.getElementById('pf-prop').value) || 2.50;
+  var oil = parseFloat(document.getElementById('pf-oil').value) || 3.80;
+  var elec = (parseFloat(document.getElementById('pf-elec').value) || 18) / 100;
+  var cop = PF_COP[zone] || 2.5;
+
+  var mm = size * (PF_LOAD[zone] || 18) * 1000 * share / 1e6;  // million BTU of heat needed
+  var tons = mm / (16.4 * peff), cords = mm / (20 * weff);
+  var opts = [
+    { name: 'Wood pellets', qty: tons.toFixed(1) + ' tons (' + Math.round(tons * 50) + ' bags)', cost: tons * pellet, stove: true },
+    { name: 'Firewood', qty: cords.toFixed(1) + ' cords', cost: cords * cord, stove: true },
+    { name: 'Natural gas', qty: Math.round(mm * 10 / 0.8) + ' therms', cost: mm * 10 / 0.8 * gas },
+    { name: 'Propane', qty: Math.round(mm * 1e6 / 91500 / 0.8) + ' gal', cost: mm * 1e6 / 91500 / 0.8 * prop },
+    { name: 'Heating oil', qty: Math.round(mm * 1e6 / 138500 / 0.85) + ' gal', cost: mm * 1e6 / 138500 / 0.85 * oil },
+    { name: 'Heat pump', qty: Math.round(mm * 293.07 / cop).toLocaleString() + ' kWh', cost: mm * 293.07 / cop * elec },
+    { name: 'Electric baseboard', qty: Math.round(mm * 293.07).toLocaleString() + ' kWh', cost: mm * 293.07 * elec }
+  ];
+  var low = Math.min.apply(null, opts.map(function (o) { return o.cost; }));
+  var fmt = function (v) { return '$' + Math.round(v).toLocaleString(); };
+  var rows = '<tr><th>Fuel</th><th>Amount</th><th>Cost</th></tr>';
+  opts.forEach(function (o) {
+    rows += '<tr' + (o.cost === low ? ' style="font-weight:700;background:rgba(22,163,74,0.15);"' : '') + '><td>' + o.name + '</td><td>' + o.qty + '</td><td>' + fmt(o.cost) + '</td></tr>';
+  });
+
+  // Break-even pellet price ($/ton) against each alternative
+  var perTon = 16.4 * peff;  // million BTU delivered per ton
+  var be = [
+    ['Propane', prop / 0.0915 / 0.8 * perTon],
+    ['Heating oil', oil / 0.1385 / 0.85 * perTon],
+    ['Natural gas', gas * 10 / 0.8 * perTon],
+    ['Heat pump', elec * 293.07 / cop * perTon],
+    ['Electric baseboard', elec * 293.07 * perTon]
+  ];
+  var berows = '<tr><th>Pellets beat…</th><th>Below this price</th></tr>';
+  be.forEach(function (b) { berows += '<tr><td>' + b[0] + '</td><td>' + fmt(b[1]) + '/ton' + (pellet < b[1] ? ' ✓' : '') + '</td></tr>'; });
+
+  var p = opts[0].cost, w = opts[1].cost;
+  var best = opts.filter(function (o) { return o.cost === low; })[0];
+  document.getElementById('pf-headline').textContent = 'Pellets ' + fmt(p) + ', firewood ' + fmt(w) + ' a season';
+  document.getElementById('pf-table').innerHTML = rows;
+  document.getElementById('pf-be').innerHTML = berows;
+  var note = 'Cheapest at these prices: ' + best.name.toLowerCase() + '. ';
+  note += 'Pellets save ' + fmt(Math.max(0, opts[3].cost - p)) + ' a season vs propane and ' + fmt(Math.max(0, opts[4].cost - p)) + ' vs oil';
+  note += p > opts[2].cost ? ', but cost ' + fmt(p - opts[2].cost) + ' more than natural gas.' : ', and ' + fmt(opts[2].cost - p) + ' vs natural gas.';
+  note += ' ✓ marks the alternatives your pellet price beats.';
+  document.getElementById('pf-note').textContent = note;
+  var r = document.getElementById('pf-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

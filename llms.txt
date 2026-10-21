@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 53 free web-based calculators, 52 side-by-side comparisons, and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All calculators run in the browser; the numbers you enter are never sent to a server. The site uses Google Analytics and Google AdSense, which set cookies (see /privacy.html). Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 55 free web-based calculators, 52 side-by-side comparisons, and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All calculators run in the browser; the numbers you enter are never sent to a server. The site uses Google Analytics and Google AdSense, which set cookies (see /privacy.html). Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -24,6 +24,8 @@ Tools for estimating home energy costs and identifying savings opportunities.
 - [LED vs Incandescent Savings Calculator](https://ecoenergycalc.com/tools/led-vs-incandescent.html): Quantify annual savings and CO₂ reduction from switching to LED bulbs
 - [Insulation Savings Calculator](https://ecoenergycalc.com/tools/insulation-savings.html): Estimate heating and cooling savings from upgrading home insulation; includes IRA tax credit info
 - [Heating vs Cooling Cost Calculator](https://ecoenergycalc.com/tools/heating-vs-cooling.html): Compare seasonal heating and cooling costs to find where energy dollars go
+- [Dual Fuel Switchover Temperature Calculator](https://ecoenergycalc.com/tools/dual-fuel-switchover-calculator.html): Economic and thermal balance points for a heat pump paired with a gas, propane or oil furnace, from fuel and electric prices, furnace AFUE and heat pump COP/capacity ratings
+- [Pellet Stove & Firewood Heating Cost Calculator](https://ecoenergycalc.com/tools/pellet-firewood-heating-cost-calculator.html): Season cost and tons/bags/cords needed for pellet or wood heat vs propane, oil, gas, heat pump and electric, with break-even pellet prices
 - [Heating Cost by Fuel Type Calculator](https://ecoenergycalc.com/tools/heating-cost-by-fuel.html): Compare annual home heating costs across natural gas, electric resistance, heat pump, propane, and heating oil at user-specified local rates
 - [Space Heater Cost Calculator](https://ecoenergycalc.com/tools/space-heater-cost-calculator.html): Calculate exact cost to run a space heater per hour, day, and month by wattage and electricity rate
 - [Washing Machine Energy Cost Calculator](https://ecoenergycalc.com/tools/washing-machine-energy-cost.html): Calculate washing machine running cost per load, month, and year including electricity and water costs by washer type and temperature setting
@@ -82,6 +84,8 @@ Tools for water usage and rainwater harvesting.
 
 In-depth guides on energy savings, solar, carbon reduction, and environmental topics.
 
+- [What Temperature Should a Dual Fuel Heat Pump Switch to Gas?](https://ecoenergycalc.com/blog/dual-fuel-heat-pump-switchover-temperature.html): Economic switchover temperatures by gas and electricity price, 80% vs 95% furnaces, propane and oil, and the thermal balance point
+- [How Many Tons of Pellets (or Cords of Wood) Do I Need?](https://ecoenergycalc.com/blog/how-many-tons-of-pellets-do-i-need.html): Tons, bags and cords per winter by house size and climate, and pellet bags per day by outdoor temperature
 - [How Much Does It Cost to Heat a House?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-heat-a-house.html): Annual and January heating cost by square footage, climate zone and fuel (gas, heat pump, propane, oil, electric), cost per square foot, and regional price effects
 - [How Long Will 100 Gallons of Heating Oil Last?](https://ecoenergycalc.com/blog/how-long-will-100-gallons-of-heating-oil-last.html): Days per 100 gallons by house size and outdoor temperature, what tank gauge fractions mean in gallons, and 500-gallon propane tank duration
 - [How Much Does It Cost to Run a Refrigerator?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-a-refrigerator.html): Annual, monthly, and daily running costs by refrigerator type and age — with ENERGY STAR upgrade payback analysis

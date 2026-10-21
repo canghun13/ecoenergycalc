@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dual Fuel Switchover Temperature Calculator – Heat Pump vs Furnace Balance Point | EcoEnergyCalc</title>
+  <meta name="description" content="Find the outdoor temperature where your dual-fuel system should switch from heat pump to gas, propane or oil furnace — the economic and thermal balance points from your prices, furnace AFUE and heat pump ratings." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/dual-fuel-switchover-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Dual Fuel Switchover Temperature Calculator","url":"https://ecoenergycalc.com/tools/dual-fuel-switchover-calculator.html","description":"Find the outdoor temperature where your dual-fuel system should switch from heat pump to gas, propane or oil furnace — the economic and thermal balance points from your prices, furnace AFUE and heat pump ratings.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-10-21","dateModified":"2026-10-21","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What temperature should a dual fuel heat pump switch to gas?","acceptedAnswer":{"@type":"Answer","text":"Where the heat pump stops being the cheaper source of heat, or where it can no longer keep up, whichever is higher. With natural gas at $1.70 per therm, electricity at 18\u00a2 and a 95% furnace, that's about 32\u00b0F for a typical single-stage heat pump and about 18\u201320\u00b0F for an inverter or cold-climate unit. Cheaper gas or pricier electricity pushes it higher."}},
+    {"@type":"Question","name":"What is the economic balance point of a heat pump?","acceptedAnswer":{"@type":"Answer","text":"It's the outdoor temperature at which heat from the heat pump costs the same as heat from your furnace. It depends on your electricity and fuel prices, your furnace efficiency, and how the heat pump's COP falls as it gets colder. Below it, burning fuel is cheaper per BTU."}},
+    {"@type":"Question","name":"Should I use the heat pump or propane furnace in cold weather?","acceptedAnswer":{"@type":"Answer","text":"Usually the heat pump, down to much colder temperatures than with natural gas. Propane at $2.50 a gallon costs about $27 per million BTU, so with 18\u00a2 electricity a heat pump only needs a COP of about 1.8 to beat a 95% propane furnace \u2014 typically reached around 0\u20136\u00b0F. Switch over when the heat pump can no longer keep the house warm."}},
+    {"@type":"Question","name":"What is the difference between thermal and economic balance point?","acceptedAnswer":{"@type":"Answer","text":"The thermal balance point is the temperature at which the heat pump's output equals the home's heat loss, so below it the heat pump can't keep up alone. The economic balance point is the temperature at which the heat pump's heat starts costing more than the furnace's. A dual-fuel system should switch at whichever is higher."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Dual Fuel Switchover</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Dual Fuel Switchover Temperature Calculator</h1>
+        <p>A dual-fuel system should hand heating to the furnace at the temperature where the heat pump stops being the cheaper heat, or can no longer keep up. Enter your fuel and electric prices, furnace efficiency and heat pump ratings to find both, and the setting that costs the least.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Find Your Switchover Temperature</h2>
+            <div class="form-group">
+              <label for="df-fuel">Backup Furnace Fuel</label>
+              <select id="df-fuel" onchange="dfFuel()">
+                <option value="gas" selected>Natural gas</option>
+                <option value="propane">Propane</option>
+                <option value="oil">Heating oil</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="df-price" id="df-price-label">Gas Price ($ per therm)</label>
+              <input type="number" id="df-price" value="1.70" min="0.3" max="8" step="0.05" />
+              <small style="color:var(--text-muted);">Use the all-in price from your bill: total gas charges ÷ therms, including delivery.</small>
+            </div>
+            <div class="form-group">
+              <label for="df-afue">Furnace Efficiency (AFUE %)</label>
+              <input type="number" id="df-afue" value="95" min="55" max="99" step="1" />
+              <small style="color:var(--text-muted);">On the furnace's yellow label or spec sheet. Condensing furnaces are 90–98%; older or non-condensing ones about 80%.</small>
+            </div>
+            <div class="form-group">
+              <label for="df-elec">Electricity Rate (¢/kWh)</label>
+              <input type="number" id="df-elec" value="18" min="3" max="60" step="0.5" />
+              <small style="color:var(--text-muted);">Use your winter rate. On a time-of-use plan, use the rate for the hours you heat most.</small>
+            </div>
+            <div class="form-group">
+              <label for="df-hp">Heat Pump Type</label>
+              <select id="df-hp" onchange="dfPreset()">
+                <option value="standard" selected>Single-stage, standard efficiency</option>
+                <option value="variable">Variable-speed (inverter)</option>
+                <option value="cold">Cold-climate variable-speed</option>
+                <option value="custom">Custom — I'll enter my unit's ratings</option>
+              </select>
+              <small style="color:var(--text-muted);">Presets are typical rated values. Your unit's exact numbers are on its AHRI certificate or the NEEP cold-climate heat pump list.</small>
+            </div>
+            <div class="form-group">
+              <label for="df-c47">Heating COP at 47°F</label>
+              <input type="number" id="df-c47" value="3.6" min="1.5" max="6" step="0.05" />
+            </div>
+            <div class="form-group">
+              <label for="df-c17">Heating COP at 17°F</label>
+              <input type="number" id="df-c17" value="2.3" min="1" max="5" step="0.05" />
+            </div>
+            <div class="form-group">
+              <label for="df-c5">Heating COP at 5°F (optional)</label>
+              <input type="number" id="df-c5" value="" min="1" max="4" step="0.05" placeholder="Leave blank if not listed" />
+            </div>
+            <div class="form-group">
+              <label for="df-cap47">Heat Pump Capacity at 47°F (BTU/h)</label>
+              <input type="number" id="df-cap47" value="36000" min="6000" max="80000" step="1000" />
+            </div>
+            <div class="form-group">
+              <label for="df-cap17">Heat Pump Capacity at 17°F (BTU/h)</label>
+              <input type="number" id="df-cap17" value="21600" min="3000" max="80000" step="500" />
+            </div>
+            <div class="form-group">
+              <label for="df-load">House Heat Loss at Design Temperature (BTU/h)</label>
+              <input type="number" id="df-load" value="40000" min="5000" max="200000" step="1000" />
+              <small style="color:var(--text-muted);">From a Manual J load calculation if you have one. Without one, a furnace that rarely runs flat out is a rough upper bound.</small>
+            </div>
+            <div class="form-group">
+              <label for="df-design">Design Temperature (°F)</label>
+              <input type="number" id="df-design" value="5" min="-30" max="40" step="1" />
+              <small style="color:var(--text-muted);">The cold-weather design temperature for your area: about 8°F for Boston, −5°F for Chicago, −15°F for Minneapolis, 19°F for Atlanta.</small>
+            </div>
+            <button class="btn-primary" onclick="calcDualFuel()">Find My Switchover Temperature</button>
+            <div class="result-box-tool" id="df-result">
+              <h3>Your Dual-Fuel Settings</h3>
+              <div class="result-amount" id="df-headline"></div>
+              <table id="df-table" class="compact" style="width:100%;"></table>
+              <table id="df-temps" class="compact" style="width:100%;margin-top:12px;font-size:0.9em;"></table>
+              <p class="result-note" id="df-note"></p>
+              <p class="result-note">Cost per million BTU of heat delivered. Heat pump COP is interpolated between the rated points and extended below the lowest one. The house's heat loss is assumed to rise in a straight line from zero at 65°F to the design load. Fuel heat content: 100,000 BTU per therm, 91,500 per gallon of propane, 138,500 per gallon of heating oil.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Two Balance Points, and Why Installers Usually Set Only One</h2>
+            <p>A dual-fuel system pairs a heat pump with a gas, propane or oil furnace and hands the heating over at an outdoor temperature you choose. There are two different reasons to pick that temperature, and they rarely land in the same place.</p>
+            <ul>
+              <li><strong>Thermal balance point:</strong> the outdoor temperature where the heat pump's output falls to the house's heat loss. Below it, the heat pump alone can't keep up.</li>
+              <li><strong>Economic balance point:</strong> the outdoor temperature where heat from the heat pump starts costing more than heat from the furnace. Below it, the furnace is the cheaper way to keep warm, even if the heat pump could keep up.</li>
+            </ul>
+            <p>The setting that saves the most is whichever of the two is <em>higher</em>. Many systems are left at a factory default or set by rule of thumb. The Northwest Energy Efficiency Alliance's 2026 modeling for a Portland home found that raising the switchover from 30°F to 40°F increased the gas burned from 105 to 309 therms a year and the total heating bill by about $90 — and that the right answer flipped entirely with local prices.</p>
+
+            <h2>The Break-Even COP</h2>
+            <p>A heat pump's efficiency is its coefficient of performance (COP): units of heat out per unit of electricity in. The heat pump is cheaper whenever its COP is above:</p>
+            <p style="background:var(--card);padding:16px;border-radius:8px;font-family:monospace;">Break-even COP = electricity $/kWh × 293 × furnace AFUE ÷ fuel $ per million BTU</p>
+            <p>Natural gas at $1.70 per therm is $17 per million BTU. With electricity at 18¢ and a 95% furnace, the break-even COP is 0.18 × 293 × 0.95 ÷ 17 ≈ <strong>2.95</strong>. A typical single-stage heat pump drops below that around 32°F, so that's where gas should take over. An inverter heat pump holds its efficiency better and stays cheaper down to about 18–20°F.</p>
+            <p>An older 80% furnace wastes a fifth of its fuel, which lowers the break-even COP to about 2.5 and lets the heat pump run about 10°F colder before gas takes over.</p>
+
+            <h2>Propane and Oil: Let the Heat Pump Run Much Colder</h2>
+            <p>Delivered fuels cost far more per BTU than piped gas. At $2.50 a gallon, propane is about $27 per million BTU, and the break-even COP with 18¢ electricity falls to about 1.8. Even a single-stage heat pump stays cheaper than a propane furnace down to around 6°F; an inverter unit stays cheaper to about 0°F. Heating oil at $3.80 is similar. NEEA's Missoula propane case reached the same conclusion: the lowest bill came from letting the heat pump carry the load down to 20°F or below.</p>
+            <p>In practice, with propane or oil the switchover is set by the <em>thermal</em> balance point — how cold it gets before the heat pump runs out of capacity — not by price.</p>
+
+            <h2>Where to Find Your Heat Pump's Real Numbers</h2>
+            <p>The presets above are typical rated values, and units vary widely. For your exact model:</p>
+            <ul>
+              <li><strong>AHRI certificate.</strong> Search the model number in the AHRI directory; heating capacity is listed at 47°F and 17°F.</li>
+              <li><strong>NEEP cold-climate heat pump list.</strong> For listed units it gives capacity and COP at 47°F, 17°F and 5°F, at minimum and maximum speed.</li>
+              <li><strong>Manufacturer's extended performance tables</strong> in the installation or engineering manual.</li>
+            </ul>
+            <p>ENERGY STAR's cold-climate certification requires a COP of at least 1.75 at 5°F, so a cold-climate unit should never fall below that at 5°F.</p>
+
+            <h2>Setting It on Your Thermostat</h2>
+            <p>The setting goes by different names: balance point, compressor lockout, dual-fuel changeover, or breakpoint. Look in the installer or advanced menu. Most thermostats also have a separate auxiliary-heat lockout; on a dual-fuel system the "aux" stage is the furnace, so set it to match. If your system also has electric strip heat, see the <a href="/tools/heat-pump-aux-heat-calculator.html">aux heat cost calculator</a> — strips cost far more than either the heat pump or the furnace.</p>
+            <p>Revisit the setting when prices change. A gas rate increase or a cheaper winter electric plan can move the economic balance point by 10°F or more.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/heat-pump-aux-heat-calculator.html">Heat Pump Aux Heat Cost</a></li>
+              <li><a href="/tools/heat-pump-size-from-fuel-bills.html">Heat Pump Size From Fuel Bills</a></li>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel</a></li>
+              <li><a href="/compare/heat-pump-vs-furnace-vs-boiler.html">Heat Pump vs Furnace vs Boiler</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/dual-fuel-heat-pump-switchover-temperature.html">What Temperature to Switch to Gas</a></li>
+              <li><a href="/compare/auxiliary-heat-vs-emergency-heat.html">Aux Heat vs Emergency Heat</a></li>
+              <li><a href="/blog/why-is-my-heat-pump-electric-bill-so-high.html">Why Is My Heat Pump Bill So High?</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Break-even COP at $1.70 gas, 18¢, 95%: <strong>~2.95</strong></li>
+              <li>Typical gas switchover: <strong>20–35°F</strong></li>
+              <li>Propane or oil: <strong>let the heat pump run below 10°F</strong></li>
+              <li>ENERGY STAR cold-climate: <strong>COP ≥ 1.75 at 5°F</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#cop">COP</a></li>
+              <li><a href="/glossary/#afue">AFUE</a></li>
+              <li><a href="/glossary/#btu">BTU</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>What temperature should a dual fuel heat pump switch to gas?</h3>
+      <p>Where the heat pump stops being the cheaper source of heat, or where it can no longer keep up, whichever is higher. With natural gas at $1.70 per therm, electricity at 18¢ and a 95% furnace, that's about 32°F for a typical single-stage heat pump and about 18–20°F for an inverter or cold-climate unit. Cheaper gas or pricier electricity pushes it higher.</p>
+      <h3>What is the economic balance point of a heat pump?</h3>
+      <p>It's the outdoor temperature at which heat from the heat pump costs the same as heat from your furnace. It depends on your electricity and fuel prices, your furnace efficiency, and how the heat pump's COP falls as it gets colder. Below it, burning fuel is cheaper per BTU.</p>
+      <h3>Should I use the heat pump or propane furnace in cold weather?</h3>
+      <p>Usually the heat pump, down to much colder temperatures than with natural gas. Propane at $2.50 a gallon costs about $27 per million BTU, so with 18¢ electricity a heat pump only needs a COP of about 1.8 to beat a 95% propane furnace — typically reached around 0–6°F. Switch over when the heat pump can no longer keep the house warm.</p>
+      <h3>What is the difference between thermal and economic balance point?</h3>
+      <p>The thermal balance point is the temperature at which the heat pump's output equals the home's heat loss, so below it the heat pump can't keep up alone. The economic balance point is the temperature at which the heat pump's heat starts costing more than the furnace's. A dual-fuel system should switch at whichever is higher.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+var DF_PRE = {
+  standard: { c47: 3.6, c17: 2.3, c5: '', cap47: 36000, cap17: 21600 },
+  variable: { c47: 4.2, c17: 2.8, c5: 2.1, cap47: 36000, cap17: 26000 },
+  cold:     { c47: 4.0, c17: 2.9, c5: 2.3, cap47: 36000, cap17: 31000 }
+};
+var DF_FUEL = {
+  gas:     { price: 1.70, afue: 95, label: 'Gas Price ($ per therm)', btu: 100000 },
+  propane: { price: 2.50, afue: 95, label: 'Propane Price ($ per gallon)', btu: 91500 },
+  oil:     { price: 3.80, afue: 85, label: 'Heating Oil Price ($ per gallon)', btu: 138500 }
+};
+function dfPreset() {
+  var p = DF_PRE[document.getElementById('df-hp').value];
+  if (!p) return;
+  ['c47', 'c17', 'c5', 'cap47', 'cap17'].forEach(function (k) { document.getElementById('df-' + k).value = p[k]; });
+}
+function dfFuel() {
+  var f = DF_FUEL[document.getElementById('df-fuel').value];
+  document.getElementById('df-price').value = f.price;
+  document.getElementById('df-afue').value = f.afue;
+  document.getElementById('df-price-label').textContent = f.label;
+}
+function dfCop(T, c47, c17, c5) {
+  var s1 = (c47 - c17) / 30, v;
+  if (T >= 17) v = c17 + (T - 17) * s1;
+  else v = c17 - (17 - T) * (c5 ? (c17 - c5) / 12 : s1);
+  return Math.max(1, v);
+}
+function calcDualFuel() {
+  var fuel = document.getElementById('df-fuel').value || 'gas';
+  var F = DF_FUEL[fuel] || DF_FUEL.gas;
+  var price = parseFloat(document.getElementById('df-price').value) || F.price;
+  var afue = (parseFloat(document.getElementById('df-afue').value) || F.afue) / 100;
+  var elec = (parseFloat(document.getElementById('df-elec').value) || 18) / 100;
+  var c47 = parseFloat(document.getElementById('df-c47').value) || 3.6;
+  var c17 = parseFloat(document.getElementById('df-c17').value) || 2.3;
+  var c5 = parseFloat(document.getElementById('df-c5').value);
+  if (!(c5 > 0)) c5 = null;
+  var cap47 = parseFloat(document.getElementById('df-cap47').value) || 36000;
+  var cap17 = parseFloat(document.getElementById('df-cap17').value) || 21600;
+  var load = parseFloat(document.getElementById('df-load').value) || 40000;
+  var dT = parseFloat(document.getElementById('df-design').value);
+  if (isNaN(dT)) dT = 5;
+  dT = Math.min(dT, 55);
+
+  var fuelMM = price / F.btu * 1e6;               // $ per million BTU of fuel
+  var furnMM = fuelMM / afue;                      // $ per million BTU delivered
+  var beCop = elec * 293.07 / furnMM;              // heat pump wins above this COP
+  var cop = function (T) { return dfCop(T, c47, c17, c5); };
+
+  // Economic balance point: highest temperature at which the heat pump is the costlier source
+  var econ, econState;
+  if (cop(-20) >= beCop) { econ = null; econState = 'hp'; }
+  else if (cop(65) < beCop) { econ = null; econState = 'furnace'; }
+  else { econState = 'cross'; for (var T = 65; T >= -20; T -= 0.1) { if (cop(T) < beCop) { econ = T; break; } } }
+
+  // Thermal balance point: heat pump output equals house heat loss
+  var capT = function (T) { return Math.max(0, cap17 + (T - 17) * (cap47 - cap17) / 30); };
+  var lossT = function (T) { return T >= 65 ? 0 : load * (65 - T) / (65 - dT); };
+  var therm = null;
+  for (var t = 65; t >= -30; t -= 0.1) { if (capT(t) < lossT(t)) { therm = t; break; } }
+
+  var fmtT = function (v) { return Math.round(v) + '°F'; };
+  var rec, head;
+  if (econState === 'furnace') {
+    rec = null;
+    head = 'The furnace is cheaper at every temperature';
+  } else {
+    var e = econState === 'hp' ? -99 : econ;
+    var th = therm === null ? -99 : therm;
+    rec = Math.max(e, th);
+    head = rec <= -30 ? 'The heat pump can carry every temperature' : rec >= 50 ? 'The furnace is cheaper in nearly all heating weather' : 'Switch to the furnace below about ' + fmtT(rec);
+  }
+  var name = fuel === 'gas' ? 'gas' : fuel;
+  var rows = '<tr><th>Item</th><th>Result</th></tr>' +
+    '<tr><td>Furnace heat, per million BTU</td><td>$' + furnMM.toFixed(2) + '</td></tr>' +
+    '<tr><td>Break-even heat pump COP</td><td>' + beCop.toFixed(2) + '</td></tr>' +
+    '<tr><td>Economic balance point</td><td>' + (econState === 'cross' ? (econ >= 50 ? '50°F or warmer' : fmtT(econ)) : econState === 'hp' ? 'Heat pump cheaper at all temps' : 'Furnace cheaper at all temps') + '</td></tr>' +
+    '<tr><td>Thermal balance point</td><td>' + (therm === null ? 'Below −30°F' : fmtT(therm)) + '</td></tr>' +
+    '<tr style="font-weight:700;"><td>Recommended switchover</td><td>' + (rec === null ? 'Heat with ' + name + '; cool with the heat pump' : rec <= -30 ? 'No switchover needed' : rec >= 50 ? '50°F or warmer' : fmtT(rec)) + '</td></tr>';
+
+  var temps = '<tr><th>Outdoor</th><th>HP COP</th><th>Heat pump</th><th>Furnace</th></tr>';
+  [50, 40, 30, 20, 10, 0].forEach(function (T) {
+    var c = cop(T), hp = elec * 293.07 / c, lose = capT(T) < lossT(T);
+    var cheaperHp = hp < furnMM;
+    temps += '<tr><td>' + T + '°F</td><td>' + c.toFixed(2) + '</td><td' + (cheaperHp ? ' style="font-weight:700;"' : '') + '>$' + hp.toFixed(0) + (lose ? '*' : '') + '</td><td' + (!cheaperHp ? ' style="font-weight:700;"' : '') + '>$' + furnMM.toFixed(0) + '</td></tr>';
+  });
+
+  var note;
+  if (econState === 'furnace') note = 'At these prices even a mild-weather COP can\'t beat the furnace. Run the furnace for heat and use the heat pump for cooling, or recheck if your electric rate drops.';
+  else if (therm !== null && (econState === 'hp' || therm > econ)) note = 'Capacity, not price, sets your switchover: the heat pump is still the cheaper source below ' + fmtT(therm) + ', but it can no longer keep up on its own. Setting the changeover any higher costs you money.';
+  else note = 'Below ' + fmtT(econ) + ', each BTU from the heat pump costs more than one from the furnace. Above it, the heat pump is cheaper and can keep up.';
+  note += ' Costs per million BTU of delivered heat; bold is cheaper, * means the heat pump can\'t meet the load alone at that temperature.';
+
+  document.getElementById('df-headline').textContent = head;
+  document.getElementById('df-table').innerHTML = rows;
+  document.getElementById('df-temps').innerHTML = temps;
+  document.getElementById('df-note').textContent = note;
+  var r = document.getElementById('df-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
