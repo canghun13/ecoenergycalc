@@ -1,3 +1,31 @@
+# EcoEnergyCalc 인수인계 — v41 세션 (2026-10-26, 주간 데이터)
+
+## 0-P1. 데이터
+
+- GA(9/28~10/25): 활성 **1,184명**(전 1,026). bing 293, ddg 181, **yahoo 90**(전 59), google 56, ecosia 43.
+- Bing: heating-cost-by-fuel **2,309/109**(전 1,969/97). **best-thermostat-settings 블로그 804노출/32클릭**(전 336/10, 2.4배 — 겨울 온도조절 쿼리 급증), propane-vs-natural-gas 221(전 113), ai-water 3,087/37.
+- **⚠ GSC 구글 노출 급감처럼 보임**: 10/18까지 하루 400~800 → 10/19~10/23 하루 0~6. 우리 쪽 원인 점검 결과 이상 없음(robots.txt·CNAME 그대로, 10/19·10/21 배포 정상, 사이트 전체 변경은 10/14 메인·푸터뿐이고 그 뒤 10/14~18 노출 정상). 업계에서 **10월 중순 Search Console 데이터 지연(52시간~1주) 보고**(Search Engine Watch 10/19, 구글 미확인)가 있어 **지연 가능성이 가장 높음**. **다음 주 데이터에서 10/19~25가 채워지는지 반드시 확인.** 그대로 0이면: 수동 조치·보안 문제 화면, `site:ecoenergycalc.com` 확인 요청.
+- 색인(사용자 제공): 발견-미크롤 **8→7**(can-a-heat-pump-replace-a-boiler가 빠짐 = 진척). 크롤링-미색인 1건은 sitemap.xml 자체(무해).
+- GSC 쿼리 신호: "smart thermostat savings calculator" @53, "thermostat savings calculator" @47, "do setback thermostats save money" @26, "cost difference between 68 and 70 degrees heat" @52. Bing에 "45 vs 50 when away", "same temperature all day" 등 질문형 다수.
+
+## 0-P2. ✅ 신규: `tools/thermostat-setback-savings-calculator.html` (계산기 56)
+
+- 입력: 연 난방비, 난방 방식(퍼니스/전기/HP+전열/듀얼퓨얼/바닥난방), 기후, 현재 온도, 재실·야간·외출 온도와 시간·요일 → 구간별 %·$, "하루 종일 1°F" 가치.
+- 규칙: **1°F × 8시간 ≈ 난방비 1%**(NYSERDA 워크시트, DOE "7~10°F × 8시간 → 최대 10%"). 기후 보정: 한랭 1.0%, 혼합 **1.2%**(NOAA 1991–2020 시카고: 10~4월 212일 ÷ 5,974 HDD ÷ 3), 온난 1.5%(DOE "온난 기후일수록 비율 큼" — 추정치로 표기).
+- 경고: HP+전열 3°F 초과 세트백(DOE: 히트펌프 세트백은 절감 상쇄 가능), 바닥난방, 55°F 미만(동파).
+- 경쟁: NYSERDA PDF, 유틸리티 **상업용** 계산기(We Energies·WPS), 판매사(Cielo) 블로그 → 주거용 계산기 공백.
+
+## 0-P3. ✅ 보강: `blog/best-thermostat-settings-to-save-money.html`
+
+- 계산기 링크, **"68 vs 70" 표**(연 난방비 $600~$2,500 × 기후: 6%/7.2%/9%), "~8% daily during those hours" 오표현 수정, **FAQ 4개 신설**(68 vs 70, 같은 온도 유지가 싼가, 겨울 외출 온도 55°F, 히트펌프 설정).
+- 메인 난방 시즌 블록: space heater → thermostat setback 교체. 교차링크: personal-heating, smart-vs-programmable, aux-heat, how-to-lower-heating-bill.
+
+## 0-P4. 정리
+
+- 저장소 루트에 실수로 커밋된 `v38_solar.png`(스크린샷) 삭제.
+
+---
+
 # EcoEnergyCalc 인수인계 — v40 세션 (2026-10-21, 신규 발굴)
 
 ## 0-O1. 발굴 (다음 신규 세션 참고)

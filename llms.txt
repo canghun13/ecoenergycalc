@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 55 free web-based calculators, 52 side-by-side comparisons, and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All calculators run in the browser; the numbers you enter are never sent to a server. The site uses Google Analytics and Google AdSense, which set cookies (see /privacy.html). Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 56 free web-based calculators, 52 side-by-side comparisons, and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All calculators run in the browser; the numbers you enter are never sent to a server. The site uses Google Analytics and Google AdSense, which set cookies (see /privacy.html). Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -24,6 +24,7 @@ Tools for estimating home energy costs and identifying savings opportunities.
 - [LED vs Incandescent Savings Calculator](https://ecoenergycalc.com/tools/led-vs-incandescent.html): Quantify annual savings and CO₂ reduction from switching to LED bulbs
 - [Insulation Savings Calculator](https://ecoenergycalc.com/tools/insulation-savings.html): Estimate heating and cooling savings from upgrading home insulation; includes IRA tax credit info
 - [Heating vs Cooling Cost Calculator](https://ecoenergycalc.com/tools/heating-vs-cooling.html): Compare seasonal heating and cooling costs to find where energy dollars go
+- [Thermostat Setback Savings Calculator](https://ecoenergycalc.com/tools/thermostat-setback-savings-calculator.html): Heating savings from a lower all-day setting, night and away setbacks (1% per °F per 8 hours rule, climate-adjusted), with heat pump and radiant caveats
 - [Dual Fuel Switchover Temperature Calculator](https://ecoenergycalc.com/tools/dual-fuel-switchover-calculator.html): Economic and thermal balance points for a heat pump paired with a gas, propane or oil furnace, from fuel and electric prices, furnace AFUE and heat pump COP/capacity ratings
 - [Pellet Stove & Firewood Heating Cost Calculator](https://ecoenergycalc.com/tools/pellet-firewood-heating-cost-calculator.html): Season cost and tons/bags/cords needed for pellet or wood heat vs propane, oil, gas, heat pump and electric, with break-even pellet prices
 - [Heating Cost by Fuel Type Calculator](https://ecoenergycalc.com/tools/heating-cost-by-fuel.html): Compare annual home heating costs across natural gas, electric resistance, heat pump, propane, and heating oil at user-specified local rates
