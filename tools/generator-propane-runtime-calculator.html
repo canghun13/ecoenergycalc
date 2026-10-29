@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generator Propane Runtime Calculator – How Long Will My Tank Last? | EcoEnergyCalc</title>
+  <meta name="description" content="How long will a 20-lb, 100-lb or 500-gallon propane tank run your generator? Runtime and cost per day from your average load, with a cold-weather check for whether the tank can vaporize propane fast enough." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/generator-propane-runtime-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Generator Propane Runtime Calculator","url":"https://ecoenergycalc.com/tools/generator-propane-runtime-calculator.html","description":"How long will a 20-lb, 100-lb or 500-gallon propane tank run your generator? Runtime and cost per day from your average load, with a cold-weather check for whether the tank can vaporize propane fast enough.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-10-29","dateModified":"2026-10-29","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How long will a 20 lb propane tank run a generator?","acceptedAnswer":{"@type":"Answer","text":"A typical 3,500 W dual-fuel portable runs about 10.5 hours on a 20-lb tank at half load (around 1,600 W), and about 16 hours at a light 800 W load. A 20-lb tank holds roughly 4.7 gallons. In freezing weather a small cylinder may not vaporize propane fast enough for larger loads, so runtime can end early."}},
+    {"@type":"Question","name":"How long will a 500 gallon propane tank run a whole house generator?","acceptedAnswer":{"@type":"Answer","text":"A 22 kW standby generator averaging 6 kW burns about 1.5 gallons an hour, so a 500-gallon tank filled to 80% runs about 8.5 days before it's down to 20%. At half load (11 kW) it's about 6 days; at full load about 3.4 days."}},
+    {"@type":"Question","name":"Can a 100 lb propane tank run a whole house generator?","acceptedAnswer":{"@type":"Answer","text":"Only for a short time, and not well in cold weather. A 100-lb cylinder holds about 23.6 gallons, roughly 16 hours for a 22 kW standby at a 6 kW average. A full one can vaporize only about 113,000 BTU an hour at 0\u00b0F, while the same generator at half load needs about 198,000, so manifold several cylinders or use a bulk tank."}},
+    {"@type":"Question","name":"Is it cheaper to run a generator on natural gas or propane?","acceptedAnswer":{"@type":"Answer","text":"Usually natural gas. A 22 kW standby at a 6 kW average costs about $62 a day on natural gas at $1.70 a therm versus about $88 on propane at $2.50 a gallon. Propane's advantage is that it works where there's no gas line and keeps indefinitely in a tank."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Generator Propane Runtime</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Generator Propane Runtime Calculator</h1>
+        <p>How many hours or days your propane supply keeps a portable or whole-house generator running in an outage, what it costs per day, and whether your tank can keep up in freezing weather. Natural gas units are covered too.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Generator Fuel &amp; Runtime</h2>
+            <div class="form-group">
+              <label for="gn-gen">Generator</label>
+              <select id="gn-gen" onchange="gnGen()">
+                <option value="p35">Portable 3,500 W dual-fuel (on propane)</option>
+                <option value="g9">Home standby 9 kW (air-cooled)</option>
+                <option value="g11">Home standby 11 kW</option>
+                <option value="g16">Home standby 16 kW</option>
+                <option value="g20">Home standby 20 kW</option>
+                <option value="g22" selected>Home standby 22 kW</option>
+                <option value="custom">Other — I'll enter my spec sheet numbers</option>
+              </select>
+              <small style="color:var(--text-muted);">Standby figures are from Generac's Guardian 9–22 kW spec sheet; the portable is a typical 3,500 W dual-fuel unit (10.5 hours on a 20-lb tank at half load).</small>
+            </div>
+            <div class="form-group" id="gn-custom" style="display:none;">
+              <label for="gn-rating">Rated Output on Propane (kW)</label>
+              <input type="number" id="gn-rating" value="22" min="1" max="60" step="0.5" />
+              <label for="gn-half" style="margin-top:10px;">Propane Use at 50% Load (gal/hr)</label>
+              <input type="number" id="gn-half" value="2.16" min="0.1" max="10" step="0.01" />
+              <label for="gn-full" style="margin-top:10px;">Propane Use at 100% Load (gal/hr)</label>
+              <input type="number" id="gn-full" value="3.68" min="0.1" max="15" step="0.01" />
+            </div>
+            <div class="form-group">
+              <label for="gn-load">Average Load (kW)</label>
+              <input type="number" id="gn-load" value="6" min="0.1" max="60" step="0.1" />
+              <small style="color:var(--text-muted);">The average draw over a day, not the peak. Essentials (fridge, furnace blower, well pump, lights, internet) often average 1–3 kW; a whole house with electric cooking or laundry runs higher. Generator display panels and smart meters show it.</small>
+            </div>
+            <div class="form-group">
+              <label for="gn-fuel">Fuel</label>
+              <select id="gn-fuel" onchange="gnFuel()">
+                <option value="lp" selected>Propane</option>
+                <option value="ng">Natural gas (standby only)</option>
+              </select>
+            </div>
+            <div class="form-group" id="gn-tank-group">
+              <label for="gn-tank">Propane Supply</label>
+              <select id="gn-tank">
+                <option value="20">20-lb cylinder (grill tank)</option>
+                <option value="30">30-lb cylinder</option>
+                <option value="40">40-lb cylinder</option>
+                <option value="100">100-lb cylinder</option>
+                <option value="t120">120-gallon tank</option>
+                <option value="t250">250-gallon tank</option>
+                <option value="t500" selected>500-gallon tank</option>
+                <option value="t1000">1,000-gallon tank</option>
+              </select>
+            </div>
+            <div class="form-group" id="gn-count-group">
+              <label for="gn-count">Number of Cylinders or Tanks</label>
+              <input type="number" id="gn-count" value="1" min="1" max="10" step="1" />
+            </div>
+            <div class="form-group" id="gn-fill-group">
+              <label for="gn-fill">Tank Gauge Now (%)</label>
+              <input type="number" id="gn-fill" value="80" min="5" max="100" step="5" />
+              <small style="color:var(--text-muted);">Bulk tanks are filled to about 80%. The calculator stops at 20% to keep a reserve and enough pressure in cold weather. Cylinders are treated as full.</small>
+            </div>
+            <div class="form-group">
+              <label for="gn-temp">Outdoor Temperature (°F)</label>
+              <input type="number" id="gn-temp" value="20" min="-20" max="70" step="5" />
+            </div>
+            <div class="form-group" id="gn-price-group">
+              <label for="gn-price" id="gn-price-label">Propane Price ($ per gallon)</label>
+              <input type="number" id="gn-price" value="2.50" min="0.3" max="8" step="0.05" />
+            </div>
+            <button class="btn-primary" onclick="calcGenerator()">How Long Will It Run?</button>
+            <div class="result-box-tool" id="gn-result">
+              <h3>Your Outage Runtime</h3>
+              <div class="result-amount" id="gn-headline"></div>
+              <table id="gn-table" class="compact" style="width:100%;"></table>
+              <table id="gn-loads" class="compact" style="width:100%;margin-top:12px;font-size:0.9em;"></table>
+              <p class="result-note" id="gn-note"></p>
+              <p class="result-note">Fuel use is a straight line through the spec sheet's half- and full-load figures; below half load it is extended the same way, which matches how these engines idle. Propane: 91,500 BTU per gallon, 4.24 lb per gallon. Natural gas: 1,037 BTU per cubic foot. Tank vapor supply uses Flame Engineering's 100-lb cylinder chart (smaller cylinders scaled down by weight, a conservative estimate) and Elliott Electric's generator tank table.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Load Matters More Than Generator Size</h2>
+            <p>A generator burns fuel in proportion to what you plug in, plus a fixed amount just to keep the engine turning. Generac's spec sheet for its 22 kW air-cooled standby unit lists 2.16 gallons of propane an hour at half load and 3.68 at full load. Run the line back to zero and the engine burns about 0.64 gallons an hour before it powers anything.</p>
+            <p>That idle cost is why an oversized generator is expensive in an outage. At a 6 kW average — a realistic whole-house load without electric heat — the 22 kW unit burns about 1.5 gallons an hour, or 35 a day. A 9 kW unit carrying the same essentials would burn noticeably less, simply because it's a smaller engine.</p>
+
+            <h2>Runtime on Common Propane Supplies</h2>
+            <p>A 22 kW standby generator at a 6 kW average, starting from an 80% gauge and stopping at 20%:</p>
+            <ul>
+              <li><strong>100-lb cylinder (23.6 gal):</strong> about 16 hours</li>
+              <li><strong>250-gallon tank (150 usable):</strong> about 4 days</li>
+              <li><strong>500-gallon tank (300 usable):</strong> about 8.5 days</li>
+              <li><strong>1,000-gallon tank (600 usable):</strong> about 17 days</li>
+            </ul>
+            <p>A 3,500 W portable at half load (about 1.6 kW) runs roughly 10.5 hours on a 20-lb grill tank, 21 hours on a 40-lb and 52 hours on a 100-lb cylinder. More runtimes by generator and tank are in <a href="/blog/how-long-will-a-propane-tank-run-a-generator.html">how long a propane tank runs a generator</a>.</p>
+
+            <h2>Cold Weather: When the Tank Can't Keep Up</h2>
+            <p>Propane leaves a tank as vapor, and it boils off the liquid using heat from the outside air. The colder it is, and the emptier the tank, the less vapor it can supply per hour — regardless of how many gallons are left. A full 100-lb cylinder can deliver about 113,000 BTU an hour at 0°F and 167,000 at 20°F (Flame Engineering's chart), and only about half that once it's half empty.</p>
+            <p>A 22 kW standby at half load needs about 198,000 BTU an hour. A single 100-lb cylinder can't supply that in freezing weather, so the generator surges, loses output or shuts down with fuel still in the tank. Manifold several cylinders together or use a bulk tank: a 500-gallon tank supplies over 260,000 BTU an hour even at 0°F. Small grill tanks have the same problem on large portables; in a deep freeze, a 20-lb cylinder struggles to feed even a 3,500 W unit at half load.</p>
+
+            <h2>Propane vs Natural Gas vs Gasoline</h2>
+            <p>On piped natural gas there's no tank to run dry, and at typical prices it costs less per day: the 22 kW unit at 6 kW burns about 3,500 cubic feet a day, roughly $62 at $1.70 a therm, against about $88 of propane at $2.50 a gallon. Gasoline portables are cheapest to buy but the hardest to keep fueled: a typical 3,500 W unit runs about 9 hours on its 3.4-gallon tank at half load, and stored gasoline goes stale in months without stabilizer.</p>
+            <p>Never run a portable generator indoors, in a garage or near windows; carbon monoxide from portable generators kills dozens of people in the U.S. every year.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/power-outage-house-cooling-calculator.html">How Long Will My House Stay Warm?</a></li>
+              <li><a href="/tools/heating-oil-propane-days-left-calculator.html">Oil or Propane Days Left</a></li>
+              <li><a href="/tools/battery-storage.html">Home Battery Sizing</a></li>
+              <li><a href="/compare/solar-vs-generator.html">Solar + Battery vs Generator</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-long-will-a-propane-tank-run-a-generator.html">How Long a Propane Tank Runs a Generator</a></li>
+              <li><a href="/blog/how-long-will-my-house-stay-warm-without-power.html">House Warm Without Power</a></li>
+              <li><a href="/compare/propane-vs-natural-gas.html">Propane vs Natural Gas</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>22 kW standby at half load: <strong>2.16 gal/hr</strong></li>
+              <li>20-lb tank holds: <strong>~4.7 gallons</strong></li>
+              <li>100-lb cylinder at 0°F: <strong>~113,000 BTU/hr max</strong></li>
+              <li>Bulk tanks fill to: <strong>~80%</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#btu">BTU</a></li>
+              <li><a href="/glossary/#kwh">kWh</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How long will a 20 lb propane tank run a generator?</h3>
+      <p>A typical 3,500 W dual-fuel portable runs about 10.5 hours on a 20-lb tank at half load (around 1,600 W), and about 16 hours at a light 800 W load. A 20-lb tank holds roughly 4.7 gallons. In freezing weather a small cylinder may not vaporize propane fast enough for larger loads, so runtime can end early.</p>
+      <h3>How long will a 500 gallon propane tank run a whole house generator?</h3>
+      <p>A 22 kW standby generator averaging 6 kW burns about 1.5 gallons an hour, so a 500-gallon tank filled to 80% runs about 8.5 days before it's down to 20%. At half load (11 kW) it's about 6 days; at full load about 3.4 days.</p>
+      <h3>Can a 100 lb propane tank run a whole house generator?</h3>
+      <p>Only for a short time, and not well in cold weather. A 100-lb cylinder holds about 23.6 gallons, roughly 16 hours for a 22 kW standby at a 6 kW average. A full one can vaporize only about 113,000 BTU an hour at 0°F, while the same generator at half load needs about 198,000, so manifold several cylinders or use a bulk tank.</p>
+      <h3>Is it cheaper to run a generator on natural gas or propane?</h3>
+      <p>Usually natural gas. A 22 kW standby at a 6 kW average costs about $62 a day on natural gas at $1.70 a therm versus about $88 on propane at $2.50 a gallon. Propane's advantage is that it works where there's no gas line and keeps indefinitely in a tank.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+var GN = { // LP rating kW, LP gal/hr at half and full load, NG rating kW, NG ft3/hr at half and full
+  g9:  [9, 1.00, 1.50, 8, 78, 121],
+  g11: [11, 1.18, 2.01, 10, 124, 195],
+  g16: [16, 1.90, 3.19, 16, 193, 312],
+  g20: [20, 2.23, 3.85, 18, 205, 308],
+  g22: [22, 2.16, 3.68, 19.5, 184, 281],
+  p35: [3.15, 0.45, null, null, null, null]
+};
+// 100-lb cylinder max continuous vapor (BTU/h) by lb remaining (100..10) at 0, 20, 40, 60°F — Flame Engineering
+var CYL = { 100: [113000, 167000, 214000, 277000], 90: [104000, 152000, 200000, 247000], 80: [94000, 137000, 180000, 214000], 70: [83000, 122000, 160000, 199000], 60: [75000, 109000, 140000, 176000], 50: [64000, 94000, 125000, 154000], 40: [55000, 79000, 105000, 131000], 30: [45000, 66000, 85000, 107000], 20: [36000, 51000, 68000, 83000], 10: [28000, 38000, 49000, 60000] };
+// Bulk tank vapor (BTU/h) at 0, 20, 40°F — Elliott Electric generator tank sizing guide
+var TANK = { 120: [82080, 164140, 246240], 250: [169200, 338400, 507600], 500: [264180, 528360, 792540], 1000: [472320, 944640, 1416960] };
+function gnInterp(arr, temps, T) {
+  if (T <= temps[0]) return arr[0] * Math.max(0.3, 1 + (T - temps[0]) / 40);
+  for (var i = 1; i < temps.length; i++) if (T <= temps[i]) return arr[i - 1] + (arr[i] - arr[i - 1]) * (T - temps[i - 1]) / (temps[i] - temps[i - 1]);
+  return arr[arr.length - 1];
+}
+function gnCylVapor(lb, T) {
+  var keys = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+  var k = keys.reduce(function (a, b) { return Math.abs(b - lb) < Math.abs(a - lb) ? b : a; });
+  return gnInterp(CYL[k], [0, 20, 40, 60], T);
+}
+function gnGen() {
+  document.getElementById('gn-custom').style.display = document.getElementById('gn-gen').value === 'custom' ? 'block' : 'none';
+}
+function gnFuel() {
+  var ng = document.getElementById('gn-fuel').value === 'ng';
+  ['gn-tank-group', 'gn-count-group', 'gn-fill-group'].forEach(function (id) { document.getElementById(id).style.display = ng ? 'none' : 'block'; });
+  document.getElementById('gn-price-label').textContent = ng ? 'Natural Gas Price ($ per therm)' : 'Propane Price ($ per gallon)';
+  document.getElementById('gn-price').value = ng ? 1.70 : 2.50;
+}
+function calcGenerator() {
+  var g = document.getElementById('gn-gen').value || 'g22';
+  var spec = GN[g];
+  if (g === 'custom' || !spec) {
+    spec = [parseFloat(document.getElementById('gn-rating').value) || 22, parseFloat(document.getElementById('gn-half').value) || 2.16, parseFloat(document.getElementById('gn-full').value) || 3.68, null, null, null];
+  }
+  var fuel = document.getElementById('gn-fuel').value || 'lp';
+  if (fuel === 'ng' && !spec[3]) fuel = 'lp';
+  var load = parseFloat(document.getElementById('gn-load').value) || 6;
+  var T = parseFloat(document.getElementById('gn-temp').value);
+  if (isNaN(T)) T = 20;
+  var price = parseFloat(document.getElementById('gn-price').value) || (fuel === 'ng' ? 1.70 : 2.50);
+
+  var line = function (R, h, f) {
+    var slope, idle;
+    if (f) { slope = (f - h) / (R / 2); idle = h - slope * R / 2; }
+    else { idle = 0.3 * h; slope = (h - idle) / (R / 2); }
+    return function (L) { return Math.max(idle, idle + slope * Math.min(L, R)); };
+  };
+  var R = fuel === 'ng' ? spec[3] : spec[0];
+  var over = load > R;
+  var L = Math.min(load, R);
+  var rate = fuel === 'ng' ? line(spec[3], spec[4], spec[5]) : line(spec[0], spec[1], spec[2]);
+  var use = rate(L);                                          // gal/hr or ft3/hr
+  var fmt = function (v) { return '$' + Math.round(v).toLocaleString(); };
+  var rows = '<tr><th>Item</th><th>Result</th></tr>';
+  var head, note = '';
+  if (fuel === 'ng') {
+    var therms = use * 24 * 1037 / 1e5;
+    head = 'No tank limit — about ' + fmt(therms * price) + ' a day';
+    rows += '<tr><td>Gas use at ' + L + ' kW</td><td>' + Math.round(use) + ' ft³/hr</td></tr>' +
+      '<tr><td>Per day</td><td>' + Math.round(use * 24).toLocaleString() + ' ft³ (' + therms.toFixed(1) + ' therms)</td></tr>' +
+      '<tr style="font-weight:700;"><td>Cost per day</td><td>' + fmt(therms * price) + '</td></tr>' +
+      '<tr><td>Cost per week</td><td>' + fmt(therms * price * 7) + '</td></tr>';
+    note = 'Natural gas runs as long as the utility keeps gas flowing. Make sure your meter and regulator are sized for the generator plus your furnace and water heater.';
+  } else {
+    var tank = document.getElementById('gn-tank').value || 't500';
+    var n = Math.max(1, Math.round(parseFloat(document.getElementById('gn-count').value) || 1));
+    var bulk = tank.charAt(0) === 't';
+    var usable, vapor, label;
+    if (bulk) {
+      var size = parseInt(tank.slice(1), 10);
+      var fill = Math.min(Math.max(parseFloat(document.getElementById('gn-fill').value) || 80, 0), 100);
+      usable = size * Math.max(0, fill - 20) / 100 * n;
+      vapor = gnInterp(TANK[size], [0, 20, 40], Math.min(T, 40)) * n;
+      label = (n > 1 ? n + ' × ' : '') + size + '-gal tank at ' + fill + '%';
+    } else {
+      var lb = parseInt(tank, 10);
+      usable = lb / 4.24 * n;
+      vapor = gnCylVapor(50, T) * lb / 100 * n;          // half-empty, scaled from the 100-lb chart
+      label = (n > 1 ? n + ' × ' : '') + lb + '-lb cylinder';
+    }
+    var hrs = usable / use;
+    var demand = use * 91500;
+    head = hrs >= 48 ? 'About ' + (hrs / 24).toFixed(1) + ' days' : 'About ' + Math.round(hrs) + ' hours';
+    rows += '<tr><td>Propane use at ' + L + ' kW</td><td>' + use.toFixed(2) + ' gal/hr</td></tr>' +
+      '<tr><td>Usable propane</td><td>' + usable.toFixed(1) + ' gal (' + label + ')</td></tr>' +
+      '<tr style="font-weight:700;"><td>Runtime</td><td>' + Math.round(hrs) + ' hours (' + (hrs / 24).toFixed(1) + ' days)</td></tr>' +
+      '<tr><td>Cost per day</td><td>' + fmt(use * 24 * price) + '</td></tr>' +
+      '<tr><td>Vapor needed</td><td>' + Math.round(demand / 1000) + 'k BTU/hr</td></tr>' +
+      '<tr><td>Supply at ' + T + '°F' + (bulk ? '' : ', half full') + '</td><td>' + Math.round(vapor / 1000) + 'k BTU/hr' + (bulk || tank === '100' ? '' : ' (est.)') + '</td></tr>';
+    if (vapor < demand) note = 'Warning: at ' + T + '°F this supply can\'t vaporize propane as fast as the generator burns it. Expect surging or shutdown before the tank is empty. Manifold more cylinders together, keep them out of the wind, or move to a bulk tank.';
+    else if (vapor < demand * 1.3) note = 'The supply only just keeps up at ' + T + '°F. On a colder night, or as the tank empties, the generator may lose power.';
+    else note = 'The supply can keep up at ' + T + '°F. Order a refill before the gauge reaches 20%; delivery trucks are busiest during the storms that cause outages.';
+  }
+  if (over) note = 'Your load is above the generator\'s rated output of ' + R + ' kW, so it would trip its breaker; results use the rated output. ' + note;
+
+  var loads = '<tr><th>Average load</th><th>Fuel per hour</th><th>Per day</th></tr>';
+  [0.25, 0.5, 0.75, 1].forEach(function (f) {
+    var u = rate(R * f), unit = fuel === 'ng' ? ' ft³' : ' gal';
+    loads += '<tr><td>' + Math.round(f * 100) + '% (' + (R * f).toFixed(1) + ' kW)</td><td>' + (fuel === 'ng' ? Math.round(u) : u.toFixed(2)) + unit + '</td><td>' + fmt(fuel === 'ng' ? u * 24 * 1037 / 1e5 * price : u * 24 * price) + '</td></tr>';
+  });
+  document.getElementById('gn-headline').textContent = head;
+  document.getElementById('gn-table').innerHTML = rows;
+  document.getElementById('gn-loads').innerHTML = loads;
+  document.getElementById('gn-note').textContent = note;
+  var r = document.getElementById('gn-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 56 free web-based calculators, 52 side-by-side comparisons, and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All calculators run in the browser; the numbers you enter are never sent to a server. The site uses Google Analytics and Google AdSense, which set cookies (see /privacy.html). Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 58 free web-based calculators, 52 side-by-side comparisons, and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All calculators run in the browser; the numbers you enter are never sent to a server. The site uses Google Analytics and Google AdSense, which set cookies (see /privacy.html). Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -24,6 +24,8 @@ Tools for estimating home energy costs and identifying savings opportunities.
 - [LED vs Incandescent Savings Calculator](https://ecoenergycalc.com/tools/led-vs-incandescent.html): Quantify annual savings and CO₂ reduction from switching to LED bulbs
 - [Insulation Savings Calculator](https://ecoenergycalc.com/tools/insulation-savings.html): Estimate heating and cooling savings from upgrading home insulation; includes IRA tax credit info
 - [Heating vs Cooling Cost Calculator](https://ecoenergycalc.com/tools/heating-vs-cooling.html): Compare seasonal heating and cooling costs to find where energy dollars go
+- [Generator Propane Runtime Calculator](https://ecoenergycalc.com/tools/generator-propane-runtime-calculator.html): Runtime and cost per day for portable and standby generators on 20-lb to 1,000-gallon propane supplies or natural gas, from Generac spec-sheet fuel use, with a cold-weather vapor supply check
+- [Garage Heater Size & Cost Calculator](https://ecoenergycalc.com/tools/garage-heater-cost-calculator.html): Heater BTU size and monthly cost for 1–3 car garages by insulation level, keep-warm vs heat-during-use, propane, natural gas, electric and mini-split heat pump
 - [Thermostat Setback Savings Calculator](https://ecoenergycalc.com/tools/thermostat-setback-savings-calculator.html): Heating savings from a lower all-day setting, night and away setbacks (1% per °F per 8 hours rule, climate-adjusted), with heat pump and radiant caveats
 - [Dual Fuel Switchover Temperature Calculator](https://ecoenergycalc.com/tools/dual-fuel-switchover-calculator.html): Economic and thermal balance points for a heat pump paired with a gas, propane or oil furnace, from fuel and electric prices, furnace AFUE and heat pump COP/capacity ratings
 - [Pellet Stove & Firewood Heating Cost Calculator](https://ecoenergycalc.com/tools/pellet-firewood-heating-cost-calculator.html): Season cost and tons/bags/cords needed for pellet or wood heat vs propane, oil, gas, heat pump and electric, with break-even pellet prices
@@ -85,6 +87,8 @@ Tools for water usage and rainwater harvesting.
 
 In-depth guides on energy savings, solar, carbon reduction, and environmental topics.
 
+- [How Long Will a Propane Tank Run a Generator?](https://ecoenergycalc.com/blog/how-long-will-a-propane-tank-run-a-generator.html): Runtimes by cylinder and tank size for portable and 22 kW standby generators, cost per day, and why tanks fail in freezing weather
+- [How Much Does It Cost to Heat a Garage?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-heat-a-garage.html): Monthly garage heating cost by insulation, fuel and keep-warm vs occasional use, plus heater sizes for 1–3 car garages
 - [What Temperature Should a Dual Fuel Heat Pump Switch to Gas?](https://ecoenergycalc.com/blog/dual-fuel-heat-pump-switchover-temperature.html): Economic switchover temperatures by gas and electricity price, 80% vs 95% furnaces, propane and oil, and the thermal balance point
 - [How Many Tons of Pellets (or Cords of Wood) Do I Need?](https://ecoenergycalc.com/blog/how-many-tons-of-pellets-do-i-need.html): Tons, bags and cords per winter by house size and climate, and pellet bags per day by outdoor temperature
 - [How Much Does It Cost to Heat a House?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-heat-a-house.html): Annual and January heating cost by square footage, climate zone and fuel (gas, heat pump, propane, oil, electric), cost per square foot, and regional price effects

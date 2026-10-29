@@ -1,3 +1,32 @@
+# EcoEnergyCalc 인수인계 — v42 세션 (2026-10-29, 신규 발굴)
+
+## 0-Q1. 발굴
+
+- 후보: 발전기 프로판 런타임(백로그), 차고 난방비, 가스 벽난로 vs 퍼니스, 동파 방지 수도꼭지 물 흘리기 비용.
+- **발전기 런타임**: SERP = 판매사(Bluetti, Anker) + 스팸 + slashgear + 포럼, 그리고 **VoltFlow(꼼꼼한 계산기 사이트, 연료비/시간 표)**. "연료비/시간"은 경쟁 있음 → **롱테일(탱크 크기별 일수 + 겨울 기화량 한계)**로 차별화. 채택.
+- **차고 난방**: 크기(BTU) 쿼리는 스팸 계산기 농장이 장악, **월 비용·상시 vs 사용 시만** 쪽은 포럼뿐(garagejournal, grassrootsmotorsports, tractorbynet, rokslide) → 비용 중심으로 채택.
+- 가스 벽난로: 미디어(hunker, thepricer)+유틸리티+판매사 — 중간. 다음 후보.
+- 수도꼭지 물 흘리기 비용: 대학 익스텐션(MSU, Clemson)+TV 방송 — 계산기 없음. 물 클러스터(빙 최대)와 맞음. 다음 후보.
+
+## 0-Q2. ✅ 신규 4페이지 (165파일, 계산기 58)
+
+- `tools/generator-propane-runtime-calculator.html` — 소비량: **Generac Guardian 9–22 kW 스펙시트**(half/full LP gal/h, NG ft³/h; 22 kW: 2.16/3.68 gal/h, NG 184/281) 두 점 직선(0부하 = 2×half−full, 22 kW ≈0.64 gal/h). 포터블 3,500 W: **Champion 100401 20-lb 탱크 50% 부하 10.5시간** → 0.45 gal/h(공회전 30% 가정). 탱크: 실린더 lb/4.24 gal, 벌크 (게이지−20%). 기화량: **Flame Engineering 100-lb 표**(반 남은 상태 기준, 20/30/40-lb는 무게 비례 축소 = 보수적 추정) + **Elliott Electric 발전기 탱크 표**(0/20/40°F). 기본값 22 kW·6 kW 평균·500 gal 80%: 8.5일, $88/일.
+- `blog/how-long-will-a-propane-tank-run-a-generator.html` — 포터블×실린더 표, 22 kW×탱크×부하 표(+9 kW), 하루 비용(프로판 $2.50, NG $1.70), 겨울 기화 섹션.
+- `tools/garage-heater-cost-calculator.html` — UA = 벽/문/천장 면적÷R + 슬래브 둘레 0.73 + 0.018×체적×ACH. R값(대표값): 무단열 벽 4, 단열 11, 무단열 문 1.5, 단열 문 6, 천장 2.5/30, ACH 1.5/1.2/0.75. 부착형은 한 벽 제외. 사용 시만 모드 +25% 예열. 연료: 가스·프로판 유닛 히터 80%, 전기 100%, 미니스플릿 COP 2.5(30°F 미만 2.0). 기본 2-car 무단열: 38,000 BTU/h, 8시간/주 60°F $17~43/월, 50°F 상시 $196~486/월.
+- `blog/how-much-does-it-cost-to-heat-a-garage.html` — 무단열/완전단열 × 4가지 사용방식 × 4연료 월 비용 표, 크기×단열 BTU 표.
+- 등록: tools·blog 허브, 사이트맵, llms.txt(계산기 58), 메인 난방 시즌 블록 8개, 교차링크(power-outage, solar-vs-generator, oil-propane-days-left, house-warm 블로그, space-heater, insulation-savings).
+
+## 0-Q3. 작업 환경 메모
+
+- 이번 세션 시작 시 작업 컨테이너가 초기화됨. 저장소는 `/home/claude/ecoenergycalc`. 검증 스크립트(run.js 기본값 실행, 체크 스크립트: JSON-LD 파싱·FAQ 이름=h3·내부링크·사이트맵 누락·태그/앵커 균형)는 스크래치패드에 재작성. 계산기 기본값 실행 109개 모두 정상.
+
+## 0-Q4. 측정
+
+- 11~1월: "how long will a 20 lb propane tank run a generator", "500 gallon propane tank generator how many days", "cost to heat a garage per month", "how many btu to heat a 2 car garage".
+- v41에서 기록한 **GSC 구글 노출 0 구간(10/19~)**: 다음 주간 데이터에서 채워졌는지 확인 필수.
+
+---
+
 # EcoEnergyCalc 인수인계 — v41 세션 (2026-10-26, 주간 데이터)
 
 ## 0-P1. 데이터

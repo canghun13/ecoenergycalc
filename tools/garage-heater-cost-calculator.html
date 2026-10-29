@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garage Heater Size &amp; Cost Calculator – Propane vs Electric vs Gas | EcoEnergyCalc</title>
+  <meta name="description" content="How big a heater your garage needs and what it costs per month — propane, natural gas, 240V electric or a mini-split — whether you keep it warm all week or heat it only while you work. By size, insulation and climate." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/garage-heater-cost-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Garage Heater Size and Cost Calculator","url":"https://ecoenergycalc.com/tools/garage-heater-cost-calculator.html","description":"How big a heater your garage needs and what it costs per month — propane, natural gas, 240V electric or a mini-split — whether you keep it warm all week or heat it only while you work. By size, insulation and climate.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-10-29","dateModified":"2026-10-29","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does it cost to heat a garage per month?","acceptedAnswer":{"@type":"Answer","text":"For a 2-car garage at a 30\u00b0F outdoor average, heating to 60\u00b0F for 8 hours a week costs roughly $15\u2013$45 a month depending on fuel and insulation. Keeping an uninsulated one at 50\u00b0F around the clock costs about $195 a month on natural gas, $315 on propane and $485 with electric heat; fully insulated, about $65, $105 and $160."}},
+    {"@type":"Question","name":"How many BTUs do I need to heat a 2 car garage?","acceptedAnswer":{"@type":"Answer","text":"To hold 60\u00b0F at 0\u00b0F outside, about 38,000 BTU an hour for an uninsulated attached 2-car garage with a 9-foot ceiling, 32,000 with insulated walls only, and 13,000 with walls, ceiling and door insulated. A 45,000 BTU unit heater covers the uninsulated case; a 4\u20135 kW electric heater covers the insulated one."}},
+    {"@type":"Question","name":"Is it cheaper to heat a garage with propane or electric?","acceptedAnswer":{"@type":"Answer","text":"Propane is cheaper than an electric resistance heater at typical prices \u2014 about $2.50 a gallon versus 18\u00a2 a kWh, propane heat costs roughly two-thirds as much. Natural gas is cheaper still, and a ductless heat pump is about as cheap as gas, though it costs much more to install."}},
+    {"@type":"Question","name":"Can a space heater heat a garage?","acceptedAnswer":{"@type":"Answer","text":"A 1,500-watt plug-in heater gives about 5,100 BTU an hour. That's enough to take the edge off a small insulated garage, but an uninsulated 2-car garage in freezing weather can lose several times that, so the space never gets warm. Use a 240-volt electric or vented gas unit heater sized to the garage."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Garage Heater Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Garage Heater Size &amp; Running Cost Calculator</h1>
+        <p>Find the heater size your garage needs and what heating it costs each month with propane, natural gas, electric or a ductless heat pump. Compare keeping it warm all week with heating only the hours you work out there.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Garage Heater Size &amp; Cost</h2>
+            <div class="form-group">
+              <label for="gr-size">Garage Size</label>
+              <select id="gr-size">
+                <option value="1">1-car (12 × 22 ft)</option>
+                <option value="2" selected>2-car (24 × 24 ft)</option>
+                <option value="3">3-car (36 × 24 ft)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="gr-height">Ceiling Height (ft)</label>
+              <select id="gr-height">
+                <option value="8">8 ft</option>
+                <option value="9" selected>9 ft</option>
+                <option value="10">10 ft</option>
+                <option value="12">12 ft</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="gr-type">Garage Type</label>
+              <select id="gr-type">
+                <option value="attached" selected>Attached (one wall shared with the house)</option>
+                <option value="detached">Detached</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="gr-ins">Insulation</label>
+              <select id="gr-ins">
+                <option value="none" selected>None — bare studs, uninsulated door and ceiling</option>
+                <option value="walls">Walls insulated; door and ceiling not</option>
+                <option value="full">Walls, ceiling and garage door insulated</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="gr-mode">How You'll Heat It</label>
+              <select id="gr-mode" onchange="grMode()">
+                <option value="keep">Keep it at a set temperature all the time</option>
+                <option value="use" selected>Heat it only while I'm working in it</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="gr-target">Temperature You Want Inside (°F)</label>
+              <input type="number" id="gr-target" value="60" min="35" max="75" step="1" />
+            </div>
+            <div class="form-group" id="gr-hours-group">
+              <label for="gr-hours">Hours of Use Per Week</label>
+              <input type="number" id="gr-hours" value="8" min="1" max="100" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="gr-out">Average Outdoor Temperature (°F)</label>
+              <input type="number" id="gr-out" value="30" min="-20" max="60" step="1" />
+              <small style="color:var(--text-muted);">December–February averages run roughly the high teens in Minneapolis, the upper 20s in Chicago, the low 30s in Boston and the mid 40s in Atlanta.</small>
+            </div>
+            <div class="form-group">
+              <label for="gr-design">Coldest Typical Night (°F)</label>
+              <input type="number" id="gr-design" value="0" min="-30" max="45" step="1" />
+              <small style="color:var(--text-muted);">Used to size the heater, not to price it.</small>
+            </div>
+            <div class="form-group">
+              <label for="gr-prop">Propane ($/gallon)</label>
+              <input type="number" id="gr-prop" value="2.50" min="0.5" max="8" step="0.05" />
+            </div>
+            <div class="form-group">
+              <label for="gr-gas">Natural Gas ($/therm)</label>
+              <input type="number" id="gr-gas" value="1.70" min="0.3" max="6" step="0.05" />
+            </div>
+            <div class="form-group">
+              <label for="gr-elec">Electricity (¢/kWh)</label>
+              <input type="number" id="gr-elec" value="18" min="3" max="60" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcGarage()">Size &amp; Price My Garage Heat</button>
+            <div class="result-box-tool" id="gr-result">
+              <h3>Your Garage Heat</h3>
+              <div class="result-amount" id="gr-headline"></div>
+              <table id="gr-table" class="compact" style="width:100%;"></table>
+              <table id="gr-cost" class="compact" style="width:100%;margin-top:12px;"></table>
+              <p class="result-note" id="gr-note"></p>
+              <p class="result-note">Heat loss uses typical assembly values: uninsulated stud wall about R-4, insulated wall R-11, uninsulated steel door about R-1.5, insulated door R-6, open ceiling R-2.5 vs R-30 insulated, slab edge 0.73 BTU/hr per foot per °F, and 1.5, 1.2 or 0.75 air changes an hour. Heating only during use adds 25% for warming the air, walls and tools each session. Vented gas and propane unit heaters 80%, electric heaters 100%, ductless heat pump COP 2.5 (2.0 below 30°F).</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Heating Only When You Use It Is Usually Far Cheaper</h2>
+            <p>The biggest decision isn't the fuel, it's whether the garage stays warm all week. Keeping an uninsulated 2-car garage at 50°F while it averages 30°F outside costs roughly $315 a month on propane in this calculator. Heating the same garage to 60°F for 8 hours a week costs about $28. A heater that runs only during use pays for warm-up time, but it skips the 160 hours a week nobody is in there.</p>
+            <p>Keep-warm heating makes sense mainly to protect something: water lines, a drain, paint and chemicals, a battery bank, or a workshop where glue and finishes need to cure. For that, 40°F is usually enough, and it costs about half what 50°F does.</p>
+
+            <h2>Insulation Matters Most If You Heat All the Time</h2>
+            <p>An uninsulated 2-car garage loses heat about three times as fast as a fully insulated one, mostly through the open ceiling and around the garage door. Insulating walls alone helps less than people expect when the ceiling and door are bare. If you plan to keep the space warm, insulate the ceiling and add an insulated door or a door insulation kit first; if you only heat it a few hours a week, insulation pays back slowly and a bigger heater is the cheaper fix.</p>
+
+            <h2>Sizing the Heater</h2>
+            <p>The size you need comes from the coldest typical night, not the average. To hold 60°F at 0°F outside, an uninsulated 2-car garage needs about 38,000 BTU an hour — a 45,000 BTU propane or natural gas unit heater. Fully insulated, the same garage needs about 13,000 BTU an hour, which a 4–5 kW, 240-volt electric heater can supply. A standard 1,500 W plug-in space heater puts out only about 5,100 BTU an hour, which is why it barely dents a cold, open garage.</p>
+
+            <h2>Fuel and Safety</h2>
+            <ul>
+              <li><strong>Propane or natural gas unit heater (vented):</strong> the usual choice for large or uninsulated garages. Needs a flue or sidewall vent and, for propane, a tank or cylinder hookup.</li>
+              <li><strong>240-volt electric heater:</strong> simple to install and clean, but electric resistance heat costs the most per BTU.</li>
+              <li><strong>Ductless mini-split heat pump:</strong> the cheapest to run for keep-warm heating in an insulated garage, and it cools in summer, but the most expensive to buy.</li>
+              <li><strong>Unvented propane or kerosene heaters</strong> put all their combustion moisture and exhaust into the space. They rust tools, can raise carbon monoxide and are not meant as a permanent heat source; use them only briefly with ventilation and a CO alarm.</li>
+            </ul>
+            <p>For ready-made monthly figures by garage size and insulation, see <a href="/blog/how-much-does-it-cost-to-heat-a-garage.html">how much it costs to heat a garage</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/space-heater-cost-calculator.html">Space Heater Cost</a></li>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel</a></li>
+              <li><a href="/tools/insulation-savings.html">Insulation Savings</a></li>
+              <li><a href="/tools/generator-propane-runtime-calculator.html">Generator Propane Runtime</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Articles</h3>
+            <ul>
+              <li><a href="/blog/how-much-does-it-cost-to-heat-a-garage.html">How Much It Costs to Heat a Garage</a></li>
+              <li><a href="/blog/how-much-does-it-cost-to-run-a-space-heater.html">Space Heater Cost Guide</a></li>
+              <li><a href="/compare/propane-vs-natural-gas.html">Propane vs Natural Gas</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>1,500 W space heater: <strong>~5,100 BTU/hr</strong></li>
+              <li>Uninsulated 2-car at 0°F → 60°F: <strong>~38,000 BTU/hr</strong></li>
+              <li>Insulated 2-car: <strong>~13,000 BTU/hr</strong></li>
+              <li>50°F all week vs 8 hrs of use: <strong>~11× the cost</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#btu">BTU</a></li>
+              <li><a href="/glossary/#cop">COP</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much does it cost to heat a garage per month?</h3>
+      <p>For a 2-car garage at a 30°F outdoor average, heating to 60°F for 8 hours a week costs roughly $15–$45 a month depending on fuel and insulation. Keeping an uninsulated one at 50°F around the clock costs about $195 a month on natural gas, $315 on propane and $485 with electric heat; fully insulated, about $65, $105 and $160.</p>
+      <h3>How many BTUs do I need to heat a 2 car garage?</h3>
+      <p>To hold 60°F at 0°F outside, about 38,000 BTU an hour for an uninsulated attached 2-car garage with a 9-foot ceiling, 32,000 with insulated walls only, and 13,000 with walls, ceiling and door insulated. A 45,000 BTU unit heater covers the uninsulated case; a 4–5 kW electric heater covers the insulated one.</p>
+      <h3>Is it cheaper to heat a garage with propane or electric?</h3>
+      <p>Propane is cheaper than an electric resistance heater at typical prices — about $2.50 a gallon versus 18¢ a kWh, propane heat costs roughly two-thirds as much. Natural gas is cheaper still, and a ductless heat pump is about as cheap as gas, though it costs much more to install.</p>
+      <h3>Can a space heater heat a garage?</h3>
+      <p>A 1,500-watt plug-in heater gives about 5,100 BTU an hour. That's enough to take the edge off a small insulated garage, but an uninsulated 2-car garage in freezing weather can lose several times that, so the space never gets warm. Use a 240-volt electric or vented gas unit heater sized to the garage.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+var GR_SIZE = { '1': [12, 22, 63], '2': [24, 24, 112], '3': [36, 24, 175] };   // width, depth, door sq ft
+var GR_INS = { none: [4, 1.5, 2.5, 1.5], walls: [11, 1.5, 2.5, 1.2], full: [11, 6, 30, 0.75] }; // wall R, door R, ceiling R, ACH
+function grMode() {
+  document.getElementById('gr-hours-group').style.display = document.getElementById('gr-mode').value === 'use' ? 'block' : 'none';
+}
+function calcGarage() {
+  var S = GR_SIZE[document.getElementById('gr-size').value] || GR_SIZE['2'];
+  var h = parseFloat(document.getElementById('gr-height').value) || 9;
+  var att = document.getElementById('gr-type').value !== 'detached';
+  var I = GR_INS[document.getElementById('gr-ins').value] || GR_INS.none;
+  var mode = document.getElementById('gr-mode').value || 'use';
+  var target = parseFloat(document.getElementById('gr-target').value) || 60;
+  var hours = parseFloat(document.getElementById('gr-hours').value) || 8;
+  var out = parseFloat(document.getElementById('gr-out').value);
+  if (isNaN(out)) out = 30;
+  var design = parseFloat(document.getElementById('gr-design').value);
+  if (isNaN(design)) design = 0;
+  var prop = parseFloat(document.getElementById('gr-prop').value) || 2.5;
+  var gas = parseFloat(document.getElementById('gr-gas').value) || 1.7;
+  var elec = (parseFloat(document.getElementById('gr-elec').value) || 18) / 100;
+
+  var W = S[0], D = S[1], door = S[2];
+  var per = 2 * (W + D) - (att ? W : 0);
+  var wall = per * h - door;
+  var UA = wall / I[0] + door / I[1] + W * D / I[2] + 0.73 * per + 0.018 * W * D * h * I[3];  // BTU/hr per °F
+  var size = UA * Math.max(0, target - design);
+  var dT = Math.max(0, target - out);
+  var hrsMonth = mode === 'keep' ? 730 : hours * 4.33;
+  var btu = UA * dT * hrsMonth * (mode === 'keep' ? 1 : 1.25);
+  var cop = out >= 30 ? 2.5 : 2.0;
+  var opts = [
+    ['Natural gas unit heater', btu / 1e5 / 0.8 * gas],
+    ['Propane unit heater', btu / 91500 / 0.8 * prop],
+    ['Electric heater (240 V)', btu / 3412 * elec],
+    ['Ductless heat pump', btu / 3412 / cop * elec]
+  ];
+  var fmt = function (v) { return '$' + Math.round(v).toLocaleString(); };
+  var low = Math.min.apply(null, opts.map(function (o) { return o[1]; }));
+  var kw = size / 3412;
+  var rows = '<tr><th>Item</th><th>Result</th></tr>' +
+    '<tr><td>Heat loss</td><td>' + Math.round(UA) + ' BTU/hr per °F</td></tr>' +
+    '<tr style="font-weight:700;"><td>Heater size for ' + target + '°F at ' + design + '°F</td><td>' + (Math.ceil(size / 1000) * 1000).toLocaleString() + ' BTU/hr</td></tr>' +
+    '<tr><td>Electric equivalent</td><td>' + kw.toFixed(1) + ' kW' + (kw > 1.5 ? ' (240 V)' : '') + '</td></tr>' +
+    '<tr><td>Heat needed per month</td><td>' + (btu / 1e6).toFixed(1) + ' million BTU</td></tr>';
+  var cost = '<tr><th>Heater</th><th>Per month</th><th>Per hour of use</th></tr>';
+  opts.forEach(function (o) {
+    cost += '<tr' + (o[1] === low ? ' style="font-weight:700;background:rgba(22,163,74,0.15);"' : '') + '><td>' + o[0] + '</td><td>' + fmt(o[1]) + '</td><td>$' + (o[1] / hrsMonth).toFixed(2) + '</td></tr>';
+  });
+  var note;
+  if (mode === 'keep') {
+    var alt = UA * dT * hours * 4.33 * 1.25 / (btu || 1);
+    note = 'Heating only during ' + hours + ' hours a week of use instead would cost about ' + Math.round(alt * 100) + '% as much. ';
+    note += target > 45 ? 'If you only need to protect pipes and supplies, 40°F costs much less than ' + target + '°F.' : 'At this setting the main job is freeze protection.';
+  } else {
+    note = 'Keeping it at ' + target + '°F all week would cost about ' + Math.round(730 / (hours * 4.33 * 1.25)) + ' times as much. Start the heater 30–60 minutes before you need the space warm.';
+  }
+  if (size > 5100 * 1.5) note += ' A 1,500 W plug-in heater (about 5,100 BTU/hr) is too small for this garage in cold weather.';
+  document.getElementById('gr-headline').textContent = (Math.ceil(size / 1000) * 1000).toLocaleString() + ' BTU/hr heater; from ' + fmt(low) + ' a month';
+  document.getElementById('gr-table').innerHTML = rows;
+  document.getElementById('gr-cost').innerHTML = cost;
+  document.getElementById('gr-note').textContent = note;
+  var r = document.getElementById('gr-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
