@@ -10,18 +10,27 @@
 - **사용자 확인 요청(이 세 가지로 갈림)**: ① GSC → 보안 및 직접 조치 → **직접 조치(Manual actions)** 화면, ② GSC → 색인 생성 → **페이지** 차트(색인된 페이지 수 추이), ③ 구글에서 `site:ecoenergycalc.com` 결과 수 + heating-cost-by-fuel URL 검사 결과.
   - 수동 조치 있음 → 해당 사유 정리 후 재검토 요청(정리 범위는 사용자 결정).
   - 수동 조치 없음 + 색인 유지 → 알고리즘 강등. 품질 정리(겹치는 페이지 통합) 후 다음 코어 업데이트까지 대기.
-- 이번 주는 판정 전이라 **신규 페이지 추가를 보류**(대량 생성 판정이면 페이지를 늘릴수록 불리). 확장 전략 자체는 유지, 판정 결과 보고 재개.
+- 이번 주는 판정 전이라 **신규 페이지 추가를 보류**(대량 생성 판정이면 페이지를 늘릴수록 불리). 확장 전략 자체는 유지, 판정 결과 보고 재개. 대신 겹치는 페이지 통합은 바로 실행(0-R2).
 
-## 0-R2. 통합 후보(겹치는 주제) — 실행은 판정 후 사용자 결정
+## 0-R2. ✅ 겹치는 페이지 13개 통합 실행 (사용자 지시로 즉시 실행)
 
-- 정전: `blog/how-long-will-my-house-stay-warm-without-power` ↔ `tools/power-outage-house-cooling-calculator` (제목 거의 동일)
-- 히트펌프 vs 퍼니스: `blog/heat-pump-vs-furnace` ↔ `compare/heat-pump-vs-furnace-vs-boiler`
-- LED: `tools/led-vs-incandescent` ↔ `compare/led-vs-cfl-vs-incandescent` (같은 계산, 기본값 결과도 $201 동일)
-- 건조기 5개: tools/dryer-energy-cost, blog/how-much-does-it-cost-to-run-a-dryer, compare/electric-vs-gas-dryer, compare/heat-pump-dryer-vs-electric, compare/gas-dryer-vs-heat-pump-dryer
-- 탄소: tools/carbon-footprint ↔ tools/home-carbon-footprint
-- EV: compare/ev-vs-gas-car, compare/ev-vs-hybrid-vs-gas, EV 블로그 2~3개
-- 태양광: solar-panel-savings ↔ solar-panel-roi (+ count, 블로그 3개)
-- 방법(GitHub Pages라 서버 301 불가): 흡수되는 페이지는 canonical을 남는 페이지로 + 본문 핵심만 이관 + 사이트맵 제외, 또는 meta refresh 리다이렉트.
+- 기준: 같은 질문에 답하는 페이지 쌍에서 **Bing·구글 실적이 큰 쪽을 남김**. 흡수되는 쪽에 Bing 클릭이 3회 이상 있으면 **통합하지 않음**(나무 블로그, 물 블로그들, 태양광 CO2 블로그, 냉장고 블로그·계산기 쌍, 탄소 계산기 2개, 태양광 savings/ROI는 유지).
+- 흡수 → 남김:
+  - blog/how-long-will-my-house-stay-warm-without-power → tools/power-outage-house-cooling-calculator (+FAQ 2: 정전 시 첫 조치, 실내 오븐·발전기 금지)
+  - blog/heat-pump-vs-furnace → compare/heat-pump-vs-furnace-vs-boiler
+  - compare/led-vs-cfl-vs-incandescent → tools/led-vs-incandescent
+  - compare/gas-dryer-vs-heat-pump-dryer, blog/how-much-does-it-cost-to-run-a-dryer → tools/dryer-energy-cost (+FAQ 2: 밤에 돌리면 싼가, 사용량 줄이는 법. 블로그의 가스 $0.23/회는 틀려서 옮기지 않음)
+  - blog/ev-vs-gas-true-cost → compare/ev-vs-gas-car (+FAQ: IRS 마일리지 요율. 원문의 76¢ 수치는 검증 안 돼 뺌)
+  - blog/how-much-does-it-cost-to-charge-an-ev-at-home → tools/ev-charging-cost-calculator (+FAQ 2: 100마일당 비용, 야간 충전)
+  - blog/how-many-solar-panels-do-i-need → tools/solar-panel-count-calculator
+  - blog/solar-panel-guide → blog/solar-panel-cost-2026 (+FAQ 3: 회수기간, 방향, 집값 LBNL)
+  - blog/how-much-does-it-cost-to-run-a-space-heater → tools/space-heater-cost-calculator (FAQ 섹션 신설 3개)
+  - compare/electric-blanket-vs-space-heater → blog/is-an-electric-blanket-cheaper-than-heating
+  - blog/how-much-does-it-cost-to-run-ac → tools/ac-running-cost (+FAQ 2: 창문형 월 비용, 외출 시 끄기)
+  - blog/is-it-cheaper-to-heat-or-cool-your-home → tools/heating-vs-cooling
+- 방식(GitHub Pages라 301 불가): 흡수 페이지 파일은 **리다이렉트 스텁**으로 교체(canonical → 남는 페이지 + meta refresh 0초 + JS location.replace). 사이트맵·llms.txt·허브 카드에서 제거, 사이트 전체 내부링크를 남는 페이지로 교체(26개 파일), 자기 자신을 가리키게 된 링크·중복 사이드바 항목 제거.
+- 결과: 사이트맵 165 → 152 URL, 비교 페이지 52 → 49. 검증: 계산기 106개 기본값, 링크·FAQ·태그, 375/1280px, 리다이렉트 동작 모두 정상.
+- **스텁 파일은 지우지 말 것**(외부·구글에 남은 옛 주소를 넘겨주는 역할).
 
 ## 0-R3. 그 외 데이터
 

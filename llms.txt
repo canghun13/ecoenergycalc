@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 58 free web-based calculators, 52 side-by-side comparisons, and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All calculators run in the browser; the numbers you enter are never sent to a server. The site uses Google Analytics and Google AdSense, which set cookies (see /privacy.html). Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 58 free web-based calculators, 49 side-by-side comparisons, and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All calculators run in the browser; the numbers you enter are never sent to a server. The site uses Google Analytics and Google AdSense, which set cookies (see /privacy.html). Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -101,17 +101,11 @@ In-depth guides on energy savings, solar, carbon reduction, and environmental to
 - [How Much Does an EV Save on Fuel Costs? Real Numbers by State](https://ecoenergycalc.com/blog/how-much-does-an-ev-save-on-fuel-costs.html): State-by-state EV fuel savings calculation with the formula, real cost comparisons, and the impact of home vs. public charging
 - [How to Lower Your Heating Bill: 12 Ways to Cut Costs This Winter](https://ecoenergycalc.com/blog/how-to-lower-your-heating-bill.html): Ranked guide from free thermostat adjustments to heat pump upgrades — with real savings estimates for each
 - [How Much Water Does a Washing Machine Use Per Load?](https://ecoenergycalc.com/blog/how-much-water-does-a-washing-machine-use.html): Water usage by washer type, financial case for ENERGY STAR upgrade, and how to reduce laundry water use
-- [What to Know Before Installing Solar Panels](https://ecoenergycalc.com/blog/solar-panel-guide.html): Costs, incentives, payback periods, choosing an installer, and common mistakes — complete pre-purchase guide
-- [Is It Cheaper to Heat or Cool Your Home?](https://ecoenergycalc.com/blog/is-it-cheaper-to-heat-or-cool-your-home.html): Regional cost breakdown showing whether heating or cooling costs more — with actual dollar figures by city and fuel type
-- [How Much Does It Cost to Run a Dryer?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-a-dryer.html): Per-load, per-month, and per-year running costs for electric and gas dryers by usage frequency and local electricity rate
-- [How Much Does It Cost to Run a Space Heater?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-a-space-heater.html): Exact cost per hour, per day, and per month for 750W–1,500W space heaters — with an honest look at when space heaters actually save money vs. central heat
-- [How Many Solar Panels Do I Need?](https://ecoenergycalc.com/blog/how-many-solar-panels-do-i-need.html): Step-by-step calculation methodology with state-by-state examples and installer quote verification
 - [Solar Panel Tax Credits & Incentives by State (2026)](https://ecoenergycalc.com/blog/solar-incentives-by-state.html): State-by-state breakdown of solar rebates, tax credits, and net metering policies
 - [Renewable Energy Subsidies: The Complete U.S. Guide](https://ecoenergycalc.com/blog/renewable-energy-subsidies.html): Federal tax credits, state rebates, and utility incentives for solar, wind, heat pumps, and more
 - [How Many Trees to Offset Your Carbon Footprint?](https://ecoenergycalc.com/blog/how-many-trees-to-offset-carbon-footprint.html): Real math on how many mature trees are needed to offset 1 ton of CO2, one person's footprint, or a year of driving
 - [Are Carbon Offsets Worth It? A Practical Guide](https://ecoenergycalc.com/blog/are-carbon-offsets-worth-it.html): A balanced guide to how carbon offsets work, how to evaluate quality and avoid low-quality credits, and when reducing emissions directly is the better move
 - [Is a Heat Pump Still Worth It in 2026 Without the Tax Credit?](https://ecoenergycalc.com/blog/is-a-heat-pump-worth-it-without-tax-credit.html): New shipment data shows heat pump sales haven't declined despite the federal tax credit expiring — unlike solar. Explains why, and what incentives remain
-- [Heat Pump vs Furnace: Which Is Better for Your Home?](https://ecoenergycalc.com/blog/heat-pump-vs-furnace.html): Cost, efficiency, and climate suitability comparison to determine the right heating system
 - [15 Ways to Reduce Your Electric Bill This Year](https://ecoenergycalc.com/blog/reduce-electric-bill.html): No-cost to high-ROI changes ranked by actual dollar savings
 - [Why Is My Electric Bill Going Up? AI Data Centers, Explained](https://ecoenergycalc.com/blog/why-electric-bills-are-rising-ai-data-centers.html): How AI data center electricity demand is contributing to rising electric bills in 2026, which regions are hit hardest, and what households can do about it
 - [Demand Response Programs: Get Paid to Cut AC Usage This Summer](https://ecoenergycalc.com/blog/demand-response-programs-get-paid-to-save-energy.html): How utility demand response programs work, how much homeowners can earn ($25-$200+/year) for letting utilities cycle their AC during peak summer demand, and whether it's worth the comfort tradeoff
@@ -119,8 +113,6 @@ In-depth guides on energy savings, solar, carbon reduction, and environmental to
 - [Demand Response vs Time-of-Use vs Solar+Battery](https://ecoenergycalc.com/compare/demand-response-vs-time-of-use-vs-solar-battery.html): Side-by-side comparison of three ways homeowners can save or earn money through grid programs
 - [How to Reduce Water Usage at Home: 14 High-Impact Changes](https://ecoenergycalc.com/blog/how-to-reduce-water-usage-at-home.html): Evidence-based water conservation methods ranked by gallons saved, with costs and payback periods
 - [Practical Ways to Reduce Your Carbon Footprint](https://ecoenergycalc.com/blog/reduce-carbon-footprint.html): High-impact personal actions ranked by actual CO₂ savings, with real numbers
-- [EV vs Gas Car: True Cost of Ownership Over 5 Years](https://ecoenergycalc.com/blog/ev-vs-gas-true-cost.html): Full 5-year cost comparison including purchase, fuel, insurance, maintenance, and depreciation
-- [How Much Does It Cost to Run AC All Day?](https://ecoenergycalc.com/blog/how-much-does-it-cost-to-run-ac.html): Per-hour, per-day, and seasonal AC running cost by system size and electricity rate — with an interactive calculator
 - [Solar Panel Cost in 2026: What Homeowners Actually Pay](https://ecoenergycalc.com/blog/solar-panel-cost-2026.html): Real installed cost by system size and state, 30% ITC breakdown, financing options, and whether solar is worth it in 2026
 - [Is Budget Billing Worth It? What Levelized Billing Actually Does](https://ecoenergycalc.com/blog/is-budget-billing-worth-it.html): How budget billing and levelized billing actually work, why they smooth your bill without lowering it, true-up reconciliation risk, and the 2026 state rules (like Indiana's HEA 1002) changing how utilities offer these plans
 
@@ -163,7 +155,6 @@ Side-by-side comparisons of solar financing, technology, and renewable energy ch
 
 ## Compare: Lighting & Home Efficiency
 
-- [LED vs CFL vs Incandescent Bulbs](https://ecoenergycalc.com/compare/led-vs-cfl-vs-incandescent.html): Full 25,000-hour cost comparison across all three lighting technologies
 - [Spray Foam vs Fiberglass Insulation](https://ecoenergycalc.com/compare/spray-foam-vs-fiberglass-insulation.html): R-value, air sealing, cost, and when each insulation type is the right choice
 - [Double vs Triple Pane Windows](https://ecoenergycalc.com/compare/double-vs-triple-pane-windows.html): Energy savings, comfort, and payback comparison for window upgrade decisions
 - [Solar Water Heater vs Electric](https://ecoenergycalc.com/compare/solar-water-heater-vs-electric.html): Solar thermal vs heat pump water heater economics in 2026
@@ -178,7 +169,6 @@ Side-by-side comparisons of solar financing, technology, and renewable energy ch
 
 - [Ceiling Fan vs AC](https://ecoenergycalc.com/compare/ceiling-fan-vs-ac.html): Cost comparison of ceiling fans vs air conditioning — when fans save money and how to use both together to cut summer bills
 - [Central Heat vs Space Heater](https://ecoenergycalc.com/compare/central-heat-vs-space-heater.html): When space heaters actually save money vs central heat — break-even calculator by fuel type and thermostat setback
-- [Gas Dryer vs Heat Pump Dryer](https://ecoenergycalc.com/compare/gas-dryer-vs-heat-pump-dryer.html): Running cost, payback, and IRA tax credit comparison for gas vs heat pump dryers
 - [Train vs Plane Carbon Footprint](https://ecoenergycalc.com/compare/train-vs-plane-carbon.html): CO2 emissions comparison for rail vs air travel by distance, class, and train type
 - [Gas Car vs Hybrid Carbon Footprint](https://ecoenergycalc.com/compare/gas-car-vs-hybrid-carbon.html): Annual CO2 savings and fuel cost comparison when switching from a gas car to a hybrid
 - [Window Insulation vs Window Replacement](https://ecoenergycalc.com/compare/window-insulation-vs-replacement.html): Cost, savings, and payback comparison of window film vs full replacement

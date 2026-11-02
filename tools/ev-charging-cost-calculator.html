@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"EV Charging Cost Calculator","url":"https://ecoenergycalc.com/tools/ev-charging-cost-calculator.html","description":"Free EV charging cost calculator. See your monthly and annual home charging cost, how much a time-of-use off-peak rate would save you, what public DC fast charging adds, and how it all compares to gas.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-08-10"}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"EV Charging Cost Calculator","url":"https://ecoenergycalc.com/tools/ev-charging-cost-calculator.html","description":"Free EV charging cost calculator. See your monthly and annual home charging cost, how much a time-of-use off-peak rate would save you, what public DC fast charging adds, and how it all compares to gas.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-11-02"}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -22,7 +22,9 @@
     {"@type":"Question","name":"How much does it cost to charge an EV at home per month?","acceptedAnswer":{"@type":"Answer","text":"For a typical driver covering 1,000 miles per month in an EV averaging 3.3 miles per kWh, home charging uses roughly 303 kWh. At the 2026 U.S. average residential rate of about 18 cents per kWh, that works out to roughly 55 dollars per month. Your figure varies widely by state: the same driving costs closer to 33 dollars in low-rate states and can exceed 150 dollars in Hawaii. Switching to an off-peak time-of-use rate typically cuts the bill by 30 to 50 percent."}},
     {"@type":"Question","name":"Does Level 2 charging cost more than Level 1?","acceptedAnswer":{"@type":"Answer","text":"No. A kilowatt-hour costs the same regardless of how fast it is delivered, so Level 1 and Level 2 charging cost effectively the same per kWh on your bill. Level 2 is simply faster. The real financial difference is the upfront cost of installing a 240-volt circuit and wallbox. Level 2 can indirectly save money, though, because it charges fast enough to fit entirely inside a narrow overnight off-peak window, while Level 1 may spill into expensive peak hours."}},
     {"@type":"Question","name":"Is public fast charging much more expensive than home charging?","acceptedAnswer":{"@type":"Answer","text":"Yes, typically two to three times more. Home charging happens at residential rates around 18 cents per kWh nationally, while public DC fast charging commonly runs 35 to 50 cents per kWh because the price includes hardware, real estate, maintenance, payment processing, and profit. A driver who relies heavily on public fast charging because they lack home charging access sees dramatically smaller savings versus gasoline, which is why the public charging share input matters in this calculator."}},
-    {"@type":"Question","name":"Will charging an EV at home increase my electric bill a lot?","acceptedAnswer":{"@type":"Answer","text":"It adds a noticeable but manageable amount for most households. Roughly 300 kWh per month for a typical driver is a meaningful addition to average U.S. household usage of about 900 kWh per month, so expect your electricity bill to rise by something in the neighborhood of a third. The offset is that you stop buying gasoline entirely. Check whether your utility offers an EV-specific or time-of-use rate before you start charging, since overnight rates are often substantially cheaper."}}
+    {"@type":"Question","name":"Will charging an EV at home increase my electric bill a lot?","acceptedAnswer":{"@type":"Answer","text":"It adds a noticeable but manageable amount for most households. Roughly 300 kWh per month for a typical driver is a meaningful addition to average U.S. household usage of about 900 kWh per month, so expect your electricity bill to rise by something in the neighborhood of a third. The offset is that you stop buying gasoline entirely. Check whether your utility offers an EV-specific or time-of-use rate before you start charging, since overnight rates are often substantially cheaper."}},
+    {"@type":"Question","name":"How much does it cost to charge an EV per 100 miles?","acceptedAnswer":{"@type":"Answer","text":"At 3.3 miles per kWh and 18¢ per kWh, 100 miles takes about 30 kWh and costs about $5.45, or 5.5¢ a mile. A 27.5 mpg gas car at $3.50 a gallon costs about $12.73 for the same 100 miles."}},
+    {"@type":"Question","name":"Does charging an EV overnight save money?","acceptedAnswer":{"@type":"Answer","text":"Usually, if your utility offers a time-of-use or EV rate with cheaper overnight electricity. Set the car or charger to start after the off-peak period begins. On a flat-rate plan, overnight charging costs the same as any other time."}}
   ]}
   </script>
 </head>
@@ -131,9 +133,8 @@
           <div class="sidebar-box">
             <h3>Related Articles</h3>
             <ul>
-              <li><a href="/blog/how-much-does-it-cost-to-charge-an-ev-at-home.html">Cost to Charge an EV at Home</a></li>
               <li><a href="/blog/how-much-does-an-ev-save-on-fuel-costs.html">How Much Does an EV Save on Fuel?</a></li>
-              <li><a href="/blog/ev-vs-gas-true-cost.html">EV vs Gas: True Cost of Ownership</a></li>
+              <li><a href="/compare/ev-vs-gas-car.html">EV vs Gas: True Cost of Ownership</a></li>
               <li><a href="/blog/reduce-electric-bill.html">15 Ways to Reduce Your Electric Bill</a></li>
             </ul>
           </div>
@@ -164,6 +165,10 @@
       <p>Yes, typically two to three times more. Home charging happens at residential rates around 18 cents per kWh nationally, while public DC fast charging commonly runs 35 to 50 cents per kWh because the price includes hardware, real estate, maintenance, payment processing, and profit. A driver who relies heavily on public fast charging because they lack home charging access sees dramatically smaller savings versus gasoline, which is why the public charging share input matters in this calculator.</p>
       <h3>Will charging an EV at home increase my electric bill a lot?</h3>
       <p>It adds a noticeable but manageable amount for most households. Roughly 300 kWh per month for a typical driver is a meaningful addition to average U.S. household usage of about 900 kWh per month, so expect your electricity bill to rise by something in the neighborhood of a third. The offset is that you stop buying gasoline entirely. Check whether your utility offers an EV-specific or time-of-use rate before you start charging, since overnight rates are often substantially cheaper.</p>
+      <h3>How much does it cost to charge an EV per 100 miles?</h3>
+      <p>At 3.3 miles per kWh and 18¢ per kWh, 100 miles takes about 30 kWh and costs about $5.45, or 5.5¢ a mile. A 27.5 mpg gas car at $3.50 a gallon costs about $12.73 for the same 100 miles.</p>
+      <h3>Does charging an EV overnight save money?</h3>
+      <p>Usually, if your utility offers a time-of-use or EV rate with cheaper overnight electricity. Set the car or charger to start after the off-peak period begins. On a flat-rate plan, overnight charging costs the same as any other time.</p>
     </div>
     </div>
   </section>
