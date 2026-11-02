@@ -1,3 +1,36 @@
+# EcoEnergyCalc 인수인계 — v43 세션 (2026-11-02, 주간 데이터) — ⚠ 구글 노출 붕괴 진단
+
+## 0-R1. 구글: 10/19부터 2주째 거의 0 (지연 아님, 확정)
+
+- GSC 일별 노출: 10/1~10/18 하루 400~930 → **10/19~10/30 하루 0~7**. 데이터는 10/30까지 들어와 있으므로 v41에서 의심한 "보고 지연"은 아님.
+- 페이지별 3개월 누적을 지난 export와 비교(10/24~30 증가분): **50여 개 페이지에 1~8회씩 노출이 계속 찍힘** → 색인에서 빠진 게 아니라 **사이트 전체 순위가 일괄로 내려간 패턴**(수동 조치 또는 사이트 단위 알고리즘 강등의 전형).
+- 우리 쪽 기술 원인 없음: robots.txt·CNAME·canonical 정상, noindex 없음, 배포 정상. GSC 속성은 도메인 속성(파일명 형식)이라 www/http 문제도 아님. Bing·DDG·Yahoo 유입은 계속 증가(빙 2,719노출/479클릭, 전주 2,436/415).
+- 10/14~10/18 변경은 메인·푸터 개편(10/14)과 v39 페이지 2개뿐이고, 그 뒤 4일간 노출 정상이었음 → 직접 원인 가능성 낮음.
+- **가장 유력**: 구글의 대량 생성 콘텐츠(scaled content) 계열 판정. 5개월에 160여 페이지, 비슷한 템플릿, 주제 겹치는 페이지 다수.
+- **사용자 확인 요청(이 세 가지로 갈림)**: ① GSC → 보안 및 직접 조치 → **직접 조치(Manual actions)** 화면, ② GSC → 색인 생성 → **페이지** 차트(색인된 페이지 수 추이), ③ 구글에서 `site:ecoenergycalc.com` 결과 수 + heating-cost-by-fuel URL 검사 결과.
+  - 수동 조치 있음 → 해당 사유 정리 후 재검토 요청(정리 범위는 사용자 결정).
+  - 수동 조치 없음 + 색인 유지 → 알고리즘 강등. 품질 정리(겹치는 페이지 통합) 후 다음 코어 업데이트까지 대기.
+- 이번 주는 판정 전이라 **신규 페이지 추가를 보류**(대량 생성 판정이면 페이지를 늘릴수록 불리). 확장 전략 자체는 유지, 판정 결과 보고 재개.
+
+## 0-R2. 통합 후보(겹치는 주제) — 실행은 판정 후 사용자 결정
+
+- 정전: `blog/how-long-will-my-house-stay-warm-without-power` ↔ `tools/power-outage-house-cooling-calculator` (제목 거의 동일)
+- 히트펌프 vs 퍼니스: `blog/heat-pump-vs-furnace` ↔ `compare/heat-pump-vs-furnace-vs-boiler`
+- LED: `tools/led-vs-incandescent` ↔ `compare/led-vs-cfl-vs-incandescent` (같은 계산, 기본값 결과도 $201 동일)
+- 건조기 5개: tools/dryer-energy-cost, blog/how-much-does-it-cost-to-run-a-dryer, compare/electric-vs-gas-dryer, compare/heat-pump-dryer-vs-electric, compare/gas-dryer-vs-heat-pump-dryer
+- 탄소: tools/carbon-footprint ↔ tools/home-carbon-footprint
+- EV: compare/ev-vs-gas-car, compare/ev-vs-hybrid-vs-gas, EV 블로그 2~3개
+- 태양광: solar-panel-savings ↔ solar-panel-roi (+ count, 블로그 3개)
+- 방법(GitHub Pages라 서버 301 불가): 흡수되는 페이지는 canonical을 남는 페이지로 + 본문 핵심만 이관 + 사이트맵 제외, 또는 meta refresh 리다이렉트.
+
+## 0-R3. 그 외 데이터
+
+- GA(10/5~11/1): 활성 1,235(전 1,184). bing 305, ddg 195, **yahoo 112**, ecosia 44, **google 38**(전 56, 하락 반영 시작).
+- Bing: best-thermostat-settings **1,238/53**(전 804/32, 계속 급증), heating-cost-by-fuel 2,699/116, water-bill-benchmark 1,266/37, ai-water 3,799/49("per prompt" 130노출 @6.2 0클릭). 신규 dual-fuel 계산기 7노출 4클릭.
+- 색인(사용자 제공): 발견-미크롤 12(v40 신규 4개 중 3개 + 블로그 1 포함) — 구글 판정 이후 크롤 우선순위가 낮아진 영향과 맞음.
+
+---
+
 # EcoEnergyCalc 인수인계 — v42 세션 (2026-10-29, 신규 발굴)
 
 ## 0-Q1. 발굴
