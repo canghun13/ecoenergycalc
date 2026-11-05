@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frozen Pipe Prevention Cost Calculator – Dripping Faucet vs Heat Tape | EcoEnergyCalc</title>
+  <meta name="description" content="What it costs to drip a faucet overnight, run pipe heat cable or a heat lamp to keep pipes from freezing — per night and per winter, including the winter sewer-averaging catch — compared with a burst-pipe claim." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/frozen-pipe-prevention-cost-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Frozen Pipe Prevention Cost Calculator","url":"https://ecoenergycalc.com/tools/frozen-pipe-prevention-cost-calculator.html","description":"What it costs to drip a faucet overnight, run pipe heat cable or a heat lamp to keep pipes from freezing — per night and per winter, including the winter sewer-averaging catch — compared with a burst-pipe claim.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-11-05","dateModified":"2026-11-05","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does it cost to drip a faucet overnight?","acceptedAnswer":{"@type":"Answer","text":"A trickle of about 1 gallon an hour uses 12 gallons over a 12-hour night. At a combined water and sewer rate of $12 per 1,000 gallons, that's about 14\u00a2. At lower Southern rates it can be as little as 2\u00a2, and even a pencil-thin stream at 5 gallons an hour costs under a dollar a night at most rates."}},
+    {"@type":"Question","name":"Is it cheaper to drip faucets or use heat tape?","acceptedAnswer":{"@type":"Answer","text":"They cost about the same. One faucet at 1 gallon an hour costs roughly 14\u00a2 a night in water and sewer, and a 15-foot, 7-watt-per-foot heat cable costs about 23\u00a2 for 12 freezing hours at 18\u00a2 per kWh. Heat cable protects a specific exposed pipe automatically; dripping keeps water moving through the whole line but only while you remember to do it."}},
+    {"@type":"Question","name":"How much does heat tape cost to run?","acceptedAnswer":{"@type":"Answer","text":"Pipe heat cable usually draws about 7 watts per foot. A 15-foot cable uses 105 watts, about 1.3 kWh over 12 hours, or 23\u00a2 at 18\u00a2 per kWh. Running continuously for a month, it would use about 76 kWh, roughly $14. Thermostat models switch on only below about 38\u00b0F, so most months cost less."}},
+    {"@type":"Question","name":"Will dripping faucets raise my sewer bill?","acceptedAnswer":{"@type":"Answer","text":"Only if your utility bills sewer from winter water use. Cities like Austin average three winter months and use that volume for the next year's sewer charges, so water dripped during the averaging window is billed as sewer about four times over. A freeze night can then cost around 36\u00a2 instead of 14\u00a2. Some utilities adjust averages after major freezes on request."}},
+    {"@type":"Question","name":"How much water does a dripping faucet use in a night?","acceptedAnswer":{"@type":"Answer","text":"A steady drip uses about half a gallon to 1 gallon an hour, so 6 to 12 gallons over a 12-hour night. A thin stream uses 3 to 5 gallons an hour, or 36 to 60 gallons a night. You can measure yours by timing how long it takes to fill a 1-cup measure: 225 seconds means 1 gallon an hour."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Frozen Pipe Prevention Cost</p>
+        <span class="tool-category">Water</span>
+        <h1>Frozen Pipe Prevention Cost: Dripping Faucet vs Heat Tape</h1>
+        <p>Compare what a freezing night costs to drip faucets, run pipe heat cable, or keep a heat lamp on in a crawlspace or pump house, using your water, sewer and electric rates.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Frozen Pipe Prevention Cost</h2>
+            <h3 style="font-size:1rem;margin:4px 0 12px;">Dripping faucets</h3>
+            <div class="form-group">
+              <label for="fp-faucets">Faucets Left Dripping</label>
+              <input type="number" id="fp-faucets" value="1" min="0" max="10" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="fp-gph">Drip Rate per Faucet (gallons per hour)</label>
+              <input type="number" id="fp-gph" value="1" min="0.1" max="30" step="0.1" />
+              <small style="color:var(--text-muted);">Time how long the drip takes to fill a 1-cup measure: 225 seconds is 1 gallon an hour, 75 seconds is 3, 45 seconds is 5.</small>
+            </div>
+            <div class="form-group">
+              <label for="fp-water">Water Rate ($ per 1,000 gallons)</label>
+              <input type="number" id="fp-water" value="6" min="0" max="40" step="0.25" />
+            </div>
+            <div class="form-group">
+              <label for="fp-sewer">Sewer Rate ($ per 1,000 gallons)</label>
+              <input type="number" id="fp-sewer" value="6" min="0" max="40" step="0.25" />
+              <small style="color:var(--text-muted);">Both are on your bill, often per 1,000 gallons or per CCF (748 gallons). Enter 0 for sewer if you're on a septic system.</small>
+            </div>
+            <div class="form-group">
+              <label for="fp-avg">Is Your Sewer Charge Set From Winter Water Use?</label>
+              <select id="fp-avg">
+                <option value="no" selected>No, or not sure</option>
+                <option value="yes">Yes, winter averaging sets my sewer bill for the year</option>
+              </select>
+            </div>
+            <h3 style="font-size:1rem;margin:20px 0 12px;">Heat cable and heat lamp</h3>
+            <div class="form-group">
+              <label for="fp-ft">Heat Cable Length (ft)</label>
+              <input type="number" id="fp-ft" value="15" min="0" max="200" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="fp-wpf">Heat Cable Watts per Foot</label>
+              <input type="number" id="fp-wpf" value="7" min="1" max="15" step="0.5" />
+              <small style="color:var(--text-muted);">Common thermostat-controlled pipe cables are 7 W per foot. Self-regulating cables list their output on the package.</small>
+            </div>
+            <div class="form-group">
+              <label for="fp-lamp">Heat Lamp or Small Heater in a Crawlspace or Pump House (W)</label>
+              <input type="number" id="fp-lamp" value="250" min="0" max="1500" step="25" />
+            </div>
+            <h3 style="font-size:1rem;margin:20px 0 12px;">Weather and price</h3>
+            <div class="form-group">
+              <label for="fp-hours">Hours Below Freezing per Night</label>
+              <input type="number" id="fp-hours" value="12" min="1" max="24" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="fp-nights">Hard-Freeze Nights per Winter</label>
+              <input type="number" id="fp-nights" value="10" min="1" max="150" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="fp-elec">Electricity (¢/kWh)</label>
+              <input type="number" id="fp-elec" value="18" min="3" max="60" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcFrozenPipe()">Compare Freeze Protection Costs</button>
+            <div class="result-box-tool" id="fp-result">
+              <h3>Cost to Protect Your Pipes</h3>
+              <div class="result-amount" id="fp-headline"></div>
+              <table id="fp-table" class="compact" style="width:100%;"></table>
+              <p class="result-note" id="fp-note"></p>
+              <p class="result-note">The heat cable is assumed to run the whole time it's below freezing; thermostat cables switch on below about 38°F and off above 45°F, so on milder nights they run less. Winter averaging assumes a 3-month averaging window that sets 12 months of sewer bills, as in Austin, Texas. The average claim figure is State Farm's: more than 20,000 freeze-related homeowner claims from January 2024 to June 2025 averaged over $30,000.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Dripping a Faucet Costs Pennies a Night</h2>
+            <p>A thin trickle that fills a gallon jug in about an hour, the rate Mississippi State University Extension suggests, uses 12 gallons over a 12-hour freezing night. At $6 per 1,000 gallons for water and another $6 for sewer, that's about 14¢. Mississippi State puts it at about 2¢ a night at the rates it used. Even a pencil-thin stream at 5 gallons an hour costs well under a dollar a night.</p>
+            <table class="compact" style="width:100%;">
+              <tr><th>Drip rate</th><th>Gallons per 12-hour night</th><th>At $8 / 1,000 gal</th><th>At $12</th><th>At $20</th></tr>
+              <tr><td>Slow drip, 0.5 gal/hr</td><td>6</td><td>$0.05</td><td>$0.07</td><td>$0.12</td></tr>
+              <tr><td>Trickle, 1 gal/hr</td><td>12</td><td>$0.10</td><td>$0.14</td><td>$0.24</td></tr>
+              <tr><td>Thin stream, 3 gal/hr</td><td>36</td><td>$0.29</td><td>$0.43</td><td>$0.72</td></tr>
+              <tr><td>Pencil-thin stream, 5 gal/hr</td><td>60</td><td>$0.48</td><td>$0.72</td><td>$1.20</td></tr>
+            </table>
+            <p>Rates are water plus sewer per 1,000 gallons. Drip the cold side of the faucet farthest from where water enters the house, so water moves through the whole run of pipe, and open sink cabinets on outside walls to let room heat reach the pipes.</p>
+
+            <h2>The Sewer-Averaging Catch</h2>
+            <p>Some cities set your sewer charge for the whole year from what you use in winter. Austin, Texas, for example, averages three months of water use between December and March and bills that volume for sewer every month until the next averaging period. If a freeze lands in your averaging window, every gallon you drip is billed as sewer four times over: one-third in each of the twelve months that follow. That can turn a 14¢ night into 36¢ or so. Still cheap next to a burst pipe, but worth knowing; some utilities adjust averages after major freeze events if you ask.</p>
+
+            <h2>Heat Cable: Set It and Forget It</h2>
+            <p>Thermostat-controlled pipe heat cables from hardware stores run at about 7 watts per foot and switch on when the pipe drops below about 38°F, then off above 45°F. A 15-foot cable draws about 105 watts, roughly 23¢ for a 12-hour freezing night at 18¢ per kWh, and about $14 if it somehow ran around the clock for a month. That's similar to dripping a faucet, but it protects a vulnerable run of pipe in a crawlspace or well house without you having to remember.</p>
+            <p>Follow the manufacturer's rules: never wrap the cable over itself, cover it with non-combustible insulation, keep it out of walls and floors, and test it before the cold arrives. Roof and gutter de-icing cable is a different product at higher wattage and can cost far more; one Colorado co-op figures 100 feet at 9 watts per foot running 24 hours a day at about 650 kWh a month.</p>
+
+            <h2>Heat Lamps and Small Heaters</h2>
+            <p>A 250-watt heat lamp or small heater keeps a pump house or crawlspace access above freezing at around 54¢ a night. Use only units meant for the location, with guards, and keep them away from insulation, straw and stored fuel; heat lamps are a common cause of barn and outbuilding fires.</p>
+
+            <h2>Compare That With a Burst Pipe</h2>
+            <p>State Farm says its frozen-pipe and other freeze-related homeowner claims averaged more than $30,000 from January 2024 to June 2025. Ten nights of dripping one faucet costs about $1.40, and the same ten nights on a 15-foot heat cable about $2.30. The cheapest protection is often just keeping the heat on: the Red Cross advises leaving the thermostat no lower than 55°F when you're away. Our <a href="/tools/thermostat-setback-savings-calculator.html">thermostat setback calculator</a> shows what a deeper setback would save, and that saving is small next to the risk in a hard freeze.</p>
+            <p>If the power goes out in a freeze, the clock starts on the whole house; see <a href="/tools/power-outage-house-cooling-calculator.html">how fast a house cools without power</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/block-heater-cost-calculator.html">Block Heater Cost</a></li>
+              <li><a href="/tools/power-outage-house-cooling-calculator.html">Power Outage House Cooling</a></li>
+              <li><a href="/tools/thermostat-setback-savings-calculator.html">Thermostat Setback Savings</a></li>
+              <li><a href="/tools/water-bill-benchmark-calculator.html">Water Bill Benchmark</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Guides</h3>
+            <ul>
+              <li><a href="/blog/how-to-reduce-water-usage-at-home.html">How to Reduce Water Usage</a></li>
+              <li><a href="/tools/garage-heater-cost-calculator.html">Garage Heater Size &amp; Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>1 gal/hr drip, 12-hr night: <strong>12 gallons</strong></li>
+              <li>Typical pipe heat cable: <strong>7 W per foot</strong></li>
+              <li>15 ft cable, 12-hr night: <strong>~$0.23</strong></li>
+              <li>Average freeze claim: <strong>$30,000+</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#kwh">kWh</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much does it cost to drip a faucet overnight?</h3>
+      <p>A trickle of about 1 gallon an hour uses 12 gallons over a 12-hour night. At a combined water and sewer rate of $12 per 1,000 gallons, that's about 14¢. At lower Southern rates it can be as little as 2¢, and even a pencil-thin stream at 5 gallons an hour costs under a dollar a night at most rates.</p>
+      <h3>Is it cheaper to drip faucets or use heat tape?</h3>
+      <p>They cost about the same. One faucet at 1 gallon an hour costs roughly 14¢ a night in water and sewer, and a 15-foot, 7-watt-per-foot heat cable costs about 23¢ for 12 freezing hours at 18¢ per kWh. Heat cable protects a specific exposed pipe automatically; dripping keeps water moving through the whole line but only while you remember to do it.</p>
+      <h3>How much does heat tape cost to run?</h3>
+      <p>Pipe heat cable usually draws about 7 watts per foot. A 15-foot cable uses 105 watts, about 1.3 kWh over 12 hours, or 23¢ at 18¢ per kWh. Running continuously for a month, it would use about 76 kWh, roughly $14. Thermostat models switch on only below about 38°F, so most months cost less.</p>
+      <h3>Will dripping faucets raise my sewer bill?</h3>
+      <p>Only if your utility bills sewer from winter water use. Cities like Austin average three winter months and use that volume for the next year's sewer charges, so water dripped during the averaging window is billed as sewer about four times over. A freeze night can then cost around 36¢ instead of 14¢. Some utilities adjust averages after major freezes on request.</p>
+      <h3>How much water does a dripping faucet use in a night?</h3>
+      <p>A steady drip uses about half a gallon to 1 gallon an hour, so 6 to 12 gallons over a 12-hour night. A thin stream uses 3 to 5 gallons an hour, or 36 to 60 gallons a night. You can measure yours by timing how long it takes to fill a 1-cup measure: 225 seconds means 1 gallon an hour.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function calcFrozenPipe() {
+  var n = parseFloat(document.getElementById('fp-faucets').value);
+  if (isNaN(n)) n = 1;
+  var gph = parseFloat(document.getElementById('fp-gph').value) || 1;
+  var water = parseFloat(document.getElementById('fp-water').value);
+  if (isNaN(water)) water = 6;
+  var sewer = parseFloat(document.getElementById('fp-sewer').value);
+  if (isNaN(sewer)) sewer = 6;
+  var avg = document.getElementById('fp-avg').value === 'yes';
+  var ft = parseFloat(document.getElementById('fp-ft').value);
+  if (isNaN(ft)) ft = 15;
+  var wpf = parseFloat(document.getElementById('fp-wpf').value) || 7;
+  var lamp = parseFloat(document.getElementById('fp-lamp').value);
+  if (isNaN(lamp)) lamp = 250;
+  var hours = parseFloat(document.getElementById('fp-hours').value) || 12;
+  var nights = parseFloat(document.getElementById('fp-nights').value) || 10;
+  var elec = (parseFloat(document.getElementById('fp-elec').value) || 18) / 100;
+
+  var gal = n * gph * hours;
+  var drip = gal / 1000 * (water + sewer * (avg ? 4 : 1));
+  var cableKwh = ft * wpf * hours / 1000;
+  var cable = cableKwh * elec;
+  var lampKwh = lamp * hours / 1000;
+  var lampCost = lampKwh * elec;
+  var money = function (v) { return v < 10 ? '$' + v.toFixed(2) : '$' + Math.round(v).toLocaleString(); };
+  var opts = [];
+  if (n > 0) opts.push(['Drip ' + n + ' faucet' + (n > 1 ? 's' : ''), Math.round(gal) + ' gal', drip]);
+  if (ft > 0) opts.push(['Heat cable, ' + ft + ' ft × ' + wpf + ' W', cableKwh.toFixed(2) + ' kWh', cable]);
+  if (lamp > 0) opts.push(['Heat lamp or heater, ' + lamp + ' W', lampKwh.toFixed(1) + ' kWh', lampCost]);
+  var rows = '<tr><th>Method</th><th>Use per night</th><th>Per night</th><th>Per winter</th></tr>';
+  var low = opts.length ? Math.min.apply(null, opts.map(function (o) { return o[2]; })) : 0;
+  opts.forEach(function (o) {
+    rows += '<tr' + (o[2] === low ? ' style="font-weight:700;background:rgba(22,163,74,0.15);"' : '') + '><td>' + o[0] + '</td><td>' + o[1] + '</td><td>' + money(o[2]) + '</td><td>' + money(o[2] * nights) + '</td></tr>';
+  });
+  var head = opts.length ? 'From ' + money(low) + ' a night, ' + money(low * nights) + ' a winter' : 'Enter at least one method';
+  var note = '';
+  if (n > 0) {
+    note = 'Dripping uses ' + Math.round(gal * nights).toLocaleString() + ' gallons over ' + nights + ' nights. ';
+    if (avg) note += 'With winter sewer averaging, the sewer part is billed about 4 times over: ' + money(gal / 1000 * sewer * 3 * nights) + ' of the winter total lands on next year\'s bills. ';
+  }
+  var most = opts.length ? Math.max.apply(null, opts.map(function (o) { return o[2]; })) * nights : 0;
+  if (most > 0) note += 'Even the most expensive option here costs ' + (most / 30000 * 100 < 0.1 ? 'less than 0.1%' : 'about ' + (most / 30000 * 100).toFixed(1) + '%') + ' of an average $30,000 freeze claim.';
+  document.getElementById('fp-headline').textContent = head;
+  document.getElementById('fp-table').innerHTML = rows;
+  document.getElementById('fp-note').textContent = note;
+  var r = document.getElementById('fp-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

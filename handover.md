@@ -1,3 +1,36 @@
+# EcoEnergyCalc 인수인계 — v44 세션 (2026-11-05, 신규 발굴)
+
+## 0-S1. 발굴 (겨울·연말 시즌 롱테일)
+- 후보와 판정:
+  - **블록 히터 비용/플러그인 시간**: 상위 결과가 포럼(tractorbynet, ford-trucks, bobistheoilguy), 부품 판매사(fridayparts), 농촌 전력조합(Verendrye ND, WHE MN), 스팸 사이트. 계산기 없음 → 채택.
+  - **동파 방지 비용(수도꼭지 물 흘리기 vs 열선)**: 지역 방송 재배포 기사, MSU 익스텐션, moneydigest, 스팸 사이트. 계산기 없음 → 채택. 차별점: **겨울 하수도 평균 산정(Austin 12~3월 3개월 평균이 1년 하수도 요금을 결정) 때문에 흘린 물이 하수도 요금으로 약 4배 청구**된다는 함정. 다른 곳에서는 거의 다루지 않음.
+  - **크리스마스 조명**: SoFi, EnergySage, 영국 매체가 강함 → 경쟁 강함. **인플레이터블 포함 전체 디스플레이**로 롱테일화해 채택(4분기 광고 단가가 가장 높은 시기).
+  - 보류: 가축 물탱크 히터(포럼뿐이라 문서는 적지만 소비량 모델 근거가 없음. builditsolar 실측 8.5~30 kWh/일 1건뿐), 바닥 난방(WarmlyYours가 계산기로 장악), 가스 벽난로(중간).
+- 구글 판정 이후라 **질문 하나에 페이지 하나**(블로그+계산기 쌍을 만들지 않음). 계산기 본문 안에 표와 FAQ로 답을 넣었다.
+
+## 0-S2. ✅ 신규 계산기 3개 (계산기 61, 사이트맵 155)
+- `tools/block-heater-cost-calculator.html`: 와트 프리셋(400/600/750/1,000/1,500 W). 권장 시간은 >20°F 불필요, 0~20°F 1시간, −20~0°F 2시간, <−20°F 3시간이고 750 W 이상(대형·디젤)은 +1시간(최대 4).
+  - 근거: Anchorage 20°F·1~2시간, NRCan 2시간·−20°C에서 연비 최대 10%, Verendrye 2~3시간·300~1,000 W, Wiens 1972(4시간 이후 효과 미미).
+  - 기본값(600 W, 10시간, −5°F, 60일 밤): $1.08 → $0.22/밤, 겨울 $52 절약, $20 타이머는 24일 밤에 회수.
+- `tools/frozen-pipe-prevention-cost-calculator.html`
+  - 물 흘리기: 1 gal/h(MSU의 "1시간에 1갤런 물병"). 물·하수도는 각 $6/1,000 gal로 가정. 하수도 평균 산정을 켜면 하수도 요금 ×4.
+  - 열선: 7 W/ft(Frost King, 38°F 이하에서 켜지고 45°F 이상에서 꺼짐). 열램프 250 W.
+  - 비교 기준: State Farm 동결 청구 평균 $30,000 이상(2024.1~2025.6, 2만 건 이상).
+- `tools/christmas-lights-cost-calculator.html`
+  - 와트: LED 미니 100구 7.5 W, 백열 40 W(EnergySage). C9 백열 7 W, LED 1 W(EnergySage 500ft 3,500 W/480 W). C7 백열 5 W(DOE 표에서 역산). 인플레이터블은 사용자 입력(기본 100 W; 12 V 어댑터 모델 18 W 실례, 영국 매체 기준 50~250 W).
+  - 기본 디스플레이 355 W: 6시간×40일, 시즌 $15.
+- 등록: tools 허브 카드 3개, 사이트맵, llms.txt(계산기 61), 메인 난방 시즌 블록 10개(블록 히터와 동파 추가).
+  - 교차링크: power-outage, garage, thermostat-setback, generator, water-usage, space-heater → 블록히터·동파. led-vs-incandescent, electric-bill-spike → 크리스마스.
+- 검증: 계산기 109개 기본값, 체크 0건, 375/1280 화면. 본문 표는 `class="compact"`로 해야 모바일 375px에서 넘치지 않음.
+
+## 0-S3. 측정·다음
+- 11~1월: "block heater cost per night", "how long to plug in block heater", "cost to drip faucet overnight", "heat tape cost to run", "christmas inflatable electricity cost", "christmas lights cost calculator".
+- 크리스마스 계산기는 1월 이후에는 메인에 노출하지 않음(현재도 시즌 블록에 넣지 않았음).
+- 다음 후보: 가스 벽난로 vs 퍼니스, 가축 물탱크 히터(실측 근거를 찾으면).
+- 구글 직접 조치 확인 결과는 아직 받지 못함(0-R1).
+
+---
+
 # EcoEnergyCalc 인수인계 — v43 세션 (2026-11-02, 주간 데이터) — ⚠ 구글 노출 붕괴 진단
 
 ## 0-R1. 구글: 10/19부터 2주째 거의 0 (지연 아님, 확정)

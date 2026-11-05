@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Block Heater Cost Calculator – Cost Per Night &amp; Timer Savings | EcoEnergyCalc</title>
+  <meta name="description" content="What your engine block heater costs per night and per winter, how long to plug it in at your overnight low, and how much a timer saves over leaving it on all night. 400 W car to 1,500 W diesel." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/block-heater-cost-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Block Heater Cost Calculator","url":"https://ecoenergycalc.com/tools/block-heater-cost-calculator.html","description":"What your engine block heater costs per night and per winter, how long to plug it in at your overnight low, and how much a timer saves over leaving it on all night. 400 W car to 1,500 W diesel.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-11-05","dateModified":"2026-11-05","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does it cost to run a block heater overnight?","acceptedAnswer":{"@type":"Answer","text":"A typical 600-watt block heater plugged in for 10 hours uses 6 kWh, about $1.08 at 18\u00a2 per kWh. A 400-watt car heater costs about 72\u00a2 a night, and a 1,500-watt diesel heater about $2.70. On a 2-hour timer, the same heaters cost 14\u00a2, 22\u00a2 and 54\u00a2."}},
+    {"@type":"Question","name":"How long should I plug in my block heater?","acceptedAnswer":{"@type":"Answer","text":"About 2 hours before you drive is enough for most cars, even below zero. Anchorage recommends plugging in at 20\u00b0F or colder, at least an hour for small cars and up to 2 hours for large trucks. In extreme cold below \u221220\u00b0F, 3 to 4 hours helps; testing shows little gain after 4 hours."}},
+    {"@type":"Question","name":"Is it bad to leave a block heater plugged in all night?","acceptedAnswer":{"@type":"Answer","text":"It won't hurt the engine, but it wastes electricity. The heater runs at full power the entire time, and most of the warming happens in the first few hours. Leaving a 600-watt heater on for 10 hours instead of 2 costs about 86\u00a2 more a night."}},
+    {"@type":"Question","name":"At what temperature should you plug in a block heater?","acceptedAnswer":{"@type":"Answer","text":"The common guidance is 20\u00b0F (about \u22127\u00b0C) or colder. Anchorage's air-quality program uses 20\u00b0F, and Natural Resources Canada quotes its fuel-economy gains at \u221220\u00b0C (\u22124\u00b0F). Diesel engines are harder to start cold, so diesel owners often plug in at higher temperatures; check the owner's manual."}},
+    {"@type":"Question","name":"How many watts does a block heater use?","acceptedAnswer":{"@type":"Answer","text":"Most car and light-truck block heaters are 300 to 1,000 watts. Small cars are often around 400 watts, midsize cars and SUVs about 600, and diesel trucks 750 to 1,500. The wattage is usually printed on the heater cord or in the owner's manual."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Block Heater Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Block Heater Cost &amp; Plug-In Time Calculator</h1>
+        <p>See what your engine block heater costs per night and per winter, how many hours it actually needs at your overnight low, and what a timer saves compared with plugging in at bedtime.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Block Heater Cost &amp; Timer Savings</h2>
+            <div class="form-group">
+              <label for="bh-type">Vehicle</label>
+              <select id="bh-type" onchange="bhPreset()">
+                <option value="400">Small car (typical 400 W heater)</option>
+                <option value="600" selected>Midsize car or small SUV (typical 600 W)</option>
+                <option value="750">Full-size pickup or V8 SUV (typical 750 W)</option>
+                <option value="1000">Diesel pickup (typical 1,000 W)</option>
+                <option value="1500">Large diesel, tractor or equipment (typical 1,500 W)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="bh-watts">Block Heater Wattage (W)</label>
+              <input type="number" id="bh-watts" value="600" min="100" max="2500" step="25" />
+              <small style="color:var(--text-muted);">The wattage is usually stamped on the heater cord or listed in the owner's manual. Battery warmers and oil-pan pads add their own watts.</small>
+            </div>
+            <div class="form-group">
+              <label for="bh-hours">Hours Plugged In Now (per night)</label>
+              <input type="number" id="bh-hours" value="10" min="0.5" max="24" step="0.5" />
+              <small style="color:var(--text-muted);">Plugging in at 8 p.m. for a 6 a.m. start is 10 hours.</small>
+            </div>
+            <div class="form-group">
+              <label for="bh-low">Typical Overnight Low (°F)</label>
+              <input type="number" id="bh-low" value="-5" min="-50" max="40" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="bh-nights">Nights You Plug In Per Winter</label>
+              <input type="number" id="bh-nights" value="60" min="1" max="200" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="bh-elec">Electricity (¢/kWh)</label>
+              <input type="number" id="bh-elec" value="18" min="3" max="60" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="bh-timer">Outdoor Timer Price ($)</label>
+              <input type="number" id="bh-timer" value="20" min="0" max="150" step="1" />
+            </div>
+            <button class="btn-primary" onclick="calcBlockHeater()">Calculate Block Heater Cost</button>
+            <div class="result-box-tool" id="bh-result">
+              <h3>Your Block Heater</h3>
+              <div class="result-amount" id="bh-headline"></div>
+              <table id="bh-table" class="compact" style="width:100%;"></table>
+              <p class="result-note" id="bh-note"></p>
+              <p class="result-note">Plug-in times follow Anchorage's "plug in at 20°F" guidance (1 hour for small cars, up to 2 for the largest trucks), Natural Resources Canada's 2-hour timer advice for −20°C (−4°F), and the finding that coolant gains little after 4 hours. Diesel and large engines get one extra hour, up to 4.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>All Night vs a Timer</h2>
+            <p>A block heater draws its full wattage the whole time it's plugged in; it has no thermostat. Plugged in at bedtime, a 600-watt heater runs about 10 hours and uses 6 kWh, roughly $1.08 a night at 18¢ per kWh. On a timer that switches on 2 hours before you leave, it uses 1.2 kWh, about 22¢. Over 60 cold nights that's about $65 versus $13, and a $20 outdoor timer pays for itself in a few weeks.</p>
+            <p>The extra hours don't buy a warmer engine. In testing reported in the 1970s, engine coolant rose almost 20°C (36°F) in the first four hours of heating, and two more hours added only about 3°C (5°F). Most of the warm-up happens early, then the heater mostly replaces heat leaking from the block.</p>
+
+            <h2>Cost Per Night by Heater Size</h2>
+            <table class="compact" style="width:100%;">
+              <tr><th>Heater</th><th>2 hours</th><th>4 hours</th><th>10 hours (all night)</th></tr>
+              <tr><td>400 W</td><td>$0.14</td><td>$0.29</td><td>$0.72</td></tr>
+              <tr><td>600 W</td><td>$0.22</td><td>$0.43</td><td>$1.08</td></tr>
+              <tr><td>750 W</td><td>$0.27</td><td>$0.54</td><td>$1.35</td></tr>
+              <tr><td>1,000 W</td><td>$0.36</td><td>$0.72</td><td>$1.80</td></tr>
+              <tr><td>1,500 W</td><td>$0.54</td><td>$1.08</td><td>$2.70</td></tr>
+            </table>
+            <p>At 18¢ per kWh. A North Dakota electric co-op puts most car and truck heaters at 300 to 1,000 watts; 1,500-watt heaters turn up on larger diesels and farm equipment.</p>
+
+            <h2>How Long to Plug In by Temperature</h2>
+            <table class="compact" style="width:100%;">
+              <tr><th>Overnight low</th><th>Small or midsize gas engine</th><th>Pickup, V8 or diesel</th></tr>
+              <tr><td>Above 20°F</td><td>Not needed</td><td>Usually not needed (check the manual for diesels)</td></tr>
+              <tr><td>0 to 20°F</td><td>1 hour</td><td>2 hours</td></tr>
+              <tr><td>−20 to 0°F</td><td>2 hours</td><td>3 hours</td></tr>
+              <tr><td>Below −20°F</td><td>3 hours</td><td>4 hours</td></tr>
+            </table>
+            <p>Anchorage's air-quality program asks drivers to plug in at 20°F or colder, for at least an hour in small cars and up to two hours in the largest trucks. Natural Resources Canada recommends a timer set for two hours before you drive and puts the payoff at up to 10% better fuel economy at −20°C (−4°F), and around 20% for a single short trip. Electric co-ops in North Dakota and Minnesota also advise switching on a couple of hours before you need the vehicle; the North Dakota co-op says two to three hours does the job even in subzero weather.</p>
+
+            <h2>What You Get for the Electricity</h2>
+            <ul>
+              <li><strong>Easier starts:</strong> warm oil flows to the bearings faster, and the starter and battery have less work.</li>
+              <li><strong>Less fuel and pollution:</strong> a cold engine runs rich until it warms up. Anchorage cites 50 to 100 times more pollution in the first minute after a cold start than after a minute of warm-up, which is why the city hands out cords and timers.</li>
+              <li><strong>Heat sooner:</strong> a warmer engine sends heat to the cabin earlier, so there's less temptation to idle in the driveway. Idling to warm up burns fuel for no mileage.</li>
+            </ul>
+
+            <h2>Picking a Timer</h2>
+            <p>Use an outdoor-rated timer rated for 15 amps or more; a 1,000–1,500 W heater draws 8–13 amps at 120 volts. Plug-in timers with a 24-hour dial or a digital clock both work. Smart plugs rated for outdoor use let you start the heater from your phone when your schedule changes. Thermostatically controlled outlets that switch on only below a set temperature save more on nights that turn out milder than forecast.</p>
+            <p>If your car sits in a garage, it may not need a block heater at all; an attached garage often stays well above outdoor temperatures. For heating the garage itself, see the <a href="/tools/garage-heater-cost-calculator.html">garage heater cost calculator</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/frozen-pipe-prevention-cost-calculator.html">Frozen Pipe Prevention Cost</a></li>
+              <li><a href="/tools/garage-heater-cost-calculator.html">Garage Heater Size &amp; Cost</a></li>
+              <li><a href="/tools/space-heater-cost-calculator.html">Space Heater Cost</a></li>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Guides</h3>
+            <ul>
+              <li><a href="/compare/ev-vs-gas-car.html">EV vs Gas Car</a></li>
+              <li><a href="/blog/how-to-lower-your-heating-bill.html">How to Lower Your Heating Bill</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>600 W all night (10 hrs): <strong>~$1.08</strong></li>
+              <li>600 W on a 2-hr timer: <strong>~$0.22</strong></li>
+              <li>Plug in at: <strong>20°F or colder</strong></li>
+              <li>Fuel economy gain at −4°F: <strong>up to 10%</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#kwh">kWh</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much does it cost to run a block heater overnight?</h3>
+      <p>A typical 600-watt block heater plugged in for 10 hours uses 6 kWh, about $1.08 at 18¢ per kWh. A 400-watt car heater costs about 72¢ a night, and a 1,500-watt diesel heater about $2.70. On a 2-hour timer, the same heaters cost 14¢, 22¢ and 54¢.</p>
+      <h3>How long should I plug in my block heater?</h3>
+      <p>About 2 hours before you drive is enough for most cars, even below zero. Anchorage recommends plugging in at 20°F or colder, at least an hour for small cars and up to 2 hours for large trucks. In extreme cold below −20°F, 3 to 4 hours helps; testing shows little gain after 4 hours.</p>
+      <h3>Is it bad to leave a block heater plugged in all night?</h3>
+      <p>It won't hurt the engine, but it wastes electricity. The heater runs at full power the entire time, and most of the warming happens in the first few hours. Leaving a 600-watt heater on for 10 hours instead of 2 costs about 86¢ more a night.</p>
+      <h3>At what temperature should you plug in a block heater?</h3>
+      <p>The common guidance is 20°F (about −7°C) or colder. Anchorage's air-quality program uses 20°F, and Natural Resources Canada quotes its fuel-economy gains at −20°C (−4°F). Diesel engines are harder to start cold, so diesel owners often plug in at higher temperatures; check the owner's manual.</p>
+      <h3>How many watts does a block heater use?</h3>
+      <p>Most car and light-truck block heaters are 300 to 1,000 watts. Small cars are often around 400 watts, midsize cars and SUVs about 600, and diesel trucks 750 to 1,500. The wattage is usually printed on the heater cord or in the owner's manual.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function bhPreset() {
+  document.getElementById('bh-watts').value = document.getElementById('bh-type').value;
+}
+function bhHours(low, big) {
+  var h;
+  if (low > 20) h = 0;
+  else if (low >= 0) h = 1;
+  else if (low >= -20) h = 2;
+  else h = 3;
+  if (h > 0 && big) h += 1;
+  return h;
+}
+function calcBlockHeater() {
+  var watts = parseFloat(document.getElementById('bh-watts').value) || 600;
+  var big = (parseFloat(document.getElementById('bh-type').value) || 600) >= 750;
+  var hours = parseFloat(document.getElementById('bh-hours').value) || 10;
+  var low = parseFloat(document.getElementById('bh-low').value);
+  if (isNaN(low)) low = -5;
+  var nights = parseFloat(document.getElementById('bh-nights').value) || 60;
+  var elec = (parseFloat(document.getElementById('bh-elec').value) || 18) / 100;
+  var timer = parseFloat(document.getElementById('bh-timer').value);
+  if (isNaN(timer)) timer = 20;
+
+  var rec = bhHours(low, big);
+  var kw = watts / 1000;
+  var nowNight = kw * hours * elec;
+  var recNight = kw * rec * elec;
+  var save = Math.max(0, nowNight - recNight);
+  var money = function (v) { return v < 10 ? '$' + v.toFixed(2) : '$' + Math.round(v).toLocaleString(); };
+  var rows = '<tr><th></th><th>Per night</th><th>Per winter (' + nights + ' nights)</th></tr>' +
+    '<tr><td>Now: ' + hours + ' hrs (' + (kw * hours).toFixed(1) + ' kWh)</td><td>' + money(nowNight) + '</td><td>' + money(nowNight * nights) + '</td></tr>';
+  if (rec > 0) {
+    rows += '<tr style="font-weight:700;background:rgba(22,163,74,0.15);"><td>On a timer: ' + rec + ' hr' + (rec > 1 ? 's' : '') + ' (' + (kw * rec).toFixed(1) + ' kWh)</td><td>' + money(recNight) + '</td><td>' + money(recNight * nights) + '</td></tr>' +
+      '<tr><td>Savings</td><td>' + money(save) + '</td><td>' + money(save * nights) + '</td></tr>';
+  }
+  var head, note;
+  if (rec === 0) {
+    head = money(nowNight) + ' a night; not needed above 20°F';
+    note = 'At ' + low + '°F most gas engines start fine without plugging in. Skipping those nights saves the full ' + money(nowNight) + '. Diesels and older engines may still need it; follow the owner\'s manual.';
+  } else if (hours <= rec) {
+    head = money(nowNight) + ' a night, ' + money(nowNight * nights) + ' a winter';
+    note = 'You are already at or below the ' + rec + '-hour plug-in time suggested for ' + low + '°F.';
+  } else {
+    head = 'A timer saves ' + money(save * nights) + ' a winter';
+    note = 'At ' + low + '°F, about ' + rec + ' hour' + (rec > 1 ? 's' : '') + ' before you leave warms the engine nearly as much as ' + hours + ' hours. ';
+    if (timer > 0 && save > 0) note += 'A $' + Math.round(timer) + ' timer pays for itself in about ' + Math.ceil(timer / save) + ' nights.';
+  }
+  if (watts / 120 > 12.5) note += ' At ' + watts + ' W the heater draws ' + (watts / 120).toFixed(1) + ' amps: use a heavy-gauge outdoor cord and a 15-amp-rated timer.';
+  document.getElementById('bh-headline').textContent = head;
+  document.getElementById('bh-table').innerHTML = rows;
+  document.getElementById('bh-note').textContent = note;
+  var r = document.getElementById('bh-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
