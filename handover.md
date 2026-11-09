@@ -1,3 +1,42 @@
+# EcoEnergyCalc 인수인계 — v45 세션 (2026-11-09, 주간 데이터)
+
+## 0-T1. 데이터
+- **구글: 여전히 0 수준.** GSC 일별 노출이 10/19 이후 11/6까지 하루 0~7회. 회복 신호 없음. 사용자에게서 직접 조치 화면 결과는 아직 받지 못함(0-R1).
+- GSC 색인 리포트: "발견됨 - 색인 미생성" 12개. 목록에 v43에서 스텁으로 바꾼 2개(electric-blanket-vs-space-heater, gas-dryer-vs-heat-pump-dryer)가 들어 있어 데이터가 오래된 것. 손댈 것 없음.
+- **Bing(누적 보고서, 주간 증가분)**: 노출 20,080 → 23,744(+3,664), 클릭 564 → 646(+82).
+  - 증가 순: ai-water +975(4,774/57), best-thermostat **+628**(1,866/71, 3주째 급증), heating-cost-by-fuel +266(2,965/129), water-bill-benchmark +237, water-usage +214, propane-vs-natural-gas +125(449/12).
+- GA(10/12~11/8): 활성 1,223. direct 425, bing 318, ddg 219, yahoo 129, ecosia 42, **google 22**(계속 하락). 조회 1위 thermostat 블로그 213, 2위 heating-cost-by-fuel 127, 3위 ai-water 89.
+- AI 물 쿼리: "per prompt" 188노출 1클릭 @5.7. 그 외 per day, per search, chatgpt per day 같은 롱테일이 새로 생김.
+- 물 클러스터 저CTR(water-usage 0.8%, 세탁기 블로그 0.45%)은 0-L2 판단(제로클릭 쿼리) 그대로 유지. **스니펫은 더 손대지 않음.**
+
+## 0-T2. ✅ 신규 2 + 보강 1 (사이트맵 157, 계산기 62, 비교 50)
+- `tools/propane-heater-runtime-calculator.html` — 휴대용 프로판 히터(Buddy류 4k/9k, Big Buddy 18k, 탱크톱 30k, 포스드에어 60k) × 공급원(1-lb 1·2개, 20/30/40/100-lb).
+  - SERP: 하이재킹된 위키 스팸, 생존 블로그, 포럼, 판매 페이지뿐 → 경쟁 약함. 히터 이름 대신 BTU 설정 기준으로 일반화했다.
+  - 모델: 프로판 91,500 BTU/gal, 4.24 lb/gal, 1-lb 실린더 = 16.4 oz ≈ 22,120 BTU.
+  - 검증: Mr. Heater Buddy 스펙(1-lb로 저 6시간·고 3시간), Big Buddy "2개로 최대 11시간"과 맞음(계산값 5.5 / 2.5 / 11.1시간).
+  - 비용 기본값은 가정: 1-lb 실린더 $6/개, 리필 $4/gal. 1-lb 실린더는 9,000 BTU에서 $2.44/시간, 리필은 $0.39/시간(약 6배). 1,500 W 전기 히터는 같은 열에 $0.47/시간.
+  - 추운 날 기화 한계는 발전기 계산기의 100-lb 표(반 남은 상태)를 무게 비례로 축소(보수적). 20-lb는 0°F에서 약 13,000 BTU/h라 18k 고출력을 못 따라감.
+  - 안전: ODS·실내용 표시·CO 경보기, Mr. Heater 고도 상한 7,000 ft.
+- `compare/gas-fireplace-vs-furnace.html` — 비교 페이지 생성 함수 `compare_page`를 pagegen.py에 추가함.
+  - 효율 선택지: 50%(캐나다 2020년 최소 기준), 65%(EnerGuide 예시), 80%(고효율 인서트), 99%(무배기형).
+  - 주 난방: 80·95% 퍼니스(같은 연료), 전기, 히트펌프(COP 2.5).
+  - 존 난방 절감 = 난방비 × 1% × 낮춘 °F × 시간/8 (사이트 공통 규칙).
+  - 파일럿: 기본 800 BTU/h → 5.84 therm/월. 가스 $9.93, 프로판 $16. 근거 범위는 BuildItSolar 5~12 therm/월, WPS 2.6. 캐나다는 신형 파일럿 자동 소등 또는 7일 제한.
+  - 결론: 65% 벽난로는 95% 퍼니스보다 열 단위로 46% 비쌈. 기본값(4시간·4°F)에서 월 $16 더 듦. 주 난방이 전기면 벽난로가 이김.
+- 보강 `tools/ai-water-footprint-calculator.html`
+  - "하루 사용량" 섹션과 표 추가: ChatGPT 하루 25억 프롬프트(OpenAI, 2025년 7월, TechCrunch 보도) × 0.32 mL = 약 80만 L(21.1만 갤런). 발전용 물까지 넣으면 250만~2,500만 L.
+  - FAQ 2개 추가(ChatGPT 하루 사용량, AI 검색 1회). title·설명문에 "Per Day" 반영. 연간 수치 오류 수정: "한 자릿수 리터"는 틀렸고, 하루 20회 기준 현장 냉각수만 약 2 L, 발전용 물 포함 시 최대 약 70 L.
+- 교차링크 추가: generator, garage, space-heater, power-outage → 프로판 히터. heating-cost-by-fuel, thermostat-setback, propane-vs-natural-gas, propane-vs-heating-oil, central-heat-vs-space-heater → 벽난로.
+- 검증: 계산기 111개 기본값, 체크 0건, 375/1280 화면 정상.
+
+## 0-T3. 측정·다음
+- ai-water의 "per day", "chatgpt per day" 노출 변화와 CTR(기준 1.19% @5.2).
+- 신규 쿼리: "how long will a 20 lb propane tank last heater", "buddy heater 1 lb how long", "gas fireplace vs furnace cost", "pilot light cost per month".
+- 다음 후보: 가축 물탱크 히터(실측 근거가 생기면). 등유 히터 비용은 프로판 히터 페이지와 겹치므로, 하게 되면 그 페이지에 연료 선택지로 넣는 쪽이 낫다.
+- 주의: w43/merge.py를 import하거나 exec하면 모듈 수준의 통합 작업이 다시 실행된다(이번에는 결과가 같아 변화 없었음). `add_faq`가 필요하면 함수만 복사해서 쓸 것.
+
+---
+
 # EcoEnergyCalc 인수인계 — v44 세션 (2026-11-05, 신규 발굴)
 
 ## 0-S1. 발굴 (겨울·연말 시즌 롱테일)

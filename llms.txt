@@ -2,7 +2,7 @@
 
 > Free energy cost and carbon footprint calculators for homeowners and renters. Calculate solar savings, electric bills, carbon emissions, insulation ROI, water usage, and more — no signup required. Focused on the U.S. and global audience with an emphasis on practical, actionable results.
 
-EcoEnergyCalc is a collection of 61 free web-based calculators, 49 side-by-side comparisons, and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All calculators run in the browser; the numbers you enter are never sent to a server. The site uses Google Analytics and Google AdSense, which set cookies (see /privacy.html). Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
+EcoEnergyCalc is a collection of 62 free web-based calculators, 50 side-by-side comparisons, and educational articles covering home energy costs, solar and renewables, carbon footprint, and water usage. All calculators run in the browser; the numbers you enter are never sent to a server. The site uses Google Analytics and Google AdSense, which set cookies (see /privacy.html). Content targets English-speaking adults in the U.S. and Europe who want to reduce energy costs and environmental impact.
 
 ## Core Pages
 
@@ -29,6 +29,7 @@ Tools for estimating home energy costs and identifying savings opportunities.
 - [Block Heater Cost Calculator](https://ecoenergycalc.com/tools/block-heater-cost-calculator.html): Engine block heater cost per night and per winter (400–1,500 W), recommended plug-in hours by overnight low, timer savings and payback
 - [Frozen Pipe Prevention Cost Calculator](https://ecoenergycalc.com/tools/frozen-pipe-prevention-cost-calculator.html): Cost per freezing night and per winter of dripping faucets (water + sewer, winter sewer averaging), pipe heat cable and heat lamps, vs average freeze claim
 - [Christmas Lights Cost Calculator](https://ecoenergycalc.com/tools/christmas-lights-cost-calculator.html): Holiday display electricity cost — LED and incandescent mini strings, C7/C9 bulbs, inflatables — per night, per month and per season, with LED and timer savings
+- [Propane Heater Runtime Calculator](https://ecoenergycalc.com/tools/propane-heater-runtime-calculator.html): Hours a 1-lb cylinder or 20/30/40/100-lb tank runs a portable propane heater (4,000–60,000 BTU), cost per hour for cylinders vs refills vs electric, cold-weather vaporization limit
 - [Thermostat Setback Savings Calculator](https://ecoenergycalc.com/tools/thermostat-setback-savings-calculator.html): Heating savings from a lower all-day setting, night and away setbacks (1% per °F per 8 hours rule, climate-adjusted), with heat pump and radiant caveats
 - [Dual Fuel Switchover Temperature Calculator](https://ecoenergycalc.com/tools/dual-fuel-switchover-calculator.html): Economic and thermal balance points for a heat pump paired with a gas, propane or oil furnace, from fuel and electric prices, furnace AFUE and heat pump COP/capacity ratings
 - [Pellet Stove & Firewood Heating Cost Calculator](https://ecoenergycalc.com/tools/pellet-firewood-heating-cost-calculator.html): Season cost and tons/bags/cords needed for pellet or wood heat vs propane, oil, gas, heat pump and electric, with break-even pellet prices
@@ -167,6 +168,7 @@ Side-by-side comparisons of solar financing, technology, and renewable energy ch
 - [Vegan vs Meat Diet: Carbon Footprint](https://ecoenergycalc.com/compare/vegan-vs-meat-diet-carbon.html): Annual CO₂ emissions by diet type and the most impactful food choices to reduce footprint
 - [Wind vs Solar Energy](https://ecoenergycalc.com/compare/wind-vs-solar-energy.html): Utility-scale cost, capacity factor, land use, and application comparison
 - [Propane vs Natural Gas](https://ecoenergycalc.com/compare/propane-vs-natural-gas.html): Cost per BTU comparison and when to consider switching fuel sources
+- [Gas Fireplace vs Furnace](https://ecoenergycalc.com/compare/gas-fireplace-vs-furnace.html): Gas fireplace cost per hour (natural gas and propane), cost per unit of heat vs 80%/95% furnace, electric and heat pump, zone-heating break-even, standing pilot light cost per month
 
 ## Compare: Heating, Cooling & Appliances (Additional)
 

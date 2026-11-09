@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How Much Water Does AI Use Per Prompt? ChatGPT vs Gemini Calculator | EcoEnergyCalc</title>
-  <meta name="description" content="Official per-prompt AI water figures differ by more than 100× because they count different things. See what OpenAI, Google and Mistral have disclosed — and calculate the water behind your own use." />
+  <title>How Much Water Does AI Use Per Prompt &amp; Per Day? ChatGPT vs Gemini | EcoEnergyCalc</title>
+  <meta name="description" content="Per prompt, per day and for all of ChatGPT: what OpenAI, Google and Mistral have disclosed, why their figures differ by more than 100×, and a calculator for the water behind your own AI use." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ecoenergycalc.com/tools/ai-water-footprint-calculator.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"AI Water Footprint Calculator","url":"https://ecoenergycalc.com/tools/ai-water-footprint-calculator.html","description":"Free AI water footprint calculator — estimate the water behind your ChatGPT or Gemini use, and see why estimates range from 5 drops to a full bottle per prompt.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-10-12"}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"AI Water Footprint Calculator","url":"https://ecoenergycalc.com/tools/ai-water-footprint-calculator.html","description":"Free AI water footprint calculator — estimate the water behind your ChatGPT or Gemini use, and see why estimates range from 5 drops to a full bottle per prompt.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"dateModified":"2026-11-02"}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -21,8 +21,10 @@
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"How much water does one ChatGPT query really use?","acceptedAnswer":{"@type":"Answer","text":"It depends entirely on what you count. OpenAI's Sam Altman disclosed in June 2025 that an average query uses about 0.32 mL of water for on-site cooling — roughly one-fifteenth of a teaspoon. A widely cited UC Riverside study, which also counts the water used at the power plants generating the electricity, put a short GPT-3-era conversation at up to 500 mL, a full bottle. Both numbers are legitimate; they're just measuring different things (direct cooling only vs. full lifecycle including electricity generation)."}},
     {"@type":"Question","name":"Why do AI water usage estimates vary so much, from 5 drops to a full bottle?","acceptedAnswer":{"@type":"Answer","text":"The 5-drops figure (0.26 mL, from Google's own Gemini disclosure) counts only the water evaporated on-site to cool the data center. The full-bottle figure (up to 500 mL) also counts the water used off-site at power plants to generate the electricity that runs the query — for most U.S. power sources, generating electricity itself consumes water for cooling. Neither figure is wrong; they answer different questions, and most viral headlines don't specify which one they mean."}},
-    {"@type":"Question","name":"Does my personal AI use meaningfully affect water supplies?","acceptedAnswer":{"@type":"Answer","text":"Not at the individual level. A hundred prompts a day adds up to about 12 liters of water a year on the companies' on-site figures, or roughly 365 liters \u2014 about four 10-minute showers \u2014 on a 10 mL full-lifecycle estimate. One load of laundry uses 30 to 170 liters. The real water story is aggregate data center demand as usage scales into billions of daily queries, concentrated in particular regions."}},
-    {"@type":"Question","name":"How much water does Copilot use per prompt?","acceptedAnswer":{"@type":"Answer","text":"Microsoft has not published a per-prompt water figure for Copilot. Copilot is built largely on OpenAI's models running in Microsoft data centers, so OpenAI's disclosed figure of about 0.32 mL of on-site cooling water per ChatGPT query is the closest reference, while full-lifecycle estimates that include power-plant water range from a few milliliters to a few tens of milliliters per answer."}}
+    {"@type":"Question","name":"Does my personal AI use meaningfully affect water supplies?","acceptedAnswer":{"@type":"Answer","text":"Not at the individual level. A hundred prompts a day adds up to about 12 liters of water a year on the companies' on-site figures, or roughly 365 liters — about four 10-minute showers — on a 10 mL full-lifecycle estimate. One load of laundry uses 30 to 170 liters. The real water story is aggregate data center demand as usage scales into billions of daily queries, concentrated in particular regions."}},
+    {"@type":"Question","name":"How much water does Copilot use per prompt?","acceptedAnswer":{"@type":"Answer","text":"Microsoft has not published a per-prompt water figure for Copilot. Copilot is built largely on OpenAI's models running in Microsoft data centers, so OpenAI's disclosed figure of about 0.32 mL of on-site cooling water per ChatGPT query is the closest reference, while full-lifecycle estimates that include power-plant water range from a few milliliters to a few tens of milliliters per answer."}},
+    {"@type":"Question","name":"How much water does ChatGPT use per day?","acceptedAnswer":{"@type":"Answer","text":"OpenAI said ChatGPT users send about 2.5 billion prompts a day (July 2025). At OpenAI's on-site figure of about 0.32 mL per prompt, that's roughly 800,000 liters, or about 211,000 gallons, of cooling water a day. Including water used to generate the electricity, at 1 to 10 mL per prompt, it would be roughly 2.5 to 25 million liters a day."}},
+    {"@type":"Question","name":"How much water does an AI search use?","acceptedAnswer":{"@type":"Answer","text":"About the same as one prompt: Google puts a median Gemini text prompt at 0.26 mL of on-site water, about five drops, and OpenAI puts an average ChatGPT query at about 0.32 mL. Counting power-plant water as well, independent estimates run about 1 to 10 mL per query."}}
   ]}
   </script>
 </head>
@@ -73,8 +75,19 @@
             <p>Microsoft (Copilot), Anthropic (Claude) and Meta have not published a per-prompt water figure. Copilot is built largely on OpenAI's models running in Microsoft's data centers, so OpenAI's on-site figure is the closest disclosed reference, but Microsoft hasn't confirmed one for Copilot itself. Independent researchers have filled the gap with their own estimates — and those vary with the assumed grid mix, hardware generation, and how long the answer is.</p>
             <p>The oft-cited "full bottle" figure traces to a 2023 UC Riverside paper analyzing GPT-3-era Microsoft data centers, estimating around 500 mL for a short 20–50 prompt conversation when off-site electricity-generation water is included — that works out to roughly 10–25 mL per prompt on that older, less efficient infrastructure. More recent independent lifecycle estimates for current-generation models generally fall in the 1–10 mL per query range, reflecting faster, more water-efficient hardware and data centers since 2023.</p>
 
+            <h2>How Much Water Does AI Use Per Day?</h2>
+            <p>OpenAI said in July 2025 that ChatGPT users send about 2.5 billion prompts a day. At OpenAI's own on-site figure of about 0.32 mL per prompt, that's roughly 800,000 liters (about 211,000 gallons) of data-center cooling water a day for ChatGPT alone — about what 700 U.S. homes use, at roughly 300 gallons per household per day. Counting the water used to generate the electricity, at the 1–10 mL per prompt that independent lifecycle estimates suggest, the daily total would be about 2.5 to 25 million liters.</p>
+            <table class="compact" style="width:100%;">
+              <tr><th>Use</th><th>On-site only (0.26–0.32 mL)</th><th>Including power generation (1–10 mL)</th></tr>
+              <tr><td>One prompt or AI search</td><td>About 5 drops</td><td>1–10 mL</td></tr>
+              <tr><td>20 prompts a day</td><td>5–6 mL</td><td>20–200 mL</td></tr>
+              <tr><td>20 prompts a day for a year</td><td>About 2 liters</td><td>7–73 liters</td></tr>
+              <tr><td>All ChatGPT prompts in a day (2.5 billion)</td><td>About 800,000 liters</td><td>2.5–25 million liters</td></tr>
+            </table>
+            <p>A single AI-generated search answer is a prompt like any other; Google's 0.26 mL figure is for a median Gemini text prompt. Long answers, image generation and reasoning models use more energy, and therefore more water, than a short text reply.</p>
+
             <h2>Putting the Numbers in Perspective</h2>
-            <p>Even using the higher full-lifecycle estimate, 20 AI queries a day works out to roughly 200 mL of water daily — well under one cup, and a small fraction of a single 10-minute shower (about 95 liters, see our <a href="/tools/water-usage.html">Water Usage Calculator</a>). Scaled to a full year, a heavy personal AI habit typically adds up to single-digit liters, compared to the roughly 300 gallons (1,135 liters) a day the average U.S. household uses for everything else. The water story around AI is real, but it plays out at the industry level — data centers concentrated in specific, often drought-stressed regions consuming water at a scale of hundreds of billions of liters annually — not at the level of any individual's personal query habits.</p>
+            <p>Even using the higher full-lifecycle estimate, 20 AI queries a day works out to roughly 200 mL of water daily — well under one cup, and a small fraction of a single 10-minute shower (about 95 liters, see our <a href="/tools/water-usage.html">Water Usage Calculator</a>). Scaled to a full year, that habit comes to a couple of liters counting on-site cooling only and up to about 70 liters with power generation included, compared to the roughly 300 gallons (1,135 liters) a day the average U.S. household uses for everything else. The water story around AI is real, but it plays out at the industry level — data centers concentrated in specific, often drought-stressed regions consuming water at a scale of hundreds of billions of liters annually — not at the level of any individual's personal query habits.</p>
 
             <h2>How to Reduce Your AI Water Footprint (Without Giving Up AI)</h2>
             <ul>
@@ -131,6 +144,10 @@
       <p>Not at the individual level. A hundred prompts a day adds up to about 12 liters of water a year on the companies' on-site figures, or roughly 365 liters — about four 10-minute showers — on a 10 mL full-lifecycle estimate. One load of laundry uses 30 to 170 liters. The real water story is aggregate data center demand as usage scales into billions of daily queries, concentrated in particular regions.</p>
       <h3>How much water does Copilot use per prompt?</h3>
       <p>Microsoft has not published a per-prompt water figure for Copilot. Copilot is built largely on OpenAI's models running in Microsoft data centers, so OpenAI's disclosed figure of about 0.32 mL of on-site cooling water per ChatGPT query is the closest reference, while full-lifecycle estimates that include power-plant water range from a few milliliters to a few tens of milliliters per answer.</p>
+      <h3>How much water does ChatGPT use per day?</h3>
+      <p>OpenAI said ChatGPT users send about 2.5 billion prompts a day (July 2025). At OpenAI's on-site figure of about 0.32 mL per prompt, that's roughly 800,000 liters, or about 211,000 gallons, of cooling water a day. Including water used to generate the electricity, at 1 to 10 mL per prompt, it would be roughly 2.5 to 25 million liters a day.</p>
+      <h3>How much water does an AI search use?</h3>
+      <p>About the same as one prompt: Google puts a median Gemini text prompt at 0.26 mL of on-site water, about five drops, and OpenAI puts an average ChatGPT query at about 0.32 mL. Counting power-plant water as well, independent estimates run about 1 to 10 mL per query.</p>
     </div>
     </div>
   </section>

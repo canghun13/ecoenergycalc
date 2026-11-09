@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propane Heater Runtime Calculator – 1 lb vs 20 lb Tank Hours &amp; Cost | EcoEnergyCalc</title>
+  <meta name="description" content="How long a 1-lb cylinder, 20-lb, 30-lb, 40-lb or 100-lb tank runs a portable propane heater at 4,000 to 60,000 BTU, the cost per hour, and whether the tank keeps up in freezing weather." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/propane-heater-runtime-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Propane Heater Runtime Calculator","url":"https://ecoenergycalc.com/tools/propane-heater-runtime-calculator.html","description":"How long a 1-lb cylinder, 20-lb, 30-lb, 40-lb or 100-lb tank runs a portable propane heater at 4,000 to 60,000 BTU, the cost per hour, and whether the tank keeps up in freezing weather.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-11-09","dateModified":"2026-11-09","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How long will a 20 lb propane tank last on a heater?","acceptedAnswer":{"@type":"Answer","text":"A full 20-lb tank holds about 430,000 BTU. That runs a heater at 4,000 BTU an hour for about 108 hours, 9,000 BTU for about 48 hours, 18,000 BTU for about 24 hours, and a 30,000 BTU tank-top heater for about 14 hours. Exchange tanks filled to 15 lb last about a quarter less."}},
+    {"@type":"Question","name":"How long does a 1 lb propane cylinder last in a Buddy heater?","acceptedAnswer":{"@type":"Answer","text":"About 5 to 6 hours on the 4,000 BTU low setting and about 2.5 to 3 hours on the 9,000 BTU high setting. A 1-lb cylinder holds 16.4 ounces of propane, roughly 22,000 BTU. A heater with two cylinders on low runs about 11 hours."}},
+    {"@type":"Question","name":"Is it cheaper to use 1 lb propane cylinders or a 20 lb tank?","acceptedAnswer":{"@type":"Answer","text":"A 20-lb tank is far cheaper. At $6 per 1-lb cylinder, heat costs about $2.40 an hour at 9,000 BTU; from a 20-lb tank refilled at $4 a gallon it costs about 39\u00a2. A hose and filter kit to run the heater from a 20-lb tank usually pays for itself within a weekend of use."}},
+    {"@type":"Question","name":"Is a propane heater cheaper than an electric space heater?","acceptedAnswer":{"@type":"Answer","text":"With refilled tanks, slightly. Heat from propane at $4 a gallon costs about $4.37 per 100,000 BTU, versus about $5.28 from electricity at 18\u00a2 per kWh. With 1-lb disposable cylinders, propane heat costs about five times more than electric."}},
+    {"@type":"Question","name":"Why does my propane heater lose heat in cold weather?","acceptedAnswer":{"@type":"Answer","text":"The tank can't boil propane fast enough. Liquid propane needs heat from the surrounding air to turn into vapor, and a small or half-empty tank in freezing weather can fall short of what a high setting needs. Use a larger tank, shelter it from wind and frozen ground, or turn the heater down."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Propane Heater Runtime</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Propane Heater Runtime &amp; Cost Calculator</h1>
+        <p>Find how many hours a 1-lb cylinder or a 20-lb, 30-lb, 40-lb or 100-lb tank runs your portable propane heater, what each hour costs, and whether the tank can keep up in cold weather.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Portable Propane Heater Runtime</h2>
+            <div class="form-group">
+              <label for="ph-type">Heater and Setting</label>
+              <select id="ph-type" onchange="phPreset()">
+                <option value="4000">Small radiant heater, low (4,000 BTU/hr)</option>
+                <option value="9000" selected>Small radiant heater, high (9,000 BTU/hr)</option>
+                <option value="18000">Large radiant heater, high (18,000 BTU/hr)</option>
+                <option value="30000">Tank-top heater, medium (30,000 BTU/hr) — outdoor/job site</option>
+                <option value="60000">Forced-air heater (60,000 BTU/hr) — ventilated work areas</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ph-btu">Heat Output Setting (BTU/hr)</label>
+              <input type="number" id="ph-btu" value="9000" min="1000" max="200000" step="500" />
+              <small style="color:var(--text-muted);">Use the rating for the setting you actually run; it's on the heater's label.</small>
+            </div>
+            <div class="form-group">
+              <label for="ph-tank">Propane Supply</label>
+              <select id="ph-tank">
+                <option value="1">One 1-lb disposable cylinder</option>
+                <option value="2">Two 1-lb cylinders (dual-tank heaters)</option>
+                <option value="20" selected>20-lb tank (grill size)</option>
+                <option value="30">30-lb tank</option>
+                <option value="40">40-lb tank</option>
+                <option value="100">100-lb cylinder</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ph-fill">How Full (%)</label>
+              <input type="number" id="ph-fill" value="100" min="5" max="100" step="5" />
+              <small style="color:var(--text-muted);">A full 20-lb tank weighs about 37 lb; the empty weight (tare, "TW") is stamped on the collar.</small>
+            </div>
+            <div class="form-group">
+              <label for="ph-hours">Hours of Use per Day</label>
+              <input type="number" id="ph-hours" value="8" min="0.5" max="24" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="ph-temp">Temperature Where the Tank Sits (°F)</label>
+              <input type="number" id="ph-temp" value="20" min="-20" max="80" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="ph-cyl">1-lb Cylinder Price ($ each)</label>
+              <input type="number" id="ph-cyl" value="6" min="1" max="20" step="0.25" />
+            </div>
+            <div class="form-group">
+              <label for="ph-gal">Tank Refill Price ($ per gallon)</label>
+              <input type="number" id="ph-gal" value="4" min="1" max="10" step="0.05" />
+              <small style="color:var(--text-muted);">A 20-lb tank holds about 4.7 gallons. Exchange cages often fill tanks to 15 lb instead of 20.</small>
+            </div>
+            <div class="form-group">
+              <label for="ph-elec">Electricity (¢/kWh), for comparison</label>
+              <input type="number" id="ph-elec" value="18" min="3" max="60" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcPropaneHeater()">Calculate Runtime &amp; Cost</button>
+            <div class="result-box-tool" id="ph-result">
+              <h3>Your Propane Heater</h3>
+              <div class="result-amount" id="ph-headline"></div>
+              <table id="ph-table" class="compact" style="width:100%;"></table>
+              <p class="result-note" id="ph-note"></p>
+              <p class="result-note">Propane holds about 91,500 BTU per gallon at 4.24 lb per gallon, so about 21,600 BTU per pound; a 1-lb disposable cylinder holds 16.4 oz. Runtime assumes the heater burns at its rated input the whole time. Cold-weather limits for 20–100 lb tanks use a 100-lb cylinder vaporization chart at half full, scaled down by weight (a conservative estimate).</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Runtime by Tank and Setting</h2>
+            <table class="compact" style="width:100%;">
+              <tr><th>Setting</th><th>1-lb cylinder</th><th>20-lb tank</th><th>40-lb tank</th><th>100-lb</th></tr>
+              <tr><td>4,000 BTU/hr</td><td>5.5 hrs</td><td>108 hrs</td><td>216 hrs</td><td>540 hrs</td></tr>
+              <tr><td>9,000 BTU/hr</td><td>2.5 hrs</td><td>48 hrs</td><td>96 hrs</td><td>240 hrs</td></tr>
+              <tr><td>18,000 BTU/hr</td><td>1.2 hrs</td><td>24 hrs</td><td>48 hrs</td><td>120 hrs</td></tr>
+              <tr><td>30,000 BTU/hr</td><td>—</td><td>14 hrs</td><td>29 hrs</td><td>72 hrs</td></tr>
+              <tr><td>60,000 BTU/hr</td><td>—</td><td>7 hrs</td><td>14 hrs</td><td>36 hrs</td></tr>
+            </table>
+            <p>Full tanks, burning at the rated setting. Manufacturer figures line up: Mr. Heater lists its 4,000/9,000 BTU Buddy at about 6 hours on low and 3 hours on high per 1-lb cylinder, and its Big Buddy at up to 11 hours on two cylinders. The math gives 5.5, 2.5 and 11 hours, a little shorter because real heaters often burn slightly under their rating.</p>
+
+            <h2>1-lb Cylinders Cost About Six Times More</h2>
+            <p>Disposable cylinders are convenient, but you pay for it. At $6 a cylinder, a heater on 9,000 BTU costs about $2.40 an hour. The same heat from a 20-lb tank refilled at $4 a gallon costs about 39¢ an hour. Run it 8 hours a day for a week of camping, ice fishing or an outage and that's about $137 in cylinders versus $22 in refills. An adapter hose and filter that connect the heater to a 20-lb tank usually pay for themselves in the first weekend; follow the heater maker's instructions, since some models require their own hose and filter kit.</p>
+            <p>A 1,500-watt electric space heater puts out about 5,100 BTU an hour for about 27¢ at 18¢ per kWh, roughly 48¢ for the same 9,000 BTU. That makes refilled propane a little cheaper than plug-in electric heat, and 1-lb cylinders five times more expensive.</p>
+
+            <h2>Cold Weather: When the Tank Can't Keep Up</h2>
+            <p>Propane leaves the tank as vapor, and the liquid has to boil to make it. That takes heat from the air around the tank, so a small tank in the cold can't supply a big heater. A half-full 20-lb tank at 0°F can boil off only about 13,000 BTU an hour by our conservative estimate — less than an 18,000 BTU heater on high. The flame shrinks and the tank frosts. At 20°F the same tank manages about 19,000 BTU, and above freezing it's rarely a problem for portable heaters. Disposable 1-lb cylinders are the first to struggle in the cold. Moving to a bigger tank, keeping it out of the wind and off frozen ground, or running on a lower setting fixes most cold-weather fading.</p>
+
+            <h2>Indoor Safety</h2>
+            <ul>
+              <li><strong>Only use heaters marked indoor-safe</strong> inside tents, cabins, ice shanties or homes. Those have an oxygen depletion sensor (ODS) and tip-over shutoff. Tank-top and forced-air heaters are for outdoors or well-ventilated work areas.</li>
+              <li><strong>Follow the ventilation the manual calls for</strong> and use a battery carbon monoxide alarm. Unvented heaters put all their exhaust and water vapor into the space.</li>
+              <li><strong>Mind the altitude limit.</strong> Mr. Heater's indoor-safe Buddy models list a maximum of 7,000 feet, where the oxygen sensor can shut the heater off early.</li>
+              <li><strong>Keep the tank outside the living space when you can</strong> and never store spare cylinders next to the heater.</li>
+            </ul>
+            <p>For keeping a whole house warm through an outage, see <a href="/tools/power-outage-house-cooling-calculator.html">how fast a house cools without power</a> and the <a href="/tools/generator-propane-runtime-calculator.html">generator propane runtime calculator</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/generator-propane-runtime-calculator.html">Generator Propane Runtime</a></li>
+              <li><a href="/tools/garage-heater-cost-calculator.html">Garage Heater Size &amp; Cost</a></li>
+              <li><a href="/tools/space-heater-cost-calculator.html">Space Heater Cost</a></li>
+              <li><a href="/tools/heating-oil-propane-days-left-calculator.html">Oil &amp; Propane Days Left</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Guides</h3>
+            <ul>
+              <li><a href="/compare/propane-vs-natural-gas.html">Propane vs Natural Gas</a></li>
+              <li><a href="/tools/power-outage-house-cooling-calculator.html">Power Outage House Cooling</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>1-lb cylinder: <strong>~22,000 BTU</strong></li>
+              <li>20-lb tank: <strong>~4.7 gal, 430,000 BTU</strong></li>
+              <li>9,000 BTU on a 20-lb tank: <strong>~48 hours</strong></li>
+              <li>1-lb cylinders vs refills: <strong>~6× the cost</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#btu">BTU</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How long will a 20 lb propane tank last on a heater?</h3>
+      <p>A full 20-lb tank holds about 430,000 BTU. That runs a heater at 4,000 BTU an hour for about 108 hours, 9,000 BTU for about 48 hours, 18,000 BTU for about 24 hours, and a 30,000 BTU tank-top heater for about 14 hours. Exchange tanks filled to 15 lb last about a quarter less.</p>
+      <h3>How long does a 1 lb propane cylinder last in a Buddy heater?</h3>
+      <p>About 5 to 6 hours on the 4,000 BTU low setting and about 2.5 to 3 hours on the 9,000 BTU high setting. A 1-lb cylinder holds 16.4 ounces of propane, roughly 22,000 BTU. A heater with two cylinders on low runs about 11 hours.</p>
+      <h3>Is it cheaper to use 1 lb propane cylinders or a 20 lb tank?</h3>
+      <p>A 20-lb tank is far cheaper. At $6 per 1-lb cylinder, heat costs about $2.40 an hour at 9,000 BTU; from a 20-lb tank refilled at $4 a gallon it costs about 39¢. A hose and filter kit to run the heater from a 20-lb tank usually pays for itself within a weekend of use.</p>
+      <h3>Is a propane heater cheaper than an electric space heater?</h3>
+      <p>With refilled tanks, slightly. Heat from propane at $4 a gallon costs about $4.37 per 100,000 BTU, versus about $5.28 from electricity at 18¢ per kWh. With 1-lb disposable cylinders, propane heat costs about five times more than electric.</p>
+      <h3>Why does my propane heater lose heat in cold weather?</h3>
+      <p>The tank can't boil propane fast enough. Liquid propane needs heat from the surrounding air to turn into vapor, and a small or half-empty tank in freezing weather can fall short of what a high setting needs. Use a larger tank, shelter it from wind and frozen ground, or turn the heater down.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+var PH_CYL = { 100: [113000, 167000, 214000, 277000], 50: [64000, 94000, 125000, 154000] };
+function phPreset() {
+  document.getElementById('ph-btu').value = document.getElementById('ph-type').value;
+}
+function phVapor(lb, T) {
+  var row = PH_CYL[50], t = [0, 20, 40, 60], v;
+  if (T <= 0) v = row[0];
+  else if (T >= 60) v = row[3];
+  else { for (var i = 0; i < 3; i++) { if (T <= t[i + 1]) { v = row[i] + (row[i + 1] - row[i]) * (T - t[i]) / 20; break; } } }
+  return v * lb / 100;
+}
+function calcPropaneHeater() {
+  var btu = parseFloat(document.getElementById('ph-btu').value) || 9000;
+  var tank = parseFloat(document.getElementById('ph-tank').value) || 20;
+  var fill = Math.min(100, Math.max(1, parseFloat(document.getElementById('ph-fill').value) || 100)) / 100;
+  var hours = parseFloat(document.getElementById('ph-hours').value) || 8;
+  var T = parseFloat(document.getElementById('ph-temp').value);
+  if (isNaN(T)) T = 20;
+  var cyl = parseFloat(document.getElementById('ph-cyl').value) || 6;
+  var gal = parseFloat(document.getElementById('ph-gal').value) || 4;
+  var elec = (parseFloat(document.getElementById('ph-elec').value) || 18) / 100;
+
+  var small = tank <= 2;
+  var lb = small ? tank * 16.4 / 16 : tank;
+  var content = lb / 4.24 * 91500 * fill;
+  var run = content / btu;
+  var days = run / hours;
+  var cylHr = btu / (16.4 / 16 / 4.24 * 91500) * cyl;
+  var tankHr = btu / 91500 * gal;
+  var elecHr = btu / 3412 * elec;
+  var perHr = small ? cylHr : tankHr;
+  var fmtH = function (h) { return h < 10 ? h.toFixed(1) : Math.round(h).toLocaleString(); };
+  var money = function (v) { return v < 10 ? '$' + v.toFixed(2) : '$' + Math.round(v).toLocaleString(); };
+  var rows = '<tr><th>Item</th><th>Result</th></tr>' +
+    '<tr style="font-weight:700;"><td>Runtime on this supply</td><td>' + fmtH(run) + ' hours</td></tr>' +
+    '<tr><td>At ' + hours + ' hours a day</td><td>' + (days < 1 ? fmtH(run) + ' hours (under a day)' : days.toFixed(1) + ' days') + '</td></tr>' +
+    '<tr><td>Propane used per hour</td><td>' + (btu / 91500).toFixed(3) + ' gal (' + (btu / 91500 * 4.24).toFixed(2) + ' lb)</td></tr>' +
+    '<tr><td>Cost per hour, ' + (small ? '1-lb cylinders' : 'tank refill') + '</td><td>' + money(perHr) + '</td></tr>' +
+    '<tr><td>Cost per day (' + hours + ' hrs)</td><td>' + money(perHr * hours) + '</td></tr>';
+  var cmp = '<tr><td>Same heat from 1-lb cylinders</td><td>' + money(cylHr) + '/hr</td></tr>' +
+    '<tr><td>Same heat from a refilled tank</td><td>' + money(tankHr) + '/hr</td></tr>' +
+    '<tr><td>Same heat from electric heaters</td><td>' + money(elecHr) + '/hr (' + (btu / 5118).toFixed(1) + '× 1,500 W)</td></tr>';
+  rows += cmp;
+  var note = '';
+  if (small) {
+    note = 'Running from a 20-lb tank instead would cost about ' + money(tankHr * hours) + ' a day instead of ' + money(cylHr * hours) + '. ';
+    if (T < 40) note += 'Disposable cylinders lose pressure quickly in the cold, so expect shorter, weaker runs at ' + T + '°F. ';
+  } else {
+    var vap = phVapor(tank, T);
+    if (btu > vap) note = 'At ' + T + '°F a half-full ' + tank + '-lb tank can supply only about ' + (Math.round(vap / 1000) * 1000).toLocaleString() + ' BTU/hr' + (T < 0 ? ' (less below 0°F)' : '') + ', less than this setting. Expect the flame to fade as the tank cools; use a bigger tank or a lower setting. ';
+    else note = 'At ' + T + '°F this tank can keep up with ' + btu.toLocaleString() + ' BTU/hr. ';
+  }
+  if (btu >= 30000) note += 'Heaters this size are for outdoor or well-ventilated work areas, not living spaces.';
+  else note += 'Indoors, use only an indoor-safe heater with an oxygen depletion sensor, and a CO alarm.';
+  document.getElementById('ph-headline').textContent = fmtH(run) + ' hours' + (days >= 1 ? ', about ' + days.toFixed(1) + ' days at ' + hours + ' hrs/day' : '');
+  document.getElementById('ph-table').innerHTML = rows;
+  document.getElementById('ph-note').textContent = note;
+  var r = document.getElementById('ph-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
