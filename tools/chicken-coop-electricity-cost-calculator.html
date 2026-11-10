@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chicken Coop Heater &amp; Light Cost Calculator – Winter Electricity | EcoEnergyCalc</title>
+  <meta name="description" content="What it costs to heat a chicken coop, run a heated waterer and add light for egg laying each winter month — with daylight hours by latitude and how much light to add." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/chicken-coop-electricity-cost-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Chicken Coop Electricity Cost Calculator","url":"https://ecoenergycalc.com/tools/chicken-coop-electricity-cost-calculator.html","description":"What it costs to heat a chicken coop, run a heated waterer and add light for egg laying each winter month — with daylight hours by latitude and how much light to add.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-11-10","dateModified":"2026-11-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does it cost to heat a chicken coop?","acceptedAnswer":{"@type":"Answer","text":"A 250-watt heat lamp running 12 hours a day costs about $16 a month at 18\u00a2 per kWh, and a 200-watt radiant panel about $13. Run around the clock, they cost about $32 and $26. A thermostat outlet that switches on only near freezing usually cuts that substantially."}},
+    {"@type":"Question","name":"How much electricity does a heated chicken waterer use?","acceptedAnswer":{"@type":"Answer","text":"Heated poultry bases are commonly 125 watts and small heated plastic waterers about 60 watts. If one ran 12 hours a day for a month, the 125-watt base would use about 45 kWh, roughly $8, and the 60-watt waterer about 22 kWh, roughly $4. Built-in thermostats run them only when needed, so actual use is often less."}},
+    {"@type":"Question","name":"How many hours of light do chickens need to lay in winter?","acceptedAnswer":{"@type":"Answer","text":"About 14 to 16 hours a day. In December, daylight runs about 10 hours at 30\u00b0N and under 9 hours at 45\u00b0N, so keepers add 4 to 6 hours of light, usually on a timer in the early morning. Don't exceed 16 hours."}},
+    {"@type":"Question","name":"Is a heat lamp safe in a chicken coop?","acceptedAnswer":{"@type":"Answer","text":"Heat lamps are one of the leading fire risks in coops: the bulb gets hot enough to ignite dry bedding, feathers and dust if it falls or is knocked. If you add heat, a flat radiant panel heater mounted to the wall is much safer, and many cold-hardy flocks need no heat at all."}},
+    {"@type":"Question","name":"Do chickens need heat in the winter?","acceptedAnswer":{"@type":"Answer","text":"Most adult chickens of cold-hardy breeds don't, if the coop is dry, ventilated and free of drafts at roost level. Heat can even cause trouble if the power fails and birds used to warmth suddenly face the cold. Chicks, sick birds and some bantam or thin-combed breeds are the exceptions."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Chicken Coop Electricity Cost</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Chicken Coop Winter Electricity Cost Calculator</h1>
+        <p>Add up a month of coop heat, heated water and laying light. The calculator works out daylight at your latitude, how many hours of light to add, and what each piece costs on your electric bill.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Chicken Coop Winter Electricity Cost</h2>
+            <h3 style="font-size:1rem;margin:4px 0 12px;">Heat</h3>
+            <div class="form-group">
+              <label for="cc-heat">Coop Heater</label>
+              <select id="cc-heat" onchange="ccPreset()">
+                <option value="0">No heater</option>
+                <option value="200" selected>Flat radiant panel heater (about 200 W)</option>
+                <option value="250">Heat lamp (250 W bulb)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cc-hw">Heater Wattage (W)</label>
+              <input type="number" id="cc-hw" value="200" min="0" max="1500" step="5" />
+            </div>
+            <div class="form-group">
+              <label for="cc-hh">Hours per Day the Heater Runs</label>
+              <input type="number" id="cc-hh" value="12" min="0" max="24" step="0.5" />
+              <small style="color:var(--text-muted);">On a thermostat outlet, count only the hours it's actually on.</small>
+            </div>
+            <h3 style="font-size:1rem;margin:20px 0 12px;">Water</h3>
+            <div class="form-group">
+              <label for="cc-ww">Heated Waterer or Base (W)</label>
+              <input type="number" id="cc-ww" value="125" min="0" max="500" step="5" />
+              <small style="color:var(--text-muted);">Common heated poultry bases are 125 W; small heated plastic waterers are often 60 W. Enter 0 for none.</small>
+            </div>
+            <div class="form-group">
+              <label for="cc-wh">Hours per Day Below Freezing</label>
+              <input type="number" id="cc-wh" value="12" min="0" max="24" step="0.5" />
+            </div>
+            <h3 style="font-size:1rem;margin:20px 0 12px;">Light for egg laying</h3>
+            <div class="form-group">
+              <label for="cc-lat">Your Latitude</label>
+              <select id="cc-lat">
+                <option value="30">About 30°N — Houston, Jacksonville, New Orleans</option>
+                <option value="35">About 35°N — Nashville, Charlotte, Albuquerque</option>
+                <option value="40" selected>About 40°N — Denver, Columbus, Philadelphia</option>
+                <option value="45">About 45°N — Minneapolis, Portland OR, Bangor</option>
+                <option value="48">About 48°N — Seattle, Fargo, northern Maine</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cc-month">Month</label>
+              <select id="cc-month">
+                <option value="288">October</option>
+                <option value="319">November</option>
+                <option value="349" selected>December</option>
+                <option value="15">January</option>
+                <option value="46">February</option>
+                <option value="74">March</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cc-target">Total Hours of Light You Want</label>
+              <input type="number" id="cc-target" value="14" min="0" max="16" step="0.5" />
+              <small style="color:var(--text-muted);">14–16 hours keeps hens laying; enter 0 to skip lighting.</small>
+            </div>
+            <div class="form-group">
+              <label for="cc-lw">Light Bulb (W)</label>
+              <input type="number" id="cc-lw" value="9" min="0" max="200" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="cc-elec">Electricity (¢/kWh)</label>
+              <input type="number" id="cc-elec" value="18" min="3" max="60" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcCoop()">Calculate Coop Electricity</button>
+            <div class="result-box-tool" id="cc-result">
+              <h3>Your Coop This Month</h3>
+              <div class="result-amount" id="cc-headline"></div>
+              <table id="cc-table" class="compact" style="width:100%;"></table>
+              <p class="result-note" id="cc-note"></p>
+              <p class="result-note">Daylight is calculated for the middle of the month at your latitude, sunrise to sunset (Forsythe et al. 1995 day-length model). Heated waterers are assumed to run the whole time it's below freezing; thermostats usually cycle them, so the real cost is often lower. Months are 30 days.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Typical Monthly Cost</h2>
+            <table class="compact" style="width:100%;">
+              <tr><th>Item</th><th>Watts</th><th>Hours a day</th><th>Per month at 18¢</th></tr>
+              <tr><td>Heat lamp</td><td>250</td><td>12</td><td>$16.20</td></tr>
+              <tr><td>Radiant panel heater</td><td>200</td><td>12</td><td>$12.96</td></tr>
+              <tr><td>Heated waterer base</td><td>125</td><td>12</td><td>$8.10</td></tr>
+              <tr><td>Small heated waterer</td><td>60</td><td>12</td><td>$3.89</td></tr>
+              <tr><td>LED light for laying</td><td>9</td><td>5</td><td>$0.24</td></tr>
+            </table>
+            <p>Water and light are the cheap, high-value items: a heated waterer keeps the flock drinking through a freeze for a few dollars a month, and a 9-watt LED on a timer costs pennies. Heat is the expensive part, and the one most backyard flocks can do without.</p>
+
+            <h2>Do Chickens Need a Heated Coop?</h2>
+            <p>Adult chickens of cold-hardy breeds handle freezing weather well as long as the coop is dry, draft-free at roost level and ventilated above it. Damp air makes frostbite on combs and wattles more likely, which is why ventilation matters even in the cold. Heaters also carry two real risks. Heat lamps near dry bedding and feathers are a well-known cause of coop and barn fires, and a flock used to a heated coop can be shocked if the power goes out on the coldest night.</p>
+            <p>If you do add heat, a flat radiant panel mounted to the wall is far safer than a clamp lamp, and a thermostat outlet set to switch on only near or below freezing keeps both the cost and the temperature swing down. The goal is to take the edge off, not to keep the coop warm: a common target is keeping it just above freezing.</p>
+
+            <h2>How Much Light to Add for Eggs</h2>
+            <p>Hens lay well with about 14 to 16 hours of light a day. In winter, natural daylight falls well short, so many keepers add light on a timer:</p>
+            <table class="compact" style="width:100%;">
+              <tr><th>Latitude</th><th>Nov daylight</th><th>Dec daylight</th><th>Jan daylight</th><th>Light to add in Dec (for 14 hrs)</th></tr>
+              <tr><td>30°N</td><td>10.7 hrs</td><td>10.2 hrs</td><td>10.4 hrs</td><td>3.8 hrs</td></tr>
+              <tr><td>35°N</td><td>10.4 hrs</td><td>9.8 hrs</td><td>10.0 hrs</td><td>4.2 hrs</td></tr>
+              <tr><td>40°N</td><td>10.0 hrs</td><td>9.4 hrs</td><td>9.6 hrs</td><td>4.6 hrs</td></tr>
+              <tr><td>45°N</td><td>9.6 hrs</td><td>8.8 hrs</td><td>9.1 hrs</td><td>5.2 hrs</td></tr>
+              <tr><td>48°N</td><td>9.3 hrs</td><td>8.4 hrs</td><td>8.8 hrs</td><td>5.6 hrs</td></tr>
+            </table>
+            <p>Sunrise to sunset at mid-month. Extension poultry advice is to add the light in the early morning, before sunrise, so the hens settle onto the roost at natural dusk instead of being plunged into darkness, and never to exceed 16 hours. A plain LED bulb on a timer is enough. Supplemental light is optional: many keepers let production drop in winter so hens can rest.</p>
+
+            <h2>Cutting the Bill</h2>
+            <ul>
+              <li><strong>Put the heater and waterer on a thermostat outlet</strong> so they run only when it's cold enough to matter.</li>
+              <li><strong>Use the smallest waterer heat that works</strong>: a 60-watt heated waterer costs half as much as a 125-watt base.</li>
+              <li><strong>Fix drafts and wet bedding first.</strong> Deep, dry bedding and roost-level draft control do more for the birds than a heater.</li>
+              <li><strong>Swap any incandescent or heat bulb used for light</strong> for a low-watt LED.</li>
+            </ul>
+            <p>Running an extension cord or circuit to the coop? The same math applies to other outdoor loads such as a <a href="/tools/frozen-pipe-prevention-cost-calculator.html">heat cable on an exposed water line</a> or a <a href="/tools/block-heater-cost-calculator.html">block heater</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/frozen-pipe-prevention-cost-calculator.html">Frozen Pipe Prevention Cost</a></li>
+              <li><a href="/tools/space-heater-cost-calculator.html">Space Heater Cost</a></li>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/led-vs-incandescent.html">LED vs Incandescent</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Guides</h3>
+            <ul>
+              <li><a href="/tools/block-heater-cost-calculator.html">Block Heater Cost</a></li>
+              <li><a href="/tools/garage-heater-cost-calculator.html">Garage Heater Size &amp; Cost</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>250 W heat lamp, 12 hrs/day: <strong>~$16/month</strong></li>
+              <li>125 W heated waterer base: <strong>~$8/month</strong></li>
+              <li>Light for laying: <strong>14–16 hrs/day</strong></li>
+              <li>Dec daylight at 40°N: <strong>~9.4 hrs</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#kwh">kWh</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much does it cost to heat a chicken coop?</h3>
+      <p>A 250-watt heat lamp running 12 hours a day costs about $16 a month at 18¢ per kWh, and a 200-watt radiant panel about $13. Run around the clock, they cost about $32 and $26. A thermostat outlet that switches on only near freezing usually cuts that substantially.</p>
+      <h3>How much electricity does a heated chicken waterer use?</h3>
+      <p>Heated poultry bases are commonly 125 watts and small heated plastic waterers about 60 watts. If one ran 12 hours a day for a month, the 125-watt base would use about 45 kWh, roughly $8, and the 60-watt waterer about 22 kWh, roughly $4. Built-in thermostats run them only when needed, so actual use is often less.</p>
+      <h3>How many hours of light do chickens need to lay in winter?</h3>
+      <p>About 14 to 16 hours a day. In December, daylight runs about 10 hours at 30°N and under 9 hours at 45°N, so keepers add 4 to 6 hours of light, usually on a timer in the early morning. Don't exceed 16 hours.</p>
+      <h3>Is a heat lamp safe in a chicken coop?</h3>
+      <p>Heat lamps are one of the leading fire risks in coops: the bulb gets hot enough to ignite dry bedding, feathers and dust if it falls or is knocked. If you add heat, a flat radiant panel heater mounted to the wall is much safer, and many cold-hardy flocks need no heat at all.</p>
+      <h3>Do chickens need heat in the winter?</h3>
+      <p>Most adult chickens of cold-hardy breeds don't, if the coop is dry, ventilated and free of drafts at roost level. Heat can even cause trouble if the power fails and birds used to warmth suddenly face the cold. Chicks, sick birds and some bantam or thin-combed breeds are the exceptions.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function ccPreset() {
+  document.getElementById('cc-hw').value = document.getElementById('cc-heat').value;
+}
+function ccDay(L, J) {
+  var th = 0.2163108 + 2 * Math.atan(0.9671396 * Math.tan(0.00860 * (J - 186)));
+  var ph = Math.asin(0.39795 * Math.cos(th));
+  var x = (Math.sin(0.8333 * Math.PI / 180) + Math.sin(L * Math.PI / 180) * Math.sin(ph)) / (Math.cos(L * Math.PI / 180) * Math.cos(ph));
+  x = Math.max(-1, Math.min(1, x));
+  return 24 - 24 / Math.PI * Math.acos(x);
+}
+function calcCoop() {
+  var g = function (id, d) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? d : v; };
+  var hw = g('cc-hw', 200), hh = g('cc-hh', 12), ww = g('cc-ww', 125), wh = g('cc-wh', 12);
+  var L = g('cc-lat', 40), J = g('cc-month', 349), target = g('cc-target', 14), lw = g('cc-lw', 9);
+  var elec = g('cc-elec', 18) / 100;
+  var day = ccDay(L, J);
+  var add = target > 0 ? Math.max(0, Math.min(target, 16) - day) : 0;
+  var items = [
+    ['Heater', hw, hh],
+    ['Heated waterer', ww, wh],
+    ['Laying light', lw, add]
+  ];
+  var money = function (v) { return v < 10 ? '$' + v.toFixed(2) : '$' + Math.round(v).toLocaleString(); };
+  var rows = '<tr><th>Item</th><th>kWh / month</th><th>Cost / month</th></tr>';
+  var total = 0;
+  items.forEach(function (it) {
+    var kwh = it[1] * it[2] * 30 / 1000;
+    total += kwh;
+    if (it[1] > 0 && it[2] > 0) rows += '<tr><td>' + it[0] + ' (' + it[1] + ' W × ' + (Math.round(it[2] * 10) / 10) + ' hrs)</td><td>' + kwh.toFixed(1) + '</td><td>' + money(kwh * elec) + '</td></tr>';
+  });
+  rows += '<tr style="font-weight:700;"><td>Total</td><td>' + total.toFixed(1) + '</td><td>' + money(total * elec) + '</td></tr>';
+  var note = 'Daylight in mid-month at about ' + L + '°N: ' + day.toFixed(1) + ' hours. ';
+  if (target > 0) note += add > 0 ? 'Add about ' + add.toFixed(1) + ' hours of light, ideally before sunrise. ' : 'Daylight already meets your target. ';
+  if (hw > 0 && hh > 0) note += 'The heater is ' + Math.round(hw * hh / (total * 1000 / 30) * 100) + '% of the bill. ';
+  if (hw >= 250 && document.getElementById('cc-heat').value === '250') note += 'Heat lamps are a leading cause of coop fires; a wall-mounted radiant panel is much safer.';
+  document.getElementById('cc-headline').textContent = money(total * elec) + ' a month';
+  document.getElementById('cc-table').innerHTML = rows;
+  document.getElementById('cc-note').textContent = note;
+  var r = document.getElementById('cc-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

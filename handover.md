@@ -1,3 +1,33 @@
+# EcoEnergyCalc 인수인계 — v47 (2026-11-10, 신규 발굴)
+
+## 0-V1. 발굴
+- **스타링크 전력**: 상위 결과가 배터리 판매사 블로그(Jackery, Bluetti, Anker, Redodo, UDPWR)와 스팸뿐. 중립적인 계산기가 없음. 레딧 r/Starlink 관심이 큼. 태양광·배터리 광고 단가가 높음 → 채택. 태양광·배터리 클러스터와 연결되는 새 갈래.
+- **닭장 겨울 전기료**: 상위 결과가 BackYardChickens 포럼, 상품 페이지, AI 스팸 "best heater" 목록뿐 → 경쟁 약함, 관심 높음 → 채택. 새 클러스터(뒷마당 가축·홈스테드 겨울).
+- 보류:
+  - 우물 펌프 전기료: 경쟁은 약함. 그러나 kWh/1,000갤런 근거가 부족함(GBA 실측 1건, 효율 가정 근거 없음).
+  - 공기청정기 24시간 비용: 브랜드 블로그가 강함.
+  - 가축 물탱크 히터: 실측 근거 부족.
+
+## 0-V2. ✅ 신규 2 (계산기 64, 사이트맵 160)
+- `tools/starlink-power-calculator.html`
+  - 키트 평균 전력(Starlink 공개 범위의 중간값, slashgear·NI 데이터시트로 확인): Mini 25~40 → 32.5 W, Standard Actuated 50~75 → 62.5 W, Standard 75~100 → 87.5 W. 고성능(Performance) 키트는 근거를 확인하지 못해 뺐고, 사용자가 와트를 직접 입력할 수 있음.
+  - 오프그리드: 인버터 85% / DC 직결 95%, 배터리 사용 가능 90%, 태양광 0.80(사이트 공통). 30일 기준.
+  - 기본값: Standard 24시간 2.1 kWh/일, $11/월, 1,000 Wh로 8.7시간, 패널 890 W, 하루 예비 배터리 2,750 Wh.
+- `tools/chicken-coop-electricity-cost-calculator.html`
+  - 히터(열램프 250 W / 복사 패널 200 W, Farm Innovators), 급수기(가열 받침 125 W, K&H 60 W), 산란 조명.
+  - 일조시간: Forsythe et al. 1995 CBM 모델로 위도 30~48°, 월 중순 기준 계산(12월 40°N = 9.4시간).
+  - 목표 조명 14~16시간: 익스텐션 권고(해 뜨기 전 아침에 추가, 16시간 초과 금지). 히터는 대부분 불필요하고 열램프는 화재 위험이라는 안내 포함.
+  - 기본값: 월 $21(히터 61%).
+- 교차링크: battery-storage, solar-panel-count, appliance-energy-cost, solar-vs-generator, on-grid-vs-off-grid → 스타링크. appliance-energy-cost, frozen-pipe, block-heater → 닭장.
+  - ⚠ block-heater·frozen-pipe 페이지를 생성 스크립트(bhtool/fptool)로 다시 만들면 이 사이드바 링크가 빠짐. 재생성하면 다시 넣을 것.
+- 검증: 계산기 113개 기본값, 체크(404 사이트맵 제외 1건 정상), 375/1280 화면 정상.
+
+## 0-V3. 측정·다음
+- 측정 쿼리: "starlink power consumption per month", "how long will a 1000wh battery run starlink", "solar panels to run starlink", "cost to heat chicken coop", "heated chicken waterer electricity", "how many hours of light chickens winter".
+- 이번 주 신규가 7개(v44 3, v45 2, v47 2)라 페이스가 빠름. 구글 판정이 풀리기 전까지는 계산기 1개 = 질문 1개 원칙을 유지할 것.
+
+---
+
 # EcoEnergyCalc 인수인계 — v46 (2026-11-10, 애드센스 승인 대비 신뢰도 점검)
 
 ## 0-U1. 점검 결과

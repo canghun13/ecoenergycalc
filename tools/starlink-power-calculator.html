@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starlink Power Consumption Calculator – Cost, Battery &amp; Solar | EcoEnergyCalc</title>
+  <meta name="description" content="How much electricity Starlink uses and costs per month, how long a battery or power station runs it, and how many solar panels and watt-hours you need off-grid. Mini, Standard and Standard Actuated." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/starlink-power-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Starlink Power Consumption Calculator","url":"https://ecoenergycalc.com/tools/starlink-power-calculator.html","description":"How much electricity Starlink uses and costs per month, how long a battery or power station runs it, and how many solar panels and watt-hours you need off-grid. Mini, Standard and Standard Actuated.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-11-10","dateModified":"2026-11-10","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much electricity does Starlink use per month?","acceptedAnswer":{"@type":"Answer","text":"Running 24 hours a day, a Starlink Mini at 25\u201340 watts uses about 18 to 29 kWh a month, a Standard Actuated dish at 50\u201375 watts about 36 to 54 kWh, and a Standard dish at 75\u2013100 watts about 54 to 72 kWh. At 18\u00a2 per kWh that's roughly $3 to $5, $6 to $10, and $10 to $13 a month."}},
+    {"@type":"Question","name":"How long will a 1000Wh battery run Starlink?","acceptedAnswer":{"@type":"Answer","text":"About 8 to 9 hours for a Standard kit running from the power station's AC outlet, and about 26 hours for a Starlink Mini on 12-volt DC. A Standard Actuated dish runs about 12 hours. Snow melting and startup raise the draw, so plan for less in winter."}},
+    {"@type":"Question","name":"How many solar panels do I need to run Starlink?","acceptedAnswer":{"@type":"Answer","text":"For a Standard kit running 24/7 through an inverter, about 900 watts of panels with 3.5 peak sun hours, plus about 2,750 Wh of battery for one cloudy day. A Starlink Mini on DC needs about 300 watts of panels and about 900 Wh of battery. In northern winters with 2\u20133 sun hours, plan on more panel."}},
+    {"@type":"Question","name":"Does Starlink use a lot of power?","acceptedAnswer":{"@type":"Answer","text":"Not on the grid: a Standard dish uses about as much as a 75\u2013100 watt light bulb left on, roughly $10 to $13 a month at average U.S. rates. Off-grid, it's one of the larger loads in a small system because it runs all day and night, which is why the 25\u201340 watt Mini is popular for RVs and cabins."}},
+    {"@type":"Question","name":"Does Starlink sleep mode save power?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Starlink app lets you schedule hours when the dish sleeps. Sleeping 8 hours a night cuts daily energy use by about a third, which on battery power means a third less capacity and solar needed."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Starlink Power</p>
+        <span class="tool-category">Solar &amp; Renewables</span>
+        <h1>Starlink Power Consumption, Battery &amp; Solar Calculator</h1>
+        <p>See what your Starlink dish costs on the electric bill, how many hours a battery or power station keeps it online, and how much solar and battery it takes to run it off-grid around the clock.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Starlink Power Use, Cost &amp; Off-Grid Sizing</h2>
+            <div class="form-group">
+              <label for="sl-kit">Starlink Kit</label>
+              <select id="sl-kit" onchange="slPreset()">
+                <option value="32.5">Starlink Mini (25–40 W average)</option>
+                <option value="62.5">Standard Actuated (50–75 W average)</option>
+                <option value="87.5" selected>Standard (75–100 W average)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sl-watts">Average Power Draw (W)</label>
+              <input type="number" id="sl-watts" value="87.5" min="5" max="300" step="0.5" />
+              <small style="color:var(--text-muted);">Midpoint of Starlink's published range. If you have a plug-in meter or the app's power reading, enter that instead.</small>
+            </div>
+            <div class="form-group">
+              <label for="sl-hours">Hours On per Day</label>
+              <input type="number" id="sl-hours" value="24" min="1" max="24" step="0.5" />
+              <small style="color:var(--text-muted);">A sleep schedule in the Starlink app cuts this; 8 hours of sleep is 16 hours on.</small>
+            </div>
+            <div class="form-group">
+              <label for="sl-elec">Electricity (¢/kWh)</label>
+              <input type="number" id="sl-elec" value="18" min="3" max="60" step="0.5" />
+            </div>
+            <h3 style="font-size:1rem;margin:20px 0 12px;">Off-grid: battery and solar</h3>
+            <div class="form-group">
+              <label for="sl-path">How It's Powered Off-Grid</label>
+              <select id="sl-path">
+                <option value="0.85" selected>AC power supply on an inverter or power station (about 85% efficient)</option>
+                <option value="0.95">12–48 V DC directly, e.g. Starlink Mini (about 95% efficient)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sl-batt">Battery Capacity (Wh)</label>
+              <input type="number" id="sl-batt" value="1000" min="50" max="50000" step="50" />
+              <small style="color:var(--text-muted);">Power stations list Wh. For a 12 V battery, multiply amp-hours by 12 (100 Ah × 12 V = 1,200 Wh).</small>
+            </div>
+            <div class="form-group">
+              <label for="sl-sun">Peak Sun Hours per Day</label>
+              <input type="number" id="sl-sun" value="3.5" min="0.5" max="8" step="0.5" />
+              <small style="color:var(--text-muted);">Winter is the hard case: about 2–3 in the northern U.S., 3–4.5 in the South and Southwest.</small>
+            </div>
+            <div class="form-group">
+              <label for="sl-days">Cloudy Days the Battery Should Cover</label>
+              <input type="number" id="sl-days" value="1" min="0" max="7" step="0.5" />
+            </div>
+            <button class="btn-primary" onclick="calcStarlink()">Calculate Starlink Power</button>
+            <div class="result-box-tool" id="sl-result">
+              <h3>Your Starlink Power</h3>
+              <div class="result-amount" id="sl-headline"></div>
+              <table id="sl-table" class="compact" style="width:100%;"></table>
+              <p class="result-note" id="sl-note"></p>
+              <p class="result-note">Kit ranges are Starlink's published average power figures. Real draw rises during startup, satellite acquisition and snow melting. Battery runtime uses 90% of rated capacity. Solar sizing uses 80% of panel rating for real-world losses, the same assumption as our solar panel calculator.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>What Starlink Costs to Run on Grid Power</h2>
+            <table class="compact" style="width:100%;">
+              <tr><th>Kit</th><th>Average draw</th><th>kWh per month (24/7)</th><th>Cost per month at 18¢</th></tr>
+              <tr><td>Starlink Mini</td><td>25–40 W</td><td>18–29</td><td>$3.24–$5.18</td></tr>
+              <tr><td>Standard Actuated</td><td>50–75 W</td><td>36–54</td><td>$6.48–$9.72</td></tr>
+              <tr><td>Standard</td><td>75–100 W</td><td>54–72</td><td>$9.72–$12.96</td></tr>
+            </table>
+            <p>On the grid, a Standard dish running around the clock adds roughly $10 to $13 a month to the electric bill. A sleep schedule in the Starlink app turns the dish off during hours you don't use it; sleeping 8 hours a night trims the electricity by a third. The bigger reason to care about watts is off-grid power, where every watt has to come from a battery or a panel.</p>
+
+            <h2>How Long a Battery Runs Starlink</h2>
+            <table class="compact" style="width:100%;">
+              <tr><th>Battery</th><th>Mini on DC (32.5 W)</th><th>Standard on an inverter (87.5 W)</th></tr>
+              <tr><td>300 Wh</td><td>8 hrs</td><td>2.6 hrs</td></tr>
+              <tr><td>500 Wh</td><td>13 hrs</td><td>4.4 hrs</td></tr>
+              <tr><td>1,000 Wh</td><td>26 hrs</td><td>8.7 hrs</td></tr>
+              <tr><td>2,000 Wh</td><td>53 hrs</td><td>17.5 hrs</td></tr>
+              <tr><td>5,000 Wh</td><td>132 hrs</td><td>44 hrs</td></tr>
+            </table>
+            <p>Using 90% of the battery's rating, with 95% efficiency for the Mini on direct DC and 85% for the Standard kit's AC power supply running from an inverter. Running a Standard kit from an inverter wastes roughly one watt in seven as heat. The Mini, which accepts 12–48 V DC, avoids most of that loss when wired to a battery through a suitable DC cable or converter.</p>
+
+            <h2>Solar Panels for 24/7 Starlink</h2>
+            <p>To keep Starlink running every day from solar, the panels have to replace a full day's battery draw in the sun hours you get. A Standard kit on an inverter needs about 2.5 kWh a day; with 3.5 peak sun hours and 80% real-world output, that's roughly 880 watts of panels. A Mini on DC needs about 0.8 kWh a day and about 290 watts of panels. Size for winter sun, not summer, or the system will run short exactly when days are shortest.</p>
+            <p>Add battery for the nights and cloudy stretches: one full day of reserve for a Standard kit is about 2,750 Wh of battery; for the Mini, about 900 Wh. For whole-home solar sizing, see the <a href="/tools/solar-panel-count-calculator.html">solar panel count calculator</a> and the <a href="/tools/battery-storage.html">battery storage calculator</a>.</p>
+
+            <h2>Ways to Cut Starlink's Power Draw</h2>
+            <ul>
+              <li><strong>Set a sleep schedule</strong> in the app for overnight hours.</li>
+              <li><strong>Clear snow by hand</strong> when you're on battery. The dish's snow-melt heating raises power use substantially.</li>
+              <li><strong>Use DC power</strong> where the kit supports it instead of an inverter.</li>
+              <li><strong>Turn off the inverter</strong> when nothing else needs AC; many inverters draw power even with no load.</li>
+              <li><strong>Choose the Mini</strong> for camping, RVs and small off-grid cabins where its speed is enough.</li>
+            </ul>
+            <p>For backup power during outages, compare options in <a href="/compare/solar-vs-generator.html">solar + battery vs generator</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/battery-storage.html">Battery Storage Calculator</a></li>
+              <li><a href="/tools/solar-panel-count-calculator.html">Solar Panel Count</a></li>
+              <li><a href="/tools/appliance-energy-cost.html">Appliance Energy Cost</a></li>
+              <li><a href="/tools/generator-propane-runtime-calculator.html">Generator Propane Runtime</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Guides</h3>
+            <ul>
+              <li><a href="/compare/solar-vs-generator.html">Solar + Battery vs Generator</a></li>
+              <li><a href="/compare/on-grid-vs-off-grid-solar.html">On-Grid vs Off-Grid Solar</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Starlink Mini: <strong>25–40 W</strong></li>
+              <li>Standard: <strong>75–100 W</strong></li>
+              <li>Standard 24/7 on grid: <strong>~$10–13/month</strong></li>
+              <li>1,000 Wh battery, Standard kit: <strong>~9 hours</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#kwh">kWh</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much electricity does Starlink use per month?</h3>
+      <p>Running 24 hours a day, a Starlink Mini at 25–40 watts uses about 18 to 29 kWh a month, a Standard Actuated dish at 50–75 watts about 36 to 54 kWh, and a Standard dish at 75–100 watts about 54 to 72 kWh. At 18¢ per kWh that's roughly $3 to $5, $6 to $10, and $10 to $13 a month.</p>
+      <h3>How long will a 1000Wh battery run Starlink?</h3>
+      <p>About 8 to 9 hours for a Standard kit running from the power station's AC outlet, and about 26 hours for a Starlink Mini on 12-volt DC. A Standard Actuated dish runs about 12 hours. Snow melting and startup raise the draw, so plan for less in winter.</p>
+      <h3>How many solar panels do I need to run Starlink?</h3>
+      <p>For a Standard kit running 24/7 through an inverter, about 900 watts of panels with 3.5 peak sun hours, plus about 2,750 Wh of battery for one cloudy day. A Starlink Mini on DC needs about 300 watts of panels and about 900 Wh of battery. In northern winters with 2–3 sun hours, plan on more panel.</p>
+      <h3>Does Starlink use a lot of power?</h3>
+      <p>Not on the grid: a Standard dish uses about as much as a 75–100 watt light bulb left on, roughly $10 to $13 a month at average U.S. rates. Off-grid, it's one of the larger loads in a small system because it runs all day and night, which is why the 25–40 watt Mini is popular for RVs and cabins.</p>
+      <h3>Does Starlink sleep mode save power?</h3>
+      <p>Yes. The Starlink app lets you schedule hours when the dish sleeps. Sleeping 8 hours a night cuts daily energy use by about a third, which on battery power means a third less capacity and solar needed.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+function slPreset() {
+  document.getElementById('sl-watts').value = document.getElementById('sl-kit').value;
+}
+function calcStarlink() {
+  var w = parseFloat(document.getElementById('sl-watts').value) || 87.5;
+  var hours = parseFloat(document.getElementById('sl-hours').value) || 24;
+  var elec = (parseFloat(document.getElementById('sl-elec').value) || 18) / 100;
+  var eff = parseFloat(document.getElementById('sl-path').value) || 0.85;
+  var batt = parseFloat(document.getElementById('sl-batt').value) || 1000;
+  var sun = parseFloat(document.getElementById('sl-sun').value) || 3.5;
+  var days = parseFloat(document.getElementById('sl-days').value);
+  if (isNaN(days)) days = 1;
+
+  var dayWh = w * hours;
+  var month = dayWh * 30 / 1000;
+  var battDay = dayWh / eff;
+  var run = batt * 0.9 * eff / w;
+  var panel = battDay / (sun * 0.8);
+  var need = battDay * Math.max(days, 0) / 0.9;
+  var nightNeed = w * Math.min(hours, 14) / eff / 0.9;
+  var money = function (v) { return v < 10 ? '$' + v.toFixed(2) : '$' + Math.round(v).toLocaleString(); };
+  var rows = '<tr><th>Item</th><th>Result</th></tr>' +
+    '<tr><td>Energy per day</td><td>' + (dayWh / 1000).toFixed(2) + ' kWh</td></tr>' +
+    '<tr style="font-weight:700;"><td>Grid cost per month</td><td>' + money(month * elec) + ' (' + Math.round(month) + ' kWh)</td></tr>' +
+    '<tr><td>Grid cost per year</td><td>' + money(month * elec * 12.17) + '</td></tr>' +
+    '<tr><td>Battery draw per day off-grid</td><td>' + Math.round(battDay).toLocaleString() + ' Wh</td></tr>' +
+    '<tr style="font-weight:700;"><td>Runtime on ' + batt.toLocaleString() + ' Wh battery</td><td>' + (run < 10 ? run.toFixed(1) : Math.round(run)) + ' hours</td></tr>' +
+    '<tr><td>Solar panels for daily use (' + sun + ' sun hrs)</td><td>' + (Math.ceil(panel / 10) * 10).toLocaleString() + ' W</td></tr>' +
+    '<tr><td>Battery for ' + days + ' cloudy day' + (days === 1 ? '' : 's') + ' of reserve</td><td>' + (Math.ceil(need / 50) * 50).toLocaleString() + ' Wh</td></tr>';
+  var note = 'Runtime is ' + (run >= hours ? 'enough for a full day of use.' : 'about ' + Math.round(run / hours * 100) + '% of a full day of use.') + ' ';
+  if (days === 0) note += 'With no reserve, you still need about ' + (Math.ceil(nightNeed / 50) * 50).toLocaleString() + ' Wh of battery to get through the night. ';
+  if (eff < 0.9 && w < 50) note += 'A Mini on direct DC would avoid most of the inverter loss. ';
+  if (hours > 20) note += 'A sleep schedule of 8 hours would cut daily use to ' + (w * (hours - 8) / 1000).toFixed(2) + ' kWh.';
+  document.getElementById('sl-headline').textContent = money(month * elec) + ' a month on grid; ' + (run < 10 ? run.toFixed(1) : Math.round(run)) + ' hours on your battery';
+  document.getElementById('sl-table').innerHTML = rows;
+  document.getElementById('sl-note').textContent = note;
+  var r = document.getElementById('sl-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
