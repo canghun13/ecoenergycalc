@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <li id="nav-blog"><a href="/blog/">Blog</a></li>
           <li id="nav-glossary"><a href="/glossary/">Glossary</a></li>
           <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <a href="/about.html">About</a>
           <a href="/contact.html">Contact</a>
           <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
           <a href="/disclosure.html">Advertising disclosure</a>
         </nav>
       </div>

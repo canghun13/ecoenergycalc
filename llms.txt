@@ -11,6 +11,7 @@ EcoEnergyCalc is a collection of 62 free web-based calculators, 50 side-by-side 
 - [About](https://ecoenergycalc.com/about.html): Site mission, methodology, and operator information
 - [Blog](https://ecoenergycalc.com/blog/): All articles, searchable by topic
 - [Privacy Policy](https://ecoenergycalc.com/privacy.html): Privacy policy and disclaimer
+- [Terms of Use](https://ecoenergycalc.com/terms.html): Site terms, estimates-not-advice, liability
 - [Advertising & Affiliate Disclosure](https://ecoenergycalc.com/disclosure.html): How the site makes money (advertising and affiliate links) and why editorial content and calculator results are never influenced by advertisers or partners
 - [Contact](https://ecoenergycalc.com/contact.html): Contact information
 
