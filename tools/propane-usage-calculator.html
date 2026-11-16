@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propane Usage Calculator – Gallons per Month &amp; Year for Your House | EcoEnergyCalc</title>
+  <meta name="description" content="How many gallons of propane your house uses each month and year for heat, hot water, cooking and a fireplace — by home size, climate and furnace efficiency — plus the yearly cost and how often you will need a delivery." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ecoenergycalc.com/tools/propane-usage-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Propane Usage Calculator","url":"https://ecoenergycalc.com/tools/propane-usage-calculator.html","description":"How many gallons of propane your house uses each month and year for heat, hot water, cooking and a fireplace — by home size, climate and furnace efficiency — plus the yearly cost and how often you will need a delivery.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","datePublished":"2026-11-16","dateModified":"2026-11-16","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much propane does a house use per month in winter?","acceptedAnswer":{"@type":"Answer","text":"For a 2,000 sq ft home with a 95% furnace, heating takes about 86 gallons in January in a mixed climate like Chicago and about 133 gallons in a cold climate, less in November and March. An 80% furnace uses about a fifth more. Add roughly 20\u201325 gallons a month for a propane water heater for a family of four."}},
+    {"@type":"Question","name":"How many gallons of propane does a 2000 sq ft house use per year?","acceptedAnswer":{"@type":"Answer","text":"For heating alone, about 410\u2013490 gallons in a mixed climate, 640\u2013770 in a cold climate and 920\u20131,090 in a very cold one, depending on furnace efficiency. With a water heater and range for a family of four, add about 300 gallons a year."}},
+    {"@type":"Question","name":"How long does a 500 gallon propane tank last in winter?","acceptedAnswer":{"@type":"Answer","text":"Each delivery is about 250 gallons, because tanks are filled to 80% and usually reordered around 30%. A cold-climate 2,000 sq ft home that uses about 180 gallons in January with heat, hot water and cooking gets about six weeks from a delivery in January and longer in spring and fall."}},
+    {"@type":"Question","name":"How much propane does a water heater use per month?","acceptedAnswer":{"@type":"Answer","text":"About 20 to 25 gallons a month for a family of four, or roughly 200 to 300 gallons a year according to propane supplier estimates. Usage rises in winter because the incoming water is colder, and drops with low-flow fixtures or fewer people."}},
+    {"@type":"Question","name":"How many times a year do you fill a propane tank?","acceptedAnswer":{"@type":"Answer","text":"A home that heats with propane and uses about 1,000 gallons a year needs about four deliveries with a 500-gallon tank, or eight with a 250-gallon tank. Homes using propane only for a water heater, range or fireplace may need one or two fills a year."}}
+  ]}
+  </script>
+</head>
+<body>
+<main>
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <p class="breadcrumb"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Propane Usage</p>
+        <span class="tool-category">Energy Savings</span>
+        <h1>Propane Usage Calculator: Gallons per Month &amp; Year</h1>
+        <p>Estimate how much propane your home burns in January and over a whole year for heat, hot water, cooking and a fireplace, what it costs, and how many tank deliveries you will need.</p>
+      </div>
+      <div class="tool-layout">
+        <div>
+          <div class="calc-box">
+            <h2>Propane Usage by Month</h2>
+            <div class="form-group">
+              <label for="pu-sqft">Home Size (sq ft)</label>
+              <input type="number" id="pu-sqft" value="2000" min="300" max="10000" step="50" />
+            </div>
+            <div class="form-group">
+              <label for="pu-climate">Climate</label>
+              <select id="pu-climate">
+                <option value="hot">Hot (South / Southwest — Atlanta, Dallas, Phoenix)</option>
+                <option value="mixed">Mixed (Midwest / Mid-Atlantic — Chicago, DC, Denver)</option>
+                <option value="cold" selected>Cold (Northeast / Upper Midwest — Boston, Minneapolis)</option>
+                <option value="veryCold">Very Cold (Northern states / Mountains — Minneapolis, Buffalo)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pu-afue">Furnace or Boiler Efficiency</label>
+              <select id="pu-afue">
+                <option value="0.80" selected>80% AFUE (standard or older)</option>
+                <option value="0.90">90% AFUE</option>
+                <option value="0.95">95% AFUE (high-efficiency condensing)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pu-wh">Propane Water Heater</label>
+              <select id="pu-wh">
+                <option value="no">No</option>
+                <option value="yes" selected>Yes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pu-people">People in the Home</label>
+              <input type="number" id="pu-people" value="4" min="1" max="12" step="1" />
+            </div>
+            <div class="form-group">
+              <label for="pu-range">Propane Range / Oven</label>
+              <select id="pu-range">
+                <option value="0">No</option>
+                <option value="50" selected>Yes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pu-dryer">Propane Clothes Dryer</label>
+              <select id="pu-dryer">
+                <option value="0" selected>No</option>
+                <option value="25">Yes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pu-fp">Propane Fireplace or Space Heater</label>
+              <select id="pu-fp">
+                <option value="0" selected>None</option>
+                <option value="150">Used occasionally</option>
+                <option value="300">Used most evenings in winter</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pu-tank">Tank Size (gallons)</label>
+              <select id="pu-tank">
+                <option value="120">120 gallon</option>
+                <option value="250">250 gallon</option>
+                <option value="500" selected>500 gallon</option>
+                <option value="1000">1,000 gallon</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pu-region">Region (fills a typical price)</label>
+              <select id="pu-region" onchange="puRegion()">
+                <option value="2.50" selected>U.S. average ($2.50/gal)</option>
+                <option value="3.30">Northeast ($3.30/gal)</option>
+                <option value="2.00">Midwest ($2.00/gal)</option>
+                <option value="2.85">South ($2.85/gal)</option>
+                <option value="2.75">West ($2.75/gal)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pu-price">Propane Price ($/gallon)</label>
+              <input type="number" id="pu-price" value="2.50" min="0.5" max="8" step="0.05" />
+            </div>
+            <button class="btn-primary" onclick="calcPropaneUse()">Estimate My Propane Use</button>
+            <div class="result-box-tool" id="pu-result">
+              <h3>Your Propane Use</h3>
+              <div class="result-amount" id="pu-headline"></div>
+              <table id="pu-table" class="compact" style="width:100%;"></table>
+              <table id="pu-month" class="compact" style="width:100%;margin-top:12px;"></table>
+              <p class="result-note" id="pu-note"></p>
+              <p class="result-note">Heating uses the same model as our heating cost calculator: 8, 18, 28 or 40 thousand BTU per square foot a year by climate, divided by furnace efficiency, at 91,500 BTU per gallon. The monthly split follows NOAA 1991–2020 heating degree day normals for Chicago (Minneapolis for very cold). Water heating is about 62 gallons per person a year, a range or oven about 50 gallons, a dryer about 25 and a fireplace 150–300, based on propane supplier estimates; fireplace use is assumed to fall between October and April, peaking in December and January. Tanks are filled to 80% and refilled at 30%.</p>
+            </div>
+          </div>
+
+          <div class="article-body" style="margin-top:48px;">
+            <h2>Propane for Heating a House, per Year</h2>
+            <table class="compact" style="width:100%;">
+              <tr><th>Home size</th><th>Hot</th><th>Mixed</th><th>Cold</th><th>Very cold</th></tr>
+              <tr><td>1,000 sq ft</td><td>92–109</td><td>207–246</td><td>322–383</td><td>460–546</td></tr>
+              <tr><td>1,500 sq ft</td><td>138–164</td><td>311–369</td><td>483–574</td><td>690–820</td></tr>
+              <tr><td>2,000 sq ft</td><td>184–219</td><td>414–492</td><td>644–765</td><td>920–1,093</td></tr>
+              <tr><td>2,500 sq ft</td><td>230–273</td><td>518–615</td><td>805–956</td><td>1,150–1,366</td></tr>
+              <tr><td>3,000 sq ft</td><td>276–328</td><td>621–738</td><td>966–1,148</td><td>1,381–1,639</td></tr>
+            </table>
+            <p>Gallons a year for heating only; the lower figure is a 95% furnace, the higher an 80% furnace. Suppliers' own estimates line up: Dead River puts a furnace in a New England home at about 500 to 900 gallons a year, and Superior Plus uses 888 gallons for a 2,000 sq ft home.</p>
+
+            <h2>Propane Use by Month</h2>
+            <p>Heating doesn't spread evenly across the winter. In Chicago's climate normals, January carries about 21% of the year's heating and December and February about 17–18% each, while October and April are around 6–8%. For a 2,000 sq ft home with a 95% furnace:</p>
+            <table class="compact" style="width:100%;">
+              <tr><th>Month</th><th>Mixed climate</th><th>Cold climate</th></tr>
+              <tr><td>October</td><td>25 gal</td><td>38 gal</td></tr>
+              <tr><td>November</td><td>49 gal</td><td>77 gal</td></tr>
+              <tr><td>December</td><td>74 gal</td><td>115 gal</td></tr>
+              <tr><td>January</td><td>86 gal</td><td>133 gal</td></tr>
+              <tr><td>February</td><td>70 gal</td><td>109 gal</td></tr>
+              <tr><td>March</td><td>56 gal</td><td>87 gal</td></tr>
+              <tr><td>April</td><td>32 gal</td><td>50 gal</td></tr>
+            </table>
+            <p>Heating only. A propane water heater for a family of four adds roughly 20 to 25 gallons every month of the year, and a little more in winter when the incoming water is colder.</p>
+
+            <h2>Other Propane Appliances</h2>
+            <table class="compact" style="width:100%;">
+              <tr><th>Appliance</th><th>Gallons per year</th></tr>
+              <tr><td>Water heater, family of four</td><td>200–300</td></tr>
+              <tr><td>Fireplace or space heater</td><td>150–300</td></tr>
+              <tr><td>Range and oven</td><td>35–60</td></tr>
+              <tr><td>Clothes dryer</td><td>20–30</td></tr>
+            </table>
+            <p>From Dead River's appliance estimates. A gas fireplace is often the biggest surprise; see <a href="/compare/gas-fireplace-vs-furnace.html">gas fireplace vs furnace</a> for what it costs per hour and what its pilot light burns.</p>
+
+            <h2>How Often You'll Need a Delivery</h2>
+            <p>Propane tanks are filled to about 80% of their size to leave room for expansion, and most homeowners reorder around 30%, so each delivery is about half the tank. A 500-gallon tank takes about 250 gallons a fill. A 2,000 sq ft cold-climate home with an 80% furnace, water heater and range uses about 1,065 gallons a year, which works out to about four deliveries; in January alone it burns about 183 gallons, so one delivery lasts about six weeks. A 250-gallon tank would need refilling roughly every three weeks in January, which is why most homes that heat with propane use a 500-gallon tank or an automatic delivery plan.</p>
+            <p>To check how long the propane in your tank right now will last at this week's temperatures, use the <a href="/tools/heating-oil-propane-days-left-calculator.html">oil and propane days-left calculator</a>. To compare propane with other fuels, see <a href="/compare/propane-vs-natural-gas.html">propane vs natural gas</a> and the <a href="/tools/heating-cost-by-fuel.html">heating cost by fuel calculator</a>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="adslot"><!-- AdSense --></div>
+          <div class="sidebar-box">
+            <h3>Related Calculators</h3>
+            <ul>
+              <li><a href="/tools/heating-oil-propane-days-left-calculator.html">Oil &amp; Propane Days Left</a></li>
+              <li><a href="/tools/heating-cost-by-fuel.html">Heating Cost by Fuel</a></li>
+              <li><a href="/tools/furnace-afue-upgrade-calculator.html">Furnace AFUE Upgrade</a></li>
+              <li><a href="/tools/propane-heater-runtime-calculator.html">Propane Heater Runtime</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Related Comparisons</h3>
+            <ul>
+              <li><a href="/compare/propane-vs-natural-gas.html">Propane vs Natural Gas</a></li>
+              <li><a href="/compare/propane-vs-heating-oil.html">Propane vs Heating Oil</a></li>
+              <li><a href="/compare/gas-fireplace-vs-furnace.html">Gas Fireplace vs Furnace</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Propane: <strong>~91,500 BTU/gal</strong></li>
+              <li>2,000 sq ft, cold climate: <strong>~640–770 gal/yr heat</strong></li>
+              <li>January: <strong>~21% of the year</strong></li>
+              <li>500-gal tank: <strong>~250 gal per delivery</strong></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Glossary</h3>
+            <ul>
+              <li><a href="/glossary/#afue">What is AFUE?</a></li>
+              <li><a href="/glossary/#btu">What is a BTU?</a></li>
+            </ul>
+          </div>
+          <div class="adslot" style="margin-top:20px;"><!-- AdSense --></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--surface);padding:48px 0;">
+    <div class="container">
+    <div class="article-body" style="max-width:800px;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much propane does a house use per month in winter?</h3>
+      <p>For a 2,000 sq ft home with a 95% furnace, heating takes about 86 gallons in January in a mixed climate like Chicago and about 133 gallons in a cold climate, less in November and March. An 80% furnace uses about a fifth more. Add roughly 20–25 gallons a month for a propane water heater for a family of four.</p>
+      <h3>How many gallons of propane does a 2000 sq ft house use per year?</h3>
+      <p>For heating alone, about 410–490 gallons in a mixed climate, 640–770 in a cold climate and 920–1,090 in a very cold one, depending on furnace efficiency. With a water heater and range for a family of four, add about 300 gallons a year.</p>
+      <h3>How long does a 500 gallon propane tank last in winter?</h3>
+      <p>Each delivery is about 250 gallons, because tanks are filled to 80% and usually reordered around 30%. A cold-climate 2,000 sq ft home that uses about 180 gallons in January with heat, hot water and cooking gets about six weeks from a delivery in January and longer in spring and fall.</p>
+      <h3>How much propane does a water heater use per month?</h3>
+      <p>About 20 to 25 gallons a month for a family of four, or roughly 200 to 300 gallons a year according to propane supplier estimates. Usage rises in winter because the incoming water is colder, and drops with low-flow fixtures or fewer people.</p>
+      <h3>How many times a year do you fill a propane tank?</h3>
+      <p>A home that heats with propane and uses about 1,000 gallons a year needs about four deliveries with a 500-gallon tank, or eight with a 250-gallon tank. Homes using propane only for a water heater, range or fireplace may need one or two fills a year.</p>
+    </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/nav.js"></script>
+<script>
+var PU_LOAD = { hot: 8, mixed: 18, cold: 28, veryCold: 40 };
+var PU_CHI = [1234, 1015, 808, 468, 198, 31, 2, 4, 77, 355, 713, 1069];   // NOAA 1991-2020, Chicago
+var PU_MSP = [1513, 1243, 983, 542, 214, 34, 4, 10, 128, 489, 906, 1333]; // NOAA 1991-2020, Minneapolis-St. Paul
+var PU_MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+function puRegion() {
+  document.getElementById('pu-price').value = document.getElementById('pu-region').value;
+}
+function calcPropaneUse() {
+  var g = function (id, d) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? d : v; };
+  var sqft = g('pu-sqft', 2000), afue = g('pu-afue', 0.8), people = g('pu-people', 4);
+  var zone = document.getElementById('pu-climate').value || 'cold';
+  var wh = document.getElementById('pu-wh').value === 'yes';
+  var range = g('pu-range', 50), dryer = g('pu-dryer', 0), fp = g('pu-fp', 0);
+  var tank = g('pu-tank', 500), price = g('pu-price', 2.5);
+
+  var heat = sqft * (PU_LOAD[zone] || 28) * 1000 / afue / 91500;
+  var water = wh ? 62.5 * people : 0;
+  var other = range + dryer;
+  var prof = zone === 'veryCold' ? PU_MSP : PU_CHI;
+  var tot = prof.reduce(function (a, b) { return a + b; }, 0);
+  var fpProf = [0.22, 0.18, 0.12, 0.03, 0, 0, 0, 0, 0, 0.05, 0.15, 0.25];   // fireplace use concentrated Nov-Mar
+  var months = prof.map(function (h, i) { return heat * h / tot + water / 12 + other / 12 + fp * fpProf[i]; });
+  var year = heat + water + other + fp;
+  var perFill = tank * 0.5;
+  var fills = year / perFill;
+  var jan = months[0];
+  var money = function (v) { return '$' + Math.round(v).toLocaleString(); };
+  var rows = '<tr><th>Use</th><th>Gallons / year</th><th>Cost / year</th></tr>' +
+    '<tr><td>Heating</td><td>' + Math.round(heat).toLocaleString() + '</td><td>' + money(heat * price) + '</td></tr>';
+  if (water > 0) rows += '<tr><td>Water heater</td><td>' + Math.round(water) + '</td><td>' + money(water * price) + '</td></tr>';
+  if (other > 0) rows += '<tr><td>Range and dryer</td><td>' + Math.round(other) + '</td><td>' + money(other * price) + '</td></tr>';
+  if (fp > 0) rows += '<tr><td>Fireplace or space heater</td><td>' + Math.round(fp) + '</td><td>' + money(fp * price) + '</td></tr>';
+  rows += '<tr style="font-weight:700;"><td>Total</td><td>' + Math.round(year).toLocaleString() + '</td><td>' + money(year * price) + '</td></tr>' +
+    '<tr><td>Deliveries a year (' + tank + '-gal tank, ~' + Math.round(perFill) + ' gal each)</td><td colspan="2">' + fills.toFixed(1) + '</td></tr>';
+  var order = [9, 10, 11, 0, 1, 2, 3];
+  var mrows = '<tr><th>Month</th><th>Gallons</th><th>Cost</th></tr>';
+  order.forEach(function (i) {
+    mrows += '<tr' + (i === 0 ? ' style="font-weight:700;"' : '') + '><td>' + PU_MON[i] + '</td><td>' + Math.round(months[i]) + '</td><td>' + money(months[i] * price) + '</td></tr>';
+  });
+  var summer = months[4] + months[5] + months[6] + months[7] + months[8];
+  mrows += '<tr><td>May–Sep (total)</td><td>' + Math.round(summer) + '</td><td>' + money(summer * price) + '</td></tr>';
+  var weeks = perFill / (jan / 31) / 7;
+  var note = 'At January\'s pace, one delivery lasts about ' + (weeks < 2 ? Math.round(weeks * 7) + ' days' : Math.round(weeks) + ' weeks') + '. ';
+  if (weeks < 4) note += 'That is short enough that a larger tank or automatic delivery is worth considering. ';
+  if (afue < 0.9) note += 'A 95% furnace would cut heating use by about ' + Math.round((1 - afue / 0.95) * 100) + '%, roughly ' + Math.round(heat * (1 - afue / 0.95)) + ' gallons a year.';
+  document.getElementById('pu-headline').textContent = Math.round(year).toLocaleString() + ' gallons a year; ' + Math.round(jan) + ' in January';
+  document.getElementById('pu-table').innerHTML = rows;
+  document.getElementById('pu-month').innerHTML = mrows;
+  document.getElementById('pu-note').textContent = note;
+  var r = document.getElementById('pu-result');
+  r.classList.add('visible');
+  r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

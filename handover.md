@@ -1,3 +1,44 @@
+# EcoEnergyCalc 인수인계 — v48 세션 (2026-11-16, 주간 데이터)
+
+## 0-W1. 데이터
+- **구글: 4주째 0 수준**(11/13까지 하루 1~4 노출). GA 구글 유입 4명(10/19~11/15).
+- GSC 색인 리포트 2종:
+  - "발견됨 - 색인 미생성" 18개: v40~v44 신규 페이지 전부, 한 번도 크롤링되지 않음.
+  - "크롤링됨 - 색인 미생성" 9개: 6/27 크롤 후 미색인된 비교 페이지들(propane-vs-natural-gas, electric-heat-vs-gas-heat 등).
+  - → 사이트 단위 강등과 함께 크롤링도 거의 멈춘 상태. 직접 조치 화면 결과는 아직 사용자에게서 받지 못함.
+- **Bing 역대 최고 주간**: 노출 23,744 → 28,163(+4,419), 클릭 646 → 747(+101).
+  - best-thermostat 블로그 **+1,184 노출 / +51 클릭**(누적 3,050/122, 사이트 1위 수익 페이지). ai-water +1,029/+12(CTR 1.2% 유지), water-bill-benchmark +393, heating-cost-by-fuel +349, propane-vs-natural-gas +215.
+  - 온도조절기 쿼리가 다양해짐: "best money saving heat temperature", "good low temperature for heat", "how high to set thermostat ... economical", "what time to set the thermostat", 지역명 포함(nyc, wisconsin).
+  - 프로판 쿼리 증가: "propane furnace cost per month" @11, "propane cost calculator", "propane vs heating cost calculator", "propane vs gasoline cost" @11.
+- GA(10/19~11/15): 활성 1,251. 조회 1위 thermostat 블로그 252.
+
+## 0-W2. ✅ 보강: `blog/best-thermostat-settings-to-save-money.html`(수익 1위)
+- **사실 오류 수정**: "난방을 완전히 끄면 더 절약되나" 섹션이 "다시 데우느라 에너지가 더 들어 손해"라는 통념을 사실처럼 쓰고 있었음. DOE 공식 입장은 반대(실내가 낮을수록 열손실이 느려 깊은 세트백이 더 절약, 재가열 부담은 오해). 이에 맞춰 재작성하고, 끄지 말아야 할 이유(동파, 회복 시간, 히트펌프 보조 열선, WHO 18°C 권고)를 정리.
+- FAQ 3개 추가: 최저 설정 온도(WHO 18°C/64°F), 경제적으로 몇 도까지 올려도 되나(°F당 약 3%, 72 vs 68 = 약 12%), 몇 시에 내리고 올리나(본문 스케줄과 일치). dateModified 11-16.
+
+## 0-W3. ✅ 신규: `tools/propane-usage-calculator.html` (계산기 65, 사이트맵 161)
+- 질문: "우리 집 프로판 월·연 몇 갤런 / 몇 번 배달". 기존 heating-cost-by-fuel(연 비용 비교)·days-left(현재 게이지 기준 남은 일수)와 질문이 다름.
+- SERP: 프로판 판매사(Dead River, Superior Plus, Ferrellgas), 포럼, hunker, 스팸. 월별·크기·기후별 계산기는 없음.
+- 모델:
+  - 난방: heating-cost-by-fuel과 동일(kBTU/sqft 8/18/28/40 ÷ AFUE ÷ 91,500).
+  - 월 배분: **NOAA 1991–2020 HDD — 시카고 [1234,1015,808,468,198,31,2,4,77,355,713,1069]=5,974(weather.gov LOT), 미니애폴리스 [1513,1243,983,542,214,34,4,10,128,489,906,1333]=7,399(NCEI LCD)**. 매우 추움은 MSP, 나머지 기후는 시카고 배분.
+  - 기기: 온수기 62.5 gal/인/년, 레인지 50, 건조기 25, 벽난로 150/300(Dead River 범위). 벽난로 월 배분은 가정(10~4월, 12~1월 정점)이라고 명시.
+  - 탱크: 80%까지 충전, 30%에서 재주문 → 배달 1회 = 용량의 50%.
+- 검산: 2,000 sqft 한랭 80% + 온수기 + 레인지 = 연 1,065 gal, 1월 183 gal, 500갤런 탱크 배달 4.3회, 1월 기준 배달 1회가 약 6주. Dead River(뉴잉글랜드 퍼니스 500~900 gal)·Superior(2,000 sqft 888 gal)와 맞음.
+- 교차링크: days-left, heating-cost-by-fuel, propane-heater-runtime, propane-vs-natural-gas, propane-vs-heating-oil, gas-fireplace → 프로판 사용량.
+- 검증: 계산기 114개 기본값, 체크(404 사이트맵 제외 1건 정상), 375/1280 화면 정상.
+
+## 0-W4. 작업 환경 메모
+- FAQ 추가 도우미를 `scratchpad/h/faqlib.py`로 분리함: `add_faq(path, items, date)`. merge.py를 직접 import하지 말 것(통합 작업이 다시 실행됨).
+
+## 0-W5. 측정·다음
+- thermostat 블로그 CTR(4.0%)과 새 FAQ 쿼리 유입. propane-usage 쿼리: "propane furnace cost per month", "how much propane does a house use per month", "how long does a 500 gallon propane tank last".
+- 후보:
+  - 집주인 최저 난방온도(뉴욕시 68/62°F 등): 시 정부·법률 사이트가 강해서 보류.
+  - 프로판 vs 가솔린 발전기 연료비: Champion, SlashGear 등과 경쟁이 중간. 하게 되면 발전기 계산기 보강으로.
+
+---
+
 # EcoEnergyCalc 인수인계 — v47 (2026-11-10, 신규 발굴)
 
 ## 0-V1. 발굴
